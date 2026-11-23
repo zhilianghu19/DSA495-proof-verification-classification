@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 7,
+    "title": "Derivative of Exponential Function",
+    "theorem_text": "Let $\\exp$ be the exponential function.\nThen:\n$\\map {\\dfrac \\d {\\d x} } {\\exp x} = \\exp x$",
+    "proof_text": "This proof assumes the series definition of $\\exp$.\nThat is, let:\n$\\displaystyle \\exp x = \\sum_{k \\mathop = 0}^\\infty \\frac{x^k}{k!}$\nFrom Series of Power over Factorial Converges, the interval of convergence of $\\exp$ is the entirety of $\\R$.\nSo we may apply Differentiation of Power Series to $\\exp$ for all $x \\in \\R$.\nThus we have:\n$$\\frac \\d {\\d x} \\exp x = \\frac \\d {\\d x} \\sum_{k \\mathop = 0}^\\infty \\frac {x^k} {k!}$$\n$$= \\sum_{k \\mathop = 1}^\\infty \\frac k {k!} x^{k - 1}$$\nDifferentiation of Power Series, with $n = 1$\n$$= \\sum_{k \\mathop = 1}^\\infty \\frac {x^{k - 1} } {\\paren {k - 1}!}$$\n$$= \\sum_{k \\mathop = 0}^\\infty \\frac {x^k} {k!}$$\n$$= \\exp x$$\nHence the result.",
+    "clean_row_index": 5,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The exponential power series has infinite radius of convergence. Termwise differentiation is justified there, and shifting the index recovers the same series."
+  },
+  {
+    "theorem_id": 28,
+    "title": "Basel Problem",
+    "theorem_text": "$\\displaystyle \\map \\zeta 2 = \\sum_{n \\mathop = 1}^\\infty {\\frac 1 {n^2} } = \\frac {\\pi^2} 6$\nwhere $\\zeta$ denotes the Riemann zeta function.",
+    "proof_text": "From the Euler Formula for Sine Function, we have:\n$\\displaystyle \\sin x = x \\prod_{n \\mathop = 1}^\\infty \\paren {1 - \\frac {x^2} {n^2 \\pi^2} }$\nTherefore, if we divide by x, we get\n$\\displaystyle \\dfrac {\\sin x} {x} = \\dfrac {x} {x} \\prod_{n \\mathop = 1}^\\infty \\paren {1 - \\frac {x^2} {n^2 \\pi^2} } = \\paren {1 - \\frac {x^2} {1^2 \\pi^2} } x \\paren {1 - \\frac {x^2} {2^2 \\pi^2} } x \\paren {1 - \\frac {x^2} {3^2 \\pi^2} } x \\cdots$\n$\\displaystyle  $\nFrom the Power Series Expansion for Sine Function, we have:\n$\\displaystyle \\sin x = \\sum_{n \\mathop = 0}^\\infty \\left({-1}\\right)^n \\frac {x^{2 n + 1} } {\\left({2 n + 1}\\right)!} = x - \\frac {x^3} {3!} + \\frac {x^5} {5!} - \\frac {x^7} {7!} + \\cdots$\nTherefore, if we divide by x, we get\n$\\displaystyle \\dfrac {\\sin x} {x}  = \\sum_{n \\mathop = 0}^\\infty \\left({-1}\\right)^n \\frac {x^{2 n} } {\\left({2 n + 1}\\right)!} = 1 - \\frac {x^2} {3!} + \\frac {x^4} {5!} - \\frac {x^6} {7!} + \\cdots$\n$\\displaystyle  $\nEquating the infinite product with the infinite sum, we have:\n$\\displaystyle \\dfrac {\\sin x} {x} = \\dfrac {x} {x} \\prod_{n \\mathop = 1}^\\infty \\paren {1 - \\frac {x^2} {n^2 \\pi^2} } = \\sum_{n \\mathop = 0}^\\infty \\left({-1}\\right)^n \\frac {x^{2 n} } {\\left({2 n + 1}\\right)!}$\n$\\displaystyle  $\n$\\displaystyle \\dfrac {\\sin x} {x} = \\paren {1 - \\frac {x^2} {1 \\pi^2} } x \\paren {1 - \\frac {x^2} {4 \\pi^2} } x \\paren {1 - \\frac {x^2} {9 \\pi^2} } x \\cdots = 1 - \\frac {x^2} {3!} + \\frac {x^4} {5!} - \\frac {x^6} {7!} + \\cdots$\n$\\displaystyle  $\nFrom this, we can see the following relationships:\n$\\displaystyle - \\frac {x^2} {3!} = - \\frac {x^2} { \\pi^2}  \\paren {1 + \\frac {1} {4} + \\frac {1} {9} + \\frac {1} {16} \\cdots} ($\"Choose 1\" - used to calculate $ \\map \\zeta 2)$\n$\\displaystyle  $\n$\\displaystyle  + \\frac {x^4} {5!} =  +\\frac {x^4} { \\pi^4}  \n\\paren {\\paren {1} \\paren {\\frac {1} {4}} + \\paren {1} \\paren {\\frac {1} {9}} + \\paren {1} \\paren {\\frac {1} {16}} + \\cdots \n+ \\paren {\\frac {1} {4}} \\paren {\\frac {1} {9}} + \\paren {\\frac {1} {4}} \\paren {\\frac {1} {16}} + \\cdots \n+  \\paren {\\frac {1} {9}} \\paren {\\frac {1} {16}} + \\cdots} ($\"Choose 2\" - used to calculate $ \\map \\zeta 4)$\n$\\displaystyle  $\n$\\displaystyle - \\frac {x^6} {7!} = - \\frac {x^6} { \\pi^6}  \n\\paren {\\paren {1} \\paren {\\frac {1} {4}} \\paren {\\frac {1} {9}} + \\paren {1} \\paren {\\frac {1} {4}} \\paren {\\frac {1} {16}} + \\cdots +\n\\paren {1} \\paren {\\frac {1} {9}} \\paren {\\frac {1} {16}} + \\cdots +\n \\paren {\\frac {1} {4}} \\paren {\\frac {1} {9}} \\paren {\\frac {1} {16}} + \\cdots} ($\"Choose 3\" - used to calculate $\\map \\zeta 6)$\n$\\displaystyle  $\nThe equations above can be used to calculate the zeta function at even integer arguments.\nNotice that\n\"Choose $1$\" is the summation of each term chosen once.\n\"Choose $2$\" is the summation of the product of every non-repeating combination of two terms.\n\"Choose $3$\" is the summation of the product of every non-repeating combination of three terms.\n$\\displaystyle  $\nFor example, from \"Choose $1$\" above:\n$\\displaystyle  \\map \\zeta 2  = \\dfrac { \\pi^2} {3!}$",
+    "clean_row_index": 22,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The quadratic coefficient gives the desired value for finite partial products in the limit only if coefficient extraction commutes with that limit. The proof equates the coefficients without justifying this passage, for example by local uniform convergence near zero."
+  },
+  {
+    "theorem_id": 1628,
+    "title": "Odd Square Modulo 8",
+    "theorem_text": "Let $x \\in \\Z$ be an odd square.\nThen $x \\equiv 1 \\pmod 8$.",
+    "proof_text": "Let $x \\in \\Z$ be an odd square.\nThen $x = n^2$ where $n$ is also odd.\nThus $n$ can be expressed as $2 k + 1$ for some $k \\in \\Z$.\nHence:\n$$x = n^2$$\n$$= \\paren {2 k + 1}^2$$\n$$= 4 k^2 + 4 k + 1$$\n$$= 4 k \\paren {k + 1} + 1$$\nBut $k$ and $k + 1$ are of opposite parity and can therefore be expressed as $2 r$ and $2 s + 1$ (either way round).\n$$x = 4 k \\paren {k + 1} + 1$$\n$$= 4 \\paren {2 r} \\paren {2 s + 1} + 1$$\n$$= 8 r \\paren {2 s + 1} + 1$$\nHence the result.",
+    "clean_row_index": 720,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Squaring 2k+1 leaves one plus four times k(k+1), and one of these consecutive integers is even."
+  },
+  {
+    "theorem_id": 1632,
+    "title": "Odd Square is Eight Triangles Plus One",
+    "theorem_text": "Let $n \\in \\Z$ be an odd integer.\nThen $n$ is square if and only if $n = 8 m + 1$ where $m$ is triangular.",
+    "proof_text": "Follows directly from the identity:\n$$8 \\frac {k \\paren {k + 1} } 2 + 1 = 4 k^2 + 4 k + 1$$\n$$= \\paren {2 k + 1}^2$$\nas follows:\nLet $m$ be triangular.\nThen from Closed Form for Triangular Numbers:\n$\\exists k \\in \\Z: m = \\dfrac {k \\paren {k + 1} } 2$\nFrom the above identity:\n$8 m + 1 = \\paren {2 k + 1}^2$\nwhich is an odd square.\nLet $n$ be an odd square.\nThen $n = r^2$ where $r$ is odd.\nLet $r = 2 k + 1$, so that $n = \\paren {2 k + 1}^2$.\nFrom the above identity:\n$n = 8 \\dfrac {k \\paren {k + 1} } 2 + 1 = 8 m + 1$\nwhere $m$ is triangular.",
+    "clean_row_index": 722,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The identity 8T_k+1=(2k+1)^2 provides a square for every triangular number and a triangular number for every odd square."
+  },
+  {
+    "theorem_id": 1634,
+    "title": "Closed Form for Polygonal Numbers",
+    "theorem_text": "Let $\\map P {k, n}$ be the $n$th $k$-gonal number.\nThe closed-form expression for $\\map P {k, n}$ is given by:\n$$\\map P {k, n} = \\frac n 2 \\paren {\\paren {k - 2} n - k + 4}$$\n$$= \\frac {k - 2} 2 \\paren {n^2 - n} + n$$",
+    "proof_text": "By definition of the $n$th $k$-gonal number:\n$\\map P {k, n} = \\begin{cases}\n0 & : n = 0 \\\\\n\\map P {k, n - 1} + \\paren {k - 2} \\paren {n - 1} + 1 & : n > 0\n\\end{cases}$\nThen:\n$\\paren {\\paren {k - 2} \\paren {j - 1} + 1}$\nis an arithmetic sequence.\nIts initial term $a$ is $1$, and its common difference $d$ is $k - 2$.\nHence:\n$$\\map P {k, n} = \\sum_{j \\mathop = 1}^n \\paren {\\paren {k - 2} \\paren {j - 1} + 1}$$\nSum of Arithmetic Sequence\n$$= \\frac {n \\paren {2 + \\paren {n - 1} \\paren {k - 2} } } 2$$\n$$= \\frac n 2 \\paren {\\paren {k - 2} n - \\paren {k - 2} + 2}$$\n$$= \\frac n 2 \\paren {\\paren {k - 2} n - k + 4}$$\nas required.",
+    "clean_row_index": 723,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Summing the recurrence increments, an arithmetic progression with first term one and difference k-2, gives the two equivalent quadratic expressions."
+  },
+  {
+    "theorem_id": 1638,
+    "title": "Fermat's Two Squares Theorem",
+    "theorem_text": "Let $p$ be a prime number.\nThen $p$ can be expressed as the sum of two squares if and only if either:\n$p = 2$\nor:\n$p \\equiv 1 \\pmod 4$\nThe expression of a prime of the form $4 k + 1$ as the sum of two squares is unique except for the order of the two summands.",
+    "proof_text": "Proof of Existence\nThere are three possibilities for a prime:\n$(1): \\quad p = 2$\nor:\n$(2): \\quad p \\equiv 1 \\pmod 4$\nor:\n$(3): \\quad p \\equiv 3 \\pmod 4$\nNecessary Condition\nSuppose $p$ can be expressed as the sum of two squares.\nFirst we note that $2 = 1^2 + 1^2$, which is the sum of two squares.\nThis disposes of the case where $p = 2$.\nLet $p = a^2 + b^2$.\nFrom Sum of Two Squares not Congruent to 3 modulo 4, $p \\not \\equiv 3 \\pmod 4$ whatever $a$ and $b$ are.\nSo either $p = 2$, or $p \\equiv 1 \\pmod 4$.\nSufficient Condition\nWe have already noted that $2 = 1^2 + 1^2$, which is the sum of two squares.\nLet $p$ be a prime number of the form $p \\equiv 1 \\pmod 4$.\nSuppose $m p = x^2 + y^2$ has a solution such that $1 < m < p$.\nLet $u, v$ be the least absolute residues modulo $m$ of $x$ and $y$ respectively.\nThat is:\n$u \\equiv x, v \\equiv y \\pmod m: \\dfrac {-m} 2 < u, v \\le \\dfrac m 2$\nThen:\n$u^2 + v^2 \\equiv x^2 + y^2 \\pmod m$\nThus:\n$\\exists r \\in \\Z, r \\ge 0: u^2 + v^2 = m r$\nWe are going to establish a descent step.\nThat is, we aim to show that $r p$ is the sum of two squares with $1 \\le r < m$.\nFirst we show that $r$ does lie in this range.\nIf $r = 0$ then $u = v = 0$ and so $m$ divides both $x$ and $y$.\nBut then from $m p = x^2 + y^2$ we have that $m \\divides p$.\nThis cannot happen as $p$ is prime.\nSo:\n$1 \\le r = \\dfrac {u^2 + v^2} m \\le \\dfrac 1 m \\times \\paren {\\dfrac {m^2} 4 + \\dfrac {n^2} 4} = \\dfrac m 2 < m$\nSo $1 \\le r < m$.\nNow we show that $r p$ is the sum of two squares.\nMultiplying $m p = x^2 + y^2$ and $m r = u^2 + v^2$:\n$$m^2 r p = \\paren {x^2 + y^2} \\paren {u^2 + v^2}$$\n$$= \\paren {x u + y v}^2 + \\paren {x v - y u}^2$$\nBrahmagupta-Fibonacci Identity\nNow:\n$x u + y v \\equiv x^2 + y^2 \\equiv 0 \\pmod m$, so $m \\divides x u + y v$\n$x v - y u \\equiv x y - x y \\equiv 0 \\pmod m$, so $m \\divides x v - y u$\nSo, putting $m X = x u + y v, m Y = x v - y u$, we get:\n$m^2 r p = m^2 X^2 + m^2 Y^2$\nThat is:\n$r p = X^2 + Y^2$\nHence the descent step is established.\nNext we need to show that $m p = x^2 + y^2$ has a solution for some $m$ with $1 \\le m < p$.\nFrom First Supplement to Law of Quadratic Reciprocity, we have that $-1$ is a quadratic residue for each prime $p \\equiv 1 \\pmod 4$.\nHence the congruence $x^2 + 1 \\equiv 0 \\pmod p$ has a least positive solution $x_1$ such that $1 \\le x_1 \\le p - 1$.\nSo there exists a positive integer $m$ such that $m p = x_1^2 + 1^2$.\nThis is just what we want, because:\n$m = \\dfrac {x_1^2 + 1^2} p \\le \\dfrac {\\paren {p - 1}^2 + 1} p = \\dfrac {p^2 - 2 \\paren {p - 1}^2} p < p$\nIf this solution has $m > 1$, then our descent step (above) guarantees a solution for a smaller positive value of $m$.\nEventually we will reach a solution with $m = 1$, that is:\n$p = x^2 + y^2$\nProof of Uniqueness\nLet $p$ be prime such that $p \\equiv 1 \\pmod 4$.\nSuppose $p = a^2 + b^2 = c^2 + d^2$ where $a > b > 0$ and $c > d > 0$.\nWe are going to show that $a = c$ and $b = d$.\nFrom the two expressions for $p$, we have:\n$$\\paren {a d - b c} \\paren {a d + b c} = a^2 d^2 - b^2 c^2$$\nDifference of Two Squares\n$$= \\paren {p - b^2} d^2 - b^2 \\paren {p - d^2}$$\nsubstituting for $a^2$ and $c^2$\n$$= p d^2 - b^2 d^2 - p b^2 + b^2 d^2$$\n$$= p \\paren {d^2 - b^2}$$\n$$\\equiv 0$$\n$\\pmod p$\nSo we have:\n$\\paren {a d - b c} \\paren {a d + b c} \\equiv 0 \\pmod p$\nFrom Euclid's Lemma, that means:\n$p \\divides \\paren {a d - b c}$\nor:\n$p \\divides \\paren {a d + b c}$\nSo, suppose $p \\divides \\paren {a d + b c}$.\nNow, we have that each of $a^2, b^2, c^2, d^2$ must be less than $p$.\nHence $0 < a, b, c, d < \\sqrt p$.\nThis implies $0 < a d + b c < 2p$.\nThat must mean that $a d + b c = p$.\nBut then:\n$$p^2 = \\paren {a^2 + b^2} \\paren {d^2 + c^2}$$\n$$= \\paren {a d + b c}^2 + \\paren {a c - b d}^2$$\nBrahmagupta-Fibonacci Identity\n$$= p^2 + \\paren {a c - b d}^2$$\nThat means:\n$a c - b d = 0$\nBut since $a > b$ and $c > d$ we have:\n$a c > b d$\nThis contradiction shows that $a d + b c$ can not be divisible by $p$.\nSo this means:\n$p \\divides \\paren {a d - b c}$\nSimilarly, because $0 < a, b, c, d < \\sqrt p$ we have:\n$-p < a d - b c < p$\nThis means:\n$a d = b c$\nSo:\n$a \\divides b c$\nBut $a \\perp b$ otherwise $a^2 + b^2$ has a common divisor greater than $1$ and less than $p$.\nThis cannot happen because $p$ is prime.\nSo by Euclid's Lemma:\n$a \\divides c$\nSo we can put $c = k a$ and so $a d = b c$ becomes $d = k b$.\nHence:\n$p = c^2 + d^2 = k^2 \\paren {a^2 + b^2} = k^2 p$\nThis means $k = 1$ which means $a = c$ and $b = d$ as we wanted to show.",
+    "clean_row_index": 724,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A square root of minus one modulo p supplies an initial multiplier smaller than p; least residues and the two-squares identity strictly reduce it. The two modular factors in the uniqueness argument force proportional and hence identical ordered positive pairs. The written expansion of (p-1)^2+1 is erroneous, but its needed bound below p squared is immediate."
+  },
+  {
+    "theorem_id": 1646,
+    "title": "Mapping from Singleton is Injection",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $S$ be a singleton.\nThen $f$ is an injection.",
+    "proof_text": "Let $S = \\set s$.\nFor $f$ to be an injection, all we need to do is show:\n$\\forall x_1, x_2 \\in S: \\map f {x_1} = \\map f {x_2} \\implies x_1 = x_2$\nBut as $S$ is a singleton, it follows that:\n$x_1 = x_2 = s$\nHence the result.",
+    "clean_row_index": 725,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Two inputs from the singleton already coincide, so equality of their images implies equality of the inputs."
+  },
+  {
+    "theorem_id": 1649,
+    "title": "Area of Circle",
+    "theorem_text": "The area $A$ of a circle is given by:\n$A = \\pi r^2$\nwhere $r$ is the radius of the circle.",
+    "proof_text": "From Equation of Circle:\n$x^2 + y^2 = r^2$\nThus $y = \\pm \\sqrt {r^2 - x^2}$.\nIt follows that from the geometric interpretation of the definite integral:\n$$A = \\int_{-r}^r \\paren {\\sqrt {r^2 - x^2} - \\paren {-\\sqrt {r^2 - x^2} } } \\rd x$$\n$$= \\int_{-r}^r 2 \\sqrt {r^2 - x^2} \\rd x$$\n$$= \\int_{-r}^r 2 r \\sqrt {1 - \\frac {x^2} {r^2} } \\rd x$$\nLet $x = r \\sin \\theta$ (note that we can do this because $-r \\le x \\le r$).\nThus $\\theta = \\map \\arcsin {\\dfrac x r}$ and $\\rd x = r \\cos \\theta \\rd \\theta$.\n$$A = \\int_{\\map \\arcsin {\\frac {-r} r} }^{\\map \\arcsin {\\frac r r} } 2 r^2 \\sqrt {1 - \\frac {\\paren {r \\sin \\theta}^2} {r^2} } \\cos \\theta \\rd \\theta$$\nIntegration by Substitution\n$$= \\int_{-\\frac \\pi 2}^{\\frac \\pi 2} 2 r^2 \\sqrt {1 - \\sin^2 \\theta} \\cos \\theta \\rd \\theta$$\n$$= \\int_{-\\frac \\pi 2}^{\\frac \\pi 2} 2 r^2 \\sqrt {\\cos^2 \\theta} \\cos \\theta \\rd \\theta$$\nSum of Squares of Sine and Cosine\n$$= r^2 \\int_{-\\frac \\pi 2}^{\\frac \\pi 2} 2 \\cos^2 \\theta \\rd \\theta$$\n$$= r^2 \\int_{-\\frac \\pi 2}^{\\frac \\pi 2} \\paren {1 + \\map \\cos {2 \\theta} } \\rd \\theta$$\nDouble Angle Formula for Cosine: Corollary 1\n$$= r^2 \\intlimits {\\theta + \\frac 1 2 \\map \\sin {2 \\theta} } {-\\frac \\pi 2} {\\frac \\pi 2}$$\nfrom Integration of Constant and Primitive of Cosine Function\n$$= r^2 \\paren {\\frac \\pi 2 + \\frac 1 2 \\map \\sin {2 \\cdot \\frac {-\\pi} 2} - \\frac {-\\pi} 2 - \\frac 1 2 \\map \\sin {2 \\cdot \\frac \\pi 2} }$$\n$$= r^2 \\paren {2 \\cdot \\frac \\pi 2 + 2 \\cdot \\frac 1 2 \\cdot 0}$$\n$$= \\pi r^2$$",
+    "clean_row_index": 726,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Integrating the vertical chord length and substituting x=r sin(theta) yields twice the integral of cosine squared times r squared. Both endpoint sine terms vanish, giving pi times r squared."
+  },
+  {
+    "theorem_id": 1651,
+    "title": "Distance Formula",
+    "theorem_text": "The distance $d$ between two points $A = \\tuple {x_1, y_1}$ and $B = \\tuple {x_2, y_2}$ on a Cartesian plane is:\n$d = \\sqrt {\\paren {x_1 - x_2}^2 + \\paren {y_1 - y_2}^2}$",
+    "proof_text": "The distance in the horizontal direction between $A$ and $B$ is given by $\\size {x_1 - x_2}$.\nThe distance in the vertical direction between $A$ and $B$ is given by $\\size {y_1 - y_2}$.\nBy definition, the angle between a horizontal and a vertical line is a right angle.\nSo when we place a point $C = \\tuple {x_1, y_2}$, $\\triangle ABC$ is a right triangle.\nThus, by Pythagoras's Theorem:\n$d^2 = \\size {x_1 - x_2}^2 + \\size {y_1 - y_2}^2$\nand the result follows.",
+    "clean_row_index": 727,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The coordinate differences are the perpendicular displacements, so Pythagoras and the nonnegative square root give the distance. A zero displacement reduces immediately to the one-dimensional formula."
+  },
+  {
+    "theorem_id": 1665,
+    "title": "Constant Function is Primitive Recursive",
+    "theorem_text": "The constant function $f_c: \\N \\to \\N$, defined as:\n$\\map {f_c} n = c$ where $c \\in \\N$\nis primitive recursive.",
+    "proof_text": "The proof proceeds by the Principle of Mathematical Induction.\nBase Case\nFirst we note that $f_0: \\N \\to \\N$ is the zero function, which is a basic primitive recursive function.\nThis is our base case.\nInduction Hypothesis\nThis is our induction hypothesis:\n$f_k: \\N \\to \\N$ is primitive recursive for some given $k \\in \\N$.\nThen we need to show:\n$f_{k + 1}: \\N \\to \\N$ is primitive recursive.\nInduction Step\nThis is our induction step:\n$\\map {f_{k + 1} } n = k + 1 = \\map \\Succ k = \\map \\Succ {\\map {f_k} n}$\nNow $\\map {f_k} n$ is primitive recursive from our induction hypothesis.\nThus $\\map {f_{k + 1} } n$ is obtained from the basic primitive recursive function $\\Succ$ and $\\map {f_k} n$ by substitution.\nThe result follows by the Principle of Mathematical Induction.",
+    "clean_row_index": 728,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The zero constant is basic and composing an already constructed constant with successor gives the next constant, proving the claim by induction on its value."
+  },
+  {
+    "theorem_id": 1666,
+    "title": "Heron's Formula",
+    "theorem_text": "Let $\\triangle ABC$ be a triangle with sides $a$, $b$ and $c$ opposite vertices $A$, $B$ and $C$ respectively.\nThen the area $A$ of $\\triangle ABC$ is given by:\n$A = \\sqrt {s \\paren {s - a} \\paren {s - b} \\paren {s - c}}$\nwhere $s = \\dfrac {a + b + c} 2$ is the semiperimeter of $\\triangle ABC$.",
+    "proof_text": "A triangle can be considered as a cyclic quadrilateral one of whose sides has degenerated to zero.\nFrom Brahmagupta's Formula, the perimeter of a cyclic quadrilateral is given by:\n$\\sqrt {\\paren {s - a} \\paren {s - b} \\paren {s - c} \\paren {s - d}}$\nwhere $s$ is the semiperimeter:\n$s = \\dfrac {a + b + c + d} 2$\nThe result follows by letting $d$ tend to zero.",
+    "clean_row_index": 729,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In the cyclic-quadrilateral area formula displayed, coalescing two adjacent vertices yields the triangle and sends the fourth side to zero. The text misnames the formula as a perimeter formula, but the displayed area limit is Heron's expression."
+  },
+  {
+    "theorem_id": 1667,
+    "title": "Addition is Primitive Recursive",
+    "theorem_text": "The function $\\Add: \\N^2 \\to \\N$, defined as:\n$\\map \\Add {n, m} = n + m$\nis primitive recursive.",
+    "proof_text": "We observe that:\n$\\map \\Add {n, 0} = n + 0 = n$\nand that\n$\\map \\Add {n, m + 1} = n + \\paren {m + 1} = \\paren {n + m} + 1 = \\map \\Succ {\\map \\Add {n, m} }$\nwhere $\\Succ$ is the successor function, which is a basic primitive recursive function.\nWe are to show that $\\Add$ is defined by primitive recursion.\nSo we need to find primitive recursive functions $f: \\N \\to \\N$ and $g: \\N^3 \\to \\N$ such that:\n$\\map \\Add {n, m} = \\begin{cases}\n\\map f n & : m = 0 \\\\\n\\map g {n, m - 1, \\map \\Add {n, m - 1} } & : m > 0\n\\end{cases}$\nBecause $\\map \\Add {n, 0} = n$, we can see that:\n$\\map f n = n$.\nThat is, $f$ is the basic primitive recursive function $\\pr_1^1: \\N \\to \\N$.\nBecause $\\map \\Add {n, m + 1} = \\map \\Succ {\\map \\Add {n, m} }$, we can see that $g$ needs to be a function which maps the ordered triple $\\tuple {n, m, \\map \\Add {n, m} }$ to $\\map \\Succ {\\map \\Add {n, m} }$.\nA suitable function is:\n$g: \\N^3 \\to \\N$ where $\\map g {n_1, n_2, n_3} = \\map \\Succ {n_3}$\nbecause then:\n$\\map g {n, m, \\map \\Add {n, m} } = \\map \\Succ {\\map \\Add {n, m} }$\nIt remains to be shown that $g$ is primitive recursive.\nThis is achieved by using the projection function:\n$\\map g {n_1, n_2, n_3} = \\map \\Succ {\\map {\\pr_3^3} {n_1, n_2, n_3} }$\nThus $g$ is obtained by substitution from the basic primitive recursive functions $\\Succ$ and $\\pr_3^3$ and so is primitive recursive.\nSo $\\Add$ is obtained by primitive recursion from the primitive recursive functions $\\pr_1^1$ and $g$, and so is primitive recursive.",
+    "clean_row_index": 730,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Identity is the base map and successor of the projected previous value is the step map, exactly the primitive recursion for addition."
+  },
+  {
+    "theorem_id": 1669,
+    "title": "Multiplication is Primitive Recursive",
+    "theorem_text": "The function $\\operatorname{mult}: \\N^2 \\to \\N$, defined as:\n$\\map \\Mult {n, m} = n \\times m$\nis primitive recursive.",
+    "proof_text": "We observe that:\n$\\map \\Mult {n, 0} = n \\times 0 = 0$\nand that\n$\\map \\Mult {n, m + 1} = n \\times \\paren {m + 1} = \\paren {n \\times m} + n = \\map \\Add {\\map \\Mult {n, m}, n}$.\nWe are to show that $\\Mult$ is obtained by primitive recursion from known primitive recursive functions.\nFirst we note that:\n$\\map \\Mult {n, 0} = 0 = \\map \\Zero n$\nwhere $\\map \\Zero n$ is the  zero function, which is basic primitive recursive.\nNext we need to find a primitive recursive function $g: \\N^3 \\to \\N$ such that:\n$\\map \\Mult {n, m + 1} = \\map g {n, m, \\map \\Mult {n, m} }$\nBecause $\\map \\Mult {n, m + 1} = \\map \\Add {\\map \\Mult {n, m}, n}$, we see that a suitable function for $g$ is:\n$\\map g {n_1, n_2, n_3} = \\map \\Add {n_3, n_1}$\nUsing projection functions, we can write this as:\n$\\map g {n_1, n_2, n_3} = \\map \\Add {\\map {\\pr_3^3} {n_1, n_2, n_3}, \\map {\\pr_1^3} {n_1, n_2, n_3} }$.\nThis shows that $g$ is obtained by substitution from $\\Add$, which is primitive recursive, and the basic primitive recursive functions $\\pr_3^3$ and $\\pr_1^3$.\nSo $g$ is primitive recursive.\nSo $\\Mult$ is obtained by primitive recursion from the primitive recursive functions $g$ and $\\Zero$, and so is primitive recursive.",
+    "clean_row_index": 731,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplication starts at zero and adds the first input to the previous value. The step is a composition of addition and two projections."
+  },
+  {
+    "theorem_id": 1670,
+    "title": "Linear Function is Primitive Recursive",
+    "theorem_text": "The function $f: \\N \\to \\N$, defined as:\n$\\map f n = a n + b$\nwhere $a$ and $b$ are constants, is primitive recursive.",
+    "proof_text": "We have that:\n$$a n + b = \\map \\Add {\\map \\Mult {a, n}, b}$$\n$$= \\map \\Add {\\map \\Mult {a, n}, \\map {f_b} n}$$\n$$= \\map \\Add {\\map \\Mult {\\map {f_a} n, \\map {\\pr_1^1} n}, \\map {f_b} n}$$\nwhere:\n* $\\Mult$ is primitive recursive\n* $\\Add$ is primitive recursive\n* the constant functions $f_a$ and $f_b$ are primitive recursive\n* The projection function $\\pr_1^1$ is a basic primitive recursive function.\nNote that we need to use the projection function (in this case, the identity function) in order to satisfy the definition of substitution, even when there is only one variable.\nSo $\\Mult$ is obtained by using two levels of substitution from the above primitive recursive functions.",
+    "clean_row_index": 732,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The displayed composition of multiplication, addition, constant functions and identity computes the given affine function and preserves primitive recursiveness."
+  },
+  {
+    "theorem_id": 1671,
+    "title": "Substitution of Constant yields Primitive Recursive Function",
+    "theorem_text": "Let $f: \\N^{k+1} \\to \\N$ be a primitive recursive function.\nThen $g: \\N^k \\to \\N$ given by:\n$g \\left({n_1, n_2, \\ldots, n_k}\\right) = f \\left({n_1, n_2, \\ldots, n_{i-1}, a, n_i \\ldots, n_k}\\right)$\nis primitive recursive.",
+    "proof_text": "Let $n = \\left({n_1, n_2, \\ldots, n_{i-1}, n_i \\ldots, n_k}\\right)$.\nWe see that:\n$g \\left({n_1, n_2, \\ldots, n_k}\\right) = f \\left({\\operatorname{pr}^k_1 \\left({n}\\right), \\operatorname{pr}^k_2 \\left({n}\\right), \\ldots, \\operatorname{pr}^k_{i-1} \\left({n}\\right), f_a \\left({n}\\right), \\operatorname{pr}^k_i \\left({n}\\right), \\ldots, \\operatorname{pr}^k_k \\left({n}\\right)}\\right)$\nWe have that:\n* $\\operatorname{pr}^k_j$ is a basic primitive recursive function for all $j$ such that $1 \\ne j \\le k$\n* $f_a$ is a primitive recursive function.\nSo $g$ is obtained by substitution from primitive recursive functions and so is primitive recursive.",
+    "clean_row_index": 733,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The constant argument and the remaining projections all are primitive recursive. Their composition with f computes g. The printed index condition unnecessarily excludes the also-basic first projection."
+  },
+  {
+    "theorem_id": 1672,
+    "title": "Exponentiation is Primitive Recursive",
+    "theorem_text": "The function $\\exp: \\N^2 \\to \\N$, defined as:\n$\\exp \\left({n, m}\\right) = n^m$\nis primitive recursive.",
+    "proof_text": "We observe that:\n$\\exp \\left({n, 0}\\right) = n^0 = 1$\nand that\n$\\exp \\left({n, m + 1}\\right) = n^\\left({m + 1}\\right) = \\left({n^m}\\right) \\times n = \\operatorname{mult} \\left({\\exp \\left({n, m}\\right), n}\\right)$.\nThus $\\exp$ is defined by primitive recursion from the primitive recursive function $\\operatorname{mult}$.\nHence the result.",
+    "clean_row_index": 734,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The recursive clauses start with the constant one and multiply the previous value by the base, using only primitive recursive functions."
+  },
+  {
+    "theorem_id": 1673,
+    "title": "Bézout's Lemma",
+    "theorem_text": "Let $a, b \\in \\Z$ such that $a$ and $b$ are not both zero.\nLet $\\gcd \\set {a, b}$ be the greatest common divisor of $a$ and $b$.\nThen:\n$\\exists x, y \\in \\Z: a x + b y = \\gcd \\set {a, b}$\nThat is, $\\gcd \\set {a, b}$ is an integer combination (or linear combination) of $a$ and $b$.\nFurthermore, $\\gcd \\set {a, b}$ is the smallest positive integer combination of $a$ and $b$.",
+    "proof_text": "We have that Integers are Euclidean Domain, where the Euclidean valuation $\\nu$ is defined as:\n$\\map \\nu x = \\size x$\nThe result follows from Bézout's Lemma on Euclidean Domain.",
+    "clean_row_index": 735,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the Euclidean-domain Bezout lemma with absolute value gives a generator of minimum nonzero absolute value. Choosing its positive associate gives the positive gcd and the least positive combination."
+  },
+  {
+    "theorem_id": 1676,
+    "title": "Maximum Function is Primitive Recursive",
+    "theorem_text": "The maximum function $\\max: \\N^2 \\to \\N$, defined as:\n$\\max \\left({n, m}\\right) = \\begin{cases}\nm: & n \\le m \\\\\nn: & m \\le n\n\\end{cases}$\nis primitive recursive.",
+    "proof_text": "We see that:\n$\\max \\left({n, m}\\right) = \\left({n \\ \\dot - \\ m}\\right) + m$\nbecause:\n$(1):\\quad n > m \\implies \\left({n \\ \\dot - \\ m}\\right) + m = n - m + m = n$\n$(2):\\quad n < m \\implies \\left({n \\ \\dot - \\ m}\\right) + m = 0 + m = m$\n$(3):\\quad n = m \\implies \\left({n \\ \\dot - \\ m}\\right) + m = 0 + m = m = n$\nHence we see that $\\max$ is obtained by substitution from the primitive recursive function $n \\ \\dot - \\ m$.\nHence the result.",
+    "clean_row_index": 736,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Truncated subtraction gives the excess over m if any. Adding m to that excess computes the maximum by composition."
+  },
+  {
+    "theorem_id": 1678,
+    "title": "Minimum Function is Primitive Recursive",
+    "theorem_text": "The minimum function $\\min: \\N^2 \\to \\N$, defined as:\n$\\min \\left({n, m}\\right) = \\begin{cases}\nn: & n \\le m \\\\\nm: & m \\le n\n\\end{cases}$\nis primitive recursive.",
+    "proof_text": "From Sum Less Maximum is Minimum we have that:\n$\\min \\left({n, m}\\right) = n + m  - \\max \\left({n, m}\\right)$.\nAs $n + m \\ge \\max \\left({n, m}\\right)$, we have that:\n$\\min \\left({n, m}\\right) = n + m \\ \\dot - \\ \\max \\left({n, m}\\right)$\nHence we see that $\\min$ is obtained by substitution from:\n* the primitive recursive function $n \\ \\dot - \\ m$\n* the primitive recursive function $\\max \\left({n, m}\\right)$.\nHence the result.",
+    "clean_row_index": 738,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The sum exceeds or equals the maximum, so truncated subtraction agrees with subtraction here. Addition, maximum and truncated subtraction are primitive recursive."
+  },
+  {
+    "theorem_id": 1684,
+    "title": "Set of Natural Numbers is Primitive Recursive",
+    "theorem_text": "The set of natural numbers $\\N$ is primitive recursive.",
+    "proof_text": "The characteristic function $\\chi_\\N: \\N \\to \\N$ is defined as:\n$\\forall n \\in \\N: \\chi_\\N \\left({n}\\right) = 1$.\nSo:\n$\\chi_\\N \\left({n}\\right) = f^1_1 \\left({n}\\right)$\nThe constant function $f^1_1$ is primitive recursive.\nHence the result.",
+    "clean_row_index": 739,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Membership in the entire universe has the constant-one characteristic function, which is primitive recursive."
+  },
+  {
+    "theorem_id": 1687,
+    "title": "Union of Primitive Recursive Sets",
+    "theorem_text": "Let $A, B \\subseteq \\N$ be subsets of the set of natural numbers $\\N$.\nLet $A$ and $B$ both be primitive recursive.\nThen $A \\cup B$, the union of $A$ and $B$, is primitive recursive.",
+    "proof_text": "$A$ and $B$ are primitive recursive, therefore so are their characteristic functions $\\chi_A$ and $\\chi_B$.\nLet $n \\in \\N$ be a natural number.\nThen $n \\in A \\cup B \\iff \\chi_A \\left({n}\\right) + \\chi_B \\left({n}\\right) > 0$.\nSo:\n$$\\chi_{A \\cup B} \\left({n}\\right) = \\operatorname{sgn} \\left({\\chi_A \\left({n}\\right) + \\chi_B \\left({n}\\right)}\\right)$$\nSignum Function is Primitive Recursive\n$$= \\operatorname{sgn} \\left({\\operatorname{add} \\left({\\chi_A \\left({n}\\right), \\chi_B \\left({n}\\right)}\\right)}\\right)$$\nAddition is Primitive Recursive\nThus $A \\cup B$ is defined by substitution from the primitive recursive functions $\\operatorname{sgn}$, $\\operatorname{add}$, $\\chi_A$ and $\\chi_B$.\nHence the result.",
+    "clean_row_index": 740,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The sign of the sum of the two characteristic values equals one exactly when at least one membership holds, and all functions in the composition are primitive recursive."
+  },
+  {
+    "theorem_id": 1688,
+    "title": "Set of Even Numbers is Primitive Recursive",
+    "theorem_text": "Let $E \\subseteq \\N$ be the set of all even natural numbers.\nThen $E$ is primitive recursive.",
+    "proof_text": "If $n \\in E$ then $n$ is of the form $n = 2 k$ where $k \\in \\N$.\nWe have that:\n* if the characteristic function $\\chi_E \\left({n}\\right) = 1$ then $\\chi_E \\left({n + 1}\\right) = 0$.\n* if the characteristic function $\\chi_E \\left({n}\\right) = 0$ then $\\chi_E \\left({n + 1}\\right) = 1$.\nSo $\\chi_E$ can be defined by:\n$\\chi_E \\left({n}\\right) = \\begin{cases}\n1 & : n = 0 \\\\\n\\overline{\\operatorname{sgn}} \\left({\\chi_E \\left({n-1}\\right)}\\right) & : n > 0\n\\end{cases}$\nSo $\\chi_E$ is obtained by primitive recursion from the constant $1$ and the primitive recursive function $\\overline{\\operatorname{sgn}}$.\nHence the result.",
+    "clean_row_index": 741,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Starting from membership value one at zero, complemented sign toggles the previous value at each successor and thus computes parity by primitive recursion."
+  },
+  {
+    "theorem_id": 1690,
+    "title": "Equality Relation is Primitive Recursive",
+    "theorem_text": "The relation $\\operatorname{eq} \\subseteq \\N^2$, defined as:\n$\\map {\\operatorname {eq} } {n, m} \\iff n = m$\nis primitive recursive.",
+    "proof_text": "We note that:\n$n = m \\iff \\size {n - m} = 0$\n$n \\ne m \\iff \\size {n - m} > 0$\nSo it can be seen that the characteristic function of $\\operatorname{eq}$ is given by:\n$\\map {\\chi_{\\operatorname {eq} } } {n, m} = \\overline {\\map \\sgn {\\map {\\operatorname {adf} } {n, m} } }$.\nSo $\\map {\\chi_{\\operatorname {eq} } } {n, m}$ is defined by substitution from:\n:the primitive recursive function $\\overline \\sgn$\n:the primitive recursive function $\\operatorname {adf}$.\nThus $\\chi_{\\operatorname {eq} }$ is primitive recursive.\nHence the result.",
+    "clean_row_index": 742,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Absolute difference vanishes precisely on equal arguments. Composing it with complemented sign yields the primitive recursive equality indicator."
+  },
+  {
+    "theorem_id": 1691,
+    "title": "Sylow Subgroup is Hall Subgroup",
+    "theorem_text": "Let $G$ be a group.\nLet $H$ be a Sylow $p$-subgroup of $G$.\nThen $H$ is a Hall subgroup of $G$.",
+    "proof_text": "Let $p$ be prime.\nLet $G$ be a finite group such that $\\order G = k p^n$ where $p \\nmid k$.\nBy definition, a Sylow $p$-subgroup $H$ of $G$ is a subgroup of $G$ of order $p^n$.\nBy Lagrange's Theorem, the index of $H$ in $G$ is given by:\n$\\index G H = \\dfrac {\\order G} {\\order H}$\nSo in this case:\n$\\index G H = \\dfrac {k p^n} {p^n} = k$\nAs $p \\nmid k$ it follows from Prime not Divisor implies Coprime that $k \\perp p$.\nThe result follows from the definition of Hall subgroup.",
+    "clean_row_index": 743,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Under the finite-group Sylow and Hall definitions used in the proof, the subgroup has order p^n and complementary index k prime to p, hence coprime to its order."
+  },
+  {
+    "theorem_id": 1692,
+    "title": "Set Operations on Primitive Recursive Relations",
+    "theorem_text": "Let $\\RR_1 \\subseteq N^k$ and $\\RR_2 \\subseteq N^k$ be $k$-ary relations on $N^k$.\nLet $\\RR_1$ and $\\RR_2$ be primitive recursive.\nThen the following are all primitive recursive relations:\n$\\TT = \\neg \\RR_1$\n$\\UU = \\RR_1 \\land \\RR_2$\n$\\VV = \\RR_1 \\lor \\RR_2$",
+    "proof_text": "By hypothesis, the characteristic functions $\\chi_{\\RR_1}, \\chi_{\\RR_2}$ of $\\RR_1$ and $\\RR_2$ are primitive recursive.\nThen we have that the characteristic functions of $\\TT, \\UU, \\VV$ are given by:\n$\\chi_\\TT = \\map {\\overline \\sgn} {\\chi_{\\RR_1} }$\n$\\chi_\\UU = \\chi_{\\RR_1} \\times \\chi_{\\RR_2}$\n$\\chi_\\VV = \\map {\\overline \\sgn} {\\chi_{\\RR_1} + \\chi_{\\RR_2} }$\nCompare Complement of Primitive Recursive Set, Intersection of Primitive Recursive Sets and Union of Primitive Recursive Sets.\nHence the result.",
+    "clean_row_index": 744,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The proposed disjunction indicator uses complemented sign of the sum. It outputs one when both inputs are zero, and zero when either relation holds."
+  },
+  {
+    "theorem_id": 1693,
+    "title": "Ordering Relations are Primitive Recursive",
+    "theorem_text": "The ordering relations on $\\N^2$:\n* $n < m$\n* $n \\le m$\n* $n \\ge m$\n* $n > m$\nare all primitive recursive.",
+    "proof_text": "We note that:\n$n < m \\iff m \\mathop{\\dot -} n > 0$\n$n \\ge m \\iff m \\mathop{\\dot -} n = 0$\nSo it can be seen that the characteristic function of $<$ is given by:\n$\\chi_< \\left({n, m}\\right) = \\operatorname{sgn} \\left({m \\mathop{\\dot -} n}\\right)$\nSo $\\chi_{<}$ is defined by substitution from:\n: the primitive recursive function $\\operatorname{sgn}$\n: the primitive recursive function $\\dot -$\nThus $\\chi_<$ is primitive recursive.\nSo $<$ is a primitive recursive relation.\nNext we see that $n \\le m \\iff n < m \\lor n = m$ from the definition of strictly precedes.\nFrom Equality Relation is Primitive Recursive, we have that $=$ is primitive recursive.\nFrom above, we have that $<$ is primitive recursive.\nThus $\\le$ is primitive recursive from Set Operations on Primitive Recursive Relations.\nWe could use the same reasoning for $>$ and $\\ge$ but there's a different approach.\nNote that $n \\le m \\iff n \\not > m$, and so $>$ is primitive recursive from Set Operations on Primitive Recursive Relations.\nFinally the same applies to $\\ge$.\nHence the result.",
+    "clean_row_index": 745,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The sign of reversed truncated subtraction recognizes strict order. Union with equality and the indicated complements give the remaining order relations."
+  },
+  {
+    "theorem_id": 1694,
+    "title": "Permutation of Variables of Primitive Recursive Function",
+    "theorem_text": "Let $f: \\N^k \\to \\N$ be a primitive recursive function.\nLet $\\sigma$ be a permutation of $\\left({1, 2, \\ldots, k}\\right)$.\nThen the function $h: \\N^k \\to \\N$ defined as:\n$h \\left({n_1, n_2, \\ldots, n_k}\\right) = f \\left({n_{\\sigma \\left({1}\\right)}, n_{\\sigma \\left({2}\\right)}, \\ldots, n_{\\sigma \\left({k}\\right)}}\\right)$\nis also primitive recursive.",
+    "proof_text": "We have that:\n$\\forall j: 1 \\le j \\le k: n_{\\sigma \\left({j}\\right)} = \\operatorname{pr}^k_{\\sigma \\left({j}\\right)}$.\nThus $h$ is obtained by substitution from $f$ and the projection functions $\\operatorname{pr}^k_{\\sigma \\left({j}\\right)}$.\nThe result follows.\nIt follows that if a function $h$ can be obtained from known primitive recursive functions by primitive recursion where a variable other than the last one is taken as the recursion variable, then $h$ is primitive recursive.",
+    "clean_row_index": 746,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Composing f with the projection onto each permuted coordinate realizes precisely the stated function and preserves primitive recursiveness."
+  },
+  {
+    "theorem_id": 1696,
+    "title": "Factorial is Primitive Recursive",
+    "theorem_text": "The factorial function $\\operatorname{fac}: \\N \\to \\N$ defined as:\n$\\operatorname{fac} \\left({n}\\right) = n!$\nis primitive recursive.",
+    "proof_text": "From the definition of the factorial, we have that:\n$\\operatorname{fac} \\left({n}\\right) = \\begin{cases}\n1 & : n = 0 \\\\\n\\operatorname{mult} \\left({n, \\operatorname{fac} \\left({n - 1}\\right)}\\right) & : n > 0\n\\end{cases}$\nThus $\\operatorname{fac}$ is obtained by primitive recursion from the constant $1$ and the primitive recursive function $\\operatorname{mult}$.\nHence $\\operatorname{fac}$ is primitive recursive.",
+    "clean_row_index": 747,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The base value is one and the successor step multiplies the previous factorial by the current index, which is a primitive recursive step."
+  },
+  {
+    "theorem_id": 1697,
+    "title": "Domain of Injection to Countable Set is Countable",
+    "theorem_text": "Let $X$ be a set, and let $Y$ be a countable set.\nLet $f: X \\to Y$ be an injection.\nThen $X$ is also countable.",
+    "proof_text": "Since $Y$ is countable, there exists an injection $g: Y \\to \\N$.\nFrom Composite of Injections is Injection, $g \\circ f: X \\to \\N$ is also an injection.\nThat is, $X$ is countable.",
+    "clean_row_index": 748,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Composing the injection into Y with its injection into the naturals gives the required injection of X into the naturals."
+  },
+  {
+    "theorem_id": 1699,
+    "title": "URM Instructions are Countably Infinite",
+    "theorem_text": "The set $\\Bbb I$ of all basic URM instructions is countably infinite.",
+    "proof_text": "We can immediately see that $\\Bbb I$ is infinite as, for example, $\\phi: \\N \\to \\Bbb I$ defined as:\n$\\phi \\left({n}\\right) = Z \\left({n}\\right)$\nis definitely injective.\nFrom Unique Code for URM Instruction, we see that $\\beta: \\Bbb I \\to \\N$ is also an injection.\nThe result follows from Domain of Injection to Countable Set is Countable.",
+    "clean_row_index": 749,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Distinct zeroing instructions inject the naturals into the instruction set, and unique instruction codes give an injection back into the naturals."
+  }
+]

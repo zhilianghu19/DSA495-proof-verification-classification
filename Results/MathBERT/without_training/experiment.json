@@ -1,0 +1,47 @@
+{
+  "model": "tbs17/MathBERT",
+  "revision": "e26235ccf2b14614ef278b19caa44fdb5dcf050f",
+  "seed": 42,
+  "labels": [
+    "Valid",
+    "Invalid"
+  ],
+  "batch_size": 8,
+  "max_length": 512,
+  "reason_limit": 64,
+  "theorem_limit": 128,
+  "evaluation_inputs": [
+    "theorem_text",
+    "proof_text"
+  ],
+  "truncation": "head and tail",
+  "autocast": "bfloat16",
+  "splits": "Data/splits",
+  "optimizer_steps": 0,
+  "training_examples_used": 0,
+  "classifier_head": "checkpoint initialization",
+  "confusion_matrices": {
+    "without_training": {
+      "validation": [
+        [
+          1,
+          73
+        ],
+        [
+          0,
+          15
+        ]
+      ],
+      "test": [
+        [
+          1,
+          74
+        ],
+        [
+          0,
+          14
+        ]
+      ]
+    }
+  }
+}

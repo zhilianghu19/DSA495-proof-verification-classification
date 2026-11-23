@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 31,
+    "title": "Necessary Conditions for Existence of Skolem Sequence",
+    "theorem_text": "A Skolem sequence of order $n$ can only exist if $n \\equiv 0, 1 \\pmod 4$.",
+    "proof_text": "Let $S$ be a Skolem sequence of order $n$.\nLet $a_i$ and $b_i$ be the positions of the first and second occurrences respectively of the integer $i$ in $S$, where $1 \\le i \\le n$.\nWe can thus conclude that:\n$b_i - a_i = i$\nfor each $i$ from 1 to $n$.\nSumming both sides of this equation we obtain:\n$\\displaystyle \\sum_i^n b_i - \\sum_i^n a_i = \\sum_i^n i = \\frac {n \\paren {n + 1} } 2$\nNow the $a_i$ and the $b_i$ represent the positions in the sequence from $1$ to $2 n$.\nHence:\n$\\displaystyle \\sum_i^n b_i + \\sum_i^n a_i = \\frac {2 n \\paren {2 n + 1} } 2 = n \\paren {2 n + 1}$\nSumming the previous two equations we obtain the identity:\n$\\displaystyle \\sum_i^n b_i = \\frac {n \\paren {5 n + 3} } 4$\nThe left-hand side of this last equality is a sum of positions and thus must be an integer.\nWe conclude that the right hand side must also be an integer.\nThis occurs exactly when:\n$n \\equiv 0, 1 \\pmod 4$",
+    "clean_row_index": 24,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two position sums give 4 times the sum of the second positions as n(5n+3). Its divisibility by 4 restricts n to residues 0 and 1."
+  },
+  {
+    "theorem_id": 1557,
+    "title": "Product Form of Sum on Completely Multiplicative Function",
+    "theorem_text": "Let $f$ be a completely multiplicative arithmetic function.\nLet the series $\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\map f n$ be absolutely convergent.\nThen:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\map f n = \\prod_p \\frac 1 {1 - \\map f p}$\nwhere the infinite product ranges over the primes.",
+    "proof_text": "Define $P$ by:\n$$\\map P {A, K} := \\prod_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } \\frac {1 - \\map f p^{K + 1} } {1 - \\map f p}$$\nwhere $\\mathbb P$ denotes the set of prime numbers\n$$= \\prod_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } \\paren {\\sum_{k \\mathop = 0}^K \\map f p^k}$$\nSum of Geometric Sequence\n$$= \\sum_{v \\mathop \\in \\prod \\limits_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } \\set {0 \\,.\\,.\\, K} } \\paren {\\prod_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } \\map f p^{v_p} }$$\nProduct of Summations is Summation Over Cartesian Product of Products\n$$= \\sum_{v \\mathop \\in \\prod \\limits_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } \\set {0 \\,.\\,.\\, K} } \\map f {\\prod_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } p^{v_p} }$$\nas $f$ is completely multiplicative\nChange the summing variable using:\n$$\\sum_{v \\mathop \\in V} \\map g {\\map h v} = \\sum_{w \\mathop \\in \\set {\\map h v: v \\mathop \\in V} } \\map g w$$\nwhere $h$ is a one to one mapping\nThe Fundamental Theorem of Arithmetic guarantees a unique factorization for each positive natural number.\nTherefore this function is one to one:\n$\\displaystyle \\map h v = \\prod_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } p^{v_p}$\nThen:\n$$\\map P {A, K} = \\sum_{n \\mathop \\in \\map Q {A, K} } \\map f n$$\nchange of summing variable\nwhere $\\map Q {A, K}$ is defined as:\n$\\displaystyle \\map Q {A, K} := \\set {\\prod_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } p^{-v_p} : v \\in \\prod_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } \\set {0 \\,.\\,.\\, K} }$\nConsider:\n$$W = \\lim_{\\substack {A \\mathop \\to \\infty \\\\ K \\mathop \\to \\infty} } \\map Q {A, K}$$\n$$= \\set {\\prod_{p \\mathop \\in \\mathbb P} p^{-v_p}: v \\in \\prod_{p \\mathop \\in \\mathbb P} \\set {0 \\,.\\,.\\, \\infty} }$$\nThe construction defines it as the set of all possible products of positive powers of primes.\nFrom the definition of a prime number, every positive natural number may be expressed as a prime or a product of powers of primes:\n$k \\in \\N^+ \\implies k \\in W$\nand also every element of W is a positive natural number:\n$k \\in W \\implies k \\in \\N^+$\nSo $W = \\N^+$.\nThen taking limits on $\\map P {A, K}$:\n$$\\lim_{\\substack {A \\mathop \\to \\infty \\\\ K \\mathop \\to \\infty} } \\map P {A, K} = \\lim_{\\substack {A \\mathop \\to \\infty \\\\ K \\mathop \\to \\infty} } \\prod_{\\substack {p \\mathop \\in \\mathbb P \\\\ p \\mathop \\le A} } \\frac {1 - \\map f p^{K + 1} } {1 - \\map f p}$$\ntaking limits of both sides of the definition of $\\map P {A, K}$\n$$= \\prod_{p \\mathop \\in \\mathbb P} \\frac 1 {1 - \\map f p}$$\n$\\map f p^{K + 1} \\to 0$, because $\\displaystyle \\sum_{n \\mathop = 1}^{\\infty} \\map f n$ is convergent\n$$= \\lim_{\\substack {A \\mathop \\to \\infty \\\\ K \\mathop \\to \\infty} } \\sum_{n \\mathop \\in \\map Q {A, K} } \\map f n$$\nfrom the expression for $\\map P {A, K}$\n$$= \\sum_{n \\mathop \\in \\N^+} \\map f n$$\nsubstituting for $\\N^+$: order of summation is not defined\n$$= \\sum_{n \\mathop = 1}^\\infty \\map f n$$\nabsolutely convergent, so the order does not alter the limit",
+    "clean_row_index": 690,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The proof's set Q uses negative prime exponents and its limiting set even allows infinitely many nonzero exponents. These sets do not enumerate the positive integers as claimed, so the displayed limit is unsupported."
+  },
+  {
+    "theorem_id": 1559,
+    "title": "Euler Phi Function of Product with Prime",
+    "theorem_text": "Let $p$ be prime and $n \\in \\Z: n \\ge 1$.\nThen:\n$\\phi \\left({p n}\\right) = \\begin{cases}\n\\left({p - 1}\\right) \\phi \\left({n}\\right) & : p \\nmid n \\\\\np \\phi \\left({n}\\right) & : p \\mathrel \\backslash n \n\\end{cases}$\nwhere $\\phi \\left({n}\\right)$ denotes the Euler $\\phi$ function of $n$.\nThus for all $n \\ge 1$ and for any prime $p$, we have that $\\phi \\left({n}\\right)$ divides $\\phi \\left({p n}\\right)$.",
+    "proof_text": "First suppose that $p \\nmid n$.\nThen by Prime not Divisor implies Coprime, $p \\perp n$.\nSo by Euler Phi Function is Multiplicative, $\\phi \\left({p n}\\right) = \\phi \\left({p}\\right) \\phi \\left({n}\\right)$.\nIt follows from Euler Phi Function of Prime that $\\phi \\left({p n}\\right) = \\left({p - 1}\\right) \\phi \\left({n}\\right)$.\nNow suppose that $p \\mathrel \\backslash n$.\nThen $n = p^k m$ for some $k, m \\in \\Z: k, m \\ge 1$ such that $p \\perp m$.\nThen:\n$$\\phi \\left({p n}\\right) = \\phi \\left({p^{k + 1} m}\\right)$$\n$$= \\phi \\left({p^{k + 1} }\\right) \\phi \\left({m}\\right)$$\nEuler Phi Function is Multiplicative\n$$= p^{k + 1} \\left({1 - \\frac 1 p}\\right) \\phi \\left({m}\\right)$$\nEuler Phi Function of Prime Power\nAt the same time:\n$$p \\phi \\left({n}\\right) = p \\phi \\left({p^k m}\\right)$$\n$$= p \\phi \\left({p^k}\\right) \\phi \\left({m}\\right)$$\nEuler Phi Function is Multiplicative\n$$= p p^k \\left({1 - \\frac 1 p}\\right) \\phi \\left({m}\\right)$$\nEuler Phi Function of Prime Power\n$$= p^{k + 1} \\left({1 - \\frac 1 p}\\right) \\phi \\left({m}\\right)$$",
+    "clean_row_index": 691,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplicativity gives the p minus one factor when p does not divide n. Extracting the full p-power of n and applying the prime-power formula gives factor p otherwise."
+  },
+  {
+    "theorem_id": 1560,
+    "title": "Euler Phi Function is Even for Argument greater than 2",
+    "theorem_text": "Let $n \\in \\Z: n \\ge 1$.\nLet $\\map \\phi n$ be the Euler $\\phi$ function of $n$.\nThen $\\map \\phi n$ is even if and only if $n > 2$.",
+    "proof_text": "We have from the definition of Euler $\\phi$ function:\n$\\map \\phi 1 = 1$\nand from Euler Phi Function of Prime Power: Corollary:\n$\\map \\phi 2 = 1$\nNow let $n \\ge 3$.\nThere are two possibilities:\nOdd Prime Divisor\n$n$ has (at least one) odd prime factor: $p$, say.\nFrom the corollary to Euler Phi Function of Integer, it follows that:\n$p - 1$ divides $\\map \\phi n$\nBut as $p$ is odd, $p - 1$ is even and hence:\n$2 \\divides \\paren {p - 1} \\divides \\map \\phi n$\nand so $\\map \\phi n$ is even.\nNo Odd Prime Divisor\nNow suppose $n$ has no odd prime factors.\nThen its only prime factor must be $2$.\nThus:\n$n = 2^k$\nwhere $k > 1$.\nThen from Euler Phi Function of Prime Power: Corollary:\n$\\map \\phi n = 2^k \\paren {1 - \\frac 1 2} = 2^{k - 1}$\nwhere $k-1 > 0$.\nHence $\\map \\phi n$ is even.",
+    "clean_row_index": 692,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The values at one and two are odd. All larger n either have an odd prime factor contributing an even factor to the totient or are powers of two with even totient."
+  },
+  {
+    "theorem_id": 1561,
+    "title": "Cauchy-Goursat Theorem",
+    "theorem_text": "Let $D$ be a simply connected open subset of the complex plane $\\C$.\nLet $\\partial D$ denote the closed contour bounding $D$.\nLet $f: D \\to \\C$ be holomorphic everywhere in $D$.\nThen:\n$\\displaystyle \\oint_{\\partial D} \\map f z \\rd z = 0$",
+    "proof_text": "Begin by rewriting the function $f$ and differential $\\rd z$ in terms of their real and complex parts:\n$f = u + iv$\n$\\d z = \\d x + i \\rd y$\nThen we have:\n$\\displaystyle \\oint_{\\partial D} \\map f z \\rd z = \\oint_{\\partial D} \\paren {u + iv} \\paren {\\d x + i \\rd y}$\nExpanding the result and again separating into real and complex parts yields two integrals of real variables:\n$\\displaystyle \\oint_{\\partial D} \\paren {u \\rd x - v \\rd y} + i \\oint_{\\partial D} \\paren {v \\rd x + u \\rd y}$\nWe next apply Green's Theorem to each integral term to convert the contour integrals to surface integrals over $D$:\n$\\displaystyle \\iint_D \\paren {-\\dfrac {\\partial v} {\\partial x} - \\dfrac {\\partial u} {\\partial y} } \\rd x \\rd y + \\iint_D \\paren {\\dfrac {\\partial u} {\\partial x} - \\dfrac {\\partial v} {\\partial y} } \\rd x \\rd y$\nBy the assumption that $f$ is holomorphic, it satisfies the Cauchy-Riemann Equations\n$\\dfrac {\\partial v} {\\partial x} + \\dfrac {\\partial u} {\\partial y} = 0$\n$\\dfrac {\\partial u} {\\partial x} - \\dfrac {\\partial v} {\\partial y} = 0$\nThe integrands are therefore zero and hence the integral is zero.",
+    "clean_row_index": 693,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "Holomorphy only inside D gives no boundary values or boundary regularity for Green's theorem. For example, a function on the open unit disk may have a pole on its bounding circle."
+  },
+  {
+    "theorem_id": 1562,
+    "title": "Sigma Function of Integer",
+    "theorem_text": "Let $n$ be an integer such that $n \\ge 2$.\nLet $\\map \\sigma n$ be the sigma function of $n$.\nThat is, let $\\map \\sigma n$ be the sum of all positive divisors of $n$.\nLet the prime decomposition of $n$ be:\n$\\displaystyle n = \\prod_{1 \\mathop \\le i \\mathop \\le r} p_i^{k_i} =  p_1^{k_1} p_2^{k_2} \\cdots p_r^{k_r}$\nThen:\n$\\displaystyle \\map \\sigma n = \\prod_{1 \\mathop \\le i \\mathop \\le r} \\frac {p_i^{k_i + 1} - 1} {p_i - 1}$",
+    "proof_text": "We have that the Sigma Function is Multiplicative.\nFrom Value of Multiplicative Function is Product of Values of Prime Power Factors, we have:\n$\\map f n = \\map f {p_1^{k_1} } \\map f {p_2^{k_2} } \\ldots \\map f {p_r^{k_r} }$\nFrom Sigma Function of Power of Prime, we have:\n$\\displaystyle \\map \\sigma {p_i^{k_i} } = \\frac {p_i^{k_i + 1} - 1} {p_i - 1}$\nHence the result.",
+    "clean_row_index": 694,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplicativity separates the distinct prime-power factors and the divisor sum for each prime power supplies the displayed geometric factor."
+  },
+  {
+    "theorem_id": 1567,
+    "title": "Tau Function of Square-Free Integer is Power of 2",
+    "theorem_text": "Let $n$ be a square-free integer.\nLet $\\tau: \\Z \\to \\Z$ be the $\\tau$ function.\nThen $\\map \\tau n = 2^r$ for some $r \\ge 1$.\nThe converse is not true in general.\nThat is, if $\\map \\tau n = 2^r$ for some $r \\ge 1$, it is not necessarily the case that $n$ is square-free.",
+    "proof_text": "Let $n$ be an integer such that $n \\ge 2$.\nLet the prime decomposition of $n$ be:\n$n = p_1^{k_1} p_2^{k_2} \\dotsm p_r^{k_r}$\nThen from Tau Function from Prime Decomposition we have that:\n$\\displaystyle \\map \\tau n = \\prod_{i \\mathop = 1}^r \\paren {k_i + 1}$\nLet $n$ be square-free.\nThen by definition:\n$\\forall i: 1 \\le i \\le r: k_i = 1$\nSo:\n$\\displaystyle \\map \\tau n = \\prod_{i \\mathop = 1}^r \\paren {1 + 1} = 2^r$\nThe statement about the converse is proved by counterexample:\nLet $n = p^3$ where $p$ is prime.\nThen $n$ is not square-free as $p^2 \\divides n$.\nHowever:\n$\\map \\tau n = 3 + 1 = 2^2$",
+    "clean_row_index": 695,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The proof adds n at least two. One is square-free but has exactly one positive divisor, so the claimed power of two need not have positive exponent. The cube counterexample correctly disproves the converse."
+  },
+  {
+    "theorem_id": 1569,
+    "title": "Sigma Function Odd iff Argument is Square or Twice Square",
+    "theorem_text": "Let $\\sigma: \\Z \\to \\Z$ be the sigma function.\nThen $\\sigma \\left({n}\\right)$ is odd if and only if $n$ is either square or twice a square.",
+    "proof_text": "Let $n$ be an integer such that $n \\ge 2$.\nLet the prime decomposition of $n$ be:\n$n = p_1^{k_1} p_2^{k_2} \\ldots p_r^{k_r}$\nThen from Sigma Function of Integer we have that:\n$\\displaystyle \\sigma \\left({n}\\right) = \\prod_{1 \\mathop \\le i \\mathop \\le r} \\frac {p_i^{k_i + 1} - 1} {p_i - 1}$\nThat is:\n$\\displaystyle \\sigma \\left({n}\\right) = \\prod_{1 \\mathop \\le i \\mathop \\le r} \\left({1 + p_i + p_i^2 + \\ldots + p_i^{k_i}}\\right)$\nLet $\\sigma \\left({n}\\right)$ be odd.\nThen all factors of $\\displaystyle \\prod_{i \\mathop = 1}^r \\left({1 + p_i + p_i^2 + \\ldots + p_i^{k_i}}\\right)$ are odd (and of course $\\ge 3$).\nFor $1 + p_i + p_i^2 + \\ldots + p_i^{k_i}$ to be odd, one of two conditions must hold:\n$p_i$ is even (so that all terms of $1 + p_i + p_i^2 + \\ldots + p_i^{k_i}$ are even except the $1$);\n$k_i$ is even (so that $1 + p_i + p_i^2 + \\ldots + p_i^{k_i}$ has an odd number of odd terms).\nIn the first case, that means $p_i^{k_i}$ is a power of $2$.\nIn the second case, that means $p_i^{k_i}$ is a square.\nThe result follows.\nThe argument reverses.",
+    "clean_row_index": 696,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The argument restricts n to positive integers at least two although the supplied domain is all integers. If sigma sums positive divisors of negative integers as well, sigma(-1) is odd and -1 is neither a square nor twice one."
+  },
+  {
+    "theorem_id": 1572,
+    "title": "Cancellability of Congruences",
+    "theorem_text": "Let $a, b, c, n \\in \\Z$ be integers.\nThen:\n$c a \\equiv c b \\pmod n \\iff a \\equiv b \\pmod {n / d}$\nwhere $d = \\gcd \\set {c, n}$.",
+    "proof_text": "Let $c a \\equiv c b \\pmod n$.\nThen we have that $c a - c b = k n$ for some $k \\in \\Z$ by definition of congruence.\nNow $d = \\gcd \\set {c, n}$, so from Integers Divided by GCD are Coprime we have:\n$\\exists r, s \\in Z: r \\perp s: c = d r, n = d s$\nSo we substitute for $c$ and $n$ in $c a - c b = k n$:\n$d r a - d r b = k d s$\nwhich leads us to:\n$r \\paren {a - b} = k s$\nSo $s \\divides \\paren {a - b}$ and as $r \\perp s$, from Euclid's Lemma $s \\divides \\paren {a - b}$.\nSo $a \\equiv b \\pmod s$ where $s = \\dfrac n d$.\nNow suppose $a \\equiv b \\pmod {n / d}$ where $d = \\gcd \\set {c, n}$.\nThen:\n$\\exists k \\in \\Z: a - b = k \\dfrac n d$\nHence:\n$c a - c b = \\dfrac {k c} d n$\nAs $d = \\gcd \\set {c, n}$ we have $d \\divides c$ and so $\\dfrac c d \\in \\Z$.\nSo:\n$c a \\equiv c b \\pmod n$",
+    "clean_row_index": 697,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "Cancelling d and forming n/d presuppose nonzero gcd. The hypotheses allow c=n=0, where the displayed quotient is undefined; with the usual positive-modulus convention the ordinary cancellation argument works."
+  },
+  {
+    "theorem_id": 1573,
+    "title": "Solution of Linear Diophantine Equation",
+    "theorem_text": "The linear Diophantine equation:\n$a x + b y  = c$\nhas solutions if and only if:\n$\\gcd \\set {a, b} \\divides c$\nwhere $\\divides$ denotes divisibility.\nIf this condition holds with $\\gcd \\set {a, b} > 1$ then division by $\\gcd \\set {a, b}$ reduces the equation to:\n$a' x + b' y = c'$\nwhere $\\gcd \\set {a', b'} = 1$.\nIf $x_0, y_0$ is one solution of the latter equation, then the general solution is:\n$\\forall k \\in \\Z: x = x_0 + b' k, y = y_0 - a' k$\nor:\n$\\forall k \\in \\Z: x = x_0 + \\dfrac b d k, y = y_0 - \\dfrac a d k$",
+    "proof_text": "We assume that both $a$ and $b$ are non-zero, otherwise the solution is trivial.\nThe first part of the problem is a direct restatement of Set of Integer Combinations equals Set of Multiples of GCD:\nThe set of all integer combinations of $a$ and $b$ is precisely the set of integer multiples of the GCD of $a$ and $b$:\n$\\gcd \\set {a, b} \\divides c \\iff \\exists x, y \\in \\Z: c = x a + y b$\nNow, suppose that $x', y'$ is any solution of the equation.\nThen we have:\n$a' x_0 + b' y_0 = c'$ and $a' x' + b' y' = c'$\nSubstituting for $c'$ and rearranging:\n$a' \\paren {x' - x_0} = b' \\paren {y_0 - y'}$\nSo:\n$a' \\divides b' \\paren {y_0 - y'}$\nSince $\\gcd \\set {a', b'} = 1$, from Euclid's Lemma we have:\n$a' \\divides \\paren {y_0 - y'}$.\nSo $y_0 - y' = a' k$ for some $k \\in \\Z$.\nSubstituting into the above gives $x' - x_0 = b' k$ and so:\n$x' = x_0 + b' k, y' = y_0 - a'k$ for some $k \\in \\Z$\nwhich is what we claimed.\nSubstitution again gives that the integers:\n$x_0 + b' k, y_0 - a' k$\nconstitute a solution of $a' x + b' y = c'$ for any $k \\in \\Z$.",
+    "clean_row_index": 698,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The gcd characterizes integer combinations, and subtracting a particular solution gives a homogeneous relation between coprime coefficients. Euclid's lemma forces the one-parameter form, verified by substitution."
+  },
+  {
+    "theorem_id": 1579,
+    "title": "Congruence of Quotient",
+    "theorem_text": "Let $a, b \\in \\Z$ and $n \\in \\N$.\nLet $a$ be congruent to $b$ modulo $n$, i.e. $a \\equiv b \\pmod n$.\nLet $d \\in \\Z: d > 0$ such that $d$ is a common divisor of $a, b$ and $n$.\nThen:\n$\\displaystyle \\frac a d \\equiv \\frac b d \\pmod {n / d}$",
+    "proof_text": "By definition of congruence modulo $n$:\n$a = b + k n$\nDividing through by $d$ (which you can do because $d$ divides all three terms), we get:\n$\\dfrac a d = \\dfrac b d + k \\dfrac n d$\nfrom which the result follows directly.",
+    "clean_row_index": 700,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Dividing a minus b equal to kn by the positive common divisor gives an integer multiple of n/d, which is the required congruence."
+  },
+  {
+    "theorem_id": 1580,
+    "title": "Divisibility by 11",
+    "theorem_text": "Let $N \\in \\N$ be expressed as:\n$N = a_0 + a_1 10 + a_2 10^2 + \\cdots + a_n 10^n$\nThen $N$ is divisible by $11$ if and only if $\\displaystyle \\sum_{r \\mathop = 0}^n \\paren {-1}^r a_r$ is  divisible by $11$.\nThat is, a divisibility test for $11$ is achieved by alternately adding and subtracting the digits and taking the result modulo $11$.",
+    "proof_text": "As:\n$10 \\equiv -1 \\pmod {11}$\nwe have:\n$10^r \\equiv \\paren {-1}^r \\pmod {11}$\nfrom Congruence of Powers.\nThus:\n$N \\equiv a_0 + \\paren {-1} a_1 + \\paren {-1}^2 a_2 + \\cdots + \\paren {-1}^n a_n \\pmod {11}$\nfrom the definition of Modulo Addition.\nThe result follows.",
+    "clean_row_index": 701,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Ten is minus one modulo eleven. Substituting this in the decimal expansion gives the alternating sum with the same residue."
+  },
+  {
+    "theorem_id": 1583,
+    "title": "Chinese Remainder Theorem/General Result",
+    "theorem_text": "Let $n_1, n_2, \\ldots, n_r$ be positive integers such that $n_i \\perp n_j$ for all $i \\ne j$ (that is, $\\gcd \\set {n_i, n_j} = 1$).\nThen the system of linear congruences:\n$x \\equiv b_1 \\pmod {n_1}$\n$x \\equiv b_2 \\pmod {n_2}$\n$\\ldots$\n$x \\equiv b_r \\pmod {n_r}$\nhas a simultaneous solution which is unique modulo $\\displaystyle \\prod_{i \\mathop = 1}^r n_i$.",
+    "proof_text": "Let $\\displaystyle N = \\prod_{i \\mathop = 1}^r n_i$ and $N_k = \\dfrac N {n_k}$ for $k = 1, 2, \\ldots, r$.\nBecause $n_i \\perp n_k$ for each $i \\ne k$, we have:\n$\\gcd \\set {N_k, n_k} = \\gcd \\set {n_1 n_2 \\cdots n_{k - 1} n_{k + 1} \\cdots n_r, n_k} = 1$\nSo by Solution of Linear Congruence, the linear congruence $N_k x \\equiv 1 \\pmod {n_k}$ has a unique solution modulo $n_k$.\nLet this solution be $x_k$.\nSo $N_k x_k \\equiv 1 \\pmod {n_k}$\nWe are going to show that $x_0 = b_1 N_1 x_1 + b_2 N_2 x_2 + \\cdots + b_r N_r x_r$ satisfies each of the congruences.\nSo, we evaluate $x_0$ modulo $n_k$ for each $k = 1, 2, 3, \\ldots, r$.\nWe start by noting that:\n$i \\ne k \\implies n_k \\divides N_i$\nso:\n$N_i \\equiv 0 \\pmod {n_k}$\nSo for each $k = 1, 2, \\ldots, r$ we have $x_0 \\equiv b_k N_k x_k$ because each of the remaining terms in the sum is congruent modulo $n_k$ to $0$.\nFinally, since $x_k$ was found such that $N_k x_k \\equiv 1 \\pmod {n_k}$ we have $x_0 \\equiv b_k \\pmod {n_k}$ as we claimed.\nAll we need to do now is show that this solution we have discovered is unique modulo $N$.\nSo, suppose that $x'$ is a second solution of the system.\nThat is:\n$x_0 \\equiv x' \\equiv b_k \\pmod {n_k}$ for each $k = 1, 2, \\ldots, r$.\nSo each $n_k$ divides $x' - x_0$.\nBut because each of the moduli are pairwise coprime, we have:\n$\\displaystyle \\prod_{i \\mathop = 1}^r n_i \\divides x' - x_0$\nThat is:\n$\\displaystyle x' \\equiv x_0 \\pmod {\\prod_{i \\mathop = 1}^r n_i}$\nas we wanted to show.",
+    "clean_row_index": 702,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Pairwise coprimeness supplies inverses for the partial products. Their weighted sum realizes all residues, and the product of the moduli divides the difference of any two solutions."
+  },
+  {
+    "theorem_id": 1586,
+    "title": "First Supplement to Law of Quadratic Reciprocity",
+    "theorem_text": "$\\paren {\\dfrac {-1} p} = \\paren {-1}^{\\paren {p - 1} / 2} = \\begin{cases}\n+1 & : p \\equiv 1 \\pmod 4 \\\\\n-1 & : p \\equiv 3 \\pmod 4\n\\end{cases}$",
+    "proof_text": "From Euler's Criterion, and the definition of the Legendre symbol, we have that:\n$\\paren {\\dfrac a p} \\equiv a^{\\paren {p - 1} / 2} \\pmod p$\nThe result follows by putting $a = -1$.",
+    "clean_row_index": 703,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Euler's criterion at minus one gives the indicated sign, and the two possible signs are distinct modulo the odd prime underlying the Legendre symbol."
+  },
+  {
+    "theorem_id": 1588,
+    "title": "Product of Sums",
+    "theorem_text": "Let $\\displaystyle \\sum_{n \\mathop \\in A} a_n$ and $\\displaystyle \\sum_{n \\mathop \\in B} b_n$ be absolutely convergent sequences.\nThen:\n$\\displaystyle \\left({ \\sum_{i \\mathop \\in A} a_i }\\right) \\left({ \\sum_{j \\mathop \\in B} b_j }\\right) = \\sum_{\\left({i, j}\\right) \\mathop \\in A \\times B} a_i b_j$.",
+    "proof_text": "We have that both series are absolutely convergent.\nThus by Manipulation of Absolutely Convergent Series, it is permitted to expand the product as:\n$\\displaystyle \\left({\\sum_{i \\mathop \\in A} a_i }\\right) \\left({\\sum_{j \\mathop \\in B} b_j }\\right) = \\sum_{i \\mathop \\in A}  \\left({a_i \\sum_{j \\mathop \\in B} b_j}\\right)$.\nBut since $a_i$ is a constant, it may be brought into the summation, to obtain:\n$\\displaystyle \\sum_{i \\mathop \\in A} \\sum_{j \\mathop \\in B} a_i b_j$\nHence the result.",
+    "clean_row_index": 704,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Absolute convergence permits the iterated sum over the product index set, with scalar multiplication distributing over each inner sum."
+  },
+  {
+    "theorem_id": 1592,
+    "title": "Divergence Test",
+    "theorem_text": "Let $\\sequence {a_n}$ be a sequence in $\\R$.\nIf $\\displaystyle \\lim_{k \\mathop \\to \\infty} a_k \\ne 0$, then $\\displaystyle \\sum_{i \\mathop = 1}^\\infty a_n$ diverges.",
+    "proof_text": "We know that Terms in Convergent Series Converge to Zero.\nThis is the contrapositive statement of this theorem.\nThus, the theorem holds by Rule of Transposition.",
+    "clean_row_index": 705,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Reading the mismatched dummy index as the sequence index, the claim is the contrapositive of the necessary zero-term limit for convergence."
+  },
+  {
+    "theorem_id": 1598,
+    "title": "Existence of Local Coordinates",
+    "theorem_text": "Let $X^n$ be an $n$-dimensional manifold.\nLet $U$ be a neighborhood of a point $p \\in X^n$.\nThen there exist local coordinates on $U$.",
+    "proof_text": "There is a homomorphism $\\phi: U \\to \\R^n$, since $X^n$ is a manifold.\nLet $y_i$ be coordinates in $\\R^n$, so that any point $z \\in \\R^n$ has a unique representation $y_1, \\dots, y_n$.\nThen define $x_i: X^n \\to \\R$ as $x_i = y_i \\circ \\phi$.",
+    "clean_row_index": 706,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "A manifold guarantees a chart on some neighborhood of p, not on the arbitrarily specified U. The entire circle is a neighborhood lacking a single global real coordinate chart."
+  },
+  {
+    "theorem_id": 1601,
+    "title": "Even Convergent of Simple Continued Fraction is Strictly Smaller than Odd Convergent",
+    "theorem_text": "Every even convergent is strictly smaller than every odd convergent.",
+    "proof_text": "Let $k \\ge 1$.\nFrom Denominators of Simple Continued Fraction are Strictly Positive, $q_k q_{k - 1}>0$.\nFrom Difference between Adjacent Convergents of Simple Continued Fraction:\n$C_k - C_{k - 1} = \\dfrac {\\paren {-1}^{k + 1} } {q_k q_{k - 1} }$\nLet $k$ be even.\nThen:\n$\\exists s \\in \\N: k = 2 s$\nand:\n$C_{2 s} < C_{2 s - 1}$\nLet $k$ be odd.\nThen:\n$\\exists t \\in \\N: k = 2 t + 1$\nand:\n$C_{2 t + 1 } > C_{2 t}$\nNow, consider any even convergent $C_{2 s}$ and any odd convergent $C_{2 t + 1}$, with $s, t \\ge 0$.\nIf $2 s \\le 2 t + 1$, then $2 s \\le 2 t$, so:\n$$C_{2 s} \\le C_{2 t}$$\nEven Convergents of Simple Continued Fraction are Strictly Increasing\n$$< C_{2 t + 1}$$\nby the above\nIf $2 s > 2 t + 1$, then $2 s - 1 \\ge 2 t + 1$, so:\n$$C_{2 s} < C_{2 s - 1}$$\nby the above\n$$\\le C_{2 t + 1}$$\nOdd Convergents of Simple Continued Fraction are Strictly Decreasing\nIn either case:\n$C_{2 s} < C_{2 t + 1}$\nHence the result.",
+    "clean_row_index": 707,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The alternating adjacent differences order neighboring convergents. Monotonicity within each parity subsequence extends that order to any even and odd pair."
+  },
+  {
+    "theorem_id": 1602,
+    "title": "Denominators of Simple Continued Fraction are Strictly Increasing",
+    "theorem_text": "Let $N \\in \\N \\cup \\set \\infty$ be an extended natural number.\nLet $\\sqbrk {a_0, a_1, a_2, \\ldots}$ be a simple continued fraction in $\\R$ of length $N$.\nLet $q_0, q_1, q_2, \\ldots$ be its denominators.\nThen with the possible exception of $q_0 = q_1$, the sequence $\\sequence {q_n}$ is strictly increasing.",
+    "proof_text": "By definition of simple continued fraction, all partial quotients of $\\sqbrk {a_0, a_1, a_2, \\ldots}$ are strictly positive integers, with the possible exception of $a_0$.\nSo:\n$q_1 = a_1 \\ge 1 = q_0$\n$q_2 = a_2 a_1 + 1 \\ge a_1 + 1 > a_1 = q_1$\nhence:\n$1 = q_0 \\le q_1 < q_2$.\nSuppose $q_k > q_{k-1} \\ge 1$ for some $k \\ge 2$.\nThen $q_{k+1} = a_{k+1} q_k + q_{k-1} \\ge q_k + q_{k-1} \\ge q_{k} + 1 > q_k$.\nSo, by induction, $\\sequence {q_n}$ is strictly increasing except when possibly $q_0 = q_1 = 1$.",
+    "clean_row_index": 708,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The first denominators satisfy the claimed weak and strict comparisons. Positive partial quotients in the recurrence force each subsequent denominator to exceed its predecessor."
+  },
+  {
+    "theorem_id": 1603,
+    "title": "Simple Infinite Continued Fraction Converges to Irrational Number",
+    "theorem_text": "The value of any simple infinite continued fraction in $\\R$ is irrational.",
+    "proof_text": "Let $\\left[{a_0, a_1, a_2, \\ldots}\\right]$ be a simple infinite continued fraction.\nNote that by Simple Infinite Continued Fraction Converges, a simple infinite continued fraction is indeed convergent, say to $x \\in \\R$.\nLet $p_0, p_1, \\ldots$ and $q_0, q_1, \\ldots$ be its numerators and denominators.\nLet $C_0, C_1, \\ldots$ be its convergents, so that $C_n = p_n/q_n$ for $n \\geq 0$.\nFor all $n \\geq 0$, from Accuracy of Convergents of Convergent Simple Infinite Continued Fraction:\n$\\left\\vert{x - \\dfrac {p_n} {q_n} }\\right\\vert < \\dfrac 1 {q_n q_{n + 1} }$\nSuppose $x$ is rational.\nThat is, let $x = \\dfrac r s$ where $r, s \\in \\Z$ such that $s > 0$.\nThen:\n$0 < \\left|{\\dfrac r s - \\dfrac {p_n} {q_n}}\\right| = \\dfrac {\\left|{r q_n - s p_n}\\right|} {s q_n} < \\dfrac 1 {q_n q_{n+1}}$\n(Note that $\\dfrac r s \\ne \\dfrac {p_n} {q_n}$ or otherwise the continued fraction would be finite.)\nSo:\n$0 < \\left|{r q_n - s p_n}\\right| < \\dfrac s {q_{n+1}}$\nBut Denominators of Simple Continued Fraction are Strictly Increasing.\nThat means we can choose $n$ so that $q_{n+1} > s$.\nBut then $\\left|{r q_n - s p_n}\\right|$ would be an integer lying strictly between $0$ and $1$, which cannot happen.\nSo no such integers $r, s$ exist.\nThus $x$ must be irrational.",
+    "clean_row_index": 709,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The strict lower bound on the integer numerator requires exclusion of equality with a convergent. Saying that equality would make the expansion finite presupposes the link at issue; strict bracketing or two successive distinct convergents would justify the step."
+  },
+  {
+    "theorem_id": 1604,
+    "title": "Uniqueness of Analytic Continuation",
+    "theorem_text": "Let $U \\subset V \\subset \\C$ be open subsets of the complex plane.\nLet $V$ be connected.\nSuppose:\n$(1): \\quad F_1, F_2$ are functions defined on $V$\n$(2): \\quad f$ is a function defined on $U$.\nLet $F_1$ and $F_2$ be analytic continuations of $f$ to $V$.\nThen $F_1 = F_2$.",
+    "proof_text": "Let $\\map g z = \\map {F_1} z - \\map {F_2} z$.\nThen:\n$\\forall z \\in U: \\map g z = 0$\nBecause Zeroes of Analytic Function are Isolated, and the zeroes of $g$ are not isolated, $g$ must be constant everywhere in its domain.\nSince $\\map g z = 0$ for some $z$, it follows that $\\map g z = 0$ for all $z$.\nHence:\n$\\forall z \\in V: \\map {F_1} z - \\map {F_2} z = 0$ and so $F_1 = F_2$.",
+    "clean_row_index": 710,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The argument uses a zero of the difference in U, but the stated open subset U can be empty. Distinct analytic functions agree on an empty set, so connectedness of V alone does not suffice."
+  },
+  {
+    "theorem_id": 1605,
+    "title": "Zeroes of Analytic Function are Isolated",
+    "theorem_text": "Let $U \\subset \\C$ be some open set and let $f$ be an analytic function defined on $U$.\nThen either $f$ is a constant function, or the set $\\set {z \\in U: \\map f z = 0}$ is totally disconnected.",
+    "proof_text": "Suppose $f$ has no zeroes in $U$.\nThen the set described in the theorem is the empty set, and we're done.\nSo we suppose $\\exists z_0 \\in U$ such that $\\map f {z_0} = 0$.\nSince $f$ is analytic, there is a Taylor series for $f$ at $z_0$ which converges for $\\cmod {z - z_0} < R$.\nNow, since $\\map f {z_0} = 0,$ we know $a_0 =0$.\nOther $a_j$ may be $0$ as well.\nSo let $k$ be the least number such that $a_j = 0$ for $0 \\le j < k$, and $a_k \\ne 0$.\nThen we can write the Taylor series for $f$ about $z_0$ as:\n$\\displaystyle \\sum_{n \\mathop = k}^\\infty a_n \\paren {z - z_0}^n = \\paren {z - z_0}^k \\sum_{n \\mathop = 0}^\\infty a_{n + k} \\paren {z - z_0}^n$\nwhere $a_k \\ne 0$ (otherwise, we'd just start at $k + 1$).\nNow we define a new function $\\map g z$, as the sum on the right hand side, which is clearly analytic in $\\cmod {z - z_0} < R$.\nSince it is analytic here, it is also continuous here.\nSince $\\map g {z_0} = a_k \\ne 0, \\exists \\epsilon >0$ so that $\\forall z$ such that $\\cmod {z - z_0} < \\epsilon, \\cmod {\\map g z - a_k} < \\dfrac {\\cmod {a_k} } 2$.\nBut then $\\map g z $ cannot possibly be $0$ in that disk.\nHence the result.",
+    "clean_row_index": 711,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The Taylor expansion at a zero need not have a first nonzero coefficient. On a disconnected open set an analytic function can vanish on one component and be nonconstant elsewhere, contradicting the asserted global dichotomy."
+  },
+  {
+    "theorem_id": 1608,
+    "title": "Accuracy of Convergents of Continued Fraction Expansion of Irrational Number",
+    "theorem_text": "Let $x$ be an irrational number.\nLet $(a_0, a_1, \\ldots)$ be its continued fraction expansion.\nLet $\\left \\langle {C_n}\\right \\rangle_{n \\geq 0}$ be its sequence of convergents.\nLet $p_0, p_1, p_2, \\ldots$ and $q_0, q_1, q_2, \\ldots$ be its numerators and denominators.\nThen:\n$\\forall k \\ge 1: \\left\\vert{x - \\dfrac {p_{k + 1} } {q_{k + 1} } }\\right\\vert < \\dfrac 1 {q_{k + 1} q_{k + 2} } \\le \\dfrac 1 {2 q_k q_{k + 1} } < \\left\\vert{x - \\dfrac {p_k} {q_k} }\\right\\vert$\nThus:\n:The left-hand side of the inequality gives an indication of how close each convergent gets to its true value.\n:The right-hand side gives a bound that limits its accuracy.",
+    "proof_text": "The Continued Fraction Algorithm gives the following system of equations:\n$$x = \\left[{a_0, x_2}\\right]$$\n$$= \\left[{a_0, a_1, x_3}\\right]$$\n$$= \\ldots$$\n$$= \\left[{a_0, a_1, \\ldots, a_n, x_{n + 1} }\\right]$$\n$$= \\ldots$$\nand\n$$\\left\\vert{x - \\frac {p_n} {q_n} }\\right\\vert = \\left\\vert{\\left[{a_0, a_1, \\ldots, a_n, x_{n + 1} }\\right] - \\frac {p_n} {q_n} }\\right\\vert$$\n$$= \\left\\vert{\\frac {x_{n + 1} p_n + p_{n - 1} } {x_{n + 1} q_n + q_{n - 1} } - \\frac {p_n} {q_n} }\\right\\vert$$\nValue of Finite Continued Fraction equals Numerator Divided by Denominator\n$$= \\left\\vert{\\frac {p_{n - 1} q_n - p_n q_{n - 1} } {q_n \\left({x_{n + 1} q_n + q_{n - 1} }\\right)} }\\right\\vert$$\n$$= \\frac 1 {q_n \\left({x_{n + 1} q_n + q_{n - 1} }\\right)}$$\nDifference between Adjacent Convergents of Simple Continued Fraction\nNow from the Continued Fraction Algorithm:\n$x_{n + 1} = \\left[{a_{n + 1}, a_{n + 2}, a_{n + 3}, \\ldots}\\right]$\nSo:\n$a_{n + 1} < x_{n + 1} < a_{n + 1} + 1$\nTherefore:\n$\\left\\vert{x - \\dfrac {p_n} {q_n} }\\right\\vert < \\dfrac 1 {q_n \\left({a_{n + 1} q_n + q_{n - 1} }\\right)} = \\dfrac 1 {q_n q_{n + 1} }$\nThis gives the left-hand side of the inequality when $n = k + 1$.\nWe also have:\n$\\left\\vert{x - \\dfrac {p_n} {q_n} }\\right\\vert > \\dfrac 1 {q_n \\left({\\left({a_{n + 1} + 1}\\right) q_n + q_{n - 1} }\\right)}$\n$$\\left\\vert{x - \\frac {p_n} {q_n} }\\right\\vert > \\frac 1 {q_n \\left({\\left({a_{n + 1} + 1}\\right) q_n + q_{n - 1} }\\right)}$$\n$$= \\frac 1 {q_n \\left({a_{n + 1} q_n + q_{n - 1} }\\right) + q_n^2}$$\n$$= \\frac 1 {q_n \\left({q_{n + 1} + q_n}\\right)}$$\n$$> \\frac 1 {q_n \\left({q_{n + 1} + q_{n + 1} }\\right)}$$\n$$= \\frac 1 {2 q_n q_{n + 1} }$$\nThis gives the right-hand side of the inequality when $n = k$.\nFor the middle inequality, note that:\n$q_{k + 2} = a_{k + 2} q_{k + 1} + q_k > q_k + q_k = 2 q_k$\nSo:\n$\\dfrac 1 {q_{k + 1} q_{k + 2} } \\le \\dfrac 1 {2 q_k q_{k + 1} }$",
+    "clean_row_index": 712,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The determinant identity for adjacent convergents gives the exact error in terms of the next complete quotient. Bounding the tail between consecutive integers and applying the denominator recurrence establishes all three comparisons."
+  },
+  {
+    "theorem_id": 1610,
+    "title": "Poles of Gamma Function",
+    "theorem_text": "The gamma function $\\Gamma: \\C \\to \\C$ is analytic throughout the complex plane except at $\\set {0, -1, -2, -3, \\dotsc}$ where it has simple poles.",
+    "proof_text": "First we examine the location of the poles.\nWe examine the Weierstrass form of the Gamma function:\n$\\dfrac 1 {\\map \\Gamma z} = z e^{\\gamma z} \\displaystyle \\prod_{n \\mathop = 1}^\\infty \\paren {\\paren {1 + \\frac z n} e^{-z / n} }$\nThe factors of the product clearly do not tend to zero.\nSo the product is zero only if one of the factors is zero.\nThis occurs when $1 + \\dfrac z n = 0$.\nThis occurs at $z \\in \\set {-1, -2, \\dotsc}$.\nWe also have the expression outside the product to consider.\nFrom Exponential Tends to Zero and Infinity, the exponential function is never $0$.\nSo this expression is zero whenever $z = 0$.\nFurthermore, if some factor in the product is zero, this excludes the possibility that any other factor is zero.\nSo the zeros are simple.\nHence:\n$\\dfrac 1 {\\map \\Gamma z} = 0 \\iff z \\in \\set {0, -1, -2, -3, \\ldots}$\nTherefore $\\Gamma$ has simple poles at these points.\nNext we show that $\\Gamma$ is analytic on $\\map \\Re z > 0$.\nBy Gamma Difference Equation this proves that $\\Gamma$ is analytic on $\\C \\setminus \\set {0, -1, -2, -3, \\dotsc}$.\nLet the functions $\\Gamma_n$ be defined by\n$\\displaystyle \\map {\\Gamma_n} z = \\int_0^n t^{z - 1} e^{-t} \\rd t$\nClearly each $\\Gamma_n$ is analytic.\nSo by Uniform Limit of Analytic Functions is Analytic it is sufficient to show that $\\Gamma_n \\to \\Gamma$ locally uniformly.\nBy Modulus of Complex Integral:\n$\\displaystyle \\cmod {\\map \\Gamma z - \\map {\\Gamma_n} Z } \\le \\int_n^\\infty t^{x - 1} e^{-t} \\rd t$\nwhere $x = \\map \\Re z$.\nLet $a \\in \\C$ with $\\map \\Re a > 0$.\nLet $D$ be an open disk of radius $r$ about $a$.\nBy definition of exponential function, we have the expansion:\n$e^z = 1 + z + \\dfrac {z^2} 2 + \\dotsb$\nfrom which we see that:\n$\\forall \\alpha \\in \\R_{>0}: z^\\alpha = \\map o {e^z}$\nwhere $o$ denores little-o notation.\nIn particular:\n$\\exists c \\in \\R_{>0}: \\forall t \\ge 1: e^{-t} \\le c t^{-\\map \\Re a - r - 1}$\nThen:\n$$\\cmod {\\map \\Gamma z - \\map {\\Gamma_n} z} \\le \\int_n^\\infty t^{x - 1} c t^{-\\map \\Re a -r - 1} \\rd t$$\n$$\\le c\\int_n^\\infty t^{-2} \\rd t$$\n$$\\le \\frac c n$$\nSo $\\Gamma_n \\to \\Gamma$ uniformly in $D$, and the proof is complete.",
+    "clean_row_index": 713,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "An infinite product can vanish even if its factors tend to one and none vanish. The proof needs convergence to a nonzero analytic product after removing each candidate zero factor to justify the pole claim."
+  },
+  {
+    "theorem_id": 1612,
+    "title": "Gamma Difference Equation",
+    "theorem_text": "$\\map \\Gamma {z + 1} = z \\, \\map \\Gamma z$",
+    "proof_text": "Let $z \\in \\C$, with $\\map \\Re z > 0$.\nThen:\n$$\\map \\Gamma {z + 1} = \\int_0^\\infty t^z e^{-t} \\rd t$$\n$$= \\bigintlimits {-t^z e^{-t} } 0 \\infty + z \\int_0^\\infty t^{z - 1} e^{-t} \\rd t$$\nIntegration by Parts\n$$= z \\int_0^\\infty t^{z - 1} e^{-t} \\rd t$$\n$$= z \\, \\map \\Gamma z$$\nIf $z \\in \\C \\setminus \\set {0, -1, -2, \\ldots}$ such that $\\map \\Re z \\le 0$, then the statement holds by the definition of $\\Gamma$ in this region.",
+    "clean_row_index": 714,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Integration by parts gives the recursion on the right half-plane, with both boundary terms vanishing. The stated continuation by that recursion yields it elsewhere off the poles."
+  },
+  {
+    "theorem_id": 1617,
+    "title": "Irrational Number has Periodic Continued Fraction iff Quadratic",
+    "theorem_text": "Let $x$ be an irrational number.\nThen $x$ is a quadratic irrational if and only if its continued fraction expansion is periodic.",
+    "proof_text": "Follows from:\n* Limit of Simple Infinite Periodic Continued Fraction is Quadratic Irrational\n* Quadratic Irrational has Periodic Continued Fraction Expansion",
+    "clean_row_index": 715,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two cited results assert the periodic-to-quadratic and quadratic-to-periodic directions, respectively."
+  },
+  {
+    "theorem_id": 1619,
+    "title": "Solution of Pell's Equation is a Convergent",
+    "theorem_text": "Let $x = a, y = b$ be a positive solution to Pell's Equation $x^2 - n y^2 = 1$.\nThen $\\dfrac a b$ is a convergent of $\\sqrt n$.",
+    "proof_text": "Let $a^2 - n b^2 = 1$.\nThen we have:\n$\\left({a - b \\sqrt n}\\right) \\left({a + b \\sqrt n}\\right) = 1$.\nSo:\n$a - b \\sqrt n = \\dfrac 1 {a + b \\sqrt n} > 0$\nand so $a > b \\sqrt n$.\nTherefore:\n$$\\left\\vert{\\sqrt n - \\frac a b}\\right\\vert = \\frac {a - b \\sqrt n} b$$\n$$= \\frac 1 {b \\left({a + b \\sqrt n}\\right)}$$\n$$< \\frac 1 {b \\left({b \\sqrt n + b \\sqrt n}\\right)}$$\n$$= \\frac 1 {2 b^2 \\sqrt n}$$\n$$< \\frac 1 {2 b^2}$$\nThe result follows from Condition for Rational to be a Convergent.",
+    "clean_row_index": 716,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Factoring the Pell relation bounds the approximation error by less than one over twice the squared denominator. The Pell relation also forces coprime numerator and denominator, so the convergent criterion applies."
+  },
+  {
+    "theorem_id": 1624,
+    "title": "Consecutive Integers are Coprime",
+    "theorem_text": "$\\forall h \\in \\Z$, $h$ and $h + 1$ have only two common factors: $1$ and $-1$.\nThat is, consecutive integers are always coprime.",
+    "proof_text": "Let $k \\in \\Z: k \\divides h$.\nAlso assume $k \\divides \\paren {h + 1}$.\nThus:\n$\\exists a, b \\in \\N: a k = h, b k = \\paren {h + 1}$\nThen:\n$\\paren {h + 1} - h = b k - a k$\nand so:\n$1 = \\paren {b - a} k$\nSince the integers form an integral domain, $\\paren {b - a} \\in \\Z$.\nThus either $k = 1$ and $b - a = 1$, or $k = -1$ and $b - a = -1$.\nTherefore, only $1$ and $-1$ can be factors of both $h$ and $\\paren {h + 1}$.",
+    "clean_row_index": 717,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Subtracting the two integer multiples shows that any common divisor divides one. The witnesses need only be integers, as the calculation uses, despite their being denoted natural numbers."
+  },
+  {
+    "theorem_id": 1625,
+    "title": "Elements of Primitive Pythagorean Triple are Pairwise Coprime",
+    "theorem_text": "Let $\\tuple {x, y, z}$ be a primitive Pythagorean triple.\nThen:\n$x \\perp y$\n$y \\perp z$\n$x \\perp z$\nThat is, all elements of $\\tuple {x, y, z}$ are pairwise coprime.",
+    "proof_text": "We have that $x \\perp y$ by definition.\nSuppose there is a prime divisor $p$ of both $x$ and $z$.\nThat is:\n$\\exists p \\in \\mathbb P: p \\divides x, p \\divides z$\nThen from Prime Divides Power:\n$p \\divides x^2, p \\divides z^2$\nThen from Common Divisor Divides Integer Combination:\n$p \\divides \\paren {z^2 - x^2} = y^2$\nSo from Prime Divides Power again:\n$p \\divides y$\nand:\n$x \\not \\perp y$\nThis contradicts our assertion that $\\tuple {x, y, z}$ is a primitive Pythagorean triple.\nHence $x \\perp z$.\nThe same argument shows that $y \\perp z$.",
+    "clean_row_index": 718,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A prime dividing a leg and the hypotenuse divides the square of the other leg and hence that leg, contradicting primitivity. Symmetry gives the other pair."
+  },
+  {
+    "theorem_id": 1627,
+    "title": "Elements of Primitive Pythagorean Triples Modulo 4",
+    "theorem_text": "Let $x \\in \\Z: x > 2$.\nThen $x$ is an element of some primitive Pythagorean triple if and only if $x \\not \\equiv 2 \\pmod 4$.",
+    "proof_text": "Let $m = k + 1, n = k$ where $k \\in \\Z: k \\ge 1$.\nFrom Consecutive Integers are Coprime, $m \\perp n$.\nThen we have:\n$m, n \\in \\Z$ are positive integers\n$m \\perp n$, i.e. $m$ and $n$ are coprime\n$m$ and $n$ are of opposite parity\n$m > n$.\nFrom Solutions of Pythagorean Equation, these conditions are necessary and sufficient for $\\left({2 m n, m^2 - n^2, m^2 + n^2}\\right)$ to be a primitive Pythagorean triple.\nSubstituting for $m$ and $n$, we get:\n$\\left({2 k^2 + 2 k, 2 k + 1, 2 k^2 + 2 k + 1}\\right)$ is a primitive Pythagorean triple.\nSo we see that for all $k \\ge 1$, $2 k + 1$ is an element of a primitive Pythagorean triple.\nSo every odd integer from $3$ upwards is an element of some primitive Pythagorean triple.\nThat is, any integer $x$ such that $x \\equiv 1$ or $x \\equiv 3 \\pmod 4$.\nNow, consider $m = 2 k, n = 1$ where $k \\in \\Z: k \\ge 1$.\nThese also fit the criteria for $\\left({2 m n, m^2 - n^2, m^2 + n^2}\\right)$ to be a primitive Pythagorean triple.\nSubstituting for $m$ and $n$, we get:\n$\\left({4 k, 4 k^2 - 1, 4 k^2 + 1}\\right)$ is a primitive Pythagorean triple.\nThis means that for all $k \\ge 1$, $4 k$ is an element of a primitive Pythagorean triple.\nSo every multiple of $4$ is an element of some primitive Pythagorean triple.\nThat is, any integer $x$ such that $x \\equiv 0 \\pmod 4$.\nNow, consider the general primitive Pythagorean triple $\\left({2 m n, m^2 - n^2, m^2 + n^2}\\right)$.\nAs $m$ and $n$ are of opposite parity, they can be expressed as $2r$ and $2s + 1$.\nSo $2 m n = 2 \\left({2r}\\right)\\left({2s + 1}\\right) = 4 r \\left({2s + 1}\\right)$.\nSo $2 m n$ is divisible by $4$.\nAs the only even elements of a primitive Pythagorean triple are of this form $2 m n$ from Parity of Smaller Elements of Primitive Pythagorean Triple, there can be no such elements $x$ of the form $x = 2 \\pmod 4$.\nHence the result.",
+    "clean_row_index": 719,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Consecutive parameters realize every odd integer above two and the parameters 2k and one realize every multiple of four. The only even entry of a primitive triple has the form 2mn with an even parameter, so it is divisible by four."
+  }
+]

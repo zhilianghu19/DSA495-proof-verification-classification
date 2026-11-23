@@ -1,0 +1,5 @@
+Model,Training input,Split,Proofs,Actual Invalid,Invalid precision,Invalid recall,Macro F1
+DistilBERT,without_review_reason,validation,89,15,0.16666666666666666,0.2,0.4978056426332288
+DistilBERT,without_review_reason,test,89,14,0.23076923076923078,0.21428571428571427,0.5415746872700515
+DistilBERT,with_training_review_reason,validation,89,15,0.25,0.06666666666666667,0.4991724594505131
+DistilBERT,with_training_review_reason,test,89,14,0.0,0.0,0.4472049689440994

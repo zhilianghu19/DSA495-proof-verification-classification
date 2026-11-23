@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 172,
+    "title": "Preimage of Set Difference under Relation",
+    "theorem_text": "Let $\\mathcal R \\subseteq S \\times T$ be a relation.\nLet $C$ and $D$ be subsets of $T$.\nThen:\n$\\mathcal R^{-1} \\sqbrk C \\setminus \\mathcal R^{-1} \\sqbrk D \\subseteq \\mathcal R^{-1} \\sqbrk {C \\setminus D}$\nwhere:\n$\\setminus$ denotes set difference\n$\\mathcal R^{-1} \\sqbrk C$ denotes the preimage of $C$ under $\\mathcal R$.",
+    "proof_text": "We have that $\\mathcal R^{-1}$ is itself a relation\nThe result then follows from Image of Set Difference under Relation.",
+    "clean_row_index": 60,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the image-of-difference inclusion to the inverse relation gives the stated preimage inclusion with the same direction."
+  },
+  {
+    "theorem_id": 173,
+    "title": "Restriction is Subset of Relation",
+    "theorem_text": "Let $\\mathcal R \\subseteq S \\times T$ be a relation.\nLet $X \\subseteq S$.\nThen the restriction of $\\mathcal R$ to $X$ is a subset of $\\mathcal R$.",
+    "proof_text": "From the definition of restriction:\n$\\forall x \\in X: \\mathcal R \\restriction_X \\left({x}\\right) = \\mathcal R \\left({x}\\right)$\nThus:\n$\\forall x \\in X: \\exists t \\in T: \\left({x, t}\\right) \\in \\mathcal R \\restriction_X$\nBut $\\left({x, t}\\right)$ is also (by definition) in $\\mathcal R$.\nIt follows that:\n$\\mathcal R \\restriction_X \\subseteq \\mathcal R$",
+    "clean_row_index": 61,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Equality of two fibers does not make them nonempty. A point of X can have no related element in T. The asserted existence fails even for the empty relation."
+  },
+  {
+    "theorem_id": 177,
+    "title": "Relation both Symmetric and Asymmetric is Null",
+    "theorem_text": "Let $\\RR$ be a relation in $S$ which is both symmetric and asymmetric.\nThen:\n$\\RR = \\O$",
+    "proof_text": "Let $\\RR \\ne \\O$.\nThen:\n$\\exists \\tuple {x, y} \\in \\RR$\nNow, either $\\tuple {y, x} \\in \\RR$ or $\\tuple {y, x} \\notin \\RR$.\nIf $\\tuple {y, x} \\in \\RR$, then $\\RR$ is not asymmetric.\nIf $\\tuple {y, x} \\notin \\RR$, then $\\RR$ is not symmetric.\nTherefore, if $\\RR \\ne \\O$, $\\RR$ can not be both symmetric and asymmetric.\nLet $\\RR = \\O$.\nThen:\n$\\forall x, y \\in S: \\tuple {x, y} \\notin \\RR \\land \\tuple {y, x} \\notin \\RR$\nFrom Biconditional as Disjunction of Conjunctions:\n$\\tuple {p \\land q} \\lor \\tuple {\\neg p \\land \\neg q} \\vdash p \\iff q$\nThus:\n$\\forall x, y \\in S: \\tuple {x, y} \\in \\RR \\iff \\tuple {y, x} \\in \\RR$\nSo the condition for symmetry is fulfilled, and $\\RR = \\O$ is symmetric.\nAs $\\RR = \\O$:\n$\\forall x, y \\in S: \\tuple {x, y} \\notin \\RR$\nFrom False Statement implies Every Statement $\\neg p \\vdash p \\implies q$, we can deduce:\n$\\forall x, y \\in S: \\tuple {x, y} \\notin \\RR$\ntherefore:\n$\\forall x, y \\in S: \\tuple {x, y} \\in \\RR \\implies \\forall x, y \\in S: \\tuple {y, x} \\notin \\RR$\nThis is the definition of asymmetric.\nThus the only relation $\\RR$ to be both symmetric and asymmetric is $\\RR = \\O$.",
+    "clean_row_index": 62,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A pair in a nonempty relation would require its reverse by symmetry and forbid its reverse by asymmetry. The empty relation satisfies both conditions vacuously."
+  },
+  {
+    "theorem_id": 180,
+    "title": "Asymmetric Relation is Antisymmetric",
+    "theorem_text": "Let $\\RR$ be an asymmetric relation.\nThen $\\RR$ is also antisymmetric.",
+    "proof_text": "Let $\\RR$ be asymmetric.\nThen from the definition of asymmetric:\n$\\tuple {x, y} \\in \\RR \\implies \\tuple {y, x} \\notin \\RR$\nThus:\n$\\neg \\exists \\tuple {x, y} \\in \\RR: \\tuple {y, x} \\in \\RR$\nThus:\n$\\set {\\tuple {x, y} \\in \\RR \\land \\tuple {y, x} \\in \\RR} = \\O$\nThus:\n$\\tuple {x, y} \\in \\RR \\land \\tuple {y, x} \\in \\RR \\implies x = y$\nis vacuously true.",
+    "clean_row_index": 63,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Asymmetry rules out mutual relatedness, so the implication from mutual relatedness to equality holds vacuously."
+  },
+  {
+    "theorem_id": 192,
+    "title": "Composite Relation with Inverse is Symmetric",
+    "theorem_text": "Let $\\mathcal R \\subseteq S \\times T$ be a relation.\nThen the composition of $\\mathcal R$ with its inverse $\\mathcal R^{-1}$ is symmetric:\n* $\\mathcal R^{-1} \\circ \\mathcal R$ is a symmetric relation on $S$\n* $\\mathcal R \\circ \\mathcal R^{-1}$ is a symmetric relation on $T$.",
+    "proof_text": "Note that this result holds for any $\\mathcal R \\subseteq S \\times T$, and does not require that $\\left({S, \\mathcal R}\\right)$ necessarily be a relational structure.\n$$\\left({a, b}\\right) \\in \\mathcal R^{-1} \\circ \\mathcal R$$\n$$\\implies \\exists c \\in T: \\left({a, c}\\right) \\in \\mathcal R \\land \\left({c, b}\\right) \\in \\mathcal R^{-1}$$\nDefinition of Composite Relation\n$$\\implies \\exists c \\in T: \\left({b, c}\\right) \\in \\mathcal R \\land \\left({c, a}\\right) \\in \\mathcal R^{-1}$$\nDefinition of Inverse Relation\n$$\\implies \\left({b, a}\\right) \\in \\mathcal R^{-1} \\circ \\mathcal R$$\nDefinition of Composite Relation\nThus $\\left({a, b}\\right) \\in \\mathcal R^{-1} \\circ \\mathcal R \\implies \\left({b, a}\\right) \\in \\mathcal R^{-1} \\circ \\mathcal R$ and thus $\\mathcal R^{-1} \\circ \\mathcal R$ is symmetric.\nAs $\\mathcal R = \\left({\\mathcal R^{-1}}\\right)^{-1}$ from Inverse of Inverse Relation, it follows that $\\mathcal R \\circ \\mathcal R^{-1} = \\left({\\mathcal R^{-1}}\\right)^{-1} \\circ \\mathcal R^{-1}$ is likewise a symmetric relation.\nThe domain of $\\mathcal R^{-1} \\circ \\mathcal R$ is $S$ from Domain of Composite Relation, as is its codomain from Codomain of Composite Relation and the definition of Inverse Relation.\nSimilarly, the codomain of $\\mathcal R \\circ \\mathcal R^{-1}$ is $T$, as is its domain.\nThis completes the proof.",
+    "clean_row_index": 64,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A common intermediate c works for the reversed pair as well. Replacing the relation by its inverse proves symmetry on T. The extra assertion that every element is in the domain can fail for partial relations, but neither symmetry conclusion relies on it."
+  },
+  {
+    "theorem_id": 202,
+    "title": "Equivalence Classes are Disjoint",
+    "theorem_text": "Let $\\RR$ be an equivalence relation on a set $S$.\nThen all $\\RR$-classes are pairwise disjoint:\n$\\tuple {x, y} \\notin \\RR \\iff \\eqclass x \\RR \\cap \\eqclass y \\RR = \\O$",
+    "proof_text": "Suppose that for $x, y \\in S$:\n$\\eqclass x {\\RR} \\cap \\eqclass y \\RR \\ne \\O$\nLet:\n$z \\in \\eqclass x \\RR$\n$z \\in \\eqclass y \\RR$\nThen by definition of equivalence class:\n$\\tuple {x, z} \\in \\RR$\n$\\tuple {y, z} \\in \\RR$\nLet $c \\in \\eqclass x \\RR$.\nThat is:\n$\\tuple {x, c} \\in \\RR$\nBy definition of equivalence relation, $\\RR$ is symmetric so:\n$\\tuple {z, x} \\in \\RR$\nBy definition of equivalence relation, $\\RR$ is transitive so:\n$\\tuple {z, x} \\in \\RR \\land \\tuple {x, c} \\in \\RR \\implies \\tuple {z, c} \\in \\RR$\nand\n$\\tuple {y, z} \\in \\RR \\land \\tuple {z, c} \\in \\RR \\implies \\tuple {y, c} \\in \\RR$\nSo we have $c \\in \\eqclass y \\RR$.\nBy definition of subset:\n$\\eqclass x \\RR \\subseteq \\eqclass y \\RR$\nSimilarly, let $c \\in \\eqclass y \\RR$.\nThat is:\n$\\tuple {y, c} \\in \\RR$\nBy definition of equivalence relation, $\\RR$ is symmetric so:\n$\\tuple {z, y} \\in \\RR$\nBy definition of equivalence relation, $\\RR$ is transitive so:\n$\\tuple {z, y} \\in \\RR \\land \\tuple {y, c} \\in \\RR \\implies \\tuple {z, c} \\in \\RR$\nand\n$\\tuple {x, z} \\in \\RR \\land \\tuple {z, c} \\in \\RR \\implies \\tuple {x, c} \\in \\RR$\nSo we have $c \\in \\eqclass x \\RR$.\nBy definition of subset:\n$\\eqclass y \\RR \\subseteq \\eqclass x \\RR$\nThat is:\n$\\eqclass x \\RR \\subseteq \\eqclass y \\RR$\nand\n$\\eqclass y \\RR \\subseteq \\eqclass x \\RR$\nBy definition of set equality:\n$\\eqclass x \\RR = \\eqclass y \\RR$\nThus:\n$\\eqclass x \\RR \\cap \\eqclass y \\RR \\ne \\O \\implies \\eqclass x \\RR = \\eqclass y \\RR$\nand the result follows.",
+    "clean_row_index": 65,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A common z and symmetry and transitivity give equality of the two classes. Reflexivity puts each representative in its own class, and related representatives share a member, giving the stated equivalence."
+  },
+  {
+    "theorem_id": 204,
+    "title": "Equivalence Class is Unique",
+    "theorem_text": "Let $\\mathcal R$ be an equivalence relation on $S$.\nFor each $x \\in S$, the one and only one $\\mathcal R$-class to which $x$ belongs is $\\eqclass x {\\mathcal R}$.",
+    "proof_text": "This follows directly from the Fundamental Theorem on Equivalence Relations: the set of $\\mathcal R$-classes forms a partition of $S$.",
+    "clean_row_index": 66,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The partition theorem gives exactly one class containing x. Reflexivity identifies that class as the class of x."
+  },
+  {
+    "theorem_id": 208,
+    "title": "Intersection of Equivalences",
+    "theorem_text": "The intersection of two equivalence relations is itself an equivalence relation.",
+    "proof_text": "Let $\\mathcal R_1$ and $\\mathcal R_2$ be equivalence relations on $S$.\nLet $\\mathcal R_3 = \\mathcal R_1 \\cap \\mathcal R_2$.\nChecking in turn each of the criteria for equivalence:\nReflexive\nEquivalence relations are by definition reflexive.\nSo, by Intersection of Reflexive Relations is Reflexive, so is $\\mathcal R_3$.\nSymmetric\nEquivalence relations are by definition symmetric.\nSo, by Intersection of Symmetric Relations is Symmetric, so is $\\mathcal R_3$.\nTransitive\nEquivalence relations are by definition transitive.\nSo, by Intersection of Transitive Relations is Transitive, so is $\\mathcal R_3$.\nThus $\\mathcal R_3$ is an equivalence.",
+    "clean_row_index": 67,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Intersecting relations on the same carrier preserves reflexivity, symmetry and transitivity by the three cited closure results."
+  },
+  {
+    "theorem_id": 213,
+    "title": "Inverse of Mapping is One-to-Many Relation",
+    "theorem_text": "Let $f$ be a mapping.\nThen its inverse $f^{-1}$ is a one-to-many relation.",
+    "proof_text": "We have that $f$ is a mapping.\nHence $f$ is a fortiori a many-to-one relation.\nThen from Inverse of Many-to-One Relation is One-to-Many, $f^{-1}$ is one-to-many.",
+    "clean_row_index": 68,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every function is single-valued, so its inverse is left-unique, the one-to-many property under the terminology used here."
+  },
+  {
+    "theorem_id": 216,
+    "title": "Diagonal Relation is Right Identity",
+    "theorem_text": "Let $\\RR \\subseteq S \\times T$ be a relation on $S \\times T$.\nThen:\n$\\RR \\circ \\Delta_S = \\RR$\nwhere $\\Delta_S$ is the diagonal relation on $S$, and $\\circ$ signifies composition of relations.",
+    "proof_text": "We use the definition of relation equality, as follows:\nEquality of Codomains\nThe codomains of $\\RR$ and $\\RR \\circ \\Delta_S$ are both equal to $T$ from Codomain of Composite Relation.\nEquality of Domains\nThe domains of $\\RR$ and $\\RR \\circ \\Delta_S$ are also easily shown to be equal.\nFrom Domain of Composite Relation:\n$\\Dom {\\RR \\circ \\Delta_S} = \\Dom {\\Delta_S}$\nBut from the definition of the diagonal relation:\n$\\Dom {\\Delta_S} = \\Img {\\Delta_S} = S$\nEquality of Relations\nThe composite of $\\Delta_S$ and $\\RR$ is defined as:\n$\\RR \\circ \\Delta_S = \\set {\\tuple {x, z} \\in S \\times T: \\exists y \\in S: \\tuple {x, y} \\in \\Delta_S \\land \\tuple {y, z} \\in \\RR}$\nBut by definition of the diagonal relation on $S$, we have that:\n$\\tuple {x, y} \\in \\Delta_S \\implies x = y$\nHence:\n$\\RR \\circ \\Delta_S = \\set {\\tuple {y, z} \\in S \\times T: \\exists y \\in S: \\tuple {y, y} \\in \\Delta_S \\land \\tuple {y, z} \\in \\RR}$\nBut as $\\forall y \\in S: \\tuple {y, y} \\in \\Delta_S$, this means:\n$\\RR \\circ \\Delta_S = \\set {\\tuple {y, z} \\in S \\times T: \\tuple {y, z} \\in \\RR}$\nThat is:\n$\\RR \\circ \\Delta_S = \\RR$\nHence the result.",
+    "clean_row_index": 69,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The final graph calculation is sufficient: the diagonal forces the intermediate point to equal the first coordinate, leaving exactly the pairs of R. The separate full-domain claim fails for partial relations but is unnecessary."
+  },
+  {
+    "theorem_id": 217,
+    "title": "Identity Mapping is Left Identity",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $f: S \\to T$ be a mapping.\nThen:\n$I_T \\circ f = f$\nwhere $I_T$ is the identity mapping on $T$, and $\\circ$ signifies composition of mappings.",
+    "proof_text": "By definition, a mapping is also a relation.\nAlso by definition, the identity mapping is the same as the diagonal relation.\nThus Diagonal Relation is Left Identity can be applied directly.",
+    "clean_row_index": 70,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The graph of the identity on T is its diagonal, so the cited left-identity law for relations specializes to f."
+  },
+  {
+    "theorem_id": 224,
+    "title": "Injection iff Left Inverse",
+    "theorem_text": "A mapping $f: S \\to T, S \\ne \\O$ is an injection if and only if:\n$\\exists g: T \\to S: g \\circ f = I_S$\nwhere $g$ is a mapping.\nThat is, if and only if $f$ has a left inverse.",
+    "proof_text": "Take the result Condition for Composite Mapping on Left:\nLet $A, B, C$ be sets.\nLet $f: A \\to B$ and $g: A \\to C$ be mappings.\nThen:\n$\\forall x, y \\in A: \\map f x = \\map f y \\implies \\map g x = \\map g y$\nif and only if:\n$\\exists h: B \\to C$ such that $h$ is a mapping and $h \\circ f = g$.\nLet $C = A = S$, let $B = T$ and let $g = I_S$.\nThen the above translates into:\n$\\exists h: T \\to S$ such that $h$ is a mapping and $h \\circ f = g$\nif and only if:\n$\\forall x, y \\in S: \\map f x = \\map f y \\implies \\map {I_S} x = \\map {I_S} y$\nBut as $\\map {I_S} x = x$ and $\\map {I_S} y = y$ by definition of identity mapping, it follows that:\n$\\exists h: T \\to S$ such that $h$ is a mapping and $h \\circ f = g$\nif and only if:\n$\\forall x, y \\in S: \\map f x = \\map f y \\implies x = y$\nwhich is our result.",
+    "clean_row_index": 71,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Factoring the identity on S through f requires exactly that equal f-values give equal identity-values, which is injectivity. The nonempty source permits extension outside the image."
+  },
+  {
+    "theorem_id": 224,
+    "title": "Injection iff Left Inverse",
+    "theorem_text": "A mapping $f: S \\to T, S \\ne \\O$ is an injection if and only if:\n$\\exists g: T \\to S: g \\circ f = I_S$\nwhere $g$ is a mapping.\nThat is, if and only if $f$ has a left inverse.",
+    "proof_text": "Let $f: S \\to T$ be an injection.\nThen $f$ is a one-to-many relation.\nBy Inverse of Many-to-One Relation is One-to-Many, $f^{-1}: T \\to S$ is many-to-one.\nBy Many-to-One Relation Extends to Mapping, there is a Mapping $g: T \\to S$ such that $f^{-1} \\subseteq g$.\nLet $\\tuple {x, y} \\in g \\circ f$.\nThen:\n$\\exists z \\in T: \\tuple {x, z} \\in f, \\tuple {z, y} \\in g$\nSince $\\tuple {x, z} \\in f$:\n$\\tuple {z, x} \\in f^{-1} \\subseteq g$\nSince $\\tuple {z, y} \\in g$, $\\tuple {z, x} \\in g$ and $g$ is a mapping:\n$x = y$\nso:\n$\\tuple {x, y} \\in I_S$\nSo we see that:\n$g \\circ f \\subseteq I_S$\nLet $x \\in S$.\nThen:\n$\\tuple {x, \\map f x} \\in f$\nand:\n$\\tuple {\\map f x, x} \\in f^{-1} \\subseteq g$\nSo:\n$\\tuple {x, x} \\in g \\circ f$\nThus:\n$I_S \\subseteq g \\circ f$\nBy definition of set equality:\n$I_S = g \\circ f$",
+    "clean_row_index": 72,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Starting with an injection, the proof constructs a left inverse and verifies its composite. It never establishes the converse implication from an existing left inverse to injectivity."
+  },
+  {
+    "theorem_id": 228,
+    "title": "Restriction of Mapping to Image is Surjection",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $g: S \\to \\Img f$ be the restriction of $f$ to $S \\times \\Img f$.\nThen $g$ is a surjective restriction of $f$.",
+    "proof_text": "From Image is Subset of Codomain:\n$\\Img g \\subseteq T$\nFurthermore, by definition of image, we have:\n$\\forall s \\in S: g \\paren s \\in \\Img g$\nTherefore, $g$ may be viewed as a mapping $g: S \\to \\Img g$.\nThus, by definition, $g$ is a surjection.",
+    "clean_row_index": 73,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Restricting the codomain to the image leaves each value unchanged. Consequently the image of g equals the proposed target, and every target element is attained by definition."
+  },
+  {
+    "theorem_id": 231,
+    "title": "Surjection iff Right Inverse",
+    "theorem_text": "A mapping $f: S \\to T, S \\ne \\O$ is a surjection if and only if:\n$\\exists g: T \\to S: f \\circ g = I_T$\nwhere:\n$g$ is a mapping\n$I_T$ is the identity mapping on $T$.\nThat is, if and only if $f$ has a right inverse.",
+    "proof_text": "Take the result Condition for Composite Mapping on Right:\nLet $A, B, C$ be sets.\nLet $f: B \\to A$ and $g: C \\to A$ be mappings.\nThen:\n$\\Img g \\subseteq \\Img f$\nif and only if:\n$\\exists h: C \\to B$ such that $h$ is a mapping and $f \\circ h = g$.\nLet $C = A = T$, let $B = S$ and let $g = I_T$.\nThen the above translates into:\n$\\Img {I_T} \\subseteq \\Img f$\nif and only if:\n$\\exists g: T \\to S$ such that $g$ is a mapping and $f \\circ g = I_T$.\nBut we know that:\n$\\Img f \\subseteq T = \\Img {I_T}$\nSo by definition of set equality, the result follows.",
+    "clean_row_index": 74,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With g the identity on T, the quoted factorization result gives a right inverse exactly when T is contained in the image of f. Together with the reverse inclusion this is surjectivity, under the choice principle implicit in the cited result."
+  },
+  {
+    "theorem_id": 232,
+    "title": "Identity Mapping is Bijection",
+    "theorem_text": "The identity mapping $I_S: S \\to S$ on the set $S$ is a bijection.",
+    "proof_text": "The identity mapping is:\n:an injection, from Identity Mapping is Injection\n:a surjection, from Identity Mapping is Surjection\nand therefore a bijection.",
+    "clean_row_index": 75,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited results give both injectivity and surjectivity of the identity on S."
+  },
+  {
+    "theorem_id": 234,
+    "title": "Bijection iff Left and Right Inverse",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\n$f$ is a bijection if and only if:\n$(1): \\quad \\exists g_1: T \\to S: g_1 \\circ f = I_S$\n$(2): \\quad \\exists g_2: T \\to S: f \\circ g_2 = I_T$\nwhere both $g_1$ and $g_2$ are mappings.\nIt also follows that it is necessarily the case that $g_1 = g_2$ for such to be possible.",
+    "proof_text": "Necessary Condition\nLet $f: S \\to T$ be a mapping.\nLet $f$ be such that:\n$\\exists g_1: T \\to S: g_1 \\circ f = I_S$\n$\\exists g_2: T \\to S: f \\circ g_2 = I_T$\nwhere both $g_1$ and $g_2$ are mappings.\nThen from Left and Right Inverse Mappings Implies Bijection it follows that $f$ is a bijection.\nFrom Left and Right Inverses of Mapping are Inverse Mapping it follows that:\n$g_1 = g_2 = f^{-1}$\nwhere $f^{-1}$ is the inverse of $f$.\nSufficient Condition\nLet $f: S \\to T$ be a bijection.\nThen from Bijection has Left and Right Inverse it follows that:\n$f^{-1} \\circ f = I_S$ and\n$f \\circ f^{-1} = I_T$\nwhere $f^{-1}$ is the inverse of $f$.",
+    "clean_row_index": 76,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A left and a right inverse force bijectivity and coincide by the cited inverse laws. Conversely the inverse of a bijection satisfies both identities."
+  },
+  {
+    "theorem_id": 235,
+    "title": "Inverse of Bijection is Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a bijection in the sense that:\n$(1): \\quad f$ is an injection\n$(2): \\quad f$ is a surjection.\nThen the inverse $f^{-1}$ of $f$ is itself a bijection by the same definition.",
+    "proof_text": "Let $f$ be both an injection and a surjection.\nFrom Mapping is Injection and Surjection iff Inverse is Mapping it follows that its inverse $f^{-1}$ is a mapping.\nFrom Inverse of Inverse Relation:\n$\\paren {f^{-1} }^{-1} = f$\nThus the inverse of $f^{-1}$ is $f$.\nBut then $f$, being a bijection, is by definition a mapping.\nSo from Mapping is Injection and Surjection iff Inverse is Mapping it follows that $f^{-1}$ is a bijection.",
+    "clean_row_index": 77,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The inverse relation is a mapping because f is bijective. Its own inverse is f, also a mapping, so the quoted characterization makes the inverse bijective."
+  },
+  {
+    "theorem_id": 236,
+    "title": "Inverse Element of Bijection",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $f: S \\to T$ be a bijection.\nThen:\n$\\map {f^{-1} } y = x \\iff \\map f x = y$\nwhere $f^{-1}$ is the inverse mapping of $f$.",
+    "proof_text": "Suppose $f$ is a bijection.\nBecause $f^{-1}$ is a bijection from Bijection iff Inverse is Bijection, it is by definition  a mapping.\nThe result follows directly from Image of Element under Inverse Mapping.",
+    "clean_row_index": 78,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Bijectivity makes the inverse graph a function, and reversing the pair (x,y) identifies its unique value at y as x."
+  },
+  {
+    "theorem_id": 238,
+    "title": "Inverse of Inverse of Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a bijection.\nThen:\n$\\paren {f^{-1} }^{-1} = f$\nwhere $f^{-1}$ is the inverse of $f$.",
+    "proof_text": "A mapping is a relation.\nThus it follows that Inverse of Inverse Relation can be applied directly.",
+    "clean_row_index": 79,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Reversing ordered pairs twice recovers the original relation, which applies to the graph of this bijection."
+  },
+  {
+    "theorem_id": 238,
+    "title": "Inverse of Inverse of Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a bijection.\nThen:\n$\\paren {f^{-1} }^{-1} = f$\nwhere $f^{-1}$ is the inverse of $f$.",
+    "proof_text": "Let $f: S \\to T$ be a bijection.\nFrom Composite of Bijection with Inverse is Identity Mapping we have:\n$f^{-1} \\circ f = I_S$\n$f \\circ f^{-1} = I_T$\nwhere $I_S$ and $I_T$ are the identity mappings on $S$ and $T$ respectively.\nThe result follows from Left and Right Inverses of Mapping are Inverse Mapping.",
+    "clean_row_index": 80,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two stated composite identities exhibit f as a two-sided inverse of its inverse. Uniqueness gives the claim."
+  },
+  {
+    "theorem_id": 239,
+    "title": "Composite of Bijections is Bijection",
+    "theorem_text": "Let $f$ and $g$ be mappings such that $\\Dom f = \\Cdm g$.\nThen:\n:If $f$ and $g$ are both bijections, then so is $f \\circ g$\nwhere $f \\circ g$ is the composite mapping of $f$ with $g$.",
+    "proof_text": "As every bijection is also by definition an injection, a composite of bijections is also a composite of injections.\nEvery composite of injections is also an injection by Composite of Injections is Injection.\nAs every bijection is also by definition a surjection, a composite of bijections is also a composite of surjections.\nEvery composite of surjections is also a surjection by Composite of Surjections is Surjection.\nAs a composite of bijections is therefore both an injection and a surjection, it is also a bijection.",
+    "clean_row_index": 81,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The compatible composite is injective by composition of injections and surjective by composition of surjections."
+  },
+  {
+    "theorem_id": 239,
+    "title": "Composite of Bijections is Bijection",
+    "theorem_text": "Let $f$ and $g$ be mappings such that $\\Dom f = \\Cdm g$.\nThen:\n:If $f$ and $g$ are both bijections, then so is $f \\circ g$\nwhere $f \\circ g$ is the composite mapping of $f$ with $g$.",
+    "proof_text": "Let $g: X \\to Y$ and $f: Y \\to Z$ be bijections.\nThen from Bijection iff Inverse is Bijection, both $f^{-1}$ and $g^{-1}$ are bijections.\nFrom Inverse of Composite Relation we have that $g^{-1} \\circ f^{-1}$ is the inverse of $f \\circ g$.\nThen:\n$\\paren {f \\circ g} \\circ \\paren {g^{-1} \\circ f^{-1} } = I_Z$\n$\\paren {g^{-1} \\circ f^{-1} } \\circ \\paren {f \\circ g} = I_X$\nHence the result.",
+    "clean_row_index": 82,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Reversing the factors gives a mapping from Z to X. Cancelling the two inverse pairs in either composite gives the identity, so the original composite is bijective."
+  },
+  {
+    "theorem_id": 240,
+    "title": "Inverse of Composite Bijection",
+    "theorem_text": "Let $f$ and $g$ be bijections such that $\\Dom g = \\Cdm f$.\nThen:\n$\\paren {g \\circ f}^{-1} = f^{-1} \\circ g^{-1}$\nand $f^{-1} \\circ g^{-1}$ is itself a bijection.",
+    "proof_text": "$\\left({g \\circ f}\\right)^{-1} = f^{-1} \\circ g^{-1}$ is a specific example of Inverse of Composite Relation.\nAs $f$ and $g$ are bijections then by Bijection iff Inverse is Bijection, so are both $f^{-1}$ and $g^{-1}$.\nBy Composite of Bijections is Bijection, it follows that $f^{-1} \\circ g^{-1}$ is a bijection.",
+    "clean_row_index": 83,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The relation-inverse composition rule gives the equality. The two inverse factors are bijections with compatible types, so their composite is bijective."
+  },
+  {
+    "theorem_id": 240,
+    "title": "Inverse of Composite Bijection",
+    "theorem_text": "Let $f$ and $g$ be bijections such that $\\Dom g = \\Cdm f$.\nThen:\n$\\paren {g \\circ f}^{-1} = f^{-1} \\circ g^{-1}$\nand $f^{-1} \\circ g^{-1}$ is itself a bijection.",
+    "proof_text": "Let $f: X \\to Y$ and $g: Y \\to Z$ be bijections.\nThen:\n$$\\paren {g \\circ f} \\circ \\paren {f^{-1} \\circ g^{-1} } = g \\circ \\paren {\\paren {f \\circ f^{-1} } \\circ g^{-1} }$$\nComposition of Mappings is Associative\n$$= g \\circ \\paren {I_Y \\circ g^{-1} }$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= g \\circ g^{-1}$$\nIdentity Mapping is Left Identity\n$$= I_Z$$\nComposite of Bijection with Inverse is Identity Mapping\n$$\\paren {f^{-1} \\circ g^{-1} } \\circ \\paren {g \\circ f} = \\paren {f^{-1} \\circ \\paren {g^{-1} \\circ g} } \\circ f$$\nComposition of Mappings is Associative\n$$= \\paren {f^{-1} \\circ I_Y} \\circ f$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= f^{-1} \\circ f$$\nIdentity Mapping is Right Identity\n$$= I_X$$\nComposite of Bijection with Inverse is Identity Mapping\nHence the result.",
+    "clean_row_index": 84,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two associative rearrangements yield the identity maps on Z and X. Each composite is therefore the other's two-sided inverse and each is bijective."
+  },
+  {
+    "theorem_id": 241,
+    "title": "Composite of Permutations is Permutation",
+    "theorem_text": "Let $f, g$ are permutations of a set $S$.\nThen their composite $g \\circ f$ is also a permutation of $S$.",
+    "proof_text": "This follows from the fact that a permutation is a bijection.\nThe domain and codomain are coincident.\nThe result follows from Composite of Bijections is Bijection.",
+    "clean_row_index": 85,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both factors are bijections from S to S, so their composite is a bijection with that same source and target."
+  },
+  {
+    "theorem_id": 242,
+    "title": "Inverse of Permutation is Permutation",
+    "theorem_text": "If $f$ is a permutation of $S$, then so is its inverse $f^{-1}$.",
+    "proof_text": "Let $f: S \\to S$ is a permutation of $S$.\nBy definition, a permutation is a bijection such that the domain and codomain are the same set.\nFrom Bijection iff Inverse is Bijection, it follows $f^{-1}$ is a bijection.\nFrom the definition of inverse relation, the domain of a relation is the codomain of its inverse and vice versa.\nThus the domain and codomain of $f^{-1}$ are both $S$ and it follows that $f^{-1}$ is a permutation.",
+    "clean_row_index": 86,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A bijection of S has an inverse bijection from its target S back to its source S. This is again a permutation."
+  },
+  {
+    "theorem_id": 243,
+    "title": "Left Inverse Mapping is Surjection",
+    "theorem_text": "Let $f: S \\to T$ be an injection.\nLet $g: T \\to S$ be a left inverse of $f$.\nThen $g$ is a surjection.",
+    "proof_text": "Let $f: S \\to T$ be an injection.\nThen from Injection iff Left Inverse there exists at least one left inverse $g: T \\to S$ of $f$ such that $g \\circ f = I_S$.\n$I_S$ is a surjection.\nThus $g \\circ f$ is a surjection.\nBy Surjection if Composite is Surjection it follows that $g$ is also a surjection.",
+    "clean_row_index": 87,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For the given left inverse, g composed with f is the surjective identity on S. Hence g reaches every element of S."
+  },
+  {
+    "theorem_id": 244,
+    "title": "Right Inverse Mapping is Injection",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $g: T \\to S$ be a right inverse of $f$.\nThen $g$ is an injection.",
+    "proof_text": "By the definition of right inverse:\n$f \\circ g = I_T$\nwhere $I_T$ is the identity mapping on $T$.\nBy Identity Mapping is Injection, $I_T$ is an injection.\nBy Injection if Composite is Injection, it follows that $g$ is an injection.",
+    "clean_row_index": 88,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "If two g-values agree, applying f gives equal identity-values in T. Thus a right inverse is injective."
+  },
+  {
+    "theorem_id": 247,
+    "title": "Image of Union under Mapping",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $f: S \\to T$ be a mapping.\nLet $A$ and $B$ be subsets of $S$.\nThen:\n$f \\sqbrk {A \\cup B} = f \\sqbrk A \\cup f \\sqbrk B$\nThis can be expressed in the language and notation of direct image mappings as:\n$\\forall A, B \\in \\powerset S: \\map {f^\\to} {A \\cup B} = \\map {f^\\to} A \\cup \\map {f^\\to} B$",
+    "proof_text": "As $f$, being a mapping, is also a relation, we can apply Image of Union under Relation:\n$\\RR \\sqbrk {A \\cup B} = \\RR \\sqbrk A \\cup \\RR \\sqbrk B$",
+    "clean_row_index": 89,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Treating the graph of f as the relation in the cited union identity gives exactly the two image formulas."
+  }
+]

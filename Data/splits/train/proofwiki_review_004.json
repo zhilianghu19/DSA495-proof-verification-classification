@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 248,
+    "title": "Image of Intersection under Mapping",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $f: S \\to T$ be a mapping.\nLet $S_1$ and $S_2$ be subsets of $S$.\nThen:\n$f \\sqbrk {S_1 \\cap S_2} \\subseteq f \\sqbrk {S_1} \\cap f \\sqbrk {S_2}$\nThis can be expressed in the language and notation of direct image mappings as:\n$\\forall S_1, S_2 \\in \\powerset S: \\map {f^\\to} {S_1 \\cap S_2} \\subseteq \\map {f^\\to} {S_1} \\cap \\map {f^\\to} {S_2}$",
+    "proof_text": "As $f$, being a mapping, is also a relation, we can apply Image of Intersection under Relation:\n$\\RR \\sqbrk {S_1 \\cap S_2} \\subseteq \\RR \\sqbrk {S_1} \\cap \\RR \\sqbrk {S_2}$",
+    "clean_row_index": 90,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A map is a relation, so the cited general inclusion specializes to its graph and the same subsets of the source."
+  },
+  {
+    "theorem_id": 249,
+    "title": "Image of Intersection under Injection",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $f: S \\to T$ be a mapping.\nThen:\n$\\forall A, B \\subseteq S: f \\sqbrk {A \\cap B} = f \\sqbrk A \\cap f \\sqbrk B$\nif and only if $f$ is an injection.",
+    "proof_text": "An injection is a type of one-to-one relation, and therefore also a one-to-many relation.\nTherefore Image of Intersection under One-to-Many Relation applies:\n$\\forall A, B \\subseteq S: \\mathcal R \\left[{A \\cap B}\\right] = \\mathcal R \\left[{A}\\right] \\cap \\mathcal R \\left[{B}\\right]$\nif and only if $\\mathcal R$ is a one-to-many relation.\nWe have that $f$ is a mapping and therefore a many-to-one relation.\nSo $f$ is a one-to-many relation if and only if $f$ is also an injection.\nIt follows that:\n$\\forall A, B \\subseteq S: f \\left[{A \\cap B}\\right] = f \\left[{A}\\right] \\cap f \\left[{B}\\right]$\nif and only if $f$ is an injection.",
+    "clean_row_index": 91,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited equivalence characterizes preservation of intersections by left uniqueness. For a function, left uniqueness is precisely injectivity."
+  },
+  {
+    "theorem_id": 252,
+    "title": "Preimage of Union under Mapping",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $f: S \\to T$ be a mapping.\nLet $T_1$ and $T_2$ be subsets of $T$.\nThen:\n$f^{-1} \\sqbrk {T_1 \\cup T_2} = f^{-1} \\sqbrk {T_1} \\cup f^{-1} \\sqbrk {T_2}$\nThis can be expressed in the language and notation of inverse image mappings as:\n$\\forall T_1, T_2 \\in \\powerset T: \\map {f^\\gets} {T_1 \\cup T_2} = \\map {f^\\gets} {T_1} \\cup \\map {f^\\gets} {T_2}$",
+    "proof_text": "As $f$, being a mapping, is also a relation, we can apply Preimage of Union under Relation:\n$\\RR^{-1} \\sqbrk {T_1 \\cup T_2} = \\RR^{-1} \\sqbrk {T_1} \\cup \\RR^{-1} \\sqbrk {T_2}$",
+    "clean_row_index": 92,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Relational preimage preserves unions, and the preimage of a function is the preimage under its graph."
+  },
+  {
+    "theorem_id": 253,
+    "title": "Preimage of Intersection under Mapping",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $T_1$ and $T_2$ be subsets of $T$.\nThen:\n$f^{-1} \\sqbrk {T_1 \\cap T_2} = f^{-1} \\sqbrk {T_1} \\cap f^{-1} \\sqbrk {T_2}$\nThis can be expressed in the language and notation of inverse image mappings as:\n$\\forall T_1, T_2 \\in \\powerset T: \\map {f^\\gets} {T_1 \\cap T_2} = \\map {f^\\gets} {T_1} \\cap \\map {f^\\gets} {T_2}$",
+    "proof_text": "As $f$, being a mapping, is also a many-to-one relation, it follows from Inverse of Many-to-One Relation is One-to-Many that its inverse $f^{-1}$ is a one-to-many relation.\nThus Image of Intersection under One-to-Many Relation applies:\n$\\mathcal R \\sqbrk {T_1 \\cap T_2} = \\mathcal R \\sqbrk {T_1} \\cap \\mathcal R \\sqbrk {T_2}$\nwhere here $\\mathcal R = f^{-1}$.",
+    "clean_row_index": 93,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Single-valuedness of f makes the inverse graph left-unique. The cited direct-image identity for that graph gives the intersection formula."
+  },
+  {
+    "theorem_id": 254,
+    "title": "Preimage of Set Difference under Mapping",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $T_1$ and $T_2$ be subsets of $T$.\nThen:\n$f^{-1} \\sqbrk {T_1 \\setminus T_2} = f^{-1} \\sqbrk {T_1} \\setminus f^{-1} \\sqbrk {T_2}$\nwhere:\n$\\setminus$ denotes set difference\n$f^{-1} \\sqbrk {T_1}$ denotes preimage.",
+    "proof_text": "From Inverse of Mapping is One-to-Many Relation, we have that $f^{-1}: T \\to S$ is one-to-many.\nThus we can apply One-to-Many Image of Set Difference:\n$\\mathcal R \\sqbrk {T_1 \\setminus T_2} = \\mathcal R \\sqbrk {T_1} \\setminus \\mathcal R \\sqbrk {T_2}$\nwhere in this context $\\mathcal R = f^{-1}$.",
+    "clean_row_index": 94,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The left-unique inverse graph meets the hypothesis of the difference identity, and its direct image is the preimage under f."
+  },
+  {
+    "theorem_id": 255,
+    "title": "Projection is Surjection",
+    "theorem_text": "Let $S$ and $T$ be non-empty sets.\nLet $S \\times T$ be the Cartesian product of $S$ and $T$.\nLet $\\pr_1: S \\times T \\to T$ and $\\pr_2: S \\times T \\to T$ be the first projection and second projection respectively on $S \\times T$.\nThen $\\pr_1$ and $\\pr_2$ are both surjections.",
+    "proof_text": "Let $S$ and $T$ be sets such that neither is empty.\nLet $\\pr_1: S \\times T \\to S$ be the first projection on $S \\times T$.\nThen by definition of first projection:\n$\\forall x \\in S: \\exists \\tuple {x, t} \\in S \\times T: \\map {\\pr_1} {x, t} = x$\nSimilarly, let $\\pr_2: S \\times T \\to T$ be the second projection on $S \\times T$.\nThen by definition of second projection:\n$\\forall x \\in T: \\exists \\tuple {s, x} \\in S \\times T: \\map {\\pr_2} {s, x} = x$\nHence the result.",
+    "clean_row_index": 95,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The statement gives T as the target of the first projection, but the proof establishes surjectivity onto S. For distinct disjoint nonempty S and T the stated first projection need not even take values in T."
+  },
+  {
+    "theorem_id": 256,
+    "title": "Sum Rule for Derivatives",
+    "theorem_text": "Let $\\map f x, \\map j x, \\map k x$ be real functions defined on the open interval $I$.\nLet $\\xi \\in I$ be a point in $I$ at which both $j$ and $k$ are differentiable.\nLet $\\map f x = \\map j x + \\map k x$.\nThen $f$ is differentiable at $\\xi$ and:\n$\\map {f'} \\xi = \\map {j'} \\xi + \\map {k'} \\xi$\nIt follows from the definition of derivative that if $j$ and $k$ are both differentiable on the interval $I$, then:\n$\\forall x \\in I: \\map {f'} x = \\map {j'} x + \\map {k'} x$",
+    "proof_text": "It can be observed that this is an example of a Linear Combination of Derivatives with $\\lambda = \\mu = 1$.",
+    "clean_row_index": 96,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The linear-combination derivative theorem has the stated differentiability hypotheses and coefficients 1 and 1 give the desired sum."
+  },
+  {
+    "theorem_id": 258,
+    "title": "Trivial Quotient is a Bijection",
+    "theorem_text": "Let $\\Delta_S$ be the diagonal relation on a set $S$.\nLet $q_{\\Delta_S}: S \\to S / \\Delta_S$ be the trivial quotient of $S$.\nThen $q_{\\Delta_S}: S \\to S / \\Delta_S$ is a bijection.",
+    "proof_text": "The diagonal relation is defined as:\n$\\Delta_S = \\set {\\tuple {x, x}: x \\in S} \\subseteq S \\times S$\nFrom the fact that $q_{\\Delta_S}$ is a quotient mapping, we know that it is a surjection.\nIt relates each $x \\in S$ to the singleton $\\set x$.\nThus:\n$\\set x = \\eqclass x {\\Delta_S} \\subseteq S$\nSo $\\map {q_{\\Delta_S} } x = \\set x$, and it follows that:\n$\\eqclass x {\\Delta_S} = \\eqclass y {\\Delta_S} \\implies x = y$\nThus $q_{\\Delta_S}$ is injective, and therefore by definition a bijection.",
+    "clean_row_index": 97,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each diagonal equivalence class is a singleton, so distinct representatives have distinct classes. The quotient map is onto all classes."
+  },
+  {
+    "theorem_id": 259,
+    "title": "Composite of Quotient Mappings",
+    "theorem_text": "Let $S$ be a set.\nLet $\\mathcal R_1$ be an equivalence on $S$, and $\\mathcal R_2$ be an equivalence on the quotient set $S / \\mathcal R_1$.\nWe can find an equivalence $\\mathcal R_3$ on $S$ such that $\\paren {S / \\mathcal R_1} / \\mathcal R_2$ is in one-to-one correspondence with $S / \\mathcal R_3$ under the mapping:\n$\\phi: \\paren {S / \\mathcal R_1} / \\mathcal R_2 \\to S / \\mathcal R_3: \\eqclass {\\eqclass x {\\mathcal R_1} } {\\mathcal R_2} \\mapsto \\eqclass x {\\mathcal R_3}$.",
+    "proof_text": "Define $\\mathcal R_3$ to be the equivalence induced by:\n$x \\mapsto \\eqclass {\\eqclass x {\\mathcal R_1} } {\\mathcal R_2}$\nBy definition of $\\mathcal R_3$:\n$\\eqclass {\\eqclass x {\\mathcal R_1} } {\\mathcal R_2} = \\eqclass {\\eqclass y {\\mathcal R_1} } {\\mathcal R_2} \\implies \\eqclass x {\\mathcal R_3} = \\eqclass y {\\mathcal R_3}$\nTherefore, $\\phi$ is well-defined.\nAgain by definition of $\\mathcal R_3$:\n$\\eqclass x {\\mathcal R_3} = \\eqclass y {\\mathcal R_3} \\implies \\eqclass {\\eqclass x {\\mathcal R_1} } {\\mathcal R_2} = \\eqclass {\\eqclass y {\\mathcal R_1} } {\\mathcal R_2}$\nwhich means $\\phi$ is an injection.\nLastly, note that every element of $S / \\mathcal R_3$ is of the form $\\eqclass x {\\mathcal R_3}$ for some $x \\in S$.\nIt is now immediate from the definition of $\\phi$ that it is surjective.\nHence $\\phi$ is a bijection, as desired.",
+    "clean_row_index": 98,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The equivalence induced by the double-quotient map identifies precisely representatives with equal double classes. This gives both well-definedness and injectivity, and every target class has a representative."
+  },
+  {
+    "theorem_id": 260,
+    "title": "Renaming Mapping is Well-Defined",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $r: S / \\RR_f \\to \\Img f$ be the renaming mapping,  defined as:\n$r: S / \\RR_f \\to \\Img f: \\map r {\\eqclass x {\\RR_f} } = \\map f x$\nwhere:\n$\\RR_f$ is the equivalence induced by the mapping $f$\n$S / \\RR_f$ is the quotient set of $S$ determined by $\\RR_f$\n$\\eqclass x {\\RR_f}$ is the equivalence class of $x$ under $\\RR_f$.\nThe renaming mapping is always well-defined.",
+    "proof_text": "From Condition for Mapping from Quotient Set to be Well-Defined:\n:there exists a mapping $\\phi: S / \\RR \\to T$ such that $\\phi \\circ q_\\RR = f$\nif and only if:\n$\\forall x, y \\in S: \\tuple {x, y} \\in \\RR \\implies \\map f x = \\map f y$\nBut by definition of the equivalence induced by the mapping $f$:\n$\\forall x, y \\in S: \\tuple {x, y} \\in \\RR_f \\implies \\map f x = \\map f y$\nThe result follows directly.",
+    "clean_row_index": 99,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The induced relation ensures equal f-values for any pair in the same class. The quotient factorization criterion therefore makes the prescribed class value well-defined."
+  },
+  {
+    "theorem_id": 262,
+    "title": "Renaming Mapping is Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $r: S / \\RR_f \\to \\Img f$ be the renaming mapping, defined as:\n$r: S / \\RR_f \\to \\Img f: \\map r {\\eqclass x {\\RR_f} } = \\map f x$\nwhere:\n$\\RR_f$ is the equivalence induced by the mapping $f$\n$S / \\RR_f$ is the quotient set of $S$ determined by $\\RR_f$\n$\\eqclass x {\\RR_f}$ is the equivalence class of $x$ under $\\RR_f$.\nThe renaming mapping is a bijection.",
+    "proof_text": "From Renaming Mapping is Well-Defined, $r: S / \\RR_f \\to \\Img f$ is a well-defined mapping.\nBy definition, $\\RR_f$ is the equivalence relation induced by the mapping $f$.\nHence by definition:\n$\\tuple {s_1, s_2} \\in \\RR_f \\iff \\map f {s_1} = \\map f {s_2}$\nFrom Condition for Mapping from Quotient Set to be Injection, this is precisely the condition required for $r$ to be an injection.\nNext it is noted that the codomain of $r$ is $\\Img f$.\nThen from Restriction of Mapping to Image is Surjection, we have that $f_{\\restriction \\Img f}$ is a surjection.\nHence from Condition for Mapping from Quotient Set to be Surjection it follows that $r$ is also a surjection.\nThus $r$ is shown to be both an injection and a surjection, and so by definition is a bijection.",
+    "clean_row_index": 100,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Equality of f-values characterizes the same source class, which proves injectivity. Every point of the image is represented by some class, proving surjectivity."
+  },
+  {
+    "theorem_id": 263,
+    "title": "Composite of Mapping with Inverse",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nThen:\n$\\forall x \\in S: \\map {f^{-1} \\circ f} x = \\eqclass x {\\RR_f}$\nwhere:\n$\\RR_f$ is the equivalence induced by $f$\n$\\eqclass x {\\RR_f}$ is the $\\RR_f$-equivalence class of $x$.",
+    "proof_text": "Let $y = \\map f x$.\nThen by the definition of induced equivalence:\n$x \\in \\eqclass x {\\RR_f}$\nBy the definition of the inverse of a mapping:\n$f^{-1} = \\set {\\tuple {y, x}: \\tuple {x, y} \\in f}$\nThus:\n$\\eqclass x {\\RR_f} = \\set {s \\in \\Dom f: \\map f s = \\map f x}$\nBy definition:\n$\\map {f^{-1} } y = \\eqclass x {\\RR_f}$\nHence the result.",
+    "clean_row_index": 101,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "At f(x) the inverse graph returns exactly the points s with f(s)=f(x), which constitute the induced equivalence class."
+  },
+  {
+    "theorem_id": 265,
+    "title": "Quotient Theorem for Surjections",
+    "theorem_text": "Let $f: S \\to T$ be a surjection.\nThen there is one and only one bijection $r: S / \\RR_f \\to T$ such that:\n$r \\circ q_{\\RR_f} = f$\nwhere:\n$\\RR_f$ is the equivalence induced by $f$\n$r: S / \\RR_f \\to T$ is the renaming mapping\n$q_{\\RR_f}: S \\to S / \\RR_f$ is the quotient mapping induced by $\\RR_f$.\nThis can be illustrated using a commutative diagram as follows:\n$\\begin {xy} \\xymatrix@L + 2mu@ + 1em {\n S \\ar@{-->}[rr]^*{f = r \\circ q_{\\RR_f} }\n   \\ar[dd]_*{q_{\\RR_f} }\n&& T \\\\\n\\\\\nS / \\RR_f \\ar[urur]_*{r} \n} \\end {xy}$",
+    "proof_text": "From the definition of Induced Equivalence, the mapping $f: S \\to T$ induces an equivalence $\\RR_f$ on its domain.\nAs $f: S \\to T$ is a surjection, $T = \\Img f$ by definition.\nFrom Renaming Mapping is Bijection, the renaming mapping $r: S / \\RR_f \\to T$ is a bijection, where $S / \\RR_f$ is the quotient set of $S$ by $\\RR_f$.\nHence:\n$r \\circ q_{\\RR_f} = f$\n$r$ is the only mapping $r: S / \\RR_f \\to T$ that satisfies this equality.",
+    "clean_row_index": 102,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The induced-class bijection lands in T because f is onto. Every class is q(x), so the equation forces its value to equal f(x), establishing uniqueness."
+  },
+  {
+    "theorem_id": 268,
+    "title": "Direct Image Mapping of Relation is Mapping",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $\\mathcal R \\subseteq S \\times T$ be a relation on $S \\times T$.\nLet $\\mathcal R^\\to: \\powerset S \\to \\powerset T$ be the direct image mapping of $\\mathcal R$:\n$\\forall X \\in \\powerset S: \\map {\\mathcal R^\\to} X = \\set {t \\in T: \\exists s \\in X: \\tuple {s, t} \\in \\mathcal R}$\nThen $\\mathcal R^\\to$ is indeed a mapping.",
+    "proof_text": "Take the general relation $\\mathcal R \\subseteq S \\times T$.\nLet $X \\subseteq S$, that is $X \\in \\powerset S$.\nSuppose $X = \\O$.\nThen from Image of Empty Set is Empty Set:\n$\\map {\\mathcal R^\\to} X = \\O \\subseteq T$\nSuppose $X = S$.\nThen from Image is Subset of Codomain: Corollary 1:\n$\\map {\\mathcal R^\\to} X = \\Img {\\mathcal R} \\subseteq T$\nFinally, suppose $\\O \\subset X \\subset S$.\nFrom Image is Subset of Codomain, again:\n$\\map {\\mathcal R^\\to} X \\subseteq T$\nNow, from the definition of the power set, we have that:\n$Y \\subseteq T \\iff Y \\in \\powerset T$\nWe defined $R^\\to \\subseteq \\powerset S \\times \\powerset T$ such that:\n$R^\\to: \\powerset S \\to \\powerset T: \\map {\\mathcal R^\\to} X = \\set {t \\in T: \\exists s \\in X: \\tuple {s, t} \\in \\mathcal R}$\nBy definition, there is only one $\\map {\\mathcal R^\\to} X$ for any given $X$, and so $R^\\to$ is many-to-one.\nWe have shown that:\n$\\forall X \\subseteq S: \\map {\\mathcal R^\\to} X \\in \\powerset T$\nSo:\n$\\forall X \\in \\powerset S: \\exists_1 Y \\in \\powerset T: \\map {\\mathcal R^\\to} X = Y$\nSo:\n$R^\\to$ is defined for all $X \\in \\powerset S$\nand therefore $R^\\to$ is a mapping.",
+    "clean_row_index": 103,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For each subset X the specified comprehension determines a unique subset of T, including at the two extreme choices of X. This gives a total single-valued power-set map."
+  },
+  {
+    "theorem_id": 269,
+    "title": "Inverse Image Mapping of Relation is Mapping",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $\\mathcal R \\subseteq S \\times T$ be a relation on $S \\times T$.\nLet $\\mathcal R^\\gets$ be the inverse image mapping of $\\mathcal R$:\n$\\mathcal R^\\gets: \\powerset T \\to \\powerset S: \\map {\\mathcal R^\\gets} Y = \\mathcal R^{-1} \\sqbrk Y$\nThen $\\mathcal R^\\gets$ is indeed a mapping.",
+    "proof_text": "$\\mathcal R^{-1}$, being a relation, obeys the same laws as $\\mathcal R$.\nSo Direct Image Mapping of Relation is Mapping applies directly.",
+    "clean_row_index": 104,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The inverse graph is a relation with the source and target reversed, so its direct-image map has exactly the claimed power-set type."
+  },
+  {
+    "theorem_id": 271,
+    "title": "Direct Image Mapping of Surjection is Surjection",
+    "theorem_text": "Let $f: S \\to T$ be a surjection.\nThen the direct image mapping of $f$:\n$f^\\to: \\powerset S \\to \\powerset T$\nis a surjection.",
+    "proof_text": "Let $f^\\gets$ be the inverse image mapping of $f$.\nLet $Y \\in \\powerset T$.\nLet $X = \\map {f^\\gets} Y$.\nBy Subset equals Image of Preimage iff Mapping is Surjection:\n$\\map {f^\\to} X = Y$\nAs such an $X$ exists for each $Y \\in \\powerset S$, $f^\\to$ is surjective.",
+    "clean_row_index": 105,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For each arbitrary subset Y of T, its full preimage maps onto Y by surjectivity. The final reference to the power set of S is a typo for the target power set already quantified."
+  },
+  {
+    "theorem_id": 271,
+    "title": "Direct Image Mapping of Surjection is Surjection",
+    "theorem_text": "Let $f: S \\to T$ be a surjection.\nThen the direct image mapping of $f$:\n$f^\\to: \\powerset S \\to \\powerset T$\nis a surjection.",
+    "proof_text": "Let $f: S \\to T$ be a surjection.\nThen:\n$\\forall y \\in T: \\exists x \\in S: f \\paren x = y$\nFrom the Quotient Theorem for Surjections, there is one and only one bijection $r: S / \\mathcal R_f \\to T$ such that $r \\circ q_{\\mathcal R_f} = f$.\nEach element of $S / \\mathcal R_f$ is a subset of $S$ and therefore an element of $\\powerset S$.\nThus as $r: S / \\mathcal R_f \\to T$ is a bijection, and hence a fortiori also an injection:\n$\\forall X_1, X_2 \\in \\powerset S: \\map r {X_1} = \\map r {X_2} \\implies X_1 = X_2$\nBecause $f$ is a surjection, every $y \\in T$ is mapped to by exactly one element of the partition of $S$ defined by $\\mathcal R_f$.\nLet $T = \\set {y_1, y_2, \\ldots}$.\nLet the partition defined by $\\mathcal R_f$ be $\\bigcup \\paren {X_1, X_2, \\ldots}$ where $\\map r {X_n} = y_n$.\nLet $Y_r \\in \\powerset T$, such that $Y_r = \\set {y_{r_1}, y_{r_2}, \\ldots}$.\nThen:\n$\\map {f^\\to} {X_r} = Y_r$\nwhere $\\displaystyle X_r = \\bigcup \\paren {X_{r_1}, X_{r_2}, \\ldots}$.\nAs $\\set {X_1, X_2, \\ldots}$ is a partition of $S$, $\\forall Y_r \\in \\powerset T: X_r$ is unique.\nThus $f^\\to: \\powerset S \\to \\powerset T$ is a surjection.",
+    "clean_row_index": 106,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The enumeration of T by natural-number indices assumes at most countability without a hypothesis. Also r is defined on fiber classes, so its injectivity cannot be asserted for all subsets of S."
+  },
+  {
+    "theorem_id": 272,
+    "title": "Cantor's Theorem",
+    "theorem_text": "There is no surjection from a set $S$ to its power set for any set $S$.\nThat is, $S$ is strictly smaller than its power set.",
+    "proof_text": "We temporarily introduce the notation:\n$a^n = \\begin{cases}\na : & n = 0 \\\\\n\\set {a^{n - 1} } : & n > 0\n\\end{cases}$\nwhere $a \\in S$.\nThus $a^n$ consists of a single element $a^{n - 1} \\in \\map {\\PP^{n - 1} } S$.\nLet there be a bijection $f: S \\to \\QQ^n$ where $\\QQ^n \\subseteq \\map {\\PP^n} S$.\nThen define:\n$\\AA^{n - 1} = \\set {s^{n - 1} \\in \\map {\\PP^{n - 1} } S: s^{n - 1} \\ne \\map f s}$\nEach $\\QQ^{n - 1} \\in \\QQ^n$ is the image of some element of $S$ under $f$.\nLet $\\QQ^{n - 1} = \\map f x$ for some $x \\in S$.\nLet $x^{n - 1} \\in \\QQ^{n - 1} = \\map f x$.\nThen $x^{n - 1} \\notin \\AA^{n - 1}$, and so $\\AA^{n - 1} \\notin \\QQ^{n - 1}$.\nOn the other hand, let $x^{n - 1} \\notin \\QQ^{n - 1} = \\map f x$.\nThen $x^{n - 1} \\in \\AA^{n - 1}$, and so again $ A^{n - 1} \\notin \\QQ^{n - 1}$.\nThus $\\AA^{n - 1} \\notin Q^n$.\nTherefore $Q^n$ is a proper subset of $\\map {\\PP^n} S$.\nHence the result.",
+    "clean_row_index": 107,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The diagonal set is defined using inequality with f(s), whereas the subsequent membership argument requires nonmembership in f(s). Equality and membership are distinct, so the alleged diagonal disagreement does not follow."
+  },
+  {
+    "theorem_id": 276,
+    "title": "No Bijection from Set to its Power Set",
+    "theorem_text": "Let $S$ be a set.\nLet $\\powerset S$ denote the power set of $S$.\nThere is no bijection $f: S \\to \\powerset S$.",
+    "proof_text": "A bijection is by its definition also a surjection.\nBy Cantor's Theorem there is no surjection from $S$ to $\\powerset S$.\nHence the result.",
+    "clean_row_index": 109,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A bijection would be onto the entire power set, directly contradicting Cantor's non-surjection theorem."
+  },
+  {
+    "theorem_id": 274,
+    "title": "Mapping is Injection if its Direct Image Mapping is Injection",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $f^\\to: \\powerset S \\to \\powerset T$ be the direct image mapping of $f$.\nLet $f^\\to$ be an injection.\nThen $f: S \\to T$ is also an injection.",
+    "proof_text": "Suppose $f: S \\to T$ is a mapping, but not injective.\nThen:\n$\\exists x_1 \\ne x_2 \\in S: \\map f {x_1} = \\map f {x_2} = y$\nLet:\n$X_1 = \\set {x_1}$\n$X_2 = \\set {x_2}$\n$Y = \\set y$\nThen it follows that:\n$\\map {f^\\to} {X_1} = \\map {f^\\to} {X_2} = Y$\nThus $f^\\to: \\powerset S \\to \\powerset T$ is not injective.\nSo by the Rule of Transposition, the result follows.",
+    "clean_row_index": 108,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A collision at two distinct points produces equal images of two distinct singleton subsets. The contrapositive proves the claim."
+  },
+  {
+    "theorem_id": 280,
+    "title": "Cantor-Bernstein-Schröder Theorem",
+    "theorem_text": "If a subset of one set is equivalent to the other, and a subset of the other is equivalent to the first, then the two sets are themselves equivalent:\n$\\forall S, T: T \\sim S_1 \\subseteq S \\land S \\sim T_1 \\subseteq T \\implies S \\sim T$",
+    "proof_text": "Suppose $S \\preccurlyeq T$ and $T \\preccurlyeq S$.\nBy definition, we have that there exist injections $f: S \\to T$ and $g: T \\to S$.\nWe are going to try to build a sequence $t_1, s_1, t_2, s_2, t_3 \\ldots$ as follows.\nConsider any $t_1 \\in T$.\nBy Law of Excluded Middle there are two choices:\n$$\\exists s_1 \\in S: \\map f {s_1} = t_1$$\n$$\\neg \\exists s_1 \\in S: \\map f {s_1} = t_1$$\nSuppose $\\exists s_1 \\in S: \\map f {s_1} = t_1$.\nBecause $f$ is injective, such an $s_1$ is unique.\nSo we can choose $s_1 = \\map{f^{-1} } {t_1}$.\nAgain, by Law of Excluded Middle there are two further choices:\n$$\\exists t_2 \\in T: \\map g {t_2} = s_1$$\n$$\\neg \\exists t_2 \\in T: \\map g {t_2} = s_1$$\nSuppose $\\exists t_2 \\in T: \\map g {t_2} = s_1$.\nBecause $f$ is injective, such an $t_2$ is unique.\nSimilarly, we choose $s_2 = \\map {f^{-1} } {t_2}$, if it exists.\nThis process goes on until one of the following happens:\n:We reach some $s_n \\in S$ such that $\\neg \\exists t \\in T: \\map g t = s_n$. This may be possible because $g$ may not be a surjection.\n:We reach some $t_n \\in T$ such that $\\neg \\exists s \\in S: \\map f s = t_n$.This may be possible because $f$ may not be a surjection.\n:The process goes on for ever.\nFor each $t \\in T$, then, there is a well-defined process which turns out in one of the above three ways.\nWe partition $T$ up into three subsets that are mutually disjoint:\n: Let $T_A = \\{$ all $t \\in T$ such that the process ends with some $s_n\\}$\n: Let $T_B = \\{$ all $t \\in T$ such that the process ends with some $t_n\\}$\n: Let $T_C = \\{$ all $t \\in T$ such that the process goes on for ever$\\}$.\nWe can do exactly the same thing with the elements of $S$:\n: Let $S_A = \\{$ all $s \\in S$ such that the process ends with some $s_n\\}$\n: Let $S_B = \\{$ all $s \\in S$ such that the process ends with some $t_n\\}$\n: Let $S_C = \\{$ all $s \\in S$ such that the process goes on for ever$\\}$.\nWhat we need to do is show that $S \\sim T$.\nWe do this by showing that $S_A \\sim T_A$, $S_B \\sim T_B$ and $S_C \\sim T_C$.\n* The restriction of $f$ to $S_A$ is a bijection from $S_A$ to $T_A$.\nTo do this we need to show that:\n# $s \\in S_A \\implies \\map f s \\in T_A$;\n# $\\forall t \\in T_A: \\exists s \\in S_A: \\map f s = t$.\nLet $s \\in S_A$. Then the process applied to $s$ ends in $S$.\nNow consider the process applied to $\\map f s$. Its first step leads us back to $s$. Then it continues the process, applied to $s$, and ends up in $S$. Thus $\\map f s \\in T_A$.\nThus $s \\in S_A \\implies \\map f s \\in T_A$.\nNow suppose $t \\in T_A$. Then the process applied to $t$ ends in $S$.\nIn particular, it must have a first stage, otherwise it would end in $T$ with $t$ itself.\nHence $t = \\map f s$ for some $s$.\nBut the process applied to this $s$ is the same as the continuation of the process applied to $t$, and therefore it ends in $S$.\nThus $s \\in S_A$ as required.\nHence the restriction of $f$ to $S_A$ is a bijection from $S_A$ to $T_A$.\nWe can use the same argument to show that $g: T_B \\to S_B$ is also a bijection. Hence $g^{-1}: S_B \\to T_B$ is a bijection.\nFinally, suppose $t \\in T_C$.\nBecause $f$ is an injection, $t = \\map f s$ for some $s$, and the process applied to $t$ must start.\nAnd this $s$ must belong to $S_C$, because the process starting from $s$ is the same as the process starting from $t$ after the first step. This never ends, as $t \\in T_C$.\nNow we can define a bijection $h: S \\to T$ as follows:\n$\\map h x = \\begin{cases}\n\\map f s: x \\in S_A \\\\\n\\map f s: x \\in S_C \\\\\n\\map {g^{-1} } x: x \\in S_B \\end{cases}$\nThe fact that $h$ is a bijection follows from the facts that:\n$(1): \\quad S_A$, $S_B$ and $S_C$ are mutually disjoint\n$(2): \\quad T_A$, $T_B$ and $T_C$ are mutually disjoint\n$(3): \\quad f$, $f$ and $g^{-1}$ are the bijections which respectively do the mappings between them.",
+    "clean_row_index": 110,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The injective maps give unique backward chains. On chains beginning in S and on infinite chains f matches the two sides, and on chains beginning in T the inverse of g does so. Uniqueness of the preimage under g uses its stated injectivity despite the local reference to f."
+  },
+  {
+    "theorem_id": 280,
+    "title": "Cantor-Bernstein-Schröder Theorem",
+    "theorem_text": "If a subset of one set is equivalent to the other, and a subset of the other is equivalent to the first, then the two sets are themselves equivalent:\n$\\forall S, T: T \\sim S_1 \\subseteq S \\land S \\sim T_1 \\subseteq T \\implies S \\sim T$",
+    "proof_text": "By Injection to Image is Bijection:\n$g: T \\to g \\sqbrk T$ is a bijection.\nThus $T$ is equivalent to $g \\sqbrk T$.\nBy Composite of Injections is Injection $g \\circ f: S \\to g \\sqbrk T \\subset S$ is also an injection (to a subset of the domain of $g \\circ f$).\nThen by Cantor-Bernstein-Schröder Theorem: Lemma:\n:There exists a bijection $h: S \\to g \\sqbrk T$.\nThus $S$ is equivalent to $g \\sqbrk T$.\nWe already know that $T$ is equivalent to $g \\sqbrk T$.\nThus by Set Equivalence is Equivalence Relation, $S$ is equivalent to $T$.\nBy the definition of set equivalence:\n:There is a bijection $\\phi: S \\to T$.",
+    "clean_row_index": 111,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The hypotheses give the two injections. Applying the cited intermediate-subset lemma between S and g(T), then using the bijection of T with its image, yields the required bijection."
+  },
+  {
+    "theorem_id": 281,
+    "title": "Trivial Ordering is Universally Compatible",
+    "theorem_text": "Let $S$ be a set.\nLet $\\RR$ be the trivial ordering on $S$.\nThen $\\RR$ is universally compatible.",
+    "proof_text": "To prove that the trivial ordering is in fact an ordering, we need to checking each of the criteria for an ordering:\nReflexivity\n$\\forall a \\in S: a \\mathrel \\RR a$:\nFrom its definition, we have $\\forall a, b \\in S: a = b \\implies a \\mathrel \\RR b$.\nThus, as $a = a$, we have $\\forall a \\in S: a \\mathrel \\RR a$.\nSo reflexivity is proved.\nTransitivity\n$\\forall a, b, c \\in S: a \\mathrel \\RR b \\land b \\mathrel \\RR c \\implies a \\mathrel \\RR c$:\nFrom the definition:\n$a \\mathrel \\RR b \\iff a = b$\n$b \\mathrel \\RR c \\iff b = c$\nSo as $a = b \\land b = c \\implies a = c$ from transitivity of equals, we have that $a \\mathrel \\RR c$ and thus transitivity is proved.\nAntisymmetry\n$\\forall a, b \\in S: a \\mathrel \\RR b \\land b \\mathrel \\RR a \\implies a = b$:\nFrom the definition:\n$a \\mathrel \\RR b \\iff a = b$\n$b \\mathrel \\RR a \\iff b = a$\nAntisymmetry follows from symmetry of equals.\nThe trivial ordering is by definition the same as the diagonal relation, and is therefore universally compatible.",
+    "clean_row_index": 112,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The relation is equality. Replacing arguments by equal arguments preserves the value of every operation, which gives universal compatibility of the diagonal."
+  },
+  {
+    "theorem_id": 282,
+    "title": "Identity Mapping is Order Isomorphism",
+    "theorem_text": "Let $\\left({S, \\preceq}\\right)$ be an ordered set.\nThe identity mapping $I_S$ is an order isomorphism from $\\left({S, \\preceq}\\right)$ to itself.",
+    "proof_text": "An ordered set is a relational structure where order isomorphism is a special case of relation isomorphism.\nThe result follows directly from Identity Mapping is Relation Isomorphism.",
+    "clean_row_index": 113,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the relation-isomorphism result to the particular relation defining the order gives precisely an order isomorphism of the set with itself."
+  },
+  {
+    "theorem_id": 283,
+    "title": "Inverse of Order Isomorphism is Order Isomorphism",
+    "theorem_text": "Let $\\left({S, \\preceq_1}\\right)$ and $\\left({T, \\preceq_2}\\right)$ be ordered sets.\nLet $\\phi$ be a bijection from $\\left({S, \\preceq_1}\\right)$ to $\\left({T, \\preceq_2}\\right)$.\nThen:\n$\\phi: \\left({S, \\preceq_1}\\right) \\to \\left({T, \\preceq_2}\\right)$\nis an order isomorphism if and only if:\n$\\phi^{-1}: \\left({T, \\preceq_2}\\right) \\to \\left({S, \\preceq_1}\\right)$\nis also an order isomorphism.",
+    "proof_text": "Follows directly from the definition of order isomorphism.\nLet $\\phi: \\left({S, \\preceq_1}\\right) \\to \\left({T, \\preceq_2}\\right)$ be an order isomorphism.\nThen:\n$\\forall x, y, \\in S: x \\preceq_1 y \\implies \\phi \\left({x}\\right) \\preceq_2 \\phi \\left({y}\\right)$\nand:\n$\\forall \\phi \\left({x}\\right), \\phi \\left({y}\\right) \\in T: \\phi \\left({x}\\right) \\preceq_2 \\phi \\left({y}\\right) \\implies \\phi^{-1} \\left({\\phi \\left({x}\\right)}\\right) \\preceq_1 \\phi^{-1} \\left({\\phi \\left({y}\\right)}\\right)$\nThat is:\n$\\forall \\phi \\left({x}\\right), \\phi \\left({y}\\right) \\in T: \\phi \\left({x}\\right) \\preceq_2 \\phi \\left({y}\\right) \\implies x \\preceq_1 y$\nHence the result.",
+    "clean_row_index": 114,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Order preservation and reflection translate into each other under the inverse bijection. The converse follows by applying the same observation to its inverse."
+  },
+  {
+    "theorem_id": 284,
+    "title": "Composite of Order Isomorphisms is Order Isomorphism",
+    "theorem_text": "Let $\\left({S_1, \\preceq_1}\\right)$, $\\left({S_2, \\preceq_2}\\right)$ and $\\left({S_3, \\preceq_3}\\right)$ be ordered sets.\nLet:\n$\\phi: \\left({S_1, \\preceq_1}\\right) \\to \\left({S_2, \\preceq_2}\\right)$\nand:\n$\\psi: \\left({S_2, \\preceq_2}\\right) \\to \\left({S_3, \\preceq_3}\\right)$\nbe order isomorphisms.\nThen $\\psi \\circ \\phi: \\left({S_1, \\preceq_1}\\right) \\to \\left({S_3, \\preceq_3}\\right)$ is also an order isomorphism.",
+    "proof_text": "From Composite of Bijections is Bijection, $\\psi \\circ \\phi$ is a bijection, as, by definition, an order isomorphism is also a bijection.\nBy definition of composition of mappings, $\\psi \\circ \\phi \\left({x}\\right) = \\psi \\left({\\phi \\left({x}\\right)}\\right)$.\nAs $\\phi$ is an order isomorphism, we have:\n$\\forall x_1, y_1 \\in S_1: x_1 \\preceq_1 y_1 \\implies \\phi \\left({x_1}\\right) \\preceq_2 \\phi \\left({y_1}\\right)$\nAs $\\psi$ is an order isomorphism, we have:\n$\\forall x_2, y_2 \\in S_2: x_2 \\preceq_2 y_2 \\implies \\psi \\left({x_2}\\right) \\preceq_3 \\psi \\left({y_2}\\right)$\nBy setting $x_2 = \\phi \\left({x_1}\\right), y_2 = \\phi \\left({y_1}\\right)$, it follows that:\n$\\forall x_1, y_1 \\in S_1: x_1 \\preceq_1 y_1 \\implies \\psi \\left({\\phi \\left({x_1}\\right)}\\right) \\preceq_3 \\psi \\left({\\phi \\left({y_1}\\right)}\\right)$\nSimilarly we can show that:\n$\\forall x_3, y_3 \\in S_3: x_3 \\preceq_3 y_3 \\implies \\phi^{-1} \\left({\\psi^{-1} \\left({x_3}\\right)}\\right) \\preceq_1 \\phi^{-1} \\left({\\psi^{-1} \\left({y_3}\\right)}\\right)$",
+    "clean_row_index": 115,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Composition preserves bijectivity. Chaining the forward order implications gives monotonicity and chaining the inverse implications gives reflection."
+  },
+  {
+    "theorem_id": 285,
+    "title": "Order Isomorphism is Equivalence Relation",
+    "theorem_text": "Order isomorphism between ordered sets is an equivalence relation.\nSo any given family of ordered sets can be partitioned into disjoint classes of isomorphic sets.",
+    "proof_text": "An ordered set is a relational structure where order isomorphism is a special case of relation isomorphism.\nThe result follows directly from Relation Isomorphism is Equivalence Relation.",
+    "clean_row_index": 116,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "On ordered structures, isomorphism of the ordering relation is exactly order isomorphism. Restricting the stated equivalence relation to this family yields the classes."
+  },
+  {
+    "theorem_id": 385,
+    "title": "Isomorphism is Equivalence Relation",
+    "theorem_text": "Isomorphism is an equivalence on a set of magmas.\nThis result applies to all magmas: rings, groups, R-algebraic structures etc.",
+    "proof_text": "An ordered set is a relational structure where order isomorphism is a special case of relation isomorphism.\nThe result follows directly from Relation Isomorphism is Equivalence Relation.",
+    "clean_row_index": 157,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The argument invokes order isomorphisms of relational structures without identifying the operation graph of a magma or showing that the cited equivalence applies to operation-preserving maps."
+  },
+  {
+    "theorem_id": 286,
+    "title": "Dual Ordering is Ordering",
+    "theorem_text": "Let $\\left({S, \\preceq}\\right)$ be an ordered set.\nLet $\\succeq$ denote the dual ordering of $\\preceq$.\nThen $\\succeq$ is an ordering on $S$.",
+    "proof_text": "By definition, $\\succeq$ is the inverse relation to $\\preceq$.\nBy Inverse Relation Properties, if a relation is reflexive, transitive and/or antisymmetric, then so is its inverse.\nThe result follows.",
+    "clean_row_index": 117,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Reversing all ordered pairs preserves reflexivity, transitivity and antisymmetry, so the reversed order has all required properties."
+  },
+  {
+    "theorem_id": 288,
+    "title": "Power Set is Complete Lattice",
+    "theorem_text": "Let $S$ be a set.\nLet $\\left({\\mathcal P \\left({S}\\right), \\subseteq}\\right)$ be the relational structure defined on $\\mathcal P \\left({S}\\right)$ by the relation $\\subseteq$.\nThen $\\left({\\mathcal P \\left({S}\\right), \\subseteq}\\right)$ is a complete lattice.",
+    "proof_text": "From Subset Relation on Power Set is Partial Ordering, we have that $\\subseteq$ is a partial ordering.\nWe note in passing that for any set $S$:\n: From Supremum of Power Set, $\\mathcal P \\left({S}\\right)$ has a supremum, that is, $S$ itself\n: From Infimum of Power Set, $\\mathcal P \\left({S}\\right)$ has an infimum, that is, $\\varnothing$.\nThese are also the maximal and minimal elements of $\\mathcal P \\left({S}\\right)$.\nLet $\\mathbb S$ be a subset of $\\mathcal P \\left({S}\\right)$.\nThen from Union is Smallest Superset:\n$\\left({\\forall X \\in \\mathbb S: X \\subseteq T}\\right) \\iff \\bigcup \\mathbb S \\subseteq T$\nand from Intersection is Largest Subset:\n$\\left({\\forall X \\in \\mathbb S: T \\subseteq X}\\right) \\iff T \\subseteq \\bigcap \\mathbb S$\nSo $\\bigcap \\mathbb S$ is the infimum and $\\bigcup \\mathbb S$ is the supremum of $\\left({\\mathbb S, \\subseteq}\\right)$.\nHence by definition $\\mathcal P \\left({S}\\right)$ is a complete lattice.",
+    "clean_row_index": 118,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Union and intersection relative to S satisfy the displayed bounds for any family. The empty family has bottom and top as its join and meet, supplied by the empty set and S identified in the proof."
+  }
+]

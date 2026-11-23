@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 35,
+    "title": "Center of Symmetric Group is Trivial",
+    "theorem_text": "Let $n \\in \\N$ be a natural number.\nLet $S_n$ denote the symmetric group of order $n$.\nLet $n \\ge 3$.\nThen the center $\\map Z {S_n}$ of $S_n$ is trivial.",
+    "proof_text": "Let us choose an arbitrary $\\pi \\in S_n: \\pi \\ne e, \\pi \\left({i}\\right) = j, i \\ne j$.\nThen $\\pi \\left({j}\\right) \\ne j$ since permutations are injective.\nSince $n \\ge 3$, we can find $ k \\ne j, k \\ne \\pi \\left({j}\\right)$ and $\\rho \\in S_n$ which interchanges $j$ and $k$ and fixes everything else.\nLet $\\pi \\left({j}\\right) = m$. Then $m \\ne j, m \\ne k$ so $\\rho$ fixes $m$.\nThen $ \\rho \\pi \\left({j}\\right) = \\rho \\left({m}\\right) = m = \\pi \\left({j}\\right)$ since $\\rho$ fixes $m$.\nNow $k = \\rho \\left({j}\\right)$ by definition of $\\rho$.\nSo $\\pi \\left({k}\\right) = \\pi \\rho \\left({j}\\right)$.\nBut $\\pi \\left({j}\\right) \\ne \\pi \\left({k}\\right)$ since permutations are injective.\nThus $\\rho \\pi \\left({j}\\right) \\ne \\pi \\rho \\left({j}\\right)$.\nSo arbitrary $\\pi \\ne e$ is not in the center since there exists a $\\rho$ with which $\\pi$ does not commute.\nThus only $e$ is in the center, which, by definition, is trivial.",
+    "clean_row_index": 28,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Using the standard degree-n meaning of S_n, there is a third point k outside {j,pi(j)}. Swapping j and k yields different composites at j by injectivity. This excludes every nonidentity permutation from the center. The statement loosely calls n the order."
+  },
+  {
+    "theorem_id": 49,
+    "title": "Extended Rule of Implication",
+    "theorem_text": "Any sequent can be expressed as a theorem.\nThat is:\n$P_1, P_2, P_3, \\ldots, P_n \\vdash Q$\nmeans the same thing as:\n$\\vdash P_1 \\implies \\paren {P_2 \\implies \\paren {P_3 \\implies \\paren {\\ldots \\implies \\paren {P_n \\implies Q} \\ldots} } }$\nThe latter expression is known as the corresponding conditional of the former.\nThus every sequent containing the symbol $\\vdash$ can, if so desired, be expressed in the form of a theorem which has $\\implies$.",
+    "proof_text": "From the Rule of Conjunction, we note the following.\nAny sequent:\n$P_1, P_2 \\vdash Q$\ncan be expressed as:\n$P_1 \\land p_2 \\vdash Q$\nAlso, from the Rule of Simplification, any sequent:\n$P_1 \\land P_2 \\vdash Q$\ncan be expressed as:\n$P_1, P_2 \\vdash Q$\nConsider the expression:\n$P_1, P_2, P_3, \\ldots, P_{n - 1}, P_n \\vdash Q$\nBy repeated application of the above, we can arrive at:\n$P_1 \\land \\paren {P_2 \\land \\paren {P_3 \\land \\paren {\\ldots \\land \\paren {P_{n - 1} \\land P_n} \\ldots} } } \\vdash Q$\nFor convenience, the Rule of Substitution can be used to substitute $R_1$ for:\n$P_2 \\land \\paren {P_3 \\land \\paren {\\ldots \\land \\paren {P_{n - 1} \\land P_n} \\ldots} }$\nto get:\n$P_1 \\land R_1 \\vdash Q$\nFrom the Rule of Implication:\n$\\vdash \\paren {P_1 \\land R_1} \\implies Q$\nUsing the Rule of Exportation, we then get:\n$\\vdash P_1 \\implies \\paren {R_1 \\implies Q}$\nSubstituting back for $R_1$:\n$\\vdash P_1 \\implies \\paren {\\paren {P_2 \\land \\paren {P_3 \\land \\paren {\\ldots \\land \\paren {P_{n - 1} \\land P_n} \\ldots} } } \\implies Q}$\nMaking a substitution of convenience again, substitute $R_2$ for:\n$P_3 \\land \\paren {\\ldots \\land \\paren {P_{n - 1} \\land P_n} \\ldots}$\nTake the expression:\n$\\paren {P_2 \\land R_2} \\implies Q$\nand express it as:\n$P_2 \\land R_2 \\vdash Q$\nand use the Rule of Exportation to get:\n$P_2 \\implies \\paren {R_2 \\implies Q}$\nwhich, substituting back for $R_2$, gives:\n$P_2 \\implies \\paren {\\paren {P_3 \\land \\paren {\\ldots \\land \\paren {P_{n - 1} \\land P_n} \\ldots} } \\right) \\implies Q}$\nSimilarly:\n$\\paren {P_3 \\land \\paren {\\ldots \\land \\paren {P_{n - 1} \\land P_n} \\ldots} } \\implies Q$\nconverts to:\n$P_3 \\implies \\paren {\\paren {\\ldots \\land \\paren {P_{n - 1} \\land P_n} \\ldots} \\implies Q}$\nThe pattern becomes apparent.\nEventually:\n$\\paren {P_{n - 1} \\land P_n} \\implies Q$\nwhich converts to:\n$P_{n - 1} \\implies \\paren {P_n \\implies Q}$\nSubstituting these back into our original expression:\n$\\vdash P_1 \\implies \\paren {P_2 \\implies \\paren {P_3 \\implies \\paren {\\ldots \\implies \\paren {P_n \\implies Q} \\ldots} } }$",
+    "clean_row_index": 31,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Conjunction introduction and elimination combine the finite premises. The deduction rule discharges that conjunction and exportation repeatedly curries it, with the converse given by the same equivalences."
+  },
+  {
+    "theorem_id": 51,
+    "title": "Equivalences are Interderivable",
+    "theorem_text": "If two propositional formulas are interderivable, they are equivalent:\n$\\paren {p \\dashv \\vdash q} \\dashv \\vdash \\paren {p \\iff q}$",
+    "proof_text": "The result follows directly from the truth table for the biconditional:\n$\\begin{array}{|cc||ccc|} \\hline\np & q & p & \\iff & q \\\\\n\\hline\nF & F & F & T & F \\\\\nF & T & F & F & T \\\\\nT & F & F & F & F \\\\\nT & T & F & T & T \\\\\n\\hline\n\\end{array}$\nBy inspection, it is seen that $\\mathcal M \\left({p \\iff q}\\right) = T$ precisely when $\\mathcal M \\left({p}\\right) = \\mathcal M \\left({q}\\right)$.",
+    "clean_row_index": 32,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The table establishes semantic agreement exactly when the biconditional is true. The displayed metatheorem also concerns syntactic interderivability, for which the proof supplies no soundness/completeness argument or deduction-rule bridge."
+  },
+  {
+    "theorem_id": 51,
+    "title": "Equivalences are Interderivable",
+    "theorem_text": "If two propositional formulas are interderivable, they are equivalent:\n$\\paren {p \\dashv \\vdash q} \\dashv \\vdash \\paren {p \\iff q}$",
+    "proof_text": "Let $v$ be an arbitrary interpretation.\nThen by definition of interderivable:\n$\\map v {p \\iff q}$ if and only if $\\map v p = \\map v q$\nSince $v$ is arbitrary, $\\map v p = \\map v q$ holds in all interpretations.\nThat is:\n$p \\dashv \\vdash q$",
+    "clean_row_index": 33,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Arbitrariness of v cannot establish equality of the two truth values. The preceding equivalence describes when the biconditional is true but gives no premise that it is true at v."
+  },
+  {
+    "theorem_id": 63,
+    "title": "Normal Subgroup Test",
+    "theorem_text": "Let $G$ be a group and $H \\le G$.\nThen $H$ is a normal subgroup of $G$ if and only if:\n$\\forall x \\in G: x H x^{-1} \\subseteq H$.",
+    "proof_text": "Let $H$ be a subgroup of $G$.\nSuppose $H$ is normal in $G$.\nThen $\\forall x \\in G, a \\in H: \\exists b \\in H: x a = b x$.\nThus, $x a x^{-1} = b \\in H$ implying $x H x^{-1} \\subseteq H$.\nConversely, suppose $\\forall x \\in G: x H x^{-1} \\subseteq H$.\nThen for $g \\in G$, we have $g H g^{-1} \\subseteq H$, which implies $g H \\subseteq H g$.\nAlso, for $g^{-1} \\in G$, we have $g^{-1} H (g^{-1})^{-1} = g^{-1} H g \\subseteq H$ which implies $H g \\subseteq g H$.\nTherefore, $g H = H g$ meaning $H \\lhd G$.",
+    "clean_row_index": 34,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Normality gives each conjugate in H. Conversely, using the containment for both g and its inverse yields both inclusions between gH and Hg."
+  },
+  {
+    "theorem_id": 65,
+    "title": "Identity is Unique",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ be an algebraic structure that has an identity element $e \\in S$.\nThen $e$ is unique.",
+    "proof_text": "Suppose $e_1$ and $e_2$ are both identity elements of $\\struct {S, \\circ}$.\nThen by the definition of identity element:\n$\\forall s \\in S: s \\circ e_1 = s = e_2 \\circ s$\nThen:\n$e_1 = e_2 \\circ e_1 = e_2$\nSo:\n$e_1 = e_2$\nand there is only one identity element after all.",
+    "clean_row_index": 35,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The product of the two proposed identities equals each one by applying the opposite identity property."
+  },
+  {
+    "theorem_id": 65,
+    "title": "Identity is Unique",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ be an algebraic structure that has an identity element $e \\in S$.\nThen $e$ is unique.",
+    "proof_text": "Let $e_S$ be an identity of $\\left({S, \\circ}\\right)$.\nThen by definition, $e_S$ is both a left identity and a right identity.\nBy More than one Left Identity then no Right Identity, if there is more than one of either, there cannot be one of the other.\nSo there can be only one of each.\nBy Left and Right Identity are the Same, they are one and the same thing.",
+    "clean_row_index": 36,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A two-sided identity supplies both a left and a right identity. The cited incompatibility and coincidence results force uniqueness."
+  },
+  {
+    "theorem_id": 66,
+    "title": "Cancellation Laws",
+    "theorem_text": "Let $G$ be a group.\nLet $a, b, c \\in G$.\nThen the following hold:\n;Right cancellation law\n$b a = c a \\implies b = c$\n;Left cancellation law\n$a b = a c \\implies b = c$",
+    "proof_text": "From its definition, a group is a monoid, all of whose elements have inverses and thus are invertible.\nFrom Invertible Element of Monoid is Cancellable, it follows that all its elements are therefore cancellable.",
+    "clean_row_index": 37,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Groups are monoids with every element invertible, so two-sided cancellability follows from the cited monoid result."
+  },
+  {
+    "theorem_id": 66,
+    "title": "Cancellation Laws",
+    "theorem_text": "Let $G$ be a group.\nLet $a, b, c \\in G$.\nThen the following hold:\n;Right cancellation law\n$b a = c a \\implies b = c$\n;Left cancellation law\n$a b = a c \\implies b = c$",
+    "proof_text": "Suppose $x = b a = c a$.\nBy Group has Latin Square Property, there exists exactly one $y \\in G$ such that $x = y a$.\nThat is, $x = b a = c a \\implies b = c$.\nSimilarly, suppose $x = a b = a c$.\nAgain by Group has Latin Square Property, there exists exactly one $y \\in G$ such that $x = a y$.\nThat is, $a b = a c \\implies b = c$.",
+    "clean_row_index": 38,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In each of ya=x and ay=x the Latin-square property gives a unique solution y, forcing b=c in both cases."
+  },
+  {
+    "theorem_id": 70,
+    "title": "Cancellable Elements of Semigroup form Subsemigroup",
+    "theorem_text": "Let $\\struct {S, \\circ}$ be a semigroup.\nLet $C$ be the set of cancellable elements of $\\struct {S, \\circ}$.\nThen $\\struct {C, \\circ}$ is a subsemigroup of $\\struct {S, \\circ}$.",
+    "proof_text": "Now let $C$ be the set of cancellable elements of $\\struct {S, \\circ}$.\nLet $x, y \\in C$.\nThen $x$ and $y$ are both left cancellable and right cancellable.\nThus by Left Cancellable Elements of Semigroup form Subsemigroup:\n$x \\circ y$ is left cancellable\nand by Right Cancellable Elements of Semigroup form Subsemigroup:\n$x \\circ y$ is right cancellable.\nThus $x \\circ y$ is both left cancellable and right cancellable, and therefore cancellable.\nThus $x \\circ y \\in C$.\nThus $\\struct {C, \\circ}$ is closed and is therefore by the Subsemigroup Closure Test a subsemigroup of $\\struct {S, \\circ}$.",
+    "clean_row_index": 39,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Left and right cancellability are each preserved under multiplication by the cited closure results. Their intersection is closed and inherits associativity under the source's closure test."
+  },
+  {
+    "theorem_id": 71,
+    "title": "Subgroup of Cyclic Group is Cyclic",
+    "theorem_text": "Let $G$ be a cyclic group.\nLet $H$ be a subgroup of $G$.\nThen $H$ is cyclic.",
+    "proof_text": "Let $G$ be a cyclic group generated by $a$.\nLet $H$ be a subgroup of $G$.\nBy Cyclic Group is Abelian, $G$ is abelian.\nBy Subgroup of Abelian Group is Normal, $H$ is normal in $G$.\nLet $G / H$ be the quotient group of $G$ by $H$.\nLet $q_H: G \\to G / H$ be the quotient epimorphism from $G$ to $G / H$:\n$\\forall x \\in G: \\map {q_H} x = x H$\nThen from Quotient Group Epimorphism is Epimorphism, $H$ is the kernel of $q_H$.\nFrom Kernel of Homomorphism on Cyclic Group, $H$ is a cyclic group.",
+    "clean_row_index": 40,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "H is normal because G is abelian. The quotient map has kernel H, so the stated result for kernels of maps from cyclic groups applies."
+  },
+  {
+    "theorem_id": 72,
+    "title": "Empty Set is Subset of All Sets",
+    "theorem_text": "The empty set $\\O$ is a subset of every set (including itself).\nThat is:\n$\\forall S: \\O \\subseteq S$",
+    "proof_text": "By the definition of subset, $\\O \\subseteq S$ means:\n$\\forall x: \\paren {x \\in \\O \\implies x \\in S}$\nBy the definition of the empty set:\n$\\forall x: \\neg \\paren {x \\in \\O}$\nThus $\\O \\subseteq S$ is vacuously true.",
+    "clean_row_index": 41,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The defining membership implication for inclusion has a false antecedent for every element."
+  },
+  {
+    "theorem_id": 73,
+    "title": "Relation Reflexivity",
+    "theorem_text": "Every relation has exactly one of these properties: it is either:\n:reflexive,\n:antireflexive or\n:non-reflexive.",
+    "proof_text": "A reflexive relation can not be antireflexive, and vice versa:\n$\\tuple {x, x} \\in \\RR \\iff \\neg \\paren {\\tuple {x, x} \\notin \\RR}$\nBy the definition of non-reflexive, a reflexive relation can not also be non-reflexive.\nSo a reflexive relation is neither antireflexive nor non-reflexive.\nAn antireflexive relation can be neither reflexive (see above) nor non-reflexive (by the definition of non-reflexive).\nBy its own definition, if a relation is neither reflexive nor antireflexive, then it is non-reflexive.",
+    "clean_row_index": 42,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The argument assumes a nonempty underlying set when it rules out simultaneous reflexivity and antireflexivity. On the empty set both universal conditions hold."
+  },
+  {
+    "theorem_id": 95,
+    "title": "Union Distributes over Intersection",
+    "theorem_text": "Set union is distributive over set intersection:\n$R \\cup \\paren {S \\cap T} = \\paren {R \\cup S} \\cap \\paren {R \\cup T}$",
+    "proof_text": "From Intersection Distributes over Union:\n$R \\cap \\paren {S \\cup T} = \\paren {R \\cap S} \\cup \\paren {R \\cap T}$\nFrom the Duality Principle for Sets, exchanging $\\cup$ for $\\cap$ throughout, and vice versa, reveals the result:\n$R \\cup \\paren {S \\cap T} = \\paren {R \\cup S} \\cap \\paren {R \\cup T}$",
+    "clean_row_index": 43,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Set duality exchanges union and intersection in the cited distributive identity and gives precisely the desired equality."
+  },
+  {
+    "theorem_id": 99,
+    "title": "Set Difference with Self is Empty Set",
+    "theorem_text": "The set difference of a set with itself is the empty set:\n$S \\setminus S = \\O$",
+    "proof_text": "From Set is Subset of Itself:\n$S \\subseteq S$\nFrom Set Difference with Superset is Empty Set we have:\n$S \\subseteq T \\iff S \\setminus T = \\O$\nHence the result.",
+    "clean_row_index": 44,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Apply the empty-difference characterization to the inclusion S contained in S itself."
+  },
+  {
+    "theorem_id": 105,
+    "title": "Set Difference with Intersection",
+    "theorem_text": "Let $S$ and $T$ be sets.",
+    "proof_text": "Consider $R, S, T \\subseteq \\mathbb U$, where $\\mathbb U$ is considered as the universe.\nThen:\n$$\\left({R \\setminus S}\\right) \\cap T = \\left({R \\cap \\complement \\left({S}\\right)}\\right) \\cap T$$\nSet Difference as Intersection with Complement\n$$= \\left({R \\cap T}\\right) \\cap \\complement \\left({S}\\right)$$\nIntersection is Commutative and Intersection is Associative\n$$= \\left({R \\cap T}\\right) \\setminus S$$\nSet Difference as Intersection with Complement",
+    "clean_row_index": 45,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The supplied theorem text only introduces sets S and T and states no claim. The proof derives a specific identity involving a third set R, so the intended target cannot be assessed from the supplied statement."
+  },
+  {
+    "theorem_id": 108,
+    "title": "Set Difference Union Intersection",
+    "theorem_text": "$S = \\paren {S \\setminus T} \\cup \\paren {S \\cap T}$",
+    "proof_text": "$$\\paren {S \\setminus T} \\cup \\paren {S \\cap T} = \\paren {\\paren {S \\setminus T} \\cup S} \\cap \\paren {\\paren {S \\setminus T} \\cup T}$$\nUnion Distributes over Intersection\n$$= S \\cap \\paren {\\paren {S \\setminus T} \\cup T}$$\nSet Difference Union First Set is First Set\n$$= S \\cap \\paren {S \\cup T}$$\nSet Difference Union Second Set is Union\n$$= S$$\nIntersection Absorbs Union",
+    "clean_row_index": 46,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Distributing union, simplifying the two resulting unions, and applying absorption yield S."
+  },
+  {
+    "theorem_id": 108,
+    "title": "Set Difference Union Intersection",
+    "theorem_text": "$S = \\paren {S \\setminus T} \\cup \\paren {S \\cap T}$",
+    "proof_text": "$$\\left({S \\setminus T}\\right) \\cup \\left({S \\cap T}\\right) = S \\setminus \\left({T \\setminus T}\\right)$$\nSet Difference with Set Difference is Union of Set Difference with Intersection\n$$= S \\setminus \\varnothing$$\nSet Difference with Self is Empty Set\n$$= S$$\nSet Difference with Empty Set is Self",
+    "clean_row_index": 47,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Substituting the same T twice in the difference-of-differences identity gives the left side as S minus the empty set."
+  },
+  {
+    "theorem_id": 108,
+    "title": "Set Difference Union Intersection",
+    "theorem_text": "$S = \\paren {S \\setminus T} \\cup \\paren {S \\cap T}$",
+    "proof_text": "By Set Difference is Subset:\n$S \\setminus T \\subseteq S$\nBy Intersection is Subset:\n$S \\cap T \\subseteq S$\nHence from Union is Smallest Superset:\n$\\paren {S \\setminus T} \\cup \\paren {S \\cap T} \\subseteq S$\nLet $s \\in S$.\nEither:\n$s \\in T$, in which case $s \\in S \\cap T$ by definition of set intersection\nor\n$s \\notin T$, in which case $s \\in S \\setminus T$ by definition of set difference.\nThat is, by definition of set union:\n$s \\in \\paren {S \\setminus T} \\cup \\paren {S \\cap T}$\nand so by definition of subset:\n$S \\subseteq \\paren {S \\setminus T} \\cup \\paren {S \\cap T}$\nHence the result by definition of set equality.",
+    "clean_row_index": 48,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both parts of the union are subsets of S. Conversely each element of S belongs to exactly the part determined by its membership in T."
+  },
+  {
+    "theorem_id": 110,
+    "title": "Set Difference with Set Difference",
+    "theorem_text": "$S \\setminus \\paren {S \\setminus T} = S \\cap T = T \\setminus \\paren {T \\setminus S}$",
+    "proof_text": "$$S \\setminus \\paren {S \\setminus T} = \\paren {S \\setminus S} \\cup \\paren {S \\cap T}$$\nSet Difference with Set Difference is Union of Set Difference with Intersection\n$$= \\O \\cup \\paren {S \\cap T}$$\nSet Difference with Self is Empty Set\n$$= S \\cap T$$\nUnion with Empty Set\nInterchanging $S$ and $T$:\n$$T \\setminus \\paren {T \\setminus S} = T \\cap S$$\n$$= S \\cap T$$\nIntersection is Commutative",
+    "clean_row_index": 49,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Expanding the nested difference leaves the intersection because the self-difference is empty. Swapping S and T and using commutativity proves the other equality."
+  },
+  {
+    "theorem_id": 111,
+    "title": "Set Difference is Anticommutative",
+    "theorem_text": "Set difference is an anticommutative operation:\n$S = T \\iff S \\setminus T = T \\setminus S = \\varnothing$",
+    "proof_text": "From Set Difference with Superset is Empty Set we have:\n$S \\subseteq T \\iff S \\setminus T = \\varnothing$\n$T \\subseteq S \\iff T \\setminus S = \\varnothing$\nThe result follows from definition of set equality:\n$S = T \\iff \\left({S \\subseteq T}\\right) \\land \\left({T \\subseteq S}\\right)$",
+    "clean_row_index": 50,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each empty difference is equivalent to one inclusion. The two inclusions together characterize equality."
+  },
+  {
+    "theorem_id": 116,
+    "title": "Relative Complement of Relative Complement",
+    "theorem_text": "$\\relcomp S {\\relcomp S T} = T$",
+    "proof_text": "By the definition of relative complement:\n$\\complement_S \\left({\\complement_S \\left({T}\\right)}\\right) = S \\setminus \\left({S \\setminus T}\\right)$\nLet $t \\in T$.\nThen by the definition of set difference:\n$t \\notin S \\setminus T$\nSince $T \\in T$ and $T \\subseteq S$, by the definition of subset:\n$t \\in S$\nThus:\n$t \\in \\left({S \\setminus \\left({S \\setminus T}\\right)}\\right)$\nSuppose instead that:\n$t \\in \\left({S \\setminus \\left({S \\setminus T}\\right)}\\right)$\nThen:\n$t \\in S$\nand:\n$\\neg \\left({t \\in \\left({S \\setminus T}\\right)}\\right)$\nThus:\n$\\neg \\left({\\left({t \\in S}\\right) \\land \\neg \\left({t \\in T}\\right)}\\right)$\nBy Implication Equivalent to Negation of Conjunction with Negative:\n$t \\in S \\implies t \\in T$\nBy Modus Ponendo Ponens:\n$t \\in T$",
+    "clean_row_index": 51,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The source's relative-complement notation presupposes T is contained in S. Under that condition the two membership implications hold. The line 'T in T' has a case typo; the needed premise t in T was explicitly introduced."
+  },
+  {
+    "theorem_id": 125,
+    "title": "Union is Empty iff Sets are Empty",
+    "theorem_text": "$S \\cup T = \\O \\iff S = \\O \\land T = \\O$",
+    "proof_text": "$$S \\cup T = \\varnothing \\iff \\neg \\exists x: x \\in \\left ({S \\cup T}\\right)$$\nDefinition of Empty Set\n$$\\iff \\forall x: \\neg \\left ({x \\in \\left ({S \\cup T}\\right)}\\right)$$\nDe Morgan's Laws (Predicate Logic)\n$$\\iff \\forall x: \\neg \\left ({x \\in S \\lor x \\in T}\\right)$$\nDefinition of Set Union\n$$\\iff \\forall x: x \\notin S \\land x \\notin T$$\nDe Morgan's Laws: Conjunction of Negations\n$$\\iff S = \\varnothing \\land T = \\varnothing$$\nDefinition of Empty Set",
+    "clean_row_index": 52,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Universal nonmembership in the union is equivalent by De Morgan's laws to universal nonmembership in each set."
+  },
+  {
+    "theorem_id": 137,
+    "title": "Set Difference as Intersection with Complement",
+    "theorem_text": "Set difference can be expressed as the intersection with the set complement:\n$A \\setminus B = A \\cap \\map \\complement B$",
+    "proof_text": "This follows directly from Set Difference as Intersection with Relative Complement:\n$A \\setminus B = A \\cap \\relcomp S B$\nLet $S = \\Bbb U$.\nSince $A, B \\subseteq \\Bbb U$ by definition of the universe, the result follows.",
+    "clean_row_index": 53,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In the common ambient universe the relative complement of B is its ordinary complement, so the cited relative-complement identity specializes as claimed."
+  },
+  {
+    "theorem_id": 148,
+    "title": "Cartesian Product Distributes over Union",
+    "theorem_text": "Cartesian product is distributive over union:\n$A \\times \\paren {B \\cup C} = \\paren {A \\times B} \\cup \\paren {A \\times C}$\n$\\paren {B \\cup C} \\times A = \\paren {B \\times A} \\cup \\paren {C \\times A}$",
+    "proof_text": "Take the result Cartesian Product of Unions:\n$\\paren {S_1 \\cup S_2} \\times \\paren {T_1 \\cup T_2} = \\paren {S_1 \\times T_1} \\cup \\paren {S_2 \\times T_2} \\cup \\paren {S_1 \\times T_2} \\cup \\paren {S_2 \\times T_1}$\nPut $S_1 = S_2 = A, T_1 = B, T_2 = C$:\n$$A \\times \\paren {B \\cup C}$$\n$$= \\paren {A \\cup A} \\times \\paren {B \\cup C}$$\nUnion is Idempotent\n$$= \\paren {A \\times B} \\cup \\paren {A \\times C} \\cup \\paren {A \\times C} \\cup \\paren {A \\times B}$$\nCartesian Product of Unions\n$$= \\paren {A \\times B} \\cup \\paren {A \\times C}$$\nUnion is Idempotent\nThus:\n$A \\times \\paren {B \\cup C} = \\paren {A \\times B} \\cup \\paren {A \\times C}$\nThe other result is proved similarly.",
+    "clean_row_index": 54,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited product-of-unions formula with one factor repeated gives duplicate terms that idempotence removes. Repeating the other factor gives the second identity."
+  },
+  {
+    "theorem_id": 158,
+    "title": "Image of Element is Subset",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $\\RR \\subseteq S \\times T$ be a relation.\nLet $A \\subseteq S$.\nThen:\n$s \\in A \\implies \\map \\RR s \\subseteq \\RR \\sqbrk A$",
+    "proof_text": "From Image of Singleton under Relation:\n$\\map \\RR s = \\RR \\sqbrk {\\set s}$\nFrom Singleton of Element is Subset:\n$s \\in A \\implies \\set s \\subseteq A$\nThe result follows from Image of Subset is Subset of Image.",
+    "clean_row_index": 55,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The fiber is the image of the singleton, which is contained in A. Monotonicity of relational image gives the inclusion."
+  },
+  {
+    "theorem_id": 161,
+    "title": "Domain of Composite Relation",
+    "theorem_text": "Let $\\RR_2 \\circ \\RR_1$ be a composite relation.\nThen the domain of $\\RR_2 \\circ \\RR_1$ is the domain of $\\RR_1$:\n$\\Dom {\\RR_2 \\circ \\RR_1} = \\Dom {\\RR_1}$",
+    "proof_text": "Let $\\RR_1 \\subseteq S_1 \\times S_2$ and $\\RR_2 \\subseteq S_2 \\times S_3$.\nThe domain of $\\RR_1$ is $S_1$.\nThe composite of $\\RR_1$ and $\\RR_2$ is defined as:\n$\\RR_2 \\circ \\RR_1 = \\set {\\tuple {x, z}: x \\in S_1, z \\in S_3: \\exists y \\in S_2: \\tuple {x, y} \\in \\RR_1 \\land \\tuple {y, z} \\in \\RR_2}$\nFrom this definition:\n$\\RR_2 \\circ \\RR_1 \\subseteq S_1 \\times S_3$.\nThus the domain of $\\RR_2 \\circ \\RR_1$ is $S_1$.\nThus:\n$\\Dom {\\RR_2 \\circ \\RR_1} = S_1 = \\Dom {\\RR_1}$",
+    "clean_row_index": 56,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Containment in S1 × S3 does not imply that every x in S1 has an image. Take R1 nonempty and R2 empty: the composite has empty domain although R1 does not, using the source's existential definition of domain."
+  },
+  {
+    "theorem_id": 162,
+    "title": "Codomain of Composite Relation",
+    "theorem_text": "Let $\\RR_2 \\circ \\RR_1$ be a composite relation.\nThen the codomain of $\\RR_2 \\circ \\RR_1$ is the codomain of $\\RR_2$:\n$\\Cdm {\\RR_2 \\circ \\RR_1} = \\Cdm {\\RR_2}$",
+    "proof_text": "Let $\\RR_1 \\subseteq S_1 \\times S_2$ and $\\RR_2 \\subseteq S_2 \\times S_3$.\nThe codomain of $\\RR_2$ is $S_3$.\nThe composite of $\\RR_1$ and $\\RR_2$ is defined as:\n$\\RR_2 \\circ \\RR_1 = \\set {\\tuple {x, z}: x \\in S_1, z \\in S_3: \\exists y \\in S_2: \\tuple {x, y} \\in \\RR_1 \\land \\tuple {y, z} \\in \\RR_2}$\nFrom this definition:\n$\\RR_2 \\circ \\RR_1 \\subseteq S_1 \\times S_3$\nThus the codomain of $\\RR_2 \\circ \\RR_1$ is $S_3$.\nThus:\n$\\Cdm {\\RR_2 \\circ \\RR_1} = S_3 = \\Cdm {\\RR_2}$",
+    "clean_row_index": 57,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In the corpus a relation's codomain is its designated target. Composition here has target S3, exactly the target of R2, whether or not every element is attained."
+  },
+  {
+    "theorem_id": 170,
+    "title": "Preimage of Union under Relation",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $\\RR \\subseteq S \\times T$ be a relation.\nLet $T_1$ and $T_2$ be subsets of $T$.\nThen:\n$\\RR^{-1} \\sqbrk {T_1 \\cup T_2} = \\RR^{-1} \\sqbrk {T_1} \\cup \\RR^{-1} \\sqbrk {T_2}$",
+    "proof_text": "We have that $\\RR^{-1}$ is a relation\nThe result follows from Image of Union under Relation.",
+    "clean_row_index": 58,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The preimage is the relational image under the inverse relation, and the cited image-of-union identity applies to it."
+  },
+  {
+    "theorem_id": 171,
+    "title": "Preimage of Intersection under Relation",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $\\mathcal R \\subseteq S \\times T$ be a relation.\nLet $C$ and $D$ be subsets of $T$.\nThen:\n$\\mathcal R^{-1} \\left[{C \\cap D}\\right] \\subseteq \\mathcal R^{-1} \\left[{C}\\right] \\cap \\mathcal R^{-1} \\left[{D}\\right]$",
+    "proof_text": "This follows from Image of Intersection under Relation, and the fact that $\\mathcal R^{-1}$ is itself a relation, and therefore obeys the same rules.",
+    "clean_row_index": 59,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the cited one-sided image-of-intersection inclusion to the inverse relation gives exactly the asserted inclusion."
+  }
+]

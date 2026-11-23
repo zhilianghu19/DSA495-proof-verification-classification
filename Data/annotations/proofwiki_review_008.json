@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 524,
+    "title": "Quotient Group of Ideal is Coset Space",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a ring.\nLet $J$ be an ideal of $R$.\nLet $\\struct {R / J, +}$ be the quotient group of $\\struct {R, +}$ by $\\struct {J, +}$.\nThen each element of $\\struct {R / J, +}$ is a coset of $J$ in $R$, that is, is of the form $x + J = \\set {x + j: j \\in J}$ for some $x \\in R$.\nThe rule of addition of these cosets is: $\\paren {x + J} + \\paren {y + J} = \\paren {x + y} + J$.\nThe identity of $\\struct {R / J, +}$ is $J$ and for each $x \\in R$, the inverse of $x + J$ is $\\paren {-x} + J$.",
+    "proof_text": "From Ideal is Additive Normal Subgroup that $J$ is a normal subgroup of $R$ under $+$.\nFrom Quotient Ring Addition is Well-Defined, $+$ is a well-defined operation.\nThe rest follows directly from the definition of quotient group.",
+    "clean_row_index": 210,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The additive normal subgroup gives precisely the cosets, identity, inverse and operation specified by the quotient-group definition."
+  },
+  {
+    "theorem_id": 530,
+    "title": "Ring Homomorphism Preserves Subrings",
+    "theorem_text": "Let $\\phi: \\struct {R_1, +_1, \\circ_1} \\to \\struct {R_2, +_2, \\circ_2}$ be a ring homomorphism.\nIf $S$ is a subring of $R_1$, then $\\phi \\sqbrk S$ is a subring of $R_2$.",
+    "proof_text": "Since $S \\ne \\O$, $\\phi \\sqbrk S \\ne \\O$.\nFrom Group Homomorphism Preserves Subgroups, $\\struct {\\phi \\sqbrk S, +_2}$ is a subgroup of $\\struct {R_2, +_2}$.\nFrom Homomorphism Preserves Subsemigroups, $\\struct {\\phi \\sqbrk S, \\circ_2}$ is a subsemigroup of $\\struct {R_2, \\circ_2}$.\nThus, as $\\struct {R_2, +_2}$ is a group and $\\struct {R_2, \\circ_2}$ is a semigroup, the result follows.",
+    "clean_row_index": 211,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The image is an additive subgroup and is closed under multiplication, which gives the stated subring under the inherited operations."
+  },
+  {
+    "theorem_id": 530,
+    "title": "Ring Homomorphism Preserves Subrings",
+    "theorem_text": "Let $\\phi: \\struct {R_1, +_1, \\circ_1} \\to \\struct {R_2, +_2, \\circ_2}$ be a ring homomorphism.\nIf $S$ is a subring of $R_1$, then $\\phi \\sqbrk S$ is a subring of $R_2$.",
+    "proof_text": "From Morphism Property Preserves Closure, $\\phi \\sqbrk {R_1}$ is a closed algebraic structure.\nFrom Epimorphism Preserves Rings, $\\phi \\sqbrk S$ is a ring.\nHence the result, from the definition of subring.",
+    "clean_row_index": 212,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Restricting the homomorphism to S gives an epimorphism onto its image, so the cited epimorphism result supplies the ring structure inherited from the codomain."
+  },
+  {
+    "theorem_id": 530,
+    "title": "Ring Homomorphism Preserves Subrings",
+    "theorem_text": "Let $\\phi: \\struct {R_1, +_1, \\circ_1} \\to \\struct {R_2, +_2, \\circ_2}$ be a ring homomorphism.\nIf $S$ is a subring of $R_1$, then $\\phi \\sqbrk S$ is a subring of $R_2$.",
+    "proof_text": "Let $S$ be a subring of $R_1$.\nSince $S \\ne \\O$ it follows that $\\phi \\sqbrk S \\ne \\O$.\nLet $x, y \\in \\phi \\sqbrk S$.\nThen:\n$\\exists s, t \\in S: x = \\map \\phi s, y = \\map \\phi t$\nSo:\n$$x +_2 \\paren {-y} = \\map \\phi s +_2 \\paren {-\\map \\phi t}$$\n$$= \\map \\phi {s +_1 \\paren {-t} }$$\nas $\\phi$ is a homomorphism\nAs $S$ is a subring of $R_1$, it is closed under $+_1$ and the taking of negatives.\nThus $s +_1 \\paren {-t} \\in S$ and so $x +_2 \\paren {-y} \\in \\phi \\sqbrk S$.\nSimilarly:\n$$x \\circ_2 y = \\map \\phi s \\circ_2 \\map \\phi t$$\n$$= \\map \\phi {s \\circ_1 t}$$\nas $\\phi$ is a homomorphism\nBecause $S$ is a subring of $R_1$, it is closed under $\\circ_1$.\nThus $s \\circ_1 t \\in S$ and so $x \\circ_2 y \\in \\phi \\sqbrk S$.\nThe result follows from Subring Test.",
+    "clean_row_index": 213,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Preimages s and t in S realize the difference and product of any two image elements as images of elements of S. Nonemptiness completes the subring test."
+  },
+  {
+    "theorem_id": 531,
+    "title": "Kernel of Ring Homomorphism is Subring",
+    "theorem_text": "Let $\\phi: \\struct {R_1, +_1, \\circ_1} \\to \\struct {R_2, +_2, \\circ_2}$ be a ring homomorphism.\nThen the kernel of $\\phi$ is a subring of $R_1$.",
+    "proof_text": "From Ring Homomorphism of Addition is Group Homomorphism and Kernel of Group Homomorphism is Subgroup:\n$\\struct {\\map \\ker \\phi, +_1} \\le \\struct {R_1, +_1}$\nwhere $\\le$ denotes subgroup.\nLet $x, y \\in \\map \\ker \\phi$.\n$$\\map \\phi {x \\circ_1 y} = \\map \\phi x \\circ_2 \\map \\phi y$$\nMorphism Property\n$$= 0_{R_2} \\circ_2 0_{R_2}$$\nDefinition of Kernel\n$$= 0_{R_2}$$\nThus $x \\circ_1 y \\in \\map \\ker \\phi$.\nThus the conditions for Subring Test are fulfilled, and $\\map \\ker \\phi$ is a subring of $R_1$.",
+    "clean_row_index": 214,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The additive kernel is a subgroup, and multiplicativity sends a product of two kernel elements to zero."
+  },
+  {
+    "theorem_id": 533,
+    "title": "Ideals of Division Ring",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a division ring whose zero is $0_R$.\nThe only ideals of $\\struct {R, +, \\circ}$ are $\\set {0_R}$ and $R$ itself.\nThat is, $\\struct {R, +, \\circ}$ has no non-null proper ideals.",
+    "proof_text": "From Null Ring is Ideal, $\\set {0_R}$ is an ideal of $\\struct {R, +, \\circ}$, as $\\struct {R, +, \\circ}$, being a division ring, is also a ring.\nBy definition, every non-zero element of a division ring is a unit.\nSo $S \\ne \\set {0_R} \\implies \\exists x \\in S: x \\ne 0_R$ such that $r$ is a unit of $R$.\nThe result follows from Ideal of Unit is Whole Ring.",
+    "clean_row_index": 215,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Any ideal other than the zero ideal contains a nonzero element, hence a unit. The cited unit-ideal lemma then forces the entire ring. The stray r refers to this chosen element."
+  },
+  {
+    "theorem_id": 534,
+    "title": "Quotient Ring of Kernel of Ring Epimorphism",
+    "theorem_text": "Let $\\phi: \\struct {R_1, +_1, \\circ_1} \\to \\struct {R_2, +_2, \\circ_2}$ be a ring epimorphism.\nLet $K = \\map \\ker \\phi$.\nThen there is a unique ring isomorphism $g: R_1 / K \\to R_2$ such that:\n$g \\circ q_K = \\phi$\n$\\phi$ is an isomorphism if and only if $K = \\set {0_{R_1} }$.",
+    "proof_text": "From the Quotient Theorem for Epimorphisms, there is one and only one isomorphism that satisfies the conditions for each of the operations on $R_1$.\nSo the first statement follows directly.\nFrom Kernel is Trivial iff Monomorphism, $\\phi$ is a ring monomorphism if and only if $K = \\set {0_{R_1} }$.\nAs $\\phi$ is also an epimorphism, the result follows.",
+    "clean_row_index": 216,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The quotient map is onto, so the factorization forces the same map on cosets for both operations. The quotient theorem and the trivial-kernel criterion give the two claims under the surjective convention used here."
+  },
+  {
+    "theorem_id": 535,
+    "title": "Ring Epimorphism Preserves Ideals",
+    "theorem_text": "Let $\\phi: \\struct {R_1, +_1, \\circ_1} \\to \\struct {R_2, +_2, \\circ_2}$ be a ring epimorphism.\nLet $J$ be an ideal of $R_1$.\nThen $\\phi \\sqbrk J$ is an ideal of $R_2$.",
+    "proof_text": "$J$ is an ideal of $R_1$, so it is also a subring of $R_1$.\nFrom Ring Homomorphism Preserves Subrings, it follows that $\\phi \\sqbrk J$ is a subring of $R_2$.\nNow suppose $u \\in \\phi \\sqbrk J$.\nLet $v \\in R_2$.\nThen $\\exists x \\in J, y \\in R_1$ such that $\\map \\phi x = u, \\map \\phi y = v$.\nThus, by the morphism property:\n$u \\circ_2 v = \\map \\phi x \\circ_2 \\map \\phi y = \\map \\phi {x \\circ_1 y}$\nSo $u \\circ_2 v \\in \\phi \\sqbrk J$ because $x \\circ_1 y \\in J$.\nSimilarly $v \\circ_2 u \\in \\phi \\sqbrk J$ also.\nThe result follows.",
+    "clean_row_index": 217,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Surjectivity lifts an arbitrary codomain factor, and the ideal property upstairs then gives absorption on each side in the image."
+  },
+  {
+    "theorem_id": 538,
+    "title": "Preimage of Ideal under Ring Homomorphism is Ideal",
+    "theorem_text": "Let $\\phi: \\left({R_1, +_1, \\circ_1}\\right) \\to \\left({R_2, +_2, \\circ_2}\\right)$ be a ring homomorphism.\nLet $S_2$ be an ideal of $R_2$.\nThen $S_1 = \\phi^{-1} \\left[{S_2}\\right]$ is an ideal of $R_1$ such that $\\ker \\left({\\phi}\\right) \\subseteq S_1$.",
+    "proof_text": "From Preimage of Subring under Ring Homomorphism is Subring we have that $S_1 = \\phi^{-1} \\left[{S_2}\\right]$ is a subring of $R_1$ such that $\\ker \\left({\\phi}\\right) \\subseteq S_1$.\nWe now need to show that $S_1$ is an ideal of $R_1$.\nLet $s_1 \\in S_1, r_1 \\in R_1$.\nThen:\n$$\\phi \\left({r_1 \\circ_1 s_1}\\right) = \\phi \\left({r_1}\\right) \\circ_2 \\phi \\left({s_1}\\right)$$\nas $\\phi$ is a homomorphism\n$$= S_2$$\nas $S_2$ is an ideal of $R_2$\nThus:\n$r_1 \\circ_1 s_1 \\in \\phi^{-1} \\left[{S_2}\\right]= S_1$\nSimilarly for $s_1 \\circ_1 r_1$.\nSo $S_1$ is an ideal of $R_1$.",
+    "clean_row_index": 218,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The ideal property puts the product of the images in S2, as the following preimage step requires. The displayed equality to S2 is a membership-sign typo."
+  },
+  {
+    "theorem_id": 539,
+    "title": "Image of Preimage of Subring under Ring Epimorphism",
+    "theorem_text": "Let $\\phi: \\struct {R_1, +_1, \\circ_1} \\to \\struct {R_2, +_2, \\circ_2}$ be a ring epimorphism.\nLet $S_2$ be a subring of $R_2$.\nThen:\n$\\phi \\sqbrk {\\phi^{-1} \\sqbrk {S_2} } = S_2$",
+    "proof_text": "As $\\phi$ is an epimorphism, it is a surjection, and so $\\Img \\phi = R_2$.\nSo $S_2 \\subseteq \\Img {R_1}$.\nThe result then follows from Image of Preimage under Mapping.",
+    "clean_row_index": 219,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Surjectivity gives every element of the subring a preimage, so the image-of-preimage formula recovers the entire subring."
+  },
+  {
+    "theorem_id": 540,
+    "title": "Diagonal Relation is Universally Congruent",
+    "theorem_text": "The diagonal relation $\\Delta_S$ on a set $S$ is universally congruent with every operation on $S$.",
+    "proof_text": "We have that the diagonal relation is an equivalence relation.\nLet $\\left({S, \\circ}\\right)$ be any algebraic structure.\n$$x_1 \\Delta_S x_2 \\land y_1 \\Delta_S y_2$$\n$$\\implies x_1 = x_2 \\land y_1 = y_2$$\nDefinition of Diagonal Relation\n$$\\implies x_1 \\circ y_1 = x_2 \\circ y_2$$\n(consequence of equality)\n$$\\implies \\left({x_1 \\circ y_1}\\right) \\Delta_S \\left({x_2 \\circ y_2}\\right)$$\nDefinition of Diagonal Relation\nIt can therefore be described as universally congruent.",
+    "clean_row_index": 220,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Diagonal-related inputs are equal coordinatewise, and applying the same operation preserves equality of the outputs."
+  },
+  {
+    "theorem_id": 542,
+    "title": "Positive Elements of Ordered Ring",
+    "theorem_text": "Let $\\struct {R, +, \\circ, \\le}$ be an ordered ring with unity whose zero is $0_R$ and whose unity is $1_R$.\nLet $P$ be the set of positive elements of $R$ , that is, $P = R_{\\ge 0}$.\nThen:\n$(1): \\quad P + P \\subseteq P$\n$(2): \\quad P \\cap \\paren {-P} = \\set {0_R}$\n$(3): \\quad P \\circ P \\subseteq P$\nIf $\\le$ is a total ordering, that is, if $\\struct {R, +, \\circ, \\le}$ is a totally ordered ring, then:\n$(4): \\quad P \\cup \\paren {-P} = R$\nThe converse is also true:\nLet $\\struct {R, +, \\circ}$ be a ring.\nLet $P \\subseteq R$ such that $(1)$, $(2)$ and $(3)$ are satisfied.\nThen there is one and only one ordering $\\le$ compatible with the ring structure of $R$ such that $P = R_{\\ge 0}$.\nAlso, if $(4)$ is also satisfied, then $\\le$ is a total ordering.",
+    "proof_text": "Necessary Condition\nFirst, suppose that $\\le$ is compatible with the ring structure of $R$.\nHence:\n$(OR1): \\quad \\le$ is compatible with $+$\n$(OR2): \\quad \\forall x, y \\in R: 0_R \\le x, 0_R \\le y \\implies 0_R \\le x \\circ y$.\n$(1)$: Let $x, y \\in R: 0_R \\le x, 0_R \\le y$.\nThen $0_R + 0_R \\le x + y$ by the fact that $\\le$ is compatible with $+$.\nThus $0_R \\le x + y$ and thus $x + y \\in P$.\n$(2)$: By Properties of Ordered Ring item 4, $-P = \\set {x \\in R: x \\le 0_R}$.\nLet $x \\in P \\cap \\paren {-P}$.\nThen $x \\le 0_R$ and $0_R \\le x$.\nSo from the antisymmetric nature of $\\le$, $x = 0_R$.\n$(3)$: This is equivalent to $0_R \\le x, 0_R \\le y \\implies 0_R \\le x \\circ y$ which is one of the properties of being compatible with the ring structure of $R$.\n$(4)$: Now if $\\le$ is a total ordering, then $\\forall x \\in R$, either $x \\le 0_R$ or $0_R \\le x$, and the result follows.\nSufficient Condition\nLet $P \\subseteq R$ such that $(1)$, $(2)$ and $(3)$ are satisfied.\nBy item $(OR2)$ of Properties of Ordered Ring, we have:\n$x \\le y \\iff 0 \\le y + \\paren {-x}$\nso there is at most one ordering on $R$ compatible with the ring structure of $R$ such that $P = R_{\\ge 0}$, namely, the one that satisfies:\n$x \\le y \\iff y + \\left({-x}\\right) \\in P$\nNow we need to show that $\\le$ thus defined has the required properties.\n;Reflexivity:\nBy $(2)$:\n$\\forall x \\in R: x \\le x$ because $x + \\paren {-x} = 0_R \\in P$\n;Antisymmetry:\nLet $x \\le y$ and $y \\le x$.\nThen $y + \\paren {-x} \\in P$ and $-\\paren {y + \\paren {-x} } = x + \\paren {-y} \\in P$.\nThus by $(2)$, $y + \\paren {-x} = 0_R$ and thus $y = x$.\n;Transitivity:\nIf $x \\le y$ and $y \\le z$, then $y + \\paren {-x} \\in P$ and $z + \\paren {-y} \\in P$.\nBut as $z + \\paren {-x} = z + \\paren {-y} + y + \\paren {-x}$, we have that $z + \\paren {-x} \\in P$ from $(1)$.\nHence $x \\le z$.\nLet $x \\le y$.\nThen $z + x \\le z + y$ since $\\paren {z + y} + \\paren {-\\paren {x + x} } = y + \\paren {-x} \\in P$.\nFinally, Ordering Compatible with Ring holds because of $(3)$.\nIf $(4)$ holds, then $\\forall x, y \\in R$, either $y + \\paren {-x} \\in P$ or $x + \\paren {-y} = -\\paren {y + \\paren {-x} }  \\in P$, that is, either $x \\le y$ or $y \\le x$.",
+    "clean_row_index": 221,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The difference criterion gives the unique possible order, and the cone axioms prove reflexivity, antisymmetry, transitivity, multiplication compatibility and totality when applicable. The translation calculation has x+x in place of z+x, with the intended difference explicit."
+  },
+  {
+    "theorem_id": 543,
+    "title": "Symmetric Difference with Intersection forms Ring",
+    "theorem_text": "Let $S$ be a set.\nThen $\\struct {\\powerset S, *, \\cap}$ is a commutative ring with unity, in which the unity is $S$.\nThis ring is not an integral domain.",
+    "proof_text": "From Symmetric Difference on Power Set forms Abelian Group, $\\struct {\\powerset S, *}$ is an abelian group, where $\\O$ is the identity and each element is self-inverse.\nFrom Power Set with Intersection is Monoid, $\\struct {\\powerset S, \\cap}$ is a commutative monoid whose identity is $S$.\nAlso Intersection Distributes over Symmetric Difference.\nThus $\\struct {\\powerset S, \\cap}$ is a commutative ring with a unity which is $S$.\nFrom Intersection with Empty Set:\n$\\forall A \\in \\powerset S: A \\cap \\O = \\O = \\O \\cap A$\nThus $\\O$ is indeed the zero.\nHowever, from Set Intersection Not Cancellable, it follows that $\\struct {\\powerset S, *, \\cap}$ is not an integral domain.",
+    "clean_row_index": 222,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The noncancellation citation does not supply a nonzero noncancellable factor for every S. For a singleton S the ring is the two-element field."
+  },
+  {
+    "theorem_id": 543,
+    "title": "Symmetric Difference with Intersection forms Ring",
+    "theorem_text": "Let $S$ be a set.\nThen $\\struct {\\powerset S, *, \\cap}$ is a commutative ring with unity, in which the unity is $S$.\nThis ring is not an integral domain.",
+    "proof_text": "From Power Set is Closed under Symmetric Difference and Power Set is Closed under Intersection, we have that both $\\struct {\\powerset S, *}$ and $\\struct {\\powerset S, \\cap}$ are closed.\nHence $\\powerset S$ is a ring of sets, and hence a commutative ring.\nFrom Intersection with Subset is Subset, we have $A \\subseteq S \\iff A \\cap S = A$. Thus we see that $S$ is the unity.\nAlso during the proof of Power Set with Intersection is Monoid, it was established that $S$ is the identity of $\\struct {\\powerset S, \\cap}$.\nWe also note that set intersection is not cancellable, so $\\struct {\\powerset S, *, \\cap}$ is not an integral domain.\nThe result follows.",
+    "clean_row_index": 223,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The cancellation argument also counts cancellation failures involving zero. When S is a singleton there are no nonzero zero divisors, so its power-set ring is a field."
+  },
+  {
+    "theorem_id": 545,
+    "title": "Field of Quotients of Subdomain",
+    "theorem_text": "Let $\\struct {F, +, \\circ}$ be a field whose unity is $1_F$.\nLet $\\struct {D, +, \\circ}$ be a subdomain of $\\struct {F, +, \\circ}$ whose unity is $1_D$.\nLet:\n$K = \\set {\\dfrac x y: x \\in D, y \\in D^*}$\nwhere $\\dfrac x y$ is the division product of $x$ by $y$.\nThen $\\struct {K, +, \\circ}$ is a field of quotients of $\\struct {D, +, \\circ}$.",
+    "proof_text": "$1_D = 1_F$ by Subdomain Test.\nThe sum and product of two elements of $K$ are also in $K$ by Addition of Division Products and Product of Division Products.\nThe additive and product inverses of $K$ are also in $K$ by Negative of Division Product and Inverse of Division Product.\nThus by Subfield Test, $\\struct {K, +, \\circ}$ is a subfield of $\\struct {F, +, \\circ}$ which clearly contains $\\struct {D, +, \\circ}$.\nHence the result.",
+    "clean_row_index": 224,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The fraction formulas close K under the field operations and inverses of nonzero fractions. It contains D via denominator one, and every member has the required fraction form by construction."
+  },
+  {
+    "theorem_id": 551,
+    "title": "Order Embedding between Quotient Fields is Unique",
+    "theorem_text": "Let $\\struct {R_1, +_1, \\circ_1, \\le_1}$ and $\\struct {S, +_2, \\circ_2, \\le_2}$ be totally ordered integral domains.\nLet $K, L$ be totally ordered fields of quotients of $\\struct {R_1, +_1, \\circ_1, \\le_1}$ and $\\struct {S, +_2, \\circ_2, \\le_2}$ respectively.\nLet $\\phi: R \\to S$ be a order embedding.\nThen there is one and only one order embedding $\\psi: K \\to L$ extending $\\phi$.\nAlso:\n$\\forall x \\in R, y \\in R_{\\ne 0}: \\map \\psi {\\dfrac x y} = \\dfrac {\\map \\phi x} {\\map \\phi y}$\nIf $\\phi: R \\to S$ is an order isomorphism, then so is $\\psi$.",
+    "proof_text": "By Field of Quotients is Unique, all we need to show is:\n$\\forall x_1, x_2 \\in R, y_1, y_2 \\in R_{> 0}: \\dfrac {x_1} {y_1} \\le \\dfrac {x_2} {y_2} \\iff \\dfrac {\\map \\phi {x_1}} {\\map \\phi {y_1} } \\le \\dfrac {\\map \\phi {x_2} } {\\map \\phi {y_2} }$\nLet $x_1 / y_1 \\le x_2 / y_2$, where $y_1, y_2 \\in R_{> 0}$.\nAs $y_1, y_2 \\in R_{> 0}$, it follows that $0 < y_1 \\circ_1 y_2$ and $0 < 1 / \\paren {y_1 \\circ_1 y_2}$.\nWe also have:\n$0 < \\map \\phi {y_1} \\circ_2 \\map \\phi {y_2} = \\map \\phi {y_1 \\circ_1 y_2}$\nTherefore:\n$x_1 \\circ_1 y_2 = \\frac {x_1} {y_1} \\circ_1 \\paren {y_1 \\circ y_2} \\le \\dfrac {x_2} {y_2} \\circ_1 \\paren {y_1 \\circ_1 y_2} = x_2 \\circ_1 y_1$\nConversely, let $x_1 \\circ_1 y_2 \\le x_2 \\circ_1 y_1$.\nThen:\n$\\dfrac {x_1} {y_1} = x_1 \\circ_1 y_2 \\circ_1 \\paren {\\dfrac 1 {y_1 \\circ_1 y_2} } \\le x_2 \\circ_1 y_1 \\circ_1 \\paren {\\dfrac 1 {y_1 \\circ_1 y_2} } = \\dfrac {x_2} {y_2}$\nThat is, we have:\n$\\dfrac {x_1} {y_1} \\le \\dfrac {x_2} {y_2} \\iff x_1 \\circ_1 y_2 \\le x_2 \\circ_1 y_1$\nSimilarly:\n$\\dfrac {\\map \\phi {x_1} } {\\map \\phi {y_1} } \\le \\dfrac {\\map \\phi {x_2} } {\\map \\phi {y_2} } \\iff \\map \\phi {x_1} \\circ_2 \\map \\phi {y_2} \\le \\map \\phi {x_2} \\circ_2 \\map \\phi {y_1}$\nNow $\\phi: R \\to S$ is an order embedding.\nTherefore:\n$x_1 \\circ_1 y_2 \\le x_2 \\circ_1 y_1 \\iff \\map \\phi {x_1 \\circ_1 y_2} \\le \\map \\phi {x_2 \\circ_1 y_1}$\nThe result follows.",
+    "clean_row_index": 225,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The fraction-field extension requires a ring embedding. A mere order embedding need not preserve products or zero, as the translation n to n+1 on the integers shows."
+  },
+  {
+    "theorem_id": 552,
+    "title": "Strict Ordering Preserved under Product with Cancellable Element",
+    "theorem_text": "Let $\\left({S, \\circ, \\preceq}\\right)$ be an ordered semigroup.\nLet $x, y, z \\in S$ be such that:\n$(1): \\quad z$ is cancellable for $\\circ$\n$(2): \\quad x \\prec y$\nThen:\n$x \\circ z \\prec y \\circ z$\n$z \\circ x \\prec z \\circ y$",
+    "proof_text": "Let $z$ be cancellable and $x \\prec y$.\nThen by the definition of ordered semigroup:\n$x \\circ z \\preceq y \\circ z$\nFrom the fact that $z$ is cancellable:\n$x \\circ z = y \\circ z \\iff x = y$\nThus as $x \\circ z \\ne y \\circ z$ it follows from Strictly Precedes is Strict Ordering that:\n$x \\circ z \\prec y \\circ z$\nSimilarly, $z \\circ x \\prec z \\circ y$ follows from $z \\circ x \\preceq z \\circ y$.",
+    "clean_row_index": 226,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Compatibility yields each weak inequality, and cancellation excludes equality on both sides."
+  },
+  {
+    "theorem_id": 555,
+    "title": "Monomorphism from Total Ordering",
+    "theorem_text": "Let the following conditions hold:\n$(1): \\quad$ Let $\\left({S, \\circ, \\preceq}\\right)$ and $\\left({T, *, \\preccurlyeq}\\right)$ be ordered semigroups.\n$(2): \\quad$ Let $\\phi: S \\to T$ be a mapping.\n$(3): \\quad$ Let $\\preceq$ be a total ordering on $S$.\nThen $\\phi \\left({S, \\circ, \\preceq}\\right) \\to \\left({T, *, \\preccurlyeq}\\right)$ is a (structure) monomorphism iff:\n$(1): \\quad \\phi$ is strictly increasing from $\\left({S, \\preceq}\\right)$ into $\\left({T, \\preccurlyeq}\\right)$;\n$(2): \\quad \\phi$ is a homomorphism from $\\left({S, \\circ}\\right)$ into $\\left({T, *}\\right)$.",
+    "proof_text": "This follows:\n$(1): \\quad$ As a direct consequence of Mapping from Totally Ordered Set is Order Embedding iff Strictly Increasing\n$(2): \\quad$ From the definition of monomorphism as a homomorphism which is an injection.",
+    "clean_row_index": 227,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "On a total order, strict increase is equivalent to an order embedding. Together with preservation of the semigroup operation this is precisely the stated structure monomorphism."
+  },
+  {
+    "theorem_id": 568,
+    "title": "Cardinality of Empty Set",
+    "theorem_text": "$\\card S = 0 \\iff S = \\O$\nThat is, the empty set is finite, and has a cardinality of zero.",
+    "proof_text": "Zero is defined as the cardinal of the empty set.\nThe result follows from Finite Cardinals and Ordinals are Equivalent.",
+    "clean_row_index": 228,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Cardinal zero is the cardinal of the empty set. A set equinumerous with the empty set must itself be empty, giving the equivalence and finiteness."
+  },
+  {
+    "theorem_id": 569,
+    "title": "Cardinality of Subset of Finite Set",
+    "theorem_text": "Let $A$ and $B$ be finite sets such that $A \\subseteq B$.\nLet\n$\\card B = n$\nwhere $\\card {\\, \\cdot \\,}$ denotes cardinality.\nThen $\\card A \\le n$.",
+    "proof_text": "Let $A \\subseteq B$.\nThere are two cases:\n$(1): \\quad A \\ne B$\nIn this case:\n$A \\subsetneqq B$\nand from Cardinality of Proper Subset of Finite Set:\n$\\card A < n$\n$(2): \\quad A = B$\nIn this case:\n$\\card A = \\card B$\nand so:\n$\\card A = n$\nIn both cases:\n$\\card A \\le n$\nHence the result.",
+    "clean_row_index": 229,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A proper subset of the finite set has strictly smaller cardinality, and equality of the sets gives equality of cardinality."
+  },
+  {
+    "theorem_id": 570,
+    "title": "Cardinality of Surjection",
+    "theorem_text": "Let $S$ be a set.\nLet:\n$\\card S = n$\nwhere $\\card S$ denotes the cardinality of $S$.\nLet $f: S \\to T$ be a surjection.\nThen $\\card T \\le n$.\nThe equality:\n$\\card T = n$\noccurs if and only if $f$ is a bijection.",
+    "proof_text": "We have that $\\card S = n$.\nThen by definition of cardinality:\n:there is a surjection from $S$ to $T$\nif and only if:\n:there is a surjection from $\\N_n$ to $T$.\nSo we need consider the case only when $S = \\N_n$.\nBy definition of surjection:\n$\\forall x \\in T: f^{-1} \\sqbrk {\\set x} \\ne \\O$\nwhere $f^{-1} \\sqbrk {\\set x}$ denotes the preimage of $\\set x$ under $f$.\nFrom the Well-Ordering Principle, $\\N$ is well-ordered.\nTherefore by Subset of Well-Ordered Set is Well-Ordered, $S = \\N_n$ is well-ordered.\nWe have that $f^{-1} \\sqbrk {\\set x} \\subseteq S$.\nTherefore $f^{-1} \\sqbrk {\\set x}$ is also well-ordered.\nTherefore, by definition of well-ordered set, $f^{-1} \\sqbrk {\\set x}$ has a smallest element.\nLet $g: T \\to S$ be the mapping defined as:\n$\\forall x \\in T: g \\paren x =$ the smallest element of $f^{-1} \\sqbrk {\\set x}$\nLet $x \\in T$.\nThen:\n$g \\paren x \\in f^{-1} \\sqbrk {\\set x}$\nso:\n$f \\paren {g \\paren x} = x$\nThus:\n$f \\circ g = I_T$\nand by Identity Mapping is Bijection:\n$I_T: T \\to g \\sqbrk T$ is a bijection.\nBy Cardinality of Subset of Finite Set:\n$\\card {g \\sqbrk T} \\le n$\nLet $\\card {g \\sqbrk T} = m$.\nBy Set Equivalence is Equivalence Relation:\n$\\card T = m$\nelements.\nSuppose $m = n$.\nThen by Cardinality of Subset of Finite Set:\n$g \\sqbrk T = S$\nso $g: T \\to S$ is a bijection.\nTherefore:\n$$f = f \\circ I_S$$\n$$= f \\circ g \\circ g^{-1}$$\n$$= I_S \\circ g^{-1}$$\n$$= g^{-1}$$\nSo $f: S \\to T$ is a bijection.",
+    "clean_row_index": 230,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "Replacing S by a finite initial segment assumes finiteness absent from the statement. The surjection k to floor(k/2) on the naturals has equal domain and codomain cardinalities and is not bijective."
+  },
+  {
+    "theorem_id": 574,
+    "title": "Unique Isomorphism between Finite Totally Ordered Sets",
+    "theorem_text": "Let $S$ and $T$ be finite sets such that:\n$\\card S = \\card T$\nLet $\\struct {S, \\preceq}$ and $\\struct {T, \\preccurlyeq}$ be totally ordered sets.\nThen there is exactly one order isomorphism from $\\struct {S, \\preceq}$ to $\\struct {T, \\preccurlyeq}$.",
+    "proof_text": "It is sufficient to consider the case where $\\struct {T, \\preccurlyeq}$ is $\\struct {\\N_n, \\le}$ for some $n \\in \\N$.\nLet $A$ be the set of all $n \\in \\N$ such that if:\n$(1): \\quad S$ is any set such that $\\card S = n$, and\n$(2): \\quad \\preceq$ is any total ordering on $S$\nthen there is exactly one isomorphism from $\\struct {S, \\preceq}$ to $\\struct {\\N_n, \\le}$.\n$\\O \\in A$ from Empty Mapping is Mapping and Equivalence of Mappings between Sets of Same Cardinality.\nNow let $n \\in A$.\nLet $\\struct {S, \\preceq}$ be a totally ordered set with $n + 1$ elements.\nBy Finite Non-Empty Subset of Totally Ordered Set has Smallest and Greatest Elements, $S$ has a greatest element $b$.\nThen $\\card {S \\setminus \\set b} = n$ by Cardinality Less One.\nThe total ordering on $S \\setminus \\set b$ is the one induced from that on $S$.\nSo as $n \\in A$, there exists a unique order isomorphism $f: S \\setminus \\set b \\to \\struct {\\N_n, \\le}$.\nLet us define the mapping $g: S \\to \\N_{n + 1}$ as follows:\n$\\forall x \\in S: \\map g x = \\begin{cases}\n\\map f x: & x \\in S \\setminus \\set b \\\\\nn: & x = b\n\\end{cases}$\nThis is the desired order isomorphism from $\\struct {S, \\preceq}$ to $\\struct {\\N_{n + 1}, \\le}$.\nNow let $h: \\struct {S, \\preceq}$ to $\\struct {\\N_{n + 1}, \\le}$ be an order isomorphism.\nThen $\\map h b = n$ (it has to be).\nSo the restriction of $h$ to $S \\setminus \\set b$ is an isomorphism from $S \\setminus \\set b$ to $\\struct {\\N_n, \\le}$, and hence $h = f$ (as $n \\in A$, any such order isomorphism is unique).\nThus:\n$\\forall x \\in S \\setminus \\set b: \\map h x = \\map f x = \\map g x$\nand:\n$\\map h b = n = \\map g b$\nthus $h = g$.\nTherefore $n + 1 \\in A$.\nThe result follows from the Principle of Mathematical Induction.",
+    "clean_row_index": 231,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Removing the greatest element and extending the unique smaller isomorphism defines the next map. Every order isomorphism must send the maximum to the maximum, giving uniqueness and the canonical comparison between S and T."
+  },
+  {
+    "theorem_id": 576,
+    "title": "Regular Representation wrt Cancellable Element on Finite Semigroup is Bijection",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ be a finite semigroup.\nLet $a \\in S$ be cancellable.\nThen:\n:the left regular representation $\\lambda_a$\nand:\n:the right regular representation $\\rho_a$\nof $\\left({S, \\circ}\\right)$ with respect to $a$ are both bijections.",
+    "proof_text": "By Cancellable iff Regular Representations Injective, $\\lambda_a$ and $\\rho_a$ are injections.\nWe have that $S$ is finite.\nFrom Injection from Finite Set to Itself is Surjection, both $\\lambda_a$ and $\\rho_a$ are surjections.\nThus $\\lambda_a$ and $\\rho_a$ are injective and surjective, and therefore bijections.",
+    "clean_row_index": 232,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Cancellation makes both translations injective. Each is a self-map of a finite set and hence is surjective as well."
+  },
+  {
+    "theorem_id": 577,
+    "title": "Power Set of Natural Numbers is not Countable",
+    "theorem_text": "The power set $\\powerset \\N$ of the natural numbers $\\N$ is not countable.",
+    "proof_text": "There is no bijection from a set to its power set.\nFrom Injection from Set to Power Set, we have that there exists an injection $f: \\N \\to \\powerset \\N$.\nFrom the Cantor-Bernstein-Schröder Theorem, there can be no injection $g: \\powerset \\N \\to \\N$.\nSo, by definition, $\\powerset \\N$ is not countable.",
+    "clean_row_index": 233,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "An injection back to the naturals would combine with the singleton injection to contradict Cantor's theorem by Cantor–Bernstein."
+  },
+  {
+    "theorem_id": 580,
+    "title": "Infinite Set has Countably Infinite Subset",
+    "theorem_text": "Every infinite set has a countably infinite subset.",
+    "proof_text": "Let $S$ be an infinite set.\nWe use Between Two Sets Exists Injection or Surjection.\nSuppose that there exists an injection $\\psi: \\N \\to S$.\nLet $T$ be the image of $\\psi$.\nFrom Injection to Image is Bijection, it follows that $\\psi^{-1}: T \\to \\N$ is a bijection.\nHence, $T$ is a countably infinite subset of $S$.\nNow, suppose that that there exists a surjection $\\phi: \\N \\to S$.\nFrom Surjection from Natural Numbers iff Countable, it follows that $S$ is countably infinite.\nSo, from Set is Subset of Itself, we have that $S$ is a countably infinite subset of $S$.",
+    "clean_row_index": 234,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited comparison result gives either an injection whose image is countably infinite or a surjection from the naturals making the infinite set itself countably infinite, in the usual choice setting."
+  },
+  {
+    "theorem_id": 580,
+    "title": "Infinite Set has Countably Infinite Subset",
+    "theorem_text": "Every infinite set has a countably infinite subset.",
+    "proof_text": "Let $S$ be an infinite set.\nFirst an injection $f: \\N \\to S$ is constructed.\nLet $g$ be a choice function on $\\powerset S \\setminus \\set \\O$.\nThen define $f: \\N \\to S$ as follows:\n$\\forall n \\in \\N: f \\left({n}\\right) = \\begin{cases}\n\\map g S & : n = 0 \\\\\n\\map g {S \\setminus \\set {\\map f 0, \\ldots, \\map f {n - 1} } } & : n > 0\n\\end{cases}$\nSince $S$ is infinite, $S \\setminus \\set {\\map f 0, \\ldots, \\map f {n - 1} }$ is non-empty for each $n \\in \\N$.\nTherefore $f \\sqbrk \\N$ is infinite.\nTo show that $f$ is injective, let $m, n \\in \\N$, say $m < n$.\nThen:\n$\\map f m \\in \\set {\\map f 0, \\ldots, \\map f {n - 1} }$\nbut:\n$\\map f n \\in S \\setminus \\set {\\map f 0, \\ldots, \\map f {n - 1} }$\nHence $\\map f m \\ne \\map f n$.\nSince $f$ is injective, it follows from Injection to Image is Bijection that $f$ is a bijection from $\\N$ to $f \\sqbrk \\N$.\nThus $f \\sqbrk \\N$ is a countable subset of $S$.",
+    "clean_row_index": 235,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With the usual axiom of choice, the choice function recursively selects a fresh point after each finite selection. Distinct stages therefore give an injection with countably infinite image."
+  },
+  {
+    "theorem_id": 580,
+    "title": "Infinite Set has Countably Infinite Subset",
+    "theorem_text": "Every infinite set has a countably infinite subset.",
+    "proof_text": "Let $S$ be an infinite set.\nFirst an injection $f: \\N \\to S$ is constructed.\nLet $f$ be a choice function on $\\powerset S \\setminus \\set \\O$.\nThat is:\n$\\forall A \\in \\powerset S \\setminus \\set \\O: \\map f A \\in A$\nThis is justified only if the Axiom of Choice is accepted.\nLet $\\CC$ be the set of all finite subsets of $S$.\nLet $A \\in \\CC$.\nSince $S$ is infinite it follows that $S \\setminus A \\ne \\O$.\nSo $S \\setminus A \\in \\Dom f$.\nLet $g: \\CC \\to \\CC$ be the mapping defined as:\n$\\map g A = A \\cup \\set {\\map f {S \\setminus A} }$\nThat is, $\\map g A$ is constructed by joining $A$ with the element that $f$ chooses from $S \\setminus A$.\nConsider the Recursion Theorem applied to $g$, starting with the set $\\O$.\nWe obtain a mapping $U: \\N \\to \\CC$ such that:\n$\\map U x = \\begin{cases}\n\\O & : x = 0 \\\\ \\map U n \\cup \\set {\\map f {S \\setminus \\map U n} } & : x = n^+\n\\end{cases}$\nwhere here $\\N$ is considered as the set of elements of the von Neumann construction of natural numbers.\nConsider the mapping $v: \\N \\to S$, defined as:\n$\\forall n \\in \\N: \\map v n = \\map f {S \\setminus \\map U n}$\nWe have that, by definition of $v$:\n$(1): \\quad \\forall n \\in \\N: \\map v n \\notin \\map U n$\n$(2): \\quad \\forall n \\in \\N: \\map v n \\in \\map U {n^+}$\n$(3): \\quad \\forall m, n \\in \\N: n \\le m \\implies \\map U n \\subseteq \\map U m$\nThen because $\\map v n \\in \\map U m$ but $\\map v m \\notin \\map U m$:\n$(4): \\quad \\forall m, n \\in \\N: n < m \\implies \\map v n \\ne \\map v m$\nSo $(4)$ implies that $v$ maps distinct elements of $\\N$ onto distinct elements of $S$.\nThus $v: \\N \\to S$ is an injection.\nIt follows from Injection to Image is Bijection that $v$ is a bijection from $\\N$ to $\\map v \\N$.\nThus $\\map v \\N$ is the countable subset of $S$ that was required.",
+    "clean_row_index": 236,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The proof invokes choice explicitly. The increasing finite sets contain every earlier selected point and exclude the next one, establishing injectivity and the required countably infinite image."
+  },
+  {
+    "theorem_id": 581,
+    "title": "No Bijection between Finite Set and Proper Subset",
+    "theorem_text": "A finite set can not be in one-to-one correspondence with one of its proper subsets.\nThat is, a finite set is not Dedekind-infinite.",
+    "proof_text": "Let $S$ be a finite set, and let $T$ be a proper subset of $S$.\nLet $f: T \\to S$ be an injection.\nBy Cardinality of Image of Injection and Cardinality of Subset of Finite Set:\n$\\size {\\Img f} = \\size T < \\size S$\nHere, $\\Img f$ denotes the image of $f$.\nThus $\\Img f \\ne S$, and so $f$ is not a bijection.",
+    "clean_row_index": 237,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "An injection from a proper subset has image cardinality equal to that smaller finite cardinal, so it cannot cover the finite set."
+  },
+  {
+    "theorem_id": 582,
+    "title": "Infinite Set is Equivalent to Proper Subset",
+    "theorem_text": "A set is infinite if and only if it is equivalent to one of its proper subsets.",
+    "proof_text": "Let $T$ be an infinite set.\nBy Infinite Set has Countably Infinite Subset, it is possible to construct a countably infinite subset of $T$.\nLet $S = \\set {a_1, a_2, a_3, \\ldots}$ be such a countably infinite subset of $T$.\nCreate a Partition of $S$ into:\n$S_1 = \\set {a_1, a_3, a_5, \\ldots}, S_2 = \\set {a_2, a_4, a_6, \\ldots}$\nLet a bijection be established between $S$ and $S_1$, by letting $a_n \\leftrightarrow a_{2 n - 1}$.\nThis is extended to a bijection between $S \\cup \\paren {T \\setminus S} = T$ and $S_1 \\cup \\paren {T \\setminus S} = T \\setminus S_2$ by assigning each element in $T \\setminus S$ to itself.\nSo a bijection has been demonstrated between $T$ and one of its proper subsets $T \\setminus S_2$.\nThat is, if $T$ is infinite, it is equivalent to one of its proper subsets.\nNow, let $T_0 \\subsetneq T$ be a proper subset of $T$, and $f: T \\to T_0$ be a bijection.\nIt follows from No Bijection between Finite Set and Proper Subset that $T$ must be infinite.",
+    "clean_row_index": 238,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Mapping the enumerated countable subset onto its odd-indexed part and fixing the complement gives a bijection onto a proper subset. The finite-set lemma supplies the converse."
+  },
+  {
+    "theorem_id": 582,
+    "title": "Infinite Set is Equivalent to Proper Subset",
+    "theorem_text": "A set is infinite if and only if it is equivalent to one of its proper subsets.",
+    "proof_text": "Let $S$ be a set.\nSuppose $S$ is finite.\nFrom No Bijection between Finite Set and Proper Subset we have that $S$ can not be equivalent to one of its proper subsets.\nSuppose $S$ is infinite.\nFrom Infinite Set has Countably Infinite Subset, we can construct $v: \\N \\to S$ such that $v$ is an injection.\nWe now construct the mapping $h: S \\to S$ as follows.\n$\\map h x = \\begin {cases}\n\\map v {n + 1} & : \\exists n \\in \\N: x = \\map v n \\\\\nx & : x \\notin \\Img v\n\\end {cases}$\nIt is clear that $h$ is an injection.\nBut we have that $\\map v 0 \\notin \\Img h$ and so $\\Img h \\subsetneq S$.\nThe result follows from Injection to Image is Bijection.",
+    "clean_row_index": 239,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Shifting the embedded naturals forward and fixing their complement is injective and misses the first point. Its image is proper, while finite sets are excluded by the cited lemma."
+  }
+]

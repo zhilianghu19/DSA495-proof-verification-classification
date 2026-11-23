@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 747,
+    "title": "Order of Subgroup Product",
+    "theorem_text": "Let $G$ be a group.\nLet $H$ and $K$ be subgroups of $G$.\nThen:\n$\\order {H K} = \\dfrac {\\order H \\order K} {\\order {H \\cap K} }$\nwhere:\n$H K$ denotes subset product\n$\\order H$ denotes the order of $H$.",
+    "proof_text": "The number of product elements $h k$ that can be formed where $h \\in H$ and $k \\in K$ is $\\order H \\order K$, although this may include duplication:\n$h_1 k_1 = h_2 k_2$ may be possible for $h_1, h_2 \\in H, k_1, k_2 \\in K$.\nSo, consider the Cartesian product $H \\times K$.\nFrom Cardinality of Cartesian Product:\n$\\size {H \\times K} = \\order H \\times \\order K$\nLet us define a relation $\\sim$ on $H \\times K$ as:\n$\\tuple {h_1, k_1} \\sim \\tuple {h_2, k_2} \\iff h_1 k_1 = h_2 k_2$\nAs $\\sim$ is based on the equality relation it is seen that $\\sim$ is an equivalence relation:\n:Reflexivity: $h_1 k_1 = h_1 k_1$\n:Symmetry: $h_1 k_1 = h_2 k_2 \\implies h_2 k_2 = h_1 k_1$\n:Transitivity: $h_1 k_1 = h_2 k_2,  h_2 k_2 = h_3 k_3 \\implies h_1 k_1 = h_3 k_3$\nEach equivalence class of $\\sim$ corresponds to a particular element of $H K$.\nHence $\\size {H K}$ is the number of equivalence classes of $\\sim$.\nIt remains to be shown that each of these equivalence classes contains exactly $\\order {H \\cap K}$ elements.\nLet $E$ be the equivalence class of $\\tuple {h k}$.\nWe aim to prove that:\n$(1): \\quad E = \\set {\\tuple {h x^{-1}, x k}: x \\in H \\cap K}$\nLet $x \\in H \\cap K$.\nThen:\n$a x^{-1} \\in H$\nand:\n$x k \\in K$\nso:\n$\\tuple {h x^{-1}, x k} \\in H \\times K$\nConversely:\n$\\tuple {h, k} \\sim \\tuple {h_1, k_1} \\implies h k = h_1 k_1$\nand so:\n$x = h_1^{-1} h = k_1 k^{-1} \\in A \\cap B$\nThus:\n$h_1 = h x^{-1}$\nand:\n$k_1 = x k$\nand $(1)$ is seen to hold.\nFinally:\n$\\tuple {h x^{-1}, x k} = \\tuple {h y^{-1}, y k} \\implies x = y$\nThus $E$ has exactly $\\order {H \\cap K}$ elements and the proof is complete.",
+    "clean_row_index": 330,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The fiber bijections prove a cardinal multiplication identity. Dividing by the intersection order to obtain the stated quotient requires a finite-counting hypothesis absent here."
+  },
+  {
+    "theorem_id": 750,
+    "title": "Tower Law for Subgroups",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $H$ be a subgroup of $G$ with finite index.\nLet $K$ be a subgroup of $H$.\nThen:\n$\\index G K = \\index G H \\index H K$\nwhere $\\index G H$ denotes the index of $H$ in $G$.",
+    "proof_text": "Let $p = \\index G H$, $q = \\index H K$.\nBy hypothesis these numbers are finite.\nTherefore, there exist $g_1, \\ldots, g_p \\in G$ such that $G$ is a disjoint union:\n$\\displaystyle G = \\bigsqcup_{i \\mathop = 1}^p g_i H$\nSimilarly, there exist $h_1,\\ldots,h_q \\in H$ such that $H$ is a disjoint union:\n$\\displaystyle H = \\bigsqcup_{j \\mathop = 1}^q h_j K$\nThus:\n$$G = \\bigsqcup_{i \\mathop = 1}^p g_i H$$\n$$= \\bigsqcup_{i \\mathop = 1}^p g_i \\bigsqcup_{j \\mathop = 1}^q h_j K$$\n$$= \\bigsqcup_{i \\mathop = 1}^p \\bigsqcup_{j \\mathop = 1}^q g_i \\paren {h_j K}$$\nProduct of Subset with Union\n$$= \\bigsqcup_{i \\mathop = 1}^p \\bigsqcup_{j \\mathop = 1}^q \\paren {g_i h_j} K$$\nSubset Product within Semigroup is Associative: Corollary\nThis expression for $G$ is the disjoint union of $p q$ cosets.\nTherefore the number of elements of the coset space is:\n$\\index G K = p q = \\index G H \\index H K$",
+    "clean_row_index": 331,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The proof declares both indices finite although only the index of H in G is assumed finite. Its finite list of K-coset representatives need not exist."
+  },
+  {
+    "theorem_id": 751,
+    "title": "Morphism from Integers to Group",
+    "theorem_text": "Let $G$ be a group whose identity is $e$.\nLet $g \\in G$.\nLet $\\phi: \\Z \\to G$ be the mapping defined as:\n$\\forall n \\in \\Z: \\map \\phi n = g^n$.\nThen:\n: If $g$ has infinite order, then $\\phi$ is a group isomorphism from $\\struct {\\Z, +}$ to $\\gen g$.\n: If $g$ has finite order such that $\\order g = m$, then $\\phi$ is a group epimorphism from $\\struct {\\Z, +}$ to $\\gen g$ whose kernel is the principal ideal $\\paren m$.\n:Thus $\\gen g$ is isomorphic to $\\struct {\\Z, +}$, and $m$ is the smallest (strictly) positive integer such that $g^m = e$.",
+    "proof_text": "By Epimorphism from Integers to Cyclic Group, $\\phi$ is an epimorphism from $\\struct {\\Z, +}$ onto $\\gen g$.\nBy Kernel of Group Homomorphism is Subgroup, the kernel $K$ of $G$ is a subgroup of $\\struct {\\Z, +}$.\nTherefore by Subgroup of Integers is Ideal and Principal Ideals of Integers, $\\exists m \\in \\N_{>0}: K = \\paren m$.\nThus $\\gen g \\rangle \\cong \\struct {\\Z, +}$.\nBy Canonical Epimorphism from Integers by Principal Ideal:\n$\\forall m \\in \\N_{>0}: \\order {\\Z_m} = m$\nSo, if $\\gen g$ is finite, and if $\\gen g \\cong \\struct {\\Z, +}$, then $m = \\order g$.\nFurthermore, $m$ is the smallest (strictly) positive integer such that $g^m = e$, since $m$ is the smallest (strictly) positive integer in $\\paren m$ from Principal Ideals of Integers.\nIf $\\gen g$ is infinite, then $m = 0$ and so $\\phi$ is a (group) isomorphism from $\\struct {\\Z, +}$ onto $\\gen g$.",
+    "clean_row_index": 332,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "A kernel generated by m gives a quotient of the integers by m, not an isomorphism with the integers in the finite-order case. The proof also initially rules out the zero kernel by taking m positive."
+  },
+  {
+    "theorem_id": 758,
+    "title": "Order of Element Divides Order of Finite Group",
+    "theorem_text": "In a finite group, the order of a group element divides the order of its group:\n$\\forall x \\in G: \\order x \\divides \\order G$",
+    "proof_text": "Let $G$ be a group.\nLet $x \\in G$.\nBy definition, the order of $x$ is the order of the subgroup generated by $x$.\nTherefore, by Lagrange's Theorem, $\\order x$ is a divisor of $\\order G$.",
+    "clean_row_index": 333,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The order of x equals that of its cyclic subgroup, so Lagrange's theorem applies in the finite ambient group."
+  },
+  {
+    "theorem_id": 416,
+    "title": "All Elements Self-Inverse then Abelian",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nSuppose that every element of $G$ is self-inverse.\nThen $G$ is abelian.",
+    "proof_text": "Every element of $G$ is self-inverse, that is:\n$\\forall x \\in G: x \\circ x = e$\nIn particular, for all $x, y \\in G$:\n$\\paren {x \\circ y} \\circ \\paren {x \\circ y} = e$\nthat is, $x \\circ y$ is also self-inverse.\nFrom Self-Inverse Elements Commute iff Product is Self-Inverse, it follows that:\n$\\forall x, y \\in G: y \\circ x = x \\circ y$\nthat is: $x$ and $y$ commute for all $x, y \\in G$.\nHence $G$ is an abelian group.",
+    "clean_row_index": 168,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Since x, y and xy are self-inverse, the cited criterion forces x and y to commute for every pair."
+  },
+  {
+    "theorem_id": 761,
+    "title": "Boolean Group is Abelian",
+    "theorem_text": "Let $G$ be a Boolean group.\nThen $G$ is abelian.",
+    "proof_text": "By definition of Boolean group, all elements of $G$, other than the identity, have order $2$.\nBy Group Element is Self-Inverse iff Order 2 and Identity is Self-Inverse, all elements of $G$ are self-inverse.\nThe result follows directly from All Elements Self-Inverse then Abelian.",
+    "clean_row_index": 334,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The identity and all order-two elements are self-inverse. The cited self-inverse criterion then yields commutativity."
+  },
+  {
+    "theorem_id": 761,
+    "title": "Boolean Group is Abelian",
+    "theorem_text": "Let $G$ be a Boolean group.\nThen $G$ is abelian.",
+    "proof_text": "Let $ a, b \\in G$.\nBy definition of Boolean group:\n$\\forall x \\in G: x^2 = e$\nwhere $e$ is the identity of $G$.\nThen:\n$$a b = a e b$$\nGroup Axiom $G2$: Properties of Identity\n$$= a \\left({a b}\\right)^2 b$$\nas $\\forall x \\in G: x^2 = e$\n$$= a \\left({a b}\\right) \\left({a b}\\right) b$$\n$$= \\left({a a}\\right) \\left({b a}\\right) \\left({b b}\\right)$$\nGroup Axiom $G1$: Associativity\n$$= a^2 \\left({b a}\\right) b^2$$\n$$= e \\left({b a}\\right) e$$\nas $\\forall x \\in G: x^2 = e$\n$$= b a$$\nThus $a b = b a$ and therefore $G$ is abelian.",
+    "clean_row_index": 335,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Inserting the identity as the square of ab and regrouping gives a squared times ba times b squared, which reduces to ba."
+  },
+  {
+    "theorem_id": 763,
+    "title": "Even Order Group has Order 2 Element",
+    "theorem_text": "Let $G$ be a group whose identity is $e$.\nLet $G$ be of even order.\nThen:\n$\\exists x \\in G: \\order x = 2$\nThat is:\n$\\exists x \\in G: x \\ne e: x^2 = e$",
+    "proof_text": "In any group $G$, the identity element $e$ is self-inverse with Identity is Only Group Element of Order 1, and is the only such.\nThat leaves an odd number of elements.\nEach element in $x \\in G: \\order x > 2$ can be paired off with its inverse, as $\\order {x^{-1} } = \\order x > 2$ from Order of Group Element equals Order of Inverse.\nHence there must be at least one element which has not been paired off with any of the others which is therefore self-inverse.\nThe result follows from Group Element is Self-Inverse iff Order 2.",
+    "clean_row_index": 336,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Removing the identity leaves an odd number of elements. Inversion pairs distinct non-self-inverse elements, leaving a nonidentity self-inverse element of order two."
+  },
+  {
+    "theorem_id": 764,
+    "title": "Order of Conjugate Element equals Order of Element",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group whose identity is $e$.\nThen\n$\\forall a, x \\in \\struct {G, \\circ}: \\order {x \\circ a \\circ x^{-1} } = \\order a$\nwhere $\\order a$ denotes the order of $a$ in $G$.",
+    "proof_text": "Let $\\order a = k$.\nThen $a^k = e$, and:\n$\\forall n \\in \\N_{>0}: n < k \\implies a^n \\ne e$\nby definition of the order of $a$ in $G$\nWe have:\n$$\\paren {x \\circ a \\circ x^{-1} }^k = x \\circ a^k \\circ x^{-1}$$\nPower of Conjugate equals Conjugate of Power\n$$= x \\circ e \\circ x^{-1}$$\n$$= x \\circ x^{-1}$$\n$$= e$$\nThus $\\order {x \\circ a \\circ x^{-1} } \\le \\order a$.\nNow suppose $a^n = y, y \\ne e$.\nThen:\n$x \\circ a^n \\circ x^{-1} = x \\circ y \\circ x^{-1}$\nIf $x \\circ y = e$, then:\n$x \\circ a^n \\circ x^{-1} = x^{-1}$\nIf $y \\circ x^{-1} = e$, then:\n$x \\circ a^n \\circ x^{-1} = x$\nSo:\n$a^n \\ne e \\implies x \\circ a^n \\circ x^{-1} = \\paren {x \\circ a \\circ x^{-1} }^n \\ne e$\nThus:\n$\\order {x \\circ a \\circ x^{-1} } \\ge \\order a$\nand the result follows.",
+    "clean_row_index": 337,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The initial equality a to the power k equals the identity assumes finite order. The power-of-a-conjugate identity could also treat infinite order, but that case is not covered by the stated argument."
+  },
+  {
+    "theorem_id": 765,
+    "title": "Order of Homomorphic Image of Group Element",
+    "theorem_text": "Let $G$ and $H$ be groups whose identities are $e_G$ and $e_H$ respectively.\nLet $\\phi: G \\to H$ be a homomorphism.\nLet $g \\in G$ be of finite order.\nThen:\n$\\forall g \\in G: \\order {\\map \\phi g} \\divides \\order g$\nwhere $\\divides$ denotes divisibility.",
+    "proof_text": "Let $\\phi: G \\to H$ be a homomorphism.\nLet $\\order g = n, \\order {\\map \\phi g} = m$.\n$$\\paren {\\map \\phi g}^n = \\map \\phi {g^n}$$\nHomomorphism of Power of Group Element\n$$= \\map \\phi {e_G}$$\n$$= e_H$$\nHomomorphism to Group Preserves Identity\nIt follows from Element to Power of Multiple of Order is Identity that $m \\divides n$.",
+    "clean_row_index": 338,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the homomorphism to the relation g to the power n equals the identity exhibits n as a multiple of the image element's order."
+  },
+  {
+    "theorem_id": 770,
+    "title": "Epimorphism from Integers to Cyclic Group",
+    "theorem_text": "Let $\\gen a = \\struct {G, \\circ}$ be a cyclic group.\nLet $f: \\Z \\to G$ be a mapping defined as:\n$\\forall n \\in \\Z: \\map f n = a^n$.\nThen $f$ is a (group) epimorphism from $\\struct {\\Z, +}$ onto $\\gen a$.",
+    "proof_text": "By Powers of Element form Subgroup:\n$\\forall n \\in \\N: a^n \\in \\gen a$\nHence by the Index Law for Monoids: Negative Index:\n$\\forall n \\in \\Z: a^n \\in \\gen a$\nAlso, by Index Law for Monoids: Sum of Indices, $f$ is a homomorphism from $\\struct {\\Z, +}$ into $\\struct {G, \\circ}$.\nBy Homomorphism Preserves Subsemigroups, its codomain $f \\sqbrk \\Z$ is therefore a subgroup of $\\gen a$ containing $a$.\nBy Existence of Unique Subgroup Generated by Subset: Singleton Generator, $\\gen a$ is the smallest subgroup of $G$ containing $a$.\nSo:\n$f \\sqbrk \\Z = \\gen a$\nTherefore $f$ is an epimorphism from $\\struct {\\Z, +}$ onto $\\struct {G, \\circ}$.",
+    "clean_row_index": 339,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The exponent-sum law gives a homomorphism, and its image contains all integer powers, hence the whole cyclic subgroup."
+  },
+  {
+    "theorem_id": 771,
+    "title": "Cyclic Group is Abelian",
+    "theorem_text": "Let $G$ be a cyclic group.\nThen $G$ is abelian.",
+    "proof_text": "We have that Integers under Addition form Abelian Group.\nThe result then follows from combining:\n: Epimorphism from Integers to Cyclic Group\n: Epimorphism Preserves Commutativity.",
+    "clean_row_index": 340,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every cyclic group is the surjective homomorphic image of the additive integers, and commutativity passes through this map."
+  },
+  {
+    "theorem_id": 771,
+    "title": "Cyclic Group is Abelian",
+    "theorem_text": "Let $G$ be a cyclic group.\nThen $G$ is abelian.",
+    "proof_text": "Let $G$ be a cyclic group.\nAll elements of $G$ are of the form $a^n$, where $n \\in \\Z$.\nLet $x, y \\in G: x = a^p, y = a^q$.\nFrom Powers of Group Elements: Sum of Indices:\n$x y = a^p a^q = a^{p + q} = a^{q + p} = a^q a^p = y x$\nThus:\n$\\forall x, y \\in G: x y = y x$\nand $G$ is by definition abelian.",
+    "clean_row_index": 341,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The common generator expresses both products as powers with exponents p+q and q+p, which coincide."
+  },
+  {
+    "theorem_id": 772,
+    "title": "Cyclic Groups of Same Order are Isomorphic",
+    "theorem_text": "Two cyclic groups of the same order are isomorphic to each other.",
+    "proof_text": "Let $G_1$ and $G_2$ be cyclic groups, both of finite order $k$.\nLet $G_1 = \\gen a, G_2 = \\gen b$.\nThen, by the definition of a cyclic group:\n$\\order a = \\order b = k$\nAlso, by definition:\n$G_1 = \\set {a^0, a^1, \\ldots, a^{k - 1} }$\nand:\n$G_2 = \\set {b^0, b^1, \\ldots, b^{k - 1} }$\nLet us set up the obvious bijection:\n$\\phi: G_1 \\to G_2: \\map \\phi {a^n} = b^n$\nThe next task is to show that $\\phi$ is an isomorphism.\nNote that $\\map \\phi {a^n} = b^n$ holds for all $n \\in \\Z$, not just where $0 \\le n < k$, as follows:\nLet $n \\in \\Z: n = q k + r, 0 \\le r < k$, by the Division Theorem.\nThen, by Element to Power of Remainder:\n$a^n = a^r, b^n = b^r$\nThus:\n$\\map \\phi {a^n} = \\map \\phi {a^r} = b^r = b^n$\nNow let $x, y \\in G_1$.\nSince $G_1 = \\gen a$, it follows that:\n$\\exists s, t \\in \\Z: x = a^s, y = a^t$\nThus:\n$$\\map \\phi {x y} = \\map \\phi {a^s a^t}$$\n$$= \\map \\phi {a^{s + t} }$$\n$$= b^{s + t}$$\n$$= b^s b^t$$\n$$= \\map \\phi {a^s} \\map \\phi {a^t}$$\n$$= \\map \\phi x \\map \\phi y$$\nSo $\\phi$ is a homomorphism.\nAs $\\phi$ is bijective, $\\phi$ is an isomorphism from $G_1$ to $G_2$.\nThus $G_1 \\cong G_2$ and the result is proved.",
+    "clean_row_index": 342,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The proof assumes finite order k and uses residues modulo k. Two infinite cyclic groups also satisfy the hypothesis and are omitted."
+  },
+  {
+    "theorem_id": 774,
+    "title": "Number of Powers of Cyclic Group Element",
+    "theorem_text": "Let $G$ be a cyclic group of order $n$, generated by $g$.\nLet $d \\divides n$.\nThen the element $g^{n/d}$ has $d$ distinct powers.",
+    "proof_text": "Follows directly from Order of Subgroup of Cyclic Group:\n$\\order {\\gen {g^{n/d} } } = \\dfrac n {\\gcd \\set {n, n/d} } = d$\nThus from List of Elements in Finite Cyclic Group:\n$\\gen {g^{n/d} } = \\set {e, g^{n/d}, \\paren {g^{n/d} }^2, \\ldots, \\paren {g^{n/d} }^{d - 1} }$\nand the result follows.",
+    "clean_row_index": 343,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cyclic-subgroup order formula gives n divided by gcd(n,n/d), namely d, exactly the number of distinct powers."
+  },
+  {
+    "theorem_id": 776,
+    "title": "Cyclic Group Elements whose Powers equal Identity",
+    "theorem_text": "Let $G$ be a cyclic group whose identity is $e$ and whose order is $n$.\nLet $d \\divides n$.\nThen there exist exactly $d$ elements $x \\in G$ satisfying the equation $x^d = e$.\nThese are the elements of the group $G_d$ generated by $g^{n / d}$:\n$G_d = \\gen {g^{n / d} }$",
+    "proof_text": "From the argument in Subgroup of Finite Cyclic Group is Determined by Order, it follows that $x$ satisfies the equation $x^d = e$ if and only if $x$ is a power of $g^{n/d}$.\nThus there are $d$ solutions to this equation.",
+    "clean_row_index": 344,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited cyclic-subgroup characterization selects precisely the powers of g to the n/d, whose generated subgroup has order d."
+  },
+  {
+    "theorem_id": 777,
+    "title": "Prime Group is Cyclic",
+    "theorem_text": "Let $p$ be a prime number.\nLet $G$ be a group whose order is $p$.\nThen $G$ is cyclic.",
+    "proof_text": "Let $a \\in G: a \\ne e$ where $e$ is the identity of $G$.\nFrom Group of Prime Order p has p-1 Elements of Order p, $a$ has order $p$.\nHence by definition, $a$ generates $G$.\nHence also by definition, $G$ is cyclic.",
+    "clean_row_index": 345,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A nonidentity element exists and has order p by the cited prime-order result, so its subgroup already has the full order of G."
+  },
+  {
+    "theorem_id": 778,
+    "title": "Group of Order less than 6 is Abelian",
+    "theorem_text": "All groups with less than $6$ elements are abelian.",
+    "proof_text": "Let $G$ be a non-abelian group.\nFrom Non-Abelian Group has Order Greater than 4, the order of $G$ must be at least $5$.\nBut $5$ is a prime number.\nBy Prime Group is Cyclic it follows that a group of order $5$ is cyclic.\nBy Cyclic Group is Abelian this group is abelian.\nHence the result.",
+    "clean_row_index": 346,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The quoted lower bound excludes group orders below five and the prime-order and cyclic-group results exclude five as well."
+  },
+  {
+    "theorem_id": 780,
+    "title": "Order of Conjugate of Subgroup",
+    "theorem_text": "Let $G$ be a group.\nLet $H$ be a subgroup of $G$ such that $H$ is of finite order.\nThen $\\order {H^a} = \\order H$.",
+    "proof_text": "From the definition of Conjugate of Group Subet we have $H^a = a H a^{-1}$.\nFrom Set Equivalence of Regular Representations:\n$\\order {a H a^{-1} } = \\order {a H} = \\order H$",
+    "clean_row_index": 347,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Left and right translations are bijective, so neither multiplication by a nor by its inverse changes the subgroup's cardinality."
+  },
+  {
+    "theorem_id": 781,
+    "title": "Subgroup of Index 2 is Normal",
+    "theorem_text": "A subgroup of index $2$ is always normal.",
+    "proof_text": "Suppose $H \\le G$ such that $\\index G H = 2$.\nThus $H$ has two left cosets (and two right cosets) in $G$.\nIf $g \\in H$, then $g H = H = H g$.\nIf $g \\notin H$, then $g H = G \\setminus H$ as there are only two cosets and the cosets partition $G$.\nFor the same reason, $g \\notin H \\implies H g = G \\setminus H$.\nThat is, $g H = H g$.\nThe result follows from the definition of normal subgroup.",
+    "clean_row_index": 348,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The only coset other than H is its complement on either side. Thus every left coset equals the corresponding right coset."
+  },
+  {
+    "theorem_id": 782,
+    "title": "Intersection of Normal Subgroups is Normal",
+    "theorem_text": "Let $G$ be a group.\nLet $I$ be an indexing set.\nLet $\\family {N_i}_{i \\mathop \\in I}$ be a non-empty indexed family of normal subgroups of $G$.\nThen $\\displaystyle \\bigcap_{i \\mathop \\in I} N_i$ is a normal subgroup of $G$.",
+    "proof_text": "Let $\\displaystyle N = \\bigcap_{i \\mathop \\in I} N_i$.\nFrom Intersection of Subgroups is Subgroup, $N \\le G$.\nSuppose $H \\in \\set {N_i: i \\in I}$.\nWe have that $N \\subseteq H$.\nThus from Subgroup is Superset of Conjugate iff Normal:\n$a N a^{-1} \\subseteq a H a^{-1} \\subseteq H$\nThus $a N a^{-1}$ is a subset of each one of the subgroups in $\\set {N_i: i \\in I}$, and hence in their intersection $N$.\nThat is, $a N a^{-1} \\subseteq N$.\nThe result follows by Subgroup is Superset of Conjugate iff Normal.",
+    "clean_row_index": 349,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The intersection is a subgroup and conjugates of its elements lie in every normal subgroup in the family, so they remain in the intersection."
+  },
+  {
+    "theorem_id": 786,
+    "title": "Smallest Normal Subgroup containing Set",
+    "theorem_text": "Let $S \\subseteq G$ where $G$ is a group.\nThen there exists a unique smallest normal subgroup of $G$ which contains $S$.",
+    "proof_text": "Let $\\Bbb S$ be the set of all normal subgroups of $G$ that contain $S$.\n$\\Bbb S \\ne \\varnothing$, since $S \\subseteq G \\lhd G$.\nLet $N = \\bigcap H: H \\in \\Bbb S$, that is, the intersection of all elements of $\\Bbb S$.\nBy Intersection of Normal Subgroups is Normal, $N \\lhd G$, and by the definition of intersection, $S \\subseteq N$.\nBy the method of construction, $N$ is the smallest such subgroup.\nBy the definition of \"smallest\", $N$ is unique.",
+    "clean_row_index": 350,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The family contains G and its intersection is normal, contains S and lies in every candidate, establishing leastness and uniqueness."
+  },
+  {
+    "theorem_id": 787,
+    "title": "Conjugate of Set with Inverse Closed for Inverses",
+    "theorem_text": "Let $G$ be a group.\nLet $S \\subseteq G$.\nLet $\\hat S = S \\cup S^{-1}$, where $S^{-1}$ is the set of all the inverses of all the elements of $S$.\nLet $\\tilde S = \\set {a s a^{-1}: s \\in \\hat S, a \\in G}$.\nThat is, $\\tilde S$ is the set containing all the conjugates of the elements of $S$ and all their inverses.\nThen:\n$\\forall x \\in \\tilde S: x^{-1} \\in \\tilde S$",
+    "proof_text": "Let $x \\in \\tilde S$.\nThat is:\n$\\exists s \\in \\hat S: x = a s a^{-1}$\nThen:\n$$x^{-1} = \\paren {a s a^{-1} }^{-1}$$\n$$= a s^{-1} a^{-1}$$\nPower of Conjugate equals Conjugate of Power\nSince $s^{-1} \\in \\hat S$, it follows that $x^{-1} \\in \\tilde S$.",
+    "clean_row_index": 351,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Inversion changes the conjugated factor s to its inverse while leaving the conjugator fixed. The enlarged set contains this inverse."
+  },
+  {
+    "theorem_id": 790,
+    "title": "Subset Product with Normal Subgroup as Generator",
+    "theorem_text": "Let $G$ be a group whose identity is $e$.\nLet:\n$H$ be a subgroup of $G$\n$N$ be a normal subgroup of $G$.\nThen:\n$N \\lhd \\gen {N, H} = N H = H N \\le G$\nwhere:\n$\\le$ denotes subgroup\n$\\lhd$ denotes normal subgroup\n$\\gen {N, H}$ denotes a subgroup generator\n$N H$ denotes subset product.",
+    "proof_text": "From Subset Product is Subset of Generator:\n$N H \\subseteq \\gen {N, H}$\nFrom Subset Product with Normal Subgroup is Subgroup:\n$N H = H N \\le G$\nThen by the definition of a subgroup generator, $\\gen {N, H}$ is the smallest subgroup containing $N H$ and so:\n$\\gen {N, H} = N H = H N \\le G$\nFrom Normal Subgroup of Subset Product of Subgroups we have that:\n$N \\lhd N H$\nHence the result.",
+    "clean_row_index": 352,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The product is a subgroup containing both factors, and is contained in their generated subgroup. Normality of N in the product follows by restriction from G."
+  },
+  {
+    "theorem_id": 791,
+    "title": "Subset Product of Normal Subgroups is Normal",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $N$ and $N'$ be normal subgroups of $G$.\nThen $N N'$ is also a normal subgroup of $G$.",
+    "proof_text": "From Subset Product with Normal Subgroup is Subgroup, we already have that $N N'$ is a subgroup of $G$.\nLet $n n' \\in N N'$, so that $n \\in N, n' \\in N'$.\nLet $g \\in G$.\nFrom Subgroup is Normal iff Contains Conjugate Elements:\n$g n g^{-1}\\in N, g n' g^{-1}\\in N'$\nSo:\n$\\paren {g n g^{-1} } \\paren {g n' g^{-1} } = g n n' g^{-1} \\in N N'$\nSo $N N'$ is normal.",
+    "clean_row_index": 353,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The product is a subgroup, and conjugating a product conjugates each factor into its respective normal subgroup."
+  },
+  {
+    "theorem_id": 792,
+    "title": "Prime Group is Simple",
+    "theorem_text": "Groups of prime order are simple.",
+    "proof_text": "Follows directly from Prime Group has no Proper Subgroups: a group of prime order has only itself and the trivial group as subgroups.\nFrom Trivial Subgroup and Group Itself are Normal, these subgroups are normal.",
+    "clean_row_index": 354,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A group of prime order is nontrivial and has no subgroup other than itself and the identity subgroup, ruling out nontrivial proper normal subgroups."
+  },
+  {
+    "theorem_id": 794,
+    "title": "Quotient Group of Cyclic Group",
+    "theorem_text": "Let $G$ be a cyclic group which is generated by $g$.\nLet $H$ be a subgroup of $G$.\nThen $g H$ generates $G / H$.",
+    "proof_text": "Let $G$ be a cyclic group generated by $g$.\nLet $H \\le G$.\nWe need to show that every element of $G / H$ is of the form $\\left({g H}\\right)^k$ for some $k \\in \\Z$.\nSuppose $x H \\in G / H$.\nThen, since $G$ is generated by $g$, $x = g^k$ for some $k \\in \\Z$.\nBut $\\left({g H}\\right)^k = \\left({g^k}\\right) H = x H$.\nSo $g H$ generates $G / H$.",
+    "clean_row_index": 355,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every coset is represented by an integral power of g, and the quotient map sends that power to the corresponding power of gH."
+  },
+  {
+    "theorem_id": 799,
+    "title": "Quotient of Group by Center Cyclic implies Abelian",
+    "theorem_text": "Let $G$ be a group.\nLet $\\map Z G$ be the center of $G$.\nLet $G / \\map Z G$ be the quotient group of $G$ by $\\map Z G$.\nLet $G / \\map Z G$ be cyclic.\nThen $G$ is abelian, so $G = \\map Z G$.\nThat is, the group $G / \\map Z G$ cannot be a cyclic group which is non-trivial.",
+    "proof_text": "Suppose $G / \\map Z G$ is cyclic.\nThen by definition:\n$\\exists \\tau \\in G / \\map Z G: G / \\map Z G = \\gen \\tau$\nSince $\\tau$ is a coset by $\\map Z G$:\n$\\exists t \\in G: \\tau = t \\map Z G$\nThus each coset of $\\map Z G$ in $G$ is equal to $\\paren {t \\map Z G}^i = t^i \\map Z G$ for some $i \\in \\Z$.\nNow let $x, y \\in G$.\nSuppose $x \\in t^m \\map Z G, y \\in t^n \\map Z G$.\nThen $x = t^m z_1, y = t^n z_2$ for some $z_1, z_2 \\in \\map Z G$.\nThus:\n$$x y = t^m z_1 t^n z_2$$\n$$= t^m t^n z_1 z_2$$\n$z_1$ commutes with all $t \\in G$ since it is in the center\n$$= t^{m + n} z_1 z_2$$\n$$= t^{n + m} z_2 z_1$$\n$$= t^n t^m z_2 z_1$$\n$$= t^n z_2 t^m z_1$$\n$z_2$ commutes with all $t \\in G$ since it is in the center\n$$= y x$$\nThis holds for all $x, y \\in G$, and thus $G$ is abelian.\nThus by Group equals Center iff Abelian $\\map Z G = G$.\nTherefore Quotient of Group by Itself it follows that $G / \\map Z G$ is the trivial group.",
+    "clean_row_index": 356,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Representatives are powers of one element multiplied by central factors. Reordering those factors proves that every pair commutes and the quotient is trivial."
+  },
+  {
+    "theorem_id": 801,
+    "title": "Number of Distinct Conjugate Subsets is Index of Normalizer",
+    "theorem_text": "Let $G$ be a group.\nLet $S$ be a subset of $G$.\nLet $\\map {N_G} S$ be the normalizer of $S$ in $G$.\nLet $\\index G {\\map {N_G} S}$ be the index of $\\map {N_G} S$ in $G$.\nThe number of distinct subsets of $G$ which are conjugates of $S \\subseteq G$ is $\\index G {\\map {N_G} S}$.",
+    "proof_text": "Let $G$ act on its power set $\\powerset G$ by the rule:\n$\\forall g \\in G, S \\in \\powerset G: g * S := S^{g^{-1} } = \\set {x \\in G: g^{-1} x g \\in S}$\nThat is, the conjugacy action on subsets.\nFrom Conjugacy Action on Subsets is Group Action, $*$ is a  group action.\nThe orbit of $S \\in \\powerset G$ is the conjugacy class of $S$.\nThat is, $\\Orb S$ is the set of distinct subsets of $G$ which are conjugate to $S$\nThe stabilizer of $S$ is its normalizer $\\map {N_G} S$.\nFrom the Orbit-Stabilizer Theorem:\n$\\order {\\Orb x} = \\index G {\\Stab x} = \\dfrac {\\order G} {\\order {\\Stab x} }$\nfrom which the result follows directly.",
+    "clean_row_index": 357,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For conjugation on the power set, the orbit is precisely the conjugate subsets and the stabilizer is the normalizer. The orbit–index equality suffices even for infinite G, where the extra division notation is unnecessary."
+  },
+  {
+    "theorem_id": 803,
+    "title": "Element of Group Not Conjugate to Proper Subgroup",
+    "theorem_text": "Let $G$ be a finite group.\nLet $H$ be a proper subgroup of $G$.\nThen there is at least one element of $G$ not contained in $H$ or in any of its conjugates.",
+    "proof_text": "Let $S \\subseteq G$ be defined by:\n$S := \\set {g \\in G: \\exists h \\in H, a \\in G: g = a h a^{-1} }$\nIt is required to show that $S \\ne G$.\nLet $\\map {N_G} H$ be the normalizer of $H$ in $G$.\nBy Subgroup is Subgroup of Normalizer, $H \\le \\map {N_G} H$.\nTherefore, by definition of index:\n$\\index G {\\map {N_G} H} \\le \\index G H$\nEach of the conjugates of $H$ has $\\order H$ elements.\nBy Number of Distinct Conjugate Subsets is Index of Normalizer, there are $\\index G {\\map {N_G} H}$ conjugates.\nTherefore:\n$\\card S \\le \\order H \\index G {\\map {N_G} H}$\nwith equality if and only if all conjugates of $H$ are disjoint.\nCombining this with the earlier inequality, we find that:\n$\\card S \\le \\order H \\index G H = \\order G$\nNow if $H$ is normal in $G$, then by Normalizer of Subgroup is Largest Subgroup containing that Subgroup as Normal Subgroup:\n$\\index G {\\map {N_G} H} < \\index G H$\nfor $\\map {N_G} H = G$ in that case, and $H$ is a proper subgroup.\nIf $H$ is not normal in $G$, then it has multiple conjugates.\nBy Conjugate of Subgroup is Subgroup, they all are subgroups of $G$.\nIn particular, then, the identity of $G$ is common to all of them.\nHence they are not disjoint, and:\n$\\card S < \\order H \\index G {\\map {N_G} H}$\nIn either case, it follows that:\n$\\card S < \\order G$\nas desired.",
+    "clean_row_index": 358,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For normal H the union is H itself. For nonnormal H there are multiple conjugates sharing the identity, making the counting bound strictly smaller than the group order."
+  }
+]

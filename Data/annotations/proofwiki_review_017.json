@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1109,
+    "title": "Determinant of Matrix Product",
+    "theorem_text": "Let $\\mathbf A = \\sqbrk a_n$ and $\\mathbf B = \\sqbrk b_n$ be a square matrices of order $n$.\nLet $\\map \\det {\\mathbf A}$ be the determinant of $\\mathbf A$.\nLet $\\mathbf A \\mathbf B$ be the (conventional) matrix product of $\\mathbf A$ and $\\mathbf B$.\nThen:\n$\\map \\det {\\mathbf A \\mathbf B} = \\map \\det {\\mathbf A} \\map \\det {\\mathbf B}$\nThat is, the determinant of the product is equal to the product of the determinants.",
+    "proof_text": "This proof assumes that $\\mathbf A$ and $\\mathbf B$ are $n \\times n$-matrices over a commutative ring with unity $\\left({R, +, \\circ}\\right)$.\nLet $\\mathbf C = \\left[{c}\\right]_n = \\mathbf A \\mathbf B$.\nFrom Square Matrix is Row Equivalent to Triangular Matrix, it follows that $\\mathbf A$ can be converted into a upper triangular matrix $\\mathbf A'$ by a finite sequence of elementary row operations $\\hat o_1, \\ldots, \\hat o_{m'}$.\nLet $\\mathbf C'$ denote the matrix that results from using $\\hat o_1, \\ldots, \\hat o_{m'}$ on $\\mathbf C$.\nFrom Elementary Row Operations Commute with Matrix Multiplication, it follows that $\\mathbf C' = \\mathbf A' \\mathbf B$.\nEffect of Sequence of Elementary Row Operations on Determinant shows that there exists $\\alpha \\in R$ such that:\n$\\alpha \\det \\left({\\mathbf A'}\\right) = \\det \\left({\\mathbf A}\\right)$\n$\\alpha \\det \\left({\\mathbf C'}\\right) = \\det \\left({\\mathbf C}\\right)$\nLet $\\mathbf B^\\intercal$ be the transpose of $B$.\nFrom Transpose of Matrix Product, it follows that:\n$\\left({\\mathbf C'}\\right)^\\intercal = \\left({\\mathbf A' \\mathbf B}\\right)^\\intercal = \\mathbf B^\\intercal \\left({\\mathbf A'}\\right)^\\intercal$\nFrom Square Matrix is Row Equivalent to Triangular Matrix, it follows that $\\mathbf B^\\intercal$ can be converted into a lower triangular matrix $\\left({\\mathbf B^\\intercal}\\right)'$ by a finite sequence of elementary row operations $\\hat p_1, \\ldots, \\hat p_{m''}$.\nLet $\\mathbf C''$ denote the matrix that results from using $\\hat p_1, \\ldots, \\hat p_{m''}$ on $\\left({\\mathbf C'}\\right)^\\intercal$.\nFrom Elementary Row Operations Commute with Matrix Multiplication, it follows that:\n$\\mathbf C'' = \\left({\\mathbf B^\\intercal}\\right)' \\left({\\mathbf A'}\\right)^\\intercal$\nEffect of Sequence of Elementary Row Operations on Determinant shows that there exists $\\beta \\in R$ such that:\n$\\beta \\det \\left({\\left({\\mathbf B^\\intercal}\\right)'}\\right) = \\det \\left({\\mathbf B^\\intercal}\\right)$\n$\\beta \\det \\left({\\mathbf C''}\\right) = \\det \\left({ \\left({\\mathbf C'}\\right)^\\intercal }\\right)$\nFrom Transpose of Upper Triangular Matrix is Lower Triangular, it follows that $\\left({\\mathbf A'}\\right)^\\intercal$ is a lower triangular matrix.\nThen Product of Triangular Matrices shows that $\\left({\\mathbf B^\\intercal}\\right)' \\left({\\mathbf A'}\\right)^\\intercal$ is a lower triangular matrix whose diagonal elements are the products of the diagonal elements of $\\left({\\mathbf B^\\intercal}\\right)'$ and $\\left({\\mathbf A'}\\right)^\\intercal$.\nFrom Determinant of Triangular Matrix, we have that $\\det \\left({\\left({\\mathbf A'}\\right)^\\intercal}\\right)$, $\\det \\left({\\left({\\mathbf B^\\intercal}\\right)' }\\right)$, and $\\det \\left({\\left({\\mathbf B^\\intercal}\\right)' \\left({\\mathbf A'}\\right)^\\intercal }\\right)$ are equal to the product of their diagonal elements.\nCombinining these results shows that:\n$\\det \\left({\\left({\\mathbf B^\\intercal}\\right)' \\left({\\mathbf A'}\\right)^\\intercal}\\right) = \\det \\left({\\left({\\mathbf B^\\intercal}\\right)'}\\right) \\det \\left({\\left({\\mathbf A'}\\right)^\\intercal }\\right)$\nThen:\n$$\\det \\left({\\mathbf C}\\right) = \\alpha \\det \\left({\\mathbf C'}\\right)$$\n$$= \\alpha \\det \\left({ \\left({\\mathbf C'}\\right)^\\intercal}\\right)$$\nDeterminant of Transpose\n$$= \\alpha \\beta \\det \\left({\\mathbf C''}\\right)$$\n$$= \\alpha \\beta \\det \\left({ \\left({\\mathbf B^\\intercal}\\right)' \\left({\\mathbf A'}\\right)^\\intercal}\\right)$$\n$$= \\alpha \\beta \\det \\left({\\left({\\mathbf B^\\intercal}\\right)' }\\right) \\det \\left({\\left({\\mathbf A'}\\right)^\\intercal}\\right)$$\n$$= \\alpha \\det \\left({\\left({\\mathbf A'}\\right)^\\intercal}\\right) \\beta \\det \\left({\\left({\\mathbf B^\\intercal}\\right)' }\\right)$$\nCommutativity of Ring Product in $R$\n$$= \\alpha \\det \\left({\\mathbf A'}\\right) \\det \\left({\\mathbf B^\\intercal}\\right)$$\nDeterminant of Transpose\n$$= \\det \\left({\\mathbf A}\\right) \\det \\left({\\mathbf B}\\right)$$\nDeterminant of Transpose",
+    "clean_row_index": 480,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The cited reduction of an arbitrary matrix to triangular form by invertible elementary row operations need not hold over a general commutative ring. For example, over k[x,y] an invertible row operation cannot turn the column (x,y) into a column generating a principal ideal."
+  },
+  {
+    "theorem_id": 1109,
+    "title": "Determinant of Matrix Product",
+    "theorem_text": "Let $\\mathbf A = \\sqbrk a_n$ and $\\mathbf B = \\sqbrk b_n$ be a square matrices of order $n$.\nLet $\\map \\det {\\mathbf A}$ be the determinant of $\\mathbf A$.\nLet $\\mathbf A \\mathbf B$ be the (conventional) matrix product of $\\mathbf A$ and $\\mathbf B$.\nThen:\n$\\map \\det {\\mathbf A \\mathbf B} = \\map \\det {\\mathbf A} \\map \\det {\\mathbf B}$\nThat is, the determinant of the product is equal to the product of the determinants.",
+    "proof_text": "The Cauchy-Binet Formula gives:\n$\\displaystyle \\det \\left({\\mathbf A \\mathbf B}\\right) = \\sum_{1 \\mathop \\le j_1 \\mathop < j_2 \\mathop < \\cdots \\mathop < j_m \\le n} \\det \\left({\\mathbf A_{j_1 j_2 \\ldots j_m}}\\right) \\det \\left({\\mathbf B_{j_1 j_2 \\ldots j_m}}\\right)$\nwhere:\n$\\mathbf A$ is an $m \\times n$ matrix\n$\\mathbf B$ is an $n \\times m$ matrix.\n:For $1 \\le j_1, j_2, \\ldots, j_m \\le n$:\n$\\mathbf A_{j_1 j_2 \\ldots j_m}$ denotes the $m \\times m$ matrix consisting of columns $j_1, j_2, \\ldots, j_m$ of $\\mathbf A$.\n$\\mathbf B_{j_1 j_2 \\ldots j_m}$ denotes the $m \\times m$ matrix consisting of rows $j_1, j_2, \\ldots, j_m$ of $\\mathbf B$.\nWhen $m = n$, the only set $j_1, j_2, \\ldots, j_m$ that fulfils $1 \\le j_1 < j_2 < \\cdots < j_m \\le n$ is $\\left\\{ {1, 2, \\ldots, n}\\right\\}$.\nHence the result.",
+    "clean_row_index": 481,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With m=n the Cauchy-Binet sum consists of just the full index set, whose two minors are precisely A and B."
+  },
+  {
+    "theorem_id": 1111,
+    "title": "Determinant with Unit Element in Otherwise Zero Row",
+    "theorem_text": "Let $D$ be the determinant:\n$D = \\begin {vmatrix}\n      1 &       0 & \\cdots &       0 \\\\\nb_{2 1} & b_{2 2} & \\cdots & b_{2 n} \\\\\n \\vdots &  \\vdots & \\ddots &  \\vdots \\\\\nb_{n 1} & b_{n 2} & \\cdots & b_{n n}\n\\end {vmatrix}$\nThen:\n$D = \\begin {vmatrix}\nb_{2 2} & \\cdots & b_{2 n} \\\\\n \\vdots & \\ddots &  \\vdots \\\\\nb_{n 2} & \\cdots & b_{n n}\n\\end {vmatrix}$",
+    "proof_text": "We refer to the elements of:\n$\\begin {vmatrix}\n      1 &       0 & \\cdots &       0 \\\\\nb_{2 1} & b_{2 2} & \\cdots & b_{2 n} \\\\\n \\vdots &  \\vdots & \\ddots &  \\vdots \\\\\nb_{n 1} & b_{n 2} & \\cdots & b_{n n}\n\\end {vmatrix}$\nas $\\begin {vmatrix} b_{i j} \\end {vmatrix}$.\nThus $b_{1 1} = 1, b_{1 2} = 0, \\ldots, b_{1 n} = 0$.\nThen from the definition of determinant:\n$$D = \\sum_\\lambda \\paren {\\map \\sgn \\lambda \\prod_{k \\mathop = 1}^n b_{k \\map \\lambda k} }$$\n$$= \\sum_{\\lambda} \\map \\sgn \\lambda b_{1 \\map \\lambda 1} b_{2 \\map \\lambda 2} \\cdots b_{n \\map \\lambda n}$$\nNow we note:\n$$\\map \\lambda 1 = 1 \\implies b_{1 \\map \\lambda 1} b_{2 \\map \\lambda 2} \\cdots b_{n \\map \\lambda n} = 1$$\n$$\\map \\lambda 1 \\ne 1 \\implies b_{1 \\map \\lambda 1} b_{2 \\map \\lambda 2} \\cdots b_{n \\map \\lambda n} = 0$$\nSo only those permutations on $\\N^*_n$ such that $\\map \\lambda 1 = 1$ contribute towards the final summation.\nThus we have:\n$\\displaystyle D = \\sum_\\mu \\map \\sgn \\mu b_{2 \\map \\mu 2} \\cdots b_{n \\map \\mu n}$\nwhere $\\mu$ is the collection of all permutations on $\\N^*_n$ which fix $1$.\nHence the result.",
+    "clean_row_index": 482,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Fixing index one makes the first factor one, not the entire permutation product. A diagonal matrix with diagonal (1,2) contradicts this intermediate equality."
+  },
+  {
+    "theorem_id": 1116,
+    "title": "Determinant of Diagonal Matrix",
+    "theorem_text": "Let $\\mathbf A = \\begin{bmatrix}\na_{11} & 0 & \\cdots & 0 \\\\\n0 & a_{22} & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n0 & 0 & \\cdots & a_{nn} \\\\\n\\end{bmatrix}$ be a diagonal matrix.\nThen the determinant of $\\mathbf A$ is the product of the elements of $\\mathbf A$.\nThat is:\n$\\ds \\map \\det {\\mathbf A} = \\prod_{i \\mathop = 1}^n a_{ii}$",
+    "proof_text": "As a diagonal matrix is also a triangular matrix (both upper and lower), the result follows directly from Determinant of Triangular Matrix.",
+    "clean_row_index": 483,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A diagonal matrix is triangular, so the triangular determinant formula gives exactly the displayed product of diagonal entries."
+  },
+  {
+    "theorem_id": 1119,
+    "title": "Matrix is Row Equivalent to Reduced Echelon Matrix",
+    "theorem_text": "Let $\\mathbf A = \\sqbrk a_{m n}$ be a matrix of order $m \\times n$ over a field $F$.\nThen $A$ is row equivalent to a reduced echelon matrix of order $m \\times n$.",
+    "proof_text": "Let the first column of $\\mathbf A$ containing a non-zero element be column $j$.\nLet such a non-zero element be in row $i$.\nTake element $a_{i j} \\ne 0$ and perform the elementary row operations:\n$(1): \\quad r_i \\to \\dfrac {r_i} {a_{i j}}$\n$(2): \\quad r_1 \\leftrightarrow r_i$\nThis gives a matrix with $1$ in the $\\tuple {1, j}$ position:\n$\\begin {bmatrix}\n     0 & \\cdots &      0 &       1 & b_{1, j + 1} & \\cdots & b_{1 n} \\\\\n     0 & \\cdots &      0 & b_{2 j} & b_{2, j + 1} & \\cdots & b_{2 n} \\\\\n\\vdots & \\ddots & \\vdots &  \\vdots &       \\vdots & \\ddots &  \\vdots \\\\\n     0 & \\cdots &      0 & b_{m j} & b_{m, j + 1} & \\cdots & b_{m n} \\\\\n\\end {bmatrix}$\nNow the elementary row operations $r_k \\to r_k - b_{k j} r_1, k \\in \\set {2, 3, \\ldots, m}$ gives the matrix:\n$\\begin{bmatrix}\n0      & \\cdots &      0 &      1 & c_{1, j + 1} & \\cdots & c_{1 n} \\\\\n0      & \\cdots &      0 &      0 & c_{2, j + 1} & \\cdots & c_{2 n} \\\\\n\\vdots & \\ddots & \\vdots & \\vdots &       \\vdots & \\ddots &  \\vdots \\\\\n0      & \\cdots &      0 &      0 & c_{m, j + 1} & \\cdots & c_{m n} \\\\\n\\end{bmatrix}$\nIf some zero rows have appeared, do some further elementary row operations, that is row interchanges, to put them at the bottom.\nWe now repeat the process with the remaining however-many-there-are rows:\n$\\begin{bmatrix}\n\\cdots &      0 &      1 & d_{1, j + 1} & \\cdots & d_{1, k - 1} & d_{1 k} & d_{1, k + 1} & \\cdots & d_{1 n} \\\\\n\\cdots &      0 &      0 &            0 & \\cdots &            0 &       1 & d_{2, k + 1} & \\cdots & d_{2 n} \\\\\n\\cdots &      0 &      0 &            0 & \\cdots &            0 & d_{3 k} & d_{3, k + 1} & \\cdots & d_{3 n} \\\\\n\\ddots & \\vdots & \\vdots &       \\vdots & \\ddots &       \\vdots &  \\vdots &       \\vdots & \\ddots & \\vdots  \\\\\n\\cdots &      0 &      0 &            0 & \\cdots &            0 & d_{n k} & d_{m, k + 1} & \\cdots & d_{m n} \\\\ \n\\end{bmatrix}$\nThen we can get the reduced echelon form by:\n$r_i \\to r_i - d_{i k} r_2, i \\in \\set {1, 3, 4, \\ldots, m}$\nas follows:\n$\\begin{bmatrix}\n\\cdots &      0 &      1 & {e_{1, j + 1 } } & \\cdots & {e_{1, k - 1} } &      0 & {e_{1, k + 1} } & \\cdots & {e_{1 n} } \\\\\n\\cdots &      0 &      0 &                0 & \\cdots &               0 &      1 & {e_{2, k + 1} } & \\cdots & {e_{2 n} } \\\\\n\\cdots &      0 &      0 &                0 & \\cdots &               0 &      0 & {e_{3, k + 1} } & \\cdots & {e_{3 n} } \\\\\n\\ddots & \\vdots & \\vdots &           \\vdots & \\ddots &          \\vdots & \\vdots &          \\vdots & \\ddots & \\vdots     \\\\\n\\cdots &      0 &      0 &                0 & \\cdots &               0 &      0 & {e_{m, k + 1} } & \\cdots & {e_{m n} } \\\\\n\\end{bmatrix}$\nThus we progress, until the entire matrix is in reduced echelon form.",
+    "clean_row_index": 484,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Successive field pivots can be normalized and cleared from every other row while preserving earlier pivot columns. With finitely many rows and columns this gives reduced echelon form; a zero matrix is already reduced."
+  },
+  {
+    "theorem_id": 1121,
+    "title": "Product of Triangular Matrices",
+    "theorem_text": "Let $\\mathbf A = \\sqbrk a_n, \\mathbf B = \\sqbrk b_n$ be upper triangular matrices of order $n$.\nLet $\\mathbf C = \\mathbf A \\mathbf B$.\nThen\n$(1): \\quad$ the diagonal elements of $\\mathbf C$ are given by:\n$\\forall j \\in \\closedint 1 n: c_{j j} = a_{j j} b_{j j}$\n:::That is, the diagonal elements of $\\mathbf C$ are those of the factor matrices multiplied together.\n$(2): \\quad$ The matrix $\\mathbf C$ is itself upper triangular.\nThe same applies if both $\\mathbf A$ and $\\mathbf B$ are lower triangular matrices.",
+    "proof_text": "From the definition of matrix product, we have:\n$\\displaystyle \\forall i, j \\in \\closedint 1 n: c_{i j} = \\sum_{k \\mathop = 1}^n a_{i k} b_{k j}$\nNow when $i = j$ (as on the main diagonal):\n$\\displaystyle c_{j j} = \\sum_{k \\mathop = 1}^n a_{j k} b_{k j}$\nNow both $\\mathbf A$ and $\\mathbf B$ are upper triangular.\nThus:\n:if $k > j$, then $b_{k j} = 0$ and thus $a_{j k} b_{k j} = 0$\n:if $k < j$, then $a_{j k} = 0$ and thus $a_{j k} b_{k j} = 0$.\nSo $a_{j k} b_{k j} \\ne 0$ only when $j = k$.\nSo:\n$\\displaystyle c_{j j} = \\sum_{k \\mathop = 1}^n a_{j k} b_{k j} = a_{j j} b_{j j}$\nNow if $i > j$, it follows that either $a_{i k}$ or $b_{k j}$ is zero for all $k$, and thus $c_{i j} = 0$.\nThus $\\mathbf C$ is upper triangular.\nThe same argument can be used for when $\\mathbf A$ and $\\mathbf B$ are both lower triangular matrices.",
+    "clean_row_index": 485,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In the upper triangular product a summand can survive only for i<=k<=j, giving the diagonal formula and zeros below it. Reversing the inequalities covers the lower triangular case."
+  },
+  {
+    "theorem_id": 1126,
+    "title": "Even Power is Non-Negative",
+    "theorem_text": "Let $x \\in \\R$ be a real number.\nLet $n \\in \\Z$ be an even integer.\nThen $x^n \\ge 0$.\nThat is, all even powers are positive.",
+    "proof_text": "Let $n \\in \\Z$ be an even integer.\nThen $n = 2 k$ for some $k \\in \\Z$.\nThus:\n$\\forall x \\in \\R: x^n = x^{2 k} = \\paren {x^k}^2$\nBut from Square of Real Number is Non-Negative:\n$\\forall x \\in \\R: \\paren {x^k}^2 \\ge 0$\nand so there is no real number whose square is negative.\nThe result follows from Solution to Quadratic Equation.",
+    "clean_row_index": 486,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The square argument requires the power to be defined. Zero to a negative even exponent is undefined, and zero squared also contradicts the final wording claiming strict positivity."
+  },
+  {
+    "theorem_id": 1127,
+    "title": "Sign of Odd Power",
+    "theorem_text": "Let $x \\in \\R$ be a real number.\nLet $n \\in \\Z$ be an odd integer.\nThen:\n$x^n = 0 \\iff x = 0$\n$x^n > 0 \\iff x > 0$\n$x^n < 0 \\iff x < 0$\nThat is, the sign of an odd power matches the number it is a power of.",
+    "proof_text": "If $n$ is an odd integer, then $n = 2 k + 1$ for some $k \\in \\N$.\nThus $x^n = x \\cdot x^{2 k}$.\nBut $x^{2 k} \\ge 0$ from Even Power is Non-Negative.\nThe result follows.",
+    "clean_row_index": 487,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "Writing n=2k+1 with k natural silently restricts n to positive odd integers. At x=0 the negative odd powers in the statement are undefined."
+  },
+  {
+    "theorem_id": 1130,
+    "title": "Order of Squares in Ordered Ring",
+    "theorem_text": "Let $\\struct {R, +, \\circ, \\le}$ be an ordered ring whose zero is $0_R$ and whose unity is $1_R$.\nLet $x, y \\in \\struct {R, +, \\circ, \\le}$ such that $0_R \\le x, y$.\nThen:\n$x \\le y \\implies x \\circ x \\le y \\circ y$\nWhen $R$ is one of the standard sets of numbers, that is $\\Z, \\Q, \\R$, then this translates into:\n:If $x, y$ are positive then $x \\le y \\implies x^2 \\le y^2$.",
+    "proof_text": "Assume $x \\le y$.\nAs $\\le$ is compatible with the ring structure of $\\struct {R, +, \\circ, \\le}$, we have:\n$x \\ge 0 \\implies x \\circ x \\le x \\circ y$\n$y \\ge 0 \\implies x \\circ y \\le y \\circ y$\nand thus as $\\le$ is transitive, it follows that $x \\circ x \\le y \\circ y$.",
+    "clean_row_index": 488,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Left multiplication by nonnegative x and right multiplication by nonnegative y give the two order comparisons, and transitivity gives the claimed result."
+  },
+  {
+    "theorem_id": 1132,
+    "title": "Complex Multiplication is Closed",
+    "theorem_text": "The set of complex numbers $\\C$ is closed under multiplication:\n$\\forall z, w \\in \\C: z \\times w \\in \\C$",
+    "proof_text": "From the informal definition of complex numbers, we define the following:\n$z = x_1 + i y_1$\n$w = x_2 + i y_2$\nwhere $i = \\sqrt {-1}$ and $x_1, x_2, y_1, y_2$.\nThen from the definition of complex multiplication:\n$z w = \\left({x_1 x_2 - y_1 y_2}\\right) + i \\left({x_1 y_2 + x_2 y_1}\\right)$\nFrom Real Numbers form Field:\n$x_1 x_2 - y_1 y_2 \\in \\R$\nand:\n$x_1 y_2 + x_2 y_1 \\in \\R$\nHence the result.",
+    "clean_row_index": 489,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The product formula expresses the real and imaginary parts as sums and differences of products of real numbers, so both are real."
+  },
+  {
+    "theorem_id": 1132,
+    "title": "Complex Multiplication is Closed",
+    "theorem_text": "The set of complex numbers $\\C$ is closed under multiplication:\n$\\forall z, w \\in \\C: z \\times w \\in \\C$",
+    "proof_text": "From the formal definition of complex numbers, we define the following:\n$z = \\left({x_1, y_1}\\right)$\n$w = \\left({x_2, y_2}\\right)$\nThen from the definition of complex multiplication:\n$z w = \\left({x_1 x_2 - y_1 y_2, x_1 y_2 + x_2 y_1}\\right)$\nFrom Real Numbers form Field:\n$x_1 x_2 - y_1 y_2 \\in \\R$\nand:\n$x_1 y_2 + x_2 y_1 \\in \\R$\nHence the result.",
+    "clean_row_index": 490,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In the ordered-pair construction both product coordinates are real by field closure, so their ordered pair is again a complex number."
+  },
+  {
+    "theorem_id": 1134,
+    "title": "Arithmetic Mean is Never Less than Harmonic Mean",
+    "theorem_text": "Let $x_1, x_2, \\ldots, x_n \\in \\R_{> 0}$ be strictly positive real numbers.\nLet $A_n $ be the arithmetic mean of $x_1, x_2, \\ldots, x_n$.\nLet $H_n$ be the harmonic mean of $x_1, x_2, \\ldots, x_n$.\nThen $A_n \\ge H_n$.",
+    "proof_text": "$A_n$ is defined as:\n$\\displaystyle A_n = \\frac 1 n \\paren {\\sum_{k \\mathop = 1}^n x_k}$\n$H_n$ is defined as:\n$\\displaystyle \\frac 1 H_n = \\frac 1 n \\paren {\\sum_{k \\mathop = 1}^n \\frac 1 {x_k} }$\nWe have that:\n$\\forall k \\in \\closedint 1 n: x_k > 0$\nFrom Positive Real has Real Square Root, we can express each $x_k$ as a square:\n$\\forall k \\in \\closedint 1 n: x_k = y_k^2$\nwithout affecting the result.\nThus we have:\n$\\displaystyle A_n = \\frac 1 n \\paren {\\sum_{k \\mathop = 1}^n y_k^2}$\n$\\displaystyle \\frac 1 {H_n} = \\frac 1 n \\paren {\\sum_{k \\mathop = 1}^n \\frac 1 {y_k^2} }$\nMultiplying $A_n$ by $\\dfrac 1 {H_n}$:\n$$\\frac {A_n} {H_n} = \\frac 1 n \\paren {\\sum_{k \\mathop = 1}^n y_k^2} \\frac 1 n \\paren {\\sum_{k \\mathop = 1}^n \\frac 1 {y_k^2} }$$\n$$\\ge \\frac 1 {n^2} \\paren {\\sum_{k \\mathop = 1}^n \\frac {y_k} {y_k} }^2$$\nCauchy's Inequality\n$$= \\frac 1 {n^2} \\paren {\\sum_{k \\mathop = 1}^n 1}^2$$\n$$= \\frac {n^2} {n^2} = 1$$\nSo:\n$\\dfrac {A_n} {H_n} \\ge 1$\nand so from Real Number Axioms: $\\R \\text O 2$: compatible with multiplication:\n$A_n \\ge H_n$",
+    "clean_row_index": 491,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Cauchy-Schwarz on the square roots and their reciprocals gives A/H>=1. Multiplication by the positive harmonic mean gives the desired order."
+  },
+  {
+    "theorem_id": 1139,
+    "title": "Convergent Sequence in Metric Space is Bounded",
+    "theorem_text": "Let $M = \\struct {A, d}$ be a metric space.\nLet $\\sequence {x_n}$ be a sequence in $M$ which is convergent, and so $x_n \\to l$ as $n \\to \\infty$.\nThen $\\sequence {x_n}$ is bounded.",
+    "proof_text": "Let $M = \\struct {A, d}$ be a metric space.\nLet $\\sequence {x_n}$ be a sequence in $M$ which is convergent, and so $x_n \\to l$ as $n \\to \\infty$.\nFrom the definition, in order to prove boundedness, all we need to do is find $K \\in \\R$ such that $\\forall n \\in \\N: \\map d {x_n, l} \\le K$.\nSince $\\sequence {x_n}$ converges, it is true that:\n$\\forall \\epsilon > 0: \\exists N: n > N \\implies \\map d {x_n, l} < \\epsilon$\nIn particular, this is true when $\\epsilon = 1$, for example.\nThat is:\n$\\exists N_1: \\forall n > N_1: \\map d {x_n, l} < 1$\nSo now we set:\n$K = \\max \\set {\\map d {x_1, l}, \\map d {x_2, l}, \\ldots, \\map d {x_{N_1}, l}, 1}$\nThe result follows.",
+    "clean_row_index": 492,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Convergence bounds the tail in the unit ball around the limit. Taking the maximum of one and the finitely many initial distances bounds the whole sequence."
+  },
+  {
+    "theorem_id": 1140,
+    "title": "Convergent Sequence Minus Limit",
+    "theorem_text": "Let $X$ be  one of the standard number fields $\\Q, \\R, \\C$.\nLet $\\left \\langle {x_n} \\right \\rangle$ be a sequence in $X$ which converges to $l$.\nThat is:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} x_n = l$\nThen:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} \\left|{x_n - l}\\right| = 0$",
+    "proof_text": "Let $\\epsilon > 0$.\nWe need to show that there exists $N$ such that:\n$\\forall n > N: \\size {\\paren {\\size {x_n - l} - 0} } < \\epsilon$\nBut:\n$\\size {\\paren {\\size {x_n - l} - 0} } = \\size {x_n - l}$\nSo what needs to be shown is just:\n$x_n \\to l$ as $n \\to \\infty$\nwhich is the definition of $\\displaystyle \\lim_{n \\mathop \\to \\infty} x_n = l$.",
+    "clean_row_index": 493,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The absolute difference from zero of the nonnegative quantity |x_n-l| is |x_n-l| itself, so convergence is the given epsilon condition."
+  },
+  {
+    "theorem_id": 1140,
+    "title": "Convergent Sequence Minus Limit",
+    "theorem_text": "Let $X$ be  one of the standard number fields $\\Q, \\R, \\C$.\nLet $\\left \\langle {x_n} \\right \\rangle$ be a sequence in $X$ which converges to $l$.\nThat is:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} x_n = l$\nThen:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} \\left|{x_n - l}\\right| = 0$",
+    "proof_text": "We note that all of $\\Q, \\R, \\C$ can be considered as metric spaces.\nThen under the usual metric:\n$d \\left({x_n, l}\\right) = \\left|{x_n - l}\\right|$.\nThe result follows from the definition of metric: $d \\left({x_n, l}\\right) = 0 \\iff x_n = l$.",
+    "clean_row_index": 494,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The cited axiom characterizes distance exactly zero, which need never occur along a convergent sequence. The argument needs the metric convergence criterion for distances tending to zero."
+  },
+  {
+    "theorem_id": 1142,
+    "title": "One Plus Reciprocal to the Nth",
+    "theorem_text": "Let $\\sequence {x_n}$ be the sequence in $\\R$ defined as $x_n = \\paren {1 + \\dfrac 1 n}^n$.\nThen $\\sequence {x_n}$ converges to a limit as $n$ increases without bound.",
+    "proof_text": "First we show that $\\sequence {x_n}$ is increasing.\nLet $a_1 = a_2 = \\cdots = a_{n - 1} = 1 + \\dfrac 1 {n - 1}$.\nLet $a_n = 1$.\nLet:\n$A_n$ be the arithmetic mean of $a_1 \\ldots a_n$\n$G_n$ be the geometric mean of $a_1 \\ldots a_n$\nThus:\n$A_n = \\dfrac {\\paren {n - 1} \\paren {1 + \\dfrac 1 {n - 1} } + 1} n = \\dfrac {n + 1} n = 1 + \\dfrac 1 n$\n$G_n = \\paren {1 + \\dfrac 1 {n - 1} }^{\\dfrac {n - 1} n}$\nBy Cauchy's Mean Theorem:\n$G_n \\le A_n$\nThus:\n$\\paren {1 + \\dfrac 1 {n - 1} }^{\\frac {n - 1} n} \\le 1 + \\dfrac 1 n$\nand so:\n$x_{n - 1} = \\paren {1 + \\dfrac 1 {n - 1} }^{n - 1} \\le \\paren {1 + \\dfrac 1 n}^n = x_n$\nHence $\\sequence {x_n}$ is increasing.\nNext, we show that $\\sequence {x_n}$ is bounded above.\nUsing the Binomial Theorem:\n$$\\paren {1 + \\frac 1 n}^n = 1 + n \\paren {\\frac 1 n} + \\frac {n \\paren {n - 1} } 2 \\paren {\\frac 1 n}^2 + \\cdots + \\paren  {\\frac 1 n}^n$$\n$$= 1 + 1 + \\paren {1 - \\frac 1 n} \\frac 1 {2!} + \\paren {1 - \\frac 1 n} \\paren {1 - \\frac 2 n} \\frac 1 {3!} + \\cdots + \\paren {1 - \\frac 1 n} \\paren {1 - \\frac 2 n} \\cdots \\paren {1 - \\frac {n - 1} n} \\frac 1 {n!}$$\n$$\\le 1 + 1 + \\frac 1 {2!} + \\frac 1 {3!} + \\cdots + \\frac 1 {n!}$$\n$$\\le 1 + 1 + \\frac 1 2 + \\frac 1 {2^2} + \\cdots + \\frac 1 {2^n}$$\n(because $2^{n - 1} \\le n!$)\n$$= 1 + \\frac {1 - \\paren {\\frac 1 2}^n} {1 - \\frac 1 2}$$\n$$= 1 + 2 \\paren {1 - \\paren {\\frac 1 2}^n}$$\n$$< 3$$\nSo $\\sequence {x_n}$ is bounded above by $3$.\nFrom the Monotone Convergence Theorem (Real Analysis), it follows that $\\sequence {x_n}$ converges to a limit.",
+    "clean_row_index": 495,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "AM-GM gives monotonicity, and the binomial terms are bounded by reciprocal factorials and then a geometric sum below three. The written endpoint of the geometric sum is off by one but either bound is below three."
+  },
+  {
+    "theorem_id": 1144,
+    "title": "Power over Factorial",
+    "theorem_text": "Let $x \\in \\R: x > 0$ be a positive real number.\nLet $\\sequence {x_n}$ be the sequence in $\\R$ defined as $x_n = \\dfrac {x^n} {n!}$.\nThen $\\sequence {x_n}$ converges to zero.",
+    "proof_text": "We need to show that $x_n \\to 0$ as $n \\to \\infty$.\nLet $N \\in \\N$ be the smallest natural number which satisfies $N > x$.\n(From the Archimedean Principle, such an $N$ always exists.)\nFirst we show that:\n$\\forall n > N: \\dfrac {x^n} {n!} \\le \\dfrac {x^{N - 1} } {\\paren {N - 1}!} \\paren {\\dfrac x N}^{n - N + 1}$\nNote that as $N > x$, $\\dfrac x N < 1$.\nAlso:\n$m > n \\implies \\dfrac x m < \\dfrac x n$\nThus:\n$$\\frac {x^n} {n!} = \\frac x 1 \\frac x 2 \\cdots \\frac x {N - 1} \\frac x N \\frac x {N + 1} \\cdots \\frac x n$$\n$$= \\frac {x^{N - 1} } {\\paren {N - 1}!} \\frac x N \\frac x {N + 1} \\cdots \\frac x n$$\n$$\\le \\frac {x^{N - 1} } {\\paren {N - 1}!} \\paren {\\frac x N}^{n - N + 1}$$\nas $\\dfrac x {N + 1}, \\dfrac x {N + 2}, \\ldots, \\dfrac x n < \\dfrac x N$\n$$= \\frac {x^{N - 1} } {\\paren {N - 1}!} \\paren {\\frac x N}^{1 - N} \\paren {\\frac x N}^n$$\nAs $\\dfrac x N < 1$, it follows from Sequence of Powers of Number less than One that $\\paren {\\dfrac x N}^n \\to 0$ as $n \\to \\infty$.\nFor a given $x$ and $N$, $\\dfrac {x^{N - 1} } {\\paren {N - 1}!} \\paren {\\dfrac x N}^{1 - N}$ is constant.\nThus by the Multiple Rule for Real Sequences:\n$\\dfrac {x^{N - 1} } {\\paren {N - 1}!} \\paren {\\dfrac x N}^{1 - N} \\paren {\\dfrac x N}^n \\to 0$ as $n \\to \\infty$\nAs (from above):\n$\\dfrac {x^n} {n!} \\le \\dfrac {x^{N - 1} } {\\paren {N - 1}!} \\paren {\\dfrac x N}^{1 - N} \\paren {\\dfrac x N}^n$\nthe result follows from the Squeeze Theorem for Real Sequences.",
+    "clean_row_index": 496,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Beyond N>x every new factor is at most x/N<1, so a fixed constant times a vanishing geometric sequence bounds the positive terms."
+  },
+  {
+    "theorem_id": 1145,
+    "title": "Sequence of Powers of Reciprocals is Null Sequence",
+    "theorem_text": "Let $r \\in \\Q_{>0}$ be a strictly positive rational number.\nLet $\\sequence {x_n}$ be the sequence in $\\R$ defined as:\n$x_n = \\dfrac 1 {n^r}$\nThen $\\sequence {x_n}$ is a null sequence.",
+    "proof_text": "Let $\\epsilon > 0$.\nWe need to show that:\n$\\exists N \\in \\N: n > N \\implies \\size {\\dfrac 1 {n^r} } < \\epsilon$\nThat is, that $n^r > 1 / \\epsilon$.\nLet us choose $N = \\ceiling {\\paren {1 / \\epsilon}^{1/r} }$.\nBy Reciprocal of Strictly Positive Real Number is Strictly Positive and power of positive real number is positive, it follows that:\n$\\paren {\\dfrac 1 \\epsilon}^{1/r} \\gt 0$\nThen by Positive Power Function on Non-negative Reals is Strictly Increasing:\n$\\forall n > N: n^r > N^r \\ge 1 / \\epsilon$",
+    "clean_row_index": 497,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Taking the ceiling of the positive rth root of 1/epsilon and using strict power monotonicity proves the epsilon bound for all larger n."
+  },
+  {
+    "theorem_id": 1146,
+    "title": "Euler's Number: Limit of Sequence implies Limit of Series",
+    "theorem_text": "Let Euler's number $e$ be defined as:\n$\\displaystyle e := \\lim_{n \\to \\infty} \\left({1 + \\frac 1 n}\\right)^n$\nThen:\n$\\displaystyle e = \\sum_{k \\mathop \\ge 0} \\frac 1 {k!}$\nThat is:\n$\\displaystyle e = \\frac 1 {0!} + \\frac 1 {1!} + \\frac 1 {2!} + \\frac 1 {3!} + \\frac 1 {4!} \\cdots$",
+    "proof_text": "We expand $\\left({1 + \\dfrac 1 n}\\right)^n$ by the Binomial Theorem, using that $\\dfrac {n - k} n = 1 - \\dfrac k n$:\n$$\\left({1 + \\frac 1 n}\\right)^n = 1 + n \\left({\\frac 1 n}\\right) + \\frac {n \\left({n - 1}\\right)} 2 \\left({\\frac 1 n}\\right)^2 + \\cdots + \\left({\\frac 1 n}\\right)^n$$\n$$= \\frac 1 {0!} + \\frac 1 {1!} + \\left({1 - \\frac 1 n}\\right) \\frac 1 {2!} + \\left({1 - \\frac 1 n}\\right) \\left({1 - \\frac 2 n}\\right)\\frac 1 {3!} + \\cdots + \\left({1 - \\frac 1 n}\\right) \\left({1 - \\frac 2 n}\\right) \\cdots \\left({1 - \\frac {n - 1} n}\\right) \\frac 1 {n!}$$\nTake one of the terms in the above:\n$x = \\left({1 - \\dfrac 1 n}\\right) \\left({1 - \\dfrac 2 n}\\right) \\cdots \\left({1 - \\dfrac {k - 1} n}\\right) \\dfrac 1 {k!}$\nFrom Sequence of Powers of Reciprocals is Null Sequence, $\\dfrac 1 n \\to 0$ as $n \\to \\infty$.\nFrom the Combination Theorem for Sequences:\n$\\forall \\lambda \\in \\R: \\dfrac \\lambda n \\to 0$ as $n \\to \\infty$\n$\\forall \\lambda \\in \\R: 1 - \\dfrac \\lambda n \\to 1$ as $n \\to \\infty$\n$x = \\left({1 - \\dfrac 1 n}\\right) \\left({1 - \\dfrac 2 n}\\right) \\cdots \\left({1 - \\dfrac {k - 1} n}\\right) \\dfrac 1 {k!} \\to \\dfrac 1 {k!}$ as $n \\to \\infty$\nHence:\n$\\displaystyle \\lim_{n \\to \\infty} \\left({1 + \\frac 1 n}\\right)^n = \\frac 1 {0!} + \\frac 1 {1!} + \\frac 1 {2!} + \\frac 1 {3!} + \\cdots = \\sum_{k \\mathop = 0}^\\infty \\frac 1 {k!}$",
+    "clean_row_index": 498,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Convergence of each fixed binomial summand does not justify passing the limit through a growing sum. A summable bound or a uniform tail estimate is missing."
+  },
+  {
+    "theorem_id": 1146,
+    "title": "Euler's Number: Limit of Sequence implies Limit of Series",
+    "theorem_text": "Let Euler's number $e$ be defined as:\n$\\displaystyle e := \\lim_{n \\to \\infty} \\left({1 + \\frac 1 n}\\right)^n$\nThen:\n$\\displaystyle e = \\sum_{k \\mathop \\ge 0} \\frac 1 {k!}$\nThat is:\n$\\displaystyle e = \\frac 1 {0!} + \\frac 1 {1!} + \\frac 1 {2!} + \\frac 1 {3!} + \\frac 1 {4!} \\cdots$",
+    "proof_text": "It will be shown that:\n$\\displaystyle \\lim_{n \\to \\infty} \\left({1 + \\frac 1 n}\\right)^n = \\sum_{k \\mathop = 0}^\\infty \\frac 1 {k!}$\nLet $t_n := \\left({1 + \\dfrac 1 n}\\right)^n$\nThen:\n$t_n = \\dfrac 1 {0!} + \\dfrac 1 {1!} + \\left({1 - \\dfrac 1 n}\\right) \\dfrac 1 {2!} + \\left({1 - \\dfrac 1 n}\\right) \\left({1 - \\dfrac 2 n}\\right) \\dfrac 1 {3!} + \\cdots + \\left({1 - \\dfrac 1 n}\\right) \\left({1 - \\dfrac 2 n}\\right) \\cdots \\left({1 - \\dfrac {n-1} n}\\right) \\dfrac 1 {n!}$\nNow let:\n$\\displaystyle s_m := \\sum_{k \\mathop = 0}^m \\frac 1 {k!}$\nWe have that:\n$\\forall n: t_n \\le s_n$\nHence:\n$\\limsup \\left({t_n}\\right) \\le e$\nNow, for all $m$, for $n \\ge m$:\n$t_n \\ge \\dfrac 1 {0!} + \\dfrac 1 {1!} + \\left({1 - \\dfrac 1 n}\\right) \\dfrac 1 {2!} + \\left({1 - \\dfrac 1 n}\\right) \\left({1 - \\dfrac 2 n}\\right) \\dfrac 1 {3!} + \\cdots + \\left({1 - \\dfrac 1 n}\\right) \\left({1 - \\dfrac 2 n}\\right) \\cdots \\left({1 - \\dfrac {m-1} n}\\right) \\dfrac 1 {m!}$\nHence, for all $m$, we have the right side as being a sequence in $n$, and then:\n$\\displaystyle \\liminf \\left({t_n}\\right) \\ge \\sum_{k \\mathop = 0}^m \\frac 1 {m!}$\nSince this is true for all $m$:\n$\\liminf \\left({t_n}\\right) \\ge e$\nSo $\\displaystyle \\lim \\left({t_n}\\right)$ exists and is equal to $e$.",
+    "clean_row_index": 499,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The displayed lower estimate sums 1/m! repeatedly instead of 1/k!, and the proof identifies the bound with e before identifying the factorial series with e. The required upper and lower comparisons must use the same series sum."
+  },
+  {
+    "theorem_id": 1148,
+    "title": "Convergent Sequence in Metric Space has Unique Limit",
+    "theorem_text": "Let $\\left({X, d}\\right)$ be a metric space.\nLet $\\left \\langle {x_n} \\right \\rangle$ be a sequence in $\\left({X, d}\\right)$.\nThen $\\left \\langle {x_n} \\right \\rangle$ can have at most one limit.",
+    "proof_text": "We have that a Metric Space is Hausdorff.\nThe result then follows from Convergent Sequence in Hausdorff Space has Unique Limit.",
+    "clean_row_index": 500,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Metric spaces are Hausdorff, and the cited uniqueness theorem applies to convergent sequences in any Hausdorff space."
+  },
+  {
+    "theorem_id": 1150,
+    "title": "Divergent Sequence may be Bounded",
+    "theorem_text": "While every Convergent Sequence is Bounded, it does not follow that every bounded sequence is convergent.\nThat is, there exist bounded sequences which are divergent.",
+    "proof_text": "Let $\\sequence {x_n}$ be the sequence in $\\R$ which forms the basis of Grandi's series,  defined as:\n$x_n = \\paren {-1}^n$\nIt is clear that $\\sequence {x_n}$ is bounded: above by $1$ and below by $-1$.\nNote the following subsequences of $\\sequence {x_n}$:\n$(1): \\quad \\sequence {x_{n_r} }$ where $\\sequence {n_r}$ is the integer sequence defined as $n_r = 2 r$\n$(2): \\quad \\sequence  {x_{n_s} }$ where $\\sequence {n_s}$ is the integer sequence defined as $n_s = 2 s + 1$.\nWe have that:\n$\\sequence {x_{n_r} }$ is the sequence $1, 1, 1, 1, \\ldots$\n$\\sequence {x_{n_s} }$ is the sequence $-1, -1, -1, -1, \\ldots$\nSo $\\sequence {x_n}$ has two subsequences with different limits.\nFrom Limit of Subsequence equals Limit of Real Sequence, that means $\\sequence {x_n}$ can not be convergent.",
+    "clean_row_index": 501,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The bounded sequence of alternating signs has constant odd and even subsequences with distinct limits, which precludes convergence of the full sequence."
+  },
+  {
+    "theorem_id": 1151,
+    "title": "Ring Homomorphism from Division Ring is Monomorphism or Zero Homomorphism",
+    "theorem_text": "Let $\\struct {R, +_R, \\circ}$ and $\\struct {S, +_S, *}$ be rings whose zeros are $0_R$ and $0_S$ respectively.\nLet $\\phi: R \\to S$ be a ring homomorphism.\nIf $R$ is a division ring, then either:\n$(1): \\quad \\phi$ is a monomorphism (that is, $\\phi$ is injective)\n$(2): \\quad \\phi$ is the zero homomorphism (that is, $\\forall a \\in R: \\map \\phi a = 0_S$).",
+    "proof_text": "We have that:\n:The kernel of a homomorphism is an ideal of $R$\n:the only ideals of a division ring are trivial.\nSo $\\map \\ker \\phi = \\set {0_R}$ or $R$.\nIf $\\map \\ker \\phi = \\set {0_R}$, then $\\phi$ is injective by Kernel is Trivial iff Monomorphism.\nIf $\\map \\ker \\phi = R$, $\\phi$ is the zero homomorphism by definition.",
+    "clean_row_index": 502,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The kernel is a two-sided ideal of a division ring and is thus zero or the entire ring. These cases give injectivity or the zero map respectively."
+  },
+  {
+    "theorem_id": 1151,
+    "title": "Ring Homomorphism from Division Ring is Monomorphism or Zero Homomorphism",
+    "theorem_text": "Let $\\struct {R, +_R, \\circ}$ and $\\struct {S, +_S, *}$ be rings whose zeros are $0_R$ and $0_S$ respectively.\nLet $\\phi: R \\to S$ be a ring homomorphism.\nIf $R$ is a division ring, then either:\n$(1): \\quad \\phi$ is a monomorphism (that is, $\\phi$ is injective)\n$(2): \\quad \\phi$ is the zero homomorphism (that is, $\\forall a \\in R: \\map \\phi a = 0_S$).",
+    "proof_text": "From Surjection by Restriction of Codomain, we can restrict the codomain of $\\phi$ and consider the mapping $\\phi': R \\to \\operatorname {Im} \\left({R}\\right)$\nAs $\\phi'$ is now a surjective homomorphism, it is by definition an epimorphism.\nThen we invoke the result that an epimorphism from a division ring to a ring is either null or an isomorphism.\nAs an isomorphism is by definition injective, the result follows.",
+    "clean_row_index": 503,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Passing to the image gives a surjective ring map, to which the cited division-ring quotient result applies. Injectivity or vanishing is preserved on restoring the codomain."
+  },
+  {
+    "theorem_id": 1155,
+    "title": "Modulus of Limit",
+    "theorem_text": "Let $X$ be one of the standard number fields $\\Q, \\R, \\C$.\nLet $\\sequence {x_n}$ be a sequence in $X$.\nLet $\\sequence {x_n}$ be convergent to the limit $l$.\nThat is, let $\\displaystyle \\lim_{n \\mathop \\to \\infty} x_n = l$.\nThen\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} \\cmod {x_n} = \\cmod l$\nwhere $\\cmod {x_n}$ is the modulus of $x_n$.",
+    "proof_text": "By the Triangle Inequality, we have:\n$\\cmod {\\cmod {x_n} - \\cmod l} \\le \\cmod {x_n - l}$\nHence by the Squeeze Theorem and Convergent Sequence Minus Limit, $\\cmod {x_n} \\to \\cmod l$ as $n \\to \\infty$.",
+    "clean_row_index": 504,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The reverse triangle inequality bounds the modulus difference by the distance to the limit, which tends to zero."
+  },
+  {
+    "theorem_id": 1158,
+    "title": "Limit of Subsequence equals Limit of Sequence",
+    "theorem_text": "Let $T = \\struct {S, \\tau}$ be a topological space.\nLet $\\sequence {x_n}$ be a sequence in $T$.\nLet $l \\in S$ such that:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} x_n = l$\nLet $\\sequence {x_{n_r} }$ be a subsequence of $\\sequence {x_n}$.\nThen:\n$\\displaystyle \\lim_{r \\mathop \\to \\infty} x_{n_r} = l$\nThat is, the limit of a convergent sequence in a topological space equals the limit of any subsequence of it.",
+    "proof_text": "Let $U \\in \\tau$ be an open set such that $l \\in U$.\nBy definition of convergence, we have:\n$\\exists N \\in \\N: \\forall n > N: x_n \\in U$.\nWhen $r > N$, we have $n_r > n_N > N$ by Strictly Increasing Sequence of Natural Numbers.\nIt follows that:\n$\\exists N \\in \\N: \\forall r > N: x_{n_r} \\in U$.\nTherefore, as $U$ was arbitrary, we have established $\\displaystyle \\lim_{r \\mathop \\to \\infty} x_{n_r} = l$, by definition of convergence.",
+    "clean_row_index": 505,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Increasing natural-number indices give n_r>=r, hence n_r>N for r>N. The unnecessary strict inequality n_N>N can be equality without affecting the neighborhood argument."
+  },
+  {
+    "theorem_id": 1159,
+    "title": "Root of Number Greater than One",
+    "theorem_text": "Let $x \\in \\R$ be a real number.\nLet $n \\in \\N^*$ be a natural number such that $n > 0$.\nThen $x \\ge 1 \\implies x^{1/n} \\ge 1$ where $x^{1/n}$ is the $n$th root of $x$.",
+    "proof_text": "Let $y = x^{1/n}$.\nFrom the definition of the $n$th root of $x$, it follows that $x = y^n$.\nWe will show by induction that $\\forall n \\in \\N^*: y^n \\ge 1 \\implies y \\ge 1$.\nFor all $n \\in \\N^*$, let $P \\left({n}\\right)$ be the proposition:\n$y^n \\ge 1 \\implies y \\ge 1$\nBasis for the Induction\nBy definition, $y^1 = y$.\nThus $P(1)$ is true, as this just says $y \\ge 1 \\implies y \\ge 1$.\nThis is our basis for the induction.\nInduction Hypothesis\n* Now we need to show that, if $P \\left({k}\\right)$ is true, where $k \\ge 1$, then it logically follows that $P \\left({k+1}\\right)$ is true.\nSo our induction hypothesis is that:\n$y^k \\ge 1 \\implies y \\ge 1$\nNow we need to show that:\n$y^{k+1} \\ge 1 \\implies y \\ge 1$.\nInduction Step\nThis is our induction step:\nBy definition, $y^{k+1} = y \\cdot y^k$.\nSuppose $y^k \\ge 1$. From the induction hypothesis it follows that $y > 1$.\nAs $y \\ge 1$ it follows that $y > 0$.\nLet $y^{k+1} = y \\cdot y^k \\ge 1$.\nThen $y \\cdot y^k$\nBy Real Number Ordering is Compatible with Multiplication, $y \\cdot y^k \\ge y \\times 1$ and hence the result.\nSo $P \\left({k}\\right) \\implies P \\left({k+1}\\right)$ and the result follows by the Principle of Mathematical Induction.\nTherefore $\\forall n \\in \\N^*: y^n \\ge 1 \\implies y \\ge 1$.\nAs $y^n = x$ and $y = x^{1/n}$, the result follows.",
+    "clean_row_index": 506,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The induction step assumes y^k>=1 instead of deriving y>=1 from y^(k+1)>=1. It also converts a weak inequality from the inductive hypothesis into a strict one."
+  },
+  {
+    "theorem_id": 1160,
+    "title": "Limit of Root of Positive Real Number",
+    "theorem_text": "Let $x \\in \\R: x > 0$ be a real number.\nLet $\\sequence {x_n}$ be the sequence in $\\R$ defined as:\n$x_n = x^{1 / n}$\nThen $x_n \\to 1$ as $n \\to \\infty$.",
+    "proof_text": "Let us define $a_1 = a_2 = \\cdots = a_{n-1} = 1$ and $a_n = x$.\nLet $G_n$ be the geometric mean of $a_1, \\ldots, a_n$.\nLet $A_n$ be the arithmetic mean of $a_1, \\ldots, a_n$.\nFrom their definitions:\n$G_n = x^{1/n}$\nand:\n$A_n = \\dfrac {n - 1 + x} n = 1 + \\dfrac{x - 1} n$\nFrom Arithmetic Mean Never Less than Geometric Mean:\n$x^{1/n} \\le 1 + \\dfrac{x - 1} n$\nThat is:\n$x^{1/n} - 1 \\le \\dfrac{x - 1} n$\nThere are two cases to consider: $x \\ge 1$ and $0 < x < 1$.\nLet $x \\ge 1$.\nFrom Root of Number Greater than One, it follows that:\n$x^{1/n} \\ge 1$\nThus:\n$0 \\le x^{1/n} - 1 \\le \\dfrac 1 n \\paren {x - 1}$\nBut from Sequence of Powers of Reciprocals is Null Sequence:\n$\\dfrac 1 n \\to 0$ as $n \\to \\infty$\nFrom the Combination Theorem for Sequences:\n$\\dfrac 1 n \\paren {x - 1} \\to 0$ as $n \\to \\infty$\nThus by the Squeeze Theorem:\n$x^{1/n} - 1 \\to 0$ as $n \\to \\infty$\nHence, again from the Combination Theorem for Sequences:\n$x^{1/n} \\to 1$ as $n \\to \\infty$\nNow let $0 < x < 1$.\nThen $x = \\dfrac 1 y$ where $y > 1$.\nBut from the above:\n$y^{1/n} \\to 1$ as $n \\to \\infty$\nHence by the Combination Theorem for Sequences:\n$x^{1/n} = \\dfrac 1 {y^{1/n} } \\to \\dfrac 1 1 = 1$ as $n \\to \\infty$",
+    "clean_row_index": 507,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "AM-GM squeezes the excess of the nth root above one by (x-1)/n for x>=1. Taking reciprocals transfers this result to the remaining positive x."
+  },
+  {
+    "theorem_id": 1160,
+    "title": "Limit of Root of Positive Real Number",
+    "theorem_text": "Let $x \\in \\R: x > 0$ be a real number.\nLet $\\sequence {x_n}$ be the sequence in $\\R$ defined as:\n$x_n = x^{1 / n}$\nThen $x_n \\to 1$ as $n \\to \\infty$.",
+    "proof_text": "We consider the case where $x \\ge 1$; when $0 < x < 1$ the proof can be completed as for proof 1.\nFrom Root of Number Greater than One:\n$x^{1/n} \\ge 1$\nHence $\\sequence {x^{1/n} }$ is bounded below by $1$.\nNow consider $x^{1/n} / x^{1 / \\paren {n + 1} }$:\n$$\\frac {x^{1/n} } {x^{\\frac 1 {n + 1} } } = x^{\\frac 1 n - \\frac 1 {n + 1} }$$\n$$= x^{\\frac {n + 1 - n} {n \\paren {n + 1} } }$$\n$$= x^{\\frac 1 {n \\paren {n + 1} } }$$\n$$> 1$$\nRoot of Number Greater than One\nSo:\n$x^{1/n} > x^{\\frac 1 {n + 1} }$\nand so $\\sequence {x^{1 / n} }$ is strictly decreasing.\nHence from the Monotone Convergence Theorem (Real Analysis), it follows that $\\sequence {x^{1 / n} }$ converges to a limit $l$ and that $l \\ge 1$.\nNow, since we know that $\\sequence {x^{1 / n} }$ is convergent, we can apply Limit of Subsequence equals Limit of Real Sequence.\nThat is, any subsequence of $\\sequence {x^{1 / n} }$ must also converge to $l$.\nSo we take the subsequence:\n$\\sequence {x^{1 / {2 n} } }$\nFrom what has just been shown:\n$x^{1 / {2 n} } \\to l$ as $n \\to \\infty$\nUsing the Combination Theorem for Sequences, we have:\n$x^{1 / n} = x^{1 / {2 n} } \\cdot x^{1 / {2 n} } \\to l \\cdot l = l^2$ as $n \\to \\infty$\nBut a Convergent Real Sequence has Unique Limit, so $l^2 = l$ and so $l = 0$ or $l = 1$.\nBut $l \\ge 1$ and so $l = 1$.\nHence the result.",
+    "clean_row_index": 508,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "For x=1 the ratio of consecutive roots is one, contrary to the asserted strict inequality and strict decrease. The subsequent argument works with a weak inequality."
+  },
+  {
+    "theorem_id": 1161,
+    "title": "Hero's Method",
+    "theorem_text": "Let $a \\in \\R$ be a real number such that $a > 0$.\nLet $x_1 \\in \\R$ be a real number such that $x_1 > 0$.\nLet $\\sequence {x_n}$ be the sequence in $\\R$ defined recursively by:\n$\\forall n \\in \\N_{>0}: x_{n + 1} = \\dfrac {x_n + \\dfrac a {x_n} } 2$\nThen $x_n \\to \\sqrt a$ as $n \\to \\infty$.",
+    "proof_text": "Let $a > 0$.\nWe make no statement about $x_1$.\nWe specify that:\n$x_{n + 1} = \\dfrac {x_n + \\dfrac a {x_n} } 2$\nNow:\n$$x_{n + 1} - \\sqrt a = \\frac {x_n + \\dfrac a {x_n} } 2 - \\sqrt a$$\n$$= \\frac 1 {2 x_n} \\paren {x_n^2 - 2 x_n \\sqrt a + a}$$\n$$= \\frac 1 {2 x_n} \\paren {x_n - \\sqrt a}^2$$\n$$= \\frac 1 {2 x_n} \\paren {\\dfrac {\\paren {x_{n - 1} - \\sqrt a}^2} {2 x_{n - 1} } }^2$$\n$$= \\frac 1 {2 x_n} \\frac 1 {\\paren {2 x_{n - 1} }^2} \\paren {x_{n - 1} - \\sqrt a}^4$$\n$$= \\frac 1 {2 x_n} \\frac 1 {\\paren {2 x_{n - 1} }^2} \\frac 1 {\\paren {2 x_{n - 2} }^4} \\paren {x_{n - 2} - \\sqrt a}^8$$\n$$= \\frac 1 {2 x_n} \\frac 1 {\\paren {2 x_{n - 1} }^2} \\cdots \\frac 1 {\\paren {2 x_1}^{2 n - 1} } \\paren {x_1 - \\sqrt a}^{2 n}$$\nIf we now assume that $x_1 \\ge \\sqrt a$, then it follows from Lemma 2 that $x_n \\ge \\sqrt a$.\nSo:\n$$\\size {x_{n + 1} - \\sqrt a} \\le \\paren {\\frac 1 {2 \\sqrt a} }^{1 + 2 + 2^2 + \\cdots + 2^{n - 1} } \\paren {x_1 - \\sqrt a}^{2 n}$$\n$$= \\paren {\\frac 1 {2 \\sqrt a} }^{\\dfrac {2^n - 1} {2 - 1} } \\paren {x_1 - \\sqrt a}^{2 n}$$\n$$= 2 \\sqrt a \\paren {\\frac {x_1 - \\sqrt a} {2 \\sqrt a} }^{2 n}$$\nIf $\\size y < 1$, then $y^n \\to 0$ as $n \\to \\infty$ from Sequence of Powers of Number less than One.\nSo, by Limit of Subsequence equals Limit of Real Sequence:\n$y^{2^n} \\to 0$ as $n \\to \\infty$\nThus we see that:\n$x_n \\to \\sqrt a$ as $n \\to \\infty$\nprovided that:\n$\\dfrac {x_1 - \\sqrt a} {2 \\sqrt a} < 1$\nthat is, that:\n$\\sqrt a \\le x_1 < 3 \\sqrt a$\nWe assumed above that $x_1 \\ge \\sqrt a$.\nNow we have shown that $x_n \\to \\sqrt a$ as $n \\to \\infty$ provided that $\\sqrt a \\le x_1 < 3 \\sqrt a$.\nHowever, we have already shown that $x_n \\to \\sqrt a$ as long as $x_1 \\ge 0$.\nThe advantage to this analysis is that this gives us an opportunity to determine how close $x_n$ gets to $\\sqrt a$.",
+    "clean_row_index": 509,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The error bound only proves convergence for initial values in a restricted interval. Its final claim of prior general convergence supplies no argument covering all positive initial values."
+  }
+]

@@ -1,0 +1,326 @@
+[
+  {
+    "clean_row_index": 75,
+    "theorem_id": 232,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Identity Mapping is Bijection",
+    "theorem_text": "The identity mapping $I_S: S \\to S$ on the set $S$ is a bijection.",
+    "proof_text": "The identity mapping is:\n:an injection, from Identity Mapping is Injection\n:a surjection, from Identity Mapping is Surjection\nand therefore a bijection.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited results give both injectivity and surjectivity of the identity on S.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 76,
+    "theorem_id": 234,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Bijection iff Left and Right Inverse",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\n$f$ is a bijection if and only if:\n$(1): \\quad \\exists g_1: T \\to S: g_1 \\circ f = I_S$\n$(2): \\quad \\exists g_2: T \\to S: f \\circ g_2 = I_T$\nwhere both $g_1$ and $g_2$ are mappings.\nIt also follows that it is necessarily the case that $g_1 = g_2$ for such to be possible.",
+    "proof_text": "Necessary Condition\nLet $f: S \\to T$ be a mapping.\nLet $f$ be such that:\n$\\exists g_1: T \\to S: g_1 \\circ f = I_S$\n$\\exists g_2: T \\to S: f \\circ g_2 = I_T$\nwhere both $g_1$ and $g_2$ are mappings.\nThen from Left and Right Inverse Mappings Implies Bijection it follows that $f$ is a bijection.\nFrom Left and Right Inverses of Mapping are Inverse Mapping it follows that:\n$g_1 = g_2 = f^{-1}$\nwhere $f^{-1}$ is the inverse of $f$.\nSufficient Condition\nLet $f: S \\to T$ be a bijection.\nThen from Bijection has Left and Right Inverse it follows that:\n$f^{-1} \\circ f = I_S$ and\n$f \\circ f^{-1} = I_T$\nwhere $f^{-1}$ is the inverse of $f$.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A left and a right inverse force bijectivity and coincide by the cited inverse laws. Conversely the inverse of a bijection satisfies both identities.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 77,
+    "theorem_id": 235,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Inverse of Bijection is Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a bijection in the sense that:\n$(1): \\quad f$ is an injection\n$(2): \\quad f$ is a surjection.\nThen the inverse $f^{-1}$ of $f$ is itself a bijection by the same definition.",
+    "proof_text": "Let $f$ be both an injection and a surjection.\nFrom Mapping is Injection and Surjection iff Inverse is Mapping it follows that its inverse $f^{-1}$ is a mapping.\nFrom Inverse of Inverse Relation:\n$\\paren {f^{-1} }^{-1} = f$\nThus the inverse of $f^{-1}$ is $f$.\nBut then $f$, being a bijection, is by definition a mapping.\nSo from Mapping is Injection and Surjection iff Inverse is Mapping it follows that $f^{-1}$ is a bijection.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The inverse relation is a mapping because f is bijective. Its own inverse is f, also a mapping, so the quoted characterization makes the inverse bijective.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 78,
+    "theorem_id": 236,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Inverse Element of Bijection",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $f: S \\to T$ be a bijection.\nThen:\n$\\map {f^{-1} } y = x \\iff \\map f x = y$\nwhere $f^{-1}$ is the inverse mapping of $f$.",
+    "proof_text": "Suppose $f$ is a bijection.\nBecause $f^{-1}$ is a bijection from Bijection iff Inverse is Bijection, it is by definition  a mapping.\nThe result follows directly from Image of Element under Inverse Mapping.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Bijectivity makes the inverse graph a function, and reversing the pair (x,y) identifies its unique value at y as x.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 79,
+    "theorem_id": 238,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Inverse of Inverse of Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a bijection.\nThen:\n$\\paren {f^{-1} }^{-1} = f$\nwhere $f^{-1}$ is the inverse of $f$.",
+    "proof_text": "A mapping is a relation.\nThus it follows that Inverse of Inverse Relation can be applied directly.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Reversing ordered pairs twice recovers the original relation, which applies to the graph of this bijection.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 80,
+    "theorem_id": 238,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Inverse of Inverse of Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a bijection.\nThen:\n$\\paren {f^{-1} }^{-1} = f$\nwhere $f^{-1}$ is the inverse of $f$.",
+    "proof_text": "Let $f: S \\to T$ be a bijection.\nFrom Composite of Bijection with Inverse is Identity Mapping we have:\n$f^{-1} \\circ f = I_S$\n$f \\circ f^{-1} = I_T$\nwhere $I_S$ and $I_T$ are the identity mappings on $S$ and $T$ respectively.\nThe result follows from Left and Right Inverses of Mapping are Inverse Mapping.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two stated composite identities exhibit f as a two-sided inverse of its inverse. Uniqueness gives the claim.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 82,
+    "theorem_id": 239,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Composite of Bijections is Bijection",
+    "theorem_text": "Let $f$ and $g$ be mappings such that $\\Dom f = \\Cdm g$.\nThen:\n:If $f$ and $g$ are both bijections, then so is $f \\circ g$\nwhere $f \\circ g$ is the composite mapping of $f$ with $g$.",
+    "proof_text": "Let $g: X \\to Y$ and $f: Y \\to Z$ be bijections.\nThen from Bijection iff Inverse is Bijection, both $f^{-1}$ and $g^{-1}$ are bijections.\nFrom Inverse of Composite Relation we have that $g^{-1} \\circ f^{-1}$ is the inverse of $f \\circ g$.\nThen:\n$\\paren {f \\circ g} \\circ \\paren {g^{-1} \\circ f^{-1} } = I_Z$\n$\\paren {g^{-1} \\circ f^{-1} } \\circ \\paren {f \\circ g} = I_X$\nHence the result.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Reversing the factors gives a mapping from Z to X. Cancelling the two inverse pairs in either composite gives the identity, so the original composite is bijective.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 83,
+    "theorem_id": 240,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Inverse of Composite Bijection",
+    "theorem_text": "Let $f$ and $g$ be bijections such that $\\Dom g = \\Cdm f$.\nThen:\n$\\paren {g \\circ f}^{-1} = f^{-1} \\circ g^{-1}$\nand $f^{-1} \\circ g^{-1}$ is itself a bijection.",
+    "proof_text": "$\\left({g \\circ f}\\right)^{-1} = f^{-1} \\circ g^{-1}$ is a specific example of Inverse of Composite Relation.\nAs $f$ and $g$ are bijections then by Bijection iff Inverse is Bijection, so are both $f^{-1}$ and $g^{-1}$.\nBy Composite of Bijections is Bijection, it follows that $f^{-1} \\circ g^{-1}$ is a bijection.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The relation-inverse composition rule gives the equality. The two inverse factors are bijections with compatible types, so their composite is bijective.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 84,
+    "theorem_id": 240,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Inverse of Composite Bijection",
+    "theorem_text": "Let $f$ and $g$ be bijections such that $\\Dom g = \\Cdm f$.\nThen:\n$\\paren {g \\circ f}^{-1} = f^{-1} \\circ g^{-1}$\nand $f^{-1} \\circ g^{-1}$ is itself a bijection.",
+    "proof_text": "Let $f: X \\to Y$ and $g: Y \\to Z$ be bijections.\nThen:\n$$\\paren {g \\circ f} \\circ \\paren {f^{-1} \\circ g^{-1} } = g \\circ \\paren {\\paren {f \\circ f^{-1} } \\circ g^{-1} }$$\nComposition of Mappings is Associative\n$$= g \\circ \\paren {I_Y \\circ g^{-1} }$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= g \\circ g^{-1}$$\nIdentity Mapping is Left Identity\n$$= I_Z$$\nComposite of Bijection with Inverse is Identity Mapping\n$$\\paren {f^{-1} \\circ g^{-1} } \\circ \\paren {g \\circ f} = \\paren {f^{-1} \\circ \\paren {g^{-1} \\circ g} } \\circ f$$\nComposition of Mappings is Associative\n$$= \\paren {f^{-1} \\circ I_Y} \\circ f$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= f^{-1} \\circ f$$\nIdentity Mapping is Right Identity\n$$= I_X$$\nComposite of Bijection with Inverse is Identity Mapping\nHence the result.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two associative rearrangements yield the identity maps on Z and X. Each composite is therefore the other's two-sided inverse and each is bijective.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 85,
+    "theorem_id": 241,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Composite of Permutations is Permutation",
+    "theorem_text": "Let $f, g$ are permutations of a set $S$.\nThen their composite $g \\circ f$ is also a permutation of $S$.",
+    "proof_text": "This follows from the fact that a permutation is a bijection.\nThe domain and codomain are coincident.\nThe result follows from Composite of Bijections is Bijection.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both factors are bijections from S to S, so their composite is a bijection with that same source and target.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 86,
+    "theorem_id": 242,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Inverse of Permutation is Permutation",
+    "theorem_text": "If $f$ is a permutation of $S$, then so is its inverse $f^{-1}$.",
+    "proof_text": "Let $f: S \\to S$ is a permutation of $S$.\nBy definition, a permutation is a bijection such that the domain and codomain are the same set.\nFrom Bijection iff Inverse is Bijection, it follows $f^{-1}$ is a bijection.\nFrom the definition of inverse relation, the domain of a relation is the codomain of its inverse and vice versa.\nThus the domain and codomain of $f^{-1}$ are both $S$ and it follows that $f^{-1}$ is a permutation.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A bijection of S has an inverse bijection from its target S back to its source S. This is again a permutation.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 88,
+    "theorem_id": 244,
+    "review_file": "proofwiki_review_003.json",
+    "title": "Right Inverse Mapping is Injection",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $g: T \\to S$ be a right inverse of $f$.\nThen $g$ is an injection.",
+    "proof_text": "By the definition of right inverse:\n$f \\circ g = I_T$\nwhere $I_T$ is the identity mapping on $T$.\nBy Identity Mapping is Injection, $I_T$ is an injection.\nBy Injection if Composite is Injection, it follows that $g$ is an injection.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "If two g-values agree, applying f gives equal identity-values in T. Thus a right inverse is injective.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 390,
+    "theorem_id": 866,
+    "review_file": "proofwiki_review_014.json",
+    "title": "Reduced Residue System is Subset of Set of All Residue Classes",
+    "theorem_text": "Let $\\Z_m$ be the set of set of residue classes modulo $m$.\nLet $\\Z'_m$ be the reduced residue system modulo $m$.\nThen:\n$\\forall m \\in \\Z_{> 1}: \\O \\subset \\Z'_m \\subset \\Z_m$",
+    "proof_text": "By definition of reduced residue system modulo $m$:\n$\\Z'_m = \\set {x \\in \\Z_m: x \\perp m}$\nFrom Subset of Set with Propositional Function:\n$\\Z'_m \\subseteq \\Z_m$\nWe have that:\n$\\gcd \\set {m, 0} = m$\nThus it follows that:\n$m > 1 \\implies \\gcd \\set {m, 0} \\ne 1$\nSo:\n$\\eqclass 0 m \\notin \\Z'_m$\nHowever:\n$\\eqclass 0 m \\in \\Z_m$\nso:\n$\\Z'_m \\ne \\Z_m$\nThus:\n$\\Z'_m \\subset \\Z_m$\nThen:\n$\\eqclass 1 m = 1 \\implies 1 \\perp m$\nSo:\n$\\forall m \\in \\Z: \\eqclass 1 m \\in \\Z'_m$\nThus:\n$\\Z'_m \\ne \\O$\nand therefore:\n$\\O \\subset \\Z'_m$",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The class of 1 is reduced and the class of 0 is excluded for m>1. These witnesses prove both inclusions are strict.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 391,
+    "theorem_id": 867,
+    "review_file": "proofwiki_review_014.json",
+    "title": "Reduced Residue System under Multiplication forms Abelian Group",
+    "theorem_text": "Let $\\Z_m$ be the set of set of residue classes modulo $m$.\nLet $\\struct {\\Z'_m, \\times}$ denote the multiplicative group of reduced residues modulo $m$.\nThen $\\struct {\\Z'_m, \\times}$ is an abelian group, precisely equal to the group of units of $\\Z_m$.",
+    "proof_text": "From Ring of Integers Modulo m is Ring, $\\struct {\\Z_m, +, \\times}$ forms a (commutative) ring with unity.\nThen we have that the units of a ring with unity form a group.\nBy Multiplicative Inverse in Ring of Integers Modulo m we have that the elements of $\\struct {\\Z'_m, \\times}$ are precisely those that have inverses, and are therefore the units of $\\struct {\\Z_m, +, \\times}$.\nThe fact that $\\struct {\\Z'_m, \\times}$ is abelian follows from Restriction of Commutative Operation is Commutative.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The invertibility criterion identifies the reduced classes with the units. The unit-group theorem gives a group and the ring multiplication is commutative.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 406,
+    "theorem_id": 906,
+    "review_file": "proofwiki_review_014.json",
+    "title": "K-Cycle can be Factored into Transpositions",
+    "theorem_text": "Every $k$-cycle can be factorised into the product of $k - 1$ transpositions.\nThis factorisation is not unique.",
+    "proof_text": "The cycle $\\begin{pmatrix} 1 & 2 & \\ldots & k \\end{pmatrix}$ has the factorisation:\n$\\begin{pmatrix} 1 & 2 & \\ldots & k \\end{pmatrix} = \\begin{pmatrix} 1 & k \\end{pmatrix} \\ldots \\begin{pmatrix} 1 & 3 \\end{pmatrix} \\begin{pmatrix} 1 & 2 \\end{pmatrix}$\nTherefore, the general $k$-cycle $\\begin{pmatrix} i_1 & i_2 & \\ldots & i_k \\end{pmatrix}$ has the factorisation:\n$\\begin{pmatrix} i_1 & i_2 & \\ldots & i_k \\end{pmatrix} = \\begin{pmatrix} i_1 & i_k \\end{pmatrix} \\ldots \\begin{pmatrix} i_1 & i_3 \\end{pmatrix} \\begin{pmatrix} i_1 & i_2 \\end{pmatrix}$\nThe cycle $\\begin{pmatrix} 1 & 2 & \\ldots & k \\end{pmatrix}$ also has the factorisation:\n$\\begin{pmatrix} 1 & 2 & \\ldots & k \\end{pmatrix} = \\begin{pmatrix} 1 & 2 \\end{pmatrix} \\begin{pmatrix} 2 & 3 \\end{pmatrix} \\ldots \\begin{pmatrix} k - 1 & k \\end{pmatrix}$\nTherefore, the general $k$-cycle $\\begin{pmatrix} i_1 & i_2 & \\ldots & i_k \\end{pmatrix}$ also has the factorisation:\n$\\begin{pmatrix} i_1 & i_2 & \\ldots & i_k \\end{pmatrix} = \\begin{pmatrix} i_1 & i_2 \\end{pmatrix} \\begin{pmatrix} i_2 & i_3 \\end{pmatrix} \\ldots \\begin{pmatrix} i_{k - 1} & i_k \\end{pmatrix}$",
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The products exhibit factorizations, but coincide when k=2. The unqualified nonuniqueness claim fails for a transposition written as one transposition.",
+    "predictions": {
+      "TF-IDF": "Invalid",
+      "DistilBERT": "Invalid",
+      "ModernBERT-base": "Invalid",
+      "MathBERT": "Invalid",
+      "DeBERTa-v3-base": "Invalid"
+    }
+  },
+  {
+    "clean_row_index": 415,
+    "theorem_id": 933,
+    "review_file": "proofwiki_review_014.json",
+    "title": "Submodule Test",
+    "theorem_text": "Let $\\left({G, +, \\circ}\\right)_R$ be a unitary $R$-module.\nLet $H$ be a non-empty subset of $G$.\nThen $\\left({H, +, \\circ}\\right)_R$ is a submodule of $G$ iff:\n$\\forall x, y \\in H: \\forall \\lambda \\in R: x + y \\in H, \\lambda \\circ x \\in H$",
+    "proof_text": "If the conditions are fulfilled, then:\n$x \\in H \\implies -x = \\left({- 1_R}\\right) \\circ x \\in H$\nThus $H$ is a subgroup of $\\left({G, +}\\right)$ by the Two-Step Subgroup Test, and hence a submodule.",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Closure under the scalar −1 gives additive inverses, so the nonempty additively closed set is a subgroup. Scalar closure gives a submodule, whose necessity is immediate from the definition.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  },
+  {
+    "clean_row_index": 520,
+    "theorem_id": 1181,
+    "review_file": "proofwiki_review_018.json",
+    "title": "Comparison Test",
+    "theorem_text": "Let $\\displaystyle \\sum_{n \\mathop = 1}^\\infty b_n$ be a convergent series of positive real numbers.\nLet $\\sequence {a_n}$ be a sequence $\\R$ or sequence in $\\C$.\nLet $\\forall n \\in \\N_{>0}: \\cmod {a_n} \\le b_n$.\nThen the series $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ converges absolutely.",
+    "proof_text": "Let $\\epsilon > 0$.\nAs $\\displaystyle \\sum_{n \\mathop = 1}^\\infty b_n$ converges, its tail tends to zero.\nSo:\n$\\displaystyle \\exists N: \\forall n > N: \\sum_{k \\mathop = n + 1}^\\infty b_k < \\epsilon$\nLet $\\sequence {a_n}$ be the sequence of partial sums of $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$.\nThen $\\forall n > m > N$:\n$$\\cmod {a_n - a_m} = \\cmod {\\paren {a_1 + a_2 + \\cdots + a_n} - \\paren {a_1 + a_2 + \\cdots + a_m} }$$\n$$= \\cmod {a_{m + 1} + a_{m + 2} + \\cdots + a_n}$$\nIndexed Summation over Adjacent Intervals\n$$\\le \\cmod {a_{m + 1} } + \\cmod {a_{m + 2} } + \\cdots + \\cmod {a_n}$$\nTriangle Inequality for Indexed Summations\n$$\\le b_{m + 1} + b_{m + 2} + \\cdots + b_n$$\n$$\\le \\sum_{k \\mathop = n + 1}^\\infty b_k$$\n$$< \\epsilon$$\nSo $\\sequence {a_n}$ is a Cauchy sequence.\nThe result follows from Real Number Line is Complete Metric Space or Complex Plane is Complete Metric Space.",
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The finite tail from m+1 to n is incorrectly bounded by the later tail starting at n+1. Also the Cauchy conclusion is stated for the original partial sums, while absolute convergence concerns the sums of absolute values.",
+    "predictions": {
+      "TF-IDF": "Invalid",
+      "DistilBERT": "Invalid",
+      "ModernBERT-base": "Invalid",
+      "MathBERT": "Invalid",
+      "DeBERTa-v3-base": "Invalid"
+    }
+  },
+  {
+    "clean_row_index": 531,
+    "theorem_id": 1204,
+    "review_file": "proofwiki_review_018.json",
+    "title": "Multiple of Infimum",
+    "theorem_text": "Let $T \\subseteq \\R: T \\ne \\varnothing$ be a non-empty subset of the set of real numbers $\\R$.\nLet $T$ be bounded below.\nLet $z \\in \\R: z > 0$ be a (strictly) positive real number.\nThen:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$\nwhere $\\inf$ denotes infimum.",
+    "proof_text": "From Negative of Infimum is Supremum of Negatives:\n$\\displaystyle -\\inf_{x \\mathop \\in T} x = \\map {\\sup_{x \\mathop \\in T} } {-x} \\implies \\inf_{x \\mathop \\in T} x = -\\map {\\sup_{x \\mathop \\in T} } {-x}$\nLet $S = \\set {x \\in \\R: -x \\in T}$.\nFrom Negative of Infimum is Supremum of Negatives, $S$ is bounded above.\nFrom Multiple of Supremum:\n$\\displaystyle \\map {\\sup_{x \\mathop \\in S} } {z x} = z \\, \\map {\\sup_{x \\mathop \\in S} } x$\nHence:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = -\\map {\\sup_{x \\mathop \\in T} } {-z x} = -z \\, \\map {\\sup_{x \\mathop \\in T} } {-x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$",
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Negation converts the infimum into a supremum on the reflected set. Positive scaling commutes with that supremum and negating again gives the desired infimum.",
+    "predictions": {
+      "TF-IDF": "Valid",
+      "DistilBERT": "Valid",
+      "ModernBERT-base": "Valid",
+      "MathBERT": "Valid",
+      "DeBERTa-v3-base": "Valid"
+    }
+  }
+]

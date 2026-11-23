@@ -1,0 +1,322 @@
+[
+  {
+    "theorem_id": 1700,
+    "title": "URM Programs are Countably Infinite",
+    "theorem_text": "The set $\\mathbf P$ of all URM programs is countably infinite.",
+    "proof_text": "We can immediately see that $\\mathbf P$ is infinite as the number of URM instructions is infinite.\nBy Equivalence of Mappings between Sets of Same Cardinality, the injective coding map $\\gamma:\\mathbf P\\to\\N$ is surjective as well. Hence $\\mathbf P$ is countably infinite.",
+    "clean_row_index": 750,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The injective-to-bijective criterion for finite sets of equal size does not apply. Two infinite sets of equal cardinality can admit an injection that misses infinitely many targets.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1702,
+    "title": "URM Computable Functions of One Variable is Countably Infinite",
+    "theorem_text": "The set $\\mathbf U$ of all URM computable functions of $1$ variable is countably infinite.",
+    "proof_text": "Let $\\mathbf U$ be the set of all URM computable functions.\nFor each $f \\in \\mathbf U$, let $P_f$ be a URM program which computes $f$.\nSuch a program is very probably not unique, so in order to be definite about it, we can pick $P_f$ to be the URM program with the smallest code $\\gamma \\left({P_f}\\right)$.\nThis is possible from the Well-Ordering Principle.\nLet us define the function $h: \\mathbf U \\to \\N$ as:\n$h \\left({f}\\right) = \\gamma \\left({P_f}\\right)$\nSince the same URM program can not compute two different functions of $1$ variable, it can be seen that $h$ is injective.\nThe result follows from Domain of Injection to Countable Set is Countable.",
+    "clean_row_index": 751,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Choosing least program codes proves at-most-countability. The argument does not show there are infinitely many distinct computed functions, for example the constant functions."
+  },
+  {
+    "theorem_id": 1703,
+    "title": "Natural Number Functions are Uncountable",
+    "theorem_text": "The set of all natural number one-variable functions $\\set {f: \\N \\to \\N}$ is uncountably infinite.",
+    "proof_text": "Let $\\Bbb F$ be the set of all functions from $\\N$ to $\\N$.\nClearly $\\Bbb F$ is infinite because it contains for each $k \\in \\N$ the constant function $f_k: \\N \\to \\N: \\map {f_k} n = k$ and these are all different and (trivially) countably infinite in number.\nLet $\\Phi: \\N \\to \\Bbb F$ be a function.\nFor each $n \\in \\N$ let $f_n: \\N \\to \\N$ be the function $\\map \\Phi n$.\nLet us define $g: \\N \\to \\N$ by:\n$\\map g n = \\map {f_n} n \\times 1$\nThen $g \\in \\Bbb F$, but $\\forall n \\in \\N$, $\\map g n \\ne \\map {f_n} n$ and so $g \\ne f_n$.\nSince $g$ is an element of $\\Bbb F$ which is different from all the values taken by $\\Phi$, it follows that $\\Phi$ is not a surjection and hence not a bijection.\nThus no bijection exists between $\\Bbb F$ and $\\N$ and so $\\Bbb F$ is not equivalent to $\\N$.\nThus from Countably Infinite Iff Equivalent to Natural Numbers, $\\Bbb F$ is uncountable.",
+    "clean_row_index": 752,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Multiplication by 1 leaves the diagonal value unchanged, so the required disagreement at n fails for every n.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1704,
+    "title": "Not All Natural Number Functions are Primitive Recursive",
+    "theorem_text": "Not all functions $f: \\N \\to \\N$ are primitive recursive.",
+    "proof_text": "All primitive recursive functions are URM computable.\nThere exists a countable collection of URM programs. The set of natural-number functions is uncountably infinite. It follows that some natural-number function is not primitive recursive.",
+    "clean_row_index": 753,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The proof only identifies a countable collection of programs. It omits why this collection covers all computed unary functions, which is essential for the cardinality comparison.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1705,
+    "title": "Bounded Summation is Primitive Recursive",
+    "theorem_text": "Let the function $f: \\N^{k+1} \\to \\N$ be primitive recursive.\nThen so is the function $g: \\N^{k+1} \\to \\N$ defined as:\n$\\displaystyle g \\left({n_1, n_2, \\ldots, n_k, z}\\right) = \\begin{cases}\n0 & : z = 0 \\\\\n\\sum_{y \\mathop = 1}^z f \\left({n_1, n_2, \\ldots, n_k, y}\\right) & : z > 0\n\\end{cases}$",
+    "proof_text": "The function $g$ satisfies:\n* $g \\left({n_1, n_2, \\ldots, n_k, 0}\\right) = 0$\n* $g \\left({n_1, n_2, \\ldots, n_k, z+1}\\right) = g \\left({n_1, n_2, \\ldots, n_k, z}\\right) + f \\left({n_1, n_2, \\ldots, n_k, z + 1}\\right)$.\nFor every $y$, evaluation of $f$ at $y$ is primitive recursive. Closure under finite sums therefore makes the sum through $z$ primitive recursive as a function of all its arguments.",
+    "clean_row_index": 754,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "Closure under a fixed finite sum only handles a fixed number of summands. Here the bound z is an input, so the proof needs a primitive recursion or a bounded-summation result.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1706,
+    "title": "Bounded Product is Primitive Recursive",
+    "theorem_text": "Let the function $f: \\N^{k+1} \\to \\N$ be primitive recursive.\nThen so is the function $g: \\N^{k+1} \\to \\N$ defined as:\n$\\displaystyle g \\left({n_1, n_2, \\ldots, n_k, z}\\right) = \\begin{cases}\n1 & : z = 0 \\\\\n\\prod_{y=1}^z f \\left({n_1, n_2, \\ldots, n_k, y}\\right) & : z > 0\n\\end{cases}$",
+    "proof_text": "The function $g$ satisfies:\n* $g \\left({n_1, n_2, \\ldots, n_k, z}\\right) = 0$\n* $g \\left({n_1, n_2, \\ldots, n_k, z+1}\\right) = g \\left({n_1, n_2, \\ldots, n_k, z}\\right) \\times f \\left({n_1, n_2, \\ldots, n_k, z + 1}\\right)$\nHence $g$ is defined by primitive recursion from:\n* the primitive recursive function $\\operatorname{mult}$\n* $f$, which is primitive recursive\n* and constants, which are primitive recursive.\nHence the result.",
+    "clean_row_index": 755,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The given recursion sets g to zero, contradicting the required empty product 1. Starting with zero and multiplying thereafter would not compute the product."
+  },
+  {
+    "theorem_id": 1707,
+    "title": "Divisor Relation is Primitive Recursive",
+    "theorem_text": "The divisor relation $m \\divides n$ in $\\N^2$ is primitive recursive.",
+    "proof_text": "We note that $m \\divides n \\iff n = q m$ where $q \\in \\Z$.\nSo we see that $m \\divides n \\iff \\map \\rem {n, m} = 0$ (see Remainder is Primitive Recursive).\nThus we define the function $\\operatorname{div}: \\N^2 \\to \\N$ as:\n$\\map {\\operatorname {div} } {n, m} = \\map {\\chi_{\\operatorname {eq} } } {\\map \\rem {n, m}, 0}$\nwhere $\\map {\\chi_{\\operatorname {eq} } } {n, m}$ denotes the characteristic function of the equality relation.\nSo we have:\n$\\map {\\operatorname {div} } {n, y} = \\begin{cases}\n1 & : y \\divides n \\\\\n0 & : y \\nmid n\n\\end{cases}$\nSo $\\map {\\operatorname {div} } {n, m}$ is defined by substitution from:\n:the primitive recursive function $\\rem$\n:the primitive recursive relation $\\operatorname {eq}$\n:the constants $1$ and $0$.\nThus $\\operatorname {div}$ is primitive recursive.\nHence the result.",
+    "clean_row_index": 756,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The cited remainder convention sets rem(n,0)=0 for all n, whereas 0 divides n only for n=0. The proposed characteristic function thus wrongly accepts (n,0) for positive n."
+  },
+  {
+    "theorem_id": 1708,
+    "title": "Divisor Counting Function is Primitive Recursive",
+    "theorem_text": "The divisor counting ($\\tau$) function is primitive recursive.",
+    "proof_text": "The divisor counting function $\\tau: \\N \\to \\N$ is defined as:\n$\\displaystyle \\map \\tau n = \\sum_{d \\mathop \\divides n} 1$\nwhere $\\displaystyle \\sum_{d \\mathop \\divides n}$ is the sum over all divisors of $n$.\nThus we can define $\\map \\tau n$ as:\n$\\displaystyle \\map \\tau n = \\sum_{y \\mathop = 1}^n \\map {\\operatorname {div} } {n, y}$\nwhere\n$\\map {\\operatorname {div} } {n, y} = \\begin{cases}\n1 & : y \\divides n \\\\\n0 & : y \\nmid n\n\\end{cases}$\nHence $\\tau$ is defined by substitution from:\n:the primitive recursive function $\\operatorname {div}$\n:the primitive recursive bounded summation $\\displaystyle \\sum_{y \\mathop = 1}^n$.\nHence the result.",
+    "clean_row_index": 757,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The bounded sum counts positive divisors for n>0. At zero all positive integers divide n, whereas the displayed bounded sum is zero. A finite-valued extension at zero needs a separate convention."
+  },
+  {
+    "theorem_id": 1712,
+    "title": "Length Function is Primitive Recursive",
+    "theorem_text": "Let $n \\in \\N$.\nLet $\\map \\len n$ denote the length of $n$.\nThen the function $\\len: \\N \\to \\N$ is primitive recursive.",
+    "proof_text": "Clearly $\\map \\len 0 = 0$.\nFor $n>0$, take $n$ prime so that $\\operatorname{len}(n)=1$. On these inputs, we have:\n$\\displaystyle \\map \\len n = \\sum_{y \\mathop = 1}^n \\map {\\operatorname {div} } {n, \\map p y}$\nwhere:\n$\\map {\\operatorname {div} } {n, m}$ is defined as:\n$\\map {\\operatorname {div} } {n, y} = \\begin{cases}\n1 & : y \\divides n \\\\\n0 & : y \\nmid n\n\\end{cases}$\n$\\map p y$ is the $y$th prime number.\nLet $g: \\N^2 \\to \\N$ be the function defined by:\n$\\displaystyle \\map g {n, z} = \\begin{cases}\n0 & : z = 0 \\\\\n\\displaystyle \\sum_{y \\mathop = 1}^z \\map {\\operatorname {div} } {n, \\map p y} & : z > 0\n\\end{cases}$\nWe have that:\n$\\operatorname{div}$ is primitive recursive\n$p: \\N \\to \\N$ is primitive recursive\n:Bounded Summation is Primitive Recursive.\nSo it follows that $g$ is also primitive recursive.\nFinally, as $\\map \\len n = \\map g {n, n}$ it follows that $\\len$ is primitive recursive.",
+    "clean_row_index": 758,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The argument restricts positive inputs to primes. The theorem includes composites such as 6, whose length is 2, and this restricted calculation does not establish the function on them.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1715,
+    "title": "Set of Sequence Codes is Primitive Recursive",
+    "theorem_text": "Let $\\operatorname{Seq}$ be the set of all code numbers of finite sequences in $\\N$.\nThen $\\operatorname{Seq}$ is primitive recursive.",
+    "proof_text": "By the definition of a primitive recursive set, it is sufficient to show that the characteristic function $\\chi_{\\operatorname{Seq}}$ of $\\operatorname{Seq}$ is primitive recursive.\nLet $p: \\N \\to \\N$ be the prime enumeration function.\nLet $\\operatorname{len} \\left({n}\\right)$ be the length of $n$.\nTake the prime divisors of $n$ to be the first $\\operatorname{len}(n)$ primes. Accordingly, put $\\chi_{\\operatorname{Seq}}(n)=1$ for every $n>1$. The product of $\\operatorname{div}(n,p(y))$ over $1\\le y\\le\\operatorname{len}(n)$ is then 1, where $\\operatorname{div}$ is the divisor relation.\nSo we can define $\\chi_{\\operatorname{Seq}}$ by:\n$\\displaystyle \\chi_{\\operatorname{Seq}} \\left({n}\\right) = \\begin{cases}\n\\prod_{y \\mathop = 1}^{\\operatorname{len} \\left({n}\\right)} \\operatorname{div} \\left({n, p \\left({y}\\right)}\\right) & : n > 1 \\\\\n0 & : \\text{otherwise}\n\\end{cases}$\nThen we define $g: \\N^2 \\to \\N$ as:\n$\\displaystyle g \\left({n, z}\\right) = \\begin{cases}\n1 & : z = 0 \\\\\n\\prod_{y \\mathop = 1}^z \\operatorname{div} \\left({n, p \\left({y}\\right)}\\right) & : z \\ne 0\n\\end{cases}$\nWe then apply Bounded Product is Primitive Recursive to the primitive recursive function $\\operatorname{div} \\left({n, p \\left({y}\\right)}\\right)$, and see that $g$ is primitive recursive.\nFinally, we have that:\n$\\chi_{\\operatorname{Seq}} \\left({n}\\right) = \\begin{cases}\ng \\left({n, \\operatorname{len} \\left({n}\\right)}\\right) & : n > 1 \\\\\n0 & : \\text{otherwise}\n\\end{cases}$\nis obtained by substitution from:\n* the primitive recursive function $\\operatorname{len}$\n* the primitive recursive function $g$\n* the primitive recursive relation $>$\n* the constant $1$\nSo $\\chi_{\\operatorname{Seq}}$ is primitive recursive.\nHence the result.",
+    "clean_row_index": 759,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The argument assumes the defining no-gap property for arbitrary n. For n=3 the only prime divisor is 3, so the prime support skips 2 and 3 is not a sequence code.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1716,
+    "title": "Set of Codes for URM Programs is Primitive Recursive",
+    "theorem_text": "Let $\\operatorname{Prog}$ be the set of all code numbers of URM programs.\nThen $\\operatorname{Prog}$ is a primitive recursive set.",
+    "proof_text": "A natural number $n$ codes a URM program if and only if it codes a sequence of positive integers which are the code numbers of URM instructions.\nSuppose $n$ codes such a sequence.\nThen $\\operatorname{len} \\left({n}\\right)$ is the number of terms in this sequence, where $\\operatorname{len} \\left({n}\\right)$ is the length of $n$.\nAlso, for $1 \\le j \\le \\operatorname{len} \\left({n}\\right)$, $\\left({n}\\right)_j$ is the exponent of the $j$th prime in the prime decomposition of $n$.\nSo $\\left({n}\\right)_j$ is the $j$th number in the sequence coded by $n$.\nSo:\n$n \\in \\operatorname{Prog}$ if and only if $\\chi_{\\operatorname{Seq}} \\left({n}\\right) = 1$ and $\\left({n}\\right)_j \\in \\operatorname{Instr}$ for $1 \\le j \\le \\operatorname{len} \\left({n}\\right)$\nwhere $\\chi_{\\operatorname{Seq}}$ is the characteristic function of the set of code numbers of finite sequences of positive integers.\nNow $\\left({n}\\right)_j \\in \\operatorname{Instr} \\iff \\chi_{\\operatorname{Instr}} \\left({\\left({n}\\right)_j}\\right) = 1$.\nSo $\\left({n}\\right)_j \\in \\operatorname{Instr}$ for $1 \\le j \\le \\operatorname{len} \\left({n}\\right)$ if and only if $\\chi_{\\operatorname{Instr}} \\left({\\left({n}\\right)_j}\\right) = 1$ for $1 \\le j \\le \\operatorname{len} \\left({n}\\right)$.\nThis is the case if and only if:\n$\\displaystyle \\prod_{j \\mathop = 1}^{\\operatorname{len} \\left({n}\\right)} = 1$\nThus $n \\in \\operatorname{Prog}$ if and only if:\n$\\displaystyle \\chi_{\\operatorname{Seq}} \\left({n}\\right) \\times \\prod_{j \\mathop = 1}^{\\operatorname{len} \\left({n}\\right)} = 1$\nNow we define the function $g: \\N^2 \\to \\N$ by:\n$\\displaystyle g \\left({n, z}\\right) = \\begin{cases}\n1 & : z = 0 \\\\\n\\displaystyle \\prod_{j \\mathop = 1}^z \\chi_{\\operatorname{Instr}} \\left({\\left({n}\\right)_j}\\right) & : \\text{otherwise}\n\\end{cases}$\nThe functions that extract the exponents and test membership in $\\operatorname{Instr}$ are primitive recursive, so $g$ is primitive recursive by bounded product. Hence the set of program codes is primitive recursive.",
+    "clean_row_index": 760,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The proof ends after establishing primitive recursiveness of the auxiliary instruction test. It omits combining it with the separate characteristic function for valid sequence codes and substituting the program length.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1718,
+    "title": "Minimization on Relation Equivalent to Minimization on Function",
+    "theorem_text": "Let $\\mathcal R$ be a $k+1$-ary relation on $\\N^{k+1}$.\nThen the function $g: \\N^{k+1} \\to \\N$ defined as:\n$g \\left({n_1, n_2, \\ldots, n_k, z}\\right) = \\mu y \\ \\mathcal R \\left({n_1, n_2, \\ldots, n_k, y}\\right)$\nwhere $\\mu y \\ \\mathcal R \\left({n_1, n_2, \\ldots, n_k, y}\\right)$ is the minimization operation on $\\mathcal R$\nis equivalent to minimization on a total function.",
+    "proof_text": "We have that $\\mathcal R \\left({n_1, n_2, \\ldots, n_k, y}\\right)$ holds if and only if $\\chi_\\mathcal R \\left({n_1, n_2, \\ldots, n_k, y}\\right) = 1$, from the definition of the characteristic function of a relation.\nThis in turn holds if and only if $\\overline{\\operatorname{sgn}} \\left({\\chi_\\mathcal R \\left({n_1, n_2, \\ldots, n_k, y}\\right)}\\right) = 0$, where $\\overline{\\operatorname{sgn}}$ is the signum-bar function.\nHence we have:\n$\\mu y \\ \\mathcal R \\left({n_1, n_2, \\ldots, n_k, y}\\right) \\iff \\mu y \\left({\\overline{\\operatorname{sgn}} \\left({\\chi_\\mathcal R \\left({n_1, n_2, \\ldots, n_k, y}\\right)}\\right) = 0}\\right)$.\nSince $\\overline{\\operatorname{sgn}}$ and $\\chi_\\mathcal R$ are total functions, then so is $\\overline{\\operatorname{sgn}} \\circ \\chi_\\mathcal R$.",
+    "clean_row_index": 761,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Complementing the characteristic function gives the right total search predicate, but if no witness exists its minimization is undefined. The claimed total g on all inputs is not established."
+  },
+  {
+    "theorem_id": 1719,
+    "title": "Primitive Recursive Function is Total Recursive Function",
+    "theorem_text": "Every primitive recursive function is a total recursive function.",
+    "proof_text": "Apply the totality criterion for compositions of total functions directly to the recursive definitions of primitive recursive functions. Each recursive definition is a composition of its base and step functions, and therefore gives a total function.\nAs the processes for generate a primitive recursive function are a subset of those to generate a recursive function, it follows that a primitive recursive function is also a recursive function.\nThe result follows from the definition of a total recursive function.",
+    "clean_row_index": 762,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The composition theorem handles a fixed composition. A definition by primitive recursion needs an induction over the recursion argument to show that each value is defined.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1721,
+    "title": "Function Obtained by Minimization from URM Computable Relations",
+    "theorem_text": "Let $\\mathcal R$ be a URM computable $k+1$-ary relation on $\\N^{k+1}$.\nLet the function $f: \\N^{k+1} \\to \\N$ be a URM computable function.\nLet $g: \\N^k \\to \\N$ be the function obtained by minimization from $f$ thus:\n$g \\left({n_1, n_2, \\ldots, n_k}\\right) \\approx \\mu y \\mathcal R \\left({n_1, n_2, \\ldots, n_k, y}\\right)$\nThen $g$ is also URM computable.",
+    "proof_text": "From Minimization on Relation Equivalent to Minimization on Function, minimization on $\\mathcal R$ is equivalent to minimization on $\\overline{\\operatorname{sgn}} \\circ \\chi_\\mathcal R$.\nWe have that a Primitive Recursive Function is URM Computable.\nBy definition, if $\\mathcal R$ is URM computable then so is its characteristic function $\\chi_\\mathcal R$.\nWe have that $\\overline{\\operatorname{sgn}}$ is primitive recursive and thus URM computable.\nThus, from Function Obtained by Substitution from URM Computable Functions, $\\overline{\\operatorname{sgn}} \\circ \\chi_\\mathcal R$ is URM computable.",
+    "clean_row_index": 763,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The proof establishes computability of the search predicate. It omits the remaining unbounded minimization step or the theorem that URM-computable functions are closed under that step."
+  },
+  {
+    "theorem_id": 1722,
+    "title": "Recursive Function is URM Computable",
+    "theorem_text": "Every recursive function is URM computable.",
+    "proof_text": "From:\n* Functions obtained by primitive recursion from URM computable functions are URM computable\n* Functions obtained by substitution from URM computable functions are URM computable\n* Primitive Recursive Function is URM Computable\n* Primitive Recursive Relation is URM Computable\nit follows that all the functions obtained from the basic primitive recursive functions using the operations of substitution, primitive recursion and minimization (on a function or a relation) are URM computable.",
+    "clean_row_index": 764,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The remaining closure results cover substitution and primitive recursion. The proof still claims closure under minimization, whose computability argument has been removed.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1725,
+    "title": "URM Computable Function is Recursive",
+    "theorem_text": "Every URM computable function is recursive.",
+    "proof_text": "Let $f: \\N^k \\to \\N$ be a URM computable function.\nThen by hypothesis there is a URM program that computes $f$.\nLet $P$ be the URM program with the smallest code number that computes $f$.\nLet $e = \\gamma \\left({P}\\right)$ be the code number of $P$.\nConsider the function $g: \\N^k \\to \\N$ given by:\n$g \\left({n_1, n_2, \\ldots, n_k}\\right) \\approx \\mu t \\left({\\left({S_k \\left({e, n_1, n_2, \\ldots, n_k, t}\\right)}\\right)_1 > \\operatorname{len} \\left({e}\\right)}\\right)$\nwhere:\n* $\\operatorname{len} \\left({e}\\right)$ is the length of $e$;\n* $\\mu t$ is the minimization operation on $S_k$;\n* $\\approx$ denotes partial function equality;\n* $S_k \\left({e, n_1, n_2, \\ldots, n_k, t}\\right)$ is the state code at stage $t$ of the computation of $P$ with input $\\left({n_1, n_2, \\ldots, n_k}\\right)$;\n* the number $\\left({S_k \\left({e, n_1, n_2, \\ldots, n_k, t}\\right)}\\right)_1$ is the code number of the instruction about to be carried out at stage $t$.\nSo the inequality:\n$\\left({S_k \\left({e, n_1, n_2, \\ldots, n_k, t}\\right)}\\right)_1 > \\operatorname{len} \\left({e}\\right)$\nexpresses the fact that at stage $t$ the computation has halted.\nSo the value of $g \\left({n_1, n_2, \\ldots, n_k}\\right)$ is the state code of the first stage at which computation has halted, if there is one, and undefined otherwise.\nSince the functions in this inequality, and the sign $>$ itself, are all primitive recursive, it follows that the inequality expresses a primitive recursive relation on $e, n_1, n_2, \\ldots, n_k, t$.\nThus $g$ is a recursive function by definition, as it can be obtained by minimization on a recursive relation.\nNow consider the function $h: \\N^k \\to \\N$ given by:\n$h \\left({n_1, n_2, \\ldots, n_k}\\right) \\approx S_k \\left({e, n_1, n_2, \\ldots, n_k, g \\left({n_1, n_2, \\ldots, n_k}\\right)}\\right)$.\nThis is recursive because it was obtained by substitution from known recursive functions.\nNow $h \\left({n_1, n_2, \\ldots, n_k}\\right)$ is defined iff the computation halts, and it gives the value of the state code when it has halted.\nThe program output is the content of register $R_1$. The halted state is encoded as $p_1^a p_2^{r_1}p_3^{r_2}\\cdots p_{k+1}^{r_k}$, so the output is $f(n_1,\\ldots,n_k)\\approx (h(n_1,\\ldots,n_k))_1$.\nIt follows that $f$ is a recursive function, since it is obtained by substitution from known recursive functions.",
+    "clean_row_index": 765,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Component 1 of the halted state encodes the instruction position a. The output r_1 is component 2, so the displayed recursive function computes the wrong quantity.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1730,
+    "title": "Combination of Recursive Functions",
+    "theorem_text": "Let $f: \\N^k \\to \\N$ and $g: \\N^k \\to \\N$ be recursive functions (not necessarily total), where $k \\ge 1$.\nLet $\\mathcal R$ be a $k$-ary relation such that:\n: if $\\mathcal R \\left({n_1, n_2, \\ldots, n_k}\\right)$ holds, then $f \\left({n_1, n_2, \\ldots, n_k}\\right)$ is defined\n: if $\\mathcal R \\left({n_1, n_2, \\ldots, n_k}\\right)$ does not hold, then $g \\left({n_1, n_2, \\ldots, n_k}\\right)$ is defined.\nLet $h: \\N^k \\to \\N$ be the function defined as:\n$h \\left({n_1, n_2, \\ldots, n_k}\\right) = \\begin{cases}\nf \\left({n_1, n_2, \\ldots, n_k}\\right) & : \\text{if } \\mathcal R \\left({n_1, n_2, \\ldots, n_k}\\right) \\text { holds} \\\\\ng \\left({n_1, n_2, \\ldots, n_k}\\right) & : \\text{otherwise}\n\\end{cases}$\nso that $h$ is total.\nThen $h$ is recursive.",
+    "proof_text": "Let $P_f, P_g, P_\\mathcal R$ be the URM programs computing, respectively, the functions $f$ and $g$ and the characteristic function $\\chi_\\mathcal R$.\nFrom Recursive Function is URM Computable, these programs are guaranteed to exist.\nAn informal algorithm for computing $h$ is as follows.\n# Input $\\left({n_1, n_2, \\ldots, n_k}\\right)$.\n# Use $P_\\mathcal R$ to determine whether $\\mathcal R \\left({n_1, n_2, \\ldots, n_k}\\right)$ holds.\n# If it holds, use $P_f$ to compute $f \\left({n_1, n_2, \\ldots, n_k}\\right)$.\n# If it does not hold, use $P_g$ to compute $g \\left({n_1, n_2, \\ldots, n_k}\\right)$.\nThe result follows from URM Computable Function is Recursive.",
+    "clean_row_index": 766,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The program deciding the branch relation is assumed to exist, although only f and g are required to be recursive. Choosing constants as branches could encode an undecidable set."
+  },
+  {
+    "theorem_id": 1732,
+    "title": "Cantor's Diagonal Argument",
+    "theorem_text": "Let $S$ be a set such that $\\card S > 1$, that is, such that $S$ is not a singleton.\nLet $\\mathbb F$ be the set of all mappings from the natural numbers $\\N$ to $S$:\n$\\mathbb F = \\set {f: \\N \\to S}$\nThen $\\mathbb F$ is uncountably infinite.",
+    "proof_text": "First we note that as $\\card S > 1$, there are at least two elements of $S$ which are distinct.\nCall these distinct elements $a$ and $b$.\nThat is:\n$\\exists a, b \\in S: a \\ne b$\nFirst we show that $\\mathbb F$ is infinite, as follows.\nFor each $m \\in \\N$, let $\\phi_m$ be the mapping defined as:\n$\\map {\\phi_m} n = \\begin{cases}\na & : n \\ne m \\\\\nb & : n = m\n\\end{cases}$\nThen:\n$\\forall m_1, m_2 \\in \\N: m_1 \\ne m_2 \\implies \\phi_{m_1} \\ne \\phi_{m_2}$\nas:\n$b = \\map {\\phi_{m_1} } {m_1} \\ne \\map {\\phi_{m_2} } {m_1} = a$\nSo the mapping $\\Psi: \\N \\to \\mathbb F$ defined as:\n$\\map \\Psi n = \\phi_n$\nis an injection.\nThus $\\mathbb F$ is infinite from Infinite if Injection from Natural Numbers.\nNext we show that $\\mathbb F$ is uncountable.\nLet $\\Phi: \\N \\to \\mathbb F$ be a mapping.\nFor each $n \\in \\N$ let $f_n: \\N \\to S$ be the function $\\map \\Phi n$.\nAssume that none of the diagonal values $f_n(n)$ is $a$. Define $g:\\N\\to S$ by $g(n)=a$ for every $n$. Then $g(n)\\ne f_n(n)$ for every $n$, so $g$ is distinct from every function in the list.\nSince $g$ is an element of $\\mathbb F$ which is different from all the values taken by $\\Phi$, it follows that $\\Phi$ is not a surjection and hence not a bijection.\nThus no bijection exists between $\\mathbb F$ and $\\N$ and so $\\mathbb F$ is not equivalent to $\\N$.\nThus from Countably Infinite iff Equivalent to Natural Numbers, $\\mathbb F$ is uncountable.",
+    "clean_row_index": 767,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The proof assumes that the proposed enumeration has no diagonal entry equal to a. An enumeration that includes the constant-a function necessarily has such an entry.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1733,
+    "title": "Infinite if Injection from Natural Numbers",
+    "theorem_text": "Let $S$ be a set.\nLet there exist an injection $\\phi: \\N \\to S$ from the natural numbers to $S$.\nThen $S$ is infinite.",
+    "proof_text": "Assume $S$ is finite with $k$ elements. Apply the finite-set equivalence of injectivity and surjectivity to $\\phi:\\N\\to S$. It follows that $\\phi$ is a bijection. This would identify $\\N$ with a set of $k$ elements, which is impossible.\nHence $S$ is infinite.",
+    "clean_row_index": 768,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The finite-set equivalence requires finite domain and codomain of equal cardinality. The map to which it is applied here has domain N.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1745,
+    "title": "Sum of Sequence of Products of Consecutive Integers",
+    "theorem_text": "$$\\sum_{j \\mathop = 1}^n j \\paren {j + 1} = 1 \\times 2 + 2 \\times 3 + \\dotsb + n \\paren {n + 1}$$\n$$= \\frac {n \\paren {n + 1} \\paren {n + 2} } 3$$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N_{>0}$, let $\\map P n$ be the proposition:\n$\\displaystyle \\forall n \\ge 1: \\sum_{j \\mathop = 1}^n j \\paren {j + 1} = \\frac {n \\paren {n + 1} \\paren {n + 2} } 3$\nBasis for the Induction\n$\\map P 1$ is true, as this just says $1 \\times 2 = 2 = \\dfrac {1 \\times 2 \\times 3} 3$.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle \\sum_{j \\mathop = 1}^k j \\paren {j + 1} = \\frac {k \\paren {k + 1} \\paren {k + 2} } 3$\nThen we need to show:\n$\\displaystyle \\sum_{j \\mathop = 1}^{k + 1} j \\paren {j + 1} = \\frac {\\paren {k + 1} \\paren {k + 2} \\paren {k + 3} } 3$\nInduction Step\nThis is our induction step:\n$$\\sum_{j \\mathop = 1}^{k + 1} j \\paren {j + 1} = \\sum_{j \\mathop = 1}^k j \\paren {j + 1} - \\paren {k + 1} \\paren {k + 2}$$\n$$= \\frac {k \\paren {k + 1} \\paren {k + 2} } 3 + \\paren {k + 1} \\paren {k + 2}$$\nInduction hypothesis\n$$= \\frac {k \\paren {k + 1} \\paren {k + 2} + 3 \\paren {k + 1} \\paren {k + 2} } 3$$\n$$= \\frac {\\paren {k + 1} \\paren {k + 2} \\paren {k + 3} } 3$$\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\displaystyle \\forall n \\ge 1: \\sum_{j \\mathop = 1}^n j \\paren {j + 1} = \\frac {n \\paren {n + 1} \\paren {n + 2} } 3$",
+    "clean_row_index": 769,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Increasing the upper limit adds the positive summand (k+1)(k+2), which the first displayed line of the step subtracts.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1745,
+    "title": "Sum of Sequence of Products of Consecutive Integers",
+    "theorem_text": "$$\\sum_{j \\mathop = 1}^n j \\paren {j + 1} = 1 \\times 2 + 2 \\times 3 + \\dotsb + n \\paren {n + 1}$$\n$$= \\frac {n \\paren {n + 1} \\paren {n + 2} } 3$$",
+    "proof_text": "Observe that:\n$$3 i \\left({i + 1}\\right) = i \\left({i + 1}\\right) \\left({i + 2}\\right) - i \\left({i + 1}\\right) \\left({i - 1}\\right)$$\n$$= \\left({i + 1}\\right) \\left({\\left({i + 1}\\right) + 1}\\right) \\left({\\left({i + 1}\\right) - 1}\\right) - i \\left({i + 1}\\right) \\left({i - 1}\\right)$$\nThus:\n$3 i \\left({i + 1}\\right) = b \\left({i + 1}\\right) - b \\left({i}\\right)$\nwhere:\n$b \\left({i}\\right) = i \\left({i + 1}\\right) \\left({i - 1}\\right)$\nThis can therefore be used as the basis of a telescoping series, as follows:\n$$\\sum_{i \\mathop = 1}^n 3 i \\left({i + 1}\\right) = \\sum_{i \\mathop = 1}^n \\left({i \\left({i + 1}\\right) \\left({i + 2}\\right) - i \\left({i + 1}\\right) \\left({i - 1}\\right)}\\right)$$\n$$= (n+1)(n+2)(n+3) - b(1).$$\nAll other terms cancel and $b(1)=0$, so division by 3 gives the stated formula.\nHence the result.",
+    "clean_row_index": 770,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The positive boundary term is b(n+1) = n(n+1)(n+2). The displayed product is b(n+2), which is outside the telescoping sum.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1745,
+    "title": "Sum of Sequence of Products of Consecutive Integers",
+    "theorem_text": "$$\\sum_{j \\mathop = 1}^n j \\paren {j + 1} = 1 \\times 2 + 2 \\times 3 + \\dotsb + n \\paren {n + 1}$$\n$$= \\frac {n \\paren {n + 1} \\paren {n + 2} } 3$$",
+    "proof_text": "$$\\sum_{j \\mathop = 1}^n j \\left({j + 1}\\right) = \\sum_{j \\mathop = 1}^n \\left({j^2 + j}\\right)$$\n$$= \\sum_{j \\mathop = 1}^n j^2 + \\sum_{j \\mathop = 1}^n j$$\n$$= \\sum_{j \\mathop = 1}^n j^2 + \\frac {n \\left({n + 1}\\right)} 2$$\nClosed Form for Triangular Numbers\nAssume the terms $1,\\ldots,n$ are all equal to their average $(n+1)/2$. The remaining sum of squares is therefore $n((n+1)/2)^2$. Adding the triangular-number term gives the required closed form.",
+    "clean_row_index": 771,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The summands are treated as equal without a hypothesis that warrants it. At n=2 their squares sum to 5, while replacing each summand by their average gives 9/2.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1746,
+    "title": "Sum of Sequence of Products of Consecutive Reciprocals",
+    "theorem_text": "$\\displaystyle \\sum_{j \\mathop = 1}^n \\frac 1 {j \\paren {j +1} } = \\frac n {n + 1}$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N_{>0}$, let $\\map P n$ be the proposition:\n$\\displaystyle \\forall n \\ge 1: \\sum_{j \\mathop = 1}^n \\frac 1 {j \\paren {j + 1} } = \\frac n {n + 1}$\nBasis for the Induction\n$\\map P 1$ is true, as this just says $\\dfrac 1 2 = \\dfrac 1 2$.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle \\sum_{j \\mathop = 1}^k \\frac 1 {j \\paren {j + 1} } = \\frac k {k + 1}$\nThen we need to show:\n$\\displaystyle \\sum_{j \\mathop = 1}^{k + 1} \\frac 1 {j \\paren {j + 1} } = \\frac {k + 1} {k + 2}$\nApply the induction principle for propositions preserved by a successor. Each of the two expressions at $k$ is positive and each increases when $k$ is replaced by $k+1$, so the equality is preserved under the successor.\nTherefore:\n$\\displaystyle \\forall n \\ge 1: \\sum_{j \\mathop = 1}^n \\frac 1 {j \\paren {j + 1} } = \\frac n {n + 1}$",
+    "clean_row_index": 772,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The induction principle requires an implication from equality at k to equality at k+1. Increasing both expressions does not verify that hypothesis because their increments can differ.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1750,
+    "title": "Sum of Odd Sequence of Products of Consecutive Fibonacci Numbers",
+    "theorem_text": "$\\ds \\sum_{j \\mathop = 1}^{2 n - 1} F_j F_{j + 1} = {F_{2 n} }^2$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N_{>0}$, let $\\map P n$ be the proposition:\n$\\ds \\sum_{j \\mathop = 1}^{2 n - 1} F_j F_{j + 1} = {F_{2 n} }^2$\nBasis for the Induction\n$\\map P 1$ is true, as this just says $F_1 F_2 = 1 \\times 1 = 1 = {F_2}^2$.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\ds \\sum_{j \\mathop = 1}^{2 k - 1} F_j F_{j + 1} = {F_{2 k} }^2$\nThen we need to show:\n$\\ds \\sum_{j \\mathop = 1}^{2 k + 1} F_j F_{j + 1} = {F_{2 \\paren {k + 1} } }^2$\nInduction Step\nThis is our induction step:\n$$\\sum_{j \\mathop = 1}^{2 k + 1} F_j F_{j + 1} = \\sum_{j \\mathop = 1}^{2 k - 1} F_j F_{j + 1} + F_{2 k} F_{2 k + 1} + F_{2 k + 1} F_{2 k + 2}$$\n$$= {F_{2 k} }^2 + F_{2 k} F_{2 k + 1} + F_{2 k + 1} F_{2 k + 2}$$\nInduction hypothesis\n$$= F_{2 k} \\paren {F_{2 k} + F_{2 k + 1} } + F_{2 k + 1} F_{2 k + 2}$$\n$$= F_{2 k} F_{2 k + 2} + F_{2 k + 1} F_{2 k + 2}$$\n$$= F_{2k+2}\\paren{F_{2k} - F_{2k+1}}$$\n$$= {F_{2 k + 2} }^2$$\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\ds \\forall n \\ge 1: \\sum_{j \\mathop = 1}^{2 n - 1} F_j F_{j + 1} = {F_{2 n} }^2$",
+    "clean_row_index": 773,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Factoring the common F_(2k+2) out of a sum retains a plus between the remaining terms. The minus makes the displayed equality false.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1751,
+    "title": "Lucas Number as Sum of Fibonacci Numbers",
+    "theorem_text": "Let $L_k$ be the $k$th Lucas number, defined as:\n$L_n = \\begin{cases}\n2 & : n = 0 \\\\\n1 & : n = 1 \\\\\nL_{n - 1} + L_{n - 2} & : \\text{otherwise} \\end{cases}$\nThen:\n$L_n = F_{n - 1} + F_{n + 1}$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N_{>0}$, let $\\map P n$ be the proposition:\n$L_n = F_{n - 1} + F_{n + 1}$\nBasis for the Induction\n$\\map P 1$ is true, as this just says:\n$L_1 = 1 = F_0 + F_2$\nwhich holds by definition of the Fibonacci numbers.\nThis is our basis for the induction.\nInduction Hypothesis\nLet us make the supposition that, for some $k \\in \\N: k \\ge 1$, the proposition $\\map P j$ holds for all $j \\in \\N: 1 \\le j \\le k$.\nWe shall show that it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$L_j = F_{j - 1} + F_{j + 1}$\nThen we need to show:\n$L_{k + 1} = F_k + F_{k + 2}$\nInduction Step\nThis is our induction step:\n$$L_{k + 1} = L_{k - 1} + L_k$$\n$$= F_{k - 2} + F_k + F_{k - 1} + F_{k + 1}$$\nInduction Hypothesis\n$$= \\paren {F_{k - 2} + F_{k - 1} } + \\paren {F_k + F_{k + 1} }$$\n$$= F_k + F_{k + 2}$$\nSo $\\map P {k + 1}$ and the result follows by the Second Principle of Mathematical Induction.\nTherefore:\n$\\forall n \\in \\N, n \\ge 1: L_n = F_{n - 1} + F_{n + 1}$",
+    "clean_row_index": 774,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The induction uses the two previous Lucas identities but checks only n=1. At the first step it invokes the unproved n=0 identity involving F at index −1; a second base n=2 is needed."
+  },
+  {
+    "theorem_id": 1752,
+    "title": "Sum of Sequence of Product of Lucas Numbers with Powers of 2",
+    "theorem_text": "Let $L_k$ be the $k$th Lucas number.\nLet $F_k$ be the $k$th Fibonacci number.\nThen:\n$\\displaystyle \\forall n \\in \\N_{>0}: \\sum_{j \\mathop = 1}^n 2^{j - 1} L_j = 2^n F_{n + 1} - 1$\nThat is:\n$2^0 L_1 + 2^1 L_2 + 2^2 L_3 + \\cdots + 2^{n - 1} L^n = 2^n F_{n + 1} - 1$",
+    "proof_text": "Proof by induction:\nFor all $\\forall n \\in \\N_{>0}$, let $P \\left({n}\\right)$ be the proposition:\n$\\displaystyle \\sum_{j \\mathop = 1}^n 2^{j - 1} L_j = 2^n F_{n + 1} - 1$\nBasis for the Induction\n$P(1)$ is true, as this just says $L_1 = 1 = 2^1 \\times F_1 - 1$ which follows directly from the definitions of Fibonacci numbers and Lucas numbers.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $P \\left({k}\\right)$ is true, where $k \\ge 1$, then it logically follows that $P \\left({k+1}\\right)$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle \\sum_{j \\mathop = 1}^k 2^{j - 1} L_j = 2^k F_{k + 1} - 1$\nThen we need to show:\n$\\displaystyle \\sum_{j \\mathop = 1}^{k + 1} 2^{j - 1} L_j = 2^{k + 1} F_{k + 2} - 1$\nThe basis and induction hypothesis above therefore give the identity for every positive $n$.\nTherefore:\n$\\displaystyle \\forall n \\in \\N_{>0}: \\sum_{j \\mathop = 1}^n 2^{j - 1} L_j = 2^n F_{n + 1} - 1$",
+    "clean_row_index": 775,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The proof states the successor identity but removes its derivation. The base case and a conditional induction hypothesis alone leave the induction step unproved.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1753,
+    "title": "Sum of Odd Positive Powers",
+    "theorem_text": "Let $n \\in \\N$ be an odd positive integer.\nLet $x, y \\in \\Z_{>0}$ be (strictly) positive integers.\nThen $x + y$ is a divisor of $x^n + y^n$.",
+    "proof_text": "Take $x=y$. Then $x^n+y^n=2x^n$ and $x+y=2x$, so the quotient is the integer $x^{n-1}$. Hence $x+y$ divides $x^n+y^n$.",
+    "clean_row_index": 776,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The assumption x=y reduces the theorem to equal inputs without justification. Divisibility for arbitrary unequal positive integers is left unproved.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1755,
+    "title": "Subset Relation on Power Set is Partial Ordering",
+    "theorem_text": "Let $S$ be a set.\nLet $\\powerset S$ be the power set of $S$.\nLet $\\struct {\\powerset S, \\subseteq}$ be the relational structure defined on $\\powerset S$ by the relation $\\subseteq$.\nThen $\\struct {\\powerset S, \\subseteq}$ is an ordered set.\nThe ordering $\\subseteq$ is partial if and only if $S$ is neither empty nor a singleton; otherwise it is total.",
+    "proof_text": "From Subset Relation is Ordering, we have that $\\subseteq$ is an ordering on any set of subsets of a given set.\nSuppose $S$ is neither a singleton nor the empty set.\nThen $\\exists a, b \\in S$ such that $a \\ne b$.\nThen $\\set a \\in \\powerset S$ and $\\set b \\in \\powerset S$.\nHowever, $\\set a \\nsubseteq \\set b$ and $\\set b \\nsubseteq \\set a$.\nSo by definition, $\\subseteq$ is a partial ordering.\nThus inclusion has the asserted classification on $\\powerset S$.",
+    "clean_row_index": 777,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The retained argument shows that two distinct elements of S yield incomparable singletons. It omits the other direction, which requires analyzing the empty and singleton cases.",
+    "is_synthetic": true
+  },
+  {
+    "theorem_id": 1756,
+    "title": "Ordering is Equivalent to Subset Relation",
+    "theorem_text": "Let $\\struct {S, \\preceq}$ be an ordered set.\nThen there exists a set $\\mathbb S$ of subsets of $S$ such that:\n$\\struct {S, \\preceq} \\cong \\struct {\\mathbb S, \\subseteq}$\nwhere:\n$\\struct {\\mathbb S, \\subseteq}$ is the relational structure consisting of $\\mathbb S$ and the subset relation\n$\\cong$ denotes order isomorphism.\nHence any ordering on a set can be modelled uniquely by a set of subsets of that set under the subset relation.",
+    "proof_text": "From Subset Relation is Ordering, we have that $\\struct {\\mathbb S, \\subseteq}$ is an ordered set.\nFor each $a \\in S$, let $a^\\prec$ be the lower closure of $a$:\n$a^\\prec := \\set {b \\in S: b \\preceq a}$\nThen let $T$ be defined as:\n$T := \\set {a^\\prec: a \\in S}$\nLet the mapping $\\phi: S \\to T$ be defined as:\n$\\map \\phi a = a^\\prec$\nWe are to show that $\\phi$ is an order isomorphism.\n$\\phi$ is clearly surjective, as every $a^\\prec$ is defined from some $a \\in S$.\nNow suppose $x^\\prec, y^\\prec \\in T: x^\\prec = y^\\prec$.\nThen:\n$\\set {b \\in S: b \\preceq x} = \\set {b \\in S: b \\preceq y}$\nWe have that:\n$x \\in x^\\prec = y^\\prec$ and $y \\in y^\\prec = x^\\prec$\nwhich means:\n$x \\preceq y$ and $y \\preceq x$\nSo as an ordering is antisymmetric, we have $x = y$ and so $\\phi$ is injective.\nHence by definition, $\\phi$ is a bijection.\nNow let $a_1 \\preceq a_2$.\nThen by definition:\n$a_1 \\in {a_2}^\\prec$\nLet $a_3 \\in {a_1}^\\prec$.\nThen by definition:\n$a_3 \\preceq a_1$\nAs an ordering is transitive, it follows that:\n$a_3 \\preceq a_2$\nand so:\n$a_3 \\in {a_2}^\\prec$\nSo by definition of a subset:\n${a_1}^\\prec \\subseteq {a_2}^\\prec$\nTherefore, $\\phi$ is order-preserving\nConversely, suppose that ${a_1}^\\prec \\subseteq {a_2}^\\prec$.\nThen, since $a_1 \\in {a_1}^\\prec$, also $a_1 \\in {a_2}^\\prec$ by definition of subset.\nBy definition of ${a_2}^\\prec$:\n$a_1 \\preceq a_2$\nHence it is seen that $\\phi^{-1}$ is also order-preserving.\nThus it follows that $\\phi$ is an order isomorphism between $\\struct {S, \\preceq}$ and $\\struct {\\mathbb S, \\subseteq}$.",
+    "clean_row_index": 778,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Principal lower sets give an order isomorphism as shown, but do not imply uniqueness of the representing family. A singleton order can be represented using either singleton family {∅} or {S}."
+  },
+  {
+    "theorem_id": 1756,
+    "title": "Ordering is Equivalent to Subset Relation",
+    "theorem_text": "Let $\\struct {S, \\preceq}$ be an ordered set.\nThen there exists a set $\\mathbb S$ of subsets of $S$ such that:\n$\\struct {S, \\preceq} \\cong \\struct {\\mathbb S, \\subseteq}$\nwhere:\n$\\struct {\\mathbb S, \\subseteq}$ is the relational structure consisting of $\\mathbb S$ and the subset relation\n$\\cong$ denotes order isomorphism.\nHence any ordering on a set can be modelled uniquely by a set of subsets of that set under the subset relation.",
+    "proof_text": "From Subset Relation is Ordering, we have that $\\struct {\\mathbb S, \\subseteq}$ is an ordered set.\nWe are to show that $\\phi$ is an order isomorphism.\n$\\phi$ is clearly surjective, as every $a^\\preceq$ is defined from some $a \\in S$.\nBy the Lemma, $\\phi$ is order-preserving.\nSuppose that ${a_1}^\\preceq \\subseteq {a_2}^\\preceq$.\nWe have that:\n$a_1 \\in {a_1}^\\preceq$\nThus by definition of subset:\n$a_1 \\in {a_2}^\\preceq$\nBy definition of ${a_2}^\\preceq$:\n$a_1 \\preceq a_2$\nThus $\\phi$ is also order-reflecting.\nThus it follows that $\\phi$ is an order isomorphism between $\\struct {S, \\preceq}$ and $\\struct {\\mathbb S, \\subseteq}$.",
+    "clean_row_index": 779,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The order-preserving and order-reflecting principal-ideal map yields a representation, but a different family of subsets can realize the same order, so the stated uniqueness does not follow."
+  }
+]

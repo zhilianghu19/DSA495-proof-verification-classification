@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 583,
+    "title": "Cartesian Product of Countable Sets is Countable",
+    "theorem_text": "The cartesian product of two countable sets is countable.",
+    "proof_text": "Let $S = \\set {s_0, s_1, s_2, \\dotsc}$ and $T = \\set {t_0, t_1, t_2, \\dotsc}$ be countable sets.\nIf both $S$ and $T$ are finite, the result follows immediately.\nSuppose either of $S$ or $T$ (or both) is countably infinite.\nWe can write the elements of $S \\times T$ in the form of an infinite table:\n$\\begin{array} {*{4}c}\n \\tuple {s_0, t_0} & \\tuple {s_0, t_1} & \\tuple {s_0, t_2} & \\cdots \\\\\n \\tuple {s_1, t_0} & \\tuple {s_1, t_1} & \\tuple {s_1, t_2} & \\cdots \\\\\n \\tuple {s_2, t_0} & \\tuple {s_2, t_1} & \\tuple {s_2, t_2} & \\cdots \\\\\n \\vdots  & \\vdots  & \\vdots & \\ddots \\\\\n\\end{array}$\nThis table clearly contains all the elements of $S \\times T$.\nNow we can count the elements of $S \\times T$ by processing the table diagonally.\nFirst we pick $\\tuple {s_0, t_0}$.\nThen we pick $\\tuple {s_0, t_1}, \\tuple {s_1, t_0}$. Then we pick $\\tuple {s_0, t_2}, \\tuple {s_1, t_1}, \\tuple {s_2, t_0}$.\nWe can see that all the elements of $S \\times T$ will (eventually) be listed, and there is a specific number (element of $\\N$) to index each of its elements with.\nThus we have the required one-to-one correspondence between $S \\times T$ and $\\N$, and our assertion is proved.",
+    "clean_row_index": 240,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The claimed bijection with the naturals fails when one factor is empty and the other is infinite. The infinite table presupposes entries in each factor."
+  },
+  {
+    "theorem_id": 583,
+    "title": "Cartesian Product of Countable Sets is Countable",
+    "theorem_text": "The cartesian product of two countable sets is countable.",
+    "proof_text": "Let $S, T$ be countable sets.\nFrom the definition of countable, there exists a injection from $S$ to $\\N$, and similarly one from $T$ to $\\N$.\nHence there exists an injection $g$ from $S \\times T$ to $\\N^2$.\nNow let us investigate the cardinality of $\\N^2$.\nFrom the Fundamental Theorem of Arithmetic, every natural number greater than $1$ has a unique prime decomposition.\nThus, if a number can be written as $2^n 3^m$, it can be done thus in only one way.\nSo, consider the function $f: \\N^2 \\to \\N$ defined by:\n$\\map f {n, m} = 2^n 3^m$.\nNow suppose $\\exists m, n, r, s \\in \\N$ such that $\\map f {n, m} = \\map f {r, s}$.\nThen $2^n 3^m = 2^r 3^s$ so that $n = r$ and $m = s$.\nThus $f$ is an injection, whence $\\N^2$ is countably infinite.\nNow we see that as $g$ and $f$ are injective, it follows from Composite of Injections is Injection that $f \\circ g: S \\times T \\to \\N$ is also injective.\nHence the result.",
+    "clean_row_index": 241,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The coordinate injections followed by the prime-power encoding are injective by uniqueness of prime exponents, including when one factor is empty."
+  },
+  {
+    "theorem_id": 583,
+    "title": "Cartesian Product of Countable Sets is Countable",
+    "theorem_text": "The cartesian product of two countable sets is countable.",
+    "proof_text": "Let $S, T$ be countable sets.\nLet $S = \\set {s_1, s_2, s_3, \\dotsc}$ and $T = \\set {t_1, t_2, t_3, \\dotsc}$ be enumerations of $S$ and $T$ respectively.\nLet $f: S \\times T: \\N$ be the mapping defined as:\n$\\forall \\tuple {s_k, t_l} \\in S \\times T: \\map f {s_k, t_l} = \\dfrac {\\paren {k + l - 1} \\paren {k + l - 2} } 2 + \\dfrac {l + \\paren {-1}^{k + 1} } 2 k + \\dfrac {1 + \\paren {-1}^{k + l - 1} } 2 l$\nThen $f$ gives an enumeration of $S \\times T$.\nThis enumeration can be depicted schematically as:\n$\\begin {array} {} \\tuple {s_1, t_1} & & \\tuple {s_1, t_2} & \\to  & \\tuple {s_1, t_3} & & \\tuple {s_1, t_4} & \\to & \\dotsc \\\\\n\\downarrow & \\nearrow & & \\swarrow & & \\nearrow  & \\dotsc \\\\\n\\tuple {s_2, t_1} & & \\tuple {s_2, t_2} & & \\tuple {s_2, t_3} & \\dotsc \\\\\n& \\swarrow & & \\nearrow & \\dotsc \\\\\n\\tuple {s_3, t_1} & & \\tuple {s_2, t_3} & \\dotsc \\\\\n\\downarrow & \\nearrow & \\dotsc \\\\\n\\tuple {s_3, t_1} & \\dotsc \\\\\n\\vdots \\\\\n\\end{array}$\nHence the result.",
+    "clean_row_index": 242,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "With k=1 and l=2 the displayed formula gives 9/2. It does not even map the enumerated pairs to natural numbers."
+  },
+  {
+    "theorem_id": 587,
+    "title": "Fundamental Principle of Counting",
+    "theorem_text": "Let $A$ be a finite set.\nLet $\\sequence {B_n}$ be a sequence of distinct finite subsets of $A$ which form a partition of $A$.\nLet $p_k = \\size {B_k}$ for each $k \\in \\closedint 1 n$.\nThen:\n$\\displaystyle \\size A = \\sum_{k \\mathop = 1}^n p_k$\nThat is, the sum of the numbers of elements in the subsets of a partition of a set is equal to the total number of elements in the set.",
+    "proof_text": "Let $r_0 = 0$, and let:\n$\\displaystyle \\forall k \\in \\closedint 1 n: r_k = \\sum_{j \\mathop = 1}^k {p_j}$\nThen:\n$r_{k - 1} + p_k = r_k$\nso:\n$r_{k - 1} < r_k$.\nThus by Isomorphism to Closed Interval, $\\closedint {r_{k - 1} } {r_k}$ has $r_k - r_{k - 1} = p_k$ elements.\nAs a consequence, there exists a bijection $\\sigma_k: B_k \\to \\closedint {r_{k - 1} } {r_k}$ for each $k \\in \\closedint 1 n$.\nLet $\\sigma: A \\to \\N$ be the mapping that satisfies:\n$\\forall x \\in B_k: \\forall k \\in \\N: \\map \\sigma x = \\map {\\sigma_k} x$\nBy Strictly Increasing Sequence on Ordered Set, $\\sequence {r_k}_{0 \\mathop \\le k \\mathop \\le n}$ is a strictly increasing sequence of natural numbers.\nThus by Strictly Increasing Sequence induces Partition, $\\sigma: A \\to \\closedint 1 {r_n}$ is a bijection.\nBy Isomorphism to Closed Interval, $\\closedint 1 {r_n}$ has $r_n$ elements.\nHence the result.",
+    "clean_row_index": 243,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The closed integer interval from r_(k-1) to r_k has p_k+1 elements. The asserted bijections to blocks of size p_k therefore fail."
+  },
+  {
+    "theorem_id": 592,
+    "title": "Associativity on Indexing Set",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ be a commutative semigroup.\nLet $\\left \\langle {x_\\alpha} \\right \\rangle_{\\alpha \\mathop \\in A}$ be a family of terms of $S$ indexed by a finite non-empty set $A$.\nLet $\\left \\langle {B_k} \\right \\rangle_{1 \\mathop \\le k \\mathop \\le n}$ be a family of distinct subsets of $A$ forming a partition of $A$.\nThen:\n$\\displaystyle \\prod_{k \\mathop = 1}^n \\left({\\prod_{a \\mathop \\in B_k} x_\\alpha}\\right) = \\prod_{\\alpha \\mathop \\in A} x_\\alpha$",
+    "proof_text": "For each $k \\in \\N_{>0}$, let $\\left|{B_k}\\right| = p_k$.\nLet:\n$r_0 = 0$\n$\\displaystyle \\forall k \\in \\N_{>0}: r_k = \\sum_{j \\mathop = 1}^k {p_j}$\nand:\n$p = r_n$\nThen:\n$r_k - r_{k-1} = p_k$\nSo, by Isomorphism to Closed Interval, both $\\left[{1 \\,.\\,.\\, p_k}\\right]$ and $\\left[{r_{k - 1} + 1 \\,.\\,.\\, r_k}\\right]$ have $p_k$ elements.\nBy Unique Isomorphism between Finite Totally Ordered Sets, there is a unique isomorphism $\\tau_k: \\left[{1 \\,.\\,.\\, p_k}\\right] \\to \\left[{r_{k - 1} + 1 \\,.\\,.\\, r_k}\\right]$ as both are totally ordered.\nThe orderings on both of these are those induced by the ordering on $\\N$.\nIt is clear that $\\tau_k$ is defined as:\n$\\forall j \\in \\left[{1 \\,.\\,.\\, p_k}\\right]: \\tau_k \\left({j}\\right) = r_k + j$\nFor each $k \\in \\left[{1 \\,.\\,.\\, n}\\right]$, let $\\rho_k: \\left[{1 \\,.\\,.\\, p_k}\\right] \\to B_k$ be a bijection.\nBy Strictly Increasing Sequence induces Partition, the mapping $\\sigma: \\left[{1 \\,.\\,.\\, p}\\right] \\to A$ defined by:\n$\\displaystyle \\forall j \\in \\left[{r_{k-1}+1 \\,.\\,.\\, r_k}\\right]: \\forall k \\in \\left[{1 \\,.\\,.\\, n}\\right]: \\sigma \\left({j}\\right) = \\rho_k \\left({\\tau_k^{-1} \\left({j}\\right)}\\right)$\nis a bijection.\nLet $\\forall j \\in \\left[{1 \\,.\\,.\\, p}\\right]: y_j = x_{\\sigma \\left({j}\\right)}$.\nBy definition:\n$\\displaystyle \\prod_{\\alpha \\mathop \\in A} {x_\\alpha} = \\prod_{j \\mathop = 1}^p {x_{\\sigma \\left({j}\\right)}} = \\prod_{j \\mathop = 1}^p {y_j}$\nAlso:\n$\\displaystyle \\forall k \\in \\left[{1 \\,.\\,.\\, n}\\right]: \\prod_{\\alpha \\mathop \\in B_k} {x_\\alpha} = \\prod_{i \\mathop = 1}^{p^k} {x_{\\rho_k \\left({i}\\right)}}$\nAlso by definition:\n$\\displaystyle \\prod_{j \\mathop = r_{k - 1} + 1}^{r_k} y_j = \\prod_{i \\mathop = 1}^{p_k} y_{\\tau_k \\left({i}\\right)} = \\prod_{i \\mathop = 1}^{p_k} x_{\\sigma \\left({\\tau_k \\left({i}\\right)}\\right)} = \\prod_{i \\mathop = 1}^{p_k} x_{\\rho_k \\left({i}\\right)}$\nSo by the General Associativity Theorem:\n$$\\prod_{a \\mathop \\in A} {x_a} = \\prod_{j \\mathop = 1}^p y_j$$\n$$= \\prod_{k \\mathop = 1}^n \\left({\\prod_{j \\mathop = r_{k - 1} \\mathop + 1}^{r_k} {y_j} }\\right)$$\n$$= \\prod_{k \\mathop = 1}^n \\left({\\prod_{i \\mathop = 1}^{p_k} x_{\\rho_k \\left({i}\\right)} }\\right)$$\n$$= \\prod_{k \\mathop = 1}^n \\left({\\prod_{a \\mathop \\in B_k} x_\\alpha}\\right)$$",
+    "clean_row_index": 245,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The specified shift r_k+j sends every positive j outside the intended block ending at r_k. The reindexing needs the shift r_(k-1)+j."
+  },
+  {
+    "theorem_id": 594,
+    "title": "External Direct Product of Projection with Canonical Injection",
+    "theorem_text": "Let $\\struct {S_1, \\circ_1}$ and $\\struct {S_2, \\circ_2}$ be algebraic structures with identity elements $e_1$ and $e_2$ respectively.\nLet $\\struct {S_1 \\times S_2, \\circ}$ be the external direct product of $\\struct {S_1, \\circ_1}$ and $\\struct {S_2, \\circ_2}$\nLet:\n$\\pr_1: \\struct {S_1 \\times S_2, \\circ} \\to \\struct {S_1, \\circ_1}$ be the first projection from $\\struct {S_1 \\times S_2, \\circ}$ to $\\struct {S_1, \\circ_1}$\n$\\pr_2: \\struct {S_1 \\times S_2, \\circ} \\to \\struct {S_2, \\circ_2}$ be the second projection from $\\struct {S_1 \\times S_2, \\circ}$ to $\\struct {S_2, \\circ_2}$.\nLet:\n$\\inj_1: \\struct {S_1, \\circ_1} \\to \\struct {S_1 \\times S_2, \\circ}$ be the canonical injection from $\\struct {S_1, \\circ_1}$ to $\\struct {S_1 \\times S_2, \\circ}$\n$\\inj_2: \\struct {S_2, \\circ_2} \\to \\struct {S_1 \\times S_2, \\circ}$ be the canonical injection from $\\struct {S_2, \\circ_2}$ to $\\struct {S_1 \\times S_2, \\circ}$.\nThen:\n$(1): \\quad \\pr_1 \\circ \\inj_1 = I_{S_1}$\n$(2): \\quad \\pr_2 \\circ \\inj_2 = I_{S_2}$\nwhere $I_{S_1}$ and $I_{S_2}$ are the identity mappings on $S_1$ and $S_2$ respectively.",
+    "proof_text": "Let $\\tuple {s_1, s_2} \\in S_1 \\times S_2$.\nSo, $s_1 \\in S_1$ and $s_2 \\in S_2$.\nFrom the definition of the canonical injection, we have:\n$\\map {\\inj_1} {s_1} = \\tuple {s_1, e_2}$\n$\\map {\\inj_2} {s_2} = \\tuple {e_1, s_2}$\nFrom the definition of the first projection:\n$\\map {\\pr_1} {s_1, e_2} = s_1$\nand similarly from the definition of the second projection:\n$\\map {\\pr_2} {e_1, s_2} = s_2$\nThus:\n$\\map {\\pr_1 \\circ \\inj_1} {s_1} = s_1$\n$\\map {\\pr_2 \\circ \\inj_2} {s_2} = s_2$\nand the result follows from the definition of the identity mapping.",
+    "clean_row_index": 246,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Inserting an element into its own coordinate and projecting onto that same coordinate returns the original element in each case."
+  },
+  {
+    "theorem_id": 595,
+    "title": "Inverse Completion of Natural Numbers",
+    "theorem_text": "There exists an inverse completion of the natural numbers under addition.",
+    "proof_text": "The set of natural numbers under addition can be denoted $\\left ({\\N, +}\\right)$.\nFrom Natural Numbers under Addition form Commutative Monoid, the algebraic structure $\\left ({\\N, +}\\right)$ is a commutative monoid.\nTherefore by definition of commutative monoid, $\\left ({\\N, +}\\right)$ is a commutative semigroup.\nFrom Natural Number Addition is Cancellable, all of the elements of $\\left ({\\N, +}\\right)$ are cancellable.\nThe result follows from the Inverse Completion Theorem.",
+    "clean_row_index": 247,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Additive cancellation and the commutative semigroup structure are exactly the hypotheses used for the inverse completion."
+  },
+  {
+    "theorem_id": 597,
+    "title": "Natural Numbers under Addition form Commutative Monoid",
+    "theorem_text": "The algebraic structure $\\struct {\\N, +}$ consisting of the set of natural numbers $\\N$ under addition $+$ is a commutative monoid whose identity is zero.",
+    "proof_text": "Consider the natural numbers $\\N$ defined as the naturally ordered semigroup.\nFrom the definition of the naturally ordered semigroup, it follows that $\\struct {\\N, +}$ is a commutative semigroup.\nFrom the definition of zero, $\\struct {\\N, +}$ has $0 \\in \\N$ as the identity, hence is a monoid.",
+    "clean_row_index": 248,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The chosen definition supplies a commutative additive semigroup and gives zero as a two-sided identity."
+  },
+  {
+    "theorem_id": 598,
+    "title": "Natural Numbers form Commutative Semiring",
+    "theorem_text": "The semiring of natural numbers $\\struct {\\N, +, \\times}$ forms a commutative semiring.",
+    "proof_text": "The algebraic structure $\\struct {\\N, +}$ is a commutative monoid from Natural Numbers under Addition form Commutative Monoid.\nThen we have:\n$(1): \\quad$ $\\times$ is closed\n$(2): \\quad$ Natural Number Multiplication is Associative\n$(3): \\quad$ Natural Number Multiplication is Commutative\n$(4): \\quad$ Natural Number Multiplication Distributes over Addition\nThus $\\struct {\\N, \\times}$ forms an algebraic structure which is closed such that $\\times$ is associative and commutative.\nSo by definition, $\\struct {\\N, \\times}$ is a commutative semigroup.\nThe result follows from definition of commutative semiring and the distributivity of $\\times$ over $+$.",
+    "clean_row_index": 249,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited laws provide the additive monoid, commutative multiplication and distributivity. In the natural numbers the unit and zero multiplication laws are immediate."
+  },
+  {
+    "theorem_id": 599,
+    "title": "Integer Multiplication is Well-Defined",
+    "theorem_text": "Integer multiplication is well-defined.",
+    "proof_text": "Consider the formal definition of the integers: $x = \\eqclass {a, b} {}$ is an equivalence class of ordered pairs of natural numbers.\nConsider the mapping $\\phi: \\N_{>0} \\to \\Z_{>0}$ defined as:\n$\\forall u \\in \\N_{>0}: \\map \\phi u = u'$\nwhere $u' \\in \\Z$ be the (strictly) positive integer $\\eqclass {b + u, b} {}$.\nLet $v' = \\eqclass {c + v, c} {}$.\nThen:\n$$u' v' = \\eqclass {b + u, b} {} \\times \\eqclass {c + v, c} {}$$\n$$= \\eqclass {\\paren {b + u} \\paren {c + v} + b c, \\paren {b + u} c + b \\paren {c + v} } {}$$\n$$= \\eqclass {b c + b v + c u + u v + b c, b c + u c + b c + b v} {}$$\n$$= \\eqclass {b c + u v, b c} {}$$\n$$= \\eqclass {b + u v, b} {}$$\n$$= \\paren {u v}'$$",
+    "clean_row_index": 250,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The representative calculation treats two strictly positive integer classes only. It supplies no independence-of-representatives argument for a negative or zero factor."
+  },
+  {
+    "theorem_id": 600,
+    "title": "Integer Multiplication is Closed",
+    "theorem_text": "The set of integers is closed under multiplication:\n$\\forall a, b \\in \\Z: a \\times b \\in \\Z$",
+    "proof_text": "Let us define $\\eqclass {\\tuple {a, b} } \\boxminus$ as in the formal definition of integers.\nThat is, $\\eqclass {\\tuple {a, b} } \\boxminus$ is an equivalence class of ordered pairs of natural numbers under the congruence relation $\\boxminus$.\n$\\boxminus$ is the congruence relation defined on $\\N \\times \\N$ by:\n$\\tuple {x_1, y_1} \\boxminus \\tuple {x_2, y_2} \\iff x_1 + y_2 = x_2 + y_1$\nIn order to streamline the notation, we will use $\\eqclass {a, b} {}$ to mean $\\eqclass {\\tuple {a, b} } \\boxminus$, as suggested.\nInteger multiplication is defined as:\n$\\forall a, b, c, d \\in \\N: \\eqclass {a, b} {} \\times \\eqclass {c, d} {} = \\eqclass {a c + b d, a d + b c} {}$\nWe have that:\n$\\forall a, b, c, d \\in \\N: \\eqclass {a, b} {} \\in \\Z, \\eqclass {c, d} {} \\in \\Z$\nAlso:\n$\\forall a, b, c, d \\in \\N: \\eqclass {a, b} {} \\times \\eqclass {c, d} {} = \\eqclass {a c + b d, a d + b c} {}$\nBut:\n$a c + b d \\in \\N, a d + b c \\in \\N$\nSo:\n$\\forall a, b, c, d \\in \\N: \\eqclass {a c + b d, a d + b c} {} \\in \\Z$\nTherefore integer multiplication is closed.",
+    "clean_row_index": 251,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The product formula produces two natural coordinates, so the resulting class is an element of the constructed integers."
+  },
+  {
+    "theorem_id": 603,
+    "title": "Integer Multiplication Distributes over Addition",
+    "theorem_text": "The operation of multiplication on the set of integers $\\Z$ is distributive over addition:\n$\\forall x, y, z \\in \\Z: x \\times \\paren {y + z} = \\paren {x \\times y} + \\paren {x \\times z}$\n$\\forall x, y, z \\in \\Z: \\paren {y + z} \\times x = \\paren {y \\times x} + \\paren {z \\times x}$",
+    "proof_text": "Let us define $\\Z$ as in the formal definition of integers.\nThat is, $\\Z$ is an inverse completion of $\\N$.\nFrom Natural Numbers form Commutative Semiring, we have that:\n:All elements of $\\N$ are cancellable for addition\n:Addition and multiplication are commutative and associative on the natural numbers $\\N$\n:Natural number multiplication is distributive over natural number addition.\nThe result follows from the Extension Theorem for Distributive Operations.",
+    "clean_row_index": 252,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The completion extends natural-number multiplication distributively over the additive group under the stated cancellation and distributivity hypotheses."
+  },
+  {
+    "theorem_id": 605,
+    "title": "Integer Multiplication Identity is One",
+    "theorem_text": "The identity of integer multiplication is $1$:\n$\\exists 1 \\in \\Z: \\forall a \\in \\Z: a \\times 1 = a = 1 \\times a$",
+    "proof_text": "Let us define $\\eqclass {\\tuple {a, b} } \\boxtimes$ as in the formal definition of integers.\nThat is, $\\eqclass {\\tuple {a, b} } \\boxtimes$ is an equivalence class of ordered pairs of natural numbers under the congruence relation $\\boxtimes$.\n$\\boxtimes$ is the congruence relation defined on $\\N \\times \\N$ by $\\tuple {x_1, y_1} \\boxtimes \\tuple {x_2, y_2} \\iff x_1 + y_2 = x_2 + y_1$.\nIn order to streamline the notation, we will use $\\eqclass {a, b} {}$ to mean $\\eqclass {\\tuple {a, b} } \\boxtimes$, as suggested.\nFrom the method of construction, $\\eqclass {c + 1, c} {}$, where $c$ is any element of the natural numbers $\\N$, is the isomorphic copy of $1 \\in \\N$.\nTo ease the algebra, we will take $\\eqclass {1, 0} {}$ as a canonical instance of this equivalence class.\nThus it is to be shown that:\n$\\forall a, b \\in \\N: \\eqclass {a, b} {} \\times \\eqclass {1, 0} {} = \\eqclass {a, b} {} = \\eqclass {1, 0} {} \\times \\eqclass {a, b} {}$\nFrom Natural Numbers form Commutative Semiring, we take it for granted that:\n:addition and multiplication are commutative and associative on the natural numbers $\\N$\n:natural number multiplication is distributive over natural number addition.\nSo:\n$$\\eqclass {a, b} {} \\times \\eqclass {1, 0} {} = \\eqclass {1 \\times a + 0 \\times b, 0 \\times a + 1 \\times b} {}$$\n$$= \\eqclass {a, b} {}$$\nfrom Construction of Inverse Completion: Members of Equivalence Classes\nSo:\n$\\eqclass {a, b} {} \\times \\eqclass {1, 0} {} = \\eqclass {a, b} {}$\nThe identity $\\eqclass {a, b} {} = \\eqclass {1, 0} {} \\times \\eqclass {a, b} {}$ is demonstrated similarly.",
+    "clean_row_index": 253,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplication of a representative by (1,0) returns its two original coordinates on either side."
+  },
+  {
+    "theorem_id": 606,
+    "title": "Integer Multiplication has Zero",
+    "theorem_text": "The set of integers under multiplication $\\struct {\\Z, \\times}$ has a zero element, which is $0$.",
+    "proof_text": "Let us define $\\eqclass {\\tuple {a, b} } \\boxminus$ as in the formal definition of integers.\nThat is, $\\eqclass {\\tuple {a, b} } \\boxminus$ is an equivalence class of ordered pairs of natural numbers under the congruence relation $\\boxminus$.\n$\\boxminus$ is the congruence relation defined on $\\N \\times \\N$ by $\\tuple {x_1, y_1} \\boxminus \\tuple {x_2, y_2} \\iff x_1 + y_2 = x_2 + y_1$.\nIn order to streamline the notation, we will use $\\eqclass {a, b} {}$ to mean $\\eqclass {\\tuple {a, b} } \\boxminus$, as suggested.\nFrom the method of construction, $\\eqclass {c, c} {}$, where $c$ is any element of the natural numbers $\\N$, is the identity of $\\struct {\\Z, +}$.\nTo ease the algebra, we will take $\\eqclass {0, 0} {}$ as a canonical instance of this equivalence class.\nWe need to show that:\n$\\forall a, b, c \\in \\N: \\eqclass {a, b} {} \\times \\eqclass {0, 0} {} = \\eqclass {0, 0} {} = \\eqclass {0, 0} {} \\times \\eqclass {a, b} {}$.\nFrom Natural Numbers form Commutative Semiring, we can take it for granted that addition and multiplication are commutative on the natural numbers $\\N$.\n$$\\eqclass {a, b} {} \\times \\eqclass {0, 0} {} = \\eqclass {a \\times 0 + b \\times 0, a \\times 0 + b \\times 0} {}$$\n$$= \\eqclass {0, 0} {}$$\nConstruction of Inverse Completion: Equivalence Class of Equal Elements\n$$= \\eqclass {0 \\times a + 0 \\times b, 0 \\times a + 0 \\times b} {}$$\n$$= \\eqclass {0, 0} {} \\times \\eqclass {a, b} {}$$",
+    "clean_row_index": 254,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With either factor (0,0), both coordinates of the product are zero. This class is the additive zero."
+  },
+  {
+    "theorem_id": 608,
+    "title": "Integers form Integral Domain",
+    "theorem_text": "The integers $\\Z$ form an integral domain under addition and multiplication.",
+    "proof_text": "First we note that the integers form a commutative ring with unity whose zero is $0$ and whose unity is $1$.\nNext we see that the $\\struct {\\Z, +, \\times}$ has no divisors of zero.\nSo, by definition, the algebraic structure $\\struct {\\Z, +, \\times}$ is an integral domain whose zero is $0$ and whose unity is $1$.",
+    "clean_row_index": 255,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The proof invokes the established commutative ring structure of the integers, distinct zero and unity, and absence of zero divisors, which together give a domain."
+  },
+  {
+    "theorem_id": 610,
+    "title": "Natural Numbers are Non-Negative Integers",
+    "theorem_text": "Let $m \\in \\Z$. Then:\n$(1): \\quad m \\in \\N \\iff 0 \\le m$\n$(2): \\quad m \\in \\N_{> 0} \\iff 0 < m$\n$(3): \\quad m \\notin \\N \\iff -m \\in \\N_{> 0}$\nThat is, the natural numbers are precisely those integers which are greater than or equal to zero.",
+    "proof_text": "Consider the formal definition of the integers: $x = \\eqclass {a, b} {}$ is an equivalence class of ordered pairs of natural numbers.\nLet $x \\in \\Z_{>0}$ be a (strictly) positive integer.\nThus by definition:\n$x > 0$\nThis is equivalent to the condition that $a > b$.\nHence:\n$x = \\eqclass {b + u, b} {}$\nfor some $u \\in \\N_{>0}$.\nIt is immediate that:\n$\\forall c \\in \\N: \\eqclass {b + u, b} {} = \\eqclass {c + u, c} {}$\nConsider the mapping $\\phi: \\N_{>0} \\to \\Z_{>0}$ defined as:\n$\\forall u \\in \\N_{>0}: \\map \\phi u = u'$\nwhere $u' \\in \\Z$ be the (strictly) positive integer $\\eqclass {b + u, b} {}$.\nFrom the above we have that $\\phi$ is well-defined.\nLet $\\eqclass {b + u, b} {} = \\eqclass {c + v, c} {}$.\nThen:\n$b + u + c = b + c + v$\nand so:\n$u = v$\nHence $\\phi$ is an injection.\nNext note that all $u' \\in \\Z_{>0}$ can be expressed in the form:\n$u' = \\eqclass {b + u, b} {}$\nfor arbitrary $b$.\nHence $\\phi$ is a surjection.\nHence $\\phi$ is an isomorphism.\nBy defining $\\map \\phi 0 = \\eqclass {b, b} {}$ we see that $\\N$ and $\\Z_{\\ge 0}$ are isomorphic.",
+    "clean_row_index": 256,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The class of (b+u,b) identifies precisely the positive differences with positive naturals, and equal coordinates give zero. Negating an integer reverses its sign, giving the last equivalence."
+  },
+  {
+    "theorem_id": 611,
+    "title": "Subtraction on Integers is Extension of Natural Numbers",
+    "theorem_text": "Integer subtraction is an extension of the definition of subtraction on the natural numbers.",
+    "proof_text": "Let $m, n \\in \\N: m \\le n$.\nFrom natural number subtraction, $\\exists p \\in \\N: m + p = n$ such that $n - m = p$.\nAs $m, n, p \\in \\N$, it follows that $m, n, p \\in \\Z$ as well.\nHowever, as $\\Z$ is the inverse completion of $\\N$, it follows that $-m \\in \\Z$ as well, so it makes sense to express the following:\n$$\\paren {n + \\paren {-m} } + m = n + \\paren {\\paren {-m} + m}$$\n$$= n$$\n$$= p + m$$\n$$= \\paren {n - m} + m$$\nThus, as all elements of $\\Z$ are cancellable, it follows that $n + \\paren {-m} = n - m$.\nSo:\n$\\forall m, n \\in \\Z, m \\le n: n + \\paren {-m} = n - m = n -_\\N m$\nand the result follows.",
+    "clean_row_index": 257,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The calculation proves agreement on natural operands m<=n. Its final assertion extends natural subtraction to all ordered integer pairs, including, for example, m=-1 and n=0, outside its domain."
+  },
+  {
+    "theorem_id": 613,
+    "title": "Multiplicative Ordering on Integers",
+    "theorem_text": "Let $x, y, z \\in \\Z$ such that $z > 0$.\nThen:\n$x < y \\iff z x < z y$\n$x \\le y \\iff z x \\le z y$",
+    "proof_text": "Let $z > 0$.\nLet $M_z: \\Z \\to \\Z$ be the mapping defined as:\n$\\forall x \\in \\Z: \\map {M_z} x = z x$\nAll we need to do is show that $M_z$ is an order embedding from $\\struct {\\Z, +, \\le}$ to itself.\nBy Monomorphism from Total Ordering, we just need to show that:\n$x < y \\implies z x < z y$\nIf $x < y$, then $0 < y - x$, so $z \\in \\N$ and $y - x \\in \\N$ by Natural Numbers are Non-Negative Integers.\nThus by Ordering on Natural Numbers is Compatible with Multiplication:\n$z \\paren {y - x} \\in \\N$\nTherefore\n$0 < z \\paren {y - x} = z y - z x$\nThat is:\n$z x < z y$",
+    "clean_row_index": 258,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A strict increase y-x is a positive natural, as is z. Their product is positive, proving strict preservation and hence reflection of the total order."
+  },
+  {
+    "theorem_id": 614,
+    "title": "Invertible Integers under Multiplication",
+    "theorem_text": "The only invertible elements of $\\Z$ for multiplication (that is, units of $\\Z$) are $1$ and $-1$.",
+    "proof_text": "Let $x > 0$ and $x y > 0$.\nSuppose $y \\le 0$.\nThen from Multiplicative Ordering on Integers and Ring Product with Zero:\n$x y \\le x \\, 0 = 0$\nFrom this contradiction we deduce that $y > 0$.\nNow, if we have $x > 0$ and $x y = 1$, then $y > 0$ and hence $y \\in \\N$ by Natural Numbers are Non-Negative Integers.\nHence by Invertible Elements under Natural Number Multiplication it follows that $x = 1$.\nThus $1$ is the only element of $\\N$ that is invertible for multiplication.\nTherefore by Natural Numbers are Non-Negative Integers and Product with Ring Negative, the result follows.",
+    "clean_row_index": 259,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A positive unit has a positive integer inverse and is therefore a natural-number unit. Negating a negative unit reduces it to this case, and both signs of one square to one."
+  },
+  {
+    "theorem_id": 619,
+    "title": "Integers form Totally Ordered Ring",
+    "theorem_text": "The structure $\\struct {\\Z, +, \\times, \\le}$ is a totally ordered ring.",
+    "proof_text": "From Integers form Commutative Ring, $\\struct {\\Z, +, \\times}$ is a commutative ring.\nWe need to show that $\\le$ is a compatible ordering on $\\Z$.\nThat is, that:\n$(1): \\quad \\le$ is compatible with $+$\n$(2): \\quad \\forall x, y \\in \\Z: 0 \\le x, 0 \\le y \\implies 0 \\le x \\times y$\nThe first one follows from the fact that Integers under Addition form Totally Ordered Group.\nNow, from Multiplicative Ordering on Integers, we have:\n$\\forall z, x, y \\in \\Z, 0 < y: z \\le x \\iff y \\times z \\le y \\times x$\nLet $z = 0, 0 \\le x$.\nThen:\n$0 = x \\times z \\le x \\times y = y \\times x$\nSo if $y \\ne 0$, the condition $0 \\le x, 0 \\le y \\implies 0 \\le x \\times y$ holds.\nNow if $y = 0$, we have $x \\times y = 0$ and thus $0 \\le x \\times y$.\nThus $\\le$ is compatible with $\\Z$, and the result follows.",
+    "clean_row_index": 260,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The additive order is already total and translation invariant. Multiplication by positive y preserves 0<=x, and the product is zero in the remaining case y=0."
+  },
+  {
+    "theorem_id": 621,
+    "title": "Number of Elements in Partition",
+    "theorem_text": "Let $S$ be a set.\nLet there be a partition on $S$ of $n$ subsets, each of which has $m$ elements.\nThen:\n$\\card S = n m$",
+    "proof_text": "Let the partition of $S$ be $S_1, S_2, \\ldots, S_n$.\nThen:\n$\\forall k \\in \\set {1, 2, \\ldots, n}: \\card {S_k} = m$\nBy definition of multiplication:\n$\\displaystyle \\sum_{k \\mathop = 1}^n \\card {S_k} = n m$\nand the result follows from the Fundamental Principle of Counting.",
+    "clean_row_index": 261,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Summing the cardinalities of the n disjoint blocks adds m exactly n times."
+  },
+  {
+    "theorem_id": 622,
+    "title": "Cardinality of Complement",
+    "theorem_text": "Let $T \\subseteq S$ such that $\\card S = n, \\card T = m$.\nThen:\n$\\card {\\relcomp S T} = \\card {S \\setminus T} = n - m$\nwhere:\n$\\relcomp S T$ denotes the complement of $T$ relative to $S$\n$S \\setminus T$ denotes the difference between $S$ and $T$.",
+    "proof_text": "The result is obvious for $S = T$ or $T = \\O$.\nOtherwise, $\\set {T, S \\setminus T}$ is a partition of $S$.\nLet $\\card {S \\setminus T} = p$.\nThen by the Fundamental Principle of Counting:\n$m + p = n$\nand the result follows.",
+    "clean_row_index": 262,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In the finite-cardinality setting, the complement and T partition S. Their sizes sum to n, including the straightforward empty and full cases."
+  },
+  {
+    "theorem_id": 623,
+    "title": "Cardinality of Cartesian Product",
+    "theorem_text": "Let $S \\times T$ be the cartesian product of two finite sets $S$ and $T$.\nThen:\n$\\card {S \\times T} = \\card S \\times \\card T$\nwhere $\\card S$ denotes cardinality.",
+    "proof_text": "Let $\\card S = n$ and $\\card T = m$.\nIf either $n = 0$ or $m = 0$, then from Cartesian Product is Empty iff Factor is Empty:\n$S \\times T = \\O$\nand the result holds, as $n m = 0 = \\card \\O$ from Cardinality of Empty Set.\nSo, we assume that $n > 0$ and $m > 0$.\nFor each $a \\in S$, we define the mapping $g_a: T \\to \\set a \\times T$ such that:\n$\\forall y \\in T: \\map {g_a} y = \\tuple {a, y}$\nThe mapping $g_a$ is a bijection, so:\n$\\card {\\set a \\times T} = m$\nNow let:\n$\\mathbb T = \\set {\\set a \\times T: a \\in S}$\nWe define the mapping $h: S \\to \\mathbb T$:\n$\\forall a \\in S: \\map h a = \\set a \\times T$\nThe mapping $h$ is a bijection, so $\\card {\\mathbb T} = n$.\nThus $\\mathbb T$ is a partition of $S \\times T$ containing $n$ sets.\nHence from Number of Elements in Partition:\n$\\card {S \\times T} = n m$\nand the result follows.",
+    "clean_row_index": 263,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For nonempty factors the fibers over first coordinates partition the product into n copies of T. The proof separately handles an empty factor."
+  },
+  {
+    "theorem_id": 626,
+    "title": "Cardinality of Power Set of Finite Set",
+    "theorem_text": "Let $S$ be a set such that:\n$\\card S = n$\nwhere $\\card S$ denotes the cardinality of $S$,\nThen:\n$\\card {\\powerset S} = 2^n$\nwhere $\\powerset S$ denotes the power set of $S$.",
+    "proof_text": "Let $T = \\set {0, 1}$.\nFor each $A \\in \\powerset S$, we consider the characteristic function $\\chi_A: S \\to T$ defined as:\n$\\forall x \\in S: \\map {\\chi_A} x = \\begin{cases}\n1 & : x \\in A \\\\\n0 & : x \\notin A\n\\end{cases}$\nNow consider the mapping $f: \\powerset S \\to T^S$:\n$\\forall A \\in \\powerset S: \\map f A = \\chi_A$\nwhere $T^S$ is the set of all mappings from $S$ to $T$.\nAlso, consider the mapping $g: T^S \\to \\powerset S$:\n$\\forall \\phi \\in T^S: \\map g \\phi = \\phi^{-1} \\sqbrk {\\set 1}$\nwhere $\\phi^{-1} \\sqbrk {\\set 1}$ is the preimage of $\\set 1$ under $\\phi$.\nConsider the characteristic function of $\\phi^{-1} \\sqbrk {\\set 1}$, denoted $\\chi_{\\phi^{-1} \\sqbrk {\\set 1} }$.\nWe have:\n$$\\forall x \\in S: \\map {\\chi_{\\phi^{-1} \\sqbrk {\\set 1} } } x = \\begin{cases} 1 & : x \\in \\phi^{-1} \\sqbrk {\\set 1} \\\\ 0 & : x \\notin \\phi^{-1} \\sqbrk {\\set 1} \\end{cases}$$\n$$= \\begin{cases} 1 & : \\map \\phi x = 1 \\\\ 0 & : \\map \\phi x = 0 \\end{cases}$$\n$$= \\map \\phi x$$\nSo:\n$$\\forall \\phi \\in T^S: \\map {\\paren {f \\circ g} } \\phi = \\map f {\\phi^{-1} } {\\sqbrk {\\set 1} }$$\n$$= \\chi_{\\phi^{-1} \\sqbrk {\\set 1} }$$\n$$= \\phi$$\nSo $f \\circ g = I_{T^S}$, that is, the identity mapping on $T^S$.\nSo far so good. Now we consider the preimage of $\\set 1$ under $\\chi_A$:\n$\\chi_A^{-1} \\sqbrk {\\set 1} = A$\nfrom the definition of the characteristic function $\\chi_A$ above.\nThus:\n$$\\forall A \\in \\powerset S: \\map {\\paren {g \\circ f} } A = \\map g {\\map f A}$$\n$$= \\map g {\\chi_A}$$\n$$= \\chi_A^{-1} \\sqbrk {\\set 1}$$\n$$= A$$\nSo $g \\circ f = I_{\\powerset S}$, that is, the identity mapping on $\\powerset S$.\nIt follows from Bijection iff Left and Right Inverse that $f$ and $g$ are bijections.\nThus by Cardinality of Set of All Mappings the result follows.",
+    "clean_row_index": 264,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A subset and its characteristic function determine one another by taking the preimage of one, so counting binary-valued functions gives 2^n."
+  },
+  {
+    "theorem_id": 626,
+    "title": "Cardinality of Power Set of Finite Set",
+    "theorem_text": "Let $S$ be a set such that:\n$\\card S = n$\nwhere $\\card S$ denotes the cardinality of $S$,\nThen:\n$\\card {\\powerset S} = 2^n$\nwhere $\\powerset S$ denotes the power set of $S$.",
+    "proof_text": "Enumerating the subsets of $S$ is equivalent to counting all of the ways of selecting $k$ out of the $n$ elements of $S$ with $k = 0, 1, \\ldots, n$.\nSo, from Cardinality of Set of Subsets, the number we are looking for is:\n$\\displaystyle \\card {\\powerset S} = \\sum_{k \\mathop = 0}^n \\binom n k$\nBut from the binomial theorem:\n$\\displaystyle \\paren {x + y}^n = \\sum_{k \\mathop = 0}^n \\binom n k x^{n - k} y^k$\nIt follows that:\n$2^n = \\displaystyle \\paren {1 + 1}^n = \\sum_{k \\mathop = 0}^n \\binom n k \\paren 1^{n - k} \\paren 1^k = \\sum_{k \\mathop = 0}^n \\binom n k = \\card {\\powerset S}$",
+    "clean_row_index": 265,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Sorting subsets by size yields the sum of the binomial coefficients, which is the binomial expansion of (1+1)^n."
+  },
+  {
+    "theorem_id": 626,
+    "title": "Cardinality of Power Set of Finite Set",
+    "theorem_text": "Let $S$ be a set such that:\n$\\card S = n$\nwhere $\\card S$ denotes the cardinality of $S$,\nThen:\n$\\card {\\powerset S} = 2^n$\nwhere $\\powerset S$ denotes the power set of $S$.",
+    "proof_text": "Given an element $x$ of $S$, each subset of $S$ either includes $x$ or does not include $x$ (this follows directly from the definition of a set), which gives us two possibilities.\nThe same reasoning holds for any element of $S$.\nOne can intuitively see that this means that there are $\\displaystyle \\underbrace {2 \\times 2 \\times \\ldots \\times 2}_{\\card S} = 2^{\\card S}$ total possible combinations of elements of $S$.\nThis is exactly $\\card {\\powerset S}$.",
+    "clean_row_index": 266,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The independently available inclusion and exclusion decisions specify each subset uniquely, giving two choices per element and one empty choice when n=0."
+  },
+  {
+    "theorem_id": 629,
+    "title": "Cardinality of Set of Subsets",
+    "theorem_text": "Let $S$ be a set such that $\\card S = n$.\nLet $m \\le n$.\nThen the number of subsets $T$ of $S$ such that $\\card T = m$ is:\n${}^m C_n = \\dfrac {n!} {m! \\paren {n - m}!}$",
+    "proof_text": "Let $\\N_n$ denote the set $\\set {1, 2, \\ldots, n}$.\nLet $\\struct {S_n, \\circ}$ denote the symmetric group on $\\N_n$.\nLet $r \\in \\N: 0 < r \\le n$.\nLet $B_r$ denote the set of all subsets of $\\N_n$ of cardinality $r$:\n$B_r  := \\set {S \\subseteq \\N_n: \\card S = r}$\nLet $*$ be the mapping $*: S_n \\times B_r \\to B_r$ defined as:\n$\\forall \\pi \\in S_n, \\forall S \\in B_r: \\pi * B_r = \\pi \\sqbrk S$\nwhere $\\pi \\sqbrk S$ denotes the image of $S$ under $\\pi$.\nFrom Group Action of Symmetric Group on Subset it is established that $*$ is a group action.\nThe stabilizer of any $U \\in B_r$ is the set of permutations on $\\N_n$ that fix $U$.\nLet $U = \\set {1, 2, \\ldots, r}$.\nSo:\n$\\tuple {a_1, a_2, \\ldots, a_r}$ can be any one of the $r!$ permutations of $1, 2, \\ldots, r$\n$\\tuple {a_{r + 1}, a_{r + 2}, \\ldots, _n}$ can be any one of the $\\paren {n - r}!$ permutations of $r + 1, r + 2, \\ldots, n$.\nThus:\n$\\order {\\Stab U} = r! \\paren {n - r}!$\nFrom Group Action of Symmetric Group on Subset is Transitive:\n$B_r = \\Orb U$\nand so:\n$\\card {B_r} = \\card {\\Orb U}$\nFrom the Orbit-Stabilizer Theorem:\n$\\card {\\Orb U} = \\dfrac {\\order {S_n} } {\\order {\\Stab U} } = \\dfrac {n!} {r! \\paren {n - r}!}$\nBut $\\card {B_r}$ is the number of subsets of $\\N_n$ of cardinality $r$.\nHence the result.",
+    "clean_row_index": 267,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The transitive symmetric-group action has setwise stabilizer of size r!(n-r)!, giving the claimed quotient. The omitted r=0 boundary is immediate from the unique empty subset."
+  },
+  {
+    "theorem_id": 629,
+    "title": "Cardinality of Set of Subsets",
+    "theorem_text": "Let $S$ be a set such that $\\card S = n$.\nLet $m \\le n$.\nThen the number of subsets $T$ of $S$ such that $\\card T = m$ is:\n${}^m C_n = \\dfrac {n!} {m! \\paren {n - m}!}$",
+    "proof_text": "The proof proceeds by induction.\nFor all $n \\in \\Z_{\\ge 0}$, let $\\map P n$ be the proposition:\n${}^m C_n = \\dfrac {n!} {m! \\paren {n - m}!}$\nBasis for the Induction\n$\\map P 1$ is the case:\n${}^m C_n = \\dfrac {n!} {m! \\paren {n - m}!}$\n$${}^m C_1 = \\begin {cases} 1 & : m = 0 \\text { or } m = 1 \\\\ 0 & : \\text {otherwise} \\end {cases}$$\n$$= \\dfrac {1!} {0! \\paren {1 - 0}!}$$\nfor $m = 0$\n$$= \\dfrac {1!} {1! \\paren {1 - 1}!}$$\nfor $m = 1$\nThus $\\map P 1$ is seen to hold.\nThis is the basis for the induction.\nInduction Hypothesis\nNow it needs to be shown that, if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is the induction hypothesis:\n${}^m C_k = \\dfrac {k!} {m! \\paren {k - m}!}$\nfrom which it is to be shown that:\n${}^m C_{k + 1} = \\dfrac {\\paren {k + 1}!} {m! \\paren {k + 1 - m}!}$\nInduction Step\nThis is the induction step:\nThe number of ways to choose $m$ elements from $k + 1$ elements is:\n:the number of ways to choose $m$ elements elements from $k$ elements (deciding not to select the $k + 1$th element)\nadded to:\n:the number of ways to choose $m - 1$ elements elements from $k$ elements (after having selected the $k + 1$th element for the $n$th selection)\n$${}^m C_{k + 1} = {}^m C_k + {}^{m - 1} C_k$$\n$$= \\binom k m + \\binom k {m - 1}$$\nInduction Hypothesis\n$$= \\binom {k + 1} m$$\nPascal's Rule\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\forall n \\in \\Z_{>0}: {}^m C_n = \\dfrac {n!} {m! \\paren {n - m}!}$",
+    "clean_row_index": 268,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Separating subsets according to the last element yields Pascal's rule for the interior sizes. The extreme sizes and the empty ground set each have a unique subset of the required size."
+  },
+  {
+    "theorem_id": 631,
+    "title": "Set of Integers Bounded Above by Integer has Greatest Element",
+    "theorem_text": "Let $\\Z$ be the set of integers.\nLet $\\le$ be the ordering on the integers.\nLet $\\O \\subset S \\subseteq \\Z$ such that $S$ is bounded above in $\\struct {\\Z, \\le}$.\nThen $S$ has a greatest element.",
+    "proof_text": "$S$ is bounded above, so $\\exists M \\in \\Z: \\forall s \\in S: s \\le M$.\nHence $\\forall s \\in S: 0 \\le M - s$.\nThus the set $T = \\set {M - s: s \\in S} \\subseteq \\N$.\nThe Well-Ordering Principle gives that $T$ has a smallest element, which we can call $b_T \\in T$.\nHence:\n$\\paren {\\forall s \\in S: b_T \\le M - s} \\land \\paren {\\exists g_S \\in S: b_T = M - g_S}$\nSo:\n$$\\forall s \\in S: M - g_S \\le M - s$$\n$$\\leadsto \\forall s \\in S: -g_S \\le -s$$\nCancellability of elements of $\\Z$\n$$\\leadsto \\forall s \\in S: g_S \\ge s$$\n$$\\leadsto g_S \\in S \\land \\paren {\\forall s \\in S: g_S \\ge s}$$\nwhich is how the greatest element is defined.\nSo $g_S$ is the greatest element of $S$.",
+    "clean_row_index": 269,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The set of differences from an upper bound is nonempty and consists of naturals. Its least difference corresponds to an element of S greater than or equal to every member."
+  },
+  {
+    "theorem_id": 631,
+    "title": "Set of Integers Bounded Above by Integer has Greatest Element",
+    "theorem_text": "Let $\\Z$ be the set of integers.\nLet $\\le$ be the ordering on the integers.\nLet $\\O \\subset S \\subseteq \\Z$ such that $S$ is bounded above in $\\struct {\\Z, \\le}$.\nThen $S$ has a greatest element.",
+    "proof_text": "Since $S$ is bounded above, $\\exists M \\in \\Z: \\forall s \\in S: s \\le M$.\nHence we can define the set $S' = \\set {-s: s \\in S}$.\n$S'$ is bounded below by $-M$.\nSo from Set of Integers Bounded Below by Integer has Smallest Element, $S'$ has a smallest element, $-g_S$, say, where $\\forall s \\in S: -g_S \\le -s$.\nTherefore $g_S \\in S$ (by definition of $S'$) and $\\forall s \\in S: s \\le g_S$.\nSo $g_S$ is the greatest element of $S$.",
+    "clean_row_index": 270,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Negating the nonempty set gives a lower-bounded set of integers. Negating its least element produces an upper bound belonging to the original set."
+  }
+]

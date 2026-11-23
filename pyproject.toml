@@ -1,0 +1,24 @@
+[project]
+name = "dsa495-proof-verification"
+version = "0.1.0"
+description = "DSA 495 proof validity classification notebooks"
+requires-python = ">=3.12,<3.15"
+dependencies = [
+    "ipykernel>=6.30",
+    "matplotlib>=3.11.2",
+    "pandas>=2.3",
+    "scikit-learn>=1.7",
+    "sentencepiece>=0.2.3",
+    "torch>=2.11",
+    "transformers>=4.57,<5",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu128", marker = "sys_platform == 'win32' and platform_machine == 'AMD64'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true

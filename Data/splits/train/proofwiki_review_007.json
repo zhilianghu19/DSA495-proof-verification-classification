@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 449,
+    "title": "Null Ring iff Zero and Unity Coincide",
+    "theorem_text": "The null ring is the only ring in which the unity and zero coincide.",
+    "proof_text": "The single element of the null ring serves as an identity for both of the operations.\nSo, in this particular ring, the unity and the zero are the same element.\nA non-null ring contains some non-zero element $a$.\nSince $1_R \\circ a = a \\ne 0_R = 0_R \\circ a$, then $1_R \\ne 0_R$.\nSo if a ring is non-null, its unity cannot be zero.\nSo a ring is null if and only if its unity is also its zero.",
+    "clean_row_index": 180,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In the singleton ring the sole element serves both roles. In any nontrivial unital ring the actions of 1 and 0 differ on a nonzero element."
+  },
+  {
+    "theorem_id": 452,
+    "title": "Negative of Product Inverse",
+    "theorem_text": "Let $\\left({R, +, \\circ}\\right)$ be a ring with unity.\nLet $z \\in U_R$, where $U_R$ is the set of units.\nThen:\n$\\left({- z}\\right)^{-1} = - \\left({z^{-1}}\\right)$.\nwhere $z^{-1}$ is the ring product inverse of $z$.",
+    "proof_text": "Let the unity of $\\left({R, +, \\circ}\\right)$ be $1_R$.\n$$\\left({- \\left({z^{-1} }\\right)}\\right) \\circ \\left({- z}\\right) = z^{-1} \\circ z$$\nProduct of Ring Negatives\n$$= 1_R$$\nInverse under $\\circ$\n$$= z \\circ z^{-1}$$\nInverse under $\\circ$\n$$= \\left({- z}\\right) \\circ \\left({- \\left({z^{-1} }\\right)}\\right)$$\nProduct of Ring Negatives\nThus:\n$\\left({- z}\\right)^{-1} = - \\left({z^{-1}}\\right)$",
+    "clean_row_index": 181,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplying the proposed inverse by -z in either order cancels the two signs and gives the identity."
+  },
+  {
+    "theorem_id": 459,
+    "title": "Zero Product with Proper Zero Divisor is with Zero Divisor",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a ring.\nLet $x \\in R$ be a proper zero divisor of $R$.\nThen:\n$\\paren {x \\divides 0_R} \\land \\paren {x \\circ y = 0_R} \\land \\paren {y \\ne 0_R} \\implies y \\divides 0_R$\nThat is, if $x$ is a proper zero divisor, then whatever non-zero element you form the product with it by to get zero must itself be a zero divisor.",
+    "proof_text": "Follows directly from the definition of proper zero divisor.\nIf $y \\ne 0_R$ and $x \\circ y = 0_R$ and $x \\in R^*$ (which is has to be if it's a proper zero divisor), then all the criteria of being a zero divisor are fulfilled by $y$.",
+    "clean_row_index": 182,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The nonzero element x witnesses that the nonzero y is annihilated on the left, which suffices for the stated zero-divisor convention."
+  },
+  {
+    "theorem_id": 463,
+    "title": "Ring Element is Zero Divisor iff not Cancellable",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a ring which is not null.\nLet $z \\in R^*$.\nThen $z$ is a zero divisor if and only if $z$ is not cancellable for $\\circ$.",
+    "proof_text": "Sufficient Condition\nIf $z \\circ x = 0_R$ or $x \\circ z = 0_R$ for some $x \\in R^*$, then $z$ can not be cancellable for $\\circ$ since $z \\circ 0_R = 0_R = 0_R \\circ z$.\nNecessary Condition\nLet $z \\circ x = z \\circ y$ where $x \\ne y$.\nThen:\n$$z \\circ \\paren {x + \\paren {-y} } = z \\circ x + z \\circ \\paren {-y}$$\n$\\circ$ distributes over $+$\n$$= z \\circ x + \\paren {-z \\circ y}$$\nProduct with Ring Negative\n$$= 0_R$$\nas $z \\circ x = z \\circ y$\nBut $x \\ne y$, so $x + \\paren {-y} \\ne 0$.\nThus $z$ is a zero divisor.\nSimilarly if $x \\circ z = y \\circ z$ where $x \\ne y$.",
+    "clean_row_index": 183,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A nonzero annihilator gives two distinct inputs with the same product. Conversely a cancellation failure produces the nonzero annihilator x-y on the corresponding side."
+  },
+  {
+    "theorem_id": 466,
+    "title": "Non-Zero Elements of Division Ring form Group",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a division ring.\nThen $\\struct {R^*, \\circ}$ is a group.",
+    "proof_text": "A division ring by definition is a ring with unity, and therefore not null.\nA division ring by definition has no zero divisors, so $\\struct {R^*, \\circ}$  is a semigroup.\n$1_R \\in \\struct {R^*, \\circ}$ and so the identity of $\\circ$ is in $\\struct {R^*, \\circ}$.\nBy the definition of a division ring, each element of $\\struct {R^*, \\circ}$ is a unit, and therefore has a unique inverse in $\\struct {R^*, \\circ}$.\nThus $\\struct {R^*, \\circ}$ is a semigroup with an identity and inverses and so is a group.",
+    "clean_row_index": 184,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Nonzero products stay nonzero, multiplication is associative, and the identity and inverses of all nonzero elements belong to the nonzero subset."
+  },
+  {
+    "theorem_id": 470,
+    "title": "Centralizer of Ring Subset is Subring",
+    "theorem_text": "Let $S$ be a subset of a ring $\\struct {R, +, \\circ}$\nThen $\\map {C_R} S$, the centralizer of $S$ in $R$, is a subring of $R$.",
+    "proof_text": "Certainly $0_R \\in \\map {C_R} S$ as $0_R$ commutes (trivially) with all elements of $R$.\nSuppose $x, y \\in \\map {C_R} S$.\nThen:\n$$\\forall s \\in S: s \\circ \\paren {x + \\paren {-y} } = s \\circ x + s \\circ \\paren {-y}$$\nDistributivity of $\\circ$ over $+$\n$$= x \\circ s + \\paren {-y} \\circ s$$\n$x$ and $y$ are in $\\map {C_R} S$\n$$= \\paren {x + \\paren {-y} } \\circ s$$\nDistributivity of $\\circ$ over $+$\nSo:\n$x + \\paren {-y} \\in \\map {C_R} s$\nSuppose $x, y \\in \\map {C_R} S$ again.\nThen from Element Commutes with Product of Commuting Elements:\n$x \\circ y \\in \\map {C_R} S$\nThus all the conditions are fulfilled for Subring Test, and $\\map {C_R} S$ is a subring of $R$.",
+    "clean_row_index": 185,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Zero commutes with S. Distributivity proves closure under differences, and associativity gives closure under products of elements commuting with each s."
+  },
+  {
+    "theorem_id": 473,
+    "title": "Ring is Ideal of Itself",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a ring.\nThen $R$ is an ideal of $R$.",
+    "proof_text": "From Null Ring and Ring Itself Subrings, $\\struct {R, +, \\circ}$ is a subring of $\\struct {R, +, \\circ}$.\nAlso:\n$\\forall x, y \\in \\struct {R, +, \\circ}: x \\circ y \\in R$\nthus fulfilling the condition for $R$ to be an ideal of $R$.",
+    "clean_row_index": 186,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The whole ring is a subring, and closure of ring multiplication supplies absorption on both sides."
+  },
+  {
+    "theorem_id": 476,
+    "title": "Epimorphism Preserves Rings",
+    "theorem_text": "Let $\\struct {R_1, +_1, \\circ_1}$ be a ring, and $\\struct {R_2, +_2, \\circ_2}$ be a closed algebraic structure.\nLet $\\phi: R_1 \\to R_2$ be an epimorphism.\nThen $\\struct {R_2, +_2, \\circ_2}$ is a ring.",
+    "proof_text": "From Epimorphism Preserves Groups, we have that if $\\struct {R_1, +_1}$ is a group then so is $\\struct {R_2, +_2}$.\nFrom Epimorphism Preserves Semigroups, we have that if $\\struct {R_1, \\circ_1}$ is a semigroup then so is $\\struct {R_2, \\circ_2}$.\nFrom Epimorphism Preserves Distributivity, we have that if $\\circ_1$ distributes over $+_1$ then $\\circ_2$ distributes over $+_2$.\nSo it follows from the definition of a ring that if $\\struct {R_1, +_1, \\circ_1}$ is a ring then so is $\\struct {R_2, +_2, \\circ_2}$.",
+    "clean_row_index": 187,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Surjectivity transports the additive group, multiplicative semigroup and both distributive laws. Additive commutativity also transfers by adding preimages in either order."
+  },
+  {
+    "theorem_id": 477,
+    "title": "Ring Homomorphism of Addition is Group Homomorphism",
+    "theorem_text": "Let $\\phi: \\left({R_1, +_1, \\circ_1}\\right) \\to \\left({R_2, +_2, \\circ_2}\\right)$ be a ring homomorphism.\nThen $\\phi: \\left({R_1, +_1}\\right) \\to \\left({R_2, +_2}\\right)$ is a group homomorphism.",
+    "proof_text": "From the definition of a ring, both $\\left({R_1, +_1}\\right)$ and $\\left({R_2, +_2}\\right)$ are abelian groups.\nThe result follows from the definitions of ring homomorphism and group homomorphism.",
+    "clean_row_index": 188,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both additive structures are groups and the defining additive identity for a ring homomorphism is precisely preservation of their group operation."
+  },
+  {
+    "theorem_id": 478,
+    "title": "Element of Integral Domain Divides Zero",
+    "theorem_text": "Let $\\struct {D, +, \\circ}$ be an integral domain whose zero is $0_D$.\nThen every element of $D$ is a divisor of zero:\n$\\forall x \\in D: x \\divides 0_D$",
+    "proof_text": "By definition, an integral domain is a ring.\nSo, from Ring Product with Zero:\n$\\forall x \\in D: 0_D = x \\circ 0_D$.\nThe result follows from the definition of divisor.",
+    "clean_row_index": 189,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The displayed factorization of 0 as x times 0 gives the required divisibility witness for every x, including zero."
+  },
+  {
+    "theorem_id": 479,
+    "title": "Unity Divides All Elements",
+    "theorem_text": "Let $\\struct {D, +, \\circ}$ be an integral domain whose unity is $1_D$.\nThen unity is a divisor of every element of $D$:\n$\\forall x \\in D: 1_D \\divides x$\nAlso:\n$\\forall x \\in D: -1_D \\divides x$",
+    "proof_text": "The element $1_D$ is the unity of $\\struct {D, +, \\circ}$, and so:\n$1_D \\in D: x = 1_D \\circ x$\nSimilarly, from Product of Ring Negatives:\n$-1_D \\in D: x = \\paren {-1_D} \\circ \\paren {-x}$\nThe result follows from the definition of divisor.",
+    "clean_row_index": 190,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The witnesses for divisibility by 1 and -1 are respectively x and -x."
+  },
+  {
+    "theorem_id": 479,
+    "title": "Unity Divides All Elements",
+    "theorem_text": "Let $\\struct {D, +, \\circ}$ be an integral domain whose unity is $1_D$.\nThen unity is a divisor of every element of $D$:\n$\\forall x \\in D: 1_D \\divides x$\nAlso:\n$\\forall x \\in D: -1_D \\divides x$",
+    "proof_text": "This is a special case of Unit of Integral Domain divides all Elements, as Unity is Unit.\nFurthermore, from Unity and Negative form Subgroup of Units we also have that $-1_D$ is a unit of $D$.\nHence the result.",
+    "clean_row_index": 191,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited divisibility result for units applies to each of the two elements because both 1 and -1 are units."
+  },
+  {
+    "theorem_id": 482,
+    "title": "Divisor of Unit is Unit",
+    "theorem_text": "Let $\\struct {D, +, \\circ}$ be an integral domain whose unity is $1_D$.\nLet $\\struct {U_D, \\circ}$ be the group of units of $\\struct {D, +, \\circ}$.\nThen:\n$x \\in D, u \\in U_D: x \\divides u \\implies x \\in U_D$\nThat is, if $x$ is a divisor of a unit, $x$ must itself be a unit.",
+    "proof_text": "Let $x \\in D, u \\in U_D$ such that $x \\divides u$.\nBy definition:\n$\\exists t \\in D: u = t \\circ x$\nThus:\n$1_D = u^{-1} \\circ u = u^{-1} \\circ t \\circ x$\nAlso, as $D$ is an integral domain and hence a commutative ring, we have:\n$u^{-1} \\circ t \\circ x = 1_D = x \\circ u^{-1} \\circ t$\nIt follows by definition that $x$ is a unit, as it has an inverse, namely $u^{-1} \\circ t$.",
+    "clean_row_index": 192,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "From u=tx, multiplying by the inverse of u exhibits the inverse of x as u inverse times t. Commutativity gives the other product order."
+  },
+  {
+    "theorem_id": 484,
+    "title": "Divisor Relation in Integral Domain is Transitive",
+    "theorem_text": "Let $\\struct {D, +, \\circ}$ be an integral domain.\nLet $x, y, z \\in D$.\nThen:\n$x \\divides y \\land y \\divides z \\implies x \\divides z$",
+    "proof_text": "Let $x \\divides y \\land y \\divides z$.\nThen from the definition of divisor, we have:\n$x \\divides y \\iff \\exists s \\in D: y = s \\circ x$\n$y \\divides z \\iff \\exists t \\in D: z = t \\circ y$\nThen:\n$z = t \\circ \\paren {s \\circ x} = \\paren {t \\circ s} \\circ x$\nThus:\n$\\exists \\paren {t \\circ s} \\in D: z = \\paren {t \\circ s} \\circ x$\nand the result follows.",
+    "clean_row_index": 193,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Substitution gives z=(ts)x with ts in the domain, which witnesses divisibility."
+  },
+  {
+    "theorem_id": 488,
+    "title": "Field is Integral Domain",
+    "theorem_text": "Every field is an integral domain.",
+    "proof_text": "This result follows directly from:\n:Field has no Proper Zero Divisors\n:By definition, that a field is a commutative ring.",
+    "clean_row_index": 195,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A field is a nontrivial commutative ring with unity, and the cited no-zero-divisors result supplies the remaining integral-domain property."
+  },
+  {
+    "theorem_id": 488,
+    "title": "Field is Integral Domain",
+    "theorem_text": "Every field is an integral domain.",
+    "proof_text": "Let $\\struct {F, +, \\circ}$ be a field whose zero is $0_F$ and whose unity is $1_F$.\nSuppose $\\exists x, y \\in F: x \\circ y = 0_F$.\nSuppose $x \\ne 0_F$.\nThen, by the definition of a field, $x^{-1}$ exists in $F$ and:\n$y = 1_F \\circ y = x^{-1} \\circ x \\circ y = x^{-1} \\circ 0_F = 0_F$.\nOtherwise $x = 0_F$.\nSo if $x \\circ y = 0_F$, either $x = 0_F$ or $y = 0_F$ as we were to show.",
+    "clean_row_index": 196,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "When x is nonzero, left multiplication by its inverse forces y=0 from xy=0. This proves the required zero-product property in the field."
+  },
+  {
+    "theorem_id": 489,
+    "title": "Finite Integral Domain is Galois Field",
+    "theorem_text": "A finite integral domain is a Galois field.",
+    "proof_text": "Let $R$ be a finite integral domain whose unity is $1$ and whose zero is $0$.\nLet $a \\in R$ such that $a \\ne 0$.\nWe wish to show that $a$ has a product inverse in $R$. So consider the map $f: R \\to R$ defined by $f: x \\mapsto a x$.\nWe first show that the kernel of $f$ is trivial.\nConsider that:\n$\\map \\ker f = \\set {x \\in R: \\map f x = 0} = \\set {x \\in R: a x = 0}$\nSince $R$ is an integral domain, it has no proper zero divisors and thus $a x = 0$ means that $a = 0$ or $x = 0$.\nSince, by definition, $a \\ne 0$, then it must be true that $x = 0$.\nTherefore, $\\map \\ker f = \\set 0$ and so $f$ is injective.\nNext, the Pigeonhole Principle gives us that an injective mapping from a finite set onto itself is surjective.\nSince $R$ is finite, the mapping $f$ is surjective.\nFinally, since $f$ is surjective and $1 \\in R$, we have:\n$\\exists x \\in R: \\map f x = a x = 1$\nSo this $x$ is the product inverse of $a$ and the proof is complete.",
+    "clean_row_index": 197,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplication by a is additive and has trivial kernel. Finiteness makes this injection surjective, and a preimage of 1 is the desired inverse."
+  },
+  {
+    "theorem_id": 489,
+    "title": "Finite Integral Domain is Galois Field",
+    "theorem_text": "A finite integral domain is a Galois field.",
+    "proof_text": "Let $R$ be a finite integral domain with unity $1$ and zero $0$.\nLet $R^*$ denote $R \\setminus \\set 0$, the set $R$ without the zero.\nAs $R$ is finite, we may enumerate the elements of $R$ as:\n$x_0 = 0, x_1 = 1, x_2, x_3, \\ldots, x_n$\nLet $R^*$.\nConsider the elements:\n$x_k x_1, x_k x_2, \\ldots, x_k x_n$\nwhich are members of $R$ by closure of the ring product.\nSince $R$ is an integral domain, by definition it has no proper zero divisors.\nTherefore all of $x_k x_1, x_k x_2, \\ldots, x_k x_n$ are elements of $R^*$.\nRecall:\n$x_k x_p = x_k x_q \\implies x_p = x_q$\nby the Cancellation Law of Ring Product of Integral Domain.\nSo the list of products consists of $n$ distinct elements and is therefore equal to the whole $R^*$.\nSince $1 \\in R^*$, we have that $x_k x_{k^*} = 1$ for some $k^*$.\nTherefore, there exists an inverse for every non-zero element, so $R$ is a field.\nAs the underlying set of $R$ is finite, $R$ is by definition a Galois field.",
+    "clean_row_index": 198,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For each nonzero indexed multiplier, cancellation makes its nonzero products distinct. They exhaust the finite nonzero set and therefore include 1."
+  },
+  {
+    "theorem_id": 489,
+    "title": "Finite Integral Domain is Galois Field",
+    "theorem_text": "A finite integral domain is a Galois field.",
+    "proof_text": "An integral domain is by definition a ring which has no proper zero divisors.\nBy definition, a Galois field is a field whose underlying set is finite.\nThe result follows from Finite Ring with No Proper Zero Divisors is Field.",
+    "clean_row_index": 199,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited finite-ring theorem applies because the integral domain is finite, nontrivial, and has no proper zero divisors."
+  },
+  {
+    "theorem_id": 491,
+    "title": "Center of Division Ring is Subfield",
+    "theorem_text": "Let $\\struct {K, +, \\circ}$ be an division ring.\nThen $\\map Z K$, the center of $K$, is a subfield of $K$.",
+    "proof_text": "For $\\map Z K$ to be a subfield of $K$, it needs to be a division ring that is commutative.\nThus the result follows directly from Center of Ring is Commutative Subring.",
+    "clean_row_index": 200,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "A commutative subring of a division ring need not be a field. The proof omits the argument that each nonzero central element has an inverse in the center."
+  },
+  {
+    "theorem_id": 495,
+    "title": "Cosets are Equivalent",
+    "theorem_text": "All left cosets of a group $G$ with respect to a subgroup $H$ are equivalent.\nThat is, any two left cosets are in one-to-one correspondence.\nThe same applies to right cosets.\nAs a special case of this:\n$\\forall x \\in G: \\order {x H} = \\order H = \\order {H x}$\nwhere $H$ is a subgroup of $G$.",
+    "proof_text": "Let us set up mappings $\\theta: H \\to H x$ and $\\phi: H x \\to H$ as follows:\n$\\forall u \\in H: \\map \\theta u = u x$\n$\\forall v \\in H x: \\map \\phi v = v x^{-1}$\nFrom Element in Right Coset iff Product with Inverse in Subgroup:\n$v \\in H x \\implies v x^{-1} \\in H$\nNow:\n$\\forall v \\in H x: \\theta \\circ \\map \\phi v = v x^{-1} x = v$\n$\\forall u \\in H: \\phi \\circ \\map \\theta u = u x x^{-1} = u$\nThus $\\theta \\circ \\phi = I_{H x}$ and $\\phi \\circ \\theta = I_H$ are identity mappings.\nSo $\\theta = \\phi^{-1}$: both are bijections and one is the inverse of the other.\nThis establishes, for each $x \\in G$, the set equivalence between $H$ and $H x$:\n$H \\simeq H x$\nIn particular, for any $x, y \\in G$, it follows from $H x \\simeq H$ and $H y \\simeq H$ that:\n$H x \\simeq H y$\nby Set Equivalence is Equivalence Relation.\nSimilarly, we can set up mappings $\\alpha: H \\to x H$ and $\\beta: x H \\to H$ as follows:\n$\\forall u \\in H: \\map \\alpha u = x u$\n$\\forall v \\in x H: \\map \\beta v = x^{-1} v$\nAnalogous to above reasoning gives $\\alpha = \\beta^{-1}$ which establishes $H \\simeq x H$.\nAlso similarly, $x H \\simeq y H$ for all $x, y \\in G$.\nHence the result.",
+    "clean_row_index": 201,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Translation by x on either side bijects H with its corresponding coset, with inverse translation by the inverse of x. Composing these bijections compares any two cosets."
+  },
+  {
+    "theorem_id": 496,
+    "title": "Left and Right Coset Spaces are Equivalent",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $H$ be a subgroup of $G$.\nLet:\n$x H$ denote the left coset of $H$ by $x$\n$H y$ denote the right coset of $H$ by $y$.\nThen:\n$\\order {\\set {x H: x \\in G} } = \\order {\\set {H y: y \\in G} }$",
+    "proof_text": "Let $G$ be a group and let $H \\le G$.\nConsider the mapping $\\phi$ from the left coset space to the right coset space defined as:\n$\\forall g \\in G: \\map \\phi {g H} = H g^{-1}$\nWe need to show that $\\phi$ is a bijection.\nFirst we need to show that $\\phi$ is well-defined.\nThat is, that $a H = b H \\implies \\map \\phi {a H} = \\map \\phi {b H}$.\nSuppose $a H = b H$.\n$$a H = b H \\iff a^{-1} b \\in H$$\nLeft Cosets are Equal iff Product with Inverse in Subgroup\n$$H a^{-1} = H b^{-1} \\iff a^{-1} \\paren {b^{-1} }^{-1} \\in H$$\nRight Cosets are Equal iff Product with Inverse in Subgroup\nBut $a^{-1} \\paren {b^{-1} }^{-1} = a^{-1} b \\in H$ as $a H = b H$.\nSo $H a^{-1} = H b^{-1}$ and $\\phi$ is well-defined.\nNext we show that $\\phi$ is injective:\nSuppose $\\exists x, y \\in G: \\map \\phi {x H} = \\map \\phi {y H}$.\nThen $H x^{-1} = H y^{-1}$, so $x^{-1} = e_G x^{-1} = h y^{-1}$ for some $h \\in H$.\nThus $h = x^{-1} y \\implies h^{-1} = y^{-1} x$.\nAs $H$ is a subgroup, $h^{-1} \\in H$.\nThus:\n$y^{-1} x \\in H$\nSo by Left Cosets are Equal iff Product with Inverse in Subgroup:\n$x H = y H$\nThus $\\phi$ is injective.\nNext we show that $\\phi$ is surjective:\nLet $H x$ be a right coset of $H$ in $G$.\nSince $x = \\paren {x^{-1} }^{-1}$, $H x = \\map \\phi {x^{-1} H}$ and so $\\phi$ is surjective.\nThus $\\phi$ constitutes a bijection from the left coset space to the right coset space, and the result follows.",
+    "clean_row_index": 202,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Inversion sends a left coset to a well-defined right coset. The coset criteria establish injectivity, and the left coset of the inverse representative witnesses surjectivity."
+  },
+  {
+    "theorem_id": 500,
+    "title": "Conjugate of Subgroup is Subgroup",
+    "theorem_text": "Let $G$ be a group.\nLet $H \\le G$ be a subgroup of $G$.\nThen the conjugate of $H$ by $a$ is a subgroup of $G$:\n$\\forall H \\le G, a \\in G: H^a \\le G$",
+    "proof_text": "Let $*: G \\times G / H \\to G / H$ be the group action on the (left) coset space:\n$\\forall g \\in G, \\forall g' H \\in G / H: g * \\paren {g' H} := \\paren {g g'} H$\nIt is established in Action of Group on Coset Space is Group Action that $*$ is a group action.\nThen from Stabilizer of Coset under Group Action on Coset Space:\n$\\Stab {a H} = a H a^{-1}$\nwhere $\\Stab {a H}$ the stabilizer of $a H$ under $*$.\nThe result follows from Stabilizer is Subgroup.",
+    "clean_row_index": 203,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The stabilizer of aH in the left action is precisely aHa inverse, and every stabilizer is a subgroup."
+  },
+  {
+    "theorem_id": 505,
+    "title": "Intersection with Normal Subgroup is Normal",
+    "theorem_text": "Let $G$ be a group.\nLet $H$ be a subgroup of $G$, and let $N$ be a normal subgroup of $G$.\nThen $H \\cap N$ is a normal subgroup of $H$.",
+    "proof_text": "By Intersection of Subgroups is Subgroup, $H \\cap N$ is a subgroup of $N$.\nIt remains to be shown that $H$ is normal in $H$.\nBecause $N \\lhd G$:\n$\\forall n \\in N: \\forall g \\in G: g n g^{-1} \\in N$\nLet $x \\in H \\cap N$.\nBecause $H \\le G$ and therefore closed:\n$\\forall x \\in H \\cap N: \\forall g \\in H: g x g^{-1} \\in H$\nBut since $x \\in N$ and $N \\lhd G$, $g x g^{-1} \\in N$.\nThe result follows.",
+    "clean_row_index": 204,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The conjugation calculation shows membership in both H and N for all conjugators in H, proving normality of their intersection despite a slip in the introductory sentence."
+  },
+  {
+    "theorem_id": 507,
+    "title": "Coset Product is Well-Defined",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $N$ be a normal subgroup of $G$.\nLet $a, b \\in G$.\nThen the coset product:\n$\\paren {a \\circ N} \\circ \\paren {b \\circ N} = \\paren {a \\circ b} \\circ N$\nis well-defined.",
+    "proof_text": "Let $N \\lhd G$ where $G$ is a group.\nLet $a, a', b, b' \\in G: N \\circ a = N \\circ a', N \\circ b = N \\circ b'$.\nWe need to show that $N \\circ a \\circ b = N \\circ a' \\circ b'$.\nSo:\n$$N \\circ a \\circ b = N \\circ a' \\circ b$$\nas $N \\circ a = N \\circ a'$\n$$= a' \\circ N \\circ b$$\n$N \\circ a' = a' \\circ N$ as $N$ is normal\n$$= a' \\circ N \\circ b'$$\nas $N \\circ b = N \\circ b'$\n$$= N \\circ a' \\circ b'$$\n$N \\circ a' = a' \\circ N$ as $N$ is normal",
+    "clean_row_index": 205,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Normality allows N to commute past a representative, so replacing either representative by one in the same coset leaves the product coset unchanged."
+  },
+  {
+    "theorem_id": 511,
+    "title": "Preimage of Normal Subgroup of Quotient Group under Quotient Epimorphism is Normal",
+    "theorem_text": "Let $G$ be a group.\nLet $H \\lhd G$ where $\\lhd$ denotes that $H$ is a normal subgroup of $G$.\nLet $K \\lhd G/H$ and $L = q_H^{-1} \\left[{K}\\right]$, where:\n$q_H: G \\to G/H$ is the quotient epimorphism from $G$ to the quotient group $G/H$\n$q_H^{-1} \\left[{K}\\right]$ is the preimage of $K$ under $q_H$.\nThen:\n$L \\lhd G$",
+    "proof_text": "By Quotient Mapping on Structure is Canonical Epimorphism, both $q_K$ and $q_H$ are epimorphisms.\nFrom Composite of Group Epimorphisms is Epimorphism we have that $q_K \\circ q_H: G \\to \\left({G / H}\\right) / K$ is also an epimorphism.\nNow:\n$\\forall x \\in G: x \\in \\ker \\left({q_K \\circ q_H}\\right) \\iff q_K \\left({q_H \\left({x}\\right)}\\right) = K = e_{G/H}$\nThis means the same as:\n$q_H \\left({x}\\right) \\in \\ker \\left({q_K}\\right) = K$\nBut:\n$q_H \\left({x}\\right) \\in K \\iff x \\in q_H^{-1} \\left({K}\\right) = L$\nThus:\n$L = \\ker \\left({q_K \\circ q_H}\\right)$\nBy Kernel is Normal Subgroup of Domain:\n$L \\lhd G$",
+    "clean_row_index": 206,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The kernel of the composite quotient map consists exactly of elements whose image lies in K, hence equals L and is normal. K denotes the identity of the second quotient despite the mistaken identity subscript."
+  },
+  {
+    "theorem_id": 514,
+    "title": "Centralizer of Group Element is Subgroup",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group and let $a \\in G$.\nThen $\\map {C_G} a$, the centralizer of $a$ in $G$, is a subgroup of $G$.",
+    "proof_text": "Let $\\struct {G, \\circ}$ be a group.\nWe have that:\n$\\forall a \\in G: e \\circ a = a \\circ e \\implies e \\in \\map {C_G} a$\nThus $\\map {C_G} a \\ne \\O$.\nLet $x, y \\in \\map {C_G} a$.\nThen from Commutation with Group Elements implies Commuation with Product with Inverse:\n$a \\circ x \\circ y^{-1} = x \\circ y^{-1} \\circ a$\nso:\n$x \\circ y^{-1} \\in\\map {C_G} a$\nThe result follows by the One-Step Subgroup Test, the result follows.",
+    "clean_row_index": 207,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The identity commutes with a. For x and y commuting with a, the cited commutation rule puts xy inverse in the centralizer, so the subgroup test applies."
+  },
+  {
+    "theorem_id": 519,
+    "title": "Subgroup is Normal Subgroup of Normalizer",
+    "theorem_text": "Let $G$ be a group.\nA subgroup $H \\le G$ is a normal subgroup of its normalizer:\n$H \\le G \\implies H \\lhd \\map {N_G} H$",
+    "proof_text": "From Subgroup is Subgroup of Normalizer we have that $H \\le \\map {N_G} H$.\nIt remains to show that $H$ is normal in $\\map {N_G} H$.\nLet $a \\in H$ and $b \\in \\map {N_G} H$.\nBy the definition of normalizer:\n$b a b^{-1} \\in H$\nThus $H$ is normal in $\\map {N_G} H$.",
+    "clean_row_index": 208,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The proof establishes subgroup containment and verifies closure of H under conjugation by every member of its normalizer."
+  },
+  {
+    "theorem_id": 522,
+    "title": "Normalizer of Conjugate is Conjugate of Normalizer",
+    "theorem_text": "The normalizer of a conjugate is the conjugate of the normalizer:\n$S \\subseteq G \\implies \\map {N_G} {S^a} = \\paren {\\map {N_G} S}^a$",
+    "proof_text": "From the definition of conjugate:\n$S^a = \\set {y \\in G: \\exists x \\in S: y = a x a^{-1} } = a S a^{-1}$\nFrom the definition of normalizer:\n$\\map {N_G} S = \\set {x \\in G: S^x = S}$\nThus:\n$$\\map {N_G} {S^a} = \\set {x \\in G: \\paren {S^a}^x = S^a}$$\n$$= \\set {x \\in G: x a S a^{-1} x^{-1} = a S a^{-1} }$$\n$$\\paren {\\map {N_G} S}^a = \\set {x \\in G: S^x = S}^a$$\n$$= \\set {x \\in G: x S x^{-1} = S}^a$$\n$$= \\set {y \\in G: \\exists z \\in \\set {x \\in G: x S x^{-1} = S}: y = a z a^{-1} }$$\nSuppose that $x \\in \\map {N_G} S$.\nIt is to be shown that:\n$a x a^{-1} \\in \\map {N_G} {S^a} = \\map {N_G} {a S a^{-1} }$\nTo this end, compute:\n$$\\paren {a x a^{-1} } a S a^{-1} \\paren {a x a^{-1} }^{-1} = \\paren {a x a^{-1} } a S a^{-1} \\paren {a x^{-1} a^{-1} }$$\nPower of Conjugate equals Conjugate of Power\n$$= a x S x^{-1} a^{-1}$$\n$$= a S a^{-1}$$\nas $x \\in \\map {N_G} S$\nHence $a x a^{-1} \\in \\map {N_G} {S^a}$, and it follows that:\n$z \\in \\paren {\\map {N_G} S}^a \\implies z \\in \\map {N_G} {S^a}$\nConversely, let $x \\in \\map {N_G} {S^a}$.\nThat is, let $x \\in G$ such that $x a S a^{-1} x^{-1} = a S a^{-1}$.\nNow if we can show that $a^{-1} x a \\in \\map {N_G} S$, then:\n$x = a \\left({a^{-1} x a}\\right) a^{-1} \\in \\paren {\\map {N_G} S}^a$\nestablishing the remaining inclusion.\nThus, we compute:\n$$\\paren {a^{-1} x a} S \\paren {a^{-1} x a}^{-1} = a^{-1} x a S a^{-1} x^{-1} a$$\nPower of Conjugate equals Conjugate of Power\n$$= a^{-1} a S a^{-1} a$$\nas $x \\in \\map {N_G} {S^a}$\n$$= S$$\nCombined with the above observation, this establishes that:\n$z \\in \\map {N_G} {S^a} \\implies z \\in \\paren {\\map {N_G} S}^a$\nHence the result, by definition of set equality.",
+    "clean_row_index": 209,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Conjugating an element normalizing S by a gives one normalizing the conjugate set. Conjugating back by the inverse establishes the reverse inclusion."
+  },
+  {
+    "theorem_id": 643,
+    "title": "GCD of Integer and Divisor",
+    "theorem_text": "Let $a, b \\in \\Z_{>0}$, i.e. integers such that $a, b > 0$.\nThen:\n$a \\divides b \\implies \\gcd \\set {a, b} = a$",
+    "proof_text": "$a \\divides b$ by hypothesis, $a \\divides a$ from Integer Divides Itself.\nThus $a$ is a common divisor of $a$ and $b$.\nNote that from Absolute Value of Integer is not less than Divisors:\n$\\forall x \\in \\Z: x \\divides a \\implies x \\le \\size a$.\nAs $a$ and $b$ are both positive, the result follows.",
+    "clean_row_index": 274,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The divisor a divides both positive numbers and every common divisor is at most a, establishing maximality."
+  }
+]

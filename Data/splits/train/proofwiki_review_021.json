@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1345,
+    "title": "Real Cosine Function is Bounded",
+    "theorem_text": "$\\size {\\cos x} \\le 1$",
+    "proof_text": "From the algebraic definition of the real cosine function:\n$\\displaystyle \\cos x = \\sum_{n \\mathop = 0}^\\infty \\paren {-1}^n \\frac {x^{2 n} } {\\paren {2 n}!}$\nit follows that $\\cos x$ is a real function.\nThus $\\cos^2 x \\ge 0$.\nFrom Sum of Squares of Sine and Cosine, we have that $\\cos^2 x + \\sin^2 x = 1$.\nThus it follows that:\n$\\cos^2 x = 1 - \\sin^2 x \\le 1$\nFrom Ordering of Squares in Reals and the definition of absolute value, we have that:\n$x^2 \\le 1 \\iff \\size x \\le 1$\nThe result follows.",
+    "clean_row_index": 600,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Since real sine has nonnegative square, the sum-of-squares identity bounds the cosine square by one, hence the absolute cosine by one."
+  },
+  {
+    "theorem_id": 1346,
+    "title": "Boundedness of Sine X over X",
+    "theorem_text": "Let $x \\in \\R$.\nThen:\n$\\size {\\dfrac {\\sin x} x} \\le 1$",
+    "proof_text": "From Derivative of Sine Function, we have:\n$D_x \\paren {\\sin x} = \\cos x$\nSo by the Mean Value Theorem, there exists $\\xi \\in \\R$ between $0$ and $x$ such that:\n$\\dfrac {\\sin x - \\sin 0} {x - 0} = \\cos \\xi$\nFrom Real Cosine Function is Bounded we have that:\n$\\size {\\cos \\xi} \\le 1$",
+    "clean_row_index": 601,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The mean value quotient divides by x and requires two distinct endpoints. The statement includes x=0 without defining a continuous extension there."
+  },
+  {
+    "theorem_id": 1348,
+    "title": "Differentiable Bounded Convex Real Function is Constant",
+    "theorem_text": "Let $f$ be a real function which is:\n$(1): \\quad$ Differentiable on $\\R$\n$(2): \\quad$ Bounded on $\\R$\n$(3): \\quad$ Convex on $\\R$.\nThen $f$ is constant.",
+    "proof_text": "Let $f$ be differentiable and bounded on $\\R$.\nLet $f$ be convex on $\\R$.\nLet $\\xi \\in \\R$.\nAiming for a contradiction, suppose $f' \\left({\\xi}\\right) > 0$.\nThen by Mean Value of Convex Real Function it follows that:\n$f \\left({x}\\right) \\ge f \\left({\\xi}\\right) + f' \\left({\\xi}\\right) \\left({x - \\xi}\\right) \\to + \\infty$ as $x \\to +\\infty$\nand therefore is not bounded.\nSimilarly, suppose $f' \\left({\\xi}\\right) < 0$.\nThen by Mean Value of Convex Real Function it follows that:\n$f \\left({x}\\right) \\ge f \\left({\\xi}\\right) + f' \\left({\\xi}\\right) \\left({x - \\xi}\\right) \\to + \\infty$ as $x \\to -\\infty$\nand therefore is likewise not bounded.\nHence $f' \\left({\\xi}\\right) = 0$.\nFrom Zero Derivative implies Constant Function, it follows that $f$ is constant.",
+    "clean_row_index": 602,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The supporting tangent at any point with nonzero derivative grows without bound in one direction. Boundedness forces the derivative to vanish everywhere, hence the function is constant."
+  },
+  {
+    "theorem_id": 1350,
+    "title": "Equidecomposability is Equivalence Relation",
+    "theorem_text": "The property of being equidecomposable is an equivalence relation on the power set $\\mathcal P \\left({\\R^n}\\right)$.",
+    "proof_text": "Relexivity\nA set is necessarily equidecomposable with itself; the same decomposition and set of isometries suffice for $A$ as for $A$.\nSymmetry\nThere is no order to the relation of being equidecomposable; symmetry follows.\nTransitivity\nSuppose $A, B, C \\subset \\R^n$ are sets such that $A, B$ are equidecomposable and $B, C$ are equidecomposable.\nLet $X_1, \\dots, X_m$ be a decomposition of $A, B$ together with isometries $\\mu_1, \\dots, \\mu_m, \\nu_1, \\dots, \\nu_m:\\R^n \\to \\R^n$ such that:\n$\\displaystyle A = \\bigcup_{i \\mathop = 1}^m \\mu_i \\left({X_i}\\right)$\nand\n$\\displaystyle B = \\bigcup_{i \\mathop = 1}^m \\nu_i \\left({X_i}\\right)$\nFurther let $Y_1, \\dots, Y_p$ together with $\\xi_1, \\dots, \\xi_p, \\tau_1, \\dots, \\tau_p$ be sets and isometries such that:\n$\\displaystyle B = \\bigcup_{i \\mathop = 1}^p \\xi_i \\left({Y_i}\\right)$\nand:\n$\\displaystyle C = \\bigcup_{i \\mathop = 1}^p \\tau_i \\left({Y_i}\\right)$\nConsider the sets\n$Z_{i,j} = \\nu_i \\left({X_i}\\right) \\cap \\xi_j \\left({Y_j}\\right)$\nwhere $1 \\le i \\le m$ and $1 \\le j \\le p$.\nWe have:\n$\\displaystyle \\bigcup_{i \\mathop = 1}^m \\bigcup_{j \\mathop = 1}^p \\left({\\mu_i \\circ \\nu_i^{-1}}\\right) \\left({Z_{i,j}}\\right) = \\bigcup_{i \\mathop = 1}^m \\bigcup_{j \\mathop = 1}^p \\left({\\mu_i \\circ \\nu_i^{-1}}\\right) \\left({\\nu_i \\left({X_i}\\right) \\cap \\xi_j \\left({Y_j}\\right)}\\right) = \\bigcup_{i \\mathop = 1}^m \\left({\\mu_i \\circ \\nu_i^{-1} \\circ \\nu_i}\\right) \\left({X_i}\\right) = \\bigcup_{i \\mathop = 1}^m \\mu_i \\left({X_i}\\right) = A$\n$\\displaystyle \\bigcup_{j \\mathop = 1}^p \\bigcup_{i \\mathop = 1}^m \\left({\\tau_j \\circ \\xi_j^{-1}}\\right) \\left({Z_{i,j}}\\right) = \\bigcup_{j \\mathop = 1}^p \\bigcup_{i \\mathop = 1}^m \\left({\\tau_j \\circ \\xi_j^{-1}}\\right) \\left({\\nu_i \\left({X_i}\\right) \\cap \\xi_j \\left({Y_j}\\right)}\\right) = \\bigcup_{j \\mathop = 1}^p \\left({\\tau_j \\circ \\xi_j^{-1} \\circ \\xi_j}\\right) \\left({Y_j}\\right) = \\bigcup_{j \\mathop = 1}^p \\tau_j \\left({Y_j}\\right) = C$\nso $Z_{i, j}$ together with the isometries $\\mu_i \\circ \\nu_i^{-1}, \\tau_j \\circ \\xi_j^{-1}$ is a decomposition of $A$ and $C$.\nHence these two are equidecomposable.",
+    "clean_row_index": 603,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Intersecting the two finite decompositions of B gives a common disjoint refinement that the composed isometries carry onto pieces of A and C. Identity and interchange of the two sides give reflexivity and symmetry."
+  },
+  {
+    "theorem_id": 1355,
+    "title": "Derivative of Tangent Function",
+    "theorem_text": "$\\map {\\dfrac \\d {\\d x} } {\\tan x} = \\sec^2 x = \\dfrac 1 {\\cos^2 x}$\nwhen $\\cos x \\ne 0$.",
+    "proof_text": "From the definition of the tangent function:\n$\\tan x = \\dfrac {\\sin x} {\\cos x}$\nFrom Derivative of Sine Function:\n$\\map {\\dfrac \\d {\\d x} } {\\sin x} = \\cos x$\nFrom Derivative of Cosine Function:\n$\\map {\\dfrac \\d {\\d x} } {\\cos x} = -\\sin x$\nThen:\n$$\\map {\\dfrac \\d {\\d x} } {\\tan x} = \\frac {\\cos x \\cos x - \\sin x \\paren {-\\sin x} } {\\cos^2 x}$$\nQuotient Rule for Derivatives\n$$= \\frac {\\cos^2 x + \\sin^2 x} {\\cos^2 x}$$\n$$= \\frac 1 {\\cos^2 x}$$\nSum of Squares of Sine and Cosine\nThis is valid only when $\\cos x \\ne 0$.\nThe result follows from the Secant is Reciprocal of Cosine.",
+    "clean_row_index": 604,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The quotient rule on sin(x)/cos(x) yields the sum of the squared sine and cosine over cosine squared, with the required nonzero denominator."
+  },
+  {
+    "theorem_id": 1357,
+    "title": "Derivative of Cotangent Function",
+    "theorem_text": "$\\map {\\dfrac \\d {\\d x} } {\\cot x} = -\\csc^2 x = \\dfrac {-1} {\\sin^2 x}$\nwhere $\\sin x \\ne 0$.",
+    "proof_text": "From the definition of the cotangent function:\n$\\cot x = \\dfrac {\\cos x} {\\sin x}$\nFrom Derivative of Sine Function:\n$\\map {\\dfrac \\d {\\d x} } {\\sin x} = \\cos x$\nFrom Derivative of Cosine Function:\n$\\map {\\dfrac \\d {\\d x} } {\\cos x}= -\\sin x$\nThen:\n$$\\map {\\dfrac \\d {\\d x} } {\\cot x} = \\frac {\\sin x \\paren {-\\sin x} - \\cos x \\cos x} {\\sin^2 x}$$\nQuotient Rule for Derivatives\n$$= \\frac {-\\paren {\\sin^2 x + \\cos^2 x} } {\\sin^2 x}$$\n$$= \\frac {-1} {\\sin^2 x}$$\nSum of Squares of Sine and Cosine\nThis is valid only when $\\sin x \\ne 0$.\nThe result follows from the definition of the real cosecant function.",
+    "clean_row_index": 605,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Differentiating cosine divided by sine gives minus the sum of their squares over sine squared. The domain condition permits the division."
+  },
+  {
+    "theorem_id": 1359,
+    "title": "Derivative of Secant Function",
+    "theorem_text": "$\\map {\\dfrac \\d {\\d x} } {\\sec x} = \\sec x \\tan x$\nwhere $\\cos x \\ne 0$.",
+    "proof_text": "From the definition of the secant function:\n$\\sec x = \\dfrac 1 {\\cos x} = \\paren {\\cos x}^{-1}$\nFrom Derivative of Cosine Function:\n$\\map {\\dfrac \\d {\\d x} } {\\cos x} = -\\sin x$\nThen:\n$$\\map {\\dfrac \\d {\\d x} } {\\sec x} = \\map {\\dfrac \\d {\\d x} } {\\paren {\\cos x}^{-1} }$$\nExponent Laws\n$$= \\paren {-\\sin x} \\paren {-\\cos^{-2} x}$$\nChain Rule for Derivatives, Power Rule\n$$= \\frac 1 {\\cos x} \\frac {\\sin x} {\\cos x}$$\nExponent Laws\n$$= \\sec x \\tan x$$\nDefinitions of secant and tangent\nThis is valid only when $\\cos x \\ne 0$.",
+    "clean_row_index": 606,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The reciprocal power rule and the derivative of cosine give sine divided by cosine squared, which factors as secant times tangent."
+  },
+  {
+    "theorem_id": 1362,
+    "title": "Derivative of Arcsine Function",
+    "theorem_text": "$\\dfrac {\\map \\d {\\arcsin x} } {\\d x} = \\dfrac 1 {\\sqrt {1 - x^2} }$",
+    "proof_text": "Let $y = \\arcsin x$ where $-1 < x < 1$.\nThen:\n$x = \\sin y$\nThen from Derivative of Sine Function:\n$\\dfrac {\\d x} {\\d y} = \\cos y$\nHence from Derivative of Inverse Function:\n$\\dfrac {\\d y} {\\d x} = \\dfrac 1 {\\cos y}$\nFrom Sum of Squares of Sine and Cosine, we have:\n$\\cos^2 y + \\sin^2 y = 1 \\implies \\cos y = \\pm \\sqrt {1 - \\sin^2 y}$\nNow $\\cos y \\ge 0$ on the image of $\\arcsin x$, that is:\n$y \\in \\closedint {-\\dfrac \\pi 2} {\\dfrac \\pi 2}$\nThus it follows that we need to take the positive root of $\\sqrt {1 - \\sin^2 y}$.\nSo:\n$$\\frac {\\d y} {\\d x} = \\frac 1 {\\sqrt {1 - \\sin^2 y} }$$\n$$= \\frac 1 {\\sqrt {1 - x^2} }$$",
+    "clean_row_index": 607,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "On the interior of the real arcsine domain, the derivative of sine is nonzero on the principal branch, where its cosine is the positive square root."
+  },
+  {
+    "theorem_id": 1363,
+    "title": "Derivative of Arccosine Function",
+    "theorem_text": "$\\map {D_x} {\\arccos x} = \\dfrac {-1} {\\sqrt {1 - x^2}}$",
+    "proof_text": "Let $y = \\arccos x$ where $-1 < x < 1$.\nThen:\n$x = \\cos y$\nThen from Derivative of Cosine Function:\n$\\dfrac {\\d x} {\\d y} = -\\sin y$\nHence from Derivative of Inverse Function:\n$\\dfrac {\\d y} {\\d x} = \\dfrac {-1} {\\sin y}$\nFrom Sum of Squares of Sine and Cosine, we have:\n$\\cos^2 y + \\sin^2 y = 1 \\implies \\sin y = \\pm \\sqrt {1 - \\cos^2 y}$\nNow $\\sin y \\ge 0$ on the range of $\\arccos x$, that is, for $y \\in \\closedint 0 \\pi$.\nThus it follows that we need to take the positive root of $\\sqrt {1 - \\cos^2 y}$.\nSo:\n$\\dfrac {\\d y} {\\d x} = \\dfrac {-1} {\\sqrt {1 - \\cos^2 y} }$\nand hence the result.",
+    "clean_row_index": 608,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For interior x the principal angle lies strictly between zero and pi. Its positive sine determines the sign in the inverse-function derivative."
+  },
+  {
+    "theorem_id": 1364,
+    "title": "Sum of Arcsine and Arccosine",
+    "theorem_text": "Let $x \\in \\R$ be a real number such that $-1 \\le x \\le 1$.\nThen:\n$\\arcsin x + \\arccos x = \\dfrac \\pi 2$\nwhere $\\arcsin$ and $\\arccos$ denote arcsine and arccosine respectively.",
+    "proof_text": "Let $y \\in \\R$ such that:\n$\\exists x \\in \\left[{-1 \\,.\\,.\\, 1}\\right]: x = \\cos \\left({y + \\dfrac \\pi 2}\\right)$\nThen:\n$$x = \\cos \\left({y + \\frac \\pi 2}\\right)$$\n$$= -\\sin y$$\nCosine of Angle plus Right Angle\n$$= \\sin \\left({-y}\\right)$$\nSine Function is Odd\nSuppose $-\\dfrac \\pi 2 \\le y \\le \\dfrac \\pi 2$.\nThen we can write $-y = \\arcsin x$.\nBut then $\\cos \\left({y + \\dfrac \\pi 2}\\right) = x$.\nNow since $-\\dfrac \\pi 2 \\le y \\le \\dfrac \\pi 2$ it follows that $0 \\le y + \\dfrac \\pi 2 \\le \\pi$.\nHence $y + \\dfrac \\pi 2 = \\arccos x$.\nThat is, $\\dfrac \\pi 2 = \\arccos x + \\arcsin x$.",
+    "clean_row_index": 609,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "As y runs through the stated symmetric interval, cos(y+pi/2) covers [-1,1]. The two indicated angles lie on the respective principal branches and sum to pi/2."
+  },
+  {
+    "theorem_id": 1367,
+    "title": "Complex Numbers form Field",
+    "theorem_text": "Consider the algebraic structure $\\struct {\\C, +, \\times}$, where:\n$\\C$ is the set of all complex numbers\n$+$ is the operation of complex addition\n$\\times$ is the operation of complex multiplication\nThen $\\struct {\\C, +, \\times}$ forms a field.",
+    "proof_text": "From Complex Numbers under Addition form Abelian Group, we have that $\\struct {\\C, +}$ forms an abelian group.\nFrom Non-Zero Complex Numbers under Multiplication form Abelian Group, we have that $\\struct {\\C_{\\ne 0}, \\times}$ forms an abelian group.\nFinally, we have that Complex Multiplication Distributes over Addition.\nThus all the criteria are fulfilled, and $\\struct {\\C, +, \\times}$ is a field.",
+    "clean_row_index": 610,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited additive and nonzero multiplicative abelian groups and distributive law give the field axioms for the complex numbers."
+  },
+  {
+    "theorem_id": 1370,
+    "title": "Complex Modulus of Product of Complex Numbers",
+    "theorem_text": "Let $z_1, z_2 \\in \\C$ be complex numbers.\nLet $\\cmod z$ be the modulus of $z$.\nThen:\n$\\cmod {z_1 z_2} = \\cmod {z_1} \\cdot \\cmod {z_2}$",
+    "proof_text": "Let $\\overline z$ denote the complex conjugate of $z$.\nThen:\n$$\\cmod {z_1 z_2} = \\sqrt {\\paren {z_1 z_2} \\overline {\\paren {z_1 z_2} } }$$\nModulus in Terms of Conjugate\n$$= \\sqrt {z_1 \\overline {z_1} z_2 \\overline {z_2} }$$\nProduct of Complex Conjugates, Complex Multiplication is Commutative\n$$= \\sqrt {z_1 \\overline {z_1} } \\sqrt {z_2 \\overline {z_2} }$$\nPower of Product\n$$= \\cmod {z_1} \\cmod {z_2}$$",
+    "clean_row_index": 611,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Conjugation preserves products, and each factor z times its conjugate is nonnegative real. Thus the nonnegative square root factors as the product of moduli."
+  },
+  {
+    "theorem_id": 1378,
+    "title": "Complex Plane is Metric Space",
+    "theorem_text": "Let $\\C$ be the set of all complex numbers.\nLet $d: \\C \\times \\C \\to \\R$ be the function defined as:\n$\\map d {z_1, z_2} = \\size {z_1 - z_2}$\nwhere $\\size z$ is the modulus of $z$.\nThen $d$ is a metric on $\\C$ and so $\\struct {\\C, d}$ is a metric space.",
+    "proof_text": "Let $z_1 = x_1 + i y_1, z_2 = x_2 + i y_2$.\nFrom the definition of modulus:\n$\\size {z_1 - z_2} = \\sqrt {\\paren {x_1 - x_2}^2 + \\paren {y_1 - y_2}^2}$\nThis is the euclidean metric on the real number plane\nThis is shown in Euclidean Metric on Real Vector Space is Metric to be a metric.\nThus the complex plane is a 2-dimensional Euclidean space.",
+    "clean_row_index": 612,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Identifying a complex number with its real and imaginary components turns the proposed distance into the known Euclidean metric."
+  },
+  {
+    "theorem_id": 1388,
+    "title": "Open Sets in Metric Space",
+    "theorem_text": "Let $M = \\struct {A, d}$ be a metric space.\nThen $\\O$ and $A$ are both open in $M$.",
+    "proof_text": "We have the results:\n: Empty Set is Open in Metric Space\n: Metric Space is Open in Itself",
+    "clean_row_index": 613,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two cited metric-space results establish separately that the empty set and the entire underlying space are open."
+  },
+  {
+    "theorem_id": 1390,
+    "title": "Finite Intersection of Open Sets of Metric Space is Open",
+    "theorem_text": "Let $M = \\struct {A, d}$ be a metric space.\nLet $U_1, U_2, \\ldots, U_n$ be open in $M$.\nThen $\\ds \\bigcap_{i \\mathop = 1}^n U_i$ is open in $M$.\nThat is, a finite intersection of open subsets is open.",
+    "proof_text": "Let $\\ds x \\in \\bigcap_{i \\mathop = 1}^n U_i$.\nBy the definition of intersection, for each $i \\in \\closedint 1 n$, we have $x \\in U_i$.\nThus, since $U_i$ is open in $M$:\n$\\exists \\epsilon_i > 0: \\map {B_{\\epsilon_i} } x \\subseteq U_i$\nwhere $\\map {B_{\\epsilon_i} } x$ is the open $\\epsilon_i$-ball of $x$.\nLet $\\displaystyle \\epsilon = \\min_{i \\mathop = 1}^n \\set {\\epsilon_i}$.\nThen, by Open Ball contains Smaller Open Ball:\n$\\map {B_\\epsilon} x \\subseteq \\map {B_{\\epsilon_i} } x$\nfor all $i \\in \\closedint 1 n$.\nSo:\n$\\ds \\map {B_\\epsilon} x \\subseteq \\bigcap_{i \\mathop = 1}^n U_i$\nThe result follows.",
+    "clean_row_index": 614,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "At any point of the intersection the minimum of finitely many positive ball radii remains positive, and its ball lies in every set."
+  },
+  {
+    "theorem_id": 1391,
+    "title": "Union of Open Sets of Metric Space is Open",
+    "theorem_text": "Let $M = \\struct {A, d}$ be a metric space.\nThe union of a set of open sets of $M$ is open in $M$.",
+    "proof_text": "Let $I$ be any indexing set.\nLet $U_i$ be open in $M$ for all $i \\in I$.\nLet $\\ds x \\in \\bigcup_{i \\mathop \\in I} U_i$.\nThen by definition of set union, $x \\in U_k$ for some $k \\in I$.\nSince $U_k$ is open in $M$:\n$\\ds \\exists \\epsilon > 0: \\map {B_\\epsilon} x \\subseteq U_k$\nwhere $\\map {B_\\epsilon} x$ is the open $\\epsilon$-ball of $x$ in $M$.\nBy Set is Subset of Union:\n$\\ds U_k \\subseteq \\bigcup_{i \\mathop \\in I} U_i$\nHence by Subset Relation is Transitive:\n$\\ds \\map {B_\\epsilon} x \\subseteq \\bigcup_{i \\mathop \\in I} U_i$\nand the result follows by definition of open set in metric space.",
+    "clean_row_index": 615,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A point of the union belongs to a particular open member, whose neighborhood ball also lies in the union. This argument is vacuous for the empty union."
+  },
+  {
+    "theorem_id": 1394,
+    "title": "Derivative of Function of Constant Multiple",
+    "theorem_text": "Let $f$ be a real function which is differentiable on $\\R$.\nLet $c \\in \\R$ be a constant.\nThen:\n$\\map {D_x} {\\map f {c x} } = c \\map {D_{c x} } {\\map f {c x} }$",
+    "proof_text": "First it is shown that $\\map {D_x} {c x} = c$:\n$$\\map {D_x} {c x} = c \\map {D_x} x + x \\map {D_x} c$$\nProduct Rule\n$$= c + x \\map {D_x} c$$\nDerivative of Identity Function\n$$= c + 0$$\nDerivative of Constant\n$$= c$$\nNext:\n$$\\map {D_x} {\\map f {c x} } = \\map {D_x} {c x} \\map {D_{c x} } {\\map f {c x} }$$\nChain Rule for Derivatives\n$$= c \\map {D_{c x} } {\\map f {c x} }$$\nfrom above",
+    "clean_row_index": 616,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The inner linear function has derivative c, and applying the chain rule to the composition gives c times the derivative of f evaluated at cx."
+  },
+  {
+    "theorem_id": 1403,
+    "title": "Indiscrete Topology is not Metrizable",
+    "theorem_text": "Let $S$ be a set with more than one element.\nThe indiscrete topology on $S$ is not metrizable.",
+    "proof_text": "In order to be metrizable, there needs to be a metric $d$ on $S$, so that $\\struct {S, d}$ is a metric space.\nAs $S$ has more than one element, $\\exists x, y \\in S: x \\ne y$.\nThen:\n$\\epsilon = \\map d {x, y} > 0$\nSo the open $\\epsilon$-ball $\\map {B_{\\epsilon / 2} } x$ is $d$-open.\nHence $\\map {B_{\\epsilon / 2} } x$ is in the topology which $d$ induces.\nBut $x \\in \\map {B_{\\epsilon / 2} } x$ while $y \\notin \\map {B_{\\epsilon / 2} } x$.\nThus $\\map {B_{\\epsilon / 2} } x \\ne \\O$ and $\\map {B_{\\epsilon / 2} } x \\ne S$.\nSo the topology induced by $d$ is not the indiscrete topology.",
+    "clean_row_index": 617,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A ball of radius half the distance between two distinct points contains one and omits the other. Such a nonempty proper open set cannot belong to an indiscrete topology."
+  },
+  {
+    "theorem_id": 1404,
+    "title": "Composite of Continuous Mappings is Continuous",
+    "theorem_text": "Let $T_1, T_2, T_3$ be topological spaces.\nLet $f: T_1 \\to T_2$ and $g: T_2 \\to T_3$ be continuous mappings.\nThen the composite mapping $g \\circ f: T_1 \\to T_3$ is continuous.",
+    "proof_text": "Let $U \\in T_3$ be open in $T_3$.\nAs $g$ is continuous, $g^{-1} \\sqbrk U \\in T_2$ is open in $T_2$.\nAs $f$ is continuous, $f^{-1} \\sqbrk {g^{-1} \\sqbrk U} \\in T_1$ is open in $T_1$.\nBy Inverse of Composite Bijection, $f^{-1} \\sqbrk {g^{-1} \\sqbrk U} = \\paren {g \\circ f}^{-1} \\sqbrk U$.\nHence the result.",
+    "clean_row_index": 618,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Successive preimages of an open set are open and give its preimage under the composite. This preimage identity follows directly by membership for all functions, despite the reference to a result about bijections."
+  },
+  {
+    "theorem_id": 1409,
+    "title": "Continuity Test using Basis",
+    "theorem_text": "Let $\\left({X_1, \\tau_1}\\right)$ and $\\left({X_2, \\tau_2}\\right)$ be topological spaces.\nLet $f: X_1 \\to X_2$ be a mapping.\nLet $\\mathcal B$ be an analytic basis for $\\tau_2$.\nSuppose that:\n$\\forall B \\in \\mathcal B: f^{-1} \\left({B}\\right) \\in \\tau_1$\nwhere $f^{-1} \\left({B}\\right)$ denotes the preimage of $B$ under $f$.\nThen $f$ is continuous.",
+    "proof_text": "Let $U \\in \\tau_2$.\nBy the definition of an analytic basis, it follows that:\n$\\displaystyle \\exists \\mathcal A \\subseteq \\mathcal B: U = \\bigcup \\mathcal A$\nHence:\n$$f^{-1} \\left({U}\\right) = f^{-1} \\left({\\bigcup \\mathcal A}\\right)$$\n$$= \\bigcup_{B \\mathop \\in \\mathcal A} f^{-1} \\left({B}\\right)$$\nPreimage of Union under Mapping: General Result\n$$\\in \\tau_1$$\nby hypothesis, and by the definition of a topology\nThe result follows from the definition of continuity.",
+    "clean_row_index": 619,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every target open set is a union of basis elements. Taking its preimage gives a union of open preimages, hence an open set."
+  },
+  {
+    "theorem_id": 1412,
+    "title": "Epimorphism Preserves Distributivity",
+    "theorem_text": "Let $\\struct {R_1, +_1, \\circ_1}$ and $\\struct {R_2, +_2, \\circ_2}$ be algebraic structures.\nLet $\\phi: R_1 \\to R_2$ be an epimorphism.\n:If $\\circ_1$ is left distributive over $+_1$, then $\\circ_2$ is left distributive over $+_2$.\n:If $\\circ_1$ is right distributive over $+_1$, then $\\circ_2$ is right distributive over $+_2$.\nConsequently, if $\\circ_1$ is distributive over $+_1$, then $\\circ_2$ is distributive over $+_2$.\nThat is, epimorphism preserves distributivity.",
+    "proof_text": "Throughout the following, we assume the morphism property holds for $\\phi$ for both operations.\nLeft Distributivity\nSuppose $\\circ_1$ is left distributive over $+_1$. Then:\n$$\\map \\phi x \\circ_2 \\paren {\\map \\phi y +_2 \\map \\phi z} = \\map \\phi x \\circ_2 \\map \\phi {y +_1 z}$$\n$$= \\map \\phi {x \\circ_1 \\paren {y +_1 z} }$$\n$$= \\map \\phi {\\paren {x \\circ_1 y} +_1 \\paren {x \\circ_1 z} }$$\nas $\\circ_1$ is left distributive over $+_1$\n$$= \\map \\phi {x \\circ_1 y} +_2 \\phi \\paren {x \\circ_1 z}$$\n$$= \\paren {\\map \\phi x \\circ_2 \\map \\phi y} +_2 \\paren {\\map \\phi x \\circ_2 \\map \\phi z}$$\nSo $\\circ_2$ is left distributive over $+_2$.\nRight Distributivity\nSuppose $\\circ_1$ is right distributive over $+_1$. Then:\n$$\\paren {\\map \\phi x +_2 \\map \\phi y} \\circ_2 \\map \\phi z = \\map \\phi {x +_1 y} \\circ_2 \\map \\phi z$$\n$$= \\map \\phi {\\paren {x +_1 y} \\circ_1 z}$$\n$$= \\map \\phi {\\paren {x \\circ_1 z} +_1 \\paren {y \\circ_1 z} }$$\nas $\\circ_1$ is right distributive over $+_1$\n$$= \\map \\phi {x \\circ_1 z} +_2 \\map \\phi {y \\circ_1 z}$$\n$$= \\paren {\\map \\phi x \\circ_2 \\map \\phi z} +_2 \\paren {\\map \\phi y \\circ_2 \\map \\phi z}$$\nSo $\\circ_2$ is right distributive over $+_2$.\nDistributivity\nIf $\\circ_1$ is distributive over $+_1$, then it is both right and left distributive over $+_1$.\nHence from the above, $\\circ_2$ is both right and left distributive over $+_2$.\nThat is, $\\circ_2$ is distributive over $+_2$.",
+    "clean_row_index": 620,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The calculations transport the left and right identities through a homomorphism of both operations. Under the surjective meaning of epimorphism used here every target triple has preimages."
+  },
+  {
+    "theorem_id": 1413,
+    "title": "Epimorphism Preserves Groups",
+    "theorem_text": "Let $\\struct {S, \\circ}$ and $\\struct {T, *}$ be algebraic structures.\nLet $\\phi: \\struct {S, \\circ} \\to \\struct {T, *}$ be an epimorphism.\nLet $\\struct {S, \\circ}$ be a group.\nThen $\\struct {T, *}$ is also a group.",
+    "proof_text": "From Epimorphism Preserves Semigroups, if $\\struct {S, \\circ}$ is a semigroup then so is $\\struct {T, *}$.\nFrom Epimorphism Preserves Identity, if $\\struct {S, \\circ}$ has an identity $e_S$, then $\\map \\phi {e_S}$ is the identity for $*$.\nFrom Epimorphism Preserves Inverses, if $x^{-1}$ is an inverse of $x$ for $\\circ$, then $\\map \\phi {x^{-1} }$ is an inverse of $\\map \\phi x$ for $*$.\nThe result follows from the definition of group.",
+    "clean_row_index": 621,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Associativity and identity pass to the image, as do inverses of all preimages. Surjectivity makes these properties hold throughout the target."
+  },
+  {
+    "theorem_id": 1416,
+    "title": "Totally Bounded Metric Space is Bounded",
+    "theorem_text": "Let $M = \\struct {A, d}$ be a totally bounded metric space.\nThen $M$ is bounded.",
+    "proof_text": "Let $M = \\struct {A, d}$ be totally bounded.\nThen there exist $n \\in \\N$ and points $x_0, \\dots, x_n \\in A$ such that:\n$\\displaystyle \\inf_{0 \\mathop \\le i \\mathop \\le n} \\map d {x_i, x} \\le 1$\nfor all $x \\in A$.\nLet us set:\n$a := x_0$\n$\\displaystyle D := \\max_{0 \\mathop \\le i \\mathop \\le n} \\map d {x_0, x_i}$\n$K := D + 1$\nNow let $x \\in A$ be arbitrary.\nThen by assumption there exists $i$ such that $\\map d {x_i, x} \\le 1$.\nHence:\n$\\map d {a, x} \\le \\map d {a, x_i} + \\map d {x_i, x} \\le 1 + D = K$\nSo $M$ is bounded, as claimed.",
+    "clean_row_index": 622,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A finite unit net has a maximum distance from a chosen center to all the other centers. The triangle inequality adds at most one to reach any point. The empty space is vacuously bounded."
+  },
+  {
+    "theorem_id": 1420,
+    "title": "Projection from Product Topology is Continuous",
+    "theorem_text": "Let $T_1 = \\struct {S_1, \\tau_1}$ and $T_2 = \\struct {S_2, \\tau_2}$ be topological spaces.\nLet $T = \\struct {T_1 \\times T_2, \\tau}$ be the product space of $T_1$ and $T_2$, where $\\tau$ is the Tychonoff topology on $S$.\nLet $\\pr_1: T \\to T_1$ and $\\pr_2: T \\to T_2$ be the first and second projections from $T$ onto its factors.\nThen both $\\pr_1$ and $\\pr_2$ are are continuous.",
+    "proof_text": "From Natural Basis of Tychonoff Topology:Finite Product, a basis for $\\tau$ is:\n$\\BB = \\set {U \\times V: U \\in \\tau_1, V \\in \\tau_2}$\net $U$ be open in $T_1$.\nThen $\\map {\\pr_1^{-1} } U = U \\times T_2$ is one of the open sets in the basis in the definition of product topology.\nThus $\\pr_1$ is continuous.\nThe same argument can be applied to $\\pr_2$.",
+    "clean_row_index": 623,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The preimage of an open set under a projection is its product with the entire other factor and is open in the product topology, for either projection."
+  },
+  {
+    "theorem_id": 1422,
+    "title": "Open and Closed Sets in Topological Space",
+    "theorem_text": "Let $T = \\struct {S, \\tau}$ be a topological space.\nThen $S$ and $\\O$ are both both open and closed in $T$.",
+    "proof_text": "From the definition of closed set, $U$ is open in $T$ if and only if $S \\setminus U$ is closed in $T$.\nFrom Underlying Set of Topological Space is Clopen, $S$ is both open and closed in $T$.\nFrom Empty Set is Element of Topology, $\\O$ is open in $T$.\nFrom Empty Set is Closed in Topological Space, we have that $\\O$ is closed in $T$.",
+    "clean_row_index": 624,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited results give openness and closedness of the full space and the empty set, which are complements of one another."
+  },
+  {
+    "theorem_id": 1423,
+    "title": "Absolutely Continuous Real Function is Continuous",
+    "theorem_text": "Let $I \\subseteq \\R$ be a real interval.\nLet $f : I \\to \\R$ be an absolutely continuous function.\nThen $f$ is continuous.",
+    "proof_text": "From Absolutely Continuous Real Function is Uniformly Continuous:\n$f$ is uniformly continuous.\nTherefore, from Uniformly Continuous Real Function is Continuous:\n$f$ is continuous.",
+    "clean_row_index": 625,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Absolute continuity on the interval implies uniform continuity there, and uniform continuity implies pointwise continuity."
+  },
+  {
+    "theorem_id": 1427,
+    "title": "Real Numbers are Uncountable",
+    "theorem_text": "The set of real numbers $\\R$ is uncountably infinite.",
+    "proof_text": "By definition, a perfect set is a set $X$ such that every point $x \\in X$ is the limit of a sequence of points of $X$ distinct from $x$.\nFrom Real Numbers form Perfect Set, $\\R$ is perfect.\nTherefore it is sufficient to show that a perfect subset of $X \\subseteq \\R^k$ is uncountable.\nWe prove the equivalent result that every sequence $\\sequence {x_k}_{k \\mathop \\in \\N} \\subseteq X$ omits at least one point in $X$.\nLet $y_1 \\in X$.\nLet $B_1:= \\map {\\BB_r} {y_1}$ be a closed ball centred at $y_1$.\nConsider a closed ball:\n$B_{n - 1} \\supseteq B_n := \\map {\\BB_{\\map \\delta n} } {y_n}$\nsuch that:\n$\\map \\delta n \\le \\dfrac {\\map \\delta {n - 1} } 2$\n$y_n \\in X$\n$x_n \\notin B_n$\nNote that $\\map \\delta 1 = r$.\nWe can satisfy the condition $x_n \\notin B_n$ because $X$ is perfect, so every ball centred at a point of $X$ contains infinitely many points of $X$.\nSince $\\map \\delta n \\le \\dfrac r {2^{n - 1} }$, $y_n$ is Cauchy.\nTherefore from Perfect Set is Closed, we may let $\\displaystyle Y = \\lim_{n \\mathop \\to \\infty} y_n \\in X$.\nFor $n \\in \\N$ we have:\n$\\set {y_m: m > n} \\subseteq B_n$\nso $Y \\in B_n$.\nBut by construction:\n$\\forall n \\in \\N: x_n \\notin B_n$\nTherefore:\n$\\forall n \\in \\N: Y \\ne x_n$\nand the proof is complete.",
+    "clean_row_index": 626,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Nested closed balls with radii tending to zero can be chosen to avoid each listed real in turn. Their centers converge by Euclidean completeness, and their common point cannot occur on the list; the real line is itself closed."
+  },
+  {
+    "theorem_id": 1427,
+    "title": "Real Numbers are Uncountable",
+    "theorem_text": "The set of real numbers $\\R$ is uncountably infinite.",
+    "proof_text": "It is sufficient to show that the real interval $I = \\set {x \\in \\R: 0 < x \\le 1}$ is uncountable.\nLet $x \\in I$.\nFrom Existence of Base-N Representation, $x$ has a unique representation of the form:\n$x = \\dfrac {\\epsilon_1} 3 + \\dfrac {\\epsilon_2} {3^2} + \\dfrac {\\epsilon_3} {3^3} + \\cdots$\nwhere $\\epsilon_k = 0, 1$ or $2$ and an infinite number of $\\epsilon_k$ are different from $0$.\nLet $S \\subseteq I$ be countably infinite.\nLet $S = \\set {x_1, x_2, \\ldots}$.\nLet $\\epsilon_{k 1}, \\epsilon_{k 2}, \\epsilon_{k 3}, \\ldots$ be the ternary digits of $x_k$.\nLet $\\epsilon_k = 1 + 2 \\epsilon_{k k} - \\epsilon_{k k}^2$ so that:\n$\\epsilon_k = 1$ if $\\epsilon_{k k} = 0$ or $\\epsilon_{k k} = 2$\n$\\epsilon_k = 2$ if $\\epsilon_{k k} = 1$\nThen:\n$(1): \\quad \\forall k: \\epsilon_k \\ne 0$\n$(2): \\quad \\forall k: \\epsilon_k \\ne \\epsilon_{k k}$\nWe have that $0 < x \\le 1$ so $x \\in I$.\nBut the real number $\\displaystyle x = \\sum \\epsilon_k 3^{-k}$ is different from every $x_k \\in I$.\nThus we have found an element of $I$ which is not an element of $S$.\nTherefore $S$ is a proper subset of $I$.\nIt follows by definition that $I$ is uncountable.",
+    "clean_row_index": 627,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The constructed ternary digit is nonzero and differs from the kth listed number in position k. Selecting nonterminating representations ensures distinct such digit strings represent distinct numbers."
+  },
+  {
+    "theorem_id": 1428,
+    "title": "Condition for Point being in Closure",
+    "theorem_text": "Let $T$ be a topological space.\nLet $H \\subseteq T$.\nLet $x \\in T$.\nThen $x \\in H^-$ if and only if every open set of $T$ which contains $x$ contains a point in $H$.",
+    "proof_text": "From the definition of closure, we have that $H^-$ is the union of $H$ and all the limit points of $H$ in $T$.\nNecessary Condition\nSuppose $x \\in H^-$.\nThen either:\n$(1): \\quad x \\in H$, in which case every open set of $T$ which contains $x$ trivially contains a point in $H$ (that is, $x$ itself);\n$(2): \\quad x$ is a limit point of $H$ in $T$.\nIf the latter is the case, then it follows directly from the definition of limit point that every open set of $T$ which contains $x$ contains a point in $H$ other than $x$.\nSufficient Condition\nSuppose that every open set of $T$ which contains $x$ contains a point in $H$.\nIf $x \\in H$, then $x$ is in the union of $H$ and all the limit points of $H$ in $T$.\nHence by definition $x \\in H^-$.\nIf $x \\notin H$ then $x$ must be a limit point of $H$ by definition.\nSo again, $x$ is in the union of $H$ and all the limit points of $H$ in $T$.\nHence by definition $x \\in H^-$.",
+    "clean_row_index": 628,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Membership in H handles the neighborhood condition directly. Outside H the condition is exactly the definition of a limit point, giving both directions."
+  },
+  {
+    "theorem_id": 1430,
+    "title": "Topological Closure of Subset is Subset of Topological Closure",
+    "theorem_text": "Let $T = \\struct {S, \\tau}$ be a topological space.\nLet $H \\subseteq K$ and $K \\subseteq S$.\nThen:\n$\\map \\cl H \\subseteq \\map \\cl K$\nwhere $\\map \\cl H$ denotes the closure of $H$.",
+    "proof_text": "From Topological Closure is Closed, $\\map \\cl K$ is closed.\nFrom Set is Subset of its Topological Closure:\n$K \\subseteq \\map \\cl K$\nBy Subset Relation is Transitive, it follows that:\n$H \\subseteq \\map \\cl K$\nHence, by definition of closure as the smallest closed set that contains $H$:\n$\\map \\cl H \\subseteq \\map \\cl K$",
+    "clean_row_index": 629,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The closure of K is a closed set containing H, hence contains the smallest such closed set, the closure of H."
+  }
+]

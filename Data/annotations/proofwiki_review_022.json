@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1432,
+    "title": "Topological Closure is Closed",
+    "theorem_text": "Let $T$ be a topological space.\nLet $H \\subseteq T$.\nThen the closure $\\map \\cl H$ of $H$ is closed in $T$.",
+    "proof_text": "From Closure of Topological Closure equals Closure:\n$\\map \\cl {\\map \\cl H} = \\map \\cl H$\nFrom Set is Closed iff Equals Topological Closure, it follows that $\\map \\cl H$ is closed.",
+    "clean_row_index": 630,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Idempotence of closure says the closure of H equals its own closure; the cited closed-set characterization applies directly."
+  },
+  {
+    "theorem_id": 1434,
+    "title": "Closure of Intersection is Subset of Intersection of Closures",
+    "theorem_text": "Let $T$ be a topological space.\nLet $I$ be an indexing set.\nLet $\\forall i \\in I: H_i \\subseteq T$.\nThen:\n$\\displaystyle \\left({\\bigcap_I H_i}\\right)^- \\subseteq \\bigcap_I H_i^-$\nwhere $H_i^-$ denotes the closure of $H_i$.",
+    "proof_text": "Since $\\displaystyle \\bigcap_I H_i^-$ is an intersection of closed sets, it is closed, from Topology Defined by Closed Sets.\nAlso, it contains $\\displaystyle \\bigcap_I H_i$ and so by the main definition of closure also contains $\\displaystyle \\left({\\bigcap_I H_i}\\right)^-$.",
+    "clean_row_index": 631,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The intersection of the closures is closed and contains the original intersection, so by minimality it contains its closure."
+  },
+  {
+    "theorem_id": 1435,
+    "title": "Closure of Finite Union equals Union of Closures",
+    "theorem_text": "Let $T$ be a topological space.\nLet $n \\in \\N$.\nLet:\n$\\forall i \\in \\set {1, 2, \\ldots, n}: H_i \\subseteq T$\nThen:\n$\\displaystyle \\bigcup_{i \\mathop = 1}^n \\map \\cl {H_i} = \\map \\cl {\\bigcup_{i \\mathop = 1}^n H_i}$",
+    "proof_text": "From Closure of Union contains Union of Closures we have that:\n$\\displaystyle \\bigcup_{i \\mathop = 1}^n \\map \\cl {H_i} \\subseteq \\map \\cl {\\bigcup_{i \\mathop = 1}^n H_i}$\nWe need now to show that:\n$\\displaystyle \\bigcup_{i \\mathop = 1}^n \\map \\cl {H_i} \\supseteq \\map \\cl {\\bigcup_{i \\mathop = 1}^n H_i}$\nLet $\\displaystyle K = \\bigcup_{i \\mathop = 1}^n \\map \\cl {H_i}$ and $\\displaystyle H = \\bigcup_{i \\mathop = 1}^n H_i$.\nFrom Topological Closure is Closed, all of $\\map \\cl {H_i}$ are closed.\nSo $K$ is the union of a finite number of closed sets.\nSo $K$ is itself closed, from Topology Defined by Closed Sets.\nFrom Set is Subset of its Topological Closure:\n$\\forall i \\in \\closedint 1 n: H_i \\subseteq \\map \\cl {H_i}$\nand so $H \\subseteq K$.\nSo from Topological Closure of Subset is Subset of Topological Closure:\n$\\map \\cl H \\subseteq \\map \\cl K$\nThe result follows.",
+    "clean_row_index": 632,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Monotonicity gives one inclusion. The finite union of the closures is itself closed and contains the original union, giving the reverse."
+  },
+  {
+    "theorem_id": 1439,
+    "title": "Nowhere Dense iff Complement of Closure is Everywhere Dense",
+    "theorem_text": "Let $T = \\struct {S, \\tau}$ be a topological space.\nLet $H \\subseteq S$.\nThen $H$ is nowhere dense in $T$ if and only if $S \\setminus H^-$ is everywhere dense in $T$, where $H^-$ denotes the closure of $H$.",
+    "proof_text": "Let:\n$H^\\circ$ denote the interior of any $H \\subseteq S$\n$H^-$ denote the closure of any $H \\subseteq S$.\nFrom the definition, $H$ is nowhere dense in $T$ if and only if $\\paren {H^-}^\\circ = \\varnothing$.\nFrom the definition of interior, it follows that $\\paren {H^-}^\\circ = \\varnothing$ if and only if every open set of $T$ contains a point of $S \\setminus \\paren {H^-}$.\nThus $S \\setminus \\paren {H^-}$ is everywhere dense by definition.",
+    "clean_row_index": 633,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Empty interior of the closure means every nonempty open set meets its complement, precisely the density criterion. The open-set test implicitly excludes the empty open set."
+  },
+  {
+    "theorem_id": 1444,
+    "title": "Metric Space is Hausdorff",
+    "theorem_text": "Let $M = \\struct {A, d}$ be a metric space.\nThen $M$ is a Hausdorff space.",
+    "proof_text": "Let $x, y \\in A: x \\ne y$.\nThen from Distinct Points in Metric Space have Disjoint Open Balls, there exist open $\\epsilon$-balls $\\map {B_\\epsilon} x$ and $\\map {B_\\epsilon} Y$ which are disjoint open sets containing $x$ and $y$ respectively.\nHence the result by the definition of Hausdorff space.",
+    "clean_row_index": 634,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For each pair of distinct points the cited ball-separation lemma supplies disjoint open neighborhoods, exactly Hausdorff separation."
+  },
+  {
+    "theorem_id": 1446,
+    "title": "Distinct Points in Metric Space have Disjoint Open Balls",
+    "theorem_text": "Let $M = \\left({A, d}\\right)$ be a metric space.\nLet $x, y \\in M: x \\ne y$.\nThen there exist disjoint open $\\epsilon$-balls $B_\\epsilon \\left({x}\\right)$ and $B_\\epsilon \\left({y}\\right)$ containing $x$ and $y$ respectively.",
+    "proof_text": "Let $x, y \\in A: x \\ne y$.\nThen $d \\left({x, y}\\right) > 0$.\nPut $\\epsilon = \\dfrac {d \\left({x, y}\\right)} 2$.\nLet $B_\\epsilon \\left({x}\\right)$ and $B_\\epsilon \\left({y}\\right)$ be the open $\\epsilon$-balls of $x$ and $y$ respectively.\nSuppose $B_\\epsilon \\left({x}\\right)$ and $B_\\epsilon \\left({y}\\right)$ are not disjoint.\nThen $\\exists z \\in M$ such that $z \\in B_\\epsilon \\left({x}\\right)$ and $z \\in B_\\epsilon \\left({y}\\right)$.\nThen $d \\left({x, z}\\right) < \\epsilon$ and $d \\left({z, y}\\right) < \\epsilon$.\nHence $d \\left({x, z}\\right) + d \\left({z, y}\\right) < 2 \\epsilon = d \\left({x, y}\\right)$.\nThis contradicts the definition of a metric, so there can be no such $z$.\nHence the open balls must be disjoint.",
+    "clean_row_index": 636,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Open balls of radius half the positive distance cannot intersect, since a common point would contradict the triangle inequality."
+  },
+  {
+    "theorem_id": 1445,
+    "title": "Convergent Real Sequence has Unique Limit",
+    "theorem_text": "Let $\\sequence {s_n}$ be a real sequence.\nThen $\\sequence {s_n}$ can have at most one limit.",
+    "proof_text": "We have that the real number line is a metric space\nThe result then follows from Convergent Sequence in Metric Space has Unique Limit.",
+    "clean_row_index": 635,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The usual real line is metric, so the cited uniqueness theorem for limits in metric spaces applies."
+  },
+  {
+    "theorem_id": 1451,
+    "title": "Compact Subspace of Hausdorff Space is Closed",
+    "theorem_text": "Let $H = \\struct {A, \\tau}$ be a Hausdorff space.\nLet $C$ be a compact subspace of $H$.\nThen $C$ is closed in $H$.",
+    "proof_text": "From Subspace of Hausdorff Space is Hausdorff, a subspace of a Hausdorff space is itself Hausdorff.\nLet $a \\in A \\setminus C$.\nWe are going to prove that there exists an open set $U_a$ such that $a \\in U_a \\subseteq A \\setminus C$.\nFor any single point $x \\in C$, the Hausdorff condition ensures the existence of disjoint open set $\\map U x$ and $\\map V x$ containing $a$ and $x$ respectively.\nSuppose there were only a finite number of points $x_1, x_2, \\ldots, x_r$ in $C$.\nThen we could take $\\displaystyle U_a = \\bigcap_{i \\mathop = 1}^r \\map U {x_i}$ and get $a \\in U_a \\subseteq A \\setminus C$.\nNow suppose $C$ is not finite.\nThe set $\\set {\\map V x: x \\in C}$ is an open cover for $C$.\nAs $C$ is compact, it has a finite subcover, say $\\set {\\map V {x_1}, \\map V {x_2}, \\dotsc, \\map V {x_r} }$.\nLet $\\displaystyle U_a = \\bigcap_{i \\mathop = 1}^r \\map U {x_i}$.\nThen $U_a$ is open because it is a finite intersection of open sets.\nAlso, $a \\in U_a$ because $a \\in \\map U {x_i}$ for each $i = 1, 2, \\ldots, r$.\nFinally, if $b \\in U_a$ then for any $i = 1, 2, \\ldots, r$ we have $b \\in \\map U {x_i}$.\nBecause $\\displaystyle C \\subseteq \\bigcup_{i \\mathop = 1}^r \\map V {x_i}$:\n$b \\notin \\map V {x_i}$, so $b \\notin C$\nThus:\n$U_a \\subseteq A \\setminus C$.\nThen:\n$\\displaystyle A \\setminus C = \\bigcup_{a \\mathop \\in A \\mathop \\setminus C} U_a$\nSo $A \\setminus C$ is open.\nIt follows that $C$ is closed.",
+    "clean_row_index": 637,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For each outside point, finitely many separating neighborhoods cover the compact set. Their partner neighborhoods intersect in an open set separating the outside point from the whole set."
+  },
+  {
+    "theorem_id": 1452,
+    "title": "Continuous Image of Compact Space is Compact",
+    "theorem_text": "Let $T_1$ and $T_2$ be topological spaces.\nLet $f: T_1 \\to T_2$ be a continuous mapping.\nIf $T_1$ is compact then so is its image $f \\sqbrk {T_1}$ under $f$.\nThat is, compactness is a continuous invariant.",
+    "proof_text": "Suppose $\\UU$ is an open cover of $f \\sqbrk {T_1}$ by sets open in $T_2$.\nBecause $f$ is continuous, it follows that $f^{-1} \\sqbrk U$ is open in $T_1$ for all $U \\in \\UU$.\nThe set $\\set {f^{-1} \\sqbrk U: U \\in \\UU}$ is an open cover of $T_1$, because for any $x \\in T_1$, it follows that $\\map f x$ must be in some $U \\in \\UU$.\nBecause $T_1$ is compact, it has a finite subcover $\\set {f^{-1} \\sqbrk {U_1}, f^{-1} \\sqbrk {U_2}, \\ldots, f^{-1} \\sqbrk {U_r} }$.\nIt follows that $\\set {U_1, U_2, \\ldots, U_r}$ is a finite subcover of $f \\sqbrk {T_1}$.",
+    "clean_row_index": 638,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Pulling back an ambient open cover gives an open cover of the compact domain, whose finite subcover indexes a finite cover of the image."
+  },
+  {
+    "theorem_id": 1453,
+    "title": "Closed Subspace of Compact Space is Compact",
+    "theorem_text": "A closed subspace of a compact space is compact.\nThat is, the property of being compact is weakly hereditary.",
+    "proof_text": "Let $T$ be a compact space.\nLet $C$ be a closed subspace of $T$.\nLet $\\UU$ be an open cover of $C$.\nSince $C$ is closed, it follows by definition of closed that $T \\setminus C$ is open in $T$.\nSo if we add $T \\setminus C$ to $\\UU$, we see that $\\UU \\cup \\set {T \\setminus C}$ is also an open cover of $T$.\nAs $T$ is compact, there is a finite subcover of $\\UU \\cup \\set {T \\setminus C}$, say $\\VV = \\set {U_1, U_2, \\ldots, U_r}$.\nThis covers $C$ by the fact that it covers $T$.\nIf $T \\setminus C$ is an element of $\\VV$, then it can be removed from $\\VV$ and the rest of $\\VV$ still covers $C$.\nThus we have a finite subcover of $\\UU$ which covers $C$, and hence $C$ is compact.",
+    "clean_row_index": 639,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Using ambient-open representatives of a cover of the subspace, adjoining its open complement covers the compact space. Removing that complement from a finite subcover still covers the subspace."
+  },
+  {
+    "theorem_id": 1456,
+    "title": "Heine-Cantor Theorem",
+    "theorem_text": "Let $M_1 = \\left({A_1, d_1}\\right)$ and $M_2 = \\left({A_2, d_2}\\right)$ be metric spaces.\nLet $M_1$ be compact.\nLet $f: A_1 \\to A_2$ be a continuous mapping.\nThen $f$ is uniformly continuous.",
+    "proof_text": "Let $\\epsilon \\in \\R_{>0}$ be a strictly positive real number.\nFor all $x \\in A_1$, define:\n$\\map \\Delta x = \\set {\\delta \\in \\R_{>0}: \\forall y \\in A_1: \\map {d_1} {x, y} < 2 \\delta \\implies \\map {d_2} {\\map f x, \\map f y} < \\dfrac \\epsilon 2}$\nDefine:\n$\\mathcal C = \\set {\\map {B_{\\delta} } x: x \\in A_1, \\, \\delta \\in \\map \\Delta x}$\nwhere $B_{\\delta} \\left({x}\\right)$ denotes the open $\\delta$-ball of $x$ in $M_1$.\nFrom the definition of continuity, it follows that $\\mathcal C$ is a cover for $A_1$.\nFrom Open Ball of Metric Space is Open Set, it therefore follows that $\\mathcal C$ is an open cover for $A_1$.\nBy the definition of a compact metric space, there exists a finite subcover $\\set {\\map {B_{\\delta_1} } {x_1}, \\map {B_{\\delta_2} } {x_2}, \\ldots, \\map {B_{\\delta_n} } {x_n} }$ of $\\mathcal C$ for $A_1$.\nDefine:\n$\\delta = \\min \\set {\\delta_1, \\delta_2, \\ldots, \\delta_n}$\nLet $x, y \\in A_1$ satisfy $\\map {d_1} {x, y} < \\delta$.\nBy the definition of a cover, there exists a $k \\in \\set{1, 2, \\ldots, n}$ such that $\\map {d_1} {x, x_k} < \\delta_k$.\nThen:\n$$\\map {d_1} {y, x_k} \\le \\map {d_1} {y, x} + \\map {d_1} {x, x_k}$$\nTriangle Inequality\n$$< \\delta + \\delta_k$$\nMetric Space Axiom $\\paren {M3}$\n$$\\le 2 \\delta_k$$\nBy the definition of $\\Delta \\left({x_k}\\right)$, it follows that:\n$\\map {d_2} {\\map f x, \\map f {x_k} } < \\dfrac \\epsilon 2$\n$\\map {d_2} {\\map f y, \\map f {x_k} } < \\dfrac \\epsilon 2$\nHence:\n$$\\map {d_2} {\\map f x, \\map f y} \\le \\map {d_2} {\\map f x, \\map f {x_k} } + \\map {d_2} {\\map f {x_k}, \\map f y}$$\nTriangle Inequality\n$$< \\frac \\epsilon 2 + \\frac \\epsilon 2$$\nMetric Space Axiom $\\paren{M3}$\n$$= \\epsilon$$\nThe result follows from the definition of uniform continuity.",
+    "clean_row_index": 640,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Compactness provides finitely many balls on which the doubled radii control image oscillation. Their minimum radius works uniformly by two triangle inequalities; an empty domain satisfies the conclusion vacuously."
+  },
+  {
+    "theorem_id": 1457,
+    "title": "Continuous Function on Closed Interval is Uniformly Continuous",
+    "theorem_text": "Let $\\closedint a b$ be a closed real interval.\nLet $f: \\closedint a b \\to \\R$ be a continuous function.\nThen $f$ is uniformly continuous on $\\closedint a b$.",
+    "proof_text": "We have that $\\R$ is a metric space under the usual (Euclidean) metric.\nWe also have from the Heine-Borel Theorem that $\\closedint a b$ is compact.\nSo the result Heine-Cantor Theorem applies.",
+    "clean_row_index": 641,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Heine–Borel gives compactness of the closed bounded interval, and Heine–Cantor then gives uniform continuity."
+  },
+  {
+    "theorem_id": 1458,
+    "title": "Sine of Complement equals Cosine",
+    "theorem_text": "$\\sin \\left({\\dfrac \\pi 2 - \\theta}\\right) = \\cos \\theta$",
+    "proof_text": "$$\\map \\sin {\\dfrac \\pi 2 - \\theta} = \\map \\Im {e^{i \\paren {\\frac \\pi 2 - \\theta} } }$$\nEuler's Formula\n$$= \\map \\Im {e^{i \\frac \\pi 2} e^{-i \\theta} }$$\nExponent Combination Laws\n$$= \\map \\Im {\\paren {\\cos \\dfrac \\pi 2+i \\sin \\dfrac \\pi 2} e^{-i \\theta} }$$\nEuler's Formula\n$$= \\map \\Im {i e^{-i \\theta} }$$\nCosine of Right Angle, Sine of Right Angle\n$$= \\map \\Re {e^{-i \\theta} }$$\n$$= \\map \\cos {-\\theta}$$\nEuler's Formula\n$$= \\cos \\theta$$\nCosine Function is Even",
+    "clean_row_index": 642,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Euler's formula reduces the imaginary part after the quarter-turn factor i to cos(−θ), equal to cos θ for real angles."
+  },
+  {
+    "theorem_id": 1460,
+    "title": "Continuous Bijection from Compact to Hausdorff is Homeomorphism",
+    "theorem_text": "Let $T_1$ be a compact space.\nLet $T_2$ be a Hausdorff space.\nLet $f: T_1 \\to T_2$ be a continuous bijection.\nThen $f$ is a homeomorphism.",
+    "proof_text": "Let $g = f^{-1}$.\nWe need to show that $g: T_2 \\to T_1$ is continuous.\nFor any $V \\subseteq T_1$, we have $g^{-1} \\left({V}\\right) = f  \\left({V}\\right)$.\nWe are to show that if $V$ is closed in $T_1$, then $g^{-1} \\left({V}\\right)$ is closed in $T_2$.\nSuppose $V$ is closed in $T_1$.\nSince $T_1$ is compact, $V$ is compact by Closed Subspace of Compact Space is Compact.\nSo $f \\left({V}\\right)$ is compact from Continuous Image of Compact Space is Compact.\nSince $T_2$ is Hausdorff, $f  \\left({V}\\right)$ closed by Compact Subspace of Hausdorff Space is Closed.\nBut $f  \\left({V}\\right) = g^{-1} \\left({V}\\right)$, so $g^{-1} \\left({V}\\right)$ is closed.\nFrom Continuity Defined from Closed Sets, it follows that $g$ is continuous.\nThus by definition, $f$ is a homeomorphism.",
+    "clean_row_index": 643,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The continuous map takes closed subsets of the compact source to compact subsets of the Hausdorff target, hence to closed sets. This gives continuity of the inverse."
+  },
+  {
+    "theorem_id": 1462,
+    "title": "Indirect Proof",
+    "theorem_text": "Let $P$ be a proposition whose truth value is to be proved (either true or false).\nThere are two aspects to this:",
+    "proof_text": "Let $x$ be an even integer.\nLet $y = 2 n + 5$.\nAssume $y = x + 5$ is not an odd integer.\nThen:\n$y = x + 5 = 2 n$\nwhere $n \\in \\Z$.\nThen:\n$$x = 2 n - 5$$\n$$= \\paren {2 n - 6} + 1$$\n$$= 2 \\paren {n - 3} + 1$$\n$$= 2 r + 1$$\nwhere $r = n - 3 \\in \\Z$\nHence $x$ is odd.\nThat is, it is false that $x$ is even.\nIt follows by the Rule of Transposition that if $x$ is even, then $y$ is odd.",
+    "clean_row_index": 644,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The statement stops after announcing two aspects of indirect proof and specifies no proposition to prove. The particular even/odd example cannot identify the missing target."
+  },
+  {
+    "theorem_id": 1464,
+    "title": "Continuity from Union of Restrictions",
+    "theorem_text": "Let $T_1$ and $T_2$ be topological spaces.\nThen $f: T_1 \\to T_2$ is continuous if either:\n$\\displaystyle T_1 = \\bigcup_{i \\mathop = 1}^n V_i$ where:\n:: each $V_i$ is closed in $T_1$, and\n:: the restriction $f \\restriction_{V_i}$ is continuous for each $V_i$\nor:\n$\\displaystyle T_1 = \\bigcup_{i \\mathop \\in I} U_i$ where:\n$I$ is any (possibly infinite) indexing set;\n:: each $U_i$ is open in $T_1$, and\n:: the restriction $f \\restriction_{U_i}$ is continuous for each $U_i$.",
+    "proof_text": "First assertion\nLet $\\displaystyle T_1 = \\bigcup_{i \\mathop  =1}^n V_i$, with the $V_i$ closed in $T_1$.\nAssume that for each $i$, the restriction $f \\restriction_{V_i}$ is continuous.\nThen $f$ satisfies the hypotheses of Continuous Mapping on Finite Union of Closed Sets.\nHence $f$ is continuous.\nSecond assertion\nLet $\\displaystyle T_1 = \\bigcup_{i \\mathop \\in I} U_i$, with the $U_i$ open in $T_1$.\nAssume that for each $i \\in I$, the restriction $f \\restriction_{U_i}$ is continuous.\nThen $f$ satisfies the hypotheses of Continuous Mapping on Union of Open Sets.\nHence $f$ is continuous.",
+    "clean_row_index": 645,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each branch matches the appropriate pasting theorem: a finite closed cover or an arbitrary open cover with continuous restrictions."
+  },
+  {
+    "theorem_id": 1467,
+    "title": "Continuous Image of Connected Space is Connected",
+    "theorem_text": "Let $T_1$ and $T_2$ be topological spaces.\nLet $S_1 \\subseteq T_1$ be connected.\nLet $f: T_1 \\to T_2$ be a continuous mapping.\nThen the image $f \\left({S_1}\\right)$ is connected.",
+    "proof_text": "Suppose that $S_2 = f \\left({S_1}\\right)$ is not connected in $T_2$.\nThen by definition there exist open sets $U_2$ and $V_2$ in $T_2$ such that:\n$S_2 \\subseteq U_2 \\cup V_2$\n$U_2 \\cap V_2 \\cap S_2 = \\varnothing$\n$U_2 \\cap S_2 \\ne \\varnothing$\n$V_2 \\cap S_2 \\ne \\varnothing$\nBy hypothesis, $f: T_1 \\to T_2$ is continuous.\nThus $U_1 = f^{-1} \\left({U_2}\\right)$ and $V_1 = f^{-1} \\left({V_2}\\right)$ are open in $T_1$.\nWe have that:\n$U_2 \\cap S_2 \\ne \\varnothing$\nTherefore:\n$\\exists x \\in S_1: f \\left({x}\\right) \\in U_2$\nThen:\n$x \\in f^{-1} \\left({U_2}\\right) = U_1$\nand:\n$x \\in S_1$\nso:\n$U_1 \\cap S_1 \\ne \\varnothing$\nSimilarly:\n$V_1 \\cap S_1 \\ne \\varnothing$\nSuppose there exists $x \\in S_1$ such that $x \\in U_1 \\cap V_1 \\cap S_1$.\nThen:\n$f \\left({x}\\right) \\in U_2 \\cap V_2 \\cap S_2$\nwhich is a contradiction.\nIt follows that:\n$U_1 \\cap V_1 \\cap S_1 = \\varnothing$\nThus by definition $S_1$ is not connected in $T_1$.\nThe result follows by the Rule of Transposition.",
+    "clean_row_index": 646,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The preimages of the two separating open sets cover the source subset, both meet it and are disjoint on it. This contradicts its connectedness."
+  },
+  {
+    "theorem_id": 1468,
+    "title": "Union of Connected Sets with Non-Empty Intersections is Connected",
+    "theorem_text": "Let $T = \\struct {S, \\tau}$ be a topological space.\nLet $I$ be an indexing set.\nLet $\\AA = \\family {A_\\alpha}_{\\alpha \\mathop \\in I}$ be an indexed family of subsets of $S$, all connected in $T$.\nLet $\\AA$ be such that no two of its elements are disjoint:\n$\\forall B, C \\in \\AA: B \\cap C \\ne \\O$\nThen $\\displaystyle \\bigcup \\AA$ is itself connected.",
+    "proof_text": "Let $A := \\displaystyle \\bigcup \\AA$.\nLet $D = \\set {0, 1}$, with the discrete topology.\nLet $f: A \\to D$ be continuous.\nTo show that $A$ is connected, we need to show that $f$ is not a surjection.\nSince each $C \\in \\AA$ is connected and the restriction $f \\restriction_C$ is continuous:\n$\\map f C = \\set {\\map \\epsilon C}$\nwhere $\\map \\epsilon C = 0$ or $1$.\nBut, for all $B, C \\in \\AA$:\n$B \\cap C \\ne \\O$\nHence $\\map \\epsilon B = \\map \\epsilon C$.\nThus $f$ is constant on $A$ as required.",
+    "clean_row_index": 647,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A continuous map to two discrete points is constant on each connected member. Every pair intersects, so those values agree and the map cannot separate the union."
+  },
+  {
+    "theorem_id": 1470,
+    "title": "Set between Connected Set and Closure is Connected",
+    "theorem_text": "Let $T$ be a topological space.\nLet $H$ be a connected set of $T$.\nLet $H \\subseteq K \\subseteq H^-$, where $H^-$ denotes the closure of $H$.\nThen $K$ is connected.",
+    "proof_text": "Let $T_K = \\struct {K, \\tau_K}$ be the topological subspace of $T$ whose underlying set is $K$.\nLet $\\map {\\cl_K} H$ denote the closure of $H$ in $K$.\nFrom Closure of Subset in Subspace:\n$\\map {\\cl_K} H = K \\cap H^-$\nBy hypothesis:\n$K \\subseteq H^-$\nand so by Intersection with Subset is Subset:\n$\\map {\\cl_K} H = K$\nLet $D$ be the discrete space $\\set {0, 1}$.\nLet $f: K \\to D$ be any continuous mapping.\nFrom Continuity of Composite with Inclusion, the restriction $f \\restriction_H$ is continuous.\nSWe have that:\n$H$ is connected\n$f \\restriction_H$ is continuous\nThus by definition of connected set:\n$f \\sqbrk H = \\set 0$ or $f \\sqbrk H = \\set 1$\nwithout loss of generality, let $f \\sqbrk H = \\set 0$.\nFrom Continuity Defined by Closure:\n$f \\sqbrk {\\map {\\cl_K} H} \\subseteq \\map {\\cl_K} {f \\sqbrk H} = \\set 0^-$\nwhere $\\set 0^-$ denotes the closure of $\\set 0$ in $D$.\nAs $D$ is the discrete space, it follows from Set in Discrete Topology is Clopen that $\\set 0$ is closed in $D$.\nThus by Set is Closed iff Equals Topological Closure:\n$\\set 0^- = \\set 0$\nThat is, $f \\sqbrk K = \\set 0$.\nThus $K$ is connected by definition.",
+    "clean_row_index": 648,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "H is dense in K and a continuous two-valued map is constant on H. The closed singleton containing its image must contain the image of K; the empty case is immediate."
+  },
+  {
+    "theorem_id": 1478,
+    "title": "Connected Open Subset of Euclidean Space is Path-Connected",
+    "theorem_text": "Let $\\R^n$ be a Euclidean $n$-space.\nLet $U$ be a connected open subset of $\\R^n$.\nThen $U$ is path-connected.",
+    "proof_text": "Let $a \\in U$.\nLet $H \\subseteq U$ be the subset of points in $U$ which can be joined to $a$ by a path in $U$.\nLet $K = U \\setminus H$.\nLet $x \\in H$.\nThen:\n$\\exists \\epsilon > 0: B_\\epsilon \\left({x}\\right) \\subseteq U$\nwhere $B_\\epsilon \\left({x}\\right)$ is the open $\\epsilon$-ball of $x$.\nGiven any $y \\in B_\\epsilon \\left({x}\\right)$, there is a (straight line) path $g$ in $B_\\epsilon \\left({x}\\right) \\subseteq U$ connecting $x$ and $y$.\nBut since $x \\in H$, there is a path $f$ in $U$ joining $a$ to $x$.\nFrom Joining Paths makes Another Path, traversing $f$, and then $g$ forms a path from $a$ to $y$.\nIt follows that $y \\in H$, and therefore $B_\\epsilon \\left({x}\\right) \\subseteq H$.\nThus $H$ is open.\nBy a similar argument, $K$ is also shown to be open:\nIf $x \\in K$, then $B_\\epsilon \\left({x}\\right) \\subseteq U$ for some $\\epsilon > 0$.\nIf any point in $B_\\epsilon \\left({x}\\right)$ can be joined to $a$ by a path in $U$, then so could $x$.\nIt is clear that $H \\cap K = \\varnothing$ and $H \\cup K = U$ by definition of set difference.\nAs, trivially, $a \\in H$, we have $H \\ne \\varnothing$.\nKnowing that $U$ is connected, it follows that $K = \\varnothing$, and $H = U$.\nHence the result.",
+    "clean_row_index": 649,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The path component of an arbitrary point and its complement are open because sufficiently small Euclidean balls allow straight-line extensions of paths. Connectedness forces the complement empty."
+  },
+  {
+    "theorem_id": 1479,
+    "title": "Joining Paths makes Another Path",
+    "theorem_text": "Let $T$ be a topological space.\nLet $I \\subseteq \\R$ be the closed real interval $\\closedint 0 1$.\nLet $f, g: I \\to T$ be paths in $T$ from $a$ to $b$ and from $b$ to $c$ respectively.\nLet $h: I \\to T$ be the mapping given by:\n$\\map h x = \\begin{cases}\n\\map f {2x} & : x \\in \\closedint 0 {\\dfrac 1 2} \\\\\n\\map g {2x - 1} & : x \\in \\closedint {\\dfrac 1 2} 1\n\\end{cases}$\nThen $h$ is a path in $T$.",
+    "proof_text": "First we see that $h$ is well-defined, because on $\\closedint 0 {\\dfrac 1 2} \\cap \\closedint {\\dfrac 1 2} 1 = \\set {\\dfrac 1 2}$ we have $\\map f 1 = b = \\map g 0$.\nNow $\\mathbin h {\\restriction_{\\closedint 0 {\\frac 1 2} } } \\mathop = f \\circ k$ where $k: \\closedint 0 {\\dfrac 1 2} \\to \\closedint 0 1$ is given by $\\map k x = 2 x$.\nSo by Continuity of Composite Mapping, $\\mathbin h {\\restriction_{\\closedint 0 {\\frac 1 2} } }$ is continuous.\nSimilarly, $\\mathbin h {\\restriction_{\\closedint {\\frac 1 2} 1} }$ is continuous.\nBy Continuity from Union of Restrictions, it follows that $h$ is continuous.\nFinally, $\\map h 0 = \\map f 0 = a$ and $\\map h 1 = \\map g 1 = c$.",
+    "clean_row_index": 650,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The reparameterized paths agree at their common endpoint, so the finite closed-cover pasting theorem gives continuity and evaluation gives the endpoints."
+  },
+  {
+    "theorem_id": 1484,
+    "title": "Invariance of Extremal Length under Conformal Mappings",
+    "theorem_text": "Let $X, Y$ be Riemann surfaces (usually, subsets of the complex plane).\nLet $\\phi: X \\to Y$ be a conformal isomorphism between $X$ and $Y$.\nLet $\\Gamma$ be a family of rectifiable curves (or, more generally, of unions of rectifiable curves) in $X$.\nLet $\\Gamma'$ be the family of their images under $\\phi$.\nThen $\\Gamma$ and $\\Gamma'$ have the same extremal length:\n$\\map \\lambda \\Gamma = \\map \\lambda {\\Gamma'}$",
+    "proof_text": "Let $\\rho'$ be a conformal metric on $Y$ in the sense of the definition of extremal length, given in local coordinates as:\n$\\map {\\rho'} z \\size {\\d z}$\nLet $\\rho$ be the metric on $X$ obtained as the pull-back of this metric under $\\phi$.\nThat is, $\\rho$ is given in local coordinates as:\n$\\map {\\rho'} {\\map \\phi w} \\cdot \\size {\\map {\\dfrac {\\d \\phi} {\\d w} } w} \\cdot \\size {\\d w}$\nThen the area of $X$ with respect to $\\rho$ and the area of $Y$ with respect to $\\rho'$ are equal by definition:\n$\\map A {\\rho'} = \\map A \\rho$\nFurthermore, if $\\gamma \\in \\Gamma$ and $\\gamma' := \\map \\phi \\gamma$, then also:\n$\\map L {\\gamma, \\rho} = \\map L {\\gamma', \\rho'}$\nand hence:\n$\\map L {\\Gamma, \\rho} = \\map L {\\Gamma', \\rho'}$\nIn summary, for any metric $\\rho'$ on $Y$, there is a metric $\\rho$ on $X$ such that:\n$\\dfrac {\\map L {\\Gamma, \\rho} } {\\map A \\rho} = \\dfrac {\\map L {\\Gamma', \\rho'} } {\\map A {\\rho'} }$\nIt thus follows from the definition of extremal length that:\n$\\map \\lambda \\Gamma \\ge \\map \\lambda {\\Gamma'}$\nThe opposite inequality follows by exchanging the roles of $X$ and $Y$.",
+    "clean_row_index": 651,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Pullback preserves both individual curve lengths and total area, hence also the squared-length-to-area quotient defining extremal length. The inverse conformal isomorphism supplies the reverse inequality."
+  },
+  {
+    "theorem_id": 1485,
+    "title": "Real Number Line is Complete Metric Space",
+    "theorem_text": "The real number line $\\R$ with the usual (Euclidean) metric forms a complete metric space.",
+    "proof_text": "From Real Number Line is Metric Space, the distance function defined as $\\map d {x, y} = \\size {x - y}$ is a metric on $\\R$.\nIt remains to be shown that the metric space $\\struct {\\R, d}$ is complete.\nBy definition, this is done by demonstrating that every Cauchy sequence of real numbers has a limit.\nThis is demonstrated in Cauchy Sequence Converges on Real Number Line.\nHence the result.",
+    "clean_row_index": 652,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The stated Cauchy convergence theorem for the usual real metric proves completeness by its definition."
+  },
+  {
+    "theorem_id": 1486,
+    "title": "Series Law for Extremal Length",
+    "theorem_text": "Let $X$ be a Riemann surface.\nLet $\\Gamma_1$, $\\Gamma_2$ and $\\Gamma$ be families of rectifiable curves (or, more generally, families of unions of rectifiable curves) on $X$.\nLet every $\\gamma \\in \\Gamma$ contain a $\\gamma_1 \\in \\Gamma_1$ and a $\\gamma_2 \\in \\Gamma_2$ such that $\\gamma_1 \\cap \\gamma_2 = \\varnothing$.\nThen the extremal lengths of $\\Gamma_1$, $\\Gamma_2$ and $\\Gamma$ satisfy:\n$\\lambda \\left({\\Gamma}\\right) \\ge \\lambda \\left({\\Gamma_1}\\right) + \\lambda \\left({\\Gamma_2}\\right)$",
+    "proof_text": "Let $\\rho_1 = \\rho_1 \\left({z}\\right) \\left\\vert{\\mathrm d z}\\right\\vert$ and $\\rho_2 = \\rho_2 \\left({z}\\right) \\left\\vert{\\mathrm d z}\\right\\vert$ be conformal metrics as in the definition of extremal length.\nIt can be assumed that these are normalized:\n$A \\left({\\rho_j}\\right) = L \\left({\\Gamma_j, \\rho_j}\\right)$ for $j \\in \\left\\{ {1, 2}\\right\\}$.\nWe define another metric $\\rho = \\rho \\left({z}\\right) \\left\\vert{\\mathrm d z}\\right\\vert$ by:\n$\\rho \\left({z}\\right) := \\max \\left({\\rho_1 \\left({z}\\right), \\rho_2 \\left({z}\\right)}\\right)$\nNote that this is a well-defined metric.\nBy definition, the area form $\\rho^2 \\left({z}\\right) \\left\\vert{\\mathrm d z}\\right\\vert$ satisfies:\n$\\rho^2 \\left({z}\\right) \\left\\vert{\\mathrm d z}\\right\\vert^2 = \\max \\left({\\rho_1 \\left({z}\\right)^2, \\rho_2 \\left({z}\\right)^2}\\right) \\left\\vert{\\mathrm d z}\\right\\vert^2 \\le \\left({\\rho_1 \\left({z}\\right)^2 + \\rho_2 \\left({z}\\right)^2}\\right) \\left\\vert{\\mathrm d z}\\right\\vert^2$\nHence:\n$A \\left({\\rho}\\right) \\le A \\left({\\rho_1}\\right) + A \\left({\\rho_2}\\right) = L \\left({\\Gamma_1, \\rho_1}\\right) + L \\left({\\Gamma_2, \\rho_2}\\right)$\nOn the other hand, let $\\gamma \\in \\Gamma$.\nLet $\\gamma_1$, $\\gamma_2$ be as in the assumption.\nThen:\n$$L \\left({\\gamma, \\rho}\\right) \\ge L \\left({\\gamma_1, \\rho}\\right) + L  \\left({\\gamma_2, \\rho}\\right)$$\nas $\\gamma_1$ and $\\gamma_2$ are disjoint\n$$\\ge L \\left({\\gamma_1, \\rho_1}\\right) + L \\left({\\gamma_2, \\rho_2}\\right)$$\nDefinition of $\\rho$\n$$\\ge L \\left({\\Gamma_1, \\rho_1}\\right) + L \\left({\\Gamma_2, \\rho_2}\\right)$$\nDefinition of $L \\left({\\Gamma_j, \\rho_j}\\right)$\nThus\n$ L \\left({\\Gamma, \\rho}\\right) \\ge L \\left({\\Gamma_1, \\rho_1}\\right) + L \\left({\\Gamma_2, \\rho_2}\\right)$\nCombining this with the inequality for the area:\n$\\dfrac {L \\left({\\Gamma, \\rho}\\right)^2} {A \\left({\\rho}\\right)} \\ge \\dfrac {\\left({L \\left({\\Gamma_1, \\rho_1}\\right) + L \\left({\\Gamma_2, \\rho_2}\\right)}\\right)^2} {L \\left({\\Gamma_1, \\rho_1}\\right) + L \\left({\\Gamma_2, \\rho_2}\\right)} = L  \\left({\\Gamma_1, \\rho_1}\\right) + L \\left({\\Gamma_2, \\rho_2}\\right)$\nTaking the supremum over all metrics $\\rho_1$ and $\\rho_2$ as above:\n$ L \\left({\\Gamma}\\right) \\ge L \\left({\\Gamma_1}\\right) + L \\left({\\Gamma_2}\\right)$\nas claimed.",
+    "clean_row_index": 653,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Positive-length metrics can be normalized as claimed, but an arbitrary curve family can have infimum length zero for every metric. The proof omits that case and divides by a possibly zero sum."
+  },
+  {
+    "theorem_id": 1489,
+    "title": "Comparison Principle for Extremal Length",
+    "theorem_text": "Let $X$ be a Riemann surface.\nLet $\\Gamma_1$ and $\\Gamma_2$ be families of rectifiable curves (or, more generally, families of unions of rectifiable curves) on $X$.\nLet every element of $\\Gamma_1$ contain some element of $\\Gamma_2$.\nThen the extremal lengths of $\\Gamma_1$ and $\\Gamma_2$ are related by:\n$\\lambda \\left({\\Gamma_1}\\right) \\ge \\lambda \\left({\\Gamma_2}\\right)$\nMore precisely, for every conformal metric $\\rho$ as in the definition of extremal length, we have:\n$L \\left({\\Gamma_1, \\rho}\\right) \\ge L \\left({\\Gamma_2, \\rho}\\right)$",
+    "proof_text": "We have:\n$$L \\left({\\Gamma_1, \\rho}\\right) = \\inf_{\\gamma \\mathop \\in \\Gamma_1} L \\left({\\gamma, \\rho}\\right)$$\nby definition\n$$\\ge \\inf_{\\gamma \\mathop \\in \\Gamma_2} L \\left({\\gamma, \\rho}\\right)$$\nsince every curve of $\\Gamma_1$ contains a curve of $\\Gamma_2$\n$$= L \\left({\\Gamma_2, \\rho}\\right)$$\nby definition\nThis proves the second claim.\nThe second claim implies the first by definition.",
+    "clean_row_index": 654,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Curve containment bounds each length below by the second family's infimum. Taking infima first and then extremal-length suprema preserves the inequality."
+  },
+  {
+    "theorem_id": 1498,
+    "title": "Rational Numbers are Close Packed",
+    "theorem_text": "Let $a, b \\in \\Q$ such that $a < b$.\nThen $\\exists c \\in \\Q: a < c < b$.\nThat is, the set of rational numbers is close packed.",
+    "proof_text": "From the definition of rational numbers, we can express $a$ and $b$ as $a = \\dfrac {p_1} {q_1}, b = \\dfrac {p_2} {q_2}$.\nThus from Mediant is Between:\n$\\dfrac {p_1} {q_1} < \\dfrac {p_1 + p_2} {q_1 + q_2} < \\dfrac {p_2} {q_2}$\nFrom Rational Numbers form Field:\n$\\dfrac {p_1 + p_2} {q_1 + q_2} \\in \\Q$\nHence $c = \\dfrac {p_1 + p_2} {q_1 + q_2}$ is an element of $\\Q$ between $a$ and $b$.",
+    "clean_row_index": 655,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Choose positive denominators for both rationals. The cited mediant inequality then puts their rational mediant strictly between them."
+  },
+  {
+    "theorem_id": 1499,
+    "title": "Real Addition is Closed",
+    "theorem_text": "The set of real numbers $\\R$ is closed under addition:\n$\\forall x, y \\in \\R: x + y \\in \\R$",
+    "proof_text": "From the definition, the real numbers are the set of all equivalence classes $\\eqclass {\\sequence {x_n} } {}$ of Cauchy sequences of rational numbers.\nLet $x = \\eqclass {\\sequence {x_n} } {}, y = \\eqclass {\\sequence {y_n} } {}$, where $\\eqclass {\\sequence {x_n} } {}$ and $\\eqclass {\\sequence {y_n} } {}$ are such equivalence classes.\nFrom the definition of real addition, $x + y$ is defined as:\n$\\eqclass {\\sequence {x_n} } {} + \\eqclass {\\sequence {y_n} } {} = \\eqclass {\\sequence {x_n + y_n} } {}$\nWe have that $\\forall i \\in \\N: x_i \\in \\Q, y_i \\in \\Q$, therefore $x_i + y_i \\in \\Q$.\nSo it follows that $\\eqclass {\\sequence {x_n + y_n} } {} \\in \\R$.",
+    "clean_row_index": 656,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Rationality of each term of the sum does not establish that the sequence of sums is Cauchy, as required for membership in the construction of the reals."
+  },
+  {
+    "theorem_id": 1500,
+    "title": "Real Addition is Well-Defined",
+    "theorem_text": "The operation of addition on the set of real numbers $\\R$ is well-defined.",
+    "proof_text": "From the definition, the real numbers are the set of all equivalence classes $\\eqclass {\\sequence {x_n} } {}$ of Cauchy sequences of rational numbers:\n$\\eqclass {\\sequence {x_n} } {} \\equiv \\eqclass {\\sequence {y_n} } {} \\iff \\forall \\epsilon > 0: \\exists n \\in \\N: \\forall i, j > n: \\size {x_i - y_j} < \\epsilon$\nLet $x = \\eqclass {\\sequence {x_n} } {}$ and $y = \\eqclass {\\sequence {y_n} } {}$, where $\\eqclass {\\sequence {x_n} } {}$ and $\\eqclass {\\sequence {y_n} } {}$ are such equivalence classes.\nFrom the definition of real addition, $x + y$ is defined as:\n$\\eqclass {\\sequence {x_n} } {} + \\eqclass {\\sequence {y_n} } {} = \\eqclass {\\sequence {x_n + y_n} } {}$.\nWe need to show that:\n$\\sequence {x_n}, \\sequence {x'_n} \\in \\eqclass {\\sequence {x_n} } {}, \\sequence {y_n}, \\sequence {y'_n} \\in \\eqclass {\\sequence {y_n} } {} \\implies \\sequence {x_n + y_n} = \\sequence {x'_n + y'_n}$\nThat is:\n$\\forall \\epsilon > 0: \\exists N: \\forall i, j > N: \\size {\\paren {x_i + y_i} - \\paren {x'_j + y'_j} } < \\epsilon$\nLet $\\epsilon > 0$, such that:\n$\\exists N_1: \\forall i, j \\ge N_1: \\size {x_i - x'_j} < \\epsilon / 2$\n$\\exists N_2: \\forall i, j \\ge N_2: \\size {y_i - y'_j} < \\epsilon / 2$\nNow let $N = \\max \\set {N_1, N_2}$.\nThen we have:\n$\\forall i, j \\ge N: \\size {x_i - x'_j} + \\size {y_i - y'_j} < \\epsilon$\nBut:\n$$\\epsilon > \\size {x_i - x'_j} + \\size {y_i - y'_j}$$\n$$> \\size {\\paren {x_i - x'_j} + \\paren {y_i - y'_j} }$$\nTriangle Inequality\n$$= \\size {\\paren {x_i + y_i} - \\paren {x'_j + y'_j} }$$\nSo:\n$\\forall i, j \\ge N: \\size {\\paren {x_i + y_i} - \\paren {x'_j + y'_j} } < \\epsilon$\nHence the result.",
+    "clean_row_index": 657,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each representative difference is eventually smaller than half epsilon, so the triangle inequality bounds the sum difference by less than epsilon. The intermediate triangle inequality should be non-strict."
+  },
+  {
+    "theorem_id": 1501,
+    "title": "Real Multiplication is Well-Defined",
+    "theorem_text": "The operation of multiplication on the set of real numbers $\\R$ is well-defined.",
+    "proof_text": "From the definition, the real numbers are the set of all equivalence classes $\\eqclass {\\sequence {x_n} } {}$ of Cauchy sequences of rational numbers.\nLet $x = \\eqclass {\\sequence {x_n} } {}, y = \\eqclass {\\sequence {y_n} } {}$, where $\\eqclass {\\sequence {x_n} } {}$ and $\\eqclass {\\sequence {y_n} } {}$ are such equivalence classes.\nFrom the definition of real multiplication, $x \\times y$ is defined as $\\eqclass {\\sequence {x_n} } {} \\eqclass {\\sequence {y_n} } {} = \\eqclass {\\sequence {x_n \\times y_n} } {}$.\nWe need to show that:\n$\\sequence {x_n}, \\sequence {x'_n} \\in \\eqclass {\\sequence {x_n} } {}, \\sequence {y_n}, \\sequence {y'_n} \\in \\eqclass {\\sequence {y_n} } {} \\implies \\sequence {x_n \\times y_n} = \\sequence {x'_n \\times y'_n}$\nThat is:\n$\\forall \\epsilon > 0: \\exists N: \\forall i, j > N: \\size {\\paren {x_i \\times y_i} - \\paren {x'_j \\times y'_j} } < \\epsilon$\nAs $\\eqclass {\\sequence {x_n} } {}$ and $\\eqclass {\\sequence {y_n} } {}$ are Cauchy sequences, from Cauchy Sequence in Metric Space is Bounded they are bounded.\nLet $B_x = 2 \\map \\sup {\\sequence {x_n} }$ and $B_y = 2 \\map \\sup {\\sequence {y_n} }$.\nLet $B = \\max \\set {B_x, B_y}$.\nNow let $\\epsilon > 0$. Then:\n$\\exists N_1: \\forall i, j > N_1: \\size B \\size {x_i - x'_j} < \\epsilon / 2$\n$\\exists N_2: \\forall i, j > N_2: \\size B \\size {y_i - y'_j} < \\epsilon / 2$\nNow let $N = \\max \\set {N_1, N_2}$.\nThen we have:\n$\\forall i, j \\ge N: \\size B \\size {x_i - x'_j} + \\size B \\size {y_i - y'_j} < \\epsilon$\nSo:\n$$\\epsilon > \\size B \\size {x_i - x'_j} + \\size B \\size {y_i - y'_j}$$\n$$\\ge \\size {B \\paren {x_i - x'_j} + B \\paren {y_i - y'_j} }$$\nTriangle Inequality\n$$\\ge \\size {\\paren {x_i - x'_j} \\paren {y_i + y'_j} + \\paren {y_i - y'_j} \\paren {x_i + x'_j} }$$\n$$= \\size {x_i y_i - x'_j y_i + x_i y'_j - x'_j y'_j + x_i y_i + x'_j y_i - x_i y'_j - x'_j y'_j}$$\n$$= \\size {2 x_i y_i - 2 x'_j y'_j}$$\n$$= \\size {x_i y_i - x'_j y'_j}$$\nHence the result.",
+    "clean_row_index": 658,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "An absolute value of a sum need not increase when its summands acquire the displayed different coefficients. The final equality also incorrectly drops a factor of two."
+  },
+  {
+    "theorem_id": 1502,
+    "title": "Real Multiplication is Closed",
+    "theorem_text": "The operation of multiplication on the set of real numbers $\\R$ is closed:\n$\\forall x, y \\in \\R: x \\times y \\in \\R$",
+    "proof_text": "From the definition, the real numbers are the set of all equivalence classes $\\eqclass {\\sequence {x_n} } {}$ of Cauchy sequences of rational numbers.\nLet $x = \\eqclass {\\sequence {x_n} } {}, y = \\eqclass {\\sequence {y_n} } {}$, where $\\eqclass {\\sequence {x_n} } {}$ and $\\eqclass {\\sequence {y_n} } {}$ are such equivalence classes.\nFrom the definition of real multiplication, $x \\times y$ is defined as:\n$\\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {y_n} } {} = \\eqclass {\\sequence {x_n \\times y_n} } {}$\nWe have that:\n$\\forall i \\in \\N: x_i \\in \\Q, y_i \\in \\Q$\ntherefore $x_i \\times y_i \\in \\Q$.\nSo it follows that:\n$\\eqclass {\\sequence {x_n \\times y_n} } {} \\in \\R$",
+    "clean_row_index": 659,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Although each product term is rational, an equivalence class represents a real only for a Cauchy sequence. The proof omits the boundedness-and-tail argument for the product."
+  }
+]

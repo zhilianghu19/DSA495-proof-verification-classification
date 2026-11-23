@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1911,
+    "title": "Ring of Sets is Commutative Ring",
+    "theorem_text": "A ring of sets $\\left({\\mathcal R, *, \\cap}\\right)$ is a commutative ring whose zero is $\\varnothing$.",
+    "proof_text": "By definition, the operations $\\cap$ and $*$ are closed in $\\mathcal R$.\nHence we can apply the following results:\n* Set System Closed under Symmetric Difference is Abelian Group: $\\left({\\mathcal R, *}\\right)$ is an abelian group.\n* Set System Closed under Intersection is Commutative Semigroup: $\\left({\\mathcal R, \\cap}\\right)$ is a commutative semigroup.\n* Intersection Distributes over Symmetric Difference.\n* The identity of $\\left({\\mathcal R, *}\\right)$ is $\\varnothing$, and this, by definition, is the zero.\nSo $\\left({\\mathcal R, *, \\cap}\\right)$ is a commutative ring whose zero is $\\varnothing$.",
+    "clean_row_index": 840,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The listed results give an additive abelian group under symmetric difference, associative commutative intersection, and distributivity, with the empty set as zero."
+  },
+  {
+    "theorem_id": 1914,
+    "title": "Unit of System of Sets is Unique",
+    "theorem_text": "The unit of a system of sets, if it exists, is unique.\nIf $U$ is the unit of a system of sets $\\mathcal S$, then $\\forall A \\in \\mathcal S: A \\subseteq U$.",
+    "proof_text": "Let $\\mathcal S$ be a system of sets.\nSuppose $U$ and $U'$ are both units of $\\mathcal S$.\nThen, by definition:\n* $\\forall A \\in \\mathcal S: A \\cap U = A$\n* $\\forall A \\in \\mathcal S: A \\cap U' = A$\nThis applies to both $U$ and $U'$, of course.\nSo $U \\cap U' = U$ and $U' \\cap U = U'$.\nFrom Intersection with Subset is Subset it follows that $U \\subseteq U'$ and $U' \\subseteq U$.\nBy definition of set equality:\n$U = U'$\nWe also see that from Intersection with Subset is Subset, $A \\cap U = A \\iff A \\subseteq U$, which shows that:\n$\\forall A \\in \\mathcal S: A \\subseteq U$.",
+    "clean_row_index": 841,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Intersecting two units gives both units, proving equality. The defining equation A intersect U equals A is exactly containment in U."
+  },
+  {
+    "theorem_id": 1916,
+    "title": "Power Set is Algebra of Sets",
+    "theorem_text": "Let $S$ be a set.\nLet $\\mathcal P \\left({S}\\right)$ be the power set of $S$.\nThen $\\mathcal P \\left({S}\\right)$ is an algebra of sets where $S$ is the unit.",
+    "proof_text": "From Power Set is Closed under Intersection and Power Set is Closed under Symmetric Difference, we have that:\n$(1): \\quad \\forall A, B \\in \\mathcal P \\left({S}\\right): A \\cap B \\in \\mathcal P \\left({S}\\right)$\n$(2): \\quad \\forall A, B \\in \\mathcal P \\left({S}\\right): A * B \\in \\mathcal P \\left({S}\\right)$\nFrom the definition of power set:\n$\\forall A \\in \\mathcal P \\left({S}\\right): A \\subseteq S$\nand so $S$ is the unit of $\\mathcal P \\left({S}\\right)$.\nThus we see that $\\mathcal P \\left({S}\\right)$ is a ring of sets with a unit.\nHence the result, by definition of an algebra of sets.",
+    "clean_row_index": 842,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The power set contains S and is closed under both operations; intersecting any member with S fixes it, giving the unit."
+  },
+  {
+    "theorem_id": 1917,
+    "title": "Power Set is Closed under Intersection",
+    "theorem_text": "Let $S$ be a set.\nLet $\\powerset S$ be the power set of $S$.\nThen:\n$\\forall A, B \\in \\powerset S: A \\cap B \\in \\powerset S$",
+    "proof_text": "Let $A, B \\in \\powerset S$.\nThen by the definition of power set, $A \\subseteq S$ and $B \\subseteq S$.\nFrom Intersection is Subset we have that $A \\cap B \\subseteq A$.\nIt follows from Subset Relation is Transitive that $A \\cap B \\subseteq S$.\nThus $A \\cap B \\in \\powerset S$ and closure is proved.",
+    "clean_row_index": 843,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The intersection is a subset of A, hence of S and thus a member of the power set."
+  },
+  {
+    "theorem_id": 1919,
+    "title": "Intersection of Rings of Sets",
+    "theorem_text": "Let $\\mathcal R_k$ be a ring of sets, where $k$ is an element of an arbitrary set of indices.\nThen their intersection $\\displaystyle \\mathcal R = \\bigcap_k \\mathcal R_k$ is itself a ring of sets.",
+    "proof_text": "Consider the set $\\displaystyle \\mathcal S = \\bigcup_k \\mathcal R_k$.\nLet $S = set {X \\in Y: Y \\in \\mathcal S}$.\nThis contains all the elements of all the sets contained in all the $\\mathcal R_k$.\nNow consider the power set $\\powerset S$ of $S$.\nBy Power Set is Algebra of Sets and the definition of algebra of sets, we have that $\\powerset S$ is a ring of sets.\nThus $\\struct {\\powerset S, *, \\cap}$ is a ring (in the abstract algebraic sense of the term).\nFrom the method of construction of $\\powerset S$, it follows that all the $\\struct {\\mathcal R_k, *, \\cap}$ are subrings of $\\powerset S$.\nThe result then follows from Intersection of Subrings is Subring.",
+    "clean_row_index": 844,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Taking the union of all underlying points gives a common power-set ring. Each given ring is a subring, so their intersection inherits the operations and ring laws."
+  },
+  {
+    "theorem_id": 1939,
+    "title": "Square of Sum",
+    "theorem_text": "$\\forall x, y \\in \\R: \\paren {x + y}^2 = x^2 + 2 x y + y^2$",
+    "proof_text": "Follows from the distribution of multiplication over addition:\n$$\\left({x + y}\\right)^2 = \\left({x + y}\\right) \\cdot \\left({x + y}\\right)$$\n$$= x \\cdot \\left({x + y}\\right) + y \\cdot \\left({x + y}\\right)$$\nReal Multiplication Distributes over Addition\n$$= x \\cdot x + x \\cdot y + y \\cdot x + y \\cdot y$$\nReal Multiplication Distributes over Addition\n$$= x^2 + 2xy + y^2$$",
+    "clean_row_index": 845,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Distributing twice and combining the equal cross terms xy and yx yields the stated real identity."
+  },
+  {
+    "theorem_id": 1939,
+    "title": "Square of Sum",
+    "theorem_text": "$\\forall x, y \\in \\R: \\paren {x + y}^2 = x^2 + 2 x y + y^2$",
+    "proof_text": "Follows from the distribution of multiplication over addition:\n$$\\paren {a + 2 b}^2 = \\paren {a + 2 b} \\cdot \\paren {a + 2 b}$$\n$$= a \\cdot \\paren {a + 2 b} + 2 b \\cdot \\paren {a + 2 b}$$\nReal Multiplication Distributes over Addition\n$$= a \\cdot a + a \\cdot 2 b + 2 b \\cdot a + 2 b \\cdot 2 b$$\nReal Multiplication Distributes over Addition\n$$= a^2 + 4 a b + 4 b^2$$",
+    "clean_row_index": 846,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The expansion for a and 2b covers all real x and y by taking a=x and b=y/2, giving cross term 2xy and final term y squared."
+  },
+  {
+    "theorem_id": 1942,
+    "title": "Square of Sum with Double",
+    "theorem_text": "$\\forall a, b \\in \\R: \\paren {a + 2 b}^2 = a^2 + 4 a b + 4 b^2$",
+    "proof_text": "Follows from the distribution of multiplication over addition:\n$$\\paren {a + 2 b}^2 = \\paren {a + 2 b} \\cdot \\paren {a + 2 b}$$\n$$= a \\cdot \\paren {a + 2 b} + 2 b \\cdot \\paren {a + 2 b}$$\nReal Multiplication Distributes over Addition\n$$= a \\cdot a + a \\cdot 2 b + 2 b \\cdot a + 2 b \\cdot 2 b$$\nReal Multiplication Distributes over Addition\n$$= a^2 + 4 a b + 4 b^2$$",
+    "clean_row_index": 847,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both cross products are 2ab, and squaring the second summand gives 4b squared, which yields the displayed expansion."
+  },
+  {
+    "theorem_id": 1967,
+    "title": "Euler-Binet Formula",
+    "theorem_text": "The Fibonacci numbers have a closed-form solution:\n$F_n = \\dfrac {\\phi^n - \\paren {1 - \\phi}^n} {\\sqrt 5} = \\dfrac {\\phi^n - \\paren {-1 / \\phi}^n} {\\sqrt 5} = \\dfrac {\\phi^n - \\paren {-1}^n \\phi^{-n} } {\\sqrt 5}$\nwhere $\\phi$ is the golden mean.\nPutting $\\hat \\phi = 1 - \\phi = -\\dfrac 1 \\phi$ this can be written:\n$F_n = \\dfrac {\\phi^n - \\hat \\phi^n} {\\sqrt 5}$",
+    "proof_text": "Let $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\end{pmatrix}$.\nFirst by the lemma to Cassini's Identity:\n$(1): \\quad \\forall n \\in \\Z_{>1}: A^n = \\begin{bmatrix}\nF_{n + 1} & F_n \\\\\nF_n       & F_{n - 1}\n\\end{bmatrix}$\nNext is is demonstrated that $A$ has the eigenvalues $\\phi$ and $\\hat \\phi$, where $\\hat \\phi = 1 - \\phi$.\nNow we have that:\n(2) $$A \\begin{pmatrix} \\phi \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} \\phi + 1 \\\\ \\phi \\end{pmatrix}$$\n$$= \\phi \\begin{pmatrix} \\phi \\\\ 1 \\end{pmatrix}$$\nsince $\\phi$ is a solution of $x^2 - x - 1 = 0$\n$$A \\begin{pmatrix} \\hat \\phi \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} \\hat \\phi + 1 \\\\ \\hat \\phi \\end{pmatrix}$$\n$$= \\hat \\phi \\begin{pmatrix} \\hat \\phi \\\\ 1 \\end{pmatrix}$$\nsince $\\hat \\phi$ is a solution of $x^2 - x - 1 = 0$\nThis shows that:\n$\\displaystyle \\begin{pmatrix} \\phi \\\\ 1 \\end{pmatrix}$ is an eigenvector of $A$ with eigenvalue $\\phi$\nand:\n$\\displaystyle \\begin{pmatrix} \\hat \\phi \\\\ 1 \\end{pmatrix}$ is an eigenvector of $A$ with eigenvalue $\\hat \\phi$.\nThus:\n$\\displaystyle \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$ is an eigenvector of $A$ with eigenvalue $\\phi$\nand:\n$\\displaystyle \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$ is an eigenvector of $A$ with eigenvalue $\\hat \\phi$.\nBy Eigenvalue of Matrix Powers we get for a positive integer $n$:\n$$\\phi^n \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} = A^n \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$$\n$${\\hat \\phi}^n \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} = A^n \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$$\nFrom $(1)$ we get:\n$A^n \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} F_{n + 1} \\\\ F_n \\end{pmatrix}$\nSubstituting:\n$\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} - \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$\nwe get:\n$$\\begin{pmatrix} F_{n + 1} \\\\ F_n \\end{pmatrix} = \\frac 1 {\\sqrt 5} A^n \\left({\\begin{pmatrix} \\phi \\\\ 1 \\end{pmatrix} - \\begin{pmatrix} \\hat \\phi \\\\ 1 \\end{pmatrix} }\\right)$$\n$$= A^n \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} - A^n \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$$\n$$= \\phi^n \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} - \\hat \\phi^n \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$$\n$$= \\frac 1 {\\sqrt 5} \\begin{pmatrix} \\phi^n \\cdot \\phi - \\hat \\phi^n \\cdot \\hat \\phi \\\\ \\phi^n - \\hat \\phi^n \\end{pmatrix}$$\nHence the result.",
+    "clean_row_index": 848,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two eigenvectors differ by sqrt(5) times the first coordinate vector. Applying the matrix power and reading its second coordinate gives the closed form."
+  },
+  {
+    "theorem_id": 1967,
+    "title": "Euler-Binet Formula",
+    "theorem_text": "The Fibonacci numbers have a closed-form solution:\n$F_n = \\dfrac {\\phi^n - \\paren {1 - \\phi}^n} {\\sqrt 5} = \\dfrac {\\phi^n - \\paren {-1 / \\phi}^n} {\\sqrt 5} = \\dfrac {\\phi^n - \\paren {-1}^n \\phi^{-n} } {\\sqrt 5}$\nwhere $\\phi$ is the golden mean.\nPutting $\\hat \\phi = 1 - \\phi = -\\dfrac 1 \\phi$ this can be written:\n$F_n = \\dfrac {\\phi^n - \\hat \\phi^n} {\\sqrt 5}$",
+    "proof_text": "This follows as a direct application of the first Binet form:\n$U_n = m U_{n - 1} + U_{n - 2}$\nwhere:\n$$U_0 = 0$$\n$$U_1 = 1$$\nhas the closed-form solution:\n$U_n = \\dfrac {\\alpha^n - \\beta^n} {\\Delta}$\nwhere:\n$$\\Delta = \\sqrt {m^2 + 4}$$\n$$\\alpha = \\frac {m + \\Delta} 2$$\n$$\\beta = \\frac {m - \\Delta} 2$$\nwhere $m = 1$.",
+    "clean_row_index": 849,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Substituting m=1 into the cited recurrence solution gives precisely the Fibonacci initial values and the two golden-ratio roots."
+  },
+  {
+    "theorem_id": 1967,
+    "title": "Euler-Binet Formula",
+    "theorem_text": "The Fibonacci numbers have a closed-form solution:\n$F_n = \\dfrac {\\phi^n - \\paren {1 - \\phi}^n} {\\sqrt 5} = \\dfrac {\\phi^n - \\paren {-1 / \\phi}^n} {\\sqrt 5} = \\dfrac {\\phi^n - \\paren {-1}^n \\phi^{-n} } {\\sqrt 5}$\nwhere $\\phi$ is the golden mean.\nPutting $\\hat \\phi = 1 - \\phi = -\\dfrac 1 \\phi$ this can be written:\n$F_n = \\dfrac {\\phi^n - \\hat \\phi^n} {\\sqrt 5}$",
+    "proof_text": "From Generating Function for Fibonacci Numbers, a generating function for the Fibonacci numbers is:\n$\\map G z = \\dfrac z {1 - z - z^2}$\nHence:\n$$\\map G z = \\dfrac z {1 - z - z^2}$$\n$$= \\dfrac 1 {\\sqrt 5} \\paren {\\dfrac 1 {1 - \\phi z} - \\dfrac 1 {1 - \\hat \\phi z} }$$\nPartial Fraction Expansion\nwhere:\n$\\phi = \\dfrac {1 + \\sqrt 5} 2$\n$\\hat \\phi = \\dfrac {1 - \\sqrt 5} 2$\nBy Sum of Infinite Geometric Sequence:\n$\\dfrac 1 {1 - \\phi z} = 1 + \\phi z + \\phi^2 z^2 + \\cdots$\nand so:\n$\\map G z = \\dfrac 1 {\\sqrt 5} \\paren {1 + \\phi z + \\phi^2 z^2 + \\cdots - 1 - \\hat \\phi z - \\hat \\phi^2 z^2 - \\cdots}$\nBy definition, the coefficient of $z^n$ in $\\map G z$ is exactly the $n$th Fibonacci number.\nThat is:\n$F_n = \\dfrac {\\phi^n - \\hat \\phi^n} {\\sqrt 5}$",
+    "clean_row_index": 850,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The partial fraction decomposition of the Fibonacci generating function splits into two geometric series whose nth coefficients differ by the required amount."
+  },
+  {
+    "theorem_id": 1969,
+    "title": "Binet Form",
+    "theorem_text": "Let $m \\in \\R$.\nDefine:\n$$\\Delta = \\sqrt {m^2 + 4}$$\n$$\\alpha = \\frac {m + \\Delta} 2$$\n$$\\beta = \\frac {m - \\Delta} 2$$",
+    "proof_text": "Let $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\end{pmatrix}$.\nFirst by the lemma to Cassini's Identity:\n$(1): \\quad \\forall n \\in \\Z_{>1}: A^n = \\begin{bmatrix}\nF_{n + 1} & F_n \\\\\nF_n       & F_{n - 1}\n\\end{bmatrix}$\nNext is is demonstrated that $A$ has the eigenvalues $\\phi$ and $\\hat \\phi$, where $\\hat \\phi = 1 - \\phi$.\nNow we have that:\n(2) $$A \\begin{pmatrix} \\phi \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} \\phi + 1 \\\\ \\phi \\end{pmatrix}$$\n$$= \\phi \\begin{pmatrix} \\phi \\\\ 1 \\end{pmatrix}$$\nsince $\\phi$ is a solution of $x^2 - x - 1 = 0$\n$$A \\begin{pmatrix} \\hat \\phi \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} \\hat \\phi + 1 \\\\ \\hat \\phi \\end{pmatrix}$$\n$$= \\hat \\phi \\begin{pmatrix} \\hat \\phi \\\\ 1 \\end{pmatrix}$$\nsince $\\hat \\phi$ is a solution of $x^2 - x - 1 = 0$\nThis shows that:\n$\\displaystyle \\begin{pmatrix} \\phi \\\\ 1 \\end{pmatrix}$ is an eigenvector of $A$ with eigenvalue $\\phi$\nand:\n$\\displaystyle \\begin{pmatrix} \\hat \\phi \\\\ 1 \\end{pmatrix}$ is an eigenvector of $A$ with eigenvalue $\\hat \\phi$.\nThus:\n$\\displaystyle \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$ is an eigenvector of $A$ with eigenvalue $\\phi$\nand:\n$\\displaystyle \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$ is an eigenvector of $A$ with eigenvalue $\\hat \\phi$.\nBy Eigenvalue of Matrix Powers we get for a positive integer $n$:\n$$\\phi^n \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} = A^n \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$$\n$${\\hat \\phi}^n \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} = A^n \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$$\nFrom $(1)$ we get:\n$A^n \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} F_{n + 1} \\\\ F_n \\end{pmatrix}$\nSubstituting:\n$\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} - \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$\nwe get:\n$$\\begin{pmatrix} F_{n + 1} \\\\ F_n \\end{pmatrix} = \\frac 1 {\\sqrt 5} A^n \\left({\\begin{pmatrix} \\phi \\\\ 1 \\end{pmatrix} - \\begin{pmatrix} \\hat \\phi \\\\ 1 \\end{pmatrix} }\\right)$$\n$$= A^n \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} - A^n \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$$\n$$= \\phi^n \\begin{pmatrix} \\frac \\phi {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix} - \\hat \\phi^n \\begin{pmatrix} \\frac {\\hat \\phi} {\\sqrt 5} \\\\ \\frac 1 {\\sqrt 5} \\end{pmatrix}$$\n$$= \\frac 1 {\\sqrt 5} \\begin{pmatrix} \\phi^n \\cdot \\phi - \\hat \\phi^n \\cdot \\hat \\phi \\\\ \\phi^n - \\hat \\phi^n \\end{pmatrix}$$\nHence the result.",
+    "clean_row_index": 852,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The theorem text defines three parameters but states no identity or conclusion. The eigenvector argument proves a Fibonacci identity for a particular matrix."
+  },
+  {
+    "theorem_id": 1969,
+    "title": "Binet Form",
+    "theorem_text": "Let $m \\in \\R$.\nDefine:\n$$\\Delta = \\sqrt {m^2 + 4}$$\n$$\\alpha = \\frac {m + \\Delta} 2$$\n$$\\beta = \\frac {m - \\Delta} 2$$",
+    "proof_text": "This follows as a direct application of the first Binet form:\n$U_n = m U_{n - 1} + U_{n - 2}$\nwhere:\n$$U_0 = 0$$\n$$U_1 = 1$$\nhas the closed-form solution:\n$U_n = \\dfrac {\\alpha^n - \\beta^n} {\\Delta}$\nwhere:\n$$\\Delta = \\sqrt {m^2 + 4}$$\n$$\\alpha = \\frac {m + \\Delta} 2$$\n$$\\beta = \\frac {m - \\Delta} 2$$\nwhere $m = 1$.",
+    "clean_row_index": 853,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The cleaned statement ends after defining alpha and beta. The proof specializes a recurrence, but there is no stated conclusion to evaluate."
+  },
+  {
+    "theorem_id": 1969,
+    "title": "Binet Form",
+    "theorem_text": "Let $m \\in \\R$.\nDefine:\n$$\\Delta = \\sqrt {m^2 + 4}$$\n$$\\alpha = \\frac {m + \\Delta} 2$$\n$$\\beta = \\frac {m - \\Delta} 2$$",
+    "proof_text": "From Generating Function for Fibonacci Numbers, a generating function for the Fibonacci numbers is:\n$\\map G z = \\dfrac z {1 - z - z^2}$\nHence:\n$$\\map G z = \\dfrac z {1 - z - z^2}$$\n$$= \\dfrac 1 {\\sqrt 5} \\paren {\\dfrac 1 {1 - \\phi z} - \\dfrac 1 {1 - \\hat \\phi z} }$$\nPartial Fraction Expansion\nwhere:\n$\\phi = \\dfrac {1 + \\sqrt 5} 2$\n$\\hat \\phi = \\dfrac {1 - \\sqrt 5} 2$\nBy Sum of Infinite Geometric Sequence:\n$\\dfrac 1 {1 - \\phi z} = 1 + \\phi z + \\phi^2 z^2 + \\cdots$\nand so:\n$\\map G z = \\dfrac 1 {\\sqrt 5} \\paren {1 + \\phi z + \\phi^2 z^2 + \\cdots - 1 - \\hat \\phi z - \\hat \\phi^2 z^2 - \\cdots}$\nBy definition, the coefficient of $z^n$ in $\\map G z$ is exactly the $n$th Fibonacci number.\nThat is:\n$F_n = \\dfrac {\\phi^n - \\hat \\phi^n} {\\sqrt 5}$",
+    "clean_row_index": 854,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The target consists only of parameter definitions. Extracting Fibonacci coefficients proves a particular formula but gives no way to identify the missing claim."
+  },
+  {
+    "theorem_id": 1968,
+    "title": "Hölder's Inequality for Sums",
+    "theorem_text": "Let $p, q \\in \\R_{>0}$ be strictly positive real numbers such that:\n$\\dfrac 1 p + \\dfrac 1 q = 1$\nLet:\n$\\mathbf x = \\sequence {x_n} \\in \\ell^p$\n$\\mathbf y = \\sequence {y_n} \\in \\ell^q$\nwhere $\\ell^p$ denotes the $p$-sequence space.\nLet $\\norm {\\mathbf x}_p$ denote the $p$-norm of $\\mathbf x$.\nThen $\\mathbf x \\mathbf y = \\sequence {x_n y_n} \\in \\ell^1$, and:\n$\\norm {\\mathbf x \\mathbf y}_1 \\le \\norm {\\mathbf x}_p \\norm {\\mathbf y}_q$",
+    "proof_text": "without loss of generality, assume that $\\mathbf x$ and $\\mathbf y$ are non-zero.\nDefine:\n$\\mathbf u = \\sequence {u_n} = \\dfrac {\\mathbf x} {\\norm {\\mathbf x}_p}$\n$\\mathbf v = \\sequence {v_n} = \\dfrac {\\mathbf y} {\\norm {\\mathbf y}_q}$\nThen:\n$\\displaystyle \\norm {\\mathbf u}_p = \\dfrac 1 {\\norm {\\mathbf x}_p} \\paren {\\sum_{n \\mathop = 0}^\\infty \\size {x_n}^p}^{1/p} = 1$\nSimilarly:\n$\\norm {\\mathbf v}_q = 1$\nBy Young's Inequality for Products:\n$(1): \\quad \\forall n \\in \\N: \\size {u_n v_n} \\le \\dfrac 1 p \\size {u_n}^p + \\dfrac 1 q \\size {v_n}^q$\nBy the comparison test, it follows that:\n$\\mathbf u \\mathbf v = \\sequence {u_n v_n} \\in \\ell^1$\n$\\mathbf x \\mathbf y = \\norm {\\mathbf x}_p \\norm {\\mathbf y}_q \\mathbf u \\mathbf v \\in \\ell^1$\nFrom $(1)$, it follows that:\n$\\norm {\\mathbf u \\mathbf v}_1 \\le \\dfrac 1 p \\norm {\\mathbf u}_p + \\dfrac 1 q \\norm {\\mathbf v}_q = 1$\nTherefore:\n$\\norm {\\mathbf x \\mathbf y}_1 = \\norm {\\mathbf x}_p \\norm {\\mathbf y}_q \\norm {\\mathbf u \\mathbf v}_1 \\le \\norm {\\mathbf x}_p \\norm {\\mathbf y}_q$\nas desired.",
+    "clean_row_index": 851,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Young's inequality for the normalized sequences bounds the sum of absolute products by 1/p+1/q=1. Rescaling gives both absolute summability and the bound."
+  },
+  {
+    "theorem_id": 1972,
+    "title": "Conservation of Angular Momentum",
+    "theorem_text": "Newton's Laws of Motion imply the conservation of angular momentum in systems of masses in which no external force is acting.",
+    "proof_text": "We start by stating Newton's Third Law of Motion in all its detail.\nWe consider a collection of massive bodies denoted by the subscripts $1$ to $N$.\nThese bodies interact with each other and exert forces on each other and these forces occur in equal and opposite pairs.\nThe force $F_{i j}$ exerted by body $i$ on body $j$ is related to the force exerted by body $j$ on body $i$ by:\n$(1): \\quad \\vec {F_{i j}} = -\\vec {F_{j i}}$\nThe final part of Newton's Third Law of Motion is that these equal and opposite forces act through the line that connects the two bodies in question.\nThis can be stated thus:\n$(2): \\quad \\vec {F_{i j}} = a_{i j} \\paren {\\vec {r_j} - \\vec {r_i} }$\nwhere:\n$\\vec{r_i}$ is the position of body $i$\n$a_{i j} $ is the magnitude of the force.\nAs a consequence of $(1)$:\n$a_{j i} = a_{i j}$\nLet the total torque $\\vec {\\tau_{\\operatorname {total} } }$ on the system be measured about an origin located at $\\vec {r_0}$.\nThus:\n$$\\vec {\\tau_{\\operatorname {total} } } = \\sum_i \\vec{\\tau_i}$$\n$$= \\sum_i \\paren {\\paren {\\vec {r_i} - \\vec {r_0} } \\times \\sum_j \\vec {F_{j i} } }$$\n$$= \\sum_{i, j} \\paren {\\paren {\\paren {\\vec {r_j} - \\vec {r_0} } - \\paren {\\vec {r_j} - \\vec {r_i} } } \\times \\vec {F_{j i} } }$$\n$$= \\sum_{i, j} \\paren {\\paren {\\paren {\\vec {r_j} - \\vec {r_0} } - \\paren {\\vec {r_j} - \\vec {r_i} } } \\times a_{i j} \\paren {\\vec {r_j} - \\vec {r_i} } }$$\n$$= \\sum_{i, j} \\paren {\\vec {r_j} - \\vec {r_0} } \\times  a_{i j} \\paren {\\vec {r_j} - \\vec {r_i} }$$\n$$= \\sum_{i, j} \\vec {r_j} \\times  a_{i j} \\paren {\\vec {r_j} - \\vec {r_i} } - \\paren {\\vec {r_0} \\times \\sum_{i, j} \\vec {F_{i j} } }$$\nBy hypothesis there is no external force.\nThus the second term disappears, and:\n$$\\vec {\\tau_{\\operatorname {total} } } = \\sum_{i, j} \\vec {r_j} \\times a_{i j} \\paren {\\vec {r_j} - \\vec {r_i} }$$\n$$= \\sum_{i \\mathop > j} \\vec {r_j} \\times a_{i j} \\paren {\\vec {r_j} - \\vec {r_i} } + \\vec {r_i} \\times  a_{j i} \\paren {\\vec {r_j} - \\vec {r_i} }$$\n$$= \\sum_{i \\mathop > j} \\vec {r_j} \\times \\vec {r_i} \\paren {a_{j i} - a_{i j} }$$\n$$= \\vec 0$$\nIn summary, in a system of masses in which there is no external force, the total torque on the system is equal to $0$.\nThis is because the pair of torque between two bodies must cancel out.\nSince the rate of change of angular momentum is proportional to the torque, the angular momentum of a system is conserved when no external force is applied.",
+    "clean_row_index": 855,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The substitution for F_ji has the direction specified for F_ij, and the subsequent pair sum reuses the same displacement instead of its negative. These displayed equalities do not establish torque cancellation."
+  },
+  {
+    "theorem_id": 1974,
+    "title": "Basis Expansion of Irrational Number",
+    "theorem_text": "A basis expansion of an irrational number never terminates and does not recur.",
+    "proof_text": "We use a Proof by Contraposition.\nThus, we show that if a basis expansion of a (real) number terminates or recurs, then that number is rational.\nSuppose $x \\in \\R$ were to terminate in some number base $b$.\nThen (using the notation of that definition):\n$\\exists k \\in \\N: f_k = 0$\nand so we can express $x$ precisely as:\n$x = \\left[{s . d_1 d_2 d_3 \\ldots d_{k - 1} }\\right]_b$\nThis means:\n$x = s + \\dfrac {d_1} b + \\dfrac {d_2} {b^2} + \\dfrac {d_3} {b^3} + \\cdots + \\dfrac {d_{k - 1} } {b^{k - 1} }$\nThis is the same as:\n$x = \\dfrac {s b^{k - 1} + d_1 b^{k - 2} + d_2 b^{k - 3} + \\cdots + d_{k - 1} } {b^{k - 1} }$\nBoth numerator and denominator are integers and so $x$ is a rational number.\nNow suppose $x \\in \\R$ were to recur in some number base $b$.\nLet $y$ be the recurring part of $x$.\nThat is, $y$ is obtained from $x$ by first subtracting $\\floor x$ and then subtracting the non-recurring part of the basis expansion (if any).\nThen we can express $y$ precisely as:\n$y = \\sqbrk {0 . 0 0 \\ldots 0 d_1 d_2 \\ldots d_{k - 1} d_1 d_2 \\ldots d_{k - 1} \\ldots}_b$\nfor some number $m$ (possibly $m = 0$) of zeroes following the point.\nWe define:\n$z:= \\sqbrk {0 . d_1 d_2 \\ldots d_{k - 1} }_b = \\dfrac {d_1} b + \\dfrac {d_2} {b^2} + \\dfrac {d_3} {b^3} + \\cdots + \\dfrac {d_{k - 1} } {b^{k - 1} }$\nThen $z$ is a rational number.\nFurthermore:\n$y = \\dfrac z {b^m} + \\dfrac z {b^{m + k} } + \\dfrac z {b^{m + 2 k} } + \\cdots = \\dfrac z {b^m} \\paren {1 + \\dfrac 1 {b^k} + \\dfrac 1 {b^{2 k } } + \\cdots} = \\dfrac z {b^m} \\cdot \\dfrac 1 {1 - \\dfrac 1 {b^k} }$\nso $y$ is a rational number as well.\nThus as $x - y$ is rational, $x$ is also rational.",
+    "clean_row_index": 856,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The recurring digit block has length k-1, but the asserted geometric series shifts blocks by k places. That series represents a different number in general."
+  },
+  {
+    "theorem_id": 1975,
+    "title": "Determinant of Combinatorial Matrix",
+    "theorem_text": "Let $C_n$ be the combinatorial matrix of order $n$ given by:\n$C_n = \\begin{bmatrix}\nx + y & y & \\cdots & y \\\\\ny & x + y & \\cdots & y \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\ny & y & \\cdots & x + y\n\\end{bmatrix}$\nThen the determinant of $C_n$ is given by:\n$\\det \\left({C_n}\\right) = x^{n-1} \\left ({x + n y}\\right)$",
+    "proof_text": "Take the determinant $\\det \\left({C_n}\\right)$:\n$\\det \\left({C_n}\\right) = \\begin{vmatrix}\nx + y & y & y & \\cdots & y \\\\\ny & x + y & y & \\cdots & y \\\\\ny & y & x + y & \\cdots & y \\\\\n\\vdots & \\vdots & \\vdots & \\ddots & \\vdots \\\\\ny & y & y & \\cdots & x + y\n\\end{vmatrix}$\nSubtract column $1$ from columns $2$ to $n$.\nFrom Multiple of Row Added to Row of Determinant this will have no effect on the value of the determinant:\n$\\det \\left({C_n}\\right) = \\begin{vmatrix}\nx + y & -x & -x & \\cdots & -x \\\\\ny & x & 0 & \\cdots & 0 \\\\\ny & 0 & x & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\vdots & \\ddots & \\vdots \\\\\ny & 0 & 0 & \\cdots & x\n\\end{vmatrix}$\nAdd rows $2$ to $n$ to row $1$.\nAgain, from Multiple of Row Added to Row of Determinant this will have no effect on the value of the determinant:\n$\\det \\left({C_n}\\right) = \\begin{vmatrix}\nx + n y & 0 & 0 & \\cdots & 0 \\\\\ny & x & 0 & \\cdots & 0 \\\\\ny & 0 & x & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\vdots & \\ddots & \\vdots \\\\\ny & 0 & 0 & \\cdots & x\n\\end{vmatrix}$\nThis is now the determinant of a (lower) triangular matrix.\nFrom Determinant of Triangular Matrix, it follows immediately that:\n$\\det \\left({C_n}\\right) = x^{n-1} \\left ({x + n y}\\right)$",
+    "clean_row_index": 857,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The stated determinant-preserving column and row additions produce a triangular matrix with one diagonal entry x+ny and n-1 diagonal entries x."
+  },
+  {
+    "theorem_id": 1976,
+    "title": "Power Set is Closed under Union",
+    "theorem_text": "Let $S$ be a set.\nLet $\\powerset S$ be the power set of $S$.\nThen:\n$\\forall A, B \\in \\powerset S: A \\cup B \\in \\powerset S$",
+    "proof_text": "Let $A, B \\in \\powerset S$.\nThen by the definition of power set, $A \\subseteq S$ and $B \\subseteq S$.\nWe also have $A \\cup B \\subseteq S \\iff A \\subseteq S \\land B \\subseteq S$ from Union is Smallest Superset.\nThus $A \\cup B \\in \\powerset S$, and closure is proved.",
+    "clean_row_index": 858,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The union of two subsets of S is again contained in S, hence belongs to its power set."
+  },
+  {
+    "theorem_id": 1989,
+    "title": "Number of Permutations",
+    "theorem_text": "Let $S$ be a set of $n$ elements.\nLet $r \\in \\N: r \\le n$.\nThen the number of $r$-permutations of $S$ is:\n${}^r P_n = \\dfrac {n!} {\\paren {n - r}!}$\nWhen $r = n$, this becomes:\n${}^n P_n = \\dfrac {n!} {\\paren {n - n}!} = n!$\nUsing the falling factorial symbol, this can also be expressed:\n${}^r P_n = n^{\\underline r}$",
+    "proof_text": "We pick the elements of $S$ in any arbitrary order.\nThere are $n$ elements of $S$, so there are $n$ options for the first element.\nThen there are $n - 1$ elements left in $S$ that we haven't picked, so there are $n-1$ options for the second element.\nThen there are $n - 2$ elements left, so there are $n - 2$ options for the third element.\nAnd so on, to the $r$th element of our selection: we now have $n - \\paren {r - 1}$ possible choices.\nEach mapping is independent of the choices made for all the other mappings, so by the Product Rule for Counting, the total number of ordered selections from $S$:\n$${}^r P_n = n \\paren {n - 1} \\paren {n - 2} \\cdots \\paren {n - r + 1}$$\n$$= n \\paren {n - 1} \\paren {n - 2} \\ldots \\paren {n - r + 1} \\dfrac {\\paren {n - r}!} {\\paren {n - r}!}$$\nmultiplying top and bottom by $\\paren {n - r}!$\n$$= \\dfrac {n!} {\\paren {n - r}!}$$\nsimplifying the numerator",
+    "clean_row_index": 861,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "After any prefix there are exactly n minus its length many unused elements, giving the falling factorial by successive counting, including the empty product."
+  },
+  {
+    "theorem_id": 1989,
+    "title": "Number of Permutations",
+    "theorem_text": "Let $S$ be a set of $n$ elements.\nLet $r \\in \\N: r \\le n$.\nThen the number of $r$-permutations of $S$ is:\n${}^r P_n = \\dfrac {n!} {\\paren {n - r}!}$\nWhen $r = n$, this becomes:\n${}^n P_n = \\dfrac {n!} {\\paren {n - n}!} = n!$\nUsing the falling factorial symbol, this can also be expressed:\n${}^r P_n = n^{\\underline r}$",
+    "proof_text": "From the definition, an $r$-permutation of $S$ is an ordered selection of $r$ elements of $S$.\nIt can be seen that an $r$-permutation is an injection from a subset of $S$ into $S$.\nFrom Cardinality of Set of Injections, we see that the number of $r$-permutations ${}^r P_n$ on a set of $n$ elements is given by:\n${}^r P_n = \\dfrac {n!} {\\left({n-r}\\right)!}$\nFrom this definition, it can be seen that a bijection $f: S \\to S$ is an $n$-permutation.\nHence the number of $n$-permutations on a set of $n$ elements is:\n${}^n P_n = \\dfrac {n!} {\\left({n - n}\\right)!} = n!$",
+    "clean_row_index": 862,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With a fixed labeled domain of size r representing selection positions, ordered selections correspond to injections into S. The cited injection count gives the factorial quotient."
+  },
+  {
+    "theorem_id": 1989,
+    "title": "Number of Permutations",
+    "theorem_text": "Let $S$ be a set of $n$ elements.\nLet $r \\in \\N: r \\le n$.\nThen the number of $r$-permutations of $S$ is:\n${}^r P_n = \\dfrac {n!} {\\paren {n - r}!}$\nWhen $r = n$, this becomes:\n${}^n P_n = \\dfrac {n!} {\\paren {n - n}!} = n!$\nUsing the falling factorial symbol, this can also be expressed:\n${}^r P_n = n^{\\underline r}$",
+    "proof_text": "$${}^{n - 1} P_n = n^{\\underline {n - 1} }$$\nNumber of Permutations: $n^{\\underline {n - 1} }$ denotes Falling Factorial\n$$= n!$$\nInteger to Power of Itself Less One Falling is Factorial\n$$= {}^n P_n$$\nNumber of Permutations",
+    "clean_row_index": 863,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The calculation treats only the two special lengths n-1 and n, taking their permutation counts from the theorem it cites. It does not establish the claimed formula for general r."
+  },
+  {
+    "theorem_id": 1991,
+    "title": "De Polignac's Formula",
+    "theorem_text": "Let $n!$ be the factorial of $n$.\nLet $p$ be a prime number.\nThen $p^\\mu$ is a divisor of $n!$, and $p^{\\mu + 1}$ is not, where:\n$\\displaystyle \\mu = \\sum_{k \\mathop > 0} \\floor {\\frac n {p^k} }$\nwhere $\\floor {\\, \\cdot \\,}$ denotes the floor function.",
+    "proof_text": "Note that although the summation given in the statement of the theorem is given as an infinite sum, in fact it terminates after a finite number of terms (because when $p^k > n$ we have $0 < n/p^k < 1$).\nFrom Number of Multiples less than Given Number, we have that $\\floor{\\dfrac n {p^k} }$ is the number of integers $m$ such that $0 < m \\le n$ which are multiples of $p^k$.\nWe look more closely at $n!$:\n$n! = 1 \\times 2 \\times \\ldots \\times \\paren {n - 1} \\times n$\nWe see that any integer $m$ such that $0 < m \\le n$ which is divisible by $p^j$ and not $p^{j + 1}$ must be counted exactly $j$ times.\nThat is:\n:once in $\\floor {\\dfrac n p}$\n:once in $\\floor {\\dfrac n {p^2} }$\n$\\ldots$\n:once in $\\floor {\\dfrac n {p^j} }$\nAnd that is all the occurrences of $p$ as a factor of $n!$.\nThus:\n$\\mu = \\floor {\\dfrac n p} + \\floor {\\dfrac n {p^2} } + \\dotsb + \\floor {\\dfrac n {p^j} }$\nHence the result.",
+    "clean_row_index": 864,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Counting multiples of successive positive powers of p counts each factorial factor m exactly as often as its p-adic exponent. Terms vanish once the power exceeds n."
+  },
+  {
+    "theorem_id": 2040,
+    "title": "Factorial Divisible by Prime Power",
+    "theorem_text": "Let $n \\in \\Z: n \\ge 1$.\nLet $p$ be a prime number.\nLet $n$ be expressed in base $p$ notation:\n$\\displaystyle n = \\sum_{j \\mathop = 0}^m r_j p^j$\nwhere $0 \\le r_j < p$.\nLet $n!$ be the factorial of $n$.\nLet $p^\\mu$ be the largest power of $p$ which divides $n!$, that is:\n$p^\\mu \\divides n!$\n$p^{\\mu + 1} \\nmid n!$\nThen:\n$\\mu = \\dfrac {n - \\map {s_p} n} {p - 1}$\nwhere $\\map {s_p} n$ is the digit sum of $n$.",
+    "proof_text": "If $p > n$, then $\\map {s_p} n = n$ and we have that:\n$\\dfrac {n - \\map {s_p} n} {p - 1} = 0$\nwhich ties in with the fact that $\\floor {\\dfrac n p} = 0$.\nHence the result holds for $p > n$.\nSo, let $p \\le n$.\nFrom De Polignac's Formula, we have that:\n$$\\mu = \\sum_{k \\mathop > 0} \\floor {\\frac n {p^k} }$$\n$$= \\floor {\\frac n p} + \\floor {\\frac n {p^2} } + \\floor {\\frac n {p^3} } + \\cdots + \\floor {\\frac n {p^s} }$$\nwhere $p^s < n < p^{s + 1}$.\nFrom Quotient and Remainder to Number Base: General Result:\n$\\displaystyle \\floor {\\frac n {p^k} } = \\sqbrk {r_m r_{m - 1} \\ldots r_{k + 1} r_k}_p = \\sum_{j \\mathop = 0}^{m - k} r_j p^j$\nwhere $0 \\le r_j < p$.\nHence:\n$$\\mu = \\sum_{k \\mathop > 0} \\paren {\\sum_{j \\mathop = 0}^{m - k} r_j p^j}$$\n$$= r_m p^{m - 1} + r_{m - 1} p^{m - 2} + \\cdots + r_2 p + r_1$$\n$$+ r_m p^{m - 2} + r_{m - 1} p^{m - 3} + \\cdots + r_2$$\n$$+ \\cdots$$\n$$+ r_m p + r_{m - 1}$$\n$$+ r_m$$\n$$= r_m \\sum_{j \\mathop = 0}^{m - 1} p^j + r_{m - 1} \\sum_{j \\mathop = 0}^{m - 2} p^j + \\cdots + r_2 \\sum_{j \\mathop = 0}^1 p^j + r_1 \\sum_{j \\mathop = 0}^0 p^j$$\n$$= \\sum_{k \\mathop = 1}^m \\paren {r_k \\sum_{j \\mathop = 0}^{k - 1} p^j}$$\n$$= \\sum_{k \\mathop = 1}^m \\paren {r_k \\frac {p^k - 1} {p - 1} }$$\nfrom Sum of Geometric Sequence\n$$= \\frac 1 {p - 1} \\paren {\\sum_{k \\mathop = 1}^m r_k p^k - \\sum_{k \\mathop = 1}^m r_k}$$\nHence the result.",
+    "clean_row_index": 889,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The digit expansion displayed after the double sum correctly sums the successive truncated base-p strings in the factorial valuation formula. This also covers exact powers of p; the intermediate indexed sum should have coefficient r_(j+k)."
+  },
+  {
+    "theorem_id": 1992,
+    "title": "Sum of Binomial Coefficients over Lower Index",
+    "theorem_text": "$\\displaystyle \\sum_{i \\mathop = 0}^n \\binom n i = 2^n$",
+    "proof_text": "For all $n \\in \\N$, let $P \\left({n}\\right)$ be the proposition:\n$\\displaystyle \\sum_{i \\mathop = 0}^n \\binom n i = 2^n$\n$P(0)$ is true, as this just says $\\dbinom 0 0 = 1$. This holds by definition.\nBasis for the Induction\n$P(1)$ is true, as this just says $\\dbinom 1 0 + \\dbinom 1 1 = 2$.\nThis holds by Binomial Coefficient with Zero and Binomial Coefficient with One (or Binomial Coefficient with Self).\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $P \\left({k}\\right)$ is true, where $k \\ge 1$, then it logically follows that $P \\left({k + 1}\\right)$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle \\sum_{i \\mathop = 0}^k \\binom k i = 2^k$\nThen we need to show:\n$\\displaystyle \\sum_{i \\mathop = 0}^{k + 1} \\binom {k + 1} i = 2^{k + 1}$\nInduction Step\nThis is our induction step:\n$$\\sum_{i \\mathop = 0}^{k + 1} \\binom {k + 1} i = \\binom {k + 1} 0 + \\sum_{i \\mathop = 1}^k \\binom {k + 1} i + \\binom {k + 1} {k + 1}$$\n$$= \\binom {k + 1} 0 + \\sum_{i \\mathop = 1}^k \\left({\\binom k {i - 1} + \\binom k i}\\right) + \\binom {k + 1} {k + 1}$$\nPascal's Rule\n$$= \\left({\\sum_{i \\mathop = 0}^{k - 1} \\binom k i + \\binom {k + 1} {k + 1} }\\right) + \\left({\\binom {k + 1} 0 + \\sum_{i \\mathop = 1}^k \\binom k i}\\right)$$\nTranslation of Index Variable of Summation\n$$= \\left({\\sum_{i \\mathop = 0}^{k - 1} \\binom k i + \\binom k k}\\right) + \\left({\\binom k 0 + \\sum_{i \\mathop = 1}^k \\binom k i}\\right)$$\nas $\\displaystyle \\binom {k + 1} {k + 1} = \\binom k k = 1$ and $\\displaystyle \\binom {k + 1} 0 = \\binom k 0 = 1$\n$$= \\sum_{i \\mathop = 0}^k \\binom k i + \\sum_{i \\mathop = 0}^k \\binom k i$$\nTranslation of Index Variable of Summation\n$$= 2^k + 2^k$$\n$$= 2^{k + 1}$$\nSo $P \\left({k}\\right) \\implies P \\left({k + 1}\\right)$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\displaystyle \\forall n \\in \\N: \\sum_{i \\mathop = 0}^n \\binom n i = 2^n$",
+    "clean_row_index": 865,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Pascal's identity splits the interior terms into two copies of the preceding row once its endpoints are supplied, so the sum doubles at each induction step."
+  },
+  {
+    "theorem_id": 1992,
+    "title": "Sum of Binomial Coefficients over Lower Index",
+    "theorem_text": "$\\displaystyle \\sum_{i \\mathop = 0}^n \\binom n i = 2^n$",
+    "proof_text": "Let $S$ be a set with $n$ elements.\nFrom the definition of $r$-combination, $\\displaystyle \\sum_{i \\mathop = 0}^n \\binom n i$ is the total number of subsets of $S$.\nHence $\\displaystyle \\sum_{i \\mathop = 0}^n \\binom n i$ is equal to the cardinality of the power set of $S$.\nHence the result.",
+    "clean_row_index": 866,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The binomial coefficients count the subsets grouped by size, and the full power set of an n-element set has size 2 to the n."
+  },
+  {
+    "theorem_id": 1993,
+    "title": "Alternating Sum and Difference of Binomial Coefficients for Given n",
+    "theorem_text": "$\\displaystyle \\forall n \\in \\Z: \\sum_{i \\mathop = 0}^n \\left({-1}\\right)^i \\binom n i = \\delta_{n 0}$",
+    "proof_text": "We have by definition of vacuous summation that:\n$\\displaystyle \\forall n \\in \\Z: n < 0: \\sum_{i \\mathop = 0}^n \\binom n 1 = 0$\nThen from Zero Choose Zero:\n$\\displaystyle \\sum_{i \\mathop = 0}^0 \\binom 0 0 = 1$\nLet $n > 0$.\nFrom the Binomial Theorem, we have that:\n$\\displaystyle \\forall n \\in \\Z_{\\ge 0}: \\left({x + y}\\right)^n = \\sum_{i \\mathop = 0}^n  \\binom n i x^{n - i} y^i$\nPutting $x = 1, y = -1$, we get:\n$$0 = \\left({1 - 1}\\right)^n$$\nwhich holds for all $n > 0$\n$$= \\sum_{i \\mathop = 0}^n \\binom n i 1^{n - i} \\left({-1}\\right)^i$$\n$$= \\sum_{i \\mathop = 0}^n \\left({-1}\\right)^i \\binom n i$$",
+    "clean_row_index": 867,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Negative upper bounds give empty sums, zero leaves the single unit term, and for positive n the binomial expansion of (1-1)^n vanishes."
+  },
+  {
+    "theorem_id": 1993,
+    "title": "Alternating Sum and Difference of Binomial Coefficients for Given n",
+    "theorem_text": "$\\displaystyle \\forall n \\in \\Z: \\sum_{i \\mathop = 0}^n \\left({-1}\\right)^i \\binom n i = \\delta_{n 0}$",
+    "proof_text": "We have by definition of vacuous summation that:\n$\\displaystyle \\forall n \\in \\Z: n < 0: \\sum_{i \\mathop = 0}^n \\binom n 1 = 0$\nThen from Zero Choose Zero:\n$\\displaystyle \\sum_{i \\mathop = 0}^0 \\binom 0 0 = 1$\nLet $n > 0$.\nThe assertion can be expressed:\n$\\displaystyle \\sum_{i \\mathop \\le n} \\left({-1}\\right)^i \\binom n i = 0$ for all $n > 0$\nas $\\dbinom n i = 0$ when $i < 0$ by definition of binomial coefficient.\nFrom Alternating Sum and Difference of r Choose k up to n we have:\n$\\displaystyle \\sum_{i \\mathop \\le n} \\left({-1}\\right)^i \\binom r i = \\left({-1}\\right)^n \\binom {r - 1} n$\nPutting $r = n$ we have:\n$\\displaystyle \\sum_{i \\mathop \\le n} \\left({-1}\\right)^i \\binom n i = \\left({-1}\\right)^n \\binom {n - 1} n$\nAs $n - 1 < n$ it follows from the definition of binomial coefficient that:\n$\\dbinom {n - 1} n = 0$",
+    "clean_row_index": 868,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The truncated alternating identity evaluated at r=n gives a zero binomial coefficient for n>0. The empty sum and singleton sum settle negative n and zero."
+  },
+  {
+    "theorem_id": 1994,
+    "title": "Symmetry Rule for Binomial Coefficients",
+    "theorem_text": "Let $n \\in \\Z_{>0}, k \\in \\Z$.\nThen:\n$\\dbinom n k = \\dbinom n {n - k}$",
+    "proof_text": "Follows directly from the definition of binomial coefficient, as follows.\nIf $k < 0$ then $n - k > n$.\nSimilarly, if $k > n$, then $n - k < 0$.\nIn both cases:\n$\\dbinom n k = \\dbinom n {n - k} = 0$\nLet $0 \\le k \\le n$.\n$$\\binom n k = \\frac {n!} {k! \\paren {n - k}!}$$\n$$= \\frac {n!} {\\paren {n - k}! k!}$$\n$$= \\frac {n!} {\\paren {n - k}! \\paren {n - \\paren {n - k} } !}$$\n$$= \\binom n {n - k}$$",
+    "clean_row_index": 869,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Outside the permitted range both coefficients vanish. Inside it, replacing k by n-k merely interchanges the two factorials in the denominator."
+  },
+  {
+    "theorem_id": 1994,
+    "title": "Symmetry Rule for Binomial Coefficients",
+    "theorem_text": "Let $n \\in \\Z_{>0}, k \\in \\Z$.\nThen:\n$\\dbinom n k = \\dbinom n {n - k}$",
+    "proof_text": "From the definition of Cardinality of Set of Subsets, $\\dbinom n k$ is the number of subsets of cardinality $k$ of a set with cardinality $n$.\nLet $S$ be a set with cardinality $n$.\nLet $\\powerset S$ denote the power set of $S$.\nLet $\\mathcal A_k \\subseteq \\powerset S$ be the set of elements of $\\powerset S$ which have cardinality $k$.\nFor every $T \\in \\mathcal A_k$ there exists its relative complement:\n$\\relcomp S T \\in \\mathcal A_{n - k}$\nDefine the mapping $f_k: \\mathcal A_k \\to \\mathcal A_{n - k}$ as:\n$\\forall T \\in \\mathcal A_k: \\map f T = \\relcomp S T$\nFrom Relative Complement Mapping on Powerset is Bijection it follows that $f_k$ is a bijection.\nBy definition of set equivalence, that means:\n$\\card {A_k} = \\card {A_{n - k} }$\nThat is, from the definition of Cardinality of Set of Subsets:\n$\\dbinom n k = \\dbinom n {n - k}$",
+    "clean_row_index": 870,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Complementation is an involution exchanging k-element subsets and (n−k)-element subsets. Outside the usual range both families are empty."
+  }
+]

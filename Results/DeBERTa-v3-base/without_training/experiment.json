@@ -1,0 +1,47 @@
+{
+  "model": "microsoft/deberta-v3-base",
+  "revision": "8ccc9b6f36199bec6961081d44eb72fb3f7353f3",
+  "seed": 42,
+  "labels": [
+    "Valid",
+    "Invalid"
+  ],
+  "batch_size": 4,
+  "max_length": 512,
+  "reason_limit": 64,
+  "theorem_limit": 128,
+  "evaluation_inputs": [
+    "theorem_text",
+    "proof_text"
+  ],
+  "truncation": "head and tail",
+  "autocast": "bfloat16",
+  "splits": "Data/splits",
+  "optimizer_steps": 0,
+  "training_examples_used": 0,
+  "classifier_head": "checkpoint initialization",
+  "confusion_matrices": {
+    "without_training": {
+      "validation": [
+        [
+          0,
+          74
+        ],
+        [
+          0,
+          15
+        ]
+      ],
+      "test": [
+        [
+          0,
+          75
+        ],
+        [
+          0,
+          14
+        ]
+      ]
+    }
+  }
+}

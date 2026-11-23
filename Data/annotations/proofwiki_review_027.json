@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1760,
+    "title": "Order Isomorphism between Wosets is Unique",
+    "theorem_text": "Let $\\struct {S_1, \\preceq_1}$ and $\\struct {S_2, \\preceq_2}$ be wosets.\nLet $\\struct {S_1, \\preceq_1} \\cong \\struct {S_2, \\preceq_2}$, that is, let $\\struct {S_1, \\preceq_1}$ and $\\struct {S_2, \\preceq_2}$ be order isomorphic.\nThen there is exactly one mapping $f: S_1 \\to S_2$ such that $f$ is an order isomorphism.",
+    "proof_text": "Let $f: S_1 \\to S_2$ and $g: S_1 \\to S_2$ both be order isomorphisms.\nBy Inverse of Order Isomorphism is Order Isomorphism, the inverse $f^{-1}$ is also an order isomorphism.\nLet $h = f^{-1} \\circ g$ be the composition of $f^{-1}$ and $g$, which, by Composite of Order Isomorphisms is Order Isomorphism, is itself an order isomorphism.\nSo, by Order Isomorphism from Woset onto Subset:\n$\\forall x \\in S_1: x \\preceq_1 \\map h x$\nNow we apply $f$ to $S_1$ and see that:\n$\\forall x \\in S_1: \\map f x \\preceq_2 \\map f {\\map h x} = \\map g x$\nIn a similar way we can show that:\n$\\forall x \\in S_1: \\map g x \\preceq_2 \\map f x$\nHence $f = g$ and the proof is complete.",
+    "clean_row_index": 780,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the order-embedding bound to the composite of g with the inverse of f gives f(x) at most g(x). Exchanging the isomorphisms gives the opposite inequality."
+  },
+  {
+    "theorem_id": 1764,
+    "title": "Ordering on Ordinal is Subset Relation",
+    "theorem_text": "Let $\\struct {S, \\prec}$ be an ordinal.\nThen $\\forall x, y \\in S:$\n$x \\in y \\iff x \\prec y \\iff S_x \\subsetneqq S_y \\iff x \\subsetneqq y$\nwhere $S_x$ and $S_y$ are the initial segments of $S$ determined by $x$ and $y$ respectively.\nThus there is no need to specify what the ordering on an ordinal is -- it is always the subset relation.",
+    "proof_text": "The first equivalence is an immediate consequence of Equivalence of Definitions of Ordinal.\nThe second equivalence holds for any well-ordered set by Woset Isomorphic to Set of its Sections.\nThe third equivalence holds by definition of an ordinal.\nIt follows from Ordering is Equivalent to Subset Relation and Order Isomorphism between Wosets is Unique that this ordering is the only one.",
+    "clean_row_index": 781,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "An ordinal element is its own predecessor segment, and the segment map strictly preserves and reflects order. Together these facts identify membership, strict order and proper inclusion."
+  },
+  {
+    "theorem_id": 1766,
+    "title": "Ordinal Subset of Ordinal is Initial Segment",
+    "theorem_text": "Let $S$ be an ordinal.\nLet $T \\subset S$ also be an ordinal.\nThen $\\exists a \\in S: T = S_a$, where $S_a$ is the initial segment of $S$ determined by $a$.\nThat is, $T = S_a = a \\in S$.",
+    "proof_text": "Recall that the Ordering on Ordinal is Subset Relation.\nLet $a$ be the minimal element of $S \\setminus T$.\nBy definition of minimal element:\n$\\forall x \\in S: x \\subset a$\nHence $x \\notin S \\setminus T$.\nBy definition of set difference:\n$x \\in T$\nThus by definition of initial segment:\n$S_a \\subseteq T$\nNow let $b \\in T$.\nThen by definition of ordinal:\n$T_b = b = S_b$\nNow, if $a \\subset b$ then $a \\in S_b$.\nSo $a \\in T_b$ and hence $a \\in T$.\nBut $a \\in S \\setminus T$, so by definition of set difference, this is not the case.\nSo $a \\not \\subset b$.\nWe have that an ordinal is well-ordered by $\\subseteq$.\nSo by the definition of well-ordering, $\\subseteq$ is a total ordering on $S$\nSo it follows that $b \\subseteq a$.\nBut $b \\ne a$ since $b \\in T$.\nHence $b \\subset a$, and so $b \\in S_a$.\nThis proves that $T \\subseteq S_a$.\nThus $T = S_a$.",
+    "clean_row_index": 782,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Minimality of a in S minus T implies that every element below a belongs to T. The displayed claim that every x in S is strictly below a is false even for x=a, and cannot support the stated inference."
+  },
+  {
+    "theorem_id": 1769,
+    "title": "Isomorphic Ordinals are Equal",
+    "theorem_text": "Let $A$ and $B$ be ordinals that are order isomorphic.\nThen $A = B$.",
+    "proof_text": "From No Isomorphism from Woset to Initial Segment, neither $A$ nor $B$ can be an initial segment of the other.\nBy definition, every element of an ordinal is an initial segment of it.\nHence, neither $A$ nor $B$ can be an element of the other.\nBy Ordinal Membership is Trichotomy, it follows that $A = B$.",
+    "clean_row_index": 783,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A proper initial segment cannot be order-isomorphic to the whole well-order. Since ordinal elements are initial segments, membership in either direction is excluded, leaving equality by trichotomy."
+  },
+  {
+    "theorem_id": 1770,
+    "title": "Condition for Woset to be Isomorphic to Ordinal",
+    "theorem_text": "Let $\\struct {S, \\preceq}$ be a woset.\nLet $\\struct {S, \\preceq}$ be such that $\\forall a \\in S$, the initial segment $S_a$ of $S$ determined by $a$ is order isomorphic to some ordinal.\nThen $\\struct {S, \\preceq}$ itself is order isomorphic to an ordinal.",
+    "proof_text": "For each $a \\in S$, let $g_a: S_a \\to \\map Z a$ be an order isomorphism from $S_a$ to an ordinal $\\map Z a$.\nBy Isomorphic Ordinals are Equal and Order Isomorphism between Wosets is Unique, both $\\map Z a$ and $g_a$ are unique.\nSo this defines a mapping $Z$ on $S$.\nLet the image of $Z$ be $W$:\n$W = \\set {\\map Z a: a \\in S}$\nNow we define $f: S \\to W$ as:\n$\\map f a = \\map Z a$\nNow we show that $x, y, \\in S, x \\prec y \\implies \\map Z x \\subset \\map Z y$.\nSo, let $x, y, \\in S$ such that $x \\prec y$. Then:\n$(1) \\quad g_x: S_x \\cong \\map Z x$\nAlso, because:\n$$S_x = \\set {z \\in S: z \\prec x}$$\nInitial Segment of Ordinal is Ordinal\n$$= \\set {z \\in S: z \\prec y \\land z \\prec x}$$\n$$= \\set {z \\in S_y: z \\prec x}$$\n$$= \\paren {S_y}_x$$\nwe have:\n$(2): \\quad \\map {g_y} {S_x}: S_x \\to \\paren {\\map Z y}_{\\map {g_y} x}$ is an order isomorphism\nSo by Isomorphic Ordinals are Equal, we have:\n$(3): \\quad \\map Z x = \\paren {\\map Z y}_{\\map {g_y} x}$\nSo, in particular:\n$\\map Z x \\subset \\map Z y$\nBy this result, $f: X \\to W$ is a bijection.\nAlso by this result, $f: X \\to \\struct {W, \\subseteq}$ is an order isomorphism.\nThis means that $W$ is well-ordered by $\\subseteq$.\nNow we show that $W$ is an ordinal.\nLet $y \\in S$.\nSince $\\map Z y$ is an ordinal, we have:\n$x \\prec y \\implies \\paren {\\map Z y}_{\\map {g_y} x} = \\map {g_y} x$\nSo by $(3)$ above, we have:\n$(4) \\quad x \\prec y \\implies \\map Z x = \\map {g_y} x$\nHence:\n$$W_{\\map Z y} = \\set {\\map Z x: \\map Z x \\subset \\map Z y}$$\n$$= \\set {\\map Z x: x \\prec y}$$\n$$= \\set {\\map {g_y} x: x \\prec y}$$\n$$= \\map {g_y} {S_y}$$\n$$= \\map Z y$$\nAs $y$ is an arbitrary element of $S$, it follows that $\\map Z y$ is an arbitrary element of $W$.\nSo $W$ is an ordinal, as we wanted to prove.",
+    "clean_row_index": 784,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Restricting the isomorphism on a longer segment identifies each shorter ordinal image with an element of the longer ordinal. Surjectivity on predecessors then makes every predecessor segment of W equal to its endpoint."
+  },
+  {
+    "theorem_id": 1775,
+    "title": "Disjunction of Conditional and Converse",
+    "theorem_text": "$\\vdash \\left({p \\implies q}\\right) \\lor \\left({q \\implies p}\\right)$",
+    "proof_text": "We apply the Method of Truth Tables to the proposition.\nAs can be seen by inspection, the truth values under the main connective is true for all boolean interpretations, proving a tautology.\n$\\begin{array}{|ccccccc|} \\hline\n(p & \\implies & q) & \\lor & (q & \\implies & p) \\\\\n\\hline\nF & T & F & T & F & T & F \\\\\nF & T & T & T & T & F & F \\\\\nT & F & F & T & F & T & T \\\\\nT & T & T & T & T & T & T \\\\\n\\hline\n\\end{array}$",
+    "clean_row_index": 785,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The table covers all four assignments. In each row at least one conditional is true, giving true under the main disjunction."
+  },
+  {
+    "theorem_id": 1781,
+    "title": "Dirac's Theorem",
+    "theorem_text": "If a connected graph $G$ has $n \\ge 3$ vertices and the degree of each vertex is at least $\\dfrac n 2$, then $G$ is Hamiltonian.",
+    "proof_text": "Take any two non-adjacent vertices $u, v \\in G$.\nThen:\n$\\displaystyle \\deg u + \\deg v \\ge \\frac n 2 + \\frac n 2 = n$\nThe result follows by a direct application of Ore's Theorem.",
+    "clean_row_index": 786,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every nonadjacent pair has degree sum at least n. This verifies Ore's condition for Hamiltonicity in the stated graph setting."
+  },
+  {
+    "theorem_id": 1783,
+    "title": "Three-Way Exclusive Or and Equivalence",
+    "theorem_text": "Let $p \\iff q$ be the biconditional operator, and $p \\oplus q$ be the exclusive or operator.\nThen:\n$p \\iff q \\iff r \\dashv \\vdash p \\oplus q \\oplus r$",
+    "proof_text": "We apply the Method of Truth Tables to the proposition.\nAs can be seen by inspection, in each case, the truth values under the main connectives match for all boolean interpretations.\n$\\begin{array}{|ccccc||ccccc|} \\hline\n(p & \\iff & q) & \\iff & r & (p & \\oplus & q) & \\oplus & r \\\\\n\\hline\nF & T & F & F & F & F & F & F & F & F \\\\\nF & T & F & T & T & F & F & F & T & T \\\\\nF & F & T & T & F & F & T & T & T & F \\\\\nF & F & T & F & T & F & T & T & F & T \\\\\nT & F & F & T & F & T & T & F & T & F \\\\\nT & F & F & F & T & T & T & F & F & T \\\\\nT & T & T & F & F & T & F & T & F & F \\\\\nT & T & T & T & T & T & F & T & T & T \\\\\n\\hline\n\\end{array}$\nFrom Biconditional is Associative and Exclusive Or is Associative, we have that both $\\iff$ and $\\oplus$ are associative, which justifies the rendition of this result without parentheses.",
+    "clean_row_index": 787,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both main columns give the same parity value for all eight assignments, and the stated associativity results justify omitting parentheses."
+  },
+  {
+    "theorem_id": 1787,
+    "title": "NAND and NOR are Functionally Complete",
+    "theorem_text": "The NAND and NOR operators are each functionally complete.\nThat is, NAND and NOR are Sheffer operators.",
+    "proof_text": "In NAND is Functionally Complete it is demonstrated that NAND is functionally complete.\nIn NOR is Functionally Complete it is demonstrated that NOR is functionally complete.",
+    "clean_row_index": 788,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each of the two cited results establishes functional completeness for one of the two individual connectives, proving both claims."
+  },
+  {
+    "theorem_id": 1790,
+    "title": "WFFs of PropLog of Length 1",
+    "theorem_text": "The only WFFs of propositional logic of length $1$ are:\n* The letters of the formal grammar of propositional logic $\\mathcal L_0$\n* The tautology symbol $\\top$\n* The contradiction symbol $\\bot$.",
+    "proof_text": "We refer to the rules of formation.\nFrom $\\mathbf W: TF$, $\\top$ and $\\bot$ (both of length 1) are WFFs.\nFrom $\\mathbf W: \\mathcal P_0$, all elements of $\\mathcal P_0$ (all of length 1) are WFFs.\nEvery other rule of formation of the formal grammar of propositional logic consists of an existing WFF in addition to at least one other primitive symbol.\nHence the result.",
+    "clean_row_index": 789,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The atomic formation rules give exactly the listed one-symbol formulas. Each other rule adds at least one symbol to an existing formula."
+  },
+  {
+    "theorem_id": 1796,
+    "title": "Soundness Theorem for Propositional Tableaus and Boolean Interpretations",
+    "theorem_text": "Tableau proofs (in terms of propositional tableaus) are a sound proof system for boolean interpretations.\nThat is, for every WFF $\\mathbf A$:\n$\\vdash_{\\mathrm{PT}} \\mathbf A$ implies $\\models_{\\mathrm{BI}} \\mathbf A$",
+    "proof_text": "This is a corollary of the Extended Soundness Theorem for Propositional Tableaus and Boolean Interpretations:\nLet $\\mathbf H$ be a countable set of propositional formulas.\nLet $\\mathbf A$ be a propositional formula.\nIf $\\mathbf H \\vdash \\mathbf A$, then $\\mathbf H \\models \\mathbf A$.\nIn this case, we have $\\mathbf H = \\varnothing$.\nHence the result.",
+    "clean_row_index": 790,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The extended soundness implication for a countable set of premises applies with the empty set, yielding the required implication for a theorem."
+  },
+  {
+    "theorem_id": 1798,
+    "title": "No Boolean Interpretation Models a WFF and its Negation",
+    "theorem_text": "Let $v$ be a boolean interpretation.\nLet $\\mathbf A$ be a WFF of propositional logic.\nThen $v$ can not model both $\\mathbf A$ and $\\neg \\mathbf A$.",
+    "proof_text": "Suppose that $v$ models $\\mathbf A$:\n$v \\models \\mathbf A$\nThen $v \\left({\\mathbf A}\\right) = T$ by definition of models.\nBy definition of boolean interpretation, $v \\left({\\neg \\mathbf A}\\right) = F$.\nIn particular, $v (\\neg \\mathbf A) \\ne T$, so that:\n$v \\not\\models \\neg \\mathbf A$\nHence the result.",
+    "clean_row_index": 791,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "If the interpretation assigns true to A, the negation rule assigns false to its negation, excluding simultaneous satisfaction."
+  },
+  {
+    "theorem_id": 1799,
+    "title": "Extended Soundness Theorem for Propositional Tableaus and Boolean Interpretations",
+    "theorem_text": "Tableau proofs (in terms of propositional tableaus) are a strongly sound proof system for boolean interpretations.\nThat is, for every collection $\\mathbf H$ of WFFs of propositional logic and every WFF $\\mathbf A$:\n$\\mathbf H \\vdash_{\\mathrm{PT}} \\mathbf A$ implies $\\mathbf H \\models_{\\mathrm{BI}} \\mathbf A$",
+    "proof_text": "By definition of tableau proof, $\\mathbf H \\vdash_{\\mathrm{PT}} \\mathbf A$ means:\n:There exists a tableau confutation of $\\mathbf H \\cup \\set {\\neg\\mathbf A}$.\nBy Tableau Confutation implies Unsatisfiable, it follows that $\\mathbf H \\cup \\set {\\neg\\mathbf A}$ is unsatisfiable for boolean interpretations.\nTherefore, if some boolean interpretation $v$ models $\\mathbf H$:\n$v \\models_{\\mathrm{BI}} \\mathbf H$\nthen since $\\mathbf H \\cup \\set {\\neg\\mathbf A}$ is unsatisfiable:\n$v \\not\\models_{\\mathrm{BI}} \\neg\\mathbf H$\nNow by definition of the relation $\\models_{\\mathrm{BI}}$, it must be that:\n$\\map v {\\neg \\mathbf A} = F$\nBy the truth table for $\\neg$, this implies:\n$\\map v {\\mathbf A} = T$\nwhich is to say $v \\models_{\\mathrm{BI}} \\mathbf A$.\nHence:\n$v \\models_{\\mathrm{BI}} \\mathbf H$ implies $v \\models_{\\mathrm{BI}} \\mathbf A$\nthat is, $\\mathbf A$ is a $\\mathrm{BI}$-semantic consequence of $\\mathbf H$:\n$\\mathbf H \\models_{\\mathrm{BI}} \\mathbf A$\nwhich was to be shown.",
+    "clean_row_index": 792,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Unsatisfiability of the premises together with the negated conclusion forces each model of the premises to satisfy A. The intermediate negated-H symbol is an evident slip for negated A, as used immediately afterwards."
+  },
+  {
+    "theorem_id": 1801,
+    "title": "Completeness Theorem for Propositional Tableaus and Boolean Interpretations",
+    "theorem_text": "Tableau proofs (in terms of propositional tableaus) are a complete proof system for boolean interpretations.\nThat is, for every WFF $\\mathbf A$:\n$\\models_{\\mathrm{BI}} \\mathbf A$ implies $\\vdash_{\\mathrm{PT}} \\mathbf A$",
+    "proof_text": "This is a corollary of the Extended Completeness Theorem for Propositional Tableaus and Boolean Interpretations.\nNamely, it is the special case $\\mathbf H = \\varnothing$.\nHence the result.",
+    "clean_row_index": 793,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Taking no premises in extended tableau completeness gives a tableau proof for every semantically valid formula."
+  },
+  {
+    "theorem_id": 1802,
+    "title": "König's Tree Lemma",
+    "theorem_text": "Let $T$ be a rooted tree with an infinite number of nodes, each with a finite number of children.\nThen $T$ has a branch of infinite length.",
+    "proof_text": "We will show that we can choose an infinite sequence of nodes $t_0, t_1, t_2, \\ldots$ of $T$ such that:\n* $t_0$ is the root node\n* $t_{n+1}$ is a child of $t_n$\nThen the sequence $t_0, t_1, t_2, \\ldots$ is such a branch of infinite length.\nLet $I$ be the set of all nodes in $T$ that have infinitely many descendants.\nDefine a relation $\\mathcal R$ on $I$ by letting $x \\mathrel{\\mathcal R} y$ if and only if $y$ is a child of $x$.\nSince $T$ has infinitely many nodes, its root node is in $I$.\nLet $t \\in I$.\nBy the premise, $t$ has a finite number of children.\nSuppose for the sake of contradiction that all of these childen had a finite number of descendants.\nThen by Finite Union of Finite Sets is Finite, that would mean that $t$ had a finite number of descendants, contradicting the fact that $t$ is in $I$.\nSo $t$ has at least one child with infinitely many descendants.\nThat is, $\\mathcal R \\left({t}\\right)$ is non-empty for each $t \\in I$.\nThat is, $\\mathcal R$ is a left-total relation.\nThus by Dependent Choice for Finite Sets, there is an infinite sequence $\\left\\langle{t_n}\\right\\rangle$ such that:\n$t_0$ is the root of $T$.\n: For all $n \\in \\N$, $t_n \\mathrel{\\mathcal R} t_{n+1}$. That is, $t_{n+1}$ is a child of $t_n$.",
+    "clean_row_index": 794,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Finite branching forces a node with infinitely many descendants to have such a child. Dependent choice on this relation, starting at the root, yields an infinite branch."
+  },
+  {
+    "theorem_id": 1802,
+    "title": "König's Tree Lemma",
+    "theorem_text": "Let $T$ be a rooted tree with an infinite number of nodes, each with a finite number of children.\nThen $T$ has a branch of infinite length.",
+    "proof_text": "We will show that we can choose an infinite sequence of nodes $t_0, t_1, t_2, \\ldots$ of $T$ such that:\n* $t_0$ is the root node;\n* $t_{n+1}$ is a child of $t_n$;\n* Each $t_n$ has infinitely many descendants.\nThen the sequence $t_0, t_1, t_2, \\ldots$ is such a branch of infinite length.\nTake the root node $t_0$.\nBy definition, it has a finite number of children.\nSuppose that all of these childen had a finite number of descendants.\nThen that would mean that $t_0$ had a finite number of descendants, and that would mean $T$ was finite.\nSo $t_0$ has at least one child with infinitely many descendants.\nThus, we may pick $t_1$ as any one of those children.\nNow, suppose node $t_k$ has infinitely many descendants.\nAs $t_k$ has a finite number of children, by the same argument as above, $t_k$ has at least one child with infinitely many descendants.\nThus we may pick $t_{k+1}$ which has infinitely many descendants.\nThe assertion follows by the Axiom of Dependent Choice.",
+    "clean_row_index": 795,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The root has infinitely many descendants, and at least one child of each such node retains the property. Dependent choice supplies the required sequence of adjacent nodes."
+  },
+  {
+    "theorem_id": 1802,
+    "title": "König's Tree Lemma",
+    "theorem_text": "Let $T$ be a rooted tree with an infinite number of nodes, each with a finite number of children.\nThen $T$ has a branch of infinite length.",
+    "proof_text": "Suppose $T$ is a labeled tree with root $r$.\nLet $L_0 = \\set r, L_1, L_2, \\ldots$ be the levels of $T$.\nWe construct our path by starting with $r$.\nNext we partition all vertices in levels higher then $L_0$ (that is, all vertices in levels $L_i$ where $i > 0$) into as many finite parts as is the cardinality of $L_1$.\nIn other words if $L_1 = \\set {v_1, \\ldots, v_n}$ then we partition the vertices (there are infinitely many of them) in $n$ parts:\n$P_1, P_2, \\ldots, P_n$\nThis partitioning is done as follows:\nAny vertex $w$ will be connected to $r$ via some $v_i$ owing to connectedness.\nWe put $w$ in $P_i$.\nNow since we have partitioned infinitely many vertices in finitely many parts, one of the parts will contain infinitely many vertices.\n(This is also called the Infinite Pigeonhole Principle).\nLet that part be $P_j$.\nChoose $w_1 = v_j$ as the next vertex in our under-construction path.\nNext we delete the vertex $r$ and consider the component containing $w_1$.\nIt is also an infinite tree with each level finite and having $w_1$ as its root.\nBy a similar piece of reasoning, we get a vertex $w_2$ which is adjacent to $w_1$ and has infinitely many vertices corresponding to it.\nWe continue building our path by choosing $w_2$ as a part of it.\nBy induction we can continue and get an infinite path $r w_1 w_2 \\cdots$.\nThis proves the theorem.",
+    "clean_row_index": 796,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The child subtrees partition all descendants into finitely many parts. Selecting an infinite part at each stage produces successive vertices on an infinite rooted path."
+  },
+  {
+    "theorem_id": 1805,
+    "title": "Initial Part of WFF of Predicate Logic is not WFF",
+    "theorem_text": "Let $\\mathbf A$ be a WFF of predicate logic.\nLet $\\mathbf S$ be an initial part of $\\mathbf A$.\nThen $\\mathbf S$ is not a WFF of predicate logic.",
+    "proof_text": "Let $l \\left({\\mathbf Q}\\right)$ denote the length of a string $\\mathbf Q$.\nBy definition, $\\mathbf S$ is an initial part of $\\mathbf A$ iff $\\mathbf A = \\mathbf{ST}$ for some non-null string $\\mathbf T$.\nThus we note that $l \\left({\\mathbf S}\\right) < l \\left({\\mathbf A}\\right)$.\nThe proof proceeds by induction on $l \\left({\\mathbf A}\\right)$.\nBasis for the Induction\nLet $\\mathbf A$ be a WFF such that $l \\left({\\mathbf A}\\right) = 1$.\nThen for an initial part $\\mathbf S$, $l \\left({\\mathbf S}\\right) < 1 = 0$.\nThat is, $\\mathbf S$ must be the null string, which is not a WFF.\nSo the result holds for WFFs of length $1$.\nThis is the basis for the induction.\nInduction Hypothesis\nFix $n \\in \\N$ with $n \\ge n_0$.\nAssume the result holds for all WFFs of length $k$ or less.\nThis is our induction hypothesis.\nInduction Step\nThis is our induction step:\nLet $\\mathbf A$ be a WFF such that $l \\left({\\mathbf A}\\right) = k+1$.\nSuppose $\\mathbf D$ is an initial part of $\\mathbf A$ which happens to be a WFF.\nThat is, $\\mathbf A = \\mathbf{DT}$ where $\\mathbf T$ is non-null.\nWe need to investigate the following cases:\n$(1): \\quad \\mathbf A = \\neg \\mathbf B$, where $\\mathbf B$ is a WFF of length $k$.\n$(2): \\quad \\mathbf A = \\left({\\mathbf B \\circ \\mathbf C}\\right)$ where $\\circ$ is one of the binary connectives.\n$(3): \\quad \\mathbf A = p \\left({t_1, t_2, \\ldots, t_n}\\right)$, where $t_1, t_2, \\ldots, t_n$ are terms, and $p \\in \\mathcal{P}_n$.\n$(4): \\quad \\mathbf A = ( Q x: \\mathbf B )$, where $\\mathbf B$ is a WFF of length $k-5$, $Q$ is a quantifier ($\\forall$ or $\\exists$) and $x$ is a variable.\nWe deal with these one by one.\nCases $(1)$ and $(2)$ are covered by the argument in Initial Part of WFF of PropLog is not WFF.\n$(3): \\quad$ The atomic WFF $\\mathbf A = p \\left({u_1, u_2, \\ldots, u_n}\\right)$:\nHere we have that $\\mathbf D$ would be a string of the form:\n* $p$ where $p$ is an $n$-ary predicate symbol. This can not be a WFF.\n* $p ($ which is also not a WFF.\n* $p (u_1, u_2, \\ldots, u_k$ which can not be a WFF.\n* $p (u_1, u_2, \\ldots, u_k,$ which can not be a WFF.\n$(4): \\quad \\mathbf A = ( Q x: \\mathbf B )$:\n$\\mathbf D$ can not be $($, $( Q$, $( Q x$ or $( Q x:$ as none of these are WFFs.\nThus $\\mathbf D$ is a WFF, starting with $( Q x: $; hence $\\mathbf D = ( Q x: \\mathbf E )$, where $\\mathbf E$ is also a WFF.\nWe remove the initial $( Q x: $ and the last closing parenthesis $)$ from $\\mathbf A = \\mathbf{DT}$ to get $\\mathbf B = \\mathbf{ET}'$ (where $\\mathbf T'$ results from $\\mathbf T$ by removing the last closing parenthesis).\nRecall that $\\mathbf B$ is a WFF of length $k-5$.\nIt has $\\mathbf E$ as an initial part, which is itself a WFF.\nThis contradicts the induction hypothesis.\nTherefore no initial part of $\\mathbf A = ( Q x: \\mathbf{B} )$ can be a WFF.\nThus all four cases have been investigated, and we have found that no initial part of any WFF of length $k+1$ can be a WFF.\nThe result follows by the Second Principle of Mathematical Induction.",
+    "clean_row_index": 797,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The atomic case does not handle prefixes ending inside a compound term, including a prefix ending at an inner closing parenthesis. It neither analyzes these prefixes nor invokes a term-parsing result to exclude them."
+  },
+  {
+    "theorem_id": 1809,
+    "title": "Disjunction of Conjunctions",
+    "theorem_text": "$\\left({p \\land q}\\right) \\lor \\left({r \\land s}\\right) \\vdash p \\lor r$",
+    "proof_text": "We apply the Method of Truth Tables.\nAs can be seen by inspection, the truth values under the main connectives match for all boolean interpretations.\n$\\begin{array}{|ccc||ccccccccc|} \\hline\np & \\oplus & q & (\\neg & p & \\land & q) & \\lor & (p & \\land & \\neg & q) \\\\\n\\hline\nF & F & F & T & F & F & F & F & F & F & T & F \\\\\nF & T & T & T & F & T & T & T & F & F & F & T  \\\\\nT & T & F & F & T & F & F & T & T & T & T & F  \\\\\nT & F & T & F & T & F & T & F & T & F & F & T  \\\\\n\\hline\n\\end{array}$",
+    "clean_row_index": 798,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The truth table evaluates an exclusive-or identity on p and q. It contains neither r nor s and does not check the given consequence."
+  },
+  {
+    "theorem_id": 1811,
+    "title": "Union of Symmetric Differences",
+    "theorem_text": "Let $R, S, T$ be sets.\nThen:\n$\\left({R * S}\\right) \\cup \\left({S * T}\\right) = \\left({R \\cup S \\cup T}\\right) \\setminus \\left({R \\cap S \\cap T}\\right)$\nwhere $R * S$ denotes the symmetric difference between $R$ and $S$.",
+    "proof_text": "From the definition of symmetric difference, we have:\n$R * S = \\left({R \\setminus S}\\right) \\cup \\left({S \\setminus R}\\right)$\nThus, expanding:\n$$\\left({R * S}\\right) \\cup \\left({S * T}\\right) = \\left({R \\setminus S}\\right) \\cup \\left({S \\setminus R}\\right) \\cup \\left({S \\setminus T}\\right) \\cup \\left({T \\setminus S}\\right)$$\n$$= \\left({\\left({R \\setminus S}\\right) \\cup \\left({T \\setminus S}\\right) }\\right) \\cup \\left({\\left({S \\setminus R}\\right) \\cup \\left({S \\setminus T}\\right)}\\right)$$\n$$= \\left({\\left({R \\cup T}\\right) \\setminus S}\\right) \\cup \\left({\\left({S \\setminus R}\\right) \\cup \\left({S \\setminus T}\\right)}\\right)$$\nSet Difference is Right Distributive over Union\n$$= \\left({\\left({R \\cup T}\\right) \\setminus S}\\right) \\cup \\left({S \\setminus \\left({R \\cap T}\\right)}\\right)$$\nDe Morgan's Laws: Difference with Intersection\n$$= \\left({\\left({R \\cup S \\cup T}\\right) \\setminus S}\\right) \\cup \\left({S \\setminus \\left({R \\cap T}\\right)}\\right)$$\nSet Difference with Union is Set Difference\n$$= \\left({R \\cup S \\cup T}\\right) \\setminus \\left({R \\cap S \\cap T}\\right)$$\nDe Morgan's Laws for Difference with Intersection: Corollary",
+    "clean_row_index": 799,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Expanding both symmetric differences separates the points outside S from those in S missing R or T. Their union is the full union minus the triple intersection."
+  },
+  {
+    "theorem_id": 1815,
+    "title": "Metric Induced by a Pseudometric",
+    "theorem_text": "Let $X$ be a set on which there is a pseudometric $d: X \\times X \\to \\R$.\nFor any $x, y \\in X$, let $x \\sim y$ denote that $d \\left({x, y}\\right) = 0$.\nLet $\\left[\\!\\left[{x}\\right]\\!\\right]$ denote the equivalence class of $x$ under $\\sim$.\nLet $X^*$ be the quotient of $X$ by $\\sim$.\nThen the mapping $d^*: X^* \\times X^* \\to \\R$ defined by:\n$d^* \\left({\\left[\\!\\left[{x}\\right]\\!\\right], \\left[\\!\\left[{y}\\right]\\!\\right]}\\right) = d \\left({x, y}\\right)$\nis a metric.\nHence $\\left({X^*, d^*}\\right)$ is a metric space.",
+    "proof_text": "From Pseudometric Defines an Equivalence Relation we have that $\\sim$ is indeed an equivalence relation.\nFirst we verify that $d^*$ is well-defined.\nLet $z \\in \\left[\\!\\left[{x}\\right]\\!\\right]$ and $w \\in \\left[\\!\\left[{y}\\right]\\!\\right]$.\nThen we have:\n$\\left[\\!\\left[{z}\\right]\\!\\right] = \\left[\\!\\left[{x}\\right]\\!\\right]$\nand:\n$\\left[\\!\\left[{w}\\right]\\!\\right] = \\left[\\!\\left[{y}\\right]\\!\\right]$\nBut:\n* $d \\left({z, w}\\right) \\le d \\left({z, x}\\right) + d \\left({x, y}\\right) + d \\left({y, w}\\right) \\le d \\left({x, y}\\right)$\n* $d \\left({x, y}\\right) \\le d \\left({x, z}\\right) + d \\left({z, w}\\right) + d \\left({w, y}\\right) \\le d \\left({z, w}\\right)$\nSo $d^*$ is independent of the elements chosen from the equivalence classes.\nNow we need to show that $d^*$ is a metric.\nTo do that, all we need to do is show that $d^* \\left({a, b}\\right) > 0$ where $a \\ne b$.\nSo let $d^* \\left({a, b}\\right) = 0$ where $a = \\left[\\!\\left[{x}\\right]\\!\\right], b = \\left[\\!\\left[{y}\\right]\\!\\right]$.\nThen $d \\left({x, y}\\right) = 0$ so $y \\in \\left[\\!\\left[{x}\\right]\\!\\right]$ and so $a = b$.\nHence the result.",
+    "clean_row_index": 800,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The triangle inequality in both directions makes the distance independent of representatives. Zero distance then forces equal classes, and the other metric axioms descend from the pseudometric."
+  },
+  {
+    "theorem_id": 1821,
+    "title": "Quotient of Homogeneous Functions",
+    "theorem_text": "Let $\\map M {x, y}$ and $\\map N {x, y}$ be homogeneous functions of the same degree.\nThen:\n$\\dfrac {\\map M {x, y} } {\\map N {x, y} }$\nis homogeneous of zero degree.",
+    "proof_text": "Let:\n$\\map Q {x, y} = \\dfrac {\\map M {x, y} } {\\map N {x, y} }$\nwhere $M$ and $N$ are homogeneous functions of degree $n$.\nLet $t \\in \\R$.\nThen:\n$$\\map Q {t x, t y} = \\frac {\\map M {t x, t y} } {\\map N {t x, t y} }$$\n$$= \\frac {t^n \\map M {x, y} } {t^n \\map N {x, y} }$$\nas $M$ and $N$ are homogeneous of degree $n$\n$$= t^0 \\frac {\\map M {x, y} } {\\map N {x, y} }$$\n$$= t^0 \\map Q {x, y}$$\n$$= \\map Q {x, y}$$\nThe result follows from the definition.",
+    "clean_row_index": 801,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Homogeneity contributes the same scaling factor to numerator and denominator, which cancels wherever both quotient evaluations are defined."
+  },
+  {
+    "theorem_id": 1826,
+    "title": "Solution to Linear First Order Ordinary Differential Equation",
+    "theorem_text": "A linear first order ordinary differential equation in the form:\n$\\dfrac {\\d y} {\\d x} + \\map P x y = \\map Q x$\nhas the general solution:\n$\\ds y = e^{-\\int P \\rd x} \\paren {\\int Q e^{\\int P \\rd x} \\rd x + C}$",
+    "proof_text": "Consider the first order ordinary differential equation:\n$\\map M {x, y} + \\map N {x, y} \\dfrac {\\d y} {\\d x} = 0$\nWe can put our equation:\n$(1): \\quad \\dfrac {\\d y} {\\d x} + \\map P x y = \\map Q x$\ninto this format by identifying:\n$\\map M {x, y} \\equiv \\map P x y - \\map Q x, \\map N {x, y} \\equiv 1$\nWe see that:\n$\\dfrac {\\partial M} {\\partial y} - \\dfrac {\\partial N} {\\partial x} = \\map P x$\nand hence:\n$\\map P x = \\dfrac {\\dfrac {\\partial M} {\\partial y} - \\dfrac {\\partial N} {\\partial x} } N$\nis a function of $x$ only.\nIt immediately follows from Integrating Factor for First Order ODE that:\n$e^{\\int \\map P x \\rd x}$\nis an integrating factor for $(1)$.\nSo, multiplying $(1)$ by this factor:\n$e^{\\int \\map P x \\rd x} \\dfrac {\\d y} {\\d x} + e^{\\int \\map P x \\rd x} \\map P x y = e^{\\int \\map P x \\rd x} \\map Q x$\nThe result follows by an application of Solution to Exact Differential Equation.",
+    "clean_row_index": 802,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The integrating factor has derivative P times itself. The resulting left side is the derivative of the product with y, giving the stated integral and arbitrary constant."
+  },
+  {
+    "theorem_id": 1830,
+    "title": "Borel-Cantelli Lemma",
+    "theorem_text": "Let $\\struct {X, \\Sigma, \\mu}$ be a measure space.\nLet $E_n \\subseteq \\Sigma$ be a countable collection of measurable sets.\nIf:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\map \\mu {E_n} < \\infty$\nthen:\n$\\displaystyle \\map \\mu {\\limsup_{n \\mathop \\to \\infty} } {E_n} = 0$\nwhere $\\limsup$ denotes limit superior of sets.",
+    "proof_text": "By definition of limit superior:\n$\\displaystyle \\limsup_{n \\mathop \\to \\infty} E_n = \\bigcap_{i \\mathop = 1}^\\infty \\bigcup_{j \\mathop = i}^\\infty E_j$\nThus, by Measure is Monotone and Intersection is Subset:\n$(1): \\quad \\displaystyle \\map \\mu {\\limsup_{n \\mathop \\to \\infty} E_n} = \\map \\mu {\\bigcap_{i \\mathop = 1}^\\infty \\bigcup_{j \\mathop = i}^\\infty E_j} \\le \\map \\mu {\\bigcup_{j \\mathop = i}^\\infty E_j}$\nfor all $i \\in \\N$.\nBy Measure is Subadditive:\n$\\displaystyle \\map \\mu {\\bigcup_{j \\mathop = i}^\\infty E_j} \\le \\sum_{j \\mathop = i}^\\infty \\map \\mu {E_j}$\nHowever, by assumption $\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\map \\mu {E_n}$ converges.\nBy Tail of Convergent Series tends to Zero this implies:\n$\\displaystyle \\lim_{i \\mathop \\to \\infty} \\sum_{n \\mathop = i}^\\infty \\map \\mu {E_n} = 0$\nNow $(1)$ implies, together with Lower and Upper Bounds for Sequences, that:\n$\\displaystyle \\map \\mu {\\limsup_{n \\mathop \\to \\infty} E_n} \\le 0$\nBut as $\\mu$ is a measure, the converse inequality also holds.\nHence:\n$\\displaystyle \\map \\mu {\\limsup_{n \\mathop \\to \\infty} E_n} = 0$",
+    "clean_row_index": 803,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The limsup lies inside every tail union. Countable subadditivity bounds its measure by every tail sum, which tends to zero."
+  },
+  {
+    "theorem_id": 1832,
+    "title": "Measurable Sets form Sigma-Algebra",
+    "theorem_text": "Let $\\mu^*$ be an outer measure on a set $X$.\nThen the set $\\map {\\mathfrak M} {\\mu^*}$ of all $\\mu^*$-measurable subsets of $X$ is a $\\sigma$-algebra.",
+    "proof_text": "First, note that $\\map {\\mathfrak M} {\\mu^*}$ is an algebra (of sets).\nIt remains to be shown that $\\map {\\mathfrak M} {\\mu^*}$ is closed under countable union.\nBecause $\\map {\\mathfrak M} {\\mu^*}$ is an algebra (of sets), the union of any two $\\mu^*$-measurable sets is $\\mu^*$-measurable.\nUsing mathematical induction, it directly follows that the finite union of $\\mu^*$-measurable sets is $\\mu^*$-measurable.\nLet $\\sequence {S_n}$ be a sequence of $\\mu^*$-measurable subsets of $X$.\nDefine $\\displaystyle S = \\bigcup_{n \\mathop = 1}^\\infty S_n$.\nWe wish to prove that $S$ is $\\mu^*$-measurable.\nFor all $n \\in \\N$, the set $T_n = S_1 \\cup S_2 \\cup \\cdots \\cup S_n$ is $\\mu^*$-measurable.\nBy Subset of Union, the sequence $\\sequence {T_n}$ is increasing.\nAlso, $T_n \\uparrow S$ (as $n \\to \\infty$) where $\\uparrow$ denotes the limit of an increasing sequence of sets.\nLet $A$ be any subset of $X$.\nBy Set Difference Union Intersection:\n$A = \\paren {A \\cap S} \\cup \\paren {A \\setminus S}$\nSo by the subadditivity of $\\mu^*$, it suffices to prove that $\\map {\\mu^*} A \\ge \\map {\\mu^*} {A \\cap S} + \\map {\\mu^*} {A \\setminus S}$ for any subset $A \\subseteq X$.\nThen:\n$$\\map {\\mu^*} A = \\map {\\mu^*} {A \\cap T_n} + \\map {\\mu^*} {A \\setminus T_n}$$\nDefinition of Measurability of $T_n$\n$$\\ge \\map {\\mu^*} {A \\cap T_n} + \\map {\\mu^*} {A \\setminus S}$$\nSet Complement inverts Subsets and Monotonicity of $\\mu^*$\nLetting $n \\to \\infty$, the result follows by Outer Measure of Limit of Increasing Sequence of Sets.",
+    "clean_row_index": 804,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The finite unions are increasing measurable sets. Their splitting identities bound the two desired terms, and the cited limit theorem applies to intersections of an arbitrary A with these increasing measurable sets."
+  },
+  {
+    "theorem_id": 1835,
+    "title": "Limit Superior includes Limit Inferior",
+    "theorem_text": "Let $\\set {E_n : n \\in \\N}$ be a sequence of sets.\nThen:\n$\\ds \\liminf_{n \\mathop \\to \\infty} E_n \\subseteq \\limsup_{n \\mathop \\to \\infty} E_n$",
+    "proof_text": "Select any $\\ds x \\in \\liminf_{n \\mathop \\to \\infty} E_n$.\nThen by definition 2 of Limit Inferior of Sequence of Sets, $x$ belongs to $E_i$ for all but finitely many values of $i$.\nTherefore $x$ belongs to $E_i$ for infinitely many values of $i$.\nSo by the definition 2 of Limit Superior of Sequence of Sets:\n$\\ds x \\in \\limsup_{n \\mathop \\to \\infty} E_n$",
+    "clean_row_index": 805,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Membership in all but finitely many sets implies membership in infinitely many, giving the inclusion by the elementwise definitions."
+  },
+  {
+    "theorem_id": 1838,
+    "title": "Measure Space from Outer Measure",
+    "theorem_text": "Suppose $\\mu^*$ is an outer measure on a set $X$.\nLet $\\mathfrak M(\\mu^*)$ be the collection of $\\mu^*$-measurable sets.\nLet $\\mu$ be the restriction of $\\mu^*$ to $\\mathfrak M(\\mu^*)$.\nThen $(X, \\mathfrak M(\\mu^*), \\mu)$ is a measure space.",
+    "proof_text": "First, note that $\\mathfrak M(\\mu^*)$ is a $\\sigma$-algebra over $X$.\nNext, choose $E_1, E_2\\in\\mathfrak M(\\mu^*)$ such that $E_1\\cap E_2 = \\varnothing$.\nThus:\n$$\\mu(E_1\\cup E_2) = \\mu^*(E_1\\cup E_2)$$\nsince $E_1\\cup E_2\\in\\mathfrak M(\\mu^*)$\n$$= \\mu^*((E_1\\cup E_2)\\cap E_1) + \\mu^*((E_1\\cup E_2) - E_1)$$\nby definition of a measurable set\n$$= \\mu^*(E_1) + \\mu^*(E_2)$$\nsince $E_1$ and $E_2$ are disjoint\n$$= \\mu (E_1) + \\mu (E_2)$$\nsince $E_1, E_2\\in\\mathfrak M(\\mu^*)$\nTherefore $\\mu$ is additive. But because it is constructed from an outer measure, it is also countably subadditive.\nSince Additive and Countably Subadditive Function is Countably Additive, it follows that $\\mu$ is countably additive.\nFinally, also because it is constructed from an outer measure, $\\mu$ is nonnegative.\nHence $(X, \\mathfrak M(\\mu^*), \\mu)$ meets all the criteria of a measure space.",
+    "clean_row_index": 806,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Measurability splits the union of two disjoint measurable sets into their separate measures. Finite additivity, nonnegativity and the inherited countable subadditivity yield countable additivity."
+  },
+  {
+    "theorem_id": 1842,
+    "title": "Convergence a.u. Implies Convergence a.e.",
+    "theorem_text": "Let $\\struct {X, \\Sigma, \\mu}$ be a measure space.\nLet $f_n: D \\to \\R$ be a sequence of $\\Sigma$-measurable functions for $D \\in \\Sigma$.\nLet $f_n$ converge a.u. to a function $f$ on $D$.\nThen $f_n$ converges a.e. to $f$.",
+    "proof_text": "Assume $f_n$ converge a.u. to $f$ on $D$.\nThen for each $\\epsilon > 0$ there is a $B_\\epsilon \\subseteq D$ with $\\map \\mu {B_\\epsilon} < \\epsilon$ outside of which $f_n$ converges uniformly to $f$.\nThus, $f_n$ converges pointwise to $f$ outside of each $B_\\epsilon$.\nNext, define $\\displaystyle B \\equiv \\bigcap_{n \\mathop \\in \\N} B_{\\frac 1 n}$.\nFirst, $B \\in \\Sigma$ since $\\Sigma$ is a sigma-algebra, so that $\\map \\mu B$ is defined.\nSecond, note that since the measure is monotonic:\n$\\forall n \\in \\N: \\map \\mu B \\le \\map \\mu {B_{\\frac 1 n} } < \\frac 1 n$\nHence:\n$\\map \\mu B = 0$\nBut $x \\in D - B$ only if $x \\notin B_{\\frac 1 k}$ for some $k \\in \\N$.\nSo by the above:\n$\\map {f_n} x \\to \\map f x$\nIt follows by definition that $f_n$ converges a.e. to $f$.",
+    "clean_row_index": 807,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The intersection of the measurable exceptional sets has measure at most 1/n for each positive n. Each point outside the intersection lies outside one exceptional set, where uniform convergence implies pointwise convergence."
+  },
+  {
+    "theorem_id": 1843,
+    "title": "Existence of Solution of 2nd Order Linear ODE",
+    "theorem_text": "Let $P \\left({x}\\right)$, $Q \\left({x}\\right)$ and $R \\left({x}\\right)$ be continuous real functions on a closed interval $I = \\left[{a . . b}\\right]$.\nLet $x_0 \\in I$, and let $y_0 \\in \\R$ and $y_0' \\in \\R$ be arbitrary.\nThen the initial value problem:\n$\\displaystyle \\frac {d^2y}{dx^2} + P \\left({x}\\right) \\frac {dy}{dx} + Q \\left({x}\\right) y = R \\left({x}\\right), y \\left({x_0}\\right) = y_0, y' \\left({x_0}\\right) = y_0'$\nhas one and only one solution $y = y \\left({x}\\right)$ on the interval $a \\le x \\le b$.",
+    "proof_text": "Let us introduce the variable $z = \\dfrac {dy}{dx}$.\nThen the initial ODE can be written:\n$\\begin{cases}\n\\dfrac {dy}{dx} = z & : y \\left({x_0}\\right) = y_0 \\\\\n& \\\\\n\\dfrac {dz}{dx} = - P \\left({x}\\right) z - Q \\left({x}\\right) y + R \\left({x}\\right) & : z \\left({x_0}\\right) = y_0'\n\\end{cases}$\nThe converse is also true.\nThe result follows from Existence of Solution to System of First Order ODEs.",
+    "clean_row_index": 808,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The cited first-order system theorem only gives a solution on some interval about the initial point. The proof does not extend that solution to the whole prescribed interval, as claimed."
+  },
+  {
+    "theorem_id": 1846,
+    "title": "Little Bézout Theorem",
+    "theorem_text": "Let $\\map {P_n} x$ be a polynomial of degree $n$ in $x$.\nLet $a$ be a constant.\nThen the remainder of $\\map {P_n} x$ when divided by $x - a$ is equal to $\\map {P_n} a$.",
+    "proof_text": "By the process of Polynomial Long Division, we can express $\\map {P_n} x$ as:\n$(1): \\quad \\map {P_n} x = \\paren {x - a} \\map {Q_{n - 1} } x + R$\nwhere:\n$\\map {Q_{n - 1} } x$ is a polynomial in $x$ of degree $n - 1$\n$R$ is a polynomial in $x$ of degree no greater than $0$; that is, a constant.\nIt follows that, by setting $x = a$ in $(1)$, we get $\\map {P_n} a = R$.\nHence the result.",
+    "clean_row_index": 809,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Polynomial division by x-a gives a constant remainder. Evaluating the division identity at a eliminates the quotient term and identifies that remainder with P(a)."
+  }
+]

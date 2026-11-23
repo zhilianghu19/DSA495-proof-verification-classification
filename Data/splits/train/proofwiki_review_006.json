@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 291,
+    "title": "Complement of Reflexive Relation",
+    "theorem_text": "Let $\\RR \\subseteq S \\times S$ be a relation.\nThen $\\RR$ is reflexive if and only if its complement $\\relcomp {S \\times S} \\RR \\subseteq S \\times S$ is antireflexive.\nLikewise, $\\RR$ is antireflexive if and only if its complement $\\relcomp {S \\times S} \\RR \\subseteq S \\times S$ is reflexive.",
+    "proof_text": "Let $\\RR \\subseteq S \\times T$ be reflexive.\nThen:\n$\\forall x \\in S: \\tuple {x, x} \\in \\RR$\nBy the definition of complement of $\\RR$:\n$\\tuple {x, y} \\in \\RR \\implies \\tuple {x, y} \\notin \\relcomp {S \\times S} \\RR$\nThe same applies to $\\tuple {x, x}$, and thus:\n$\\forall x \\in S: \\tuple {x, x} \\notin \\relcomp {S \\times S} \\RR$\nThus $\\relcomp {S \\times S} \\RR$ is antireflexive.\nSimilarly, by definition:\n$\\forall x \\in S: \\tuple {x, x} \\notin \\RR \\implies \\neg \\tuple {x, x} \\notin \\relcomp {S \\times S} \\RR$\nBy Double Negation it follows that:\n$\\tuple {x, x} \\in \\relcomp {S \\times S} \\RR$\nThe converses of these results follow from the fact that:\n$\\relcomp {S \\times S} {\\relcomp {S \\times S} \\RR} = \\RR$\nby Relative Complement of Relative Complement.",
+    "clean_row_index": 119,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Taking the complement in the square switches membership of each diagonal pair. Complementing twice returns the original relation and supplies both converses."
+  },
+  {
+    "theorem_id": 376,
+    "title": "Epimorphism Preserves Commutativity",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ and $\\left({T, *}\\right)$ be algebraic structures.\nLet $\\phi: \\left({S, \\circ}\\right) \\to \\left({T, *}\\right)$ be an epimorphism.\nLet $\\circ$ be a commutative operation.\nThen $*$ is also a commutative operation.",
+    "proof_text": "Let $\\left({S, \\circ}\\right)$ be an algebraic structure in which $\\circ$ is commutative.\nLet $\\phi: \\left({S, \\circ}\\right) \\to \\left({T, *}\\right)$ be an epimorphism.\nAs an epimorphism is surjective, it follows that:\n$\\forall u, v \\in T: \\exists x, y \\in S: \\phi \\left({x}\\right) = u, \\phi \\left({y}\\right) = v$\nSo:\n$$u * v = \\phi \\left({x}\\right) * \\phi \\left({y}\\right)$$\n$\\phi$ is a surjection\n$$= \\phi \\left({x \\circ y}\\right)$$\nMorphism Property\n$$= \\phi \\left({y \\circ x}\\right)$$\nCommutativity of $\\circ$\n$$= \\phi \\left({y}\\right) * \\phi {\\left({x}\\right)}$$\nMorphism Property\n$$= v * u$$\nby definition as above",
+    "clean_row_index": 150,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Surjectivity supplies preimages for both target elements. Commuting the two source factors and applying the homomorphism property reverses the target factors."
+  },
+  {
+    "theorem_id": 377,
+    "title": "Epimorphism Preserves Identity",
+    "theorem_text": "Let $\\struct {S, \\circ}$ and $\\struct {T, *}$ be algebraic structures.\nLet $\\phi: \\struct {S, \\circ} \\to \\struct {T, *}$ be an epimorphism.\nLet $\\struct {S, \\circ}$ have an identity element $e_S$.\nThen $\\struct {T, *}$ has the identity element $\\map \\phi {e_S}$.",
+    "proof_text": "Let $\\struct {S, \\circ}$ be an algebraic structure in which $\\circ$ has an identity $e_S$.\nThen:\n$\\forall x \\in S: x \\circ e_S = x = e_S \\circ x$\nThus:\n$$\\map \\phi x = \\map \\phi {x \\circ e_S}$$\n$e_S$ is an identity for $\\circ$\n$$= \\map \\phi x * \\map \\phi {e_S}$$\nMorphism property of $\\circ$ under $\\phi$\nand:\n$$\\map \\phi x = \\map \\phi {e_S \\circ x}$$\n$e_S$ is an identity for $\\circ$\n$$= \\map \\phi {e_S} * \\map \\phi x$$\nMorphism property of $\\circ$ under $\\phi$\nThe result follows because every element $y \\in T$ is of the form $\\map \\phi x$ with $x \\in S$.",
+    "clean_row_index": 151,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The image of the source identity fixes each image element on both sides. Surjectivity extends this check to all of T."
+  },
+  {
+    "theorem_id": 378,
+    "title": "Epimorphism Preserves Inverses",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ and $\\left({T, *}\\right)$ be algebraic structures.\nLet $\\phi: \\left({S, \\circ}\\right) \\to \\left({T, *}\\right)$ be an epimorphism.\nLet $\\left({S, \\circ}\\right)$ have an identity $e_S$.\nLet $x^{-1}$ be an inverse element of $x$ for $\\circ$.\nThen $\\phi \\left({x^{-1}}\\right)$ is an inverse element of $\\phi \\left({x}\\right)$ for $*$.\nThat is:\n$\\phi \\left({x^{-1}}\\right) = \\left({\\phi \\left({x}\\right)}\\right)^{-1}$",
+    "proof_text": "Let $\\left({S, \\circ}\\right)$ be an algebraic structure in which $\\circ$ has an identity element $e_S$.\nFrom Epimorphism Preserves Identity, it follows that $\\left({T, *}\\right)$ also has an identity element, which is $\\phi \\left({e_S}\\right)$.\nLet $y$ be an inverse of $x$ in $\\left({S, \\circ}\\right)$.\nThen:\n$$\\phi \\left({x}\\right) * \\phi \\left({y}\\right) = \\phi \\left({x \\circ y}\\right)$$\n$$= \\phi \\left({e_S}\\right)$$\n$$= \\phi \\left({y \\circ x}\\right)$$\n$$= \\phi \\left({y}\\right) * \\phi \\left({x}\\right)$$\nSo $\\phi \\left({y}\\right)$ is an inverse of $\\phi \\left({x}\\right)$ in $\\left({T, *}\\right)$.",
+    "clean_row_index": 152,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the homomorphism to both inverse identities gives the identity of T on both sides, because surjectivity ensures the identities correspond."
+  },
+  {
+    "theorem_id": 379,
+    "title": "Homomorphism with Cancellable Codomain Preserves Identity",
+    "theorem_text": "Let $\\struct{S, \\circ}$ and $\\struct{T, *}$ be algebraic structures.\nLet $\\phi: \\struct{S, \\circ} \\to \\struct{T, *}$ be a homomorphism.\nLet $\\struct{S, \\circ}$ have an identity $e_S$.\nLet $\\struct{T, *}$ have an identity $e_T$.\nLet every element of $\\struct{T, *}$ be cancellable.\nThen $\\map \\phi {e_S}$ is the identity $e_T$.",
+    "proof_text": "Let $\\struct{S, \\circ}$ be an algebraic structure in which $\\circ$ has an identity $e_S$.\nLet $\\struct{T, *}$ be an algebraic structure in which $*$ has an identity $e_T$.\nLet $\\struct{T, *}$ be such that every element is cancellable.\nLet $\\phi: \\struct{S, \\circ} \\to \\struct{T, *}$ be a homomorphism.\nEvery element of $\\struct{T, *}$ is cancellable.\nSuppose there is an idempotent element in $\\struct{T, *}$\nSo from Identity is only Idempotent Cancellable Element, it must be the identity $e_T$.\nThus:\n$$\\map \\phi {e_S} * \\map \\phi {e_S} = \\map \\phi {e_S \\circ e_S}$$\nby the morphism property of $\\circ$ under $\\phi$\n$$= \\map \\phi {e_S}$$\nas $e_S$ is the identity of $\\left({S, \\circ}\\right)$\nSo $\\map \\phi {e_S}$ is idempotent in $\\struct{T, *}$ and the result follows.",
+    "clean_row_index": 153,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The image of the identity is idempotent. Cancellation in the target then forces this element to equal its identity."
+  },
+  {
+    "theorem_id": 380,
+    "title": "Homomorphism with Identity Preserves Inverses",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ and $\\left({T, *}\\right)$ be algebraic structures.\nLet $\\phi: \\left({S, \\circ}\\right) \\to \\left({T, *}\\right)$ be a homomorphism.\nLet $\\left({S, \\circ}\\right)$ have an identity $e_S$.\nLet $\\left({T, *}\\right)$ also have an identity $e_T = \\phi \\left({e_S}\\right)$.\nIf $x^{-1}$ is an inverse of $x$ for $\\circ$, then $\\phi \\left({x^{-1}}\\right)$ is an inverse of $\\phi \\left({x}\\right)$ for $*$.\nThat is:\n$\\phi \\left({x^{-1}}\\right) = \\left({\\phi \\left({x}\\right)}\\right)^{-1}$",
+    "proof_text": "Let $\\left({S, \\circ}\\right)$ be an algebraic structure in which $\\circ$ has an identity $e_S$.\nLet $\\phi: \\left({S, \\circ}\\right) \\to \\left({T, *}\\right)$ be a homomorphism.\nLet $\\left({T, *}\\right)$ be an algebraic structure in which $*$ has an identity $e_T = \\phi \\left({e_S}\\right)$.\n$$\\phi \\left({x}\\right) * \\phi \\left({x^{-1} }\\right) = \\phi \\left({x \\circ x^{-1} }\\right)$$\nMorphism property of $\\phi$\n$$= \\phi \\left({e_S}\\right) = e_T$$\n$$= \\phi \\left({x^{-1} \\circ x}\\right)$$\n$$= \\phi \\left({x^{-1} }\\right) * \\phi \\left({x}\\right)$$\nMorphism property of $\\phi$",
+    "clean_row_index": 154,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both orders of the product of the two images equal the image of the source identity, which by hypothesis is the target identity."
+  },
+  {
+    "theorem_id": 381,
+    "title": "Homomorphism to Group Preserves Identity",
+    "theorem_text": "Let $\\struct {S, \\circ}$ be an algebraic structure.\nLet $\\struct {T, *}$ be a group.\nLet $\\phi: \\struct {S, \\circ} \\to \\struct {T, *}$ be a homomorphism.\nLet $\\struct {S, \\circ}$ have an identity $e_S$.\nThen:\n$\\map \\phi {e_S} = e_T$",
+    "proof_text": "By hypothesis, $\\struct {T, *}$ is a group.\nBy the Cancellation Laws, all elements of $T$ are cancellable.\nThus Homomorphism with Cancellable Codomain Preserves Identity can be applied.",
+    "clean_row_index": 155,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The group codomain is cancellative and has an identity, so the cited identity-preservation result applies."
+  },
+  {
+    "theorem_id": 383,
+    "title": "Monomorphism Image is Isomorphic to Domain",
+    "theorem_text": "The image of a monomorphism is isomorphic to its domain.\nThat is, if $\\phi: S_1 \\to S_2$ is a monomorphism, then:\n$\\phi: S_1 \\to \\Img \\phi$\nis an isomorphism.",
+    "proof_text": "Let $\\struct {S_1, \\circ_1}$ and $\\struct {S_2, \\circ_2}$ be closed algebraic structures.\nLet $\\phi$ be a monomorphism from $\\struct {S_1, \\circ_1}$ to $\\struct {S_2, \\circ_2}$.\nLet $T = \\Img \\phi$ be the image of $\\phi$.\nBy Morphism Property Preserves Closure, $\\struct {T, \\circ_2}$ is closed.\nAs $\\phi$ is a monomorphism, it is by definition an injective homomorphism.\nFrom Restriction of Injection is Injection, $\\phi: S_1 \\to \\Img \\phi$ is an injection.\nFrom Restriction of Mapping to Image is Surjection, $\\phi: S_1 \\to \\Img \\phi$ is a surjection.\nThus $\\phi \\to \\Img \\phi$ is by definition a bijection.\nThus $\\phi: S_1 \\to \\Img \\phi$ is a bijective homomorphism.\nHence, by definition, $\\phi: S_1 \\to \\Img \\phi$ is an isomorphism.",
+    "clean_row_index": 156,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Restriction of the codomain to the closed image preserves injectivity and makes the homomorphism onto, giving the required isomorphism."
+  },
+  {
+    "theorem_id": 389,
+    "title": "Inverse Mapping in Induced Structure",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ be an algebraic structure.\nLet $\\left({T, \\oplus}\\right)$ be an abelian group.\nLet $f$ be a homomorphism from $S$ into $T$.\nLet $f^*$ be the induced structure inverse of $f$.\nThen $f^*$ is a homomorphism from $\\left({S, \\circ}\\right)$ into $\\left({T, \\oplus}\\right)$.",
+    "proof_text": "Let $\\left({T, \\oplus}\\right)$ be an abelian group.\nLet $x, y \\in S$.\nThen:\n$$f^* \\left({x \\circ y}\\right) = \\left({f \\left({x \\circ y}\\right)}\\right)^{-1}$$\nInduced Structure Inverse\n$$= \\left({f \\left({x}\\right) \\oplus f \\left({y}\\right)}\\right)^{-1}$$\n$f$ is a homomorphism\n$$= \\left({f \\left({y}\\right) \\oplus f \\left({x}\\right)}\\right)^{-1}$$\nCommutativity of $\\oplus$\n$$= \\left({f \\left({x}\\right)}\\right)^{-1} \\oplus \\left({f \\left({y}\\right)}\\right)^{-1}$$\nInverse of Group Product\n$$= f^* \\left({x}\\right) \\oplus f^* \\left({y}\\right)$$\nInduced Structure Inverse",
+    "clean_row_index": 158,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The abelian target allows the factors to be swapped before taking the inverse of the product. The resulting factors are exactly the pointwise inverses in the required order."
+  },
+  {
+    "theorem_id": 397,
+    "title": "Inverse Completion of Commutative Semigroup is Inverse Completion of Itself",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ be a commutative semigroup.\nLet $\\left ({C, \\circ}\\right) \\subseteq \\left({S, \\circ}\\right)$ be the subsemigroup of cancellable elements of $\\left({S, \\circ}\\right)$.\nLet $\\left({T, \\circ'}\\right)$ be an inverse completion of $\\left({S, \\circ}\\right)$.\nThen $\\left({T, \\circ'}\\right)$ is its own inverse completion.",
+    "proof_text": "Let $x \\circ' y^{-1}$ be cancellable for $\\circ'$, where $x \\in S$ and $y \\in C$.\nWe have that $y$ is invertible for $\\circ'$.\nSo by Invertible Element of Associative Structure is Cancellable:\n$y$ is cancellable for $\\circ'$.\nNow by definition of inverse element:\n$x = \\left({x \\circ' y^{-1}}\\right) \\circ' y$\nThus $x$ is also cancellable for $\\circ'$.\nBy Cancellable Elements of Semigroup form Subsemigroup, $x$ is cancellable for $\\circ$.\nSo:\n$x \\in S \\implies x \\in C$\nThus $x$ is invertible for $\\circ'$.\nHence by Inverse of Product in Associative Structure:\n$x \\circ' y$ is invertible for $\\circ'$.\nSo every cancellable element of $\\left({T, \\circ'}\\right)$ is invertible.\nSo, by definition, $\\left({T, \\circ'}\\right)$ is its own inverse completion.",
+    "clean_row_index": 159,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplication by the unit y shows x is cancellable in the completion and hence on its subsemigroup S. Therefore x and y are units in the completion, so the original fraction is a unit too; the last display mentions xy, but the same unit-product rule immediately covers xy-inverse."
+  },
+  {
+    "theorem_id": 398,
+    "title": "Identity of Inverse Completion of Commutative Monoid",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ be a commutative monoid whose identity is $e$.\nLet $\\left ({C, \\circ}\\right) \\subseteq \\left({S, \\circ}\\right)$ be the subsemigroup of cancellable elements of $\\left({S, \\circ}\\right)$.\nLet $\\left({T, \\circ'}\\right)$ be an inverse completion of $\\left({S, \\circ}\\right)$.\nThen $e \\in T$ is the identity for $\\circ'$.",
+    "proof_text": "Let $e$ be the identity for $\\circ$.\nLet $e = x \\circ' y^{-1}$, where $x \\in S, y \\in C$.\nThen:\n$$y = e \\circ y$$\nDefinition of Identity\n$$= \\left({x \\circ' y^{-1} }\\right) \\circ' y$$\nDefinition of Inverse\n$$= x \\circ' \\left({y^{-1} \\circ' y}\\right)$$\n$\\circ'$ is associative\n$$= x \\circ' e$$\nDefinition of Inverse\nThus $e = y^{-1} \\circ' y$, and $y^{-1} \\circ' y$ is the identity for $\\circ'$.",
+    "clean_row_index": 160,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "Substituting the source identity e for the product of y-inverse and y already assumes e is the identity of the completion, precisely what must be proved."
+  },
+  {
+    "theorem_id": 401,
+    "title": "Inverse Completion Theorem",
+    "theorem_text": "Every commutative semigroup containing cancellable elements admits an inverse completion.",
+    "proof_text": "Let $\\left({S, \\circ}\\right)$ be a commutative semigroup which has cancellable elements.\nFrom Construction of Inverse Completion, we can construct an inverse completion $\\left({T', \\oplus'}\\right)$ of $\\left({S', \\oplus'}\\right)$, which is an isomorphic copy of $S$ under the mapping $\\psi: S \\to S'$.\nBy the Embedding Theorem, there exists a semigroup $\\left({T, \\circ}\\right)$  which contains $\\left({S, \\circ}\\right)$, and an isomorphism $\\Psi$ from $\\left({T, \\circ}\\right)$ to $\\left({T', \\oplus'}\\right)$ which extends $\\psi$.\nThus $T$ is an inverse completion of $S$.",
+    "clean_row_index": 161,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The construction supplies a completion for an isomorphic copy of S, and the embedding theorem transports that entire structure back along an isomorphism extending the identification of S."
+  },
+  {
+    "theorem_id": 403,
+    "title": "Extension Theorem for Isomorphisms",
+    "theorem_text": "Let the following conditions be fulfilled:\n: Let $\\left({S, \\circ}\\right)$ be a commutative semigroup with cancellable elements\n: Let $\\phi$ be an isomorphism from $\\left({S, \\circ}\\right)$ into a semigroup $\\left({T, *}\\right)$\n: Let $\\left({S', \\circ'}\\right)$ be an inverse completion of $\\left({S, \\circ}\\right)$\n: Let $\\left({T', \\circ'}\\right)$ be an inverse completion of $\\left({T, \\circ}\\right)$.\nThen there is a unique isomorphism $\\phi': S' \\to T'$ extending $\\phi$.",
+    "proof_text": "Let $C$ be the subsemigroup of cancellable elements of $S$.\nIt is proved that this is a semigroup by Cancellable Elements of Semigroup form Subsemigroup.\nThe set of cancellable elements of $T$ is $\\phi \\left({C}\\right)$.\nBy the Extension Theorem for Homomorphisms, there is:\n: A unique homomorphism $\\phi'$ from $S'$ into $T'$ extending $\\phi$\nand:\n: A unique homomorphism $\\psi$ from $T'$ into $S'$ extending $\\phi^{-1}$.\nTherefore, $\\psi \\circ \\phi'$ is an endomorphism of $S'$ whose restriction to $S$ is the inclusion mapping $\\iota_S: S \\to S'$:\n$\\forall x \\in S: \\iota \\left({x}\\right) = x$\nFrom Inclusion Mapping is Monomorphism, $\\iota_S$ is a monomorphism from $S$ into $S'$.\nBut by the Extension Theorem for Homomorphisms, the identity automorphism of $S'$ is the only endomorphism of $S'$ extending $\\iota_S$ from $S$ into $S'$, so:\n$\\psi \\circ \\phi' = I_{S'}$\nSimilarly:\n$\\phi' \\circ \\psi = I_{T'}$\nSo by Bijection iff Left and Right Inverse, $\\phi'$ is a bijection and therefore an isomorphism.",
+    "clean_row_index": 162,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Extending the map and its inverse gives composites extending the inclusions. Uniqueness of those extensions identifies both composites with identity maps."
+  },
+  {
+    "theorem_id": 404,
+    "title": "Inverse Completion is Unique",
+    "theorem_text": "An inverse completion of a commutative semigroup is unique up to isomorphism.",
+    "proof_text": "Let $T$ and $T'$ both be inverse completions of a commutative semigroup $S$ having cancellable elements.\nThen from the Extension Theorem for Isomorphisms, there is a unique isomorphism $\\phi: T \\to T'$ satisfying $\\forall x \\in S: \\phi \\left({x}\\right) = x$.\nHence the result.",
+    "clean_row_index": 163,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Extending the identity of S to its two inverse completions gives an isomorphism between them by the cited extension theorem."
+  },
+  {
+    "theorem_id": 408,
+    "title": "Identity is only Idempotent Element in Group",
+    "theorem_text": "Every group has exactly one idempotent element: the identity.",
+    "proof_text": "The Identity Element is Idempotent.\nFrom the Cancellation Laws, all group elements are cancellable.\nThe result follows from Identity is only Idempotent Cancellable Element.",
+    "clean_row_index": 164,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The identity is idempotent and cancellation forces any idempotent g satisfying gg=g to equal the identity."
+  },
+  {
+    "theorem_id": 411,
+    "title": "Power Set of Group under Induced Operation is Semigroup",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $\\struct {\\powerset G, \\circ_\\mathcal P}$ be the algebraic structure consisting of the power set of $G$ and the operation induced on $\\powerset G$ by $\\circ$.\nThen $\\struct {\\powerset G, \\circ_\\mathcal P}$ is a semigroup.",
+    "proof_text": "By definition a group is also a semigroup.\nThe result then follows from Power Set of Semigroup under Induced Operation is Semigroup.",
+    "clean_row_index": 165,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A group satisfies all semigroup axioms, so the stated power-set semigroup result specializes directly to G."
+  },
+  {
+    "theorem_id": 412,
+    "title": "Inverse of Product of Subsets of Group",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $X, Y \\subseteq G$.\nThen:\n$\\paren {X \\circ Y}^{-1} = Y^{-1} \\circ X^{-1}$\nwhere $X^{-1}$ is the inverse of $X$.",
+    "proof_text": "Superset\nWe will show that $\\forall z \\in Y^{-1} \\circ X^{-1}: z \\in \\left({X \\circ Y}\\right)^{-1}$, from which:\n$Y^{-1} \\circ X^{-1} \\subseteq \\left({X \\circ Y}\\right)^{-1}$\nLet $z \\in Y^{-1} \\circ X^{-1}$.\nBy the definition of subset product:\n$\\exists x' \\in X^{-1}, y' \\in Y^{-1}: z = y' \\circ x'$\nThen by Inverse of Group Product:\n$(2)\\quad z^{-1} = x'^{-1} \\circ y'^{-1}$\nBy the definition of inverse of subset:\n$x'^{-1} \\in X$ and $y'^{-1} \\in Y$\nBy the definition of subset product:\n$x'^{-1} \\circ y'^{-1} \\in X \\circ Y$\nThus by $(2)$:\n$z^{-1} \\in X \\circ Y$\nBy the definition of inverse of subset:\n$z \\in \\left({X \\circ Y}\\right)^{-1}$\nSubset\nWe will show that $\\forall z \\in \\left({X \\circ Y}\\right)^{-1}: z \\in Y^{-1} \\circ X^{-1}$, from which:\n$\\left({X \\circ Y}\\right)^{-1} \\subseteq Y^{-1} \\circ X^{-1}$\nLet $z \\in \\left({X \\circ Y}\\right)^{-1}$.\nBy the definition of inverse of subset:\n$z^{-1} \\in X \\circ Y$\nFrom Inverse of Inverse of Subset of Group:\n$z^{-1} \\in \\left({ X^{-1} }\\right)^{-1} \\circ \\left({ Y^{-1} }\\right)^{-1}$\nThus by the superset proof above:\n$z^{-1} \\in \\left({ Y^{-1} \\circ X^{-1} }\\right)^{-1}$\nFrom the definition of inverse of subset:\n$z \\in Y^{-1} \\circ X^{-1}$",
+    "clean_row_index": 166,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Taking inverses reverses the order of the two chosen factors, giving one inclusion. Applying that inclusion to the reversed inverse subsets and inverting again gives the other."
+  },
+  {
+    "theorem_id": 413,
+    "title": "Regular Representations in Group are Permutations",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $a \\in G$ be any element of $G$.\nThen the left regular representation $\\lambda_a$ and the right regular representation $\\rho_a$ are permutations of $G$.",
+    "proof_text": "This follows directly from the fact that all elements of a group are by definition invertible.\nTherefore the result Regular Representation of Invertible Element is Permutation applies.",
+    "clean_row_index": 167,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Left and right translation by an invertible element are permutations by the cited result, and every element of a group is invertible."
+  },
+  {
+    "theorem_id": 418,
+    "title": "Identity Mapping is Automorphism",
+    "theorem_text": "The identity mapping $I_S: \\left({S, \\circ}\\right) \\to \\left({S, \\circ}\\right)$ on the algebraic structure $\\left({S, \\circ}\\right)$ is an automorphism.\nIts image is $S$.",
+    "proof_text": "By definition, an automorphism is an isomorphism from an algebraic structure onto itself.\nAn isomorphism, in turn, is a bijective homomorphism.\nFrom Identity Mapping is Bijection, the identity mapping $I_S: S \\to S$ on the set $S$ is a bijection from $S$ onto itself.\nNow we need to show it is a homomorphism.\nLet $x, y \\in S$. Then:\n$$I_S \\left({x \\circ y}\\right) = x \\circ y$$\nDefinition of Identity Mapping\n$$= I_S \\left({x}\\right) \\circ I_S \\left({y}\\right)$$\nDefinition of Identity Mapping\nThus $I_S \\left({x \\circ y}\\right) = I_S \\left({x}\\right) \\circ I_S \\left({y}\\right)$ and the morphism property holds, proving that $I_S: S \\to S$ is a homomorphism.\nAs $I_S$ is a bijection, its image is $S$.",
+    "clean_row_index": 169,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The identity map fixes both factors and their product and is a bijection onto S. These facts establish the automorphism and image claims."
+  },
+  {
+    "theorem_id": 422,
+    "title": "Isomorphism of Abelian Groups",
+    "theorem_text": "Let $\\phi: \\struct {G, \\circ} \\to \\struct {H, *}$ be a group isomorphism.\nThen $\\struct {G, \\circ}$ is abelian if and only if $\\struct {H, *}$ is abelian.",
+    "proof_text": "We have that Isomorphism Preserves Commutativity.\nThus:\n$\\forall x, y \\in G: x \\circ y = y \\circ x \\implies \\map \\phi x * \\map \\phi y = \\map \\phi y * \\map \\phi x$\nThus if $G$ is abelian, so is $H$.\nAs $\\phi^{-1}: H \\to G$ is also an isomorphism, it is clear that if $H$ is abelian, then so is $G$.",
+    "clean_row_index": 170,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Commutativity transfers through the isomorphism onto H and through its inverse onto G."
+  },
+  {
+    "theorem_id": 425,
+    "title": "Symmetric Difference on Power Set forms Abelian Group",
+    "theorem_text": "Let $S$ be a set such that $\\O \\subset S$ (that is, $S$ is non-empty).\nLet $A * B$ be defined as the symmetric difference between $A$ and $B$.\nLet $\\powerset S$ denote the power set of $S$.\nThen the algebraic structure $\\struct {\\powerset S, *}$ is an abelian group.",
+    "proof_text": "From Power Set is Closed under Symmetric Difference, we have that $\\struct {\\powerset S, *}$ is closed.\nThe result follows directly from Set System Closed under Symmetric Difference is Abelian Group.",
+    "clean_row_index": 171,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The power set is nonempty and closed under symmetric difference, meeting the cited abelian-group criterion for such a set system."
+  },
+  {
+    "theorem_id": 426,
+    "title": "Group is Subgroup of Itself",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nThen:\n$\\struct {G, \\circ} \\le \\struct {G, \\circ}$\nThat is, a group is always a subgroup of itself.",
+    "proof_text": "By Set is Subset of Itself, we have that:\n$G \\subseteq G$\nThus $\\struct {G, \\circ}$ is a group which is a subset of $\\struct {G, \\circ}$, and therefore a subgroup of $\\struct {G, \\circ}$.",
+    "clean_row_index": 172,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Taking the underlying subset to be all of G gives the same group with exactly the inherited operation."
+  },
+  {
+    "theorem_id": 427,
+    "title": "Identity of Subgroup",
+    "theorem_text": "Let $G$ be a group whose identity is $e$.\nLet $H$ be a subgroup of group $G$.\nThen the identity of $H$ is also $e$.",
+    "proof_text": "From the definition, a group is a monoid.\nAlso, all of its elements are cancellable.\nThe result then follows directly from the result for monoids each of whose elements are cancellable: Identity of Cancellable Monoid is Identity of Submonoid.",
+    "clean_row_index": 173,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The subgroup is a submonoid under the restricted operation and the ambient group is a cancellative monoid, so the cited shared-identity result applies."
+  },
+  {
+    "theorem_id": 428,
+    "title": "Inverses in Subgroup",
+    "theorem_text": "Let $G$ be a group.\nLet $H$ be a subgroup of $G$.\nThen for each $h \\in H$, the inverse of $h$ in $H$ is the same as the inverse of $h$ in $G$.",
+    "proof_text": "Let $h \\in H$.\nLet:\n$h'$ be the inverse of $h$ in $H$\n$h^{-1}$ be the inverse of $h$ in $G$.\nFrom Identity of Subgroup, $h \\circ h' = e$.\nFrom Inverse in Group is Unique, it follows that $h' = h^{-1}$.",
+    "clean_row_index": 174,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The product hh' equals the ambient identity because the subgroup shares that identity. Inverse uniqueness in G now identifies h' with the ambient inverse."
+  },
+  {
+    "theorem_id": 432,
+    "title": "Elements of Group with Equal Images under Homomorphisms form Subgroup",
+    "theorem_text": "Let $\\struct {G, \\circ}$ and $\\struct {H, *}$ be groups.\nLet $f: G \\to H$ and $g: G \\to H$ be group homomorphisms.\nThen the set:\n$S = \\set {x \\in G: \\map f x = \\map g x}$\nis a subgroup of $G$.",
+    "proof_text": "Let the identities of $\\struct {G, \\circ}$ and $\\struct {H, *}$ be $e_G$ and $e_H$ respectively.\nBy Homomorphism to Group Preserves Identity:\n$\\map f {e_G} = \\map g {e_G} = e_H$\nThus $e_G \\in S$, and so $S \\ne \\O$.\nSimilarly, from Homomorphism to Group Preserves Inverses, $x \\in S \\implies x^{-1} \\in S$.\nLet $x, y \\in S$. Then:\n$$\\map f {x \\circ y} = \\map f x * \\map f y$$\nMorphism Property\n$$= \\map g x * \\map g y$$\nDefinition of $S$\n$$= \\map g {x \\circ y}$$\nMorphism Property\nThus $x \\circ y \\in S$.\nSo, by the Two-Step Subgroup Test:\n$S \\le G$",
+    "clean_row_index": 175,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Identity preservation gives a point of agreement. Product and inverse preservation make the agreement set closed under both operations, satisfying the subgroup test."
+  },
+  {
+    "theorem_id": 436,
+    "title": "Group Homomorphism Preserves Subgroups",
+    "theorem_text": "Let $\\struct {G_1, \\circ}$ and $\\struct {G_2, *}$ be groups.\nLet $\\phi: \\struct {G_1, \\circ} \\to \\struct {G_2, *}$ be a group homomorphism.\nThen:\n$H \\le G_1 \\implies \\phi \\sqbrk H \\le G_2$\nwhere:\n$\\phi \\sqbrk H$ denotes the image of $H$ under $\\phi$\n$\\le$ denotes subgroup.\nThat is, group homomorphism preserves subgroups.",
+    "proof_text": "Let $H \\le G_1$.\nFirst note that from Null Relation is Mapping iff Domain is Empty Set:\n$H \\ne \\O \\implies \\phi \\sqbrk H \\ne \\O$\nand so $\\phi \\sqbrk H$ is not empty.\nNext, let $x, y \\in \\phi \\sqbrk H$.\nThen:\n$\\exists h_1, h_2 \\in H: x = \\map \\phi {h_1}, y = \\map \\phi {h_2}$\nFrom the definition of Group Homomorphism, we have:\n$\\map \\phi {h_1^{-1} \\circ h_2} = x^{-1} * y$\nSince $H$ is a subgroup:\n$h_1^{-1} \\circ h_2 \\in H$\nHence:\n$x^{-1} * y \\in \\phi \\sqbrk H$\nThus from the One-Step Subgroup Test:\n$\\phi \\sqbrk H \\le G_2$",
+    "clean_row_index": 176,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The subgroup image is nonempty. Preimages h1 and h2 give a subgroup element h1-inverse times h2 mapping to the required target product."
+  },
+  {
+    "theorem_id": 441,
+    "title": "Commutative Semigroup is Entropic Structure",
+    "theorem_text": "A commutative semigroup is an entropic structure.",
+    "proof_text": "Let $\\struct {S, \\circ}$ be a commutative semigroup.\nLet $a, b, c, d \\in S$.\nThen:\n$$\\paren {a \\circ b} \\circ \\paren {c \\circ d} = a \\circ \\paren {b \\circ \\paren {c \\circ d} }$$\nAssociativity of $\\circ$\n$$= a \\circ \\paren {\\paren {b \\circ c} \\circ d}$$\nAssociativity of $\\circ$\n$$= a \\circ \\paren {\\paren {c \\circ b} \\circ d}$$\nCommutativity of $\\circ$\n$$= a \\circ \\paren {c \\circ \\paren {b \\circ d} }$$\nAssociativity of $\\circ$\n$$= \\paren {a \\circ c} \\circ \\paren {b \\circ d}$$\nAssociativity of $\\circ$",
+    "clean_row_index": 177,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Associativity removes the internal grouping, commutativity exchanges b and c, and associativity restores the grouping required by the entropic identity."
+  },
+  {
+    "theorem_id": 444,
+    "title": "Ring is not Empty",
+    "theorem_text": "A ring cannot be empty.",
+    "proof_text": "In a ring $\\struct {R, +, \\circ}$, $\\struct {R, +}$ forms a group.\nFrom Group is not Empty, the group $\\struct {R, +}$ contains at least the identity, so cannot be empty.\nSo every ring $\\struct {R, +, \\circ}$ contains at least the identity for ring addition.",
+    "clean_row_index": 178,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The additive group supplies a zero element belonging to the ring, ruling out the empty set."
+  },
+  {
+    "theorem_id": 447,
+    "title": "Unity of Ring is Unique",
+    "theorem_text": "A ring can have no more than one unity.",
+    "proof_text": "Let $\\struct {R, +, \\circ}$ be a ring.\nIf $\\struct {R, \\circ}$ has an identity, then it is a monoid.\nFrom Identity of Monoid is Unique, it follows that such an identity is unique.",
+    "clean_row_index": 179,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Under associative ring multiplication, the existence of a unity gives a monoid, which has a unique identity."
+  },
+  {
+    "theorem_id": 644,
+    "title": "GCD for Negative Integers",
+    "theorem_text": "$\\gcd \\set {a, b} = \\gcd \\set {\\size a, b} = \\gcd \\set {a, \\size b} = \\gcd \\set {\\size a, \\size b}$\nAlternatively, this can be put:\n$\\gcd \\set {a, b} = \\gcd \\set {-a, b} = \\gcd \\set {a, -b} = \\gcd \\set {-a, -b}$\nwhich follows directly from the above.",
+    "proof_text": "Note that $\\size a = \\pm a$.\nSuppose that:\n$u \\divides a$\nwhere $\\divides$ denotes divisibility.\nThen:\n$\\exists q \\in \\Z: a = q u$\nThen:\n$\\size a = \\pm q u = \\paren {\\pm q} u \\implies u \\divides \\size a$\nSo every divisor of $a$ is a divisor of $\\size a$.\nSimilarly, note that:\n$a = \\pm \\size a$\nso every divisor of $\\size a$ is a divisor of $a$.\nSo it follows that the common divisors of $a$ and $b$ are the same as those of $a$ and $\\size b$, and so on.\nIn particular:\n$\\gcd \\set {a, b} = \\gcd \\set {a, \\size b}$\nand so on.",
+    "clean_row_index": 275,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Negating an integer negates its quotient by a given divisor. Thus replacing either argument by its absolute value preserves the entire common-divisor set."
+  }
+]

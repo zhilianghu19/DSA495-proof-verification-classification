@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1852,
+    "title": "Empty Set Disjoint with Itself",
+    "theorem_text": "The empty set is disjoint with itself:\n$\\varnothing \\cap \\varnothing = \\varnothing$",
+    "proof_text": "From Intersection with Empty Set, we have that, for all sets, $S \\cap \\varnothing = \\varnothing$.\nThe result follows from the definition of disjoint sets.",
+    "clean_row_index": 810,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Taking S to be empty in the intersection-with-empty-set identity gives precisely disjointness from itself."
+  },
+  {
+    "theorem_id": 1854,
+    "title": "Overflow Theorem",
+    "theorem_text": "Let $F$ be a set of first-order formulas which has finite models of arbitrarily large size.\nThen $F$ has an infinite model.",
+    "proof_text": "For each $n$, let $\\mathbf A_n$ be the formula:\n$\\exists x_1 \\exists x_2 \\ldots \\exists x_n: \\left({x_1 \\ne x_2 \\land x_1 \\ne x_3 \\land \\ldots \\land x_{n-1} \\ne x_n }\\right)$\nThen $\\mathbf A_i$ is true in a structure $\\mathcal A$ if and only if $\\mathcal A$ has at least $n$ elements.\nTake:\n$\\displaystyle \\Gamma := A \\cup \\bigcup_{i \\mathop = 1}^\\infty A_i$\nSince $F$ has models of arbitrarily large size, every finite subset of $\\Gamma$ is satisfiable.\nFrom the Compactness Theorem, $\\Gamma$ is satisfiable in some model $\\mathcal M$.\nBut since $\\mathcal M \\models A_i$ for each $i$, $\\mathcal M$ must be infinite.\nSo $A$ has an infinite model.",
+    "clean_row_index": 811,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Adjoining one sentence for each finite lower bound on model size preserves finite satisfiability. Compactness then gives a model of the original formulas satisfying all size bounds. The letter A in the union denotes the original F."
+  },
+  {
+    "theorem_id": 1856,
+    "title": "Pi is Irrational",
+    "theorem_text": "Pi ($\\pi$) is irrational.",
+    "proof_text": "From Rational Points on Graph of Sine Function, the only rational point on the graph of the sine function in the real Cartesian plane $\\R^2$:\n$f := \\left\\{ {\\left({x, y}\\right) \\in \\R^2: y = \\sin x}\\right\\}$\nis the point $\\left({0, 0}\\right)$.\nBut $\\left({\\pi, 0}\\right)$ is also on $f$.\nHence $\\pi$ cannot be rational.",
+    "clean_row_index": 812,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Since sine of pi is zero, rationality of pi would give a rational graph point distinct from the origin, contrary to the cited result."
+  },
+  {
+    "theorem_id": 1868,
+    "title": "Odd Order Complete Graph is Eulerian",
+    "theorem_text": "Let $K_n$ be the complete graph of $n$ vertices.\nThen $K_n$ is Eulerian if and only if $n$ is odd.\nIf $n$ is even, then $K_n$ is traversable iff $n = 2$.",
+    "proof_text": "From the definition, the complete graph $K_n$ is $n-1$-regular.\nThat is, every vertex of $K_n$ is of degree $n-1$.\nSuppose $n$ is odd. Then $n-1$ is even, and so $K_n$ is Eulerian.\nSuppose $n$ is even. Then $n-1$ is odd.\nHence for $n \\ge 4$, $K_n$ has more than $2$ odd vertices and so can not be traversable, let alone Eulerian.\nIf $n = 2$, then $K_n$ consists solely of two odd vertices (of degree $1$).\nHence, by Characteristics of Traversable Graph (or trivially, by inspection), $K_2$ has an Eulerian trail, and so is traversable (although not Eulerian).",
+    "clean_row_index": 813,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In the connected complete graph each degree is n minus one. The Euler criteria give a circuit for odd n and an open trail for even n only when the two vertices of K2 are the only odd vertices."
+  },
+  {
+    "theorem_id": 1869,
+    "title": "Odd Vertices Determines Edge-Disjoint Trails",
+    "theorem_text": "Let $G$ be a loop-multigraph with $2 n$ odd vertices, $n > 0$.\nThen $G$ has $n$ edge-disjoint trails such that every edge of $G$ is contained in one of these trails.\nEach of these trails starts and ends on an odd vertex.",
+    "proof_text": "We prove this result by induction:\nFor all $n \\in \\N_{>0}$, let $\\map P N$ be the proposition:\n:if $G$ has $2 n$ odd vertices, it consists entirely of $n$ edge-disjoint trails, each starting and ending on an odd vertex.\nFirst note that from the corollary to the Handshake Lemma, no graph can have an odd number of odd vertices.\nBasis for the Induction\n$\\map P 1$ is true, as this is the Characteristics of Traversable Graph.\nThis is our basis for the induction.\nNote that, from the same result, the trail starts and ends on an odd vertex.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n:If $G$ has $2 k$ odd vertices, it consists entirely of $k$ edge-disjoint trails, each starting and ending on an odd vertex.\nThen we need to show:\n:If $G$ has $2 \\paren {k + 1}$ odd vertices, it consists entirely of $k + 1$ edge-disjoint trails, each starting and ending on an odd vertex.\nInduction Step\nThis is our induction step:\nLet $G_{k + 1}$ be a graph with $2 \\paren {k + 1}$ odd vertices.\nLet $u, v$ be any pair of odd vertices in $G_{k + 1}$.\nWe construct the graph $G'_{k + 1}$ which consists of $G_{k + 1}$ with the edge $u v$ added.\nIt can be seen that as $u, v$ are now even vertices, $G'_{k + 1}$ has $2 k$ odd vertices.\nBy our induction hypothesis, we know that $G'_{k + 1}$ consists entirely of $k$ edge-disjoint trails.\nSo, let us construct these trails: let them be $T_1, T_2, \\ldots, T_k$.\nThe edge $u v$ must be somewhere in one of the above trails.\nAs the $k$ trails are all edge-disjoint, it will be in exactly one.\nSuppose it is in $T_j$.\nAs $T_j$ must start and end on an odd vertex, $u v$ must be neither at the start nor the end of such a trail.\nSuppose $T_j = \\tuple {t_1, t_2, \\ldots, u, v, \\ldots, t_r}$.\nThen it follows that $t_1$ and $t_r$ are odd vertices.\nNow we remove $u v$ from $G'_{k + 1}$ so as to return to $G_{k + 1}$.\nWe see that $G_{k + 1}$ consists entirely of the edge-disjoint trails:\n$T_1, T_2, \\ldots, T_{j - 1}$\n$T_{j + 1}, T_{j + 2}, \\ldots, T_k$\n:The two trails: $\\tuple {t_1, t_2, \\ldots, u}$ and $\\tuple {v, \\ldots, t_r}$.\nThat makes $k + 1$ edge-disjoint trails.\nAlso note that as $u$ and $v$ are odd vertices, both of $\\tuple {t_1, t_2, \\ldots, u}$ and $\\tuple {v, \\ldots, t_r}$ start and end on odd vertices.\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.",
+    "clean_row_index": 814,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The base case uses an Euler-trail criterion requiring connectivity of the edge-bearing part. A disjoint cycle together with a single edge has two odd vertices but cannot be covered by one trail."
+  },
+  {
+    "theorem_id": 1870,
+    "title": "Number of Edges of Regular Graph",
+    "theorem_text": "An $r$-regular graph of order $n$ is of size $\\dfrac {n r} 2$.",
+    "proof_text": "The size of a $r$-regular graph is its number of edges.\nThe order of a $r$-regular graph is its number of vertices.\nThe degree of each vertex of an $r$-regular graph is $r$.\nHence the total of all the degrees of an $r$-regular graph of order $n$ is $nr$.\nThe result follows directly from the Handshake Lemma.",
+    "clean_row_index": 815,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The n vertices contribute total degree nr, and the handshake lemma counts each edge twice."
+  },
+  {
+    "theorem_id": 1875,
+    "title": "Connected Subgraph of Tree is Tree",
+    "theorem_text": "Let $T$ be a tree.\nLet $S$ be a subgraph of $T$ such that $S$ is connected.\nThen $S$ is also a tree.",
+    "proof_text": "Follows directly from the fact that by definition, $T$ has no circuits.\nAs $T$ has no circuits, then nor can $S$ have.\nHence $S$ is a connected simple graph with no circuits.\nThus by definition, $S$ is a tree.",
+    "clean_row_index": 816,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every circuit of the subgraph would be a circuit of T. A connected acyclic subgraph therefore meets the tree definition."
+  },
+  {
+    "theorem_id": 1876,
+    "title": "Finite Tree has Leaf Nodes",
+    "theorem_text": "Every non-edgeless finite tree has at least two leaf nodes.",
+    "proof_text": "We use the Method of Infinite Descent.\nSuppose $T$ is a tree which has no leaf nodes.\nFirst note that no tree has all even nodes.\nThat is because by Characteristics of Eulerian Graph, it would then be an Eulerian graph, and by definition, trees do not have circuits.\nFrom the Handshake Lemma, we know that $T$ must therefore have at least two odd nodes whose degree is at least $3$.\nAs $T$ is finite, this number must itself be finite.\nOf those nodes, there must be two (call them $u$ and $v$) which can be joined by a path $P$ containing no odd nodes apart from $u$ and $v$.\n(Otherwise you can pick as one of the two nodes one of those in the interior of $P$.)\nConsider that path $P$ from $u$ to $v$.\nAs a tree has no circuits, all nodes of $P$ are distinct, or at least part of $P$ will describe a cycle.\nNow consider the subgraph $S$ formed by removing the edges comprising $P$ from $T$, but leaving the nodes where they are.\nThe nodes $u$ and $v$ at either end of $P$ will no longer be odd, as they have both had one edge removed from them.\nAll the nodes on $P$ other than $u$ and $v$ will stay even.\nThe graph $S$ may become disconnected, and may even contain isolated nodes.\nHowever, except for these isolated nodes (which became that way because of being nodes of degree $2$ on $P$), and however many components $S$ is now in, all the nodes of $S$ are still either even or odd with degree of $3$ or higher.\nThat is because by removing $P$, the only odd nodes we have affected are $u$ and $v$, which are now even.\nNow, if the nodes in any component of $S$ are all even, that component is Eulerian.\nHence $S$ contains a circuit, and is therefore not a tree.\nFrom Connected Subgraph of Tree is Tree, it follows that $T$ can not be a tree after all.\nHowever, if the nodes in any component $T'$ of $S$ are not all even, then there can't be as many odd nodes in it as there are in $T$ (because we have reduced the number by $2$).\nAlso, because of the method of construction of $T'$, all of its odd nodes are of degree of at least $3$.\nBy applying the Method of Infinite Descent, it follows that $T$ must contain a circuit, and is therefore not a tree.\nSo every tree must have at least one node of degree $1$.\nNow, suppose that $T$ is a tree with exactly $1$ node of degree $1$. Call this node $u$.\nFrom the Handshake Lemma, we know that $T$ must therefore have at least one odd node whose degree is at least $3$.\nLet $P$ be a path from $u$ to any such odd node such that $P$ passes only through even nodes, as we did above.\nAgain, let us remove all the edges of $P$.\nBy a similar argument to the one above, we will once again have reduced the tree to one in which any remaining odd nodes all have degree of at least $3$.\nThen we are in a position to apply the argument above.\nHence $T$ must have at least two nodes of degree $1$.\nNote\nIt is instructive to see what happens to the above argument for a tree with exactly two nodes of degree $1$.\nThere may be no other odd nodes but these two (call them $u$ and $v$).\nSuch a graph is a path graph (which is itself a tree), and removing all the edges from the path from $u$ to $v$ leaves an edgeless graph, which of course has no circuits.",
+    "clean_row_index": 817,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The descent treats an all-even component as necessarily containing a circuit, although deleting the path explicitly creates isolated vertices. The contradiction needs an edge-bearing component and a demonstration that one persists at each step."
+  },
+  {
+    "theorem_id": 1877,
+    "title": "Size of Cycle Graph equals Order",
+    "theorem_text": "The size of a cycle graph equals its order.",
+    "proof_text": "Follows immediately from:\n:The fact that a cycle graph is $2$-regular\n:The result Number of Edges of Regular Graph which says that an $r$-regular graph with $n$ vertices has $\\dfrac {n r} 2$ edges.",
+    "clean_row_index": 818,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A cycle has degree two at every vertex, so the regular-graph count gives n times two divided by two edges."
+  },
+  {
+    "theorem_id": 1878,
+    "title": "Path Graph from Cycle Graph",
+    "theorem_text": "Removing one edge from a cycle graph leaves a path graph.",
+    "proof_text": "Let $G_n$ be the graph obtained by removing any edge from the cycle graph $C_n$.\nAs each of those edges lies on a cycle, by Condition for Edge to be Bridge, none of them is a bridge.\nSo removing any edge from $C_n$ leaves the resulting subgraph of $C_n$ connected.\nFrom Size of Cycle Graph equals Order, the cycle graph $C_n$ has $n$ edges.\nSo $G_n$ has $n$ nodes and $n - 1$ edges, and is connected.\nFrom Size of Tree is One Less than Order, $G_n$ is a tree.\nBut $G_n$ has two nodes of degree $1$, and all the others are of degree $2$.\nIt follows that $G_n$ is traversable, and hence by definition is a path graph.",
+    "clean_row_index": 819,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Deleting a cycle edge preserves connectivity and leaves a tree with two degree-one endpoints and all remaining vertices of degree two, which is a single path."
+  },
+  {
+    "theorem_id": 1879,
+    "title": "Cycle in Balanced Signed Graph",
+    "theorem_text": "Let $G$ be a balanced signed graph.\nLet $C$ be a cycle in $G$.\nThen $C$ has an even number of negative edges.",
+    "proof_text": "Let $G$ be a balanced signed graph.\nSince $G$ is balanced, we can colour the vertices black and white, say, so that every edge has a black and a white end.\nConsider any cycle $C$ in $G$.\nAs we proceed around $C$, there is a change of colour when we traverse a negative edge.\nSince this is a cycle, the last colour is the same as the first one.\nSo there must be an even number of colour changes.\nSo there must be an even number of negative edges in $C$.",
+    "clean_row_index": 820,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "Balance gives a coloring in which negative edges change color and positive edges preserve it. The proof instead assumes every edge changes color, which is false even for an all-positive triangle and cannot justify the count of negative edges."
+  },
+  {
+    "theorem_id": 1880,
+    "title": "Graph with Even Vertices Partitions into Cycles",
+    "theorem_text": "Let $G = \\struct {V, E}$ be a graph whose vertices are all even.\nThen its edge set $E$ can be partitioned into cycles, no two of which share an edge.\nThe converse also holds: a graph which can be partitioned into cycles must have all its vertices even.",
+    "proof_text": "Let $G = \\struct {V, E}$ be a graph whose vertices are all even.\nIf there is more than one vertex in $G$, then each vertex must have degree greater than $0$.\nBegin at any vertex $u$.\nSince the graph is connected (if the graph is not connected then the argument will be applied to separate components), there must be an edge $\\set {u, u_1}$ for some vertex $u_1 \\ne u$.\nSince $u_1$ has even degree greater than $0$, there is an edge $\\set {u_1, u_2}$.\nThese two edges make a trail from $u$ to $u_2$.\nContinue this trail, leaving each vertex on an edge that was not previously used, until we reach a vertex $v$ that we have met before.\n(Note: $v$ may or may not be the same vertex as $u$. It does not matter either way.)\nThe edges of the trail between the two occurrences of $v$ must form a cycle.\nCall the cycle formed by this process $C_1$.\nIf $C_1$ covers all the edges of $G$, the proof is complete.\nOtherwise, remove the edges forming $C_1$ from the graph, leaving the graph $G_1$.\nAll the vertices in $G_1$ are still even.\nSo pick some vertex $u'$ in $G_1$.\nRepeat the same process as before, starting with an edge $\\set {u', u'_1}$.\nBy the same argument, we can generate a new cycle $C_2$, which has no edges in common with $C_1$.\nIf $C_2$ covers all the rest of the edges of $G$, then we are done.\nOtherwise, remove the edges forming $C_2$ from the graph, leaving the graph $G_2$, which again contains only even vertices.\nWe continue in this way until we have used up all the edges of $G$.\nBy this time we have a number of cycles, $C_1, C_2, \\ldots, C_k$ which between them contain all the edges of $G$ but no two of them have an edge in common.\nThe converse is trivial:\nAll the vertices of a cycle by definition are  even.\nSo if we were to take all these cycles and add them to the graph in turn, each vertex would increase its order by an even number.",
+    "clean_row_index": 821,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In each finite component with edges, even degrees let an unused-edge trail reach a repeated vertex. Removing its cycle preserves parity and reduces the edge count. Isolated vertices contribute no edges; adding cycles gives the converse."
+  },
+  {
+    "theorem_id": 1881,
+    "title": "Condition for Bipartite Graph to be Hamiltonian",
+    "theorem_text": "Let $G = \\struct {A \\mid B, E}$ be a bipartite graph.\nLet $G$ be Hamiltonian.\nThen $\\card A = \\card B$.\nThat is, there is the same number of vertices in $A$ as there are in $B$.",
+    "proof_text": "Let $G = \\struct {A \\mid B, E}$ be a bipartite graph.\nTo be Hamiltonian, a graph $G$ needs to have a Hamilton cycle: that is, one which goes through all the vertices of $G$.\nAs each edge in $G$ connects a vertex in $A$ with a vertex in $B$, any cycle alternately passes through a vertex in $A$ then a vertex in $B$.\nwithout loss of generality, suppose  that $\\card A > \\card B$, that is, that there are more vertices in $A$ than in $B$.\nLet $\\card A = m, \\card B = n$.\nSuppose $G$ has a Hamilton cycle $C$.\nLet that cycle start at $u \\in B$.\nAfter $2 n$ edges have been traversed, we will have arrived back at $u$ again, and all the vertices of $B$ will have been visited.\nBut there will still be $m - n$ vertices in $A$ which have not been visited.\nHence $C$ can not be a Hamilton cycle.",
+    "clean_row_index": 822,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every Hamilton cycle alternates between the two parts, so it visits the same number of vertices in both parts and exhausts both."
+  },
+  {
+    "theorem_id": 1882,
+    "title": "Complete Hamiltonian Bipartite Graph",
+    "theorem_text": "Let $K_{m, n}$ be a complete bipartite graph.\nThen $K_{m, n}$ is Hamiltonian iff $m = n > 1$.",
+    "proof_text": "Clearly $K_{1, 1}$ is not Hamiltonian, although it does have a Hamiltonian path.\nFrom Condition for Bipartite Graph to be Hamiltonian, if $m \\ne n$ then $K_{m, n}$ is not Hamiltonian.\nSo let $m = n$.\nWe note that the degree of any vertex in $K_{n, n}$ is $n$.\nThen we can use Ore's Theorem, and the result follows directly.",
+    "clean_row_index": 823,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Unequal parts preclude a Hamilton cycle by alternation, and K1,1 has no cycle. For n at least two every nonadjacent pair in K(n,n) has degree sum 2n, meeting Ore's condition."
+  },
+  {
+    "theorem_id": 1885,
+    "title": "Number of Components after Removal of Bridge",
+    "theorem_text": "Let $G = \\left({V, E}\\right)$ be a graph.\nLet $e \\in E$ be a bridge.\nLet $m$ be the number of components of $G$.\nThen when $e$ is removed from $G$, the number of components in the remaining graph is $m + 1$.",
+    "proof_text": "It is clear, by definition of a bridge, that removing $e$ increases the number of components.\nSo after $e$ is removed from $G$, the number of components in the remaining graph is at least $m + 1$.\nSuppose that removing $e$ disconnects $G$ into more than $m + 1$ components.\nSince $e$ joins only two vertices of $G$, it can link at most two of these components.\nSo there is at least one extra component when $e$ is put back into $G$.\nSo $G$ has more than $m$ components.\nThis contradicts the fact that $G$ has $m$ components.\nHence the result.",
+    "clean_row_index": 824,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A bridge removal increases the component count, and putting a single edge back can join at most two components, so the increase is exactly one."
+  },
+  {
+    "theorem_id": 1886,
+    "title": "Adding Edge to Tree Creates One Cycle",
+    "theorem_text": "Adding a new edge to a tree can create no more than one cycle.",
+    "proof_text": "From Equivalent Definitions for Finite Tree, adding an edge creates at least one cycle.\nSuppose that adding an edge $\\tuple {u, v}$ to a tree $T$ creates two or more cycles.\nLet two such cycles be $\\tuple {u, v, \\ldots, u_1, u_2, \\ldots, u}$ and $\\tuple {u, v, \\ldots, v_1, v_2, \\ldots, u}$.\nBy removing the edge $\\tuple {u, v}$ from this cycle, we have two paths from $v$ to $u$:\n$\\tuple {v, \\ldots, u_1, u_2, \\ldots, u}$\n$\\tuple {v, \\ldots, v_1, v_2, \\ldots, u}$.\nBut that means $T$ has more than one path between two nodes.\nFrom Path in Tree is Unique, that means $T$ can not be a tree.\nHence the result.",
+    "clean_row_index": 825,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Two distinct new cycles would both contain the new edge and would yield distinct old paths between its endpoints, contradicting the tree's unique-path property."
+  },
+  {
+    "theorem_id": 1887,
+    "title": "Number of Edges in Forest",
+    "theorem_text": "Let $F = \\struct {V, E}$ be a forest with $n$ nodes and $m$ components.\nThen $F$ contains $n - m$ edges.",
+    "proof_text": "By definition, a forest is a disconnected graph whose components are all trees.\nLet the number of nodes in each component of $F$ be $n_1, n_2, \\ldots, n_m$ where of course $\\displaystyle \\sum_{i \\mathop = 1}^m n_i = n$.\nFrom Size of Tree is One Less than Order, the number of edges in tree $i$ is $n_i - 1$.\nSo the total number of edges in $F$ is:\n$$\\sum_{i \\mathop = 1}^m \\paren {n_i - 1} = \\sum_{i \\mathop = 1}^m n_i - \\sum_{i \\mathop = 1}^m 1$$\nSummation is Linear\n$$= n - m$$\nSum of Identical Terms",
+    "clean_row_index": 826,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each component tree contributes its vertex count minus one edges. Summing gives the total vertex count less the component count, including the one-component case."
+  },
+  {
+    "theorem_id": 1893,
+    "title": "Number of Hamilton Cycles in Complete Graph",
+    "theorem_text": "For all $n \\ge 3$, the number of distinct Hamilton cycles in the complete graph $K_n$ is $\\dfrac {\\left({n-1}\\right)!} 2$.",
+    "proof_text": "In a complete graph, every vertex is adjacent to every other vertex.\nTherefore, if we were to take all the vertices in a complete graph in any order, there will be a path through those vertices in that order.\nJoining either end of that path gives us a Hamilton cycle.\nFrom Cardinality of Set of Bijections, there are $n!$ different ways of picking the vertices of $G$ in some order.\nHence there are $n!$ ways of building such a Hamilton cycle.\nNot all these are different, though.\nOn any such cycle, there are:\n$n$ different places you can start\n$2$ different directions you can travel.\nSo any one of these $n!$ cycles is in a set of $2 n$ cycles which all contain the same set of edges.\nSo there are $\\dfrac {n!} {2 n} = \\dfrac {\\paren {n - 1}!} 2$ distinct Hamilton cycles.",
+    "clean_row_index": 827,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "All vertex orderings close to cycles in a complete graph. Exactly n rotations in each of two directions represent the same undirected cycle."
+  },
+  {
+    "theorem_id": 1894,
+    "title": "Coreflexive Relation Subset of Diagonal Relation",
+    "theorem_text": "A coreflexive relation is a subset of the diagonal relation.",
+    "proof_text": "Let $\\mathcal R \\subseteq S \\times S$ be a coreflexive relation.\nLet $\\left({x, y}\\right) \\in \\mathcal R$.\nBy definition of coreflexive, it follows that $x = y$, and hence $\\left({x, y}\\right) = \\left({x, x}\\right)$.\nSo by definition of the diagonal relation:\n$\\left({x, y}\\right) \\in \\Delta_S$\nHence the result.",
+    "clean_row_index": 828,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each related pair has equal coordinates by coreflexivity and hence lies on the diagonal."
+  },
+  {
+    "theorem_id": 1896,
+    "title": "Reflexive Relation is Serial",
+    "theorem_text": "Every reflexive relation is also a serial relation.",
+    "proof_text": "Let $\\mathcal R \\subseteq S \\times S$ be a relation in $S$.\nWe have that $\\mathcal R$ is serial if and only if:\n$\\forall x \\in S: \\exists y \\in S: \\left({x, y}\\right) \\in \\mathcal R$\nThat is, if and only if every element relates to at least one element.\nWe have that $\\mathcal R$ is reflexive if and only if:\n$\\forall x \\in S: \\left({x, x}\\right) \\in \\mathcal R$\nHence if $\\mathcal R$ is reflexive, every $x$ is related to itself, thereby fulfilling the criterion for $\\mathcal R$ to be serial.",
+    "clean_row_index": 829,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For each x, reflexivity supplies x itself as the witness required by seriality."
+  },
+  {
+    "theorem_id": 1897,
+    "title": "Complement of Complete Bipartite Graph",
+    "theorem_text": "Let $K_{p, q}$ be a complete bipartite graph.\nThe complement of $K_{p, q}$ consists of a disconnected graph with two components:\n:The complete graph $K_p$\n:The complete graph $K_q$.",
+    "proof_text": "By definition, the complete bipartite graph $K_{p, q}$ consists of two sets of vertices: $A$ of cardinality $p$, and $B$ of cardinality $q$, such that:\n:Every vertex in $A$ is adjacent to every vertex in $B$\n:No vertex in $A$ is adjacent to any other vertex in $A$\n:No vertex in $B$ is adjacent to any other vertex in $B$.\nThe complement of $K_{p, q}$ therefore must be a graph $G$ such that:\n:No vertex in $A$ is adjacent to any vertex in $B$\n:Every vertex in $A$ is adjacent to every other vertex in $A$\n:Every vertex in $B$ is adjacent to every other vertex in $B$.\nThe second and third of these conditions describes the complete graphs $K_p$ and $K_q$.\nFrom the first of these conditions, it follows that $G$ comes in two disconnected graph components.\nHence the result.",
+    "clean_row_index": 830,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Complementation removes all cross-part edges and fills in all edges within each of the two parts, leaving precisely their complete components."
+  },
+  {
+    "theorem_id": 1898,
+    "title": "Complement of Strict Total Ordering",
+    "theorem_text": "Let $\\left({S, \\prec}\\right)$ be a relational structure such that $\\prec$ is a strict total ordering.\nThen the complement of $\\prec$ is a weak total ordering.",
+    "proof_text": "We need to show that $\\not \\prec$ is a weak total ordering.\nFirst we check in turn each of the criteria for an ordering:\nReflexivity\nBy Complement of Reflexive Relation, it follows directly that $\\not \\prec$ is reflexive.\nTransitivity\nLet $a \\not \\prec b$ and $b \\not \\prec c$.\nNow, suppose that $a \\prec c$.\nAs $b \\not \\prec c$, from the Trichotomy Law, one of the following is the case:\n* $b = c$ and so $a \\prec b$;\n* $c \\prec b$ and $a \\prec b$ from transitivity of $\\prec$.\nBoth are an immediate contradiction.\nSo $a \\not \\prec c$ and so $\\not \\prec$ is transitive.\nAntisymmetry\nSuppose $a \\not \\prec b$.\nThen from the Trichotomy Law, either $a = b$ or $b \\prec a$.\nSimilarly, if $b \\not \\prec a$ we have that either $a = b$ or $a \\prec b$.\nAs $\\prec$ is asymmetric, $b \\prec a \\iff \\neg a \\prec b$.\nSo if $a \\not \\prec b$ and $b \\not \\prec a$, it follows that $a = b$.\nSo $\\not \\prec$ is antisymmetric.\nThe fact that $\\not \\prec$ is connected follows directly from the Trichotomy Law.",
+    "clean_row_index": 831,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Trichotomy supplies transitivity, comparability and antisymmetry of the reversed weak order, and irreflexivity gives reflexivity of its complement. The isolated biconditional about asymmetry fails at equality but is unnecessary given the preceding trichotomy argument."
+  },
+  {
+    "theorem_id": 1902,
+    "title": "Intersection of Transitive Relations is Transitive",
+    "theorem_text": "The intersection of two transitive relations is also a transitive relation.",
+    "proof_text": "Let $\\mathcal R_1$ and $\\mathcal R_2$ be transitive relations (on what sets is immaterial for this argument).\nLet $\\left({s_1, s_2}\\right) \\in \\mathcal R_1 \\cap \\mathcal R_2$ and $\\left({s_2, s_3}\\right) \\in \\mathcal R_1 \\cap \\mathcal R_2$.\nThen by definition of intersection:\n$\\left({s_1, s_2}\\right) \\in \\mathcal R_1$ and $\\left({s_1, s_2}\\right) \\in \\mathcal R_2$\n$\\left({s_2, s_3}\\right) \\in \\mathcal R_1$ and $\\left({s_2, s_3}\\right) \\in \\mathcal R_2$\nThen as $\\mathcal R_1$ and $\\mathcal R_2$ are both transitive:\n$\\left({s_1, s_3}\\right) \\in \\mathcal R_1$ and  $\\left({s_1, s_3}\\right) \\in \\mathcal R_2$\nand by definition of intersection:\n$\\left({s_1, s_3}\\right) \\in \\mathcal R_1 \\cap \\mathcal R_2$\nhence $\\mathcal R_1 \\cap \\mathcal R_2$ is transitive.",
+    "clean_row_index": 832,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two premise pairs belong to each relation, so transitivity puts their composite in each and thus in the intersection."
+  },
+  {
+    "theorem_id": 1903,
+    "title": "Intersection of Reflexive Relations is Reflexive",
+    "theorem_text": "The intersection of two reflexive relations is also a reflexive relation.",
+    "proof_text": "Let $\\mathcal R_1$ and $\\mathcal R_2$ be reflexive relations on a set $S$.\nFrom Relation Contains Diagonal Relation iff Reflexive, we have that:\n$\\Delta_S \\subseteq \\mathcal R_1$\n$\\Delta_S \\subseteq \\mathcal R_2$\nHence from Intersection is Largest Subset:\n$\\Delta_S \\subseteq \\mathcal R_1 \\cap \\mathcal R_2$\nHence the result, from Relation Contains Diagonal Relation iff Reflexive.",
+    "clean_row_index": 833,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The same diagonal is contained in both reflexive relations and hence in their intersection."
+  },
+  {
+    "theorem_id": 1904,
+    "title": "Intersection of Symmetric Relations is Symmetric",
+    "theorem_text": "The intersection of two symmetric relations is also a symmetric relation.",
+    "proof_text": "Let $\\mathcal R_1$ and $\\mathcal R_2$ be symmetric relations on a set $S$.\nLet $\\mathcal R_3 = \\mathcal R_1 \\cap \\mathcal R_2$.\nThen:\n$$\\left({x, y}\\right) \\in \\mathcal R_3$$\n$$\\implies \\left({x, y}\\right) \\in \\mathcal R_1 \\cap \\mathcal R_2$$\nby definition of $\\mathcal R_3$\n$$\\implies \\left({x, y}\\right) \\in \\mathcal R_1 \\land \\left({x, y}\\right) \\in \\mathcal R_2$$\nDefinition of Intersection\n$$\\implies \\left({y, x}\\right) \\in \\mathcal R_1 \\land \\left({y, x}\\right) \\in \\mathcal R_2$$\n$\\mathcal R_1$ and $\\mathcal R_2$ are symmetric\n$$\\implies \\left({y, x}\\right) \\in \\mathcal R_1 \\cap \\mathcal R_2$$\nDefinition of Intersection\n$$\\implies \\left({y, x}\\right) \\in \\mathcal R_3$$\nby definition of $\\mathcal R_3$",
+    "clean_row_index": 834,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Swapping coordinates preserves membership in each relation, so it preserves simultaneous membership in the intersection."
+  },
+  {
+    "theorem_id": 1905,
+    "title": "Union of Reflexive Relations is Reflexive",
+    "theorem_text": "The union of two reflexive relations is also a reflexive relation.",
+    "proof_text": "Let $\\mathcal R_1$ and $\\mathcal R_2$ be reflexive relations on a set $S$.\nFrom Relation Contains Diagonal Relation iff Reflexive, we have that:\n$\\Delta_S \\subseteq \\mathcal R_1$\n$\\Delta_S \\subseteq \\mathcal R_2$\nHence from Subset Relation is Transitive:\n$\\Delta_S \\subseteq \\mathcal R_1 \\cup \\mathcal R_2$\nHence the result, by definition of reflexive relation.",
+    "clean_row_index": 835,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each relation contains the full diagonal on S, which is therefore contained in their union."
+  },
+  {
+    "theorem_id": 1906,
+    "title": "Union of Symmetric Relations is Symmetric",
+    "theorem_text": "The union of two symmetric relations is also a symmetric relation.",
+    "proof_text": "Let $\\mathcal R_1$ and $\\mathcal R_2$ be symmetric relations on a set $S$.\nLet $\\mathcal R_3 = \\mathcal R_1 \\cup \\mathcal R_2$.\nThen:\n$$\\left({x, y}\\right) \\in \\mathcal R_3$$\n$$\\implies \\left({x, y}\\right) \\in \\mathcal R_1 \\cup \\mathcal R_2$$\nDefinition of $\\mathcal R_3$\n$$\\implies \\left({x, y}\\right) \\in \\mathcal R_1 \\lor \\left({x, y}\\right) \\in \\mathcal R_2$$\nDefinition of Union\n$$\\implies \\left({y, x}\\right) \\in \\mathcal R_1 \\lor \\left({y, x}\\right) \\in \\mathcal R_2$$\n$\\mathcal R_1$ and $\\mathcal R_2$ are symmetric\n$$\\implies \\left({y, x}\\right) \\in \\mathcal R_1 \\cup \\mathcal R_2$$\nDefinition of Union\n$$\\implies \\left({y, x}\\right) \\in \\mathcal R_3$$\nDefinition of $\\mathcal R_3$",
+    "clean_row_index": 836,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Any pair in the union belongs to a symmetric constituent, which also supplies its reversed pair to the union."
+  },
+  {
+    "theorem_id": 1907,
+    "title": "Union of Transitive Relations Not Always Transitive",
+    "theorem_text": "The union of transitive relations is not necessarily itself transitive.",
+    "proof_text": "Proof by counterexample:\nLet $S = \\set {a, b, c, d}$.\nLet $\\RR_1$ be the transitive relation $\\set {\\tuple {a, b}, \\tuple {b, c}, \\tuple {a, c} }$.\nLet $\\RR_2$ be the transitive relation $\\set {\\tuple {b, c}, \\tuple {c, d}, \\tuple {b, d} }$.\nThen we have that $\\tuple {a, b} \\in \\RR_1 \\cup \\RR_2$ and $\\tuple {b, d} \\in \\RR_1 \\cup \\RR_2$.\nHowever, $\\tuple {a, d} \\notin \\RR_1 \\cup \\RR_2$, and so $\\RR_1 \\cup \\RR_2$ is not transitive.",
+    "clean_row_index": 837,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both displayed relations contain every composite required internally, but their union has the chain a to b to d without the pair a to d."
+  },
+  {
+    "theorem_id": 1908,
+    "title": "Set System Closed under Intersection is Commutative Semigroup",
+    "theorem_text": "Let $\\mathcal S$ be a system of sets.\nLet $\\mathcal S$ be such that:\n$\\forall A, B \\in \\mathcal S: A \\cap B \\in \\mathcal S$\nThen $\\left({\\mathcal S, \\cap}\\right)$ is a commutative semigroup.",
+    "proof_text": "Closure\nBy definition (above), $\\left({\\mathcal S, \\cap}\\right)$ is closed.\nAssociativity\nThe operation $\\cap$ is associative from Intersection is Associative.\nCommutativity\nThe operation $\\cap$ is commutative from Intersection is Commutative.\nHence, by definition, the result.",
+    "clean_row_index": 838,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The assumed closure makes intersection an operation on the system, and it inherits associativity and commutativity from ordinary intersection under the usual nonempty-system or empty-semigroup convention."
+  },
+  {
+    "theorem_id": 1909,
+    "title": "Set System Closed under Union is Commutative Semigroup",
+    "theorem_text": "Let $\\mathcal S$ be a system of sets.\nLet $\\mathcal S$ be such that:\n$\\forall A, B \\in \\mathcal S: A \\cup B \\in \\mathcal S$\nThen $\\struct {\\mathcal S, \\cup}$ is a commutative semigroup.",
+    "proof_text": "Closure\nBy definition (above), $\\struct {\\mathcal S, \\cup}$ is closed.\nAssociativity\nThe operation $\\cup$ is associative from Union is Associative.\nCommutativity\nThe operation $\\cup$ is commutative from Union is Commutative.\nHence, by definition, the result.",
+    "clean_row_index": 839,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Union is closed by hypothesis, and its ordinary associativity and commutativity restrict to the system, under the usual nonempty-system or empty-semigroup convention."
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 808,
+    "title": "Inner Automorphism Group is Isomorphic to Quotient Group with Center",
+    "theorem_text": "Let $G$ be a group.\nLet $\\Inn G$ be the inner automorphism group of $G$.\nLet $\\map Z G$ be the center of $G$.\nLet $G / \\map Z G$ be the quotient group of $G$ by $\\map Z G$.\nThen $G / \\map Z G \\cong \\Inn G$.",
+    "proof_text": "Let $G$ be a group.\nLet the mapping $\\kappa: G \\to \\Inn G$ be defined as:\n$\\map \\kappa a = \\kappa_a$\nwhere $\\kappa_a$ is the inner automorphism of $G$ given by $a$.\nFrom Kernel of Inner Automorphism Group is Center:\n$\\map \\ker \\kappa = \\map Z G$\nand also that:\n$\\Img \\kappa = \\Inn G$\nFrom the First Isomorphism Theorem:\n$\\Img \\kappa \\cong G / \\map \\ker \\kappa$\nThus, as $\\map \\ker \\kappa = \\map Z G$ and $\\Img \\kappa = \\Inn G$:\n$G / \\map Z G \\cong \\Inn G$",
+    "clean_row_index": 360,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The conjugation homomorphism has image Inn(G) and kernel Z(G), so the first isomorphism theorem gives the quotient."
+  },
+  {
+    "theorem_id": 810,
+    "title": "Number of Conjugates is Number of Cosets of Centralizer",
+    "theorem_text": "Let $G$ be a group.\nLet $\\map {C_G} a$ be the centralizer of $a$ in $G$.\nThen the number of different conjugates of $a$ in $G$ equals the number of different (left) cosets of $\\map {C_G} a$:\n$\\card {\\conjclass a} = \\index G {\\map {C_G} a}$\nwhere:\n$\\conjclass a$ is the conjugacy class of $a$ in $G$\n$\\index G {\\map {C_G} a}$ is the index of $\\map {C_G} a$ in $G$.\nConsequently:\n$\\card {\\conjclass a} \\divides \\order G$",
+    "proof_text": "Let $x, y \\in \\conjclass a$.\nBy definition of $\\conjclass a$:\n$x a x^{-1} = y a y^{-1}$\nBy Conjugates of Elements in Centralizer, this is the case if and only if $x$ and $y$ belong to the same left coset of $\\map {C_G} a$.\nHence:\n$\\card {\\conjclass a} = \\index G {\\map {C_G} a}$\nIt follows from Lagrange's Theorem that:\n$\\card {\\conjclass a} \\divides \\order G$",
+    "clean_row_index": 361,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Belonging to the conjugacy class of a does not imply xax^-1=yay^-1. The needed bijection uses arbitrary conjugators in G and compares their conjugates for equality."
+  },
+  {
+    "theorem_id": 811,
+    "title": "Size of Conjugacy Class is Index of Normalizer",
+    "theorem_text": "Let $G$ be a group.\nLet $x \\in G$.\nLet $\\conjclass x$ be the conjugacy class of $x$ in $G$.\nLet $\\map {N_G} x$ be the normalizer of $x$ in $G$.\nLet $\\index G {\\map {N_G} x}$ be the index of $\\map {N_G} x$ in $G$.\nThe number of elements in $\\conjclass x$ is $\\index G {\\map {N_G} x}$.",
+    "proof_text": "The number of elements in $\\conjclass x$ is the number of conjugates of the set $\\set x$.\nFrom Number of Distinct Conjugate Subsets is Index of Normalizer, the number of distinct subsets of a $G$ which are conjugates of $S \\subseteq G$ is $\\index G {\\map {N_G} S}$.\nThe result follows.",
+    "clean_row_index": 362,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Conjugating the singleton gives exactly the singleton containing the conjugated element. Its orbit size is the index of its setwise normalizer."
+  },
+  {
+    "theorem_id": 813,
+    "title": "Conjugacy Class Equation",
+    "theorem_text": "Let $G$ be a group.\nLet $\\order G$ denote the order of $G$.\nLet $\\map Z G$ denote the center of $G$.\nLet $x \\in G$.\nLet $\\map {N_G} x$ denote the normalizer of $x$ in $G$.\nLet $\\index G {\\map {N_G} x}$ denote the index of $\\map {N_G} x$ in $G$.\nLet $m$ be the number of non-singleton conjugacy classes of $G$.\nLet $x_j: j \\in \\set {1, 2, \\ldots, m}$ be arbitrary elements of those conjugacy classes.\nThen:\n$\\displaystyle \\order G = \\order {\\map Z G} + \\sum_{j \\mathop = 1}^m \\index G {\\map {N_G} {x_j} }$",
+    "proof_text": "Let the distinct orbits of $G$ under the conjugacy action be:\n$\\Orb {x_1}, \\Orb {x_2}, \\ldots, \\Orb {x_s}$\nThen from the Partition Equation:\n$\\order G = \\order {\\Orb {x_1} } + \\order {\\Orb {x_2} } + \\cdots + \\order {\\Orb {x_s} }$\nFrom the Orbit-Stabilizer Theorem:\n$\\order {\\Orb {x_i} } \\divides \\order G, i = 1, \\ldots, s$\nThe result follows from the definition of the conjugacy action.",
+    "clean_row_index": 363,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The proof enumerates all orbits by a finite list. Even if there are finitely many nonsingleton classes, an infinite abelian group has infinitely many singleton orbits. The stated group is unrestricted."
+  },
+  {
+    "theorem_id": 815,
+    "title": "Center of Group of Prime Power Order is Non-Trivial",
+    "theorem_text": "Let $G$ be a group whose order is the power of a prime.\nThen the center of $G$ is non-trivial:\n$\\forall G: \\order G = p^r: p \\in \\mathbb P, r \\in \\N_{>0}: \\map Z G \\ne \\set e$",
+    "proof_text": "Suppose $G$ is abelian.\nFrom Group equals Center iff Abelian:\n$\\map Z G = G$\nand the result is seen to be true as $G$ is itself non-trivial.\nFrom Prime Group is Cyclic and Cyclic Group is Abelian, this will always be the case for $r = 1$.\nSo, suppose $G$ is non-abelian.\nThus $\\map Z G \\ne G$ and therefore $G \\setminus \\map Z G \\ne \\O$.\nLet $\\conjclass {x_1}, \\conjclass {x_2}, \\ldots, \\conjclass {x_m}$ be the conjugacy classes into which $G \\setminus \\map Z G$ is partitioned.\nFrom Conjugacy Class of Element of Center is Singleton, all of these will have more than one element.\nFrom the Conjugacy Class Equation:\n$\\displaystyle \\order {\\map Z G} = \\order G - \\sum_{j \\mathop = 1}^m \\order {\\conjclass {x_j} }$\nFrom Number of Conjugates is Number of Cosets of Centralizer:\n$\\order {\\conjclass {x_j} } \\divides \\order G$\nLet $\\map {N_G} x$ be the normalizer of $x$ in $G$.\nThen:\n$\\forall j: 1 \\le j \\le m: \\index G {\\map {N_G} {x_j} } > 1 \\implies p \\divides \\index G {\\map {N_G} {x_j} }$\nSince $p \\divides \\order G$, it follows that:\n$p \\divides \\order {\\map Z G}$\nand the result follows.",
+    "clean_row_index": 364,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every noncentral class has size a nontrivial divisor of a power of p. Subtracting those sizes from the group order leaves a positive center size divisible by p."
+  },
+  {
+    "theorem_id": 817,
+    "title": "Prime Power Group has Non-Trivial Proper Normal Subgroup",
+    "theorem_text": "Let $G$ be a group, whose identity is $e$, such that $\\order G = p^n: n > 1, p \\in \\mathbb P$.\nThen $G$ has a proper normal subgroup which is non-trivial.",
+    "proof_text": "From Center of Group is Normal Subgroup, $\\map Z G \\lhd G$.\nBy Center of Group of Prime Power Order is Non-Trivial, $\\map Z G$ is non-trivial.\nIf $\\map Z G$ is a proper subgroup, the proof is finished.\nOtherwise, $\\map Z G = G$.\nThen $G$ is abelian by Group equals Center iff Abelian.\nHowever, then any $a \\in G: a \\ne e$ generates a non-trivial normal subgroup $\\gen a$, as Subgroup of Abelian Group is Normal.\nIf $\\order a = \\order {\\gen a} < \\order G$, the proof is complete.\nOtherwise:\n$\\order a = \\order G = p^n$\nThen $\\order {a^p} = p^{n - 1}$ from Subgroup of Finite Cyclic Group is Determined by Order, so $a^p$ generates that non-trivial normal subgroup.",
+    "clean_row_index": 365,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The nontrivial center works when proper. In the abelian case a nonidentity cyclic subgroup works unless it is all of G, when the pth power of a generator generates a proper nontrivial subgroup."
+  },
+  {
+    "theorem_id": 823,
+    "title": "Associativity of Group Direct Product",
+    "theorem_text": "The group direct product $G \\times \\paren {H \\times K}$ is (group) isomorphic to $\\paren {G \\times H} \\times K$.",
+    "proof_text": "Let $G, H, K$ be groups.\nThe mapping $\\theta: G \\times \\paren {H \\times K} \\to \\paren {G \\times H} \\times K$ defined as:\n$\\forall g \\in G, h \\in H, k \\in K: \\map \\theta {\\tuple {g, \\tuple {h, k} } } = \\tuple {\\tuple {g, h}, k}$\nis to be shown to be a group homomorphism, and that $\\theta$ is bijective, as follows:\nInjective\nLet $\\map \\theta {\\tuple {g_1, \\tuple {h_1, k_1} } } = \\map \\theta {\\tuple {g_2, \\tuple {h_2, k_2} } }$.\nBy the definition of $\\theta$:\n$\\tuple {\\tuple {g_1, h_1}, k_1} = \\tuple {\\tuple {g_2, h_2}, k_2}$\nBy Equality of Ordered Pairs:\n$\\tuple {g_1, h_1} = \\tuple {g_2, h_2}$\n$k_1 = k_2$\nand consequently:\n$g_1 = g_2, h_1 = h_2$\nThus:\n$\\tuple {g_1, \\tuple {h_1, k_1} } = \\tuple {g_2, \\tuple {h_2, k_2} }$\nand so $\\theta$ is seen to be injective.\nSurjective\nIf $\\tuple {\\tuple {g, h}, k} \\in \\paren {G \\times H} \\times K$, then $g \\in G, h \\in H, k \\in K$.\nThus:\n$\\tuple {g, \\tuple {h, k} } = \\in G \\times \\paren {H \\times K}$\nand:\n$\\map \\theta {\\tuple {g, \\tuple {h, k} } } = \\tuple {\\tuple {g, h}, k}$\nand so $\\theta$ is seen to be surjective.\nGroup Homomorphism\nNow let $\\tuple {g_1, \\tuple {h_1, k_1} }, \\tuple {g_2, \\tuple {h_2, k_2} } \\in G \\times \\tuple {H \\times K}$.\nThen:\n$$\\map \\theta {\\tuple {g_1, \\tuple {h_1, k_1} } \\tuple {g_2, \\tuple {h_2, k_2} } } = \\map \\theta {\\tuple {g_1 g_2, \\tuple {h_1, k_1} \\tuple {h_2, k_2} } }$$\n$$= \\map \\theta {\\tuple {g_1 g_2, \\tuple {h_1 h_2, k_1 k_2} } }$$\n$$= \\tuple {\\tuple {g_1 g_2, h_1 h_2}, k_1 k_2}$$\n$$= \\tuple {\\tuple {g_1, h_1} \\tuple {g_2, h_2}, k_1 k_2}$$\n$$= \\tuple {\\tuple {g_1, h_1}, k_1} \\tuple {\\tuple {g_2, h_2}, k_2}$$\n$$= \\map \\theta {\\tuple {g_1, \\tuple {h_1, k_1} } } \\map \\theta {\\tuple {g_2, \\tuple {h_2, k_2} } }$$\nshowing that $\\theta$ is a (group) homomorphism.\nThe result follows.",
+    "clean_row_index": 366,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Rebracketing preserves all three coordinates, defines a bijection, and the componentwise multiplication calculation establishes the homomorphism law."
+  },
+  {
+    "theorem_id": 825,
+    "title": "Group Direct Product of Infinite Cyclic Groups",
+    "theorem_text": "The group direct product of two infinite cyclic groups is not cyclic.",
+    "proof_text": "Let $G_1 = \\struct {G_1, \\circ_1}$ and $G_2 = \\struct {G_2, \\circ_2}$ be infinite cyclic groups.\nLet $G = \\struct {G, \\circ} = G_1 \\times G_2$.\nLet $G_1 = \\gen {g_1}, G_2 = \\gen {g_2}$.\nFrom Generators of Infinite Cyclic Group:\n$g_1$ and $g_1^{-1}$ are the only generators of $G_1$\n$g_2$ and $g_2^{-1}$ are the only generators of $G_2$.\nSo a generator of $G$ must be of the form $\\tuple { g_1^{\\pm 1}, g_2^{\\pm 1} }$ to have any hope to generate all of $G$.\nwithout loss of generality, suppose that $G = \\gen {\\tuple {g_1, g_2} }$.\nLet $e_1$ be the identity element of $G_1$.\nLet $x_2 \\in G_2$.\nFrom the definition of an infinite cyclic group, both $g_1$ and $g_2$ are of infinite order.\nSuppose now $\\tuple {e_1, x_2} \\in \\gen {\\tuple {g_1, g_2} }$.\nThen there is an $i \\in \\Z$ such that we have:\n$\\tuple {g_1, g_2}^i = \\tuple {g_1^i, g_2^i} = \\tuple {e_1, x_2}$\nHowever, as $g_1$ is of infinite order, it must be that $i = 0$.\nHence $x_2 = g_2^0 = e_2$, where $e_2$ is the identity element of $G_2$.\nIt follows that $\\tuple {e_1, g_2} \\notin \\gen {\\tuple {g_1, g_2} }$.\nTherefore:\n$G \\ne \\gen {\\tuple {g_1, g_2} }$\nIt follows that $G$ cannot be generated by one element.",
+    "clean_row_index": 367,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Any generator projects to generators of both factors. Its first coordinate can be the identity only at exponent zero, so it misses elements with first coordinate identity and second coordinate nonidentity."
+  },
+  {
+    "theorem_id": 826,
+    "title": "Order of Group Element in Group Direct Product",
+    "theorem_text": "Let $G$ and $H$ be finite groups.\nLet $g \\in G: \\order g = m, h \\in H: \\order h = n$.\nThen $\\order {\\tuple {g, h} }$ in $G \\times H$ is $\\lcm \\set {m, n}$.",
+    "proof_text": "Let $G$ and $H$ be a groups whose identities are $e_G$ and $e_H$.\nLet $l = \\lcm \\set {m, n}$.\nFrom the definition of lowest common multiple:\n$\\exists x, y \\in \\Z: l = m x = n y$\nFrom the definition of order of an element:\n$g^m = e_G, h^n = e_H$\nThus:\n$$\\tuple {g, h}^l = \\tuple {g^l, h^l}$$\n$$= \\tuple {\\paren {g^m}^x, \\paren {h^n}^y}$$\n$$= \\tuple {e_G^x, e_H^y}$$\n$$= \\tuple {e_G, e_H}$$\nNow suppose $\\exists k \\in \\Z: \\tuple {g, h}^k = \\tuple {e_G, e_H}$.\nIt follows that:\n$\\tuple {g, h}^k = \\tuple {g^k, h^k} = \\tuple {e_G, e_H}$\nThus:\n$g^k = e_G, h^k = e_H$\nIt follows from $g^k = e_G$ and $\\order g = m$, by Absolute Value of Integer is not less than Divisors, that:\n$m \\divides k$\nSimilarly it follows that:\n$n \\divides k$\nSo $k$ is a positive common multiple of both $m$ and $n$.\nSince $l$ is the lowest common multiple:\n$l \\le k$\nTherefore $l$ is the smallest such that $\\tuple {g, h}^l = \\tuple {e_G, e_H}$.\nThe result follows by definition of the order of an element.",
+    "clean_row_index": 368,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The pair returns to the identity precisely at common multiples of the two component orders. The final comparison concerns positive returning exponents, as required in the definition of order."
+  },
+  {
+    "theorem_id": 829,
+    "title": "Internal Group Direct Product Isomorphism",
+    "theorem_text": "Let $G$ be a group.\nLet $H_1, H_2$ be subgroups of $G$.\nLet $\\phi: H_1 \\times H_2 \\to G$ be the mapping defined by $\\map \\phi {h_1, h_2} := h_1 h_2$.\nIf $\\phi$ is a (group) isomorphism, then both $H_1$ and $H_2$ are normal subgroups of $G$.",
+    "proof_text": "$\\phi$ is an isomorphism, so in particular a (group) homomorphism.\nThus by Induced Group Product is Homomorphism iff Commutative, every element of $H_1$ commutes with every element of $H_2$.\nNow suppose $a \\in G$.\nAs $\\phi$ is an isomorphism, it follows that $\\phi$ is surjective.\nThus by Subgroup Product is Internal Group Direct Product iff Surjective:\n$\\exists h_1 \\in H_1, h_2 \\in H_2: a = h_1 h_2$\nNow any element of $a H_1 a^{-1}$ is in the form $a h a^{-1}$ for some $h \\in H_1$.\nThus:\n$$a h a^{-1} = \\paren {h_1 h_2} h \\paren {h_1 h_2}^{-1}$$\n$$= h_1 h_2 h h_2^{-1} h_1^{-1}$$\n$$= h_1 h h_2 h_2^{-1} h_1^{-1}$$\n$h \\in H_1$ and $h_2 \\in H_2$ commute\n$$= h_1 h h_1^{-1} \\in H_1$$\nThus $a H_1 a^{-1} \\subseteq H_1$, and $H_1$ is therefore a normal subgroup of $G$.\nSimilarly, any element of $a H_2 a^{-1}$ is in the form $a h a^{-1}$ for some $h \\in H_2$.\nThus:\n$$a h a^{-1} = \\paren {h_1 h_2} h \\paren {h_1 h_2}^{-1}$$\n$$= h_1 h_2 h h_2^{-1} h_1^{-1}$$\n$$= h_1 h' h_1^{-1}$$\nas $h' = h_2 h h_2^{-1} \\in H_2$\n$$= h' h_1 h_1^{-1}$$\n$h_1 \\in H_1$ and $h' \\in H_2$ commute\n$$= h' \\in H_2$$\nThus $a H_2 a^{-1} \\subseteq H_2$ and $H_2$ is normal as well.",
+    "clean_row_index": 369,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Surjectivity factors every conjugator into the two subgroups, and the homomorphism property makes the factors commute across subgroups. Each conjugation therefore preserves its corresponding subgroup."
+  },
+  {
+    "theorem_id": 830,
+    "title": "Internal Group Direct Product of Normal Subgroups",
+    "theorem_text": "Let $G$ be a group whose identity is $e$.\nLet $H_1, H_2$ be subgroups of $G$.\nLet $\\phi: H_1 \\times H_2 \\to G$ be a mapping defined by $\\map \\phi {h_1, h_2} = h_1 h_2$.\nLet $H_1$ and $H_2$ be normal subgroups of $G$, and let $H_1 \\cap H_2 = \\set e$.\nThen $\\phi$ is a (group) homomorphism.",
+    "proof_text": "Let $H_1$ and $H_2$ be normal subgroups of $G$.\nLet $h_1 \\in H_1, h_2 \\in H_2$.\nConsider $x \\in G: x = h_1 h_2 h_1^{-1} h_2^{-1}$.\n$$x = h_1 h_2 h_1^{-1} h_2^{-1}$$\n$$= \\paren {h_1 h_2 h_1^{-1} } h_2^{-1}$$\nAs $H_2$ is normal, we have $h_1 h_2 h_1^{-1} \\in H_2$ and thus $x \\in H_2$.\nSimilarly, we can show that $x \\in H_1$ and so $x \\in H_1 \\cap H_2$ and thus $x = e$.\nFrom Product of Commuting Elements with Inverses, $h_1 h_2 h_1^{-1} h_2^{-1} = e$ if and only if $h_1$ and $h_2$ commute.\nThus $h_1 h_2 = h_2 h_1$.\nAs $h_1$ and $h_2$ are arbitrary elements of $H_1$ and $H_2$, it follows that every element of $H_1$ commutes with every element of $H_2$.\nThus from Induced Group Product is Homomorphism iff Commutative, $\\phi$ is a homomorphism.",
+    "clean_row_index": 370,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Normality puts each cross-commutator in both subgroups, so the trivial intersection makes the factors commute, which makes the multiplication map a homomorphism."
+  },
+  {
+    "theorem_id": 833,
+    "title": "Cyclic Group of Order 6",
+    "theorem_text": "Let $C_n$ be the cyclic group of order $n$.\nThen:\n$C_2 \\times C_3 \\cong C_6$\n$C_6$ is the internal group direct product of $C_2$ and $C_3$.",
+    "proof_text": "From Group Direct Product of Cyclic Groups noting that $2 \\perp 3$:\n$C_2 \\times C_3 \\cong C_6$\n* $C_6$ is the internal group direct product of $C_2$ and $C_3$:\nLet $\\left({C_6, \\circ}\\right) = \\left \\langle {x} \\right \\rangle$, let $\\left({C_2, \\circ}\\right) = \\left \\langle {x^3} \\right \\rangle$, and let $\\left({C_3, \\circ}\\right) = \\left \\langle {x^2} \\right \\rangle$.\nFrom Subgroup of Abelian Group is Normal, $C_2 \\lhd C_6$ and $C_3 \\lhd C_6$.\nWe can factorise the elements of $C_6$ thus:\n$e = e \\circ e, x = x^3 \\circ \\left({x^2}\\right)^2, x^2 = e \\circ x^2, x^3 = x^3 \\circ e, x^4 = e \\circ \\left({x^2}\\right)^2, x^5 = x^2 \\circ x^3$\nHence the result.",
+    "clean_row_index": 371,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The coprime-order product theorem gives the external isomorphism. The listed products exhaust the six elements using the order-two and order-three normal subgroups, with six possible factor pairs."
+  },
+  {
+    "theorem_id": 845,
+    "title": "Non-Zero Real Numbers under Multiplication form Abelian Group",
+    "theorem_text": "Let $\\R_{\\ne 0}$ be the set of real numbers without zero:\n$\\R_{\\ne 0} = \\R \\setminus \\set 0$\nThe structure $\\struct {\\R_{\\ne 0}, \\times}$ is an uncountable abelian group.",
+    "proof_text": "We have Real Numbers under Multiplication form Monoid.\nFrom Inverses for Real Multiplication, the non-zero numbers are exactly the invertible elements of real multiplication.\nThus from Invertible Elements of Monoid form Subgroup of Cancellable Elements, the non-zero real numbers under multiplication form a group.\nFrom:\n:Real Multiplication is Commutative\n:Subset Product within Commutative Structure is Commutative\nit follows that this group is also Abelian.",
+    "clean_row_index": 372,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The units-of-a-monoid argument proves the abelian group assertion. It omits the separate cardinality claim, which follows from uncountability of the reals and removal of one element."
+  },
+  {
+    "theorem_id": 846,
+    "title": "Rational Numbers under Addition form Abelian Group",
+    "theorem_text": "Let $\\Q$ be the set of rational numbers.\nThe structure $\\struct {\\Q, +}$ is a countably infinite abelian group.",
+    "proof_text": "The rational numbers are, by definition, the field of quotients of the integral domain $\\struct {\\Z, +, \\times}$ of integers.\nHence by definition, $\\struct {\\Q, +, \\times}$ is a field.\nThe fact that $\\struct {\\Q, +}$ forms an abelian group follows directly from the definition of a field.\nFrom Rational Numbers are Countably Infinite, we have that $\\struct {\\Q, +}$ is countably infinite.",
+    "clean_row_index": 373,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The additive group axiom follows from the fraction field construction, and the cited countability result establishes the cardinality of its underlying set."
+  },
+  {
+    "theorem_id": 847,
+    "title": "Non-Zero Rational Numbers under Multiplication form Abelian Group",
+    "theorem_text": "Let $\\Q_{\\ne 0}$ be the set of non-zero rational numbers:\n$\\Q_{\\ne 0} = \\Q \\setminus \\set 0$\nThe structure $\\struct {\\Q_{\\ne 0}, \\times}$ is a countably infinite abelian group.",
+    "proof_text": "From the definition of rational numbers, the structure $\\struct {\\Q, + \\times}$ is constructed as the field of quotients of the integral domain $\\struct {\\Z, +, \\times}$ of integers.\nHence from Multiplicative Group of Field is Abelian Group, $\\struct {\\Q_{\\ne 0}, \\times}$ is an abelian group.\nFrom Rational Numbers are Countably Infinite, we have that $\\struct {\\Q_{\\ne 0}, \\times}$ is a countably infinite group.",
+    "clean_row_index": 374,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The nonzero elements of a field form an abelian multiplicative group. Removing zero from the countably infinite rationals leaves a countably infinite set."
+  },
+  {
+    "theorem_id": 849,
+    "title": "Additive Group of Rationals is Subgroup of Reals",
+    "theorem_text": "Let $\\struct {\\Q, +}$ be the additive group of rational numbers.\nLet $\\struct {\\R, +}$ be the additive group of real numbers.\nThen $\\struct {\\Q, +}$ is a normal subgroup of $\\struct {\\R, +}$.",
+    "proof_text": "From the definition of real numbers, $\\Q$ is a subset of $\\R$.\nAs $\\struct {\\R, +}$ is a group, and $\\struct {\\Q, +}$ is a group, it follows from the definition of subgroup that $\\struct {\\Q, +}$ is a subgroup of $\\struct {\\R, +}$.\nAs $\\struct {\\R, +}$ is abelian, it follows from Subgroup of Abelian Group is Normal that $\\struct {\\Q, +}$ is normal in $\\struct {\\R, +}$.",
+    "clean_row_index": 375,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Rational addition is the restriction of real addition, so the additive group is a subgroup. Normality follows from commutativity of the ambient group."
+  },
+  {
+    "theorem_id": 850,
+    "title": "Additive Group of Integers is Subgroup of Rationals",
+    "theorem_text": "Let $\\struct {\\Z, +}$ be the additive group of integers.\nLet $\\struct {\\Q, +}$ be the additive group of rational numbers.\nThen $\\struct {\\Z, +}$ is a subgroup of $\\struct {\\Q, +}$.",
+    "proof_text": "Recall that Integers form Integral Domain.\nThe set $\\Q$ of rational numbers is defined as the field of quotients of the integers.\nThe fact that the integers are a subgroup of the rationals follows from the work done in proving the Existence of Field of Quotients from an integral domain.",
+    "clean_row_index": 376,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited fraction-field construction supplies the canonical additive embedding of the integers into the rationals."
+  },
+  {
+    "theorem_id": 851,
+    "title": "Additive Group of Reals is Normal Subgroup of Complex",
+    "theorem_text": "Let $\\struct {\\R, +}$ be the additive group of real numbers.\nLet $\\struct {\\C, +}$ be the additive group of complex numbers.\nThen $\\struct {\\R, +}$ is a normal subgroup of $\\struct {\\C, +}$.",
+    "proof_text": "From Additive Group of Reals is Subgroup of Complex, $\\struct {\\R, +}$ is a subgroup of $\\struct {\\C, +}$.\nThen from Complex Numbers under Addition form Abelian Group, $\\struct {\\C, +}$ is abelian.\nThe result follows from Subgroup of Abelian Group is Normal.",
+    "clean_row_index": 377,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The proof invokes the real additive subgroup inclusion and the abelian nature of complex addition, which gives normality."
+  },
+  {
+    "theorem_id": 852,
+    "title": "Multiplicative Group of Reals is Subgroup of Complex",
+    "theorem_text": "Let $\\struct {\\R_{\\ne 0}, \\times}$ be the multiplicative group of real numbers.\nLet $\\struct {\\C_{\\ne 0}, \\times}$ be the multiplicative group of complex numbers.\nThen $\\struct {\\R_{\\ne 0}, \\times}$ is a normal subgroup of $\\struct {\\C_{\\ne 0}, \\times}$.",
+    "proof_text": "Let $x, y \\in \\C_{\\ne 0}$ such that $x = x_1 + 0 i, y = y_1 + 0 i$.\nAs $x$ and $y$ are wholly real, we have that $x, y \\in \\R_{\\ne 0}$.\nThen $x + y = x_1 y_1 - 0 \\cdot 0 + \\left({0 \\cdot y_1 + x_1 \\cdot 0}\\right) i = x_1 y_1 + 0i$ which is also wholly real.\nAlso, the inverse of $x$ is $\\dfrac 1 x = \\dfrac 1 {x_1} + 0 i$ which is also wholly real.\nThus by the Two-Step Subgroup Test, $\\struct {\\R_{\\ne 0}, \\times}$ is a subgroup of $\\struct {\\C_{\\ne 0}, \\times}$.\nFrom Non-Zero Complex Numbers under Multiplication form Abelian Group, $\\struct {\\C_{\\ne 0}, \\times}$ is abelian.\nThe result follows from Subgroup of Abelian Group is Normal.",
+    "clean_row_index": 378,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The displayed coordinate calculation is the complex product despite its mislabeled left-hand side. Products and reciprocals of nonzero reals are nonzero real, and the ambient multiplicative group is abelian."
+  },
+  {
+    "theorem_id": 853,
+    "title": "Multiplicative Group of Rationals is Subgroup of Reals",
+    "theorem_text": "Let $\\struct {\\Q_{\\ne 0}, \\times}$ be the multiplicative group of rational numbers.\nLet $\\struct {\\R_{\\ne 0}, \\times}$ be the multiplicative group of real numbers.\nThen $\\struct {\\Q_{\\ne 0}, \\times}$ is a normal subgroup of $\\left({\\R_{\\ne 0}, \\times}\\right)$.",
+    "proof_text": "From the definition of real numbers, it follows that $\\Q_{\\ne 0}$ is a subset of $\\R_{\\ne 0}$.\nAs $\\struct {\\R_{\\ne 0}, \\times}$ is a group, and $\\struct {\\Q_{\\ne 0}, \\times}$ is a group, it follows from the definition of subgroup that $\\struct {\\Q_{\\ne 0}, \\times}$ is a subgroup of $\\struct {\\R_{\\ne 0}, \\times}$.\nAs $\\struct {\\R_{\\ne 0}, \\times}$ is abelian, it follows from Subgroup of Abelian Group is Normal that $\\struct {\\Q_{\\ne 0}, \\times}$ is normal in $\\struct {\\R_{\\ne 0}, \\times}$.",
+    "clean_row_index": 379,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Nonzero rational multiplication is the inherited real operation and already forms a group, yielding a subgroup. Commutativity of the real group gives normality."
+  },
+  {
+    "theorem_id": 856,
+    "title": "Integers under Addition form Infinite Cyclic Group",
+    "theorem_text": "The additive group of integers $\\struct {\\Z, +}$ is an infinite cyclic group which is generated by the element $1 \\in \\Z$.",
+    "proof_text": "By Epimorphism from Integers to Cyclic Group and integer multiplication:\n$\\forall n \\in \\Z: n = \\map {+^n} 1 \\in \\gen 1$\nThus:\n$\\struct {\\Z, +} = \\gen 1$\nand thus, by the definition of a cyclic group, is cyclic.",
+    "clean_row_index": 380,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Integer multiples of one give every integer, and distinct integer multiples of one are distinct. Thus one generates the entire infinite group."
+  },
+  {
+    "theorem_id": 857,
+    "title": "Generators of Additive Group of Integers",
+    "theorem_text": "The only generators of the additive group of integers $\\struct {\\Z, +}$ are $1$ and $-1$.",
+    "proof_text": "From Integers under Addition form Infinite Cyclic Group, $\\struct {\\Z, +}$ is an infinite cyclic group generated by $1$.\nFrom Generators of Infinite Cyclic Group, there is only one other generator of such a group, and that is the inverse of that generator.\nThe result follows.",
+    "clean_row_index": 381,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The inverse of one under addition is minus one. Applying the classification of generators of an infinite cyclic group gives exactly these two generators."
+  },
+  {
+    "theorem_id": 858,
+    "title": "Inverse of Generator of Cyclic Group is Generator",
+    "theorem_text": "Let $\\gen g = G$ be a cyclic group.\nThen:\n$G = \\gen {g^{-1} }$\nwhere $g^{-1}$ denotes the inverse of $g$.\nThus, in general, a generator of a cyclic group is not unique.",
+    "proof_text": "Let $C_n = \\gen g$ be the cyclic group of order $n$.\nBy definition, $g^n = e$.\nWe have that $n - 1$ is coprime to $n$.\nSo it follows from that Power of Generator of Cyclic Group is Generator iff Power is Coprime with Order that:\n$C_n = \\gen {g^{n - 1} }$\nBut from Inverse Element is Power of Order Less 1:\n$g^{n - 1} = g^{-1}$",
+    "clean_row_index": 382,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The argument starts with a group of finite order n and uses that order to express the inverse as the (n-1)st power. It leaves infinite cyclic groups uncovered."
+  },
+  {
+    "theorem_id": 859,
+    "title": "Generators of Infinite Cyclic Group",
+    "theorem_text": "Let $\\gen g = G$ be an infinite cyclic group.\nThen the only other generator of $G$ is $g^{-1}$.\nThus an infinite cyclic group has exactly $2$ generators.",
+    "proof_text": "By definition, the infinite cyclic group with generator $g$ is:\n$\\gen g = \\set {\\ldots, g^{-2}, g^{-1}, e, g, g^2, \\ldots}$\nwhere $e$ denotes the identity $e = g^0$.\nThe fact that $g^{-1}$ generates $G$ is shown by Inverse of Generator of Cyclic Group is Generator.\nFuthermore:\n$\\gen e = \\set e \\ne G$\nBy definition of infinite cyclic group:\n$g^i \\ne g^j$ for all $i \\ne j$\nLet $n \\in Z \\setminus \\set {-1, 0, 1}$.\nThen:\n$\\gen {g^n} = \\set {\\ldots, g^{-2 n}, g^{-n}, e, g^n, g^{2 n}, \\ldots}$\nBut since $\\order n > 1$, none of these elements is equal to $g$, because $1 \\notin n \\Z$.\nSo:\n$g \\notin \\gen {g^n} \\implies \\gen {g^n} \\ne \\gen g$",
+    "clean_row_index": 383,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Distinct powers of an infinite-order element have distinct exponents. The multiples of n contain one exactly when n is plus or minus one, giving the two generators."
+  },
+  {
+    "theorem_id": 860,
+    "title": "Subgroup of Integers is Ideal",
+    "theorem_text": "Let $\\struct {\\Z, +}$ be the additive group of integers.\nEvery subgroup of $\\struct {\\Z, +}$ is an ideal of the ring $\\struct {\\Z, +, \\times}$.",
+    "proof_text": "Let $H$ be a subgroup of $\\struct {\\Z, +}$.\nLet $n \\in \\Z, h \\in H$.\nThen from the definition of cyclic group and Negative Index Law for Monoids:\n$n h = n \\cdot h \\in \\gen h \\subseteq H$\nThe result follows.",
+    "clean_row_index": 384,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "An additive subgroup contains every integer multiple of each of its elements, which supplies the absorption condition for an ideal of the integers."
+  },
+  {
+    "theorem_id": 861,
+    "title": "Additive Group of Integers is Subgroup of Reals",
+    "theorem_text": "Let $\\struct {\\Z, +}$ be the additive group of integers.\nLet $\\struct {\\R, +}$ be the additive group of real numbers.\nThen $\\struct {\\Z, +}$ is a subgroup of $\\struct {\\R, +}$.",
+    "proof_text": "From Additive Group of Integers is Subgroup of Rationals, $\\struct {\\Z, +}$ is a subgroup of $\\struct {\\Q, +}$.\nFrom Additive Group of Rationals is Subgroup of Reals, $\\struct {\\Q, +}$ is a subgroup of $\\struct {\\R, +}$.\nThus $\\struct {\\Z, +}$ is a subgroup of $\\struct {\\R, +}$.",
+    "clean_row_index": 385,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two cited additive subgroup inclusions compose to give the inclusion of the integers in the reals."
+  },
+  {
+    "theorem_id": 862,
+    "title": "Quotient Group of Reals by Integers is Circle Group",
+    "theorem_text": "Let $\\struct {\\Z, +}$ be the additive group of integers.\nLet $\\struct {\\R, +}$ be the additive group of real numbers.\nLet $K$ be the circle group.\nThen the quotient group of $\\struct {\\R, +}$ by $\\struct {\\Z, +}$ is isomorphic to $K$.",
+    "proof_text": "Define $\\phi: \\R / \\Z \\to K$ by:\n$\\map \\phi {x + \\Z} = \\map \\exp {2 \\pi i x}$\nThen $\\phi$ is well-defined.\nFor, if $x + \\Z = y + \\Z$, then $y = x + n$ for some $n \\in \\Z$, and:\n$\\map \\exp {2 \\pi i \\paren {x + n} } = \\map \\exp {2 \\pi i x}$\nby Complex Exponential Function has Imaginary Period.\nMoreover, by Exponential of Sum:\n$\\map \\exp {x + y + \\Z} = \\map \\exp {2 \\pi i \\paren {x + y} } = \\map \\exp {2 \\pi i x} \\, \\map \\exp {2 \\pi i y}$\nmeaning $\\phi$ is a group homomorphism.\nBy Euler's Formula:\n$\\map \\exp {2 \\pi i x} = \\map \\cos {2 \\pi i x} + i \\, \\map \\sin {2 \\pi i x}$\nso that, by Sine and Cosine are Periodic on Reals:\n$\\map \\phi x = 1$ if and only if $x + \\Z = 0 + \\Z$\nHence, by Kernel is Trivial iff Monomorphism, $\\phi$ is a monomorphism.\nFrom polar form for complex numbers, it follows that all $z \\in \\C$ with $\\cmod z = 1$ are of the form:\n$z = \\map \\exp {2 \\pi i x}$\nfor some $x \\in \\R$.\nHence $\\phi$ is also an epimorphism.\nThus $\\phi: \\R / \\Z \\to K$ is a group isomorphism.",
+    "clean_row_index": 386,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The exponential descends to real cosets modulo integers, preserves the operation, and has trivial kernel there. Polar form supplies a preimage for every point of the unit circle."
+  },
+  {
+    "theorem_id": 864,
+    "title": "Integers Modulo m under Multiplication form Commutative Monoid",
+    "theorem_text": "The structure:\n$\\struct {\\Z_m, \\times}$\n(where $\\Z_m$ is the set of integers modulo $m$) is a commutative monoid.",
+    "proof_text": "Multiplication modulo $m$ is closed.\nMultiplication modulo $m$ is associative.\nMultiplication modulo $m$ has an identity:\n$\\forall k \\in \\Z: \\eqclass k m \\eqclass 1 m = \\eqclass k m = \\eqclass 1 m \\eqclass k m$\nThis identity is unique.\nMultiplication modulo $m$ is commutative.\nThus all the conditions are fulfilled for this to be a commutative monoid.",
+    "clean_row_index": 387,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Closed associative and commutative modular multiplication has the class of one as its two-sided identity, which gives the monoid axioms."
+  },
+  {
+    "theorem_id": 865,
+    "title": "Multiplicative Inverse in Ring of Integers Modulo m",
+    "theorem_text": "Let $\\struct {\\Z_m, +_m, \\times_m}$ be the ring of integers modulo $m$.\nThen $\\eqclass k m \\in \\Z_m$ has an inverse in $\\struct {\\Z_m, \\times_m}$ if and only if $k \\perp m$.",
+    "proof_text": "First, suppose $k \\perp m$.\nThat is:\n$\\gcd \\set {k, m} = 1$\nThen, by Bézout's Identity:\n$\\exists u, v \\in \\Z: u k + v m = 1$\nThus:\n$\\eqclass {u k + v m} m = \\eqclass {u k} m = \\eqclass u m \\eqclass k m = \\eqclass 1 m$\nThus $\\eqclass u m$ is an inverse of $\\eqclass k m$.\nSuppose that:\n$\\exists u \\in \\Z: \\eqclass u m \\eqclass k m = \\eqclass {u k} m = 1$.\nThen:\n$u k \\equiv 1 \\pmod m$\nand:\n$\\exists v \\in \\Z: u k + v m = 1$\nThus from Bézout's Identity:\n$k \\perp m$",
+    "clean_row_index": 388,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A Bezout identity exhibits an inverse modulo m. Conversely an inverse provides an integer linear combination of k and m equal to one, forcing coprimality."
+  },
+  {
+    "theorem_id": 865,
+    "title": "Multiplicative Inverse in Ring of Integers Modulo m",
+    "theorem_text": "Let $\\struct {\\Z_m, +_m, \\times_m}$ be the ring of integers modulo $m$.\nThen $\\eqclass k m \\in \\Z_m$ has an inverse in $\\struct {\\Z_m, \\times_m}$ if and only if $k \\perp m$.",
+    "proof_text": "From Ring of Integers Modulo m is Ring, $\\left({\\Z_m, +_m, \\times_m}\\right)$ is a commutative ring with unity $\\left[\\!\\left[{1}\\right]\\!\\right]_m$.\nThus by definition $\\left({\\Z_m, \\times_m}\\right)$ is a commutative monoid.\nThe result follows from Multiplicative Inverse in Monoid of Integers Modulo m.",
+    "clean_row_index": 389,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The multiplicative monoid of the residue ring is the monoid in the cited modular inverse criterion and has the same identity, so the coprimality criterion applies directly."
+  }
+]

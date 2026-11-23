@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 634,
+    "title": "Division Theorem",
+    "theorem_text": "For every pair of integers $a, b$ where $b \\ne 0$, there exist unique integers $q, r$ such that $a = q b + r$ and $0 \\le r < \\size b$:\n$\\forall a, b \\in \\Z, b \\ne 0: \\exists! q, r \\in \\Z: a = q b + r, 0 \\le r < \\size b$",
+    "proof_text": "Suppose $\\map \\deg f < \\map \\deg d$.\nThen we take $\\map q X = 0$ and $\\map r X = \\map a X$ and the result holds.\nOtherwise, $\\map \\deg f \\ge \\map \\deg d$.\nLet:\n$\\map f X = a_0 + a_1 X + a_2 x^2 + \\cdots + a_m X^m$\n$\\map d X = b_0 + b_1 X + b_2 x^2 + \\cdots + b_n X^n$\nWe can subtract from $f$ a suitable multiple of $d$ so as to eliminate the highest term in $f$:\n$\\map f X - \\map d X \\cdot \\dfrac {a_m} {b_n} x^{m - n} = \\map p X$\nwhere $\\map p X$ is some polynomial whose degree is less than that of $f$.\nIf $\\map p X$ still has degree higher than that of $d$, we do the same thing again.\nEventually we reach:\n$\\map f X - \\map d X \\cdot \\paren {\\dfrac {a_m} {b_n} x^{m - n} + \\dotsb} = \\map r X$\nwhere either $r = 0_F$ or $r$ has degree that is less than $n$.\nThis approach can be formalised using the Principle of Complete Induction.",
+    "clean_row_index": 271,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "Leading-term cancellation concerns polynomials over a field. It gives neither an integer quotient with a bounded nonnegative remainder nor uniqueness for integers."
+  },
+  {
+    "theorem_id": 634,
+    "title": "Division Theorem",
+    "theorem_text": "For every pair of integers $a, b$ where $b \\ne 0$, there exist unique integers $q, r$ such that $a = q b + r$ and $0 \\le r < \\size b$:\n$\\forall a, b \\in \\Z, b \\ne 0: \\exists! q, r \\in \\Z: a = q b + r, 0 \\le r < \\size b$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N_{> 0}$, let $\\map P n$ be the proposition:\n$\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ provided that $\\map \\deg f < n$\nBasis for the Induction\n$\\map P 0$ is the statement that $q$ and $r$ exist when $f = 0$.\nThis is shown trivially to be true by taking $q = r = 0$.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 0$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ provided that $\\map \\deg f < k$\nThen we need to show:\n$\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ provided that $\\map \\deg f < k + 1$\nInduction Step\nThis is our induction step:\nLet $f$ be such that $\\map \\deg f = n$.\nLet:\n$f = a_0 + a_1 \\circ x + a_2 \\circ x^2 + \\cdots + a_n \\circ x^n$ where $a_n \\ne 0$\nLet:\n$d = b_0 + b_1 \\circ x + b_2 \\circ x^2 + \\cdots + b_j \\circ x^j$ where $b_j \\ne 0$\nIf $n < l$ then take $q = 0, r = f$.\nIf $n \\ge l$, consider:\n$c := f - a_n b_j^{-1} x^{n - j} d$\nThis has been carefully arranged so that the coefficient of $x^n$ in $c$ is zero.\nThus $\\map \\deg c < n$.\nTherefore, by the induction hypothesis:\n$c = d q_0 + r$\nwhere $\\map \\deg r < \\map \\deg d$.\nTherefore:\n$$f = d \\paren {q_0 + a_n b_j^{-1} x^{n - j} } + r$$\n$$= d q + r$$\nwhere $\\map \\deg r < \\map \\deg d$ and $q = q_0 + a_n b_j^{-1} x^{n - j}$\nThus the existence of $q$ and $r$ have been established.\nAs for uniqueness, assume:\n$d q + r = d q' + r'$\nwith $\\map \\deg r < \\map \\deg d, \\map \\deg {r'} < \\map \\deg d$\nThen:\n$d \\paren {q - q'} = r' - r$\nBy Degree of Sum of Polynomials:\n$\\map \\deg {r' - r} \\le \\max \\set {\\map \\deg {r'}, \\map \\deg r} < \\map \\deg d$\nand by Degree of Product of Polynomials over Integral Domain:\n$\\map \\deg {d \\paren {q - q'} } = \\map \\deg d + \\map \\deg {q - q'}$\nThat is:\n$\\map \\deg d < \\map \\deg d + \\map \\deg {q - q'}$\nand the only way for that to happen is for:\n$\\map \\deg {q - q'} = -\\infty$\nthat is, for $q - q'$ to be the null polynomial.\nThat is, $q - q' = 0_F$ and by a similar argument $r' - r = 0_F$, demonstrating the uniqueness of $q$ and $r$.\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ such that either:\n$(1): \\quad r = 0_F$\n:or:\n$(2): \\quad r \\ne 0_F$ and $r$ has degree that is less than $n$.",
+    "clean_row_index": 272,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The induction and uniqueness argument use polynomial degrees and field coefficients. They do not apply to the stated integer division problem."
+  },
+  {
+    "theorem_id": 634,
+    "title": "Division Theorem",
+    "theorem_text": "For every pair of integers $a, b$ where $b \\ne 0$, there exist unique integers $q, r$ such that $a = q b + r$ and $0 \\le r < \\size b$:\n$\\forall a, b \\in \\Z, b \\ne 0: \\exists! q, r \\in \\Z: a = q b + r, 0 \\le r < \\size b$",
+    "proof_text": "Consider the set of integer multiples $x \\size b$ of $\\size b$ less than or equal to $a$:\n$M := \\set {k \\in \\Z: \\exists x \\in \\Z: k = x \\size b, k \\le a}$\nWe have that:\n$-\\size a \\size b \\le -\\size a \\le a$\nand so $M \\ne \\O$.\nFrom Set of Integers Bounded Above by Integer has Greatest Element, $M$ has a greatest element $h \\size b$.\nThen $h \\size b \\le a$ and so:\n$a = h \\size b + r$\nwhere $r \\ge 0$.\nOn the other hand:\n$\\paren {h + 1} \\size b = h \\size b + \\size b > h \\size b$\nSo:\n$\\paren {h + 1} \\size b > a$\nand:\n$h \\size b + \\size b > h \\size b + r$\nThus:\n$r \\le b$\nSetting:\n$q = h$ when $b > 0$\n$q = -h$ when $b < 0$\nit follows that:\n$h \\size b = q b$\nand so:\n$a = q b + r$\nas required.",
+    "clean_row_index": 273,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Taking the greatest multiple below a gives existence and implies r < |b|, despite the incorrect displayed r ≤ b. The proof never excludes a second quotient and remainder."
+  },
+  {
+    "theorem_id": 1087,
+    "title": "Division Theorem for Polynomial Forms over Field",
+    "theorem_text": "Let $\\struct {F, +, \\circ}$ be a field whose zero is $0_F$ and whose unity is $1_F$.\nLet $X$ be transcendental over $F$.\nLet $F \\sqbrk X$ be the ring of polynomials in $X$ over $F$.\nLet $d$ be an element of $F \\sqbrk X$ of degree $n \\ge 1$.\nThen $\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ such that either:\n$(1): \\quad r = 0_F$\nor:\n$(2): \\quad r \\ne 0_F$ and $r$ has degree that is less than $n$.",
+    "proof_text": "Suppose $\\map \\deg f < \\map \\deg d$.\nThen we take $\\map q X = 0$ and $\\map r X = \\map a X$ and the result holds.\nOtherwise, $\\map \\deg f \\ge \\map \\deg d$.\nLet:\n$\\map f X = a_0 + a_1 X + a_2 x^2 + \\cdots + a_m X^m$\n$\\map d X = b_0 + b_1 X + b_2 x^2 + \\cdots + b_n X^n$\nWe can subtract from $f$ a suitable multiple of $d$ so as to eliminate the highest term in $f$:\n$\\map f X - \\map d X \\cdot \\dfrac {a_m} {b_n} x^{m - n} = \\map p X$\nwhere $\\map p X$ is some polynomial whose degree is less than that of $f$.\nIf $\\map p X$ still has degree higher than that of $d$, we do the same thing again.\nEventually we reach:\n$\\map f X - \\map d X \\cdot \\paren {\\dfrac {a_m} {b_n} x^{m - n} + \\dotsb} = \\map r X$\nwhere either $r = 0_F$ or $r$ has degree that is less than $n$.\nThis approach can be formalised using the Principle of Complete Induction.",
+    "clean_row_index": 467,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Cancelling a leading term lowers the degree whenever it is at least the divisor's degree. The stated reduction and complete induction give termination, including the equal-degree step covered by the initial case split."
+  },
+  {
+    "theorem_id": 1087,
+    "title": "Division Theorem for Polynomial Forms over Field",
+    "theorem_text": "Let $\\struct {F, +, \\circ}$ be a field whose zero is $0_F$ and whose unity is $1_F$.\nLet $X$ be transcendental over $F$.\nLet $F \\sqbrk X$ be the ring of polynomials in $X$ over $F$.\nLet $d$ be an element of $F \\sqbrk X$ of degree $n \\ge 1$.\nThen $\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ such that either:\n$(1): \\quad r = 0_F$\nor:\n$(2): \\quad r \\ne 0_F$ and $r$ has degree that is less than $n$.",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N_{> 0}$, let $\\map P n$ be the proposition:\n$\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ provided that $\\map \\deg f < n$\nBasis for the Induction\n$\\map P 0$ is the statement that $q$ and $r$ exist when $f = 0$.\nThis is shown trivially to be true by taking $q = r = 0$.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 0$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ provided that $\\map \\deg f < k$\nThen we need to show:\n$\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ provided that $\\map \\deg f < k + 1$\nInduction Step\nThis is our induction step:\nLet $f$ be such that $\\map \\deg f = n$.\nLet:\n$f = a_0 + a_1 \\circ x + a_2 \\circ x^2 + \\cdots + a_n \\circ x^n$ where $a_n \\ne 0$\nLet:\n$d = b_0 + b_1 \\circ x + b_2 \\circ x^2 + \\cdots + b_j \\circ x^j$ where $b_j \\ne 0$\nIf $n < l$ then take $q = 0, r = f$.\nIf $n \\ge l$, consider:\n$c := f - a_n b_j^{-1} x^{n - j} d$\nThis has been carefully arranged so that the coefficient of $x^n$ in $c$ is zero.\nThus $\\map \\deg c < n$.\nTherefore, by the induction hypothesis:\n$c = d q_0 + r$\nwhere $\\map \\deg r < \\map \\deg d$.\nTherefore:\n$$f = d \\paren {q_0 + a_n b_j^{-1} x^{n - j} } + r$$\n$$= d q + r$$\nwhere $\\map \\deg r < \\map \\deg d$ and $q = q_0 + a_n b_j^{-1} x^{n - j}$\nThus the existence of $q$ and $r$ have been established.\nAs for uniqueness, assume:\n$d q + r = d q' + r'$\nwith $\\map \\deg r < \\map \\deg d, \\map \\deg {r'} < \\map \\deg d$\nThen:\n$d \\paren {q - q'} = r' - r$\nBy Degree of Sum of Polynomials:\n$\\map \\deg {r' - r} \\le \\max \\set {\\map \\deg {r'}, \\map \\deg r} < \\map \\deg d$\nand by Degree of Product of Polynomials over Integral Domain:\n$\\map \\deg {d \\paren {q - q'} } = \\map \\deg d + \\map \\deg {q - q'}$\nThat is:\n$\\map \\deg d < \\map \\deg d + \\map \\deg {q - q'}$\nand the only way for that to happen is for:\n$\\map \\deg {q - q'} = -\\infty$\nthat is, for $q - q'$ to be the null polynomial.\nThat is, $q - q' = 0_F$ and by a similar argument $r' - r = 0_F$, demonstrating the uniqueness of $q$ and $r$.\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\forall f \\in F \\sqbrk X: \\exists q, r \\in F \\sqbrk X: f = q \\circ d + r$ such that either:\n$(1): \\quad r = 0_F$\n:or:\n$(2): \\quad r \\ne 0_F$ and $r$ has degree that is less than $n$.",
+    "clean_row_index": 468,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The induction hypothesis asserts only a decomposition, with no remainder-degree bound. The step then invokes that missing bound for c, so the declared induction does not prove the requested bounded-remainder property."
+  },
+  {
+    "theorem_id": 653,
+    "title": "Product of GCD and LCM",
+    "theorem_text": "$\\lcm \\set {a, b} \\times \\gcd \\set {a, b} = \\size {a b}$\nwhere:\n$\\lcm \\set {a, b}$ denotes the lowest common multiple of $a$ and $b$\n$\\gcd \\set {a, b}$ denotes the greatest common divisor of $a$ and $b$.",
+    "proof_text": "Let:\n$$m = {p_1}^{k_1} {p_2}^{k_2} \\dotsm {p_r}^{k_r}$$\n$$n = {p_1}^{l_1} {p_2}^{l_2} \\dotsm {p_r}r^{l_r}$$\nFrom LCM from Prime Decomposition:\n$\\lcm \\set {m, n} = p_1^{\\max \\set {k_1, l_1} } p_2^{\\max \\set {k_2, l_2} } \\dotsm p_r^{\\max \\set {k_r, l_r} }$\nFrom GCD from Prime Decomposition:\n$\\gcd \\set {m, n} = p_1^{\\min \\set {k_1, l_1} } p_2^{\\min \\set {k_2, l_2} } \\dotsm p_r^{\\min \\set {k_r, l_r} }$\nFrom Sum of Maximum and Minimum, for all $i \\in \\set {1, 2, \\ldots, r}$:\n$\\min \\set {k_i, l_i} + \\max \\set {k_i, l_i} = k_i + l_i$\nHence:\n$$\\gcd \\set {m, n} \\times \\lcm \\set {m, n} = p_1^{k_1 + l_1} p_2^{k_2 + l_2} \\dotsm p_r^{k_r + l_r}$$\n$$= p_1^{k_1} p_1^{l_1} p_2^{k_2} p_2^{l_2} \\dotsm p_r^{k_r} p_r^{l_r}$$\n$$= p_1^{k_1} p_2^{k_2} \\dotsm p_r^{k_r} \\times p_1^{l_1} p_2^{l_2} \\dotsm p_r^{l_r}$$\n$$= m n$$",
+    "clean_row_index": 276,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The exponent calculation proves the formula for positive inputs. Signs can be removed by taking absolute values, but inputs equal to zero admit no prime decomposition and are never covered."
+  },
+  {
+    "theorem_id": 656,
+    "title": "Integer is Congruent to Integer less than Modulus",
+    "theorem_text": "Let $m \\in \\Z$.\nThen each integer is congruent (modulo $m$) to precisely one of the integers $0, 1, \\ldots, m - 1$.",
+    "proof_text": "Proof of Existence\nLet $a \\in \\Z$.\nThen from the Division Theorem: $\\exists r \\in \\set {0, 1, \\ldots, m - 1}: a \\equiv r \\pmod m$.\nProof of Uniqueness\nSuppose that:\n$\\exists r_1, r_2 \\in \\set {0, 1, \\ldots, m - 1}: a \\equiv r_1 \\pmod m \\land a \\equiv r_2 \\pmod m$\nThen:\n$\\exists r_1, r_2 \\in \\Z: a = q_1 m + r_1 = q_2 m + r_2$\nThis contradicts the uniqueness clause in the Division Theorem.",
+    "clean_row_index": 277,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "Division with representatives from 0 to m−1 requires m positive. The statement allows m=0 and negative m, for which this interval supplies no representatives."
+  },
+  {
+    "theorem_id": 657,
+    "title": "Modulo Addition is Well-Defined",
+    "theorem_text": "Let $m \\in \\Z$ be an integer.\nLet $\\Z_m$ be the set of integers modulo $m$.\nThe modulo addition operation on $\\Z_m$, defined by the rule:\n$\\eqclass a m +_m \\eqclass b m = \\eqclass {a + b} m$\nis a well-defined operation.\nThat is:\n:If $a \\equiv b \\pmod m$ and $x \\equiv y \\pmod m$, then $a + x \\equiv b + y \\pmod m$.",
+    "proof_text": "We need to show that if:\n$\\eqclass {x'} m = \\eqclass x m$\n$\\eqclass {y'} m = \\eqclass y m$\nthen:\n$\\eqclass {x' + y'} m = \\eqclass {x + y} m$\nSince:\n$\\eqclass {x'} m = \\eqclass x m$\nand:\n$\\eqclass {y'} m = \\eqclass y m$\nit follows from the definition of set of integers modulo $m$ that:\n$x \\equiv x' \\pmod m$\nand:\n$y \\equiv y' \\pmod m$\nBy definition, we have:\n$x \\equiv x' \\pmod m \\implies \\exists k_1 \\in \\Z: x = x' + k_1 m$\n$y \\equiv y' \\pmod m \\implies \\exists k_2 \\in \\Z: y = y' + k_2 m$\nwhich gives us:\n$x + y = x' + k_1 m + y' + k_2 m = x' + y' + \\left({k_1 + k_2}\\right) m$\nAs $k_1 + k_2$ is an integer, it follows that, by definition:\n$x + y \\equiv \\left({x' + y'}\\right) \\pmod m$\nTherefore, by the definition of integers modulo $m$:\n$\\eqclass {x' + y'} m = \\eqclass {x + y} m$",
+    "clean_row_index": 278,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Writing each difference as a multiple of m makes the sum difference a multiple with integer coefficient k1+k2."
+  },
+  {
+    "theorem_id": 658,
+    "title": "Modulo Multiplication is Well-Defined",
+    "theorem_text": "The multiplication modulo $m$ operation on $\\Z_m$, the set of integers modulo $m$, defined by the rule:\n$\\eqclass x m \\times_m \\eqclass y m = \\eqclass {x y} m$\nis a well-defined operation.\nThat is:\n:If $a \\equiv b \\pmod m$ and $x \\equiv y \\pmod m$, then $a x \\equiv b y \\pmod m$.",
+    "proof_text": "We need to show that if:\n$\\eqclass {x'} m = \\eqclass x m$\nand:\n$\\eqclass {y'} m = \\eqclass y m$\nthen:\n$\\eqclass {x' y'} m = \\eqclass {x y} m$\nWe have that:\n$\\eqclass {x'} m = \\eqclass x m$\nand:\n$\\eqclass {y'} m = \\eqclass y m$\nIt follows from the definition of residue class modulo $m$ that:\n$x \\equiv x' \\pmod m$\nand:\n$y \\equiv y' \\pmod m$\nBy definition, we have:\n$x \\equiv x' \\pmod m \\implies \\exists k_1 \\in \\Z: x = x' + k_1 m$\n$y \\equiv y' \\pmod m \\implies \\exists k_2 \\in \\Z: y = y' + k_2 m$\nwhich gives us:\n$x y = \\paren {x' + k_1 m} \\paren {y' + k_2 m} = x' y' + \\paren {x' k_2 + y' k_1} m + k_1 k_2 m^2$\nThus by definition:\n$x y \\equiv \\paren {x' y'} \\pmod m$\nTherefore, by the definition of residue class modulo $m$:\n$\\eqclass {x' y'} m = \\eqclass {x y} m$",
+    "clean_row_index": 279,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The expansion of the two changed representatives expresses the product difference as an integer multiple of m."
+  },
+  {
+    "theorem_id": 659,
+    "title": "Congruence of Product",
+    "theorem_text": "Let $a, b, z \\in \\R$.\nLet $a$ be congruent to $b$ modulo $z$, that is:\n$a \\equiv b \\pmod z$\nThen:\n$\\forall m \\in \\Z: m a \\equiv m b \\pmod z$",
+    "proof_text": "Let $m \\in \\Z$ and $a \\equiv b \\pmod z$.\nSuppose $m = 0$.\nThen the right-hand side of the assertion degenerates to $0 \\equiv 0 \\pmod z$ which is trivially true.\nOtherwise, from Congruence by Product of Moduli, we have:\n$a \\equiv b \\iff m a \\equiv m b \\pmod z$\nAs $m \\in \\Z$, it follows that $m z$ is an integer multiple of $z$.\nHence from Congruence by Divisor of Modulus, it follows that:\n$m a \\equiv m b \\implies m a \\equiv m b \\pmod z$",
+    "clean_row_index": 280,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "Scaling both sides by m scales the modulus to mz. The printed equivalence uses z and fails, for example with a=0, b=1, m=z=2."
+  },
+  {
+    "theorem_id": 660,
+    "title": "Congruence of Powers",
+    "theorem_text": "Let $a, b \\in \\R$ and $m \\in \\Z$.\nLet $a$ be congruent to $b$ modulo $m$, that is:\n$a \\equiv b \\pmod m$\nThen:\n$\\forall n \\in \\Z_{\\ge 0}: a^n \\equiv b^n \\pmod m$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\Z_{\\ge 0}$, let $\\map P n$ be the proposition:\n$a \\equiv b \\implies a^k \\equiv b^k \\pmod m$\n$\\map P 0$ is trivially true, as $a^0 = b^0 = 1$.\n$\\map P 1$ is true, as this just says:\n$a \\equiv b \\pmod m$\nBasis for the Induction\n$\\map P 2$ is the case:\n$a^2 \\equiv b^2 \\pmod m$\nwhich follows directly from the fact that Modulo Multiplication is Well-Defined.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 2$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$a \\equiv b \\implies a^k \\equiv b^k \\pmod m$\nThen we need to show:\n$a \\equiv b \\implies a^{k + 1} \\equiv b^{k + 1} \\pmod m$\nInduction Step\nThis is our induction step:\nSuppose $a^k \\equiv b^k \\pmod m$.\nThen $a^k a \\equiv b^k b \\pmod m$ by definition of modulo multiplication.\nThus $a^{k + 1} \\equiv b^{k + 1} \\pmod m$.\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\forall n \\in \\Z_+: a \\equiv b \\implies a^n \\equiv b^n \\pmod m$",
+    "clean_row_index": 281,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "Well-defined multiplication on integer residue classes cannot be applied to arbitrary reals. For example, 1/4 and 5/4 differ by 1, but their squares differ by 3/2."
+  },
+  {
+    "theorem_id": 666,
+    "title": "Modulo Multiplication is Closed",
+    "theorem_text": "Multiplication modulo $m$ is closed on the set of integers modulo $m$:\n$\\forall \\eqclass x m, \\eqclass y m \\in \\Z_m: \\eqclass x m \\times_m \\eqclass y m \\in \\Z_m$.",
+    "proof_text": "From the definition of multiplication modulo $m$, we have:\n$\\eqclass x m \\times_m \\eqclass y m = \\eqclass {x y} m$\nBy the Division Theorem:\n$x y = q m + r$ where $0 \\le r < m$\nTherefore for all $0 \\le r < m$:\n$\\eqclass {x y} m = \\eqclass r m$\nTherefore from the definition of integers modulo $m$:\n$\\eqclass {x y} m \\in \\Z_m$",
+    "clean_row_index": 282,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Division selects one remainder r. The claim that the product class equals every remainder class in range does not follow and fails already modulo two."
+  },
+  {
+    "theorem_id": 669,
+    "title": "Modulo Multiplication has Identity",
+    "theorem_text": "Multiplication modulo $m$ has an identity:\n$\\forall \\eqclass x m \\in \\Z_m: \\eqclass x m \\times_m \\eqclass 1 m = \\eqclass x m = \\eqclass 1 m \\times_m \\eqclass x m$",
+    "proof_text": "Follows directly from the definition of multiplication modulo $m$:\n$$\\eqclass x m \\times_m \\eqclass 1 m = \\eqclass {x \\times 1} m$$\n$$= \\eqclass x m$$\n$$= \\eqclass {1 \\times x} m$$\n$$= \\eqclass 1 m \\times_m \\eqclass x m$$\nThus $\\eqclass 1 m$ is the identity for multiplication modulo $m$.",
+    "clean_row_index": 283,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplying either representative by 1 gives the same integer, so the class of 1 acts on both sides as required."
+  },
+  {
+    "theorem_id": 670,
+    "title": "Modulo Multiplication Distributes over Modulo Addition",
+    "theorem_text": "Multiplication modulo $m$ is distributive over addition modulo $m$:\n$\\forall \\eqclass x m, \\eqclass y m, \\eqclass z m \\in \\Z_m$:\n$\\eqclass x m \\times_m \\paren {\\eqclass y m +_m \\eqclass z m} = \\paren {\\eqclass x m \\times_m \\eqclass y m} +_m \\paren {\\eqclass x m \\times_m \\eqclass z m}$\n$\\paren {\\eqclass x m +_m \\eqclass y m} \\times_m \\eqclass z m = \\paren {\\eqclass x m \\times_m \\eqclass z m} +_m \\paren {\\eqclass y m \\times_m \\eqclass z m}$\nwhere $\\Z_m$ is the set of integers modulo $m$.\nThat is, $\\forall x, y, z, m \\in \\Z$:\n$x \\paren {y + z} \\equiv x y + x z \\pmod m$\n$\\paren {x + y} z \\equiv x z + y z \\pmod m$",
+    "proof_text": "Follows directly from the definition of multiplication modulo $m$ and addition modulo $m$:\n$$\\eqclass x m \\times_m \\paren {\\eqclass y m +_m \\eqclass z m} = \\eqclass x m \\times_m \\eqclass {y + z} m$$\n$$= \\eqclass {x \\paren {y + z} } m$$\n$$= \\eqclass {\\paren {x y} + \\paren {x z} } m$$\n$$= \\eqclass {x y} m +_m \\eqclass {x z} m$$\n$$= \\paren {\\eqclass x m \\times_m \\eqclass y m} +_m \\paren {\\eqclass x m \\times_m \\eqclass z m}$$\nAnd the second is like it, namely this:\n$$\\paren {\\eqclass x m +_m \\eqclass y m} \\times_m \\eqclass z m = \\eqclass {x + y} m \\times_m \\eqclass z m$$\n$$= \\eqclass {\\paren {x + y} z} m$$\n$$= \\eqclass {\\paren {x z} + \\paren {y z} } m$$\n$$= \\eqclass {x z} m +_m \\eqclass {y z} m$$\n$$= \\paren {\\eqclass x m \\times_m \\eqclass z m} +_m \\paren {\\eqclass y m \\times_m \\eqclass z m}$$",
+    "clean_row_index": 284,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two chains apply left and right distributivity to integer representatives and translate each product and sum back to residue classes."
+  },
+  {
+    "theorem_id": 671,
+    "title": "Intersection of Congruence Classes",
+    "theorem_text": "Let $\\mathcal R_m$ denote congruence modulo $m$ on the set of integers $\\Z$.\nThen:\n$\\mathcal R_m \\cap \\mathcal R_n = \\mathcal R_{\\lcm \\set {m, n} }$\nwhere $\\lcm \\set {m, n}$ is the lowest common multiple of $m$ and $n$.\nIn the language of modulo arithmetic, this is equivalent to:\n$a \\equiv b \\pmod m, a \\equiv b \\pmod n \\implies a \\equiv b \\pmod {\\lcm \\set {m, n} }$",
+    "proof_text": "Let $\\tuple {a, b} \\in \\mathcal R_m \\cap \\mathcal R_n$.\nThat is, let $\\tuple {a, b} \\in \\mathcal R_m$ and $\\tuple {a, b} \\in \\mathcal R_n$.\nThat means, by definition of congruence:\n$a \\equiv b \\pmod m$\n$a \\equiv b \\pmod n$\nThus by definition of congruence:\n$\\exists r, s \\in \\Z: a - b = r m, a - b = s n$\nLet $d = \\gcd \\set {m, n}$ so that $m = d m', n = d n', m' \\perp n'$.\nSubstituting for $m$ and $n$:\n$r d m' = s d n'$ and so $r m' = s n'$.\nSo $n' \\divides r m'$ and $m' \\perp n'$ so by Euclid's Lemma $n' \\divides r$.\nSo we can put $r = k n'$ and get:\n$a - b = r m = k m n' = k m \\dfrac n d = k \\dfrac {m n} d$\nBut:\n$\\dfrac {m n} d = \\dfrac {m n} {\\gcd \\set {m, n} }$\nSo by Product of GCD and LCM:\n$a - b = k \\lcm \\set {m, n}$\nSo:\n$a \\equiv b \\pmod {\\lcm \\set {m, n} }$\nand hence the result.",
+    "clean_row_index": 285,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The coprime-factor argument puts every common difference in the multiples of the lcm. The reverse inclusion follows immediately because the lcm is a multiple of each modulus."
+  },
+  {
+    "theorem_id": 672,
+    "title": "Mappings Between Residue Classes",
+    "theorem_text": "Let $\\eqclass a m$ be the residue class of $a$ (modulo $m$).\nLet $\\phi: \\Z_m \\to \\Z_n$ be a mapping given by:\n$\\map \\phi {\\eqclass x m} = \\eqclass x n$\nThen $\\phi$ is well defined if and only if $m$ is a divisor of $n$.",
+    "proof_text": "For $\\phi$ to be well defined, we require that:\n$\\forall x, y \\in \\Z_m: \\eqclass x m = \\eqclass y m \\implies \\map \\phi {\\eqclass x m} = \\map \\phi {\\eqclass y m}$\nNow:\n$\\eqclass x m = \\eqclass y m \\implies x - y \\divides m$\nFor $\\map \\phi {\\eqclass x m} = \\map \\phi {\\eqclass y m}$ we require that:\n$\\eqclass x n = \\eqclass y n \\implies x - y \\divides n$\nThus $\\phi$ is well defined if and only if:\n$x - y \\divides m \\implies x - y \\divides n$\nThat is, if and only if $m \\divides n$.",
+    "clean_row_index": 286,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Equality of classes modulo m means m divides x−y. Reversing that divisibility yields the wrong criterion; the map requires n to divide m."
+  },
+  {
+    "theorem_id": 675,
+    "title": "Prime not Divisor implies Coprime",
+    "theorem_text": "Let $p, a \\in \\Z$.\nIf $p$ is a prime number then:\n$p \\nmid a \\implies p \\perp a$\nwhere:\n$p \\nmid a$ denotes that $p$ does not divide $a$\n$p \\perp a$ denotes that $p$ and $a$ are coprime.\nIt follows directly that if $p$ and $q$ are primes, then:\n$p \\divides q \\implies p = q$\n$p \\ne q \\implies p \\perp q$.",
+    "proof_text": "Let $p \\in \\Bbb P, p \\nmid a$.\nWe need to show that $\\gcd \\set {a, p} = 1$.\nLet $\\gcd \\set {a, p} = d$.\nAs $d \\divides p$, we must have $d = 1$ or $d = p$ by GCD with Prime.\nBut if $d = p$, then $p \\divides a$ by definition of greatest common divisor.\nSo $d \\ne p$ and therefore $d = 1$.",
+    "clean_row_index": 287,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The positive gcd divides the prime and can only be 1 or p. The second value contradicts p not dividing a."
+  },
+  {
+    "theorem_id": 1574,
+    "title": "GCD with Prime",
+    "theorem_text": "Let $p$ be a prime number.\nThen:\n$\\forall n \\in \\Z: \\gcd \\set {n, p} = \\begin{cases}\np & : p \\divides n \\\\\n1 & : p \\nmid n\n\\end{cases}$",
+    "proof_text": "The only divisors of $p$ are $1$ and $p$ itself by definition.\n$\\gcd \\set {n, p} = p$ precisely when $p$ divides $n$.\nHence the result.",
+    "clean_row_index": 699,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A positive divisor of p is either one or p. The latter is common with n exactly when p divides n."
+  },
+  {
+    "theorem_id": 676,
+    "title": "Composite Number has Two Divisors Less Than It",
+    "theorem_text": "Let $n \\in \\Z_{> 1}$ such that $n \\notin \\mathbb P$.\nThen:\n$\\exists a, b \\in \\Z: 1 < a < n, 1 < b < n: n = a b$\nThat is, a non-prime number greater than $1$ can be expressed as the product of two positive integers strictly greater than $1$ and less than $n$.\nNote that these two numbers are not necessarily distinct.",
+    "proof_text": "Since $n \\notin \\mathbb P$, it has a positive factor $a$ such that $a \\ne 1$ and $a \\ne n$.\nHence $\\exists b \\in \\Z: n = a b$.\nThus by definition of factor:\n$a \\divides n$\nwhere $\\divides$ denotes divisibility.\nFrom Divisor Relation on Positive Integers is Partial Ordering:\n$a \\le n$\nAs $a \\ne n$, it follows that $a < n$.\nFrom One Divides all Integers:\n$1 \\divides a$\nThus from Divisor Relation on Positive Integers is Partial Ordering:\n$1 \\le a$\nSimilarly, as $1 \\ne a$ it follows that $1 < a$.\nSince $a \\ne n$, it follows that $b \\ne 1$.\nSimilarly, since $a \\ne 1$, it follows that $b \\ne n$.\nThus:\n$b \\divides n: 1 \\ne b \\ne n$\nArguing as above, we show that $1 < b < n$ and the result follows.\nNote that we have not shown (and it is not necessarily the case) that $a \\ne b$.",
+    "clean_row_index": 288,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A nontrivial positive divisor gives a positive complementary quotient, and neither factor can be 1 or n. Both are therefore strictly between them."
+  },
+  {
+    "theorem_id": 679,
+    "title": "Not Coprime means Common Prime Factor",
+    "theorem_text": "Let $a, b \\in \\Z$.\nIf $d \\divides a$ and $d \\divides b$ such that $d > 1$, then $a$ and $b$ have a common divisor which is prime.",
+    "proof_text": "As $d > 1$, it has a prime decomposition.\nThus there exists a prime $p$ such that $p \\divides d$.\nFrom Divisor Relation on Positive Integers is Partial Ordering, we have $p \\divides d, d \\divides a \\implies p \\divides a$, and similarly for $b$.\nThe result follows.",
+    "clean_row_index": 289,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A prime factor of the common divisor divides both integers by transitivity of divisibility, which applies to signed multiples as well."
+  },
+  {
+    "theorem_id": 681,
+    "title": "Sum Less Minimum is Maximum",
+    "theorem_text": "For all numbers $a, b$ where $a, b$ in $\\N, \\Z, \\Q$ or $\\R$:\n$a + b - \\min \\left({a, b}\\right) = \\max \\left({a, b}\\right)$",
+    "proof_text": "From Sum of Maximum and Minimum we have that $a + b = \\max \\left({a, b}\\right) + \\min \\left({a, b}\\right)$.\nThus $a + b - \\min \\left({a, b}\\right) = \\max \\left({a, b}\\right)$ follows by subtracting $\\min \\left({a, b}\\right)$ from both sides.\nIt is clear that this result applies when $a, b$ in $\\Z, \\Q$ or $\\R$, as subtraction is well-defined throughout those number sets.\nHowever, it can be seen to apply in $\\N$ as well, despite the fact that $n - m$ is defined on $\\N$ only when $n \\ge m$.\nThis is because the fact that $a + b \\ge \\min \\left({a, b}\\right)$ follows immediately again from $a + b = \\max \\left({a, b}\\right) + \\min \\left({a, b}\\right)$.",
+    "clean_row_index": 290,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Subtracting the minimum from the max-plus-min identity gives the maximum. Its nonnegativity also ensures the subtraction is defined in the naturals."
+  },
+  {
+    "theorem_id": 682,
+    "title": "Sum Less Maximum is Minimum",
+    "theorem_text": "For all numbers $a, b$ where $a, b$ in $\\N, \\Z, \\Q$ or $\\R$:\n$a + b - \\max \\left({a, b}\\right) = \\min \\left({a, b}\\right)$.",
+    "proof_text": "From Sum of Maximum and Minimum we have that $a + b = \\max \\left({a, b}\\right) + \\min \\left({a, b}\\right)$.\nThus $a + b - \\max \\left({a, b}\\right) = \\min \\left({a, b}\\right)$ follows by subtracting $\\max \\left({a, b}\\right)$ from both sides.\nIt is clear that this result applies when $a, b$ in $\\Z, \\Q$ or $\\R$, as subtraction is well-defined throughout those number sets.\nHowever, it can be seen to apply in $\\N$ as well, despite the fact that $n - m$ is defined on $\\N$ only when $n \\ge m$.\nThis is because the fact that $a + b \\ge \\max \\left({a, b}\\right)$ follows immediately again from $a + b = \\max \\left({a, b}\\right) + \\min \\left({a, b}\\right)$.",
+    "clean_row_index": 291,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Subtracting the maximum leaves the minimum; the latter is nonnegative in the natural-number case, so the subtraction there is defined."
+  },
+  {
+    "theorem_id": 1677,
+    "title": "Sum of Maximum and Minimum",
+    "theorem_text": "For all numbers $a, b$ where $a, b$ in $\\N, \\Z, \\Q$ or $\\R$:\n$a + b = \\max \\left({a, b}\\right) + \\min \\left({a, b}\\right)$",
+    "proof_text": "From the definitions of max and min:\n$\\max \\left({a, b}\\right) = \\begin{cases}\nb: & a \\le b \\\\\na: & b \\le a\n\\end{cases}$\nand\n$\\min \\left({a, b}\\right) = \\begin{cases}\na: & a \\le b \\\\\nb: & b \\le a\n\\end{cases}$\n* Let $a < b$.\nThen:\n$\\max \\left({a, b}\\right) + \\min\\left({a, b}\\right) = b + a$\n* Let $a > b$.\nThen:\n$\\max \\left({a, b}\\right) + \\min \\left({a, b}\\right) = a + b$\n* Finally, let $a = b$.\nThen:\n$\\max \\left({a, b}\\right) = \\min \\left({a, b}\\right) = a = b$\nHence:\n$\\max \\left({a, b}\\right) + \\min \\left({a, b}\\right) = 2a = 2b = a + b$\nNote that this result does not apply to $a, b \\in \\C$ as there is no concept of ordering on the complex numbers $\\C$.",
+    "clean_row_index": 737,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In either order the maximum and minimum are a reordering of a and b, and addition is commutative in the specified number systems."
+  },
+  {
+    "theorem_id": 685,
+    "title": "Tau Function from Prime Decomposition",
+    "theorem_text": "Let $n$ be an integer such that $n \\ge 2$.\nLet the prime decomposition of $n$ be:\n$n = p_1^{k_1} p_2^{k_2} \\cdots p_r^{k_r}$\nLet $\\map \\tau n$ be the tau function of $n$.\nThen:\n$\\displaystyle \\map \\tau n = \\prod_{j \\mathop = 1}^r \\paren {k_j + 1}$",
+    "proof_text": "We have:\n$d \\divides n \\implies \\forall i: 1 \\le i \\le r: d = p_1^{l_1} p_2^{l_2} \\ldots p_1^{l_1}, 0 \\le l_i \\le k_i$\nFor each $i$, there are $k_i + 1$ choices for $l_i$, making $\\paren {k_1 + 1} \\paren {k_2 + 1} \\cdots \\paren {k_r + 1}$ choices in all.\nBy the Fundamental Theorem of Arithmetic and hence the uniqueness of prime decomposition, each of these choices results in a different number, therefore a distinct divisor.",
+    "clean_row_index": 292,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The proof counts the independent exponent choices from zero through each prime exponent and uses uniqueness of factorization. The repeated first factor at the end of the display is a recoverable index typo."
+  },
+  {
+    "theorem_id": 685,
+    "title": "Tau Function from Prime Decomposition",
+    "theorem_text": "Let $n$ be an integer such that $n \\ge 2$.\nLet the prime decomposition of $n$ be:\n$n = p_1^{k_1} p_2^{k_2} \\cdots p_r^{k_r}$\nLet $\\map \\tau n$ be the tau function of $n$.\nThen:\n$\\displaystyle \\map \\tau n = \\prod_{j \\mathop = 1}^r \\paren {k_j + 1}$",
+    "proof_text": "From Tau of Power of Prime we have:\n$\\forall j \\in \\closedint 1 r: \\map \\tau {p_j^{k_j} } = k_j + 1$\nThe result follows immediately from Tau Function is Multiplicative.",
+    "clean_row_index": 293,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Distinct prime powers are pairwise coprime, so multiplying their individual divisor counts gives the stated product."
+  },
+  {
+    "theorem_id": 688,
+    "title": "Sum of Geometric Sequence",
+    "theorem_text": "Let $x$ be an element of one of the standard number fields: $\\Q, \\R, \\C$ such that $x \\ne 1$.\nLet $n \\in \\N_{>0}$.\nThen:\n$\\displaystyle \\sum_{j \\mathop = 0}^{n - 1} x^j = \\frac {x^n - 1} {x - 1}$",
+    "proof_text": "For all $n \\in \\N_{> 0}$, let $\\map P n$ be the proposition:\n$\\displaystyle \\sum_{j \\mathop = 0}^{n - 1} x^j = \\frac {x^n - 1} {x - 1}$\nBasis for the Induction\n$\\map P 1$ is the case:\n$$\\dfrac {x^1 - 1} {x - 1} = 1$$\n$$= 2^0$$\n$$= \\sum_{j \\mathop = 0}^{1 - 1} x^j$$\nso $\\map P 1$ holds.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle \\sum_{j \\mathop = 0}^{k - 1} x^j = \\frac {x^k - 1} {x - 1}$\nThen we need to show:\n$\\displaystyle \\sum_{j \\mathop = 0}^k x^j = \\frac {x^{k + 1} - 1} {x - 1}$\nInduction Step\nThis is our induction step:\n$$\\sum_{j \\mathop = 0}^k x^j = \\sum_{j \\mathop = 0}^{k - 1} x^j + x^k$$\n$$= \\frac {x^k - 1} {x - 1} + x^k$$\n$$= \\frac {x^k - 1 + \\paren {x - 1} x^k} {x - 1}$$\n$$= \\frac {x^k - 1 + x^{k + 1} - x^k} {x - 1}$$\n$$= \\frac {x^{k + 1} - 1} {x - 1}$$\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\displaystyle \\forall n \\in \\N_{> 0}: \\sum_{j \\mathop = 0}^{n - 1} x^j = \\frac {x^n - 1} {x - 1}$",
+    "clean_row_index": 294,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The one-term sum is 1. Adding the next power to the inductive formula and using x≠1 gives the next numerator and the same denominator."
+  },
+  {
+    "theorem_id": 689,
+    "title": "Congruence of Sum of Digits to Base Less 1",
+    "theorem_text": "Let $x \\in \\Z$, and $b \\in \\N, b > 1$.\nLet $x$ be written in base $b$:\n$x = \\sqbrk {r_m r_{m - 1} \\ldots r_2 r_1 r_0}_b$\nThen:\n$\\displaystyle \\map {s_b} x = \\sum_{j \\mathop = 0}^m r_j \\equiv x \\pmod {b - 1}$\nwhere $\\map {s_b} x$ is the digit sum of $x$ in base $b$ notation.\nThat is, the digit sum of any integer $x$ in base $b$ notation is congruent to $x$ modulo $b - 1$.",
+    "proof_text": "Let $x \\in \\Z, x > 0$, and $b \\in \\N, b > 1$.\nThen from the Basis Representation Theorem, $x$ can be expressed uniquely as:\n$\\displaystyle x = \\sum_{j \\mathop = 0}^m r_j b^j, r_0, r_1, \\ldots, r_m \\in \\set {0, 1, \\ldots, b - 1}$\nProof by induction:\nFor all $n \\in \\N_{>0}$, let $\\map P n$ be the proposition $\\displaystyle \\sum_{j \\mathop = 0}^n r_j \\equiv x \\pmod {b - 1}$.\nBasis for the Induction\n$\\map P 1$ is trivially true:\n$\\forall x: 0 \\le x \\le b: x \\equiv x \\pmod {b - 1}$\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 2$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle \\sum_{j \\mathop = 0}^k r_j \\equiv \\sum_{j \\mathop = 0}^k r_j b^j \\pmod {b - 1}$\nThen we need to show:\n$\\displaystyle \\sum_{j \\mathop = 0}^{k \\mathop + 1} r_j \\equiv \\sum_{j \\mathop = 0}^{k \\mathop + 1} r_j b^j \\pmod {b - 1}$\nInduction Step\nThis is our induction step:\nLet $y$ be expressed as:\n$\\displaystyle y = \\sum_{j \\mathop = 0}^{k \\mathop + 1} {r_j b^j}, r_0, r_1, \\ldots, r_{k + 1} \\in \\set {0, 1, \\ldots, b}$\nThen:\n$\\displaystyle y = \\sum_{j \\mathop = 0}^k r_j b^j + r_{k + 1} b^{k + 1}$\nNow from Congruence of Powers:\n$b \\equiv 1 \\pmod {b - 1} \\leadsto b^n \\equiv 1^n \\pmod {b - 1} \\leadsto b^n \\equiv 1 \\pmod {b - 1}$\nSo by modulo multiplication:\n$r_{k + 1} b^{k + 1} \\equiv r_{k + 1} \\pmod {b - 1}$\nFrom the induction hypothesis:\n$\\displaystyle \\sum_{j \\mathop = 0}^{k \\mathop + 1} r_j \\equiv y \\pmod {b - 1}$\nThus by modulo addition:\n$\\displaystyle \\sum_{j \\mathop = 0}^{k \\mathop + 1} r_j \\equiv \\sum_{j \\mathop = 0}^k r_j + r_{k + 1} \\pmod {b - 1}$\nHence $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction:\n$\\displaystyle \\sum_{j \\mathop = 0}^n r_j \\equiv \\sum_{j \\mathop = 0}^n r_j b^j \\pmod {b - 1}$",
+    "clean_row_index": 295,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "The argument restricts x to positive integers and does not address the stated signed domain. Even there its base case states reflexivity rather than the proposed congruence for a two-digit expansion."
+  },
+  {
+    "theorem_id": 690,
+    "title": "Euler Phi Function of Integer",
+    "theorem_text": "Let $n \\in \\Z_{>0}$, that is, a (strictly) positive integer.\nLet $\\phi: \\Z_{>0} \\to \\Z_{>0}$ be the Euler $\\phi$-function.\nThen for any $n \\in \\Z_{>0}$, we have:\n$\\map \\phi n = n \\paren {1 - \\dfrac 1 {p_1} } \\paren {1 - \\dfrac 1 {p_2} } \\cdots \\paren {1 - \\dfrac 1 {p_r} }$\nwhere $p_1, p_2, \\ldots, p_r$ are the distinct primes dividing $n$.\nOr, more compactly:\n$\\displaystyle \\map \\phi n = n \\prod_{p \\mathop \\divides n} \\paren {1 - \\frac 1 p}$\nwhere $p \\divides n$ denotes the primes which divide $n$.",
+    "proof_text": "If $n = 1$ the result holds by inspection.\nLet $n \\ge 2$.\nWe express $n$ in its prime decomposition:\n$n = p_1^{k_1} p_2^{k_2} \\cdots p_r^{k_r}, p_1 < p_2 < \\cdots < p_r$\nas it is always possible to do.\nBy definition, all primes are coprime to each other.\nHence from Euler Phi Function is Multiplicative:\n$\\map \\phi n = \\map \\phi {p_1^{k_1} } \\map \\phi {p_2^{k_2} } \\cdots \\map \\phi {p_r^{k_r} }$\nand from Euler Phi Function of Prime Power:\n$\\map \\phi {p^k} = p^k \\paren {1 - \\dfrac 1 p}$\nSo:\n$\\map \\phi n = p_1^{k_1} \\paren {1 - \\dfrac 1 {p_1} } p_2^{k_2} \\paren {1 - \\dfrac 1 {p_2} } \\cdots p_r^{k_r} \\paren {1 - \\dfrac 1 {p_r} }$\nand the result follows directly from:\n$n = p_1^{k_1} p_2^{k_2} \\cdots p_r^{k_r}$",
+    "clean_row_index": 296,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The proof handles 1 separately, then multiplies the totients of the pairwise coprime prime powers and collects their product n."
+  },
+  {
+    "theorem_id": 692,
+    "title": "Euler Phi Function of Prime Power",
+    "theorem_text": "Let $p^n$ be a prime power for some prime number $p > 1$.\nThen:\n$\\map \\phi {p^n} = p^n \\paren {1 - \\dfrac 1 p} = \\paren {p - 1} p^{n - 1}$\nwhere $\\phi: \\Z_{>0} \\to \\Z_{>0}$ is the Euler $\\phi$ function.",
+    "proof_text": "From Euler Phi Function of Prime:\n$\\map \\phi p = p - 1$\nFrom Prime not Divisor implies Coprime:\n$k \\perp p^n \\iff p \\nmid k$\nThere are $p^{n - 1}$ integers $k$ such that $1 \\le k \\le p^n$ which are divisible by $p$:\n$k \\in \\set {p, 2 p, 3 p, \\ldots, \\paren {p^{n - 1} } p}$\nTherefore:\n$\\map \\phi {p^n} = p^n - p^{n - 1} = p^n \\paren {1 - \\dfrac 1 p} = \\paren {p - 1} p^{n - 1}$",
+    "clean_row_index": 297,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Among 1 through p^n the only integers not coprime to the prime power are the p^(n−1) multiples of p. Subtraction gives the formula."
+  },
+  {
+    "theorem_id": 693,
+    "title": "Sum of Euler Phi Function over Divisors",
+    "theorem_text": "Let $n \\in \\Z_{>0}$ be a strictly positive integer.\nThen $\\displaystyle \\sum_{d \\mathop \\divides n} \\map \\phi d = n$\nwhere:\n$\\displaystyle \\sum_{d \\mathop \\divides n}$ denotes the sum over all of the divisors of $n$\n$\\map \\phi d$ is the Euler $\\phi$ function, the number of integers less than $d$ that are prime to $d$.\nThat is, the total of all the totients of all divisors of a number equals that number.",
+    "proof_text": "Let us define:\n$S_d = \\set {m \\in \\Z: 1 \\le m \\le n, \\gcd \\set {m, n} = d}$.\nThat is, $S_d$ is all the numbers less than or equal to $n$ whose GCD with $n$ is $d$.\nNow from Integers Divided by GCD are Coprime we have:\n$\\gcd \\set {m, n} = d \\iff \\dfrac m d, \\dfrac n d \\in \\Z: \\dfrac m d \\perp \\dfrac n d$\nSo the number of integers in $S_d$ equals the number of positive integers no bigger than $\\dfrac n d$ which are prime to $\\dfrac n d$.\nThat is, by definition of the Euler phi function:\n$\\card {S_d} = \\map \\phi {\\dfrac n d}$\nFrom the definition of the $S_d$, it follows that for all $1 \\le m \\le n$:\n$\\exists d \\divides n: m \\in S_d$\nTherefore:\n$\\displaystyle \\set {1, \\ldots, n} = \\bigcup_{d \\mathop \\divides n} S_d$\nMoreover, it follows from the definition of the $S_d$ that they are pairwise disjoint.\nNow from Corollary to Cardinality of Set Union, it follows that:\n$$n = \\sum_{d \\mathop \\divides n} \\card {S_d}$$\n$$= \\sum_{d \\mathop \\divides n} \\map \\phi {\\dfrac n d}$$\nBut from Sum Over Divisors Equals Sum Over Quotients:\n$\\displaystyle \\sum_{d \\mathop \\divides n} \\map \\phi {\\dfrac n d} = \\sum_{d \\mathop \\divides n} \\map \\phi d$\nand hence the result.",
+    "clean_row_index": 298,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The gcd classes partition the n integers; dividing by d bijects each class with the reduced residues through n/d. Complementary divisors reindex the sum."
+  }
+]

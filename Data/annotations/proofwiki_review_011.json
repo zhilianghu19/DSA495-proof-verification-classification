@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 696,
+    "title": "Binomial Coefficient of Prime",
+    "theorem_text": "Let $p$ be a prime number.\nThen:\n$\\forall k \\in \\Z: 0 < k < p: \\dbinom p k \\equiv 0 \\pmod p$\nwhere $\\dbinom p k$ is defined as a binomial coefficient.",
+    "proof_text": "Lucas' Theorem gives:\n$\\dbinom n k \\equiv \\dbinom {\\left \\lfloor {n / p} \\right \\rfloor} {\\left \\lfloor {k / p} \\right \\rfloor} \\dbinom {n \\bmod p} {k \\bmod p} \\pmod p$\nSo, substituting $p$ for $n$:\n$\\dbinom p k \\equiv \\dbinom {\\left \\lfloor {p / p} \\right \\rfloor} {\\left \\lfloor {k / p} \\right \\rfloor} \\dbinom {p \\bmod p} {k \\bmod p} \\pmod p$\nBut $p \\bmod p = 0$ by definition.\nHence, if $0 < k < p$, we have that:\n$k \\bmod p \\ne 0$\nand so:\n$\\dbinom {p \\bmod p} {k \\bmod p} = \\dbinom 0 {k \\bmod p} = 0$\nby definition of binomial coefficients.\nThe result follows immediately.",
+    "clean_row_index": 300,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Lucas' theorem supplies the factor binom(0,k)=0 for 0<k<p, proving divisibility by p."
+  },
+  {
+    "theorem_id": 698,
+    "title": "Binomial Coefficient involving Power of Prime",
+    "theorem_text": "$\\dbinom {p^n k} {p^n} \\equiv k \\pmod p$\nwhere $\\dbinom {p^n k} {p^n}$ is a binomial coefficient.",
+    "proof_text": "From  Prime Power of Sum Modulo Prime we have:\n$(1): \\quad \\paren {a + b}^{p^n} \\equiv \\paren {a^{p^n} + b^{p^n} } \\pmod p$\nWe can write this:\n$\\paren {a + b}^{p^n k} = \\paren {\\paren {a + b}^{p^n} }^k$\nBy $(1)$ and Congruence of Powers, we therefore have:\n$\\paren {a + b}^{p^n k} \\equiv \\paren {a^{p^n} + b^{p^n} }^k \\pmod p$\nThe coefficient $\\dbinom {p^n k} {p^n}$ is the binomial coefficient of $b^{p^n}$ in $\\paren {a + b}^{p^n k} = \\paren {\\paren {a + b}^{p^n} }^k$.\nExpanding $\\paren {a^{p^n} + b^{p^n} }^k$ using the Binomial Theorem, we find that the coefficient of $b^{p^n}$, the second term, is $\\dbinom k 1 = k$.\nSo:\n$\\dbinom {p^n k} {p^n} \\equiv k \\pmod p$",
+    "clean_row_index": 301,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The Frobenius congruence, raised to the kth power, gives the claimed congruence by comparing the monomial containing b^(p^n)."
+  },
+  {
+    "theorem_id": 698,
+    "title": "Binomial Coefficient involving Power of Prime",
+    "theorem_text": "$\\dbinom {p^n k} {p^n} \\equiv k \\pmod p$\nwhere $\\dbinom {p^n k} {p^n}$ is a binomial coefficient.",
+    "proof_text": "Lucas' Theorem states that for $n, k, p \\in \\Z$ and $p$ be a prime number, such that:\n$n = a_r p^r + \\cdots + a_1 p + a_0$\n$k = b_r p^r + \\cdots + b_1 p + b_0$\nthen:\n$\\displaystyle \\binom n k \\equiv \\prod_{j \\mathop = 0}^r \\binom {a_j}{b_j} \\pmod p$\nTherefore:\n$$\\binom {p^n k} {p^n} \\equiv \\binom k 1 \\prod_{j \\mathop = 0}^{n - 1} \\binom 0 0 \\pmod p$$\nLucas' Theorem\n$$\\equiv k \\prod_{j \\mathop = 0}^{n - 1} 1 \\pmod p$$\nBinomial Coefficient with One, Binomial Coefficient with Zero\n$$\\equiv k \\pmod p$$",
+    "clean_row_index": 302,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Lucas' theorem removes the n trailing zero digits; the remaining contribution is k modulo p."
+  },
+  {
+    "theorem_id": 699,
+    "title": "Cassini's Identity",
+    "theorem_text": "$F_{n + 1} F_{n - 1} - F_n^2 = \\paren {-1}^n$",
+    "proof_text": "We see that:\n$F_2 F_0 - F_1^2 = 1 \\times 0 - 1 = -1 = \\left({-1}\\right)^1$\nso the proposition holds for $n = 1$.\nWe also see that:\n$F_3 F_1 - F_2^2 = 2 \\times 1 - 1 = \\left({-1}\\right)^2$\nso the proposition holds for $n = 2$.\nSuppose the proposition is true for $n = k$, that is:\n$F_{k + 1} F_{k - 1} - F_k^2 = \\left({-1}\\right)^k$\nIt remains to be shown that it follows from this that the proposition is true for $n = k + 1$, that is:\n$F_{k + 2} F_k - F_{k + 1}^2 = \\left({-1}\\right)^{k + 1}$\nSo:\n$$F_{k + 2} F_k - F_{k + 1}^2 = \\left({F_k + F_{k + 1} }\\right) F_k - F_{k + 1}^2$$\n$$= F_k^2 + F_k F_{k + 1} - F_{k + 1}^2$$\n$$= F_k^2 + F_k F_{k + 1} - F_{k + 1} \\left({F_k + F_{k - 1} }\\right)$$\n$$= F_k^2 + F_k F_{k + 1} - F_k F_{k + 1} - F_{k + 1} F_{k - 1}$$\n$$= F_k^2 - F_{k + 1} F_{k - 1}$$\n$$= \\left({-1}\\right) \\left({F_{k + 1} F_{k - 1} - F_k^2}\\right)$$\n$$= \\left({-1}\\right) \\left({-1}\\right)^k$$\n$$= \\left({-1}\\right)^{k + 1}$$\nBy the Principle of Mathematical Induction, the proof is complete.\nNote that from the above we have that:\n$F_{k + 2} F_k - F_{k + 1}^2 = \\left({-1}\\right)^{k + 1}$\nfrom which:\n$F_{n + 1}^2 - F_n F_{n + 2} = \\left({-1}\\right)^n$\nfollows immediately.",
+    "clean_row_index": 303,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The Fibonacci recurrence transforms the expression at k+1 into the negative of the expression at k, completing induction."
+  },
+  {
+    "theorem_id": 700,
+    "title": "Rational Numbers are Countably Infinite",
+    "theorem_text": "The set $\\Q$ of rational numbers is countably infinite.",
+    "proof_text": "The rational numbers are arranged thus:\n$\\dfrac 0 1, \\dfrac 1 1, \\dfrac {-1} 1, \\dfrac 1 2, \\dfrac {-1} 2, \\dfrac 2 1, \\dfrac {-2} 1, \\dfrac 1 3, \\dfrac 2 3,  \\dfrac {-1} 3, \\dfrac {-2} 3, \\dfrac 3 1, \\dfrac 3 2, \\dfrac {-3} 1, \\dfrac {-3} 2, \\dfrac 1 4, \\dfrac 3 4, \\dfrac {-1} 4, \\dfrac {-3} 4, \\dfrac 4 1, \\dfrac 4 3, \\dfrac {-4} 1, \\dfrac {-4} 3 \\ldots$\nIt is clear that every rational number will appear somewhere in this list.\nThus it is possible to set up a bijection between each rational number and its position in the list, which is an element of $\\N$.",
+    "clean_row_index": 304,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The displayed pattern lists reduced fractions by the maximum of denominator and absolute numerator, covering every rational exactly once."
+  },
+  {
+    "theorem_id": 700,
+    "title": "Rational Numbers are Countably Infinite",
+    "theorem_text": "The set $\\Q$ of rational numbers is countably infinite.",
+    "proof_text": "Let us define the mapping $\\phi: \\Q \\to \\Z \\times \\N$ as follows:\n$\\forall \\dfrac p q \\in \\Q: \\phi \\left({\\dfrac p q}\\right) = \\left({p, q}\\right)$\nwhere $\\dfrac p q$ is in canonical form.\nThen $\\phi$ is clearly injective.\nFrom Cartesian Product of Countable Sets is Countable, we have that $\\Z \\times \\N$ is countably infinite.\nThe result follows directly from Domain of Injection to Countable Set is Countable.",
+    "clean_row_index": 305,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Canonical numerator-denominator pairs give an injection into the countable set Z×N; Q is infinite because it contains Z."
+  },
+  {
+    "theorem_id": 700,
+    "title": "Rational Numbers are Countably Infinite",
+    "theorem_text": "The set $\\Q$ of rational numbers is countably infinite.",
+    "proof_text": "Let $Q_\\pm = \\set {q \\in \\Q: \\pm q > 0}$.\nFor every $q \\in Q_+$, there exists at least one pair $\\tuple {m, n} \\in \\N \\times \\N$ such that $q = \\dfrac m n$.\nTherefore, we can find an injection $i: Q_+ \\to \\N \\times \\N$.\nBy Cartesian Product of Natural Numbers with Itself is Countable, $\\N \\times \\N$ is countable.\nHence $Q_+$ is countable, by Domain of Injection to Countable Set is Countable.\nThe map $-: q \\mapsto -q$ provides a bijection from $Q_-$ to $Q_+$, hence $Q_-$ is also countable.\nHence $\\Q$ is countable.",
+    "clean_row_index": 306,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Positive rationals inject into N×N, negation handles negative rationals, and adjoining zero preserves countability; Q is infinite."
+  },
+  {
+    "theorem_id": 701,
+    "title": "Real Numbers form Ordered Field",
+    "theorem_text": "The set of real numbers $\\R$ forms an ordered field under addition and multiplication: $\\struct {\\R, +, \\times, \\le}$.",
+    "proof_text": "From Real Numbers form Field, we have that $\\struct {\\R, +, \\times}$ forms a field.\nFrom Ordering Properties of Real Numbers we have that $\\struct {\\R, +, \\times, \\le}$ is a ordered field.",
+    "clean_row_index": 307,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited field and ordering properties together supply precisely the ordered-field axioms."
+  },
+  {
+    "theorem_id": 702,
+    "title": "Rational Numbers form Subfield of Real Numbers",
+    "theorem_text": "The (ordered) field $\\struct {\\Q, +, \\times, \\le}$ of rational numbers forms a subfield of the field of real numbers $\\struct {\\R, +, \\times, \\le}$.\nThat is, the field of real numbers $\\struct {\\R, +, \\times, \\le}$ is an extension of the rational numbers $\\struct {\\Q, +, \\times, \\le}$.",
+    "proof_text": "Recall that Rational Numbers form Ordered Field.\nThen from Rational Numbers form Subset of Real Numbers:\n$\\Q \\subseteq \\R$\nHence the result by definition of subfield.",
+    "clean_row_index": 308,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Q is a field contained in R with the inherited addition and multiplication, so it is a subfield."
+  },
+  {
+    "theorem_id": 705,
+    "title": "Order is Preserved on Positive Reals by Squaring",
+    "theorem_text": "$x < y \\iff x^2 < y^2$",
+    "proof_text": "From Real Numbers form Ordered Field, the real numbers form an ordered field.\nThe result follows from Order of Squares in Ordered Field.",
+    "clean_row_index": 309,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For the positive real domain specified in the title, the cited ordered-field result gives both directions."
+  },
+  {
+    "theorem_id": 705,
+    "title": "Order is Preserved on Positive Reals by Squaring",
+    "theorem_text": "$x < y \\iff x^2 < y^2$",
+    "proof_text": "From Real Numbers form Ordered Field, the real numbers form an ordered field.\nBy definition, an ordered field is a totally ordered ring without proper zero divisors.\nThe result follows from Order of Squares in Totally Ordered Ring without Proper Zero Divisors.",
+    "clean_row_index": 310,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "R is a totally ordered ring without zero divisors, so the cited squaring result applies to the positive reals specified in the title."
+  },
+  {
+    "theorem_id": 707,
+    "title": "Difference of Two Squares",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a commutative ring whose zero is $0_R$.\nLet $x, y \\in R$.\nThen:\n$x \\circ x + \\paren {- \\paren {y \\circ y} } = \\paren {x + y} \\circ \\paren {x + \\paren {-y} }$\nWhen $R$ is one of the standard sets of numbers, that is $\\Z, \\Q, \\R$, and so on, then this translates into:\n$x^2 - y^2 = \\paren {x + y} \\paren {x - y}$",
+    "proof_text": "This is a special case of Difference of Two Powers:\n$\\displaystyle a^n - b^n = \\left({a - b}\\right) \\left({a^{n - 1} + a^{n - 2} b + a^{n - 3} b^2 + \\cdots + a b^{n - 2} + b^{n - 1} }\\right) = \\left({a - b}\\right) \\sum_{j \\mathop = 0}^{n - 1} a^{n - j - 1} b^j$\nThe result follows by setting $n = 2$.",
+    "clean_row_index": 311,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Setting n=2 in the difference-of-powers identity gives (x−y)(x+y); commutativity permits the stated factor order."
+  },
+  {
+    "theorem_id": 710,
+    "title": "Real Numbers Between Epsilons",
+    "theorem_text": "Let $a, b \\in \\R$ such that $\\forall \\epsilon \\in \\R_{>0}: a - \\epsilon < b < a + \\epsilon$.\nThen $a = b$.",
+    "proof_text": "From Real Plus Epsilon:\n$b < a + \\epsilon \\implies b \\le a$\nFrom Real Number Ordering is Compatible with Addition:\n$a - \\epsilon < b \\implies a < b + \\epsilon$\nThen from Real Plus Epsilon:\n$a < b + \\epsilon \\implies a \\le b$\nThe result follows.",
+    "clean_row_index": 312,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The inequalities for every positive epsilon yield b≤a and a≤b, hence equality."
+  },
+  {
+    "theorem_id": 711,
+    "title": "Exists Integer Below Any Real Number",
+    "theorem_text": "Let $x$ be a real number.\nThen there exists an integer less than $x$:\n$\\forall x \\in \\R: \\exists n \\in \\Z: n < x$",
+    "proof_text": "Clearly we may assume without loss of generality that $x < 0$.\nFrom the Archimedean Principle:\n$\\exists m \\in \\N: m > -x$\nBy Real Numbers form Ordered Field, we have that $\\R$ is an ordered field.\nTherefore by property $(3)$ of Properties of Ordered Field, $\\Z \\owns -m < x$.",
+    "clean_row_index": 313,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Archimedean unboundedness gives a natural m>−x, and negation yields the integer −m<x."
+  },
+  {
+    "theorem_id": 712,
+    "title": "Archimedean Principle",
+    "theorem_text": "Let $x$ be a real number.\nThen there exists a natural number greater than $x$.\n$\\forall x \\in \\R: \\exists n \\in \\N: n > x$\nThat is, the set of natural numbers is unbounded above.",
+    "proof_text": "Let $x \\in \\R$.\nLet $S$ be the set of all natural numbers less than or equal to $x$:\n$S = \\set {a \\in \\N: a \\le x}$\nIt is possible that $S = \\O$.\nSuppose $0 \\le x$.\nThen by definition, $0 \\in S$.\nBut $S = \\O$, so this is a contradiction.\nFrom the Trichotomy Law for Real Numbers it follows that $0 > x$.\nThus we have the element $0 \\in \\N$ such that $0 > x$.\nNow suppose $S \\ne \\O$.\nThen $S$ is bounded above (by $x$, for example).\nThus by the Continuum Property of $\\R$, $S$ has a supremum in $\\R$.\nLet $s = \\map \\sup S$.\nNow consider the number $s - 1$.\nSince $s$ is the supremum of $S$, $s - 1$ cannot be an upper bound of $S$ by definition.\nSo $\\exists m \\in S: m > s - 1 \\implies m + 1 > s$.\nBut as $m \\in \\N$, it follows that $m + 1 \\in \\N$.\nBecause $m + 1 > s$, it follows that $m + 1 \\notin S$ and so $m + 1 > x$.",
+    "clean_row_index": 314,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "If S is nonempty, an element m>s−1 has natural successor exceeding sup S, so that successor lies outside S and exceeds x; the empty case is also handled."
+  },
+  {
+    "theorem_id": 713,
+    "title": "Real Number is between Floor Functions",
+    "theorem_text": "$\\forall x \\in \\R: \\floor x \\le x < \\floor {x + 1}$",
+    "proof_text": "$\\floor x$ is defined as:\n$\\floor x = \\sup \\set {m \\in \\Z: m \\le x}$\nSo $\\floor x \\le x$ by definition.\nFrom Floor plus One:\n$\\floor {x + 1} > \\floor x$\nHence by the definition of the supremum:\n$\\floor {x + 1} > x$\nThe result follows.",
+    "clean_row_index": 315,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The integer floor(x+1) exceeds sup{m∈Z:m≤x}; therefore it cannot itself be ≤x."
+  },
+  {
+    "theorem_id": 719,
+    "title": "Real Number is Integer iff equals Floor",
+    "theorem_text": "$x = \\floor x \\iff x \\in \\Z$",
+    "proof_text": "Let $x = \\floor x$.\nAs $\\floor x \\in \\Z$, then so must $x$ be.\nNow let $x \\in \\Z$.\nWe have:\n$\\floor x = \\sup \\set {m \\in \\Z: m \\le x}$\nAs $x \\in \\sup \\set {m \\in \\Z: m \\le x}$, and there can be no greater $n \\in \\Z$ such that $n \\in \\sup \\set {m \\in \\Z: m \\le x}$, it follows that:\n$x = \\floor x$",
+    "clean_row_index": 316,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A number equal to its floor is integral; conversely, an integer x is the maximum of the integers at most x, hence their supremum."
+  },
+  {
+    "theorem_id": 720,
+    "title": "Sum of Floor and Floor of Negative",
+    "theorem_text": "Let $x \\in \\R$. Then:\n$\\floor x + \\floor {-x} = \\begin{cases} 0 & : x \\in \\Z \\\\ -1 & : x \\notin \\Z \\end{cases}$\nwhere $\\floor x$ denotes the floor of $x$.",
+    "proof_text": "Let $x \\in \\Z$.\nThen from Real Number is Integer iff equals Floor:\n$x = \\floor x$\nNow $x \\in \\Z \\implies -x \\in \\Z$, so:\n$\\floor {-x} = -x$\nThus:\n$\\floor x + \\floor {-x} = x + \\paren {-x} = x - x = 0$\nNow let $x \\notin \\Z$.\nFrom Real Number is Floor plus Difference:\n$x = n + t$\nwhere $n = \\floor x$ and $t \\in \\hointr 0 1$.\nThus:\n$-x = -\\paren {n + t} = -n - t = -n - 1 + \\paren {1 - t}$\nAs $t \\in \\hointr 0 1$, we have:\n$1 - t \\in \\hointr 0 1$\nThus:\n$\\floor {-x} = -n - 1$\nSo:\n$\\floor x + \\floor {-x} = n + \\paren {-n - 1} = n - n - 1 = -1$",
+    "clean_row_index": 317,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For nonintegral x, its fractional part satisfies 0<t<1, so −x=(−n−1)+(1−t) has floor −n−1; the integral case sums to zero."
+  },
+  {
+    "theorem_id": 724,
+    "title": "Cauchy's Inequality",
+    "theorem_text": "$\\displaystyle \\sum {r_i^2} \\sum {s_i^2} \\ge \\left({\\sum {r_i s_i}}\\right)^2$",
+    "proof_text": "From the Complex Number form of the Cauchy-Schwarz Inequality, we have:\n$\\displaystyle \\sum \\left|{w_i}\\right|^2 \\left|{z_i}\\right|^2 \\ge \\left|{\\sum w_i z_i}\\right|^2$\nwhere all of $w_i, z_i \\in \\C$.\nAs elements of $\\R$ are also elements of $\\C$, it follows that:\n$\\displaystyle \\sum \\left|{r_i}\\right|^2 \\left|{s_i}\\right|^2 \\ge \\left|{\\sum r_i s_i}\\right|^2$\nwhere all of $r_i, s_i \\in \\R$.\nBut from the definition of modulus, it follows that:\n$\\displaystyle \\forall r_i \\in \\R: \\left|{r_i}\\right|^2 = r_i^2$\nThus:\n$\\displaystyle \\sum {r_i^2} \\sum {s_i^2} \\ge \\left({\\sum {r_i s_i}}\\right)^2$\nwhere all of $r_i, s_i \\in \\R$.",
+    "clean_row_index": 318,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The displayed single-sum inequality is false: r=s=(1,1) gives 2≥4. The final line changes this single sum into a product of sums without justification."
+  },
+  {
+    "theorem_id": 726,
+    "title": "Finite Semigroup Equal Elements for Different Powers",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ be a finite semigroup.\nThen:\n$\\forall x \\in S: \\exists m, n \\in \\N: m \\ne n: x^m = x^n$",
+    "proof_text": "List the positive powers $x, x^2, x^3, \\ldots$ of any element $x$ of a finite semigroup $\\left({S, \\circ}\\right)$.\nSince all are elements of $S$, and the semigroup has a finite number of elements, it follows from the Pigeonhole Principle this list must contain repetitions.\nSo there must be at least one instance where $x^m = x^n$ for some $m, n \\in \\N$.",
+    "clean_row_index": 319,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Infinitely many positive powers occupy a finite set, so two distinct exponents give the same element by pigeonhole."
+  },
+  {
+    "theorem_id": 729,
+    "title": "Power of Conjugate equals Conjugate of Power",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group whose identity is $e$.\nLet $x, y \\in G$ such that $\\exists a \\in G: x \\circ a = a \\circ y$.\nThat is, let $x$ and $y$ be conjugate.\nThen:\n$\\forall n \\in \\Z: y^n = \\paren {a^{-1} \\circ x \\circ a}^n = a^{-1} \\circ x^n \\circ a$\nIt follows directly that:\n$\\exists b \\in G: \\forall n \\in \\Z: y^n = b \\circ x^n \\circ b^{-1}$\nIn particular:\n$y^{-1} = \\paren {a^{-1} \\circ x \\circ a}^{-1} = a^{-1} \\circ x^{-1} \\circ a$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N$, let $\\map P n$ be the proposition $y^n = a^{-1} \\circ x^n \\circ a$.\n$\\map P 0$ is true, as this just says $e =  a^{-1} \\circ e \\circ a$.\nBasis for the Induction\n$\\map P 1$ is the case $y = a^{-1} \\circ x \\circ a$, which is how conjugacy is defined for $x$ and $y$.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$y^k = a^{-1} \\circ x^k \\circ a$\nThen we need to show:\n$y^{k + 1} = a^{-1} \\circ x^{k + 1} \\circ a$\nInduction Step\nThis is our induction step:\n$$y^{k + 1} = \\paren {a^{-1} \\circ x \\circ a}^{k + 1}$$\n$$= \\paren {a^{-1} \\circ x \\circ a}^k \\circ \\paren {a^{-1} \\circ x \\circ a}$$\n$$= \\paren {a^{-1} \\circ x^k \\circ a} \\circ \\paren {a^{-1} \\circ x \\circ a}$$\nInduction Hypothesis\n$$= a^{-1} \\circ x^k \\circ x \\circ a$$\n$$= a^{-1} \\circ x^{k + 1} \\circ a$$\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\forall n \\in \\N: y^n = a^{-1} \\circ x^n \\circ a$\nNow we need to show that if $\\map P n$ holds, then $\\map P {-n}$ holds.\nThat is:\n$y^{-n} = a^{-1} \\circ x^{-n} \\circ a$\nLet $n \\in \\N$.\nThen:\n$$y^{-n} = \\paren {a^{-1} \\circ x \\circ a}^{-n}$$\n$$= \\paren {\\paren {a^{-1} \\circ x \\circ a}^n}^{-1}$$\nIndex Laws for Monoids: Negative Index\n$$= \\paren {a^{-1} \\circ x^n \\circ a}^{-1}$$\n$$= a^{-1} \\circ \\paren {x^n}^{-1} \\circ \\paren {a^{-1} }^{-1}$$\nInverse of Group Product\n$$= a^{-1} \\circ x^{-n} \\circ a$$\nThus $\\map P n$ has been shown to hold for all $n \\in \\Z$.\nHence the result.",
+    "clean_row_index": 320,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Induction cancels the adjacent a and a⁻¹ factors; taking inverses then establishes the formula for negative exponents."
+  },
+  {
+    "theorem_id": 732,
+    "title": "Powers of Elements in Group Direct Product",
+    "theorem_text": "Let $\\left({G, \\circ_1}\\right)$ and $\\left({H, \\circ_2}\\right)$ be group whose identities are $e_G$ and $e_H$.\nLet $\\left({G \\times H, \\circ}\\right)$ be the group direct product (either external or internal) of $G$ and $H$.\nThen:\n$\\forall n \\in \\Z: \\forall g \\in G, h \\in H: \\left({g, h}\\right)^n = \\left({g^n, h^n}\\right)$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N$, let $P \\left({n}\\right)$ be the proposition $\\forall g \\in G, h \\in H: \\left({g, h}\\right)^n = \\left({g^n, h^n}\\right)$.\nBasis for the Induction\n$P(0)$ is true, as this says:\n$\\left({g, h}\\right)^0 = \\left({e_G, e_H}\\right)$\n$P(1)$ is true, as this says:\n$\\left({g, h}\\right) = \\left({g, h}\\right)$\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $P \\left({k}\\right)$ is true, where $k \\ge 1$, then it logically follows that $P \\left({k+1}\\right)$ is true.\nSo this is our induction hypothesis:\n$\\left({g, h}\\right)^k = \\left({g^k, h^k}\\right)$\nThen we need to show:\n$\\left({g, h}\\right)^{k+1} = \\left({g^{k+1}, h^{k+1}}\\right)$\nInduction Step\nThis is our induction step:\n$$\\left({g, h}\\right)^{k+1} = \\left({g, h}\\right)^k \\circ \\left({g, h}\\right)$$\n$$= \\left({g^k, h^k}\\right) \\circ \\left({g, h}\\right)$$\nInduction Hypothesis\n$$= \\left({g^k \\circ_1 g, h^k \\circ_2 h}\\right)$$\nby definition of external or internal group product\n$$= \\left({g^{k+1}, h^{k+1} }\\right)$$\nSo $P \\left({k}\\right) \\implies P \\left({k+1}\\right)$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\forall n \\in \\N: \\forall g \\in G, h \\in H: \\left({g, h}\\right)^n = \\left({g^n, h^n}\\right)$\nSo we have shown the result holds true for all $n \\ge 0$.\nThe result for $n < 0$ follows directly from Powers of Group Elements for negative indices.",
+    "clean_row_index": 321,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Componentwise multiplication proves the formula by induction, and componentwise inverses extend it to negative powers."
+  },
+  {
+    "theorem_id": 736,
+    "title": "General Morphism Property for Semigroups",
+    "theorem_text": "Let $\\struct {S, \\circ}$ and $\\struct {T, *}$ be semigroups.\nLet $\\phi: S \\to T$ be a homomorphism.\nThen:\n$\\forall s_k \\in S: \\map \\phi {s_1 \\circ s_2 \\circ \\cdots \\circ s_n} = \\map \\phi {s_1} * \\map \\phi {s_2} * \\cdots * \\map \\phi {s_n}$\nHence it follows that:\n$\\forall n \\in \\N_{>0}: \\forall s \\in S: \\map \\phi {s^n} = \\paren {\\map \\phi s}^n$",
+    "proof_text": "$\\forall s_k \\in S: \\map \\phi {s_1 \\circ s_2 \\circ \\cdots \\circ s_n} = \\map \\phi {s_1} * \\map \\phi {s_2} * \\cdots * \\map \\phi {s_n}$ can be proved by induction.\nFor all $n \\in \\N_{>0}$, let $\\map P n$ be the proposition:\n$\\map \\phi {s_1 \\circ s_2 \\circ \\cdots \\circ s_n} = \\map \\phi {s_1} * \\map \\phi {s_2} * \\cdots * \\map \\phi {s_n}$\n$P(1)$ is true, as this just says:\n$\\map \\phi {s_1} = \\map \\phi {s_1}$.\nBasis for the Induction\n$P(2)$ is the case:\n$\\map \\phi {s_1 \\circ s_2} = \\map \\phi {s_1} * \\map \\phi {s_2}$\nThis follows from the fact that $\\phi$ is a homomorphism.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 2$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\map \\phi {s_1 \\circ s_2 \\circ \\cdots \\circ s_k} = \\map \\phi {s_1} * \\map \\phi {s_2} * \\cdots * \\map \\phi {s_k}$\nThen we need to show:\n$\\map \\phi {s_1 \\circ s_2 \\circ \\cdots \\circ s_k \\circ s_{k + 1} } = \\map \\phi {s_1} * \\map \\phi {s_2} * \\cdots * \\map \\phi {s_k} * \\map \\phi {s_{k + 1} }$\nInduction Step\nThis is our induction step:\n$$\\map \\phi {s_1 \\circ s_2 \\circ \\cdots \\circ s_k \\circ s_{k + 1} } = \\map \\phi {s_1 \\circ s_2 \\circ \\cdots \\circ s_k} * \\map \\phi {s_{k + 1} }$$\nBasis for the Induction\n$$= \\map \\phi {s_1} * \\map \\phi {s_2} * \\cdots * \\map \\phi {s_k} * \\map \\phi {s_{k + 1} }$$\nInduction Hypothesis\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\map \\phi {s_1 \\circ s_2 \\circ \\cdots \\circ s_n} = \\map \\phi {s_1} * \\map \\phi {s_2} * \\cdots * \\map \\phi {s_n}$\nThe result for $n \\in \\N_{>0}$ follows directly from the above, by replacing each occurrence of $s_k$ with $s$.",
+    "clean_row_index": 322,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the binary homomorphism law to the last factor proves the inductive step; taking every factor equal gives the power formula."
+  },
+  {
+    "theorem_id": 737,
+    "title": "Homomorphism of Power of Group Element",
+    "theorem_text": "Let $\\struct {G, \\circ}$ and $\\struct {H, \\ast}$ be groups.\nLet $\\phi: S \\to T$ be a group homomorphism.\nThen:\n$\\forall n \\in \\Z: \\forall g \\in G: \\map \\phi {g^n} = \\paren {\\map \\phi g}^n$",
+    "proof_text": "The result for $n \\in \\N_{>0}$ follows directly from General Morphism Property for Semigroups.\nFor $n = 0$, we use Homomorphism with Cancellable Codomain Preserves Identity.\nFor $n < 0$, we use Homomorphism with Identity Preserves Inverses, along with Index Laws for Monoids: Negative Index.",
+    "clean_row_index": 323,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited results cover positive powers, preservation of identity for exponent zero, and preservation of inverses for negative powers."
+  },
+  {
+    "theorem_id": 739,
+    "title": "Finite Subgroup Test",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $H$ be a non-empty finite subset of $G$.\nThen:\n$H$ is a subgroup of $G$\nif and only if:\n$\\forall a, b \\in H: a \\circ b \\in H$\nThat is, a non-empty finite subset of $G$ is a subgroup if and only if it is closed.",
+    "proof_text": "Let $H$ be a finite subset of $G$ such that $a, b \\in H \\implies a \\circ b \\in H$.\nFrom the Two-Step Subgroup Test, it follows that we only need to show that $a \\in H \\implies a^{-1} \\in H$.\nSo, let $a \\in H$.\nFirst it is straightforward to show by induction that $\\set {x \\in G: x = a^n: n \\in \\N} \\subseteq H$.\nThat is, $a \\in H \\implies \\forall n \\in \\N: a^n \\in H$.\nNow, since $H$ is finite, we have that the order of $a$ is finite.\nLet the order of $a$ be $m$.\nFrom Inverse Element is Power of Order Less 1 we have that $a^{m-1} = a^{-1}$.\nAs $a^{m-1} \\in H$ (from above) the result follows.",
+    "clean_row_index": 324,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Closure puts all positive powers in finite H, forcing finite order m. The inverse is a^(m−1); when m=1, it is a itself."
+  },
+  {
+    "theorem_id": 741,
+    "title": "Existence of Unique Subgroup Generated by Subset",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $\\O \\subset S \\subseteq G$.\nLet $\\struct {H, \\circ}$ be the subgroup generated by $S$.\nThen $H = \\gen S$ exists and is unique.\nAlso, $\\struct {H, \\circ}$ is the intersection of all of the subgroups of $G$ which contain the set $S$:\n$\\displaystyle \\gen S = \\bigcap_i {H_i}: S \\subseteq H_i \\le G$",
+    "proof_text": "Existence\nFirst, we prove that such a subgroup exists.\nLet $\\mathbb S$ be the set of all subgroups of $G$ which contain $S$.\n$\\mathbb S \\ne \\O$ because $G$ is itself a subgroup of $G$, and thus $G \\in \\mathbb S$.\nLet $H$ be the intersection of all the elements of $\\mathbb S$.\nBy Intersection of Subgroups is Subgroup, $H$ is the largest element of $\\mathbb S$ contained in each element of $\\mathbb S$.\nThus $H$ is a subgroup of $G$.\nSince $\\forall x \\in \\mathbb S: S \\subseteq x$, we see that $S \\subseteq H$, so $H \\in \\mathbb S$.\nSmallest\nNow to show that $H$ is the smallest such subgroup.\nIf any $K \\le G: S \\subseteq K$, then $K \\in \\mathbb S$ and therefore $H \\subseteq K$.\nSo $H$ is the smallest subgroup of $G$ containing $S$.\nUniqueness\nNow we show that $H$ is unique.\nSuppose $\\exists H_1, H_2 \\in \\mathbb S$ such that $H_1$ and $H_2$ were two such smallest subgroups containing $S$.\nThen, by the definition of \"smallest\", each would be equal in size.\nIf one is not a subset of the other, then their intersection (by definition containing $S$) would be a smaller subgroup and hence neither $H_1$ nor $H_2$ would be the smallest.\nHence one must be a subset of the other.\nBy definition of set equality, that means they must be the same set.\nSo the smallest subgroup, whose existence we have proved above, is unique.",
+    "clean_row_index": 325,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The intersection contains S and is contained in every subgroup containing S. This establishes uniqueness by mutual inclusion of any two least subgroups. The later equal-cardinality argument is erroneous for infinite sets and is unnecessary."
+  },
+  {
+    "theorem_id": 744,
+    "title": "Subset Product is Subset of Generator",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $X, Y \\subseteq \\struct {G, \\circ}$.\nThen $X \\circ Y \\subseteq \\gen {X, Y}$ where:\n$X \\circ Y$ is the Subset Product of $X$ and $Y$ in $G$.\n$\\gen {X, Y}$ is the subgroup of $G$ generated by $X$ and $Y$.",
+    "proof_text": "It is clear from Set of Words Generates Group that $\\map W {\\hat X \\cup \\hat Y} = \\gen {X, Y}$.\nIt is equally clear that $X \\circ Y \\subseteq \\map W {\\hat X \\cup \\hat Y}$.",
+    "clean_row_index": 326,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every product xy with x∈X and y∈Y is a word in the generating elements, hence belongs to the generated subgroup."
+  },
+  {
+    "theorem_id": 745,
+    "title": "Order of Subset Product with Singleton",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be a group.\nLet $X, Y \\subseteq \\struct {G, \\circ}$ such that $X$ is a singleton:\n$X = \\set x$\nThen:\n$\\order {X \\circ Y} = \\order Y = \\order {Y \\circ X}$\nwhere $\\order S$ is defined as the order of $S$.",
+    "proof_text": "From Regular Representations of Subset Product, we have that the left regular representation of $\\struct {S, \\circ}$ with respect to $a$ is:\n$\\lambda_x \\sqbrk S = \\set x \\circ S = x \\circ S$\nThe result then follows directly from Regular Representation of Invertible Element is Permutation.",
+    "clean_row_index": 327,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Left and right multiplication by x are permutations, so their restrictions give bijections from Y onto xY and Yx."
+  },
+  {
+    "theorem_id": 746,
+    "title": "Product of Subset with Intersection",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be an algebraic structure.\nLet $X, Y, Z \\subseteq G$.\nThen:\n$X \\circ \\paren {Y \\cap Z} \\subseteq \\paren {X \\circ Y} \\cap \\paren {X \\circ Z}$\n$\\paren {Y \\cap Z} \\circ X \\subseteq \\paren {Y \\circ X} \\cap \\paren {Z \\circ X}$\nwhere $X \\circ Y$ denotes the subset product of $X$ and $Y$.",
+    "proof_text": "Consider the relation $\\RR \\subseteq G \\times G$ defined as:\n$\\forall g, h \\in G: \\tuple {g, h} \\in \\RR \\iff \\exists g \\in X$\nThen:\n$\\forall S \\subseteq G: X \\circ S = \\RR \\sqbrk S$\nThen:\n$$X \\circ \\paren {Y \\cap Z} = \\RR \\sqbrk {Y \\cap Z}$$\n$$\\subseteq \\RR \\sqbrk Y \\cap \\RR \\sqbrk Z$$\nImage of Intersection under Relation\n$$= \\paren {X \\circ Y} \\cap \\paren {X \\circ Z}$$\nNext, consider the relation $\\RR \\subseteq G \\times G$ defined as:\n$\\forall g, h \\in G: \\tuple {g, h} \\in \\RR \\iff \\exists h \\in X$\nThen:\n$\\forall S \\subseteq G: S \\circ X = \\RR \\sqbrk S$\nThen:\n$$\\paren {Y \\cap Z} \\circ X = \\RR \\sqbrk {Y \\cap Z}$$\n$$\\subseteq \\RR \\sqbrk Y \\cap \\RR \\sqbrk Z$$\nImage of Intersection under Relation\n$$= \\paren {Y \\circ X} \\cap \\paren {Z \\circ X}$$",
+    "clean_row_index": 328,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "For nonempty X, each defined relation is universal and does not encode multiplication. In (Z,+), X=S={0} gives R[S]=Z but X+S={0}, contradicting the asserted image equality."
+  },
+  {
+    "theorem_id": 746,
+    "title": "Product of Subset with Intersection",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be an algebraic structure.\nLet $X, Y, Z \\subseteq G$.\nThen:\n$X \\circ \\paren {Y \\cap Z} \\subseteq \\paren {X \\circ Y} \\cap \\paren {X \\circ Z}$\n$\\paren {Y \\cap Z} \\circ X \\subseteq \\paren {Y \\circ X} \\cap \\paren {Z \\circ X}$\nwhere $X \\circ Y$ denotes the subset product of $X$ and $Y$.",
+    "proof_text": "Let $x \\in X, t \\in Y \\cap Z$.\nBy the definition of intersection, $t \\in Y$ and $t \\in Z$.\nConsider $X \\circ \\paren {Y \\cap Z}$.\nWe have $x \\circ t \\in X \\circ \\paren {Y \\cap Z}$ by definition of subset product.\nAs $t \\in Y$ and $t \\in Z$, we also have $x \\circ t \\in X \\circ Y$ and $x \\circ t \\in X \\circ Z$.\nThe result follows.\nSimilarly, consider $\\paren {Y \\cap Z} \\circ X$.\nThen we have $t \\circ x \\in \\paren {Y \\cap Z} \\circ X$ by definition of subset product.\nAs $t \\in Y$ and $t \\in Z$, we also have $t \\circ x \\in Y \\circ X$ and $t \\circ x \\in Z \\circ X$.\nAgain, the result follows.",
+    "clean_row_index": 329,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each t∈Y∩Z belongs to both sets, so xt lies in both left products and tx lies in both right products, proving both inclusions."
+  }
+]

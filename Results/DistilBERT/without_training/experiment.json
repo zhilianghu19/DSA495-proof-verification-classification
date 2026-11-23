@@ -1,0 +1,47 @@
+{
+  "model": "distilbert/distilbert-base-cased",
+  "revision": "6ea81172465e8b0ad3fddeed32b986cdcdcffcf0",
+  "seed": 42,
+  "labels": [
+    "Valid",
+    "Invalid"
+  ],
+  "batch_size": 16,
+  "max_length": 512,
+  "reason_limit": 64,
+  "theorem_limit": 128,
+  "evaluation_inputs": [
+    "theorem_text",
+    "proof_text"
+  ],
+  "truncation": "head and tail",
+  "autocast": "bfloat16",
+  "splits": "Data/splits",
+  "optimizer_steps": 0,
+  "training_examples_used": 0,
+  "classifier_head": "checkpoint initialization",
+  "confusion_matrices": {
+    "without_training": {
+      "validation": [
+        [
+          74,
+          0
+        ],
+        [
+          15,
+          0
+        ]
+      ],
+      "test": [
+        [
+          75,
+          0
+        ],
+        [
+          14,
+          0
+        ]
+      ]
+    }
+  }
+}

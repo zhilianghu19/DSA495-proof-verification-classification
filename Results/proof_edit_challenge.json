@@ -1,0 +1,353 @@
+[
+  {
+    "clean_row_index": 75,
+    "theorem_id": 232,
+    "title": "Identity Mapping is Bijection",
+    "theorem_text": "The identity mapping $I_S: S \\to S$ on the set $S$ is a bijection.",
+    "original_proof_text": "The identity mapping is:\n:an injection, from Identity Mapping is Injection\n:a surjection, from Identity Mapping is Surjection\nand therefore a bijection.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "75-primary",
+        "proof_text": "The identity mapping is a surjection, from Identity Mapping is Surjection.\nSince every surjective mapping is a bijection, the identity mapping is a bijection.",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "Surjectivity alone does not imply injectivity. A constant map from two elements onto one element is surjective and is not a bijection."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 76,
+    "theorem_id": 234,
+    "title": "Bijection iff Left and Right Inverse",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\n$f$ is a bijection if and only if:\n$(1): \\quad \\exists g_1: T \\to S: g_1 \\circ f = I_S$\n$(2): \\quad \\exists g_2: T \\to S: f \\circ g_2 = I_T$\nwhere both $g_1$ and $g_2$ are mappings.\nIt also follows that it is necessarily the case that $g_1 = g_2$ for such to be possible.",
+    "original_proof_text": "Necessary Condition\nLet $f: S \\to T$ be a mapping.\nLet $f$ be such that:\n$\\exists g_1: T \\to S: g_1 \\circ f = I_S$\n$\\exists g_2: T \\to S: f \\circ g_2 = I_T$\nwhere both $g_1$ and $g_2$ are mappings.\nThen from Left and Right Inverse Mappings Implies Bijection it follows that $f$ is a bijection.\nFrom Left and Right Inverses of Mapping are Inverse Mapping it follows that:\n$g_1 = g_2 = f^{-1}$\nwhere $f^{-1}$ is the inverse of $f$.\nSufficient Condition\nLet $f: S \\to T$ be a bijection.\nThen from Bijection has Left and Right Inverse it follows that:\n$f^{-1} \\circ f = I_S$ and\n$f \\circ f^{-1} = I_T$\nwhere $f^{-1}$ is the inverse of $f$.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "76-primary",
+        "proof_text": "Necessary Condition\nLet $f: S \\to T$ be a mapping.\nLet $f$ be such that:\n$\\exists g_1: T \\to S: g_1 \\circ f = I_S$\n$\\exists g_2: T \\to S: f \\circ g_2 = I_T$\nwhere both $g_1$ and $g_2$ are mappings.\nThen from Left and Right Inverse Mappings Implies Bijection it follows that $f$ is a bijection.\nFrom Left and Right Inverses of Mapping are Inverse Mapping it follows that:\n$g_1 = g_2 = f^{-1}$\nwhere $f^{-1}$ is the inverse of $f$.\nThis establishes the equivalence.",
+        "validity": "Invalid",
+        "error_type": "Missing essential justification",
+        "edit_reason": "The retained direction starts with two inverses. The converse must start with a bijection and show the required inverses exist."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 77,
+    "theorem_id": 235,
+    "title": "Inverse of Bijection is Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a bijection in the sense that:\n$(1): \\quad f$ is an injection\n$(2): \\quad f$ is a surjection.\nThen the inverse $f^{-1}$ of $f$ is itself a bijection by the same definition.",
+    "original_proof_text": "Let $f$ be both an injection and a surjection.\nFrom Mapping is Injection and Surjection iff Inverse is Mapping it follows that its inverse $f^{-1}$ is a mapping.\nFrom Inverse of Inverse Relation:\n$\\paren {f^{-1} }^{-1} = f$\nThus the inverse of $f^{-1}$ is $f$.\nBut then $f$, being a bijection, is by definition a mapping.\nSo from Mapping is Injection and Surjection iff Inverse is Mapping it follows that $f^{-1}$ is a bijection.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "77-primary",
+        "proof_text": "Let $f$ be both an injection and a surjection. Its inverse $f^{-1}$ is therefore a mapping. Every mapping is injective on its domain, so $f^{-1}$ is injective. For each $x$ in the domain of $f$, $f^{-1}(f(x))=x$, so $f^{-1}$ is also surjective. Hence it is a bijection.",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "The injectivity step treats being single-valued as being injective. A mapping can send two different inputs to the same output."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 78,
+    "theorem_id": 236,
+    "title": "Inverse Element of Bijection",
+    "theorem_text": "Let $S$ and $T$ be sets.\nLet $f: S \\to T$ be a bijection.\nThen:\n$\\map {f^{-1} } y = x \\iff \\map f x = y$\nwhere $f^{-1}$ is the inverse mapping of $f$.",
+    "original_proof_text": "Suppose $f$ is a bijection.\nBecause $f^{-1}$ is a bijection from Bijection iff Inverse is Bijection, it is by definition  a mapping.\nThe result follows directly from Image of Element under Inverse Mapping.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "78-primary",
+        "proof_text": "Suppose $f$ is a bijection. As $f(x)=x$ for every $x$, its inverse fixes every element as well. Then both $f^{-1}(y)=x$ and $f(x)=y$ amount to $x=y$, proving the equivalence.",
+        "validity": "Invalid",
+        "error_type": "Unjustified assumption",
+        "edit_reason": "A bijection need not fix every element. The transposition on {1,2} moves both elements, so the reduction to x=y is unsupported."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 79,
+    "theorem_id": 238,
+    "title": "Inverse of Inverse of Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a bijection.\nThen:\n$\\paren {f^{-1} }^{-1} = f$\nwhere $f^{-1}$ is the inverse of $f$.",
+    "original_proof_text": "A mapping is a relation.\nThus it follows that Inverse of Inverse Relation can be applied directly.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "79-primary",
+        "proof_text": "A mapping is a relation. By associativity of composition of relations, applying the inverse operation twice gives the original relation. The result follows.",
+        "validity": "Invalid",
+        "error_type": "Misapplied theorem / unmet conditions",
+        "edit_reason": "Associativity changes the parentheses in a triple composition. It supplies no identity about applying relational converse twice, and the proof gives no other justification."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 80,
+    "theorem_id": 238,
+    "title": "Inverse of Inverse of Bijection",
+    "theorem_text": "Let $f: S \\to T$ be a bijection.\nThen:\n$\\paren {f^{-1} }^{-1} = f$\nwhere $f^{-1}$ is the inverse of $f$.",
+    "original_proof_text": "Let $f: S \\to T$ be a bijection.\nFrom Composite of Bijection with Inverse is Identity Mapping we have:\n$f^{-1} \\circ f = I_S$\n$f \\circ f^{-1} = I_T$\nwhere $I_S$ and $I_T$ are the identity mappings on $S$ and $T$ respectively.\nThe result follows from Left and Right Inverses of Mapping are Inverse Mapping.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "80-primary",
+        "proof_text": "Let $f: S \\to T$ be a bijection.\nFrom Composite of Bijection with Inverse is Identity Mapping we have:\n$f^{-1} \\circ f = I_T$\n$f \\circ f^{-1} = I_T$\nwhere $I_S$ and $I_T$ are the identity mappings on $S$ and $T$ respectively.\nThe result follows from Left and Right Inverses of Mapping are Inverse Mapping.",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "The composite acts on S. Take disjoint singletons S and T: their identity maps have different domains even though a bijection exists."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 82,
+    "theorem_id": 239,
+    "title": "Composite of Bijections is Bijection",
+    "theorem_text": "Let $f$ and $g$ be mappings such that $\\Dom f = \\Cdm g$.\nThen:\n:If $f$ and $g$ are both bijections, then so is $f \\circ g$\nwhere $f \\circ g$ is the composite mapping of $f$ with $g$.",
+    "original_proof_text": "Let $g: X \\to Y$ and $f: Y \\to Z$ be bijections.\nThen from Bijection iff Inverse is Bijection, both $f^{-1}$ and $g^{-1}$ are bijections.\nFrom Inverse of Composite Relation we have that $g^{-1} \\circ f^{-1}$ is the inverse of $f \\circ g$.\nThen:\n$\\paren {f \\circ g} \\circ \\paren {g^{-1} \\circ f^{-1} } = I_Z$\n$\\paren {g^{-1} \\circ f^{-1} } \\circ \\paren {f \\circ g} = I_X$\nHence the result.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "82-primary",
+        "proof_text": "Let $g:X\\to Y$ and $f:Y\\to Z$ be bijections. If $(f\\circ g)(a)=(f\\circ g)(b)$, injectivity of $f$ gives $g(a)=g(b)$, and injectivity of $g$ gives $a=b$. Thus the composite is injective. This establishes the claimed bijection.",
+        "validity": "Invalid",
+        "error_type": "Missing essential justification",
+        "edit_reason": "This proves only injectivity. It never uses surjectivity of f and g to obtain a preimage for each element of Z."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 83,
+    "theorem_id": 240,
+    "title": "Inverse of Composite Bijection",
+    "theorem_text": "Let $f$ and $g$ be bijections such that $\\Dom g = \\Cdm f$.\nThen:\n$\\paren {g \\circ f}^{-1} = f^{-1} \\circ g^{-1}$\nand $f^{-1} \\circ g^{-1}$ is itself a bijection.",
+    "original_proof_text": "$\\left({g \\circ f}\\right)^{-1} = f^{-1} \\circ g^{-1}$ is a specific example of Inverse of Composite Relation.\nAs $f$ and $g$ are bijections then by Bijection iff Inverse is Bijection, so are both $f^{-1}$ and $g^{-1}$.\nBy Composite of Bijections is Bijection, it follows that $f^{-1} \\circ g^{-1}$ is a bijection.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "83-primary",
+        "proof_text": "$\\left({g \\circ f}\\right)^{-1} = g^{-1} \\circ f^{-1}$ is a specific example of Inverse of Composite Relation.\nAs $f$ and $g$ are bijections then by Bijection iff Inverse is Bijection, so are both $f^{-1}$ and $g^{-1}$.\nBy Composite of Bijections is Bijection, it follows that $f^{-1} \\circ g^{-1}$ is a bijection.",
+        "validity": "Invalid",
+        "error_type": "Misapplied theorem / unmet conditions",
+        "edit_reason": "The inverse-of-composition formula reverses the order. Even for permutations of one set this altered formula fails, for example f=(12), g=(23)."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 84,
+    "theorem_id": 240,
+    "title": "Inverse of Composite Bijection",
+    "theorem_text": "Let $f$ and $g$ be bijections such that $\\Dom g = \\Cdm f$.\nThen:\n$\\paren {g \\circ f}^{-1} = f^{-1} \\circ g^{-1}$\nand $f^{-1} \\circ g^{-1}$ is itself a bijection.",
+    "original_proof_text": "Let $f: X \\to Y$ and $g: Y \\to Z$ be bijections.\nThen:\n$$\\paren {g \\circ f} \\circ \\paren {f^{-1} \\circ g^{-1} } = g \\circ \\paren {\\paren {f \\circ f^{-1} } \\circ g^{-1} }$$\nComposition of Mappings is Associative\n$$= g \\circ \\paren {I_Y \\circ g^{-1} }$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= g \\circ g^{-1}$$\nIdentity Mapping is Left Identity\n$$= I_Z$$\nComposite of Bijection with Inverse is Identity Mapping\n$$\\paren {f^{-1} \\circ g^{-1} } \\circ \\paren {g \\circ f} = \\paren {f^{-1} \\circ \\paren {g^{-1} \\circ g} } \\circ f$$\nComposition of Mappings is Associative\n$$= \\paren {f^{-1} \\circ I_Y} \\circ f$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= f^{-1} \\circ f$$\nIdentity Mapping is Right Identity\n$$= I_X$$\nComposite of Bijection with Inverse is Identity Mapping\nHence the result.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "84-primary",
+        "proof_text": "Let $f: X \\to Y$ and $g: Y \\to Z$ be bijections.\nThen:\n$$\\paren {g \\circ f} \\circ \\paren {f^{-1} \\circ g^{-1} } = g \\circ \\paren {\\paren {f \\circ f^{-1} } \\circ g^{-1} }$$\nComposition of Mappings is Associative\n$$= g \\circ \\paren {I_X \\circ g^{-1} }$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= g \\circ g^{-1}$$\nIdentity Mapping is Left Identity\n$$= I_Z$$\nComposite of Bijection with Inverse is Identity Mapping\n$$\\paren {f^{-1} \\circ g^{-1} } \\circ \\paren {g \\circ f} = \\paren {f^{-1} \\circ \\paren {g^{-1} \\circ g} } \\circ f$$\nComposition of Mappings is Associative\n$$= \\paren {f^{-1} \\circ I_Y} \\circ f$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= f^{-1} \\circ f$$\nIdentity Mapping is Right Identity\n$$= I_X$$\nComposite of Bijection with Inverse is Identity Mapping\nHence the result.",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "The simplification of f composed with its inverse requires the identity on Y, not X.",
+        "changed_symbol_count": 1
+      },
+      {
+        "variant_id": "84-symbol-2",
+        "proof_text": "Let $f: X \\to Y$ and $g: Y \\to Z$ be bijections.\nThen:\n$$\\paren {g \\circ f} \\circ \\paren {f^{-1} \\circ g^{-1} } = g \\circ \\paren {\\paren {f \\circ f^{-1} } \\circ g^{-1} }$$\nComposition of Mappings is Associative\n$$= g \\circ \\paren {I_X \\circ g^{-1} }$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= g \\circ g^{-1}$$\nIdentity Mapping is Left Identity\n$$= I_X$$\nComposite of Bijection with Inverse is Identity Mapping\n$$\\paren {f^{-1} \\circ g^{-1} } \\circ \\paren {g \\circ f} = \\paren {f^{-1} \\circ \\paren {g^{-1} \\circ g} } \\circ f$$\nComposition of Mappings is Associative\n$$= \\paren {f^{-1} \\circ I_Y} \\circ f$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= f^{-1} \\circ f$$\nIdentity Mapping is Right Identity\n$$= I_X$$\nComposite of Bijection with Inverse is Identity Mapping\nHence the result.",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "The simplification of f composed with its inverse requires the identity on Y, not X. The first composite acts on Z, so its identity is on Z, not X.",
+        "changed_symbol_count": 2
+      },
+      {
+        "variant_id": "84-symbol-3",
+        "proof_text": "Let $f: X \\to Y$ and $g: Y \\to Z$ be bijections.\nThen:\n$$\\paren {g \\circ f} \\circ \\paren {f^{-1} \\circ g^{-1} } = g \\circ \\paren {\\paren {f \\circ f^{-1} } \\circ g^{-1} }$$\nComposition of Mappings is Associative\n$$= g \\circ \\paren {I_X \\circ g^{-1} }$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= g \\circ g^{-1}$$\nIdentity Mapping is Left Identity\n$$= I_X$$\nComposite of Bijection with Inverse is Identity Mapping\n$$\\paren {f^{-1} \\circ g^{-1} } \\circ \\paren {g \\circ f} = \\paren {f^{-1} \\circ \\paren {g^{-1} \\circ g} } \\circ f$$\nComposition of Mappings is Associative\n$$= \\paren {f^{-1} \\circ I_Y} \\circ f$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= f^{-1} \\circ f$$\nIdentity Mapping is Right Identity\n$$= I_Y$$\nComposite of Bijection with Inverse is Identity Mapping\nHence the result.",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "The simplification of f composed with its inverse requires the identity on Y, not X. The first composite acts on Z, so its identity is on Z, not X. The second composite acts on X, not Y. Distinct singleton sets X,Y,Z already witness the domain mistakes.",
+        "changed_symbol_count": 3
+      },
+      {
+        "variant_id": "84-valid-control",
+        "proof_text": "Let $f: X \\to Y$ and $g: Y \\to Z$ be bijections.\nThen:\n$$\\paren {g \\circ f} \\circ \\paren {f^{-1} \\circ g^{-1} } = \\paren {g \\circ \\paren {f \\circ f^{-1} } } \\circ g^{-1}$$\nComposition of Mappings is Associative\n$$= g \\circ \\paren {I_Y \\circ g^{-1} }$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= g \\circ g^{-1}$$\nIdentity Mapping is Left Identity\n$$= I_Z$$\nComposite of Bijection with Inverse is Identity Mapping\n$$\\paren {f^{-1} \\circ g^{-1} } \\circ \\paren {g \\circ f} = \\paren {f^{-1} \\circ \\paren {g^{-1} \\circ g} } \\circ f$$\nComposition of Mappings is Associative\n$$= \\paren {f^{-1} \\circ I_Y} \\circ f$$\nComposite of Bijection with Inverse is Identity Mapping\n$$= f^{-1} \\circ f$$\nIdentity Mapping is Right Identity\n$$= I_X$$\nComposite of Bijection with Inverse is Identity Mapping\nHence the result.",
+        "validity": "Valid",
+        "error_type": null,
+        "edit_reason": "Associativity changes the grouping while preserving the order and domains of the mappings."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 85,
+    "theorem_id": 241,
+    "title": "Composite of Permutations is Permutation",
+    "theorem_text": "Let $f, g$ are permutations of a set $S$.\nThen their composite $g \\circ f$ is also a permutation of $S$.",
+    "original_proof_text": "This follows from the fact that a permutation is a bijection.\nThe domain and codomain are coincident.\nThe result follows from Composite of Bijections is Bijection.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "85-primary",
+        "proof_text": "The composite of the two permutations is injective because they are both injective. Since $S$ is finite, an injective mapping from $S$ to itself is surjective as well. Thus the composite is a permutation.",
+        "validity": "Invalid",
+        "error_type": "Unjustified assumption",
+        "edit_reason": "The theorem allows an infinite set S. The finite-set argument does not cover that case."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 86,
+    "theorem_id": 242,
+    "title": "Inverse of Permutation is Permutation",
+    "theorem_text": "If $f$ is a permutation of $S$, then so is its inverse $f^{-1}$.",
+    "original_proof_text": "Let $f: S \\to S$ is a permutation of $S$.\nBy definition, a permutation is a bijection such that the domain and codomain are the same set.\nFrom Bijection iff Inverse is Bijection, it follows $f^{-1}$ is a bijection.\nFrom the definition of inverse relation, the domain of a relation is the codomain of its inverse and vice versa.\nThus the domain and codomain of $f^{-1}$ are both $S$ and it follows that $f^{-1}$ is a permutation.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "86-primary",
+        "proof_text": "Let $f$ be a permutation of $S$. Applying the same permutation twice restores the original arrangement, so $f\\circ f=I_S$. Thus $f^{-1}=f$, and the inverse is a permutation of $S$.",
+        "validity": "Invalid",
+        "error_type": "Unjustified assumption",
+        "edit_reason": "This assumes f is an involution. A 3-cycle is a permutation whose square is not the identity."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 88,
+    "theorem_id": 244,
+    "title": "Right Inverse Mapping is Injection",
+    "theorem_text": "Let $f: S \\to T$ be a mapping.\nLet $g: T \\to S$ be a right inverse of $f$.\nThen $g$ is an injection.",
+    "original_proof_text": "By the definition of right inverse:\n$f \\circ g = I_T$\nwhere $I_T$ is the identity mapping on $T$.\nBy Identity Mapping is Injection, $I_T$ is an injection.\nBy Injection if Composite is Injection, it follows that $g$ is an injection.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "88-primary",
+        "proof_text": "By the definition of right inverse:\n$f \\circ g = I_T$\nwhere $I_T$ is the identity mapping on $T$.\nThe identity mapping is surjective, so the composite is surjective. Since the composite is surjective, its right factor is injective.",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "Surjectivity of a composite does not imply injectivity of its right factor: both factors can be constant maps onto singleton codomains. The actual proof needs injectivity of the identity composite."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 390,
+    "theorem_id": 866,
+    "title": "Reduced Residue System is Subset of Set of All Residue Classes",
+    "theorem_text": "Let $\\Z_m$ be the set of set of residue classes modulo $m$.\nLet $\\Z'_m$ be the reduced residue system modulo $m$.\nThen:\n$\\forall m \\in \\Z_{> 1}: \\O \\subset \\Z'_m \\subset \\Z_m$",
+    "original_proof_text": "By definition of reduced residue system modulo $m$:\n$\\Z'_m = \\set {x \\in \\Z_m: x \\perp m}$\nFrom Subset of Set with Propositional Function:\n$\\Z'_m \\subseteq \\Z_m$\nWe have that:\n$\\gcd \\set {m, 0} = m$\nThus it follows that:\n$m > 1 \\implies \\gcd \\set {m, 0} \\ne 1$\nSo:\n$\\eqclass 0 m \\notin \\Z'_m$\nHowever:\n$\\eqclass 0 m \\in \\Z_m$\nso:\n$\\Z'_m \\ne \\Z_m$\nThus:\n$\\Z'_m \\subset \\Z_m$\nThen:\n$\\eqclass 1 m = 1 \\implies 1 \\perp m$\nSo:\n$\\forall m \\in \\Z: \\eqclass 1 m \\in \\Z'_m$\nThus:\n$\\Z'_m \\ne \\O$\nand therefore:\n$\\O \\subset \\Z'_m$",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "390-primary",
+        "proof_text": "By definition of reduced residue system modulo $m$:\n$\\Z'_m = \\set {x \\in \\Z_m: x \\perp m}$\nFrom Subset of Set with Propositional Function:\n$\\Z'_m \\subseteq \\Z_m$\nWe have that:\n$\\gcd \\set {m, 0} = m$\nThus it follows that:\n$m > 1 \\implies \\gcd \\set {m, 0} \\ne 1$\nSo:\n$\\eqclass 0 m \\in \\Z'_m$\nHowever:\n$\\eqclass 0 m \\in \\Z_m$\nso:\n$\\Z'_m \\ne \\Z_m$\nThus:\n$\\Z'_m \\subset \\Z_m$\nThen:\n$\\eqclass 1 m = 1 \\implies 1 \\perp m$\nSo:\n$\\forall m \\in \\Z: \\eqclass 1 m \\in \\Z'_m$\nThus:\n$\\Z'_m \\ne \\O$\nand therefore:\n$\\O \\subset \\Z'_m$",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "For m=2 the residue of 0 is not a unit. Removing the negation invalidates the witness for strict inclusion.",
+        "changed_symbol_count": 1
+      },
+      {
+        "variant_id": "390-symbol-2",
+        "proof_text": "By definition of reduced residue system modulo $m$:\n$\\Z'_m = \\set {x \\in \\Z_m: x \\perp m}$\nFrom Subset of Set with Propositional Function:\n$\\Z'_m \\subseteq \\Z_m$\nWe have that:\n$\\gcd \\set {m, 0} < m$\nThus it follows that:\n$m > 1 \\implies \\gcd \\set {m, 0} \\ne 1$\nSo:\n$\\eqclass 0 m \\in \\Z'_m$\nHowever:\n$\\eqclass 0 m \\in \\Z_m$\nso:\n$\\Z'_m \\ne \\Z_m$\nThus:\n$\\Z'_m \\subset \\Z_m$\nThen:\n$\\eqclass 1 m = 1 \\implies 1 \\perp m$\nSo:\n$\\forall m \\in \\Z: \\eqclass 1 m \\in \\Z'_m$\nThus:\n$\\Z'_m \\ne \\O$\nand therefore:\n$\\O \\subset \\Z'_m$",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "For m=2 the residue of 0 is not a unit. Removing the negation invalidates the witness for strict inclusion. For m=2 the claimed inequality for gcd(2,0) is false.",
+        "changed_symbol_count": 2
+      },
+      {
+        "variant_id": "390-symbol-3",
+        "proof_text": "By definition of reduced residue system modulo $m$:\n$\\Z'_m = \\set {x \\in \\Z_m: x \\perp m}$\nFrom Subset of Set with Propositional Function:\n$\\Z'_m \\subseteq \\Z_m$\nWe have that:\n$\\gcd \\set {m, 0} < m$\nThus it follows that:\n$m > 1 \\implies \\gcd \\set {m, 0} \\ne 1$\nSo:\n$\\eqclass 0 m \\in \\Z'_m$\nHowever:\n$\\eqclass 0 m \\in \\Z_m$\nso:\n$\\Z'_m \\ne \\Z_m$\nThus:\n$\\Z'_m \\subset \\Z_m$\nThen:\n$\\eqclass 1 m = 1 \\implies 1 \\perp m$\nSo:\n$\\forall m \\in \\Z: \\eqclass 1 m \\in \\Z'_m$\nThus:\n$\\Z'_m = \\O$\nand therefore:\n$\\O \\subset \\Z'_m$",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "For m=2 the residue of 0 is not a unit. Removing the negation invalidates the witness for strict inclusion. For m=2 the claimed inequality for gcd(2,0) is false. For m=2 the reduced residue system contains the class of 1, so it is not empty.",
+        "changed_symbol_count": 3
+      },
+      {
+        "variant_id": "390-valid-control",
+        "proof_text": "By definition of reduced residue system modulo $m$:\n$\\Z'_m = \\set {x \\in \\Z_m: x \\perp m}$\nFrom Subset of Set with Propositional Function:\n$\\Z_m \\supseteq \\Z'_m$\nWe have that:\n$\\gcd \\set {m, 0} = m$\nThus it follows that:\n$m > 1 \\implies \\gcd \\set {m, 0} \\ne 1$\nSo:\n$\\eqclass 0 m \\notin \\Z'_m$\nHowever:\n$\\eqclass 0 m \\in \\Z_m$\nso:\n$\\Z'_m \\ne \\Z_m$\nThus:\n$\\Z'_m \\subset \\Z_m$\nThen:\n$\\eqclass 1 m = 1 \\implies 1 \\perp m$\nSo:\n$\\forall m \\in \\Z: \\eqclass 1 m \\in \\Z'_m$\nThus:\n$\\Z'_m \\ne \\O$\nand therefore:\n$\\O \\subset \\Z'_m$",
+        "validity": "Valid",
+        "error_type": null,
+        "edit_reason": "Exchanging the two sides and reversing the inclusion sign expresses exactly the same subset relation."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 391,
+    "theorem_id": 867,
+    "title": "Reduced Residue System under Multiplication forms Abelian Group",
+    "theorem_text": "Let $\\Z_m$ be the set of set of residue classes modulo $m$.\nLet $\\struct {\\Z'_m, \\times}$ denote the multiplicative group of reduced residues modulo $m$.\nThen $\\struct {\\Z'_m, \\times}$ is an abelian group, precisely equal to the group of units of $\\Z_m$.",
+    "original_proof_text": "From Ring of Integers Modulo m is Ring, $\\struct {\\Z_m, +, \\times}$ forms a (commutative) ring with unity.\nThen we have that the units of a ring with unity form a group.\nBy Multiplicative Inverse in Ring of Integers Modulo m we have that the elements of $\\struct {\\Z'_m, \\times}$ are precisely those that have inverses, and are therefore the units of $\\struct {\\Z_m, +, \\times}$.\nThe fact that $\\struct {\\Z'_m, \\times}$ is abelian follows from Restriction of Commutative Operation is Commutative.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "391-primary",
+        "proof_text": "From Ring of Integers Modulo m is Ring, $\\struct {\\Z_m, +, \\times}$ forms a (commutative) ring with unity.\nThen we have that the units of a ring with unity form a group.\nBy Multiplicative Inverse in Ring of Integers Modulo m we have that the elements of $\\struct {\\Z'_m, \\times}$ are precisely those that have inverses, and are therefore the units of $\\struct {\\Z_m, +, \\times}$.\nThe units of every ring with identity form an abelian group, so this group is abelian.",
+        "validity": "Invalid",
+        "error_type": "Misapplied theorem / unmet conditions",
+        "edit_reason": "Units of a unital ring form a group, but it need not commute, as invertible real 2-by-2 matrices show. The commutativity of modular multiplication must enter the argument."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 415,
+    "theorem_id": 933,
+    "title": "Submodule Test",
+    "theorem_text": "Let $\\left({G, +, \\circ}\\right)_R$ be a unitary $R$-module.\nLet $H$ be a non-empty subset of $G$.\nThen $\\left({H, +, \\circ}\\right)_R$ is a submodule of $G$ iff:\n$\\forall x, y \\in H: \\forall \\lambda \\in R: x + y \\in H, \\lambda \\circ x \\in H$",
+    "original_proof_text": "If the conditions are fulfilled, then:\n$x \\in H \\implies -x = \\left({- 1_R}\\right) \\circ x \\in H$\nThus $H$ is a subgroup of $\\left({G, +}\\right)$ by the Two-Step Subgroup Test, and hence a submodule.",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "415-primary",
+        "proof_text": "If the conditions are fulfilled, then:\n$x \\in H \\implies -x = \\left({1_R}\\right) \\circ x \\in H$\nThus $H$ is a subgroup of $\\left({G, +}\\right)$ by the Two-Step Subgroup Test, and hence a submodule.",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "Multiplication by the unit gives x, not -x in general. For the integer module with H=Z and x=1, the displayed equality becomes -1=1."
+      }
+    ]
+  },
+  {
+    "clean_row_index": 531,
+    "theorem_id": 1204,
+    "title": "Multiple of Infimum",
+    "theorem_text": "Let $T \\subseteq \\R: T \\ne \\varnothing$ be a non-empty subset of the set of real numbers $\\R$.\nLet $T$ be bounded below.\nLet $z \\in \\R: z > 0$ be a (strictly) positive real number.\nThen:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$\nwhere $\\inf$ denotes infimum.",
+    "original_proof_text": "From Negative of Infimum is Supremum of Negatives:\n$\\displaystyle -\\inf_{x \\mathop \\in T} x = \\map {\\sup_{x \\mathop \\in T} } {-x} \\implies \\inf_{x \\mathop \\in T} x = -\\map {\\sup_{x \\mathop \\in T} } {-x}$\nLet $S = \\set {x \\in \\R: -x \\in T}$.\nFrom Negative of Infimum is Supremum of Negatives, $S$ is bounded above.\nFrom Multiple of Supremum:\n$\\displaystyle \\map {\\sup_{x \\mathop \\in S} } {z x} = z \\, \\map {\\sup_{x \\mathop \\in S} } x$\nHence:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = -\\map {\\sup_{x \\mathop \\in T} } {-z x} = -z \\, \\map {\\sup_{x \\mathop \\in T} } {-x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$",
+    "original_validity": "Valid",
+    "variants": [
+      {
+        "variant_id": "531-primary",
+        "proof_text": "Choose $a\\in T$ with $a=\\inf T$. Since $z>0$, every $x\\in T$ satisfies $zx\\ge za$. The value $za$ belongs to the scaled set, so it is its minimum. Its infimum is therefore $za=z\\inf T$.",
+        "validity": "Invalid",
+        "error_type": "Unjustified assumption",
+        "edit_reason": "A nonempty set bounded below need not contain its infimum. T=(0,1) and z=2 satisfy the hypotheses but there is no such a."
+      },
+      {
+        "variant_id": "531-symbol-1",
+        "proof_text": "From Negative of Infimum is Supremum of Negatives:\n$\\displaystyle -\\inf_{x \\mathop \\in T} x = \\map {\\sup_{x \\mathop \\in T} } {-x} \\implies \\inf_{x \\mathop \\in T} x = -\\map {\\sup_{x \\mathop \\in T} } {-x}$\nLet $S = \\set {x \\in \\R: -x \\in T}$.\nFrom Negative of Infimum is Supremum of Negatives, $S$ is bounded above.\nFrom Multiple of Supremum:\n$\\displaystyle \\map {\\sup_{x \\mathop \\in S} } {z x} = z \\, \\map {\\sup_{x \\mathop \\in S} } x$\nHence:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = -\\map {\\sup_{x \\mathop \\in T} } {-z x} = +z \\, \\map {\\sup_{x \\mathop \\in T} } {-x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "In the final chain the minus in front of the scaled supremum is lost. For T={1,2} and z=2 this equates 2 and -2.",
+        "changed_symbol_count": 1
+      },
+      {
+        "variant_id": "531-symbol-2",
+        "proof_text": "From Negative of Infimum is Supremum of Negatives:\n$\\displaystyle -\\inf_{x \\mathop \\in T} x = \\map {\\sup_{x \\mathop \\in T} } {-x} \\implies \\inf_{x \\mathop \\in T} x = -\\map {\\sup_{x \\mathop \\in T} } {-x}$\nLet $S = \\set {x \\in \\R: +x \\in T}$.\nFrom Negative of Infimum is Supremum of Negatives, $S$ is bounded above.\nFrom Multiple of Supremum:\n$\\displaystyle \\map {\\sup_{x \\mathop \\in S} } {z x} = z \\, \\map {\\sup_{x \\mathop \\in S} } x$\nHence:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = -\\map {\\sup_{x \\mathop \\in T} } {-z x} = +z \\, \\map {\\sup_{x \\mathop \\in T} } {-x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "In the final chain the minus in front of the scaled supremum is lost. For T={1,2} and z=2 this equates 2 and -2. The new S equals T and need not be bounded above. T=[1,infinity) is a counterexample.",
+        "changed_symbol_count": 2
+      },
+      {
+        "variant_id": "531-symbol-3",
+        "proof_text": "From Negative of Infimum is Supremum of Negatives:\n$\\displaystyle -\\inf_{x \\mathop \\in T} x = \\map {\\sup_{x \\mathop \\in T} } {+x} \\implies \\inf_{x \\mathop \\in T} x = -\\map {\\sup_{x \\mathop \\in T} } {-x}$\nLet $S = \\set {x \\in \\R: +x \\in T}$.\nFrom Negative of Infimum is Supremum of Negatives, $S$ is bounded above.\nFrom Multiple of Supremum:\n$\\displaystyle \\map {\\sup_{x \\mathop \\in S} } {z x} = z \\, \\map {\\sup_{x \\mathop \\in S} } x$\nHence:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = -\\map {\\sup_{x \\mathop \\in T} } {-z x} = +z \\, \\map {\\sup_{x \\mathop \\in T} } {-x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$",
+        "validity": "Invalid",
+        "error_type": "Invalid inference",
+        "edit_reason": "In the final chain the minus in front of the scaled supremum is lost. For T={1,2} and z=2 this equates 2 and -2. The new S equals T and need not be bounded above. T=[1,infinity) is a counterexample. The first premise now equates the negative infimum to the supremum of x. For T={1,2} it equates -1 and 2.",
+        "changed_symbol_count": 3
+      },
+      {
+        "variant_id": "531-valid-control",
+        "proof_text": "From Negative of Infimum is Supremum of Negatives:\n$\\displaystyle -\\inf_{x \\mathop \\in T} x = \\map {\\sup_{x \\mathop \\in T} } {-x} \\implies \\inf_{x \\mathop \\in T} x = -\\map {\\sup_{x \\mathop \\in T} } {-x}$\nLet $S = \\set {x \\in \\R: -x \\in T}$.\nFrom Negative of Infimum is Supremum of Negatives, $S$ is bounded above.\nFrom Multiple of Supremum:\n$\\displaystyle \\map {\\sup_{u \\mathop \\in S} } {z u} = z \\, \\map {\\sup_{x \\mathop \\in S} } x$\nHence:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = -\\map {\\sup_{x \\mathop \\in T} } {-z x} = -z \\, \\map {\\sup_{x \\mathop \\in T} } {-x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$",
+        "validity": "Valid",
+        "error_type": null,
+        "edit_reason": "The index of the supremum is bound. Renaming x to u within that supremum preserves its value."
+      }
+    ]
+  }
+]

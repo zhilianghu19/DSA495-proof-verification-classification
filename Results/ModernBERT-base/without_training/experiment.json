@@ -1,0 +1,47 @@
+{
+  "model": "answerdotai/ModernBERT-base",
+  "revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+  "seed": 42,
+  "labels": [
+    "Valid",
+    "Invalid"
+  ],
+  "batch_size": 8,
+  "max_length": 512,
+  "reason_limit": 64,
+  "theorem_limit": 128,
+  "evaluation_inputs": [
+    "theorem_text",
+    "proof_text"
+  ],
+  "truncation": "head and tail",
+  "autocast": "bfloat16",
+  "splits": "Data/splits",
+  "optimizer_steps": 0,
+  "training_examples_used": 0,
+  "classifier_head": "checkpoint initialization",
+  "confusion_matrices": {
+    "without_training": {
+      "validation": [
+        [
+          0,
+          74
+        ],
+        [
+          0,
+          15
+        ]
+      ],
+      "test": [
+        [
+          0,
+          75
+        ],
+        [
+          0,
+          14
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 295,
+    "title": "Strictly Monotone Mapping is Monotone",
+    "theorem_text": "A mapping that is strictly monotone is a monotone mapping.",
+    "proof_text": "If $\\phi$ is strictly monotone, then it is either strictly increasing or strictly decreasing.\nIf $\\phi$ is strictly increasing, then by Strictly Increasing Mapping is Increasing, $\\phi$ is increasing.\nIf $\\phi$ is strictly decreasing, then by Strictly Decreasing Mapping is Decreasing, $\\phi$ is decreasing.\nThus $\\phi$ is monotone by definition.",
+    "clean_row_index": 120,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each strict direction implies its corresponding weak direction, exhausting the alternatives in the definition of monotonicity."
+  },
+  {
+    "theorem_id": 296,
+    "title": "Order Embedding into Image is Isomorphism",
+    "theorem_text": "Let $\\struct {S, \\preceq_1}$ and $\\struct {T, \\preceq_2}$ be ordered sets.\nLet $S'$ be the image of a mapping $\\phi: \\struct {S, \\preceq_1} \\to \\struct {T, \\preceq_2}$.\nThen:\n$\\phi$ is an order embedding from $\\struct {S, \\preceq_1}$ into $\\struct {T, \\preceq_2}$\nif and only if:\n$\\phi$ is an order isomorphism from $\\struct {S, \\preceq_1}$ into $\\struct {S', \\preceq_2 \\restriction_{S'} }$.",
+    "proof_text": "Let $\\phi$ be an order embedding from $\\struct {S, \\preceq_1}$ into $\\struct {T, \\preceq_2}$.\nThen $\\phi$ is an injection into $\\struct {T, \\preceq_2}$ by definition.\nFrom Restriction of Mapping to Image is Surjection, a mapping from a set to the image of that mapping is a surjection.\nThus the surjective restriction of $\\phi$ onto $S'$ is an order embedding which is also a surjection.\nHence the result from Order Isomorphism is Surjective Order Embedding.",
+    "clean_row_index": 121,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Corestriction supplies surjectivity and preserves and reflects exactly the same order comparisons. Conversely an isomorphism onto the image therefore has both order properties in the ambient codomain."
+  },
+  {
+    "theorem_id": 299,
+    "title": "Finite Totally Ordered Set is Well-Ordered",
+    "theorem_text": "Every finite totally ordered set is well-ordered.",
+    "proof_text": "Let $\\struct {S, \\preceq}$ be a finite totally ordered set.\nFrom Condition for Well-Foundedness, $\\struct {S, \\preceq}$ is well-founded if and only if there is no infinite sequence $\\sequence {a_n}$ of elements of $S$ such that $\\forall n \\in \\N: a_{n + 1} \\prec a_n$.\nIf it were the case that $\\struct {S, \\preceq}$ had such an infinite sequence, then at least some of the terms would be repeated in that sequence.\nSo there would be, for example:\n$s_i \\preceq s_j \\preceq s_k \\preceq s_i$\nand $\\preceq$ would therefore not be transitive and so not a totally ordered set.\nSo $\\struct {S, \\preceq}$ is well-founded.\nThe result follows from the definition of well-ordered set.",
+    "clean_row_index": 122,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Repetition in a strictly descending chain contradicts irreflexivity of the strict order by transitivity. The displayed weak cycle does not show failure of transitivity as claimed."
+  },
+  {
+    "theorem_id": 300,
+    "title": "Subset of Well-Ordered Set is Well-Ordered",
+    "theorem_text": "Every non-empty subset of a well-ordered set is itself well-ordered.",
+    "proof_text": "Let $\\struct {S, \\preceq}$ be a well-ordered set.\nLet $T \\subseteq S$.\nLet $X \\subseteq T$.\nBy Subset Relation is Transitive, $X \\subseteq S$.\nBy the definition of a well-ordered set, $X$ has a smallest element.\nIt follows by definition that $T$ is well-ordered.\nHence the result.",
+    "clean_row_index": 123,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The smallest-element axiom applies only to nonempty subsets. X was taken as an arbitrary subset, and the proof explicitly asserts it has a smallest element even when X is empty."
+  },
+  {
+    "theorem_id": 303,
+    "title": "Associative and Anticommutative",
+    "theorem_text": "Let $\\circ$ be a binary operation on a set $S$.\nLet $\\circ$ be both associative and anticommutative.\nThen:\n$\\forall x, y, z \\in S: x \\circ y \\circ z = x \\circ z$",
+    "proof_text": "Let $\\circ$ be both associative and anticommutative.\nThen from Associative Idempotent Anticommutative:\n$\\forall x, z \\in S: x \\circ z \\circ x = x$\nand $\\circ$ is idempotent.\nConsider $x \\circ y \\circ z \\circ x \\circ z$.\nWe have:\n$$x \\circ y \\circ z \\circ x \\circ z = x \\circ \\left({y \\circ z}\\right) \\circ x \\circ z$$\n$$= x \\circ z$$\nAlso:\n$$x \\circ y \\circ z \\circ x \\circ z = x \\circ y \\circ \\left({z \\circ x \\circ z}\\right)$$\n$$= x \\circ y \\circ z$$\nHence the result.",
+    "clean_row_index": 124,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the cited identity xyx=x first with middle element yz and then to zxz evaluates the same associative product as xz and xyz."
+  },
+  {
+    "theorem_id": 305,
+    "title": "Constant Operation is Associative",
+    "theorem_text": "Let $S$ be a set.\nLet $x \\left[{c}\\right] y = c$ be a constant operation on $S$.\nThen $\\left[{c}\\right]$ is an associative operation:\n$\\forall x, y, z \\in S: \\left({x \\left[{c}\\right] y}\\right) \\left[{c}\\right] z = x \\left[{c}\\right] \\left({y \\left[{c}\\right] z}\\right)$",
+    "proof_text": "$$\\left({x \\left[{c}\\right] y}\\right) \\left[{c}\\right] z = c \\left[{c}\\right] z$$\nDefinition of Constant Operation\n$$= c$$\nDefinition of Constant Operation\n$$x \\left[{c}\\right] \\left({y \\left[{c}\\right] z}\\right) = x \\left[{c}\\right] c$$\nDefinition of Constant Operation\n$$= c$$\nDefinition of Constant Operation",
+    "clean_row_index": 125,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both bracketings evaluate to the fixed element c regardless of the inputs."
+  },
+  {
+    "theorem_id": 319,
+    "title": "Idempotent Magma Element forms Singleton Submagma",
+    "theorem_text": "Let $\\struct {S, \\circ}$ be a magma.\nLet $x \\in S$ be an idempotent element of $\\struct {S, \\circ}$.\nThen  $\\struct {\\set x, \\circ}$ is a submagma of $\\struct {S, \\circ}$.",
+    "proof_text": "By Singleton of Element is Subset:\n$x \\in S \\iff \\set x \\subseteq S$\nBy the definition of idempotence:\n$x \\circ x = x \\in \\set x$\nThus $\\set x$ is a subset of $S$ which is closed under $\\circ$.\nBy the definition of submagma, the result follows.",
+    "clean_row_index": 126,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The only product of two elements of the singleton is x times x, which equals x by idempotence. This gives closure in the ambient magma."
+  },
+  {
+    "theorem_id": 322,
+    "title": "Subset Product within Commutative Structure is Commutative",
+    "theorem_text": "Let $\\struct {S, \\circ}$ be a magma.\nIf $\\circ$ is commutative, then the operation $\\circ_\\mathcal P$ induced on the power set of $S$ is also commutative.",
+    "proof_text": "Let $\\struct {S, \\circ}$ be a magma in which $\\circ$ is commutative.\nLet $X, Y \\in \\powerset S$.\nThen:\n$$X \\circ_\\mathcal P Y = \\set {x \\circ y: x \\in X, y \\in Y}$$\n$$Y \\circ_\\mathcal P X = \\set {y \\circ x: x \\in X, y \\in Y}$$\nfrom which it follows that $\\circ_\\mathcal P$ is commutative on $\\powerset S$.",
+    "clean_row_index": 127,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Commutativity identifies the products of each ordered pair of factors in the two displayed sets, giving equality."
+  },
+  {
+    "theorem_id": 323,
+    "title": "Subset of Subset Product",
+    "theorem_text": "Let $\\struct {S, \\circ}$ be a magma.\nLet $\\powerset S$ be the power set of $S$.\nLet $X, Y, Z \\in \\powerset S$.\nThen:\n$X \\subseteq Y \\implies \\paren {X \\circ Z} \\subseteq \\paren {Y \\circ Z}$\n$X \\subseteq Y \\implies \\paren {Z \\circ X} \\subseteq \\paren {Z \\circ Y}$\nwhere $X \\circ Z$ etc. denotes subset product.",
+    "proof_text": "Let $x \\in X, z \\in Z$.\nThen:\n$x \\circ z \\in X \\circ Z$ and $z \\circ x \\in Z \\circ X$\nNow:\n$Y \\circ Z = \\set {y \\circ z: y \\in Y, z \\in Z}$\n$Z \\circ Y = \\set {z \\circ y: y \\in Y, z \\in Z}$\nBut by the definition of a subset:\n$x \\in X \\implies x \\in Y$\nThus:\n$x \\circ z \\in Y \\circ Z$ and $z \\circ x \\in Z \\circ Y$\nand the result follows.",
+    "clean_row_index": 128,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every representation of an element of either smaller product has a factor from X, which is also in Y. The same factors witness membership in the larger product."
+  },
+  {
+    "theorem_id": 324,
+    "title": "Cancellable Element is Cancellable in Subset",
+    "theorem_text": "Let $\\left ({S, \\circ}\\right)$ be an algebraic structure.\nLet $\\left ({T, \\circ}\\right) \\subseteq \\left ({S, \\circ}\\right)$.\nLet $x \\in T$ be cancellable in $S$.\nThen $x$ is also cancellable in $T$.",
+    "proof_text": "Let $x \\in T$ be cancellable in $S$.\nThen by definition, $x \\in T$ is left cancellable in $S$.\nIt follows from Left Cancellable Element is Left Cancellable in Subset that $x \\in T$ is left cancellable in $T$.\nAgain by definition, $x \\in T$ is right cancellable in $S$.\nIt follows from Right Cancellable Element is Right Cancellable in Subset that $x \\in T$ is right cancellable in $T$.\nThus $x$ is also both left cancellable and right cancellable in $T$.\nSo by definition, $x$ is cancellable in $T$.",
+    "clean_row_index": 129,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The left and right cancellation implications each restrict from S to T because the operations agree there."
+  },
+  {
+    "theorem_id": 325,
+    "title": "Subsemigroup Closure Test",
+    "theorem_text": "To show that an algebraic structure $\\left({T, \\circ}\\right)$ is a subsemigroup of a semigroup $\\struct {S, \\circ}$, we need to show only that:\n$(1): \\quad T \\subseteq S$\n$(2): \\quad \\circ$ is a closed operation in $T$.",
+    "proof_text": "From Restriction of Associative Operation is Associative, if $\\circ$ is associative on $\\struct {S, \\circ}$, then it will also be associative on $\\struct {T, \\circ}$.\nThus we do not need to check for associativity in $\\struct {T, \\circ}$, as that has been inherited from its extension $\\struct {S, \\circ}$.\nSo, once we have established that $T \\subseteq S$, all we need to do is to check for $\\circ$ to be a closed operation.",
+    "clean_row_index": 130,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Closure gives a binary operation on T and the associative law on triples in T follows by restriction of the law on S."
+  },
+  {
+    "theorem_id": 328,
+    "title": "More than one Left Identity then no Right Identity",
+    "theorem_text": "Let $\\struct {S, \\circ}$ be an algebraic structure.\nIf $\\struct {S, \\circ}$ has more than one left identity, then it has no right identity.",
+    "proof_text": "Let $\\struct {S, \\circ}$ be an algebraic structure with more than one left identity.\nTake any two of these, and call them $e_{L_1}$ and $e_{L_2}$, where $e_{L_1} \\ne e_{L_2}$.\nSuppose $\\struct {S, \\circ}$ has a right identity.\nCall this right identity $e_R$.\nThen, by the behaviour of $e_R$, $e_{L_1}$ and $e_{L_2}$:\n$e_{L_1} = e_{L_1} \\circ e_R = e_R$\n$e_{L_2} = e_{L_2} \\circ e_R = e_R$\nSo $e_{L_1} = e_R = e_{L_2}$, which contradicts the supposition that $e_{L_1}$ and $e_{L_2}$ are different.\nTherefore, in an algebraic structure with more than one left identity, there can be no right identity.",
+    "clean_row_index": 131,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplying each distinct left identity by the hypothetical right identity forces both to equal it."
+  },
+  {
+    "theorem_id": 329,
+    "title": "Element under Left Operation is Right Identity",
+    "theorem_text": "Let $\\struct {S, \\leftarrow}$ be an algebraic structure in which the operation $\\leftarrow$ is the left operation.\nThen no matter what $S$ is, $\\struct {S, \\leftarrow}$ is a semigroup all of whose elements are right identities.\nThus it can be seen that any right identity in a semigroup is not necessarily unique.",
+    "proof_text": "From Left Operation is Associative, $\\leftarrow$ is associative.\nBy the nature of the left operation, $\\struct {S, \\leftarrow}$ is closed:\n$\\forall x, y \\in S: x \\leftarrow y = x \\in S$\nwhatever $S$ may be.\nSo $\\struct {S, \\leftarrow}$ is a semigroup.\nFrom the definition of left operation:\n$\\forall x, y \\in S: x \\leftarrow y = x$\nfrom which it is apparent that all elements of $S$ are right identities.\nFrom More than one Right Identity then no Left Identity, it also follows that there is no left identity.",
+    "clean_row_index": 132,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The projection operation proves the main claim about right identities. The final invocation excluding a left identity requires at least two distinct elements. On a singleton the unique element is also a left identity."
+  },
+  {
+    "theorem_id": 330,
+    "title": "Element under Right Operation is Left Identity",
+    "theorem_text": "Let $\\struct {S, \\rightarrow}$ be an algebraic structure in which the operation $\\rightarrow$ is the right operation.\nThen $\\struct {S, \\rightarrow}$ is a semigroup all of whose elements are left identities.\nThus it can be seen that any left identity in a semigroup is not necessarily unique.",
+    "proof_text": "From Right Operation is Associative, $\\rightarrow$ is associative.\nBy the nature of the right operation, $\\struct {S, \\rightarrow}$ is closed:\n$\\forall x, y \\in S: x \\rightarrow y = y \\in S$\nwhatever $S$ may be.\nSo $\\struct {S, \\rightarrow}$ is a semigroup.\nFrom the definition of right operation:\n$\\forall x, y \\in S: x \\rightarrow y = y$\nfrom which it is apparent that all elements of $S$ are left identities.\nFrom More than one Left Identity then no Right Identity, it also follows that there is no right identity.",
+    "clean_row_index": 133,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "All elements are indeed left identities, but the final claim that there is no right identity invokes a result requiring multiple distinct left identities. A singleton has a right identity."
+  },
+  {
+    "theorem_id": 331,
+    "title": "Left and Right Identity are the Same",
+    "theorem_text": "Let $\\struct {S, \\circ}$ be an algebraic structure.\nLet $e_L \\in S$ be a left identity, and $e_R \\in S$ be a right identity.\nThen:\n$e_L = e_R$\nthat is, both the left identity and right identity are the same, and are therefore an identity $e$.\nFurthermore, $e$ is the only left identity and right identity for $\\circ$.",
+    "proof_text": "Let $\\struct {S, \\circ}$ be an algebraic structure such that:\n$\\exists e_L \\in S: \\forall x \\in S: e_L \\circ x = x$\n$\\exists e_R \\in S: \\forall x \\in S: x \\circ e_R = x$\nThen $e_L = e_L \\circ e_R = e_R$ by both the above, hence the result.\nThe uniqueness of the left and right identity is a direct result of Identity is Unique.",
+    "clean_row_index": 134,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The product of any left identity with any right identity equals each of them, so all such elements coincide and give a unique two-sided identity."
+  },
+  {
+    "theorem_id": 333,
+    "title": "Identity of Monoid is Cancellable",
+    "theorem_text": "The identity of a monoid is cancellable.",
+    "proof_text": "Let $\\left({S, \\circ}\\right)$ be a monoid whose identity is $e$.\nLet $x, y \\in S$ such that $x \\circ e = y \\circ e$\nThen, by the definition of the identity:\n$x = x \\circ e = y \\circ e = y$\n... thus $x = y$ and the result is proved.",
+    "clean_row_index": 135,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The displayed equation proves right cancellation directly. The same defining identity gives left cancellation immediately since e times x equals x for every x."
+  },
+  {
+    "theorem_id": 334,
+    "title": "Identity is only Idempotent Cancellable Element",
+    "theorem_text": "Let $e_S$ is the identity of an algebraic structure $\\left({S, \\circ}\\right)$.\nThen $e_S$ is the only cancellable element of $\\left({S, \\circ}\\right)$ that is idempotent.",
+    "proof_text": "By Identity Element is Idempotent, $e_S$ is idempotent.\nLet $x$ be a cancellable idempotent element of $\\left({S, \\circ}\\right)$.\n$$x \\circ x = x$$\n$x$ is idempotent\n$$= x \\circ e_S$$\nDefinition of Identity\nSo $x \\circ x = x \\circ e_S$.\nBut because $x$ is also by hypothesis cancellable, it follows that $x = e_S$.",
+    "clean_row_index": 136,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The identity itself cancels on both sides by definition and is idempotent. Left cancellation of x in xx=xe forces any other proposed cancellable idempotent to equal e."
+  },
+  {
+    "theorem_id": 335,
+    "title": "Set of all Self-Maps is Monoid",
+    "theorem_text": "Let $S$ be a set.\nLet $S^S$ be the set of all mappings from $S$ to itself.\nLet the operation $\\circ$ represent composition of mappings.\nThen the algebraic structure $\\struct {S^S, \\circ}$ is a monoid whose identity element is the identity mapping on $S$.",
+    "proof_text": "By Set of All Self-Maps is Semigroup, $\\struct {S^S, \\circ}$ is a semigroup.\nBy Identity Mapping is Left Identity and Identity Mapping is Right Identity the identity mapping on $S$ is the identity element of $\\struct {S^S, \\circ}$.\nSince $\\struct {S^S, \\circ}$ is a semigroup with an identity element, it is a monoid by definition.",
+    "clean_row_index": 137,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited semigroup theorem supplies closure and associativity of composition, and the identity mapping acts on both sides."
+  },
+  {
+    "theorem_id": 336,
+    "title": "Test for Submonoid",
+    "theorem_text": "To show that $\\left({T, \\circ}\\right)$ is a submonoid of a monoid $\\left({S, \\circ}\\right)$, we need to show that:\n$(1): \\quad T \\subseteq S$\n$(2): \\quad \\left({T, \\circ}\\right)$ is a magma (i.e. that it is closed)\n$(3): \\quad \\left({T, \\circ}\\right)$ has an identity.",
+    "proof_text": "From Subsemigroup Closure Test, $(1)$ and $(2)$ are sufficient to show that $\\left({T, \\circ}\\right)$ is a subsemigroup of $\\left({S, \\circ}\\right)$.\nDemonstrating the presence of an identity is then sufficient to show that it is a monoid.",
+    "clean_row_index": 138,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With the submonoid convention used here, closure and inherited associativity give a subsemigroup. Its own two-sided identity then makes it a monoid."
+  },
+  {
+    "theorem_id": 337,
+    "title": "Identity of Cancellable Monoid is Identity of Submonoid",
+    "theorem_text": "Let $\\struct {S, \\circ}$ be a monoid, all of whose elements are cancellable.\nLet $\\struct {T, \\circ}$ be a submonoid of $\\struct {S, \\circ}$.\nThen the identity of $\\struct {T, \\circ}$ is the same element as the identity of $\\struct {S, \\circ}$.",
+    "proof_text": "By Identity of Monoid is Unique:\n: there is only one identity element of $\\struct {S, \\circ}$\nand:\n: there is only one identity element of $\\struct {T, \\circ}$.\nLet $e_S$ be the identity of $\\struct {S, \\circ}$, and $e_T$ the identity of $\\struct {T, \\circ}$.\nFrom Identity is only Idempotent Cancellable Element, $e_S$ is the only cancellable element of $\\struct {S, \\circ}$ which is idempotent.\nBut all elements of $\\struct {S, \\circ}$ are cancellable.\nThus $e_S$ is the only idempotent element of $\\struct {S, \\circ}$.\nAgain, all elements of $\\struct {S, \\circ}$ are cancellable.\nThus from Cancellable Element is Cancellable in Subset, all elements of $\\struct {T, \\circ}$ are cancellable.\nThus, $e_T$ is the only element of $\\struct {T, \\circ}$ which is idempotent.\nThus, as $e_T \\in S$, we have $e_S \\circ e_T = e_T = e_T \\circ e_T$ and thus $e_S = e_T$.",
+    "clean_row_index": 139,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The ambient cancellable monoid has only one idempotent. The identity of the submonoid squares to itself under the restricted operation and hence must be that ambient idempotent."
+  },
+  {
+    "theorem_id": 338,
+    "title": "Cancellable Elements of Monoid form Submonoid",
+    "theorem_text": "The cancellable elements of a monoid $\\struct {S, \\circ}$ form a submonoid of $\\struct {S, \\circ}$.",
+    "proof_text": "Let $C$ be the set of cancellable elements of $\\struct {S, \\circ}$.\nObviously $C \\subseteq S$.\nFrom Cancellable Elements of Semigroup form Subsemigroup, $\\struct {C, \\circ}$ is a subsemigroup of $S$.\nLet $e_S$ be the identity of $\\struct {S, \\circ}$.\nFrom Identity of Monoid is Cancellable, $e_S$ is cancellable, therefore $e_S \\in C$.\nAs $e_S$ is the identity of $S$, we have that:\n$\\forall x \\in C: x \\circ e_S = x = e_S \\circ x$.\nThus $e_S$ is the identity of $\\struct {C, \\circ}$, which is therefore a monoid.\nAs $C \\subseteq S$, the result follows.",
+    "clean_row_index": 140,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited semigroup result gives closure and associativity on the cancellable elements. The ambient identity belongs to the subset and still acts as a two-sided identity."
+  },
+  {
+    "theorem_id": 354,
+    "title": "Structure Induced by Abelian Group Operation is Abelian Group",
+    "theorem_text": "Let $\\struct {G, \\circ}$ be an abelian group whose identity is $e$.\nLet $S$ be a set.\nLet $\\struct {G^S, \\oplus}$ be the structure on $G^S$ induced by $\\circ$.\nThen $\\struct {G^S, \\oplus}$ is an abelian group.",
+    "proof_text": "From Structure Induced by Group Operation is Group, $\\struct {G^S, \\oplus}$ is a group.\nFrom Structure Induced by Commutative Operation is Commutative, so is the pointwise operation it induces on $G^S$.\nHence the result.",
+    "clean_row_index": 141,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited results give the pointwise function structure both the group axioms and commutativity."
+  },
+  {
+    "theorem_id": 355,
+    "title": "Power Set with Union is Commutative Monoid",
+    "theorem_text": "Let $S$ be a set and let $\\powerset S$ be its power set.\nThen $\\struct {\\powerset S, \\cup}$ is a commutative monoid whose identity is $\\O$.\nThe only invertible element of this structure is $\\O$.\nThus (except in the degenerate case $S = \\O$) $\\struct {\\powerset S, \\cup}$ cannot be a group.",
+    "proof_text": "From Power Set is Closed under Union:\n$\\forall A, B \\in \\powerset S: A \\cup B \\in \\powerset S$\nFrom Set System Closed under Union is Commutative Semigroup, $\\struct {\\powerset S, \\cup}$ is a commutative semigroup.\nFrom Identity of Power Set with Union, $\\O$ acts as the identity of $\\struct {\\powerset S, \\cup}$.\nIt remains to be shown that only $\\O$ has an inverse:\nFor $T \\subseteq S$ to have an inverse under $\\cup$, we require $T^{-1} \\cup T = \\O$.\nFrom this it follows that $T = \\O = T^{-1}$.\nThe result follows by definition of commutative monoid.",
+    "clean_row_index": 142,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Union is an associative commutative operation on subsets with the empty set as identity. A union equaling the empty set forces both factors empty, excluding every other inverse."
+  },
+  {
+    "theorem_id": 356,
+    "title": "Power Set with Intersection is Commutative Monoid",
+    "theorem_text": "Let $S$ be a set and let $\\powerset S$ be its power set.\nThen $\\struct {\\powerset S, \\cap}$ is a commutative monoid whose identity is $S$.\nThe only invertible element of this structure is $S$.\nThus (except in the degenerate case $S = \\O$) $\\struct {\\powerset S, \\cap}$ cannot be a group.",
+    "proof_text": "From Power Set is Closed under Intersection:\n$\\forall A, B \\in \\powerset S: A \\cap B \\in \\powerset S$\nFrom Set System Closed under Intersection is Commutative Semigroup, $\\struct {\\powerset S, \\cap}$ is a commutative semigroup.\nFrom Identity of Power Set with Intersection, we have that $S$ acts as the identity.\nIt remains to be shown that only $S$ has an inverse:\nFor $T \\subseteq S$ to have an inverse under $\\cap$, we require $T^{-1} \\cap T = S$.\nFrom this it follows that $T = S = T^{-1}$.\nThe result follows by definition of commutative monoid.",
+    "clean_row_index": 143,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Intersection is associative and commutative with identity S. An intersection equal to S requires both subsets to contain all of S."
+  },
+  {
+    "theorem_id": 364,
+    "title": "External Direct Product of Semigroups",
+    "theorem_text": "The external direct product of two semigroups is itself a semigroup.",
+    "proof_text": "* From External Direct Product Closure, the external direct product of two closed algebraic structures is closed.\n* From External Direct Product Associativity, the external direct product of two associative algebraic structures is associative.\nThe result follows.",
+    "clean_row_index": 144,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The coordinatewise product is closed and associative by the two cited product results, which are the semigroup requirements."
+  },
+  {
+    "theorem_id": 367,
+    "title": "External Direct Product Inverses",
+    "theorem_text": "Let $\\struct {S \\times T, \\circ}$ be the external direct product of the two monoids $\\struct {S, \\circ_1}$ and $\\struct {T, \\circ_2}$.\nLet:\n$s^{-1}$ be an inverse of $s \\in \\struct {S, \\circ_1}$\nand:\n$t^{-1}$ be an inverse of $t \\in \\struct {T, \\circ_2}$.\nThen $\\tuple {s^{-1}, t^{-1} }$ is an inverse of $\\tuple {s, t} \\in \\struct {S \\times T, \\circ}$.",
+    "proof_text": "Let:\n$e_S$ be the identity for $\\struct {S, \\circ_1}$\nand:\n$e_T$ be the identity for $\\struct {T, \\circ_2}$.\nAlso let:\n$s^{-1}$ be the inverse of $s \\in \\struct {S, \\circ_1}$\nand\n$t^{-1}$ be the inverse of $t \\in \\struct {T, \\circ_2}$.\nThen:\n$$\\tuple {s, t} \\circ \\tuple {s^{-1}, t^{-1} } = \\tuple {s \\circ_1 s^{-1}, t \\circ_2 t^{-1} }$$\n$$= \\tuple {e_S, e_T}$$\n$$= \\tuple {s^{-1} \\circ_1 s, t^{-1} \\circ_2 t}$$\n$$= \\tuple {s^{-1}, t^{-1} } \\circ \\tuple {s, t}$$\nThus the inverse of $\\tuple {s, t}$ is $\\tuple {s^{-1}, t^{-1} }$.",
+    "clean_row_index": 145,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplication in either order gives the ordered pair of coordinate identities, the product monoid's identity."
+  },
+  {
+    "theorem_id": 370,
+    "title": "Morphism Property Preserves Cancellability",
+    "theorem_text": "Let:\n$\\phi: \\left({S, \\circ_1, \\circ_2, \\ldots, \\circ_n}\\right) \\to \\left({T, *_1, *_2, \\ldots, *_n}\\right)$\nbe a mapping from one algebraic structure:\n$\\left({S, \\circ_1, \\circ_2, \\ldots, \\circ_n}\\right)$\nto another:\n$\\left({T, *_1, *_2, \\ldots, *_n}\\right)$\nLet $\\circ_k$ have the morphism property under $\\phi$ for some operation $\\circ_k$ in $\\left({S, \\circ_1, \\circ_2, \\ldots, \\circ_n}\\right)$.\nThen if an element $a \\in S$ is either left cancellable or right cancellable under $\\circ_k$, then $\\phi \\left({a}\\right)$ is correspondingly left cancellable or right cancellable under $*_k$.\nThus, the morphism property is seen to preserve cancellability.",
+    "proof_text": "We need to demonstrate the following properties:\n* If $a \\in S$ has the property that:\n$\\forall x, y \\in S: x \\circ_k a = y \\circ_k a \\implies x = y$\nthen:\n$\\forall x, y \\in S: \\phi \\left({x}\\right) *_k \\phi \\left({a}\\right) = \\phi \\left({y}\\right) *_k \\phi \\left({a}\\right) \\implies \\phi \\left({x}\\right) = \\phi \\left({y}\\right)$\n* If $a \\in S$ has the property that:\n$\\forall x, y \\in S: a \\circ_k x = a \\circ_k y \\implies x = y$\nthen:\n$\\forall x, y \\in S: \\phi \\left({a}\\right) *_k \\phi \\left({x}\\right) = \\phi \\left({a}\\right) *_k \\phi \\left({y}\\right) \\implies \\phi \\left({x}\\right) = \\phi \\left({y}\\right)$\n* To show the first of the properties above:\n$$\\left({x \\circ_k a = y \\circ_k a \\implies x = y}\\right)$$\n$$\\implies \\left({\\phi \\left({x \\circ_k a}\\right) = \\phi \\left({y \\circ_k a}\\right) \\implies \\phi \\left({x}\\right) = \\phi \\left({y}\\right)}\\right)$$\nMappings are many-to-one by definition\n$$\\implies \\left({\\phi \\left({x}\\right) *_k \\phi \\left({a}\\right) = \\phi \\left({y}\\right) *_k \\phi \\left({a}\\right) \\implies \\phi \\left({x}\\right) = \\phi \\left({y}\\right)}\\right)$$\nMorphism Property\nand thus left cancellability is demonstrated.\n* And the second is like it, namely this:\n$$\\left({a \\circ_k x = a \\circ_k y \\implies x = y}\\right)$$\n$$\\implies \\left({\\phi \\left({a \\circ_k x}\\right) = \\phi \\left({a \\circ_k y}\\right) \\implies \\phi \\left({x}\\right) = \\phi \\left({y}\\right)}\\right)$$\nMappings are many-to-one by definition\n$$\\implies \\left({\\phi \\left({a}\\right) *_k \\phi \\left({x}\\right) = \\phi \\left({a}\\right) *_k \\phi \\left({y}\\right) \\implies \\phi \\left({x}\\right) = \\phi \\left({y}\\right)}\\right)$$\nMorphism Property\nand thus right cancellability is demonstrated.",
+    "clean_row_index": 146,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Equality of homomorphic images of xa and ya does not imply equality of xa and ya, so cancellation cannot be transferred that way. For example, reducing integers modulo 6 sends cancellable 2 under integer multiplication to a noncancellable residue."
+  },
+  {
+    "theorem_id": 372,
+    "title": "Restriction of Homomorphism to Image is Epimorphism",
+    "theorem_text": "Let $S$ and $T$ be algebraic structures.\nLet $\\phi: S \\to T$ be a homomorphism.\nThen a surjective restriction of $\\phi$ can be produced by limiting the codomain of $\\phi$ to its image $\\operatorname{Im} \\left({\\phi}\\right)$.",
+    "proof_text": "Let $\\phi: S \\to T$ be a homomorphism.\nLet $\\operatorname{Im} \\left({\\phi}\\right) = T'$\nBy Morphism Property Preserves Closure, $T'$ is closed.\nFrom Restriction of Mapping to Image is Surjection, $\\phi \\to \\operatorname{Im} \\left({\\phi}\\right)$ is a surjection.\nThus $\\phi: S \\to T$ is an epimorphism.\nTherefore, by suitably restricting the codomain of a homomorphism, it is possible to regard it as an epimorphism.",
+    "clean_row_index": 147,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The image is closed, and corestricting to it gives a surjective homomorphism. The T in the penultimate line must denote the restricted target T' for that line to hold, as the preceding and concluding lines specify."
+  },
+  {
+    "theorem_id": 374,
+    "title": "Epimorphism Preserves Semigroups",
+    "theorem_text": "Let $\\left({S, \\circ}\\right)$ and $\\left({T, *}\\right)$ be algebraic structures.\nLet $\\phi: \\left({S, \\circ}\\right) \\to \\left({T, *}\\right)$ be an epimorphism.\nLet $\\left({S, \\circ}\\right)$ be a semigroup.\nThen $\\left({T, *}\\right)$ is also a semigroup.",
+    "proof_text": "As $\\left({S, \\circ}\\right)$ is a semigroup, then by definition it is closed.\nAs $\\phi$ is an epimorphism, it is by definition surjective.\nThat is:\n$T = \\phi \\left[{S}\\right]$\nwhere $\\phi \\left[{S}\\right]$ denotes the image of $S$ under $\\phi$.\nFrom Morphism Property Preserves Closure it follows that $\\left({T, *}\\right)$ is closed.\nAs $\\left({S, \\circ}\\right)$ is a semigroup, then by definition $\\circ$ is associative.\nFrom Epimorphism Preserves Associativity, $*$ is therefore also associative.\nSo:\n$\\left({T, *}\\right)$ is closed\nand:\n$*$ is associative.\nTherefore, by definition, $\\left({T, *}\\right)$ is a semigroup.",
+    "clean_row_index": 148,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Surjectivity identifies the target with the closed image, and associativity descends by the cited associativity result for epimorphisms."
+  },
+  {
+    "theorem_id": 375,
+    "title": "Homomorphism Preserves Subsemigroups",
+    "theorem_text": "Let $\\struct {S, \\circ}$ and $\\struct {T, *}$ be semigroups.\nLet $\\phi: \\struct {S, \\circ} \\to \\struct {T, *}$ be a homomorphism.\nLet $S'$ be a subsemigroup of $S$.\nThen $\\phi \\paren {S'}$ is a subsemigroup of $T$.",
+    "proof_text": "By Restriction of Homomorphism to Image is Epimorphism, $\\phi$ is an epimorphism onto its image .\nThen by Epimorphism Preserves Semigroups, it follows that the image of $S'$ is a semigroup.\nThe result follows.",
+    "clean_row_index": 149,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Restricting the homomorphism to the subsemigroup gives a surjection onto its image. The image inherits the semigroup law and is a subset of T."
+  }
+]

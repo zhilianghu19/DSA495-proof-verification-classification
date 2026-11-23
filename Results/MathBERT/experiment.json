@@ -1,0 +1,161 @@
+{
+  "model": "tbs17/MathBERT",
+  "revision": "e26235ccf2b14614ef278b19caa44fdb5dcf050f",
+  "seed": 42,
+  "labels": [
+    "Valid",
+    "Invalid"
+  ],
+  "splits": "Data/splits",
+  "split_sizes": {
+    "train": 709,
+    "validation": 89,
+    "test": 89
+  },
+  "training_inputs": {
+    "without_review_reason": [
+      "theorem_text",
+      "proof_text"
+    ],
+    "with_training_review_reason": [
+      "theorem_text",
+      "proof_text",
+      "review_reason"
+    ]
+  },
+  "evaluation_inputs": [
+    "theorem_text",
+    "proof_text"
+  ],
+  "selection": "highest validation Macro F1, first on tie",
+  "learning_rates": [
+    2e-05,
+    5e-05
+  ],
+  "epochs": [
+    1,
+    2
+  ],
+  "batch_size": 8,
+  "max_length": 512,
+  "theorem_limit": 128,
+  "reason_limit": 64,
+  "truncation": "head and tail",
+  "class_weights": {
+    "Valid": 0.7478902953586498,
+    "Invalid": 1.5085106382978724
+  },
+  "optimizer": "AdamW",
+  "weight_decay": 0.01,
+  "gradient_clip_norm": 1.0,
+  "autocast": "bfloat16",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.57.6",
+  "gpu": "NVIDIA RTX 2000 Ada Generation",
+  "runs": {
+    "without_review_reason": {
+      "selected": {
+        "learning_rate": 5e-05,
+        "epoch": 1,
+        "validation_macro_f1": 0.48653846153846153
+      },
+      "trials": [
+        {
+          "learning_rate": 2e-05,
+          "epoch": 1,
+          "validation_macro_f1": 0.46466165413533833
+        },
+        {
+          "learning_rate": 2e-05,
+          "epoch": 2,
+          "validation_macro_f1": 0.45425558008339467
+        },
+        {
+          "learning_rate": 5e-05,
+          "epoch": 1,
+          "validation_macro_f1": 0.48653846153846153
+        },
+        {
+          "learning_rate": 5e-05,
+          "epoch": 2,
+          "validation_macro_f1": 0.4009615384615385
+        }
+      ]
+    },
+    "with_training_review_reason": {
+      "selected": {
+        "learning_rate": 5e-05,
+        "epoch": 2,
+        "validation_macro_f1": 0.44375
+      },
+      "trials": [
+        {
+          "learning_rate": 2e-05,
+          "epoch": 1,
+          "validation_macro_f1": 0.43873873873873875
+        },
+        {
+          "learning_rate": 2e-05,
+          "epoch": 2,
+          "validation_macro_f1": 0.43873873873873875
+        },
+        {
+          "learning_rate": 5e-05,
+          "epoch": 1,
+          "validation_macro_f1": 0.44025157232704404
+        },
+        {
+          "learning_rate": 5e-05,
+          "epoch": 2,
+          "validation_macro_f1": 0.44375
+        }
+      ]
+    }
+  },
+  "confusion_matrices": {
+    "without_review_reason": {
+      "validation": [
+        [
+          47,
+          27
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "test": [
+        [
+          51,
+          24
+        ],
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    "with_training_review_reason": {
+      "validation": [
+        [
+          71,
+          3
+        ],
+        [
+          15,
+          0
+        ]
+      ],
+      "test": [
+        [
+          71,
+          4
+        ],
+        [
+          14,
+          0
+        ]
+      ]
+    }
+  }
+}

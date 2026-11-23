@@ -1,0 +1,161 @@
+{
+  "model": "answerdotai/ModernBERT-base",
+  "revision": "8949b909ec900327062f0ebf497f51aef5e6f0c8",
+  "seed": 42,
+  "labels": [
+    "Valid",
+    "Invalid"
+  ],
+  "splits": "Data/splits",
+  "split_sizes": {
+    "train": 709,
+    "validation": 89,
+    "test": 89
+  },
+  "training_inputs": {
+    "without_review_reason": [
+      "theorem_text",
+      "proof_text"
+    ],
+    "with_training_review_reason": [
+      "theorem_text",
+      "proof_text",
+      "review_reason"
+    ]
+  },
+  "evaluation_inputs": [
+    "theorem_text",
+    "proof_text"
+  ],
+  "selection": "highest validation Macro F1, first on tie",
+  "learning_rates": [
+    2e-05,
+    5e-05
+  ],
+  "epochs": [
+    1,
+    2
+  ],
+  "batch_size": 8,
+  "max_length": 512,
+  "theorem_limit": 128,
+  "reason_limit": 64,
+  "truncation": "head and tail",
+  "class_weights": {
+    "Valid": 0.7478902953586498,
+    "Invalid": 1.5085106382978724
+  },
+  "optimizer": "AdamW",
+  "weight_decay": 0.01,
+  "gradient_clip_norm": 1.0,
+  "autocast": "bfloat16",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.57.6",
+  "gpu": "NVIDIA RTX 2000 Ada Generation",
+  "runs": {
+    "without_review_reason": {
+      "selected": {
+        "learning_rate": 2e-05,
+        "epoch": 1,
+        "validation_macro_f1": 0.4641037517369152
+      },
+      "trials": [
+        {
+          "learning_rate": 2e-05,
+          "epoch": 1,
+          "validation_macro_f1": 0.4641037517369152
+        },
+        {
+          "learning_rate": 2e-05,
+          "epoch": 2,
+          "validation_macro_f1": 0.41830065359477125
+        },
+        {
+          "learning_rate": 5e-05,
+          "epoch": 1,
+          "validation_macro_f1": 0.38165817508105604
+        },
+        {
+          "learning_rate": 5e-05,
+          "epoch": 2,
+          "validation_macro_f1": 0.45181159420289857
+        }
+      ]
+    },
+    "with_training_review_reason": {
+      "selected": {
+        "learning_rate": 5e-05,
+        "epoch": 2,
+        "validation_macro_f1": 0.5410979678495602
+      },
+      "trials": [
+        {
+          "learning_rate": 2e-05,
+          "epoch": 1,
+          "validation_macro_f1": 0.4438787317750521
+        },
+        {
+          "learning_rate": 2e-05,
+          "epoch": 2,
+          "validation_macro_f1": 0.4991724594505131
+        },
+        {
+          "learning_rate": 5e-05,
+          "epoch": 1,
+          "validation_macro_f1": 0.46339362618432384
+        },
+        {
+          "learning_rate": 5e-05,
+          "epoch": 2,
+          "validation_macro_f1": 0.5410979678495602
+        }
+      ]
+    }
+  },
+  "confusion_matrices": {
+    "without_review_reason": {
+      "validation": [
+        [
+          44,
+          30
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "test": [
+        [
+          40,
+          35
+        ],
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    "with_training_review_reason": {
+      "validation": [
+        [
+          70,
+          4
+        ],
+        [
+          13,
+          2
+        ]
+      ],
+      "test": [
+        [
+          71,
+          4
+        ],
+        [
+          11,
+          3
+        ]
+      ]
+    }
+  }
+}

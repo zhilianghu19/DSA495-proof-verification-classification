@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 694,
+    "title": "Möbius Function is Multiplicative",
+    "theorem_text": "The Möbius function $\\mu$  is a multiplicative function:\n$m \\perp n \\implies \\map \\mu {m n} = \\map \\mu m \\map \\mu n$\nwhere $m, n \\in \\Z_{>0}$.",
+    "proof_text": "First note that we have $\\map \\mu 1 = 1$, which agrees with Value of Multiplicative Function at One.\nLet $m, n \\in \\Z_{>0}$ such that $m \\perp n$.\nFirst, suppose that either $\\map \\mu m = 0$ or $\\map \\mu n = 0$.\nThen either $m$ or $n$ has a factor $p^2$ where $p$ is prime.\nThus it will follow that $m n$ will also have a factor $p^2$ and hence $\\map \\mu {m n} = 0$.\nSo the result holds when $\\map \\mu m = 0$ or $\\map \\mu n = 0$.\nNow suppose that $\\map \\mu m \\ne 0$ and $\\map \\mu n \\ne 0$.\nLet $m = p_1 p_2 \\ldots p_r$, $n = q_1 q_2 \\ldots q_s$ where all the $p_i, q_j$ are prime.\nThen:\n$m n = p_1 p_2 \\ldots p_r q_1 q_2 \\ldots q_s$\nAs $m \\perp n$ it follows that:\n$\\forall i, j: p_i \\ne q_j$\nHence there is no prime in $m n$ whose power is higher than $1$, which means that $\\map \\mu {m n} \\ne 0$.\nSo:\n$\\map \\mu {m n} = \\paren {-1}^{r + s} = \\paren {-1}^r \\paren {-1}^s = \\map \\mu m \\map \\mu n$\nHence the result.",
+    "clean_row_index": 299,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A squared prime factor forces both sides to vanish. Otherwise coprimality keeps the distinct prime supports disjoint, so their counts add in the sign exponent."
+  },
+  {
+    "theorem_id": 806,
+    "title": "Parity Group is Group",
+    "theorem_text": "The parity group is in fact a group.",
+    "proof_text": "We can completely describe the parity group by showing its Cayley table:\n$\\begin{array}{r|rr}\n\\struct {\\set {1, -1}, \\times} & 1 & -1\\\\\n\\hline\n1 & 1 & -1 \\\\\n-1 & -1 & 1 \\\\\n\\end{array} \\qquad\n\\begin{array}{r|rr}\n\\struct {\\Z_2, +_2} & \\eqclass 0 2 & \\eqclass 1 2 \\\\\n\\hline\n\\eqclass 0 2 & \\eqclass 0 2 & \\eqclass 1 2 \\\\\n\\eqclass 1 2 & \\eqclass 1 2 & \\eqclass 0 2 \\\\\n\\end{array}$\nFrom Prime Group is Cyclic, there is only one group of order $2$, up to isomorphism.\nThus both instantiations of the parity group are isomorphic to $C_2$, the cyclic group of order $2$.",
+    "clean_row_index": 359,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The displayed tables identify the operation with addition modulo two by a bijection, so closure, identity, inverses and associativity transfer from that group."
+  },
+  {
+    "theorem_id": 1035,
+    "title": "Change of Basis is Invertible",
+    "theorem_text": "Let $R$ be a ring with unity.\nLet $M$ be a free $R$-module of finite dimension $n>0$.\nLet $\\mathcal A$ and $\\mathcal B$ be ordered bases of $M$.\nLet $\\mathbf P$ be the change of basis matrix from $\\mathcal A$ to $\\mathcal B$.\nThen $\\mathbf P$ is invertible, and its inverse $\\mathbf P^{-1}$ is the change of basis matrix from $\\mathcal B$ to $\\mathcal A$.",
+    "proof_text": "From Product of Change of Basis Matrices and Change of Basis Matrix Between Equal Bases:\n* $\\left[{I_M; \\mathcal A, \\mathcal B}\\right] \\left[{I_M; \\mathcal B, \\mathcal A}\\right] = \\left[{I_M; \\mathcal A, \\mathcal A}\\right] = I_n$\n* $\\left[{I_M; \\mathcal B, \\mathcal A}\\right] \\left[{I_M; \\mathcal A, \\mathcal B}\\right] = \\left[{I_M; \\mathcal B , \\mathcal B}\\right] = I_n$\nHence the result.",
+    "clean_row_index": 450,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Composing the two opposite basis changes gives the identity matrix in both orders, exactly the two-sided inverse criterion."
+  },
+  {
+    "theorem_id": 1036,
+    "title": "Invertible Matrix Corresponds with Change of Basis",
+    "theorem_text": "Let $R$ be a commutative ring with unity.\nLet $G$ be an $n$-dimensional unitary $R$-module.\nLet $\\left \\langle {a_n} \\right \\rangle$ be an ordered basis of $G$.\nLet $\\mathbf P = \\left[{\\alpha}\\right]_{n}$ be a square matrix of order $n$ over $R$.\nLet $\\displaystyle \\forall j \\in \\left[{1 \\,.\\,.\\, n}\\right]: b_j = \\sum_{i \\mathop = 1}^n \\alpha_{i j} a_i$.\nThen $\\left \\langle {b_n} \\right \\rangle$ is an ordered basis of $G$ iff $\\mathbf P$ is invertible.",
+    "proof_text": "From Change of Basis is Invertible, if $\\left \\langle {b_n} \\right \\rangle$ is an ordered basis of $G$ then $\\mathbf P$ is invertible.\nNow let $\\mathbf P$ be invertible.\nThen by the corollary to Linear Transformations Isomorphic to Matrix Space, there is an automorphism $u$ of $G$ which satisfies $\\mathbf P = \\left[{u; \\left \\langle {a_n} \\right \\rangle}\\right]$.\nTherefore, as $\\forall j \\in \\left[{1 \\,.\\,.\\, n}\\right]: b_j = u \\left({a_j}\\right)$, it follows that $\\left \\langle {b_n} \\right \\rangle$ is also an ordered basis of $G$.",
+    "clean_row_index": 451,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With columns equal to the coordinates of the proposed basis vectors, an invertible matrix represents an automorphism carrying each original basis vector to its proposed replacement. The converse uses inverse change of basis."
+  },
+  {
+    "theorem_id": 1043,
+    "title": "Transpose of Matrix Product",
+    "theorem_text": "Let $\\mathbf A$ and $\\mathbf B$ be matrices over a commutative ring such that $\\mathbf A \\mathbf B$ is defined.\nThen $\\mathbf B^\\intercal \\mathbf A^\\intercal$ is defined, and:\n$\\paren {\\mathbf A \\mathbf B}^\\intercal = \\mathbf B^\\intercal \\mathbf A^\\intercal$\nwhere $\\mathbf X^\\intercal$ is the transpose of $\\mathbf X$.",
+    "proof_text": "Let $\\mathbf A = \\sqbrk a_{m n}$, $\\mathbf B = \\sqbrk b_{n p}$\nLet $\\mathbf A \\mathbf B = \\sqbrk c_{m p}$.\nThen from the definition of matrix product:\n$\\displaystyle \\forall i \\in \\closedint 1 m, j \\in \\closedint 1 p: c_{i j} = \\sum_{k \\mathop = 1}^n a_{i k} \\circ b_{k j}$\nSo, let $\\paren {\\mathbf A \\mathbf B}^\\intercal = \\sqbrk r_{p m}$.\nThe dimensions are correct, because $\\mathbf A \\mathbf B$ is an $m \\times p$ matrix, thus making $\\paren {\\mathbf A \\mathbf B}^\\intercal$ a $p \\times m$ matrix.\nThus:\n$\\displaystyle \\forall j \\in \\closedint 1 p, i \\in \\closedint 1 m: r_{j i} = \\sum_{k \\mathop = 1}^n a_{i k} \\circ b_{k j}$\nNow, let $\\mathbf B^\\intercal \\mathbf A^\\intercal = \\sqbrk s_{p m}$\nAgain, the dimensions are correct because $\\mathbf B^\\intercal$ is a $p \\times n$ matrix and $\\mathbf A^\\intercal$ is an $n \\times m$ matrix.\nThus:\n$\\displaystyle \\forall j \\in \\closedint 1 p, i \\in \\closedint 1 m: s_{j i} = \\sum_{k \\mathop = 1}^n b_{k j} \\circ a_{i k}$\nAs the underlying structure of $\\mathbf A$ and $\\mathbf B$ is a commutative ring, then $a_{i k} \\circ b_{k j} = b_{k j} \\circ a_{i k}$.\nNote the order of the indices in the term in the summation sign on the right-hand side of the above.\nThey are reverse what they would normally be because we are multiplying the transposes together.\nThus it can be seen that $r_{j i} = s_{j i}$ and the result follows.",
+    "clean_row_index": 452,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two matrices have matching dimensions and their corresponding entries are sums of products differing only by interchanging scalar factors in a commutative ring."
+  },
+  {
+    "theorem_id": 1049,
+    "title": "Infinite Cyclic Group is Isomorphic to Integers",
+    "theorem_text": "Let $G$ be an infinite cyclic group.\nThen $G$ is isomorphic to the additive group of integers: $G \\cong \\struct {\\Z, +}$.",
+    "proof_text": "From the definition of an infinite cyclic group, we have:\n$G = \\gen a = \\set {a^k: k \\in \\Z}$\nLet us define the mapping:\n$\\phi: \\Z \\to G: \\map \\phi k = a^k$.\nWe now show that $\\phi$ is an isomorphism.\nFrom Mapping from Additive Group of Integers to Powers of Group Element is Homomorphism, $\\phi$ is a homomorphism.\nNow we show that $\\phi$ is a surjection.\nAs $G$ is cyclic, every element of $G$ is apower of $a$ for some $a \\in G$ such that $G = \\gen a$.\nThus:\n$\\forall x \\in G: \\exists k \\in \\Z: x = a^k$\nBy the definition of $\\phi$:\n$\\map \\phi k = a^k = x$\nThus $\\phi$ is surjective.\nNow we show that $\\phi$ is an injection.\nThis follows directly from Powers of Infinite Order Element, where:\n$\\forall m, n \\in \\Z: m \\ne n \\implies a^m \\ne a^n$\nThus $\\phi$ is an injective, surjective homomorphism, thus:\n$G \\cong \\struct {\\Z, +}$\nas required.",
+    "clean_row_index": 453,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The power map is a homomorphism onto the cyclic group and the generator's infinite order makes distinct integer powers distinct."
+  },
+  {
+    "theorem_id": 1051,
+    "title": "Quotient Group of Infinite Cyclic Group by Subgroup",
+    "theorem_text": "Let $C_n$ be the cyclic group of order $n$.\nThen:\n$C_n \\cong \\dfrac {\\struct {\\Z, +} } {\\struct {n \\Z, +} } = \\dfrac \\Z {n \\Z}$\nwhere:\n$\\Z$ is the additive group of integers\n$n \\Z$ is the additive group of integer multiples\n$\\Z / n \\Z$ is the quotient group of $\\Z$ by $n \\Z$.\nThus, every cyclic group is isomorphic to one of:\n$\\Z, \\dfrac \\Z \\Z, \\dfrac \\Z {2 \\Z}, \\dfrac \\Z {3 \\Z}, \\dfrac \\Z {4 \\Z}, \\ldots$",
+    "proof_text": "Let $C_n = \\gen {a: a^n = e_{C_n} }$, that is, let $a$ be a generator of $C_n$.\nLet us define $\\phi: \\struct {\\Z, +} \\to C_n$ such that:\n$\\forall k \\in \\Z: \\map \\phi k = a^k$\nThen from the First Isomorphism Theorem:\n$\\Img \\phi = C_n = \\struct {\\Z, +} / \\map \\ker \\phi$\nWe now need to show that $\\map \\ker \\phi = n \\Z$.\nWe have:\n$\\map \\ker \\phi = \\set {k \\in \\Z: a^k = e_{C_n} }$\nLet $x \\in \\map \\ker \\phi$.\nThen $a^x = e_{C_n}$ and thus:\n$n \\divides x$\nThe result follows.",
+    "clean_row_index": 454,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The generator's order makes the kernel of the surjective power map exactly the multiples of n. The first isomorphism theorem gives the finite case, with the infinite cyclic case given by distinct integer powers."
+  },
+  {
+    "theorem_id": 1054,
+    "title": "Ideals Containing Ideal Form Lattice",
+    "theorem_text": "Let $J$ be an ideal of a ring $R$.\nLet $\\mathbb L_J$ be the set of all ideal of $R$ which contain $J$.\nThen the ordered set $\\struct {\\mathbb L_J, \\subseteq}$ is a lattice.",
+    "proof_text": "Let $b_1, b_2 \\in \\mathbb L_J$.\nThen from Set of Ideals forms Complete Lattice:\n$(1): \\quad b_1 + b_2 \\in \\mathbb L_J$ and is the supremum of $\\set {b_1, b_2}$\n$(2): \\quad b_1 \\cap b_2 \\in \\mathbb L_J$ and is the infimum of $\\set {b_1, b_2}$\nThus $\\struct {\\mathbb L_J, \\subseteq}$ is a lattice.",
+    "clean_row_index": 455,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both the sum and the intersection of ideals containing J still contain J, so the ambient join and meet also give the required bounds in the smaller poset."
+  },
+  {
+    "theorem_id": 1055,
+    "title": "Ideals Containing Ideal Isomorphic to Quotient Ring",
+    "theorem_text": "Let $J$ be an ideal of a ring $R$.\nLet $\\mathbb L_J$ be the set of all ideals of $R$ which contain $J$.\nLet the ordered set $\\left({\\mathbb L \\left({R / J}\\right), \\subseteq}\\right)$ be the set of all ideals of $R / J$.\nLet the mapping $\\Phi_J: \\left({\\mathbb L_J, \\subseteq}\\right) \\to \\left({\\mathbb L \\left({R / J}\\right), \\subseteq}\\right)$ be defined as:\n$\\forall a \\in \\mathbb L_J: \\Phi_J \\left({a}\\right) = q_J \\left({a}\\right)$\nwhere $q_J: a \\to a / J$ is the quotient epimorphism from $a$ to $a / J$ from the definition of quotient ring.\nThen $\\Phi_J$ is an isomorphism.",
+    "proof_text": "Let $b \\in \\mathbb L_J$.\nFrom the way $\\mathbb L_J$ is defined:\n$J \\subseteq b$\nThus by Preimage of Image of Subring under Ring Homomorphism:\n$q_J^{-1} \\left({q_J \\left({b}\\right)}\\right) = b + J = b$\nLet $c$ be an ideal of $R / J$.\nThen, by Image of Preimage of Subring under Ring Epimorphism:\n$q_J \\left({q_J^{-1} \\left({c}\\right)}\\right) = c$\nThus by Bijection iff Left and Right Inverse, $\\Phi_J$ is a bijection.\nHence:\n$\\forall c \\in \\mathbb L \\left({R / J}\\right): q_J^{-1} \\left({\\Phi_J}\\right) c = q_J^{-1} \\left({c}\\right)$\nNow to show that $\\Phi_J$ is an isomorphism.\nLet $b_1, b_2 \\in \\mathbb L_J$.\nLet $b_1 \\subseteq b_2$.\nThen from Subset Maps to Subset:\n$q_J \\left({b_1}\\right) \\subseteq q_J \\left({b_2}\\right)$\nConversely, suppose $q_J \\left({b_1}\\right) \\subseteq q_J \\left({b_2}\\right)$.\nBy what we have just proved:\n$b_1 = q_J^{-1} \\left({q_J \\left({b_1}\\right)}\\right) \\subseteq  q_J^{-1} \\left({q_J \\left({b_2}\\right)}\\right) = b_2$\nThus $\\Phi_J$ is an isomorphism.",
+    "clean_row_index": 456,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Under the quotient projection, image and inverse image undo each other on these ideals and both preserve inclusion. This proves the claimed order isomorphism."
+  },
+  {
+    "theorem_id": 1056,
+    "title": "Ring of Integers is Principal Ideal Domain",
+    "theorem_text": "The integers $\\Z$ form a principal ideal domain.",
+    "proof_text": "We have that Integers are Euclidean Domain.\nThen we have that Euclidean Domain is Principal Ideal Domain.\nHence the result.",
+    "clean_row_index": 457,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited Euclidean structure on the integers and the Euclidean-domain implication together establish the PID claim."
+  },
+  {
+    "theorem_id": 1056,
+    "title": "Ring of Integers is Principal Ideal Domain",
+    "theorem_text": "The integers $\\Z$ form a principal ideal domain.",
+    "proof_text": "Let $U$ be an arbitrary ideal of $\\Z$.\nLet $c$ be a non-zero element of $U$.\nThen both $c$ and $-c$ belong to $\\ideal a$ and one of them is positive.\nThus $U$ contains strictly positive elements.\nLet $b$ be the smallest strictly positive element of $U$.\nBy the Set of Integers Bounded Below by Integer has Smallest Element, $b$ is guaranteed to exist.\nIf $\\ideal b$ denotes the ideal generated by $b$, then $\\ideal b \\subseteq U$ because $b\\in U$ and $U$ is an ideal.\nLet $a \\in U$.\nBy the Division Theorem:\n$\\exists q, r \\in \\Z, 0 \\le r < b: a = b q + r$\nAs $a, b \\in U$ it follows that so does $r = a - b q$.\nBy definition of $b$ it follows that $r = 0$.\nThus:\n$a = b q \\in \\ideal b$\nand so:\n$U \\subseteq \\ideal b$\nFrom the above:\n$U = \\ideal b$\nIt follows by definition that $U$ is a principal ideal of $\\Z$.\nRecall that $U$ was an arbitrary ideal of $\\Z$.\nHence by definition $\\Z$ is a principal ideal domain.",
+    "clean_row_index": 458,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "Choosing a nonzero c in an arbitrary ideal excludes the zero ideal. The least-positive-element argument covers only nonzero ideals."
+  },
+  {
+    "theorem_id": 1060,
+    "title": "Integer Divisor is Equivalent to Subset of Ideal",
+    "theorem_text": "Let $\\Z$ be the set of all integers.\nLet $\\Z_{>0}$ be the set of strictly positive integers.\nLet $m \\in \\Z_{>0}$ and let $n \\in \\Z$.\nLet $\\ideal m$ be the principal ideal of $\\Z$ generated by $m$.\nThen:\n$m \\divides n \\iff \\ideal n \\subseteq \\ideal m$",
+    "proof_text": "The ring of integers is a principal ideal domain.\nThe result follows directly from Principal Ideals in Integral Domain.",
+    "clean_row_index": 459,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying the divisibility versus reverse-containment criterion for principal ideals to the integer domain yields both directions."
+  },
+  {
+    "theorem_id": 1063,
+    "title": "Maximal Ideal iff Quotient Ring is Field",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a commutative ring with unity whose zero is $0_R$ and whose unity is $1_R$.\nLet $J$ be an ideal of $R$.\nThe following are equivalent:\n$(1): \\quad$ $J$ is a maximal ideal.\n$(2): \\quad$ The quotient ring $R / J$ is a field.",
+    "proof_text": "Let $\\mathbb L_J$ be the set of all ideals of $R$ which contain $J$.\nLet the ordered set $\\struct {\\map {\\mathbb L} {R / J}, \\subseteq}$ be the set of all ideals of $R / J$.\nLet the mapping $\\Phi_J: \\struct {\\mathbb L_J, \\subseteq} \\to \\struct {\\map {\\mathbb L} {R / J}, \\subseteq}$ be defined as:\n$\\forall a \\in \\mathbb L_J: \\map {\\Phi_J} a = \\map {q_J} a$\nwhere $q_J: a \\to a / J$ is the quotient epimorphism from $a$ to $a / J$.\nThen from Ideals Containing Ideal Isomorphic to Quotient Ring, $\\Phi_J$ is an isomorphism.\nNow from Quotient Ring Defined by Ring Itself is Null Ring, $\\map {q_J} J$ is the null ideal of $R / J$.\nAt the same time, $\\map {q_J} R$ is the entire ring $R / J$.\nLet $R / J$ not be the null ring.\nThen by Epimorphism Preserves Rings and Epimorphism Preserves Commutativity, $R / J$ is a commutative ring with unity.\nBy definition, $J$ is a maximal ideal of $R$ if and only if $\\mathbb L_J = \\set {J, R}$ and $J$ is a proper ideal of $R$.\nBy Ideals of Field, $R / J$ is a field if and only if:\n$\\map {\\mathbb L} {R / J} = \\set {\\map {q_J} J, \\map {q_J} R}$\nand the null ideal $\\map {q_J} J$ is a proper ideal of $R / J$.\nAs $\\Phi_J: \\mathbb L_J \\to \\map {\\mathbb L} {R / J}$ is an isomorphism, $J$ is a maximal ideal if and only if $J$ is a field.",
+    "clean_row_index": 460,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The ideal correspondence identifies J and R with the zero and whole quotient ideals. Properness and absence of intermediate ideals give the field criterion. The last sentence's J is a typo for R/J."
+  },
+  {
+    "theorem_id": 1065,
+    "title": "Integral Domain of Prime Order is Field",
+    "theorem_text": "Let $\\left({\\Z_p, +_p, \\times_p}\\right)$ be the ring of integers modulo $p$.\nThe following statements are equivalent:\n$(1): \\quad p$ is a prime.\n$(2): \\quad \\left({\\Z_p, +_p, \\times_p}\\right)$ is an integral domain.\n$(3): \\quad \\left({\\Z_p, +_p, \\times_p}\\right)$ is a field.",
+    "proof_text": "By Prime Number iff Generates Principal Maximal Ideal and Maximal Ideal iff Quotient Ring is Field, $(1)$ implies $(3)$, and from Field is Integral Domain, $(3)$ implies $(2)$.\nBy the definition of Integral Domain, $\\Z_p$ is an integral domain iff $\\left({\\Z_p^*, \\times_p}\\right)$ is a semigroup.\nLet $\\left({p}\\right)$ be the principal ideal of $\\left({\\Z, +, \\times}\\right)$ generated by $p$.\nFrom the Canonical Epimorphism from Integers by Principal Ideal, $\\left({\\Z_p, +_p, \\times_p}\\right)$ is isomorphic to $\\left({\\Z, +, \\times}\\right) / \\left({p}\\right)$.\nSo, we can let $q_p \\left({m}\\right): \\Z \\to \\Z_p$ be the quotient mapping from $\\left({\\Z, +, \\times}\\right)$ to $\\left({\\Z_p, +_p, \\times_p}\\right)$.\nLet $0_p$ denote the zero of $\\Z_p$.\nSuppose $p = m n$ where $1 < m < p, 1 < n < p$.\nThen in the ring $\\Z_p$ we have $q_p \\left({m}\\right) \\ne 0_p, q_p \\left({n}\\right) \\ne 0_p$.\nBut as $q_p$ is an epimorphism and therefore obeys the morphism property, $q_p \\left({m}\\right) \\times_p q_p \\left({n}\\right) = q_p \\left({m n}\\right) = q_p \\left({p}\\right) = 0_p$.\nBut by definition, $0_p \\notin \\Z_p^*$.\nThus if $p = m n$, then $\\left({\\Z_p^*, \\times_p}\\right)$ is not a semigroup.",
+    "clean_row_index": 461,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Prime modulus gives a field via maximality, hence a domain. A composite positive modulus has nonzero proper factors whose residue classes multiply to zero, and modulus one is the zero ring."
+  },
+  {
+    "theorem_id": 1073,
+    "title": "Characteristic of Field is Zero or Prime",
+    "theorem_text": "Let $F$ be a field.\nThen the characteristic of $F$ is either zero or a prime number.",
+    "proof_text": "From the definition, a field is a ring with no zero divisors.\nSo by Characteristic of Finite Ring with No Zero Divisors, if $\\Char F \\ne 0$ then it is prime.",
+    "clean_row_index": 462,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The cited result concerns finite rings, while fields of positive characteristic can be infinite. No reduction to the finite subring generated by one is given."
+  },
+  {
+    "theorem_id": 1075,
+    "title": "Field of Prime Characteristic has Unique Prime Subfield",
+    "theorem_text": "Let $F$ be a field whose characteristic is $p$.\nThen there exists a unique $P \\subseteq F$ such that:\n$(1): \\quad P$ is a subfield of $F$\n$(2): \\quad P \\cong \\Z_p$.\nThat is, $P \\cong \\Z_p$ is a unique minimal subfield of $F$, and all other subfields of $F$ contain $P$.\nThis field $P$ is called the prime subfield of $F$.",
+    "proof_text": "Let $\\struct {F, +, \\times}$ be a field whose unity is $1_F$ such that $\\Char F = p$.\nLet $P$ be a prime subfield of $F$.\nFrom Field has Prime Subfield, this has been shown to exist.\nWe can consistently define a mapping $\\phi: \\Z_p \\to F$ by:\n$\\forall n \\in \\Z_p: \\map \\phi {\\eqclass n p} = n \\cdot 1_F$\nSuppose $a, b \\in \\eqclass n p$.\nThen:\n$a = n + k_1 p, b = n + k_2 p$\nSo:\n$$\\map \\phi a = \\map \\phi {n + k_1 p}$$\n$$= \\paren {n + k_1 p} \\cdot 1_F$$\n$$= n \\cdot 1_F + k_1 p \\cdot 1_F$$\n$$= n \\cdot 1_F$$\nand similarly for $b$, showing that $\\phi$ is well-defined.\nLet $C_a, C_b \\in \\Z_p$.\nLet $a \\in C_a, b \\in C_b$ such that $a = a' + k_a p, b = b' + k_b p$.\nThen:\n$$\\map \\phi {C_a} + \\map \\phi {C_b} = \\map \\phi {a' + k_a p} + \\map \\phi {b' + k_b p}$$\n$$= \\paren {a' + k_a p} \\cdot 1_F + \\paren {b' + k_b p} \\cdot 1_F$$\n$$= \\paren {a' + k_a p + b' + k_b p} \\cdot 1_F$$\nIntegral Multiple Distributes over Ring Addition\n$$= \\paren {a' + b'} \\cdot 1_F + \\paren {\\paren {k_a p + k_b p} \\cdot 1_F}$$\n$$= \\paren {a' + b'} \\cdot 1_F$$\n$$= \\map \\phi {C_a +_p C_b}$$\nSimilarly for $\\map \\phi {C_a} \\times \\map \\phi {C_b}$.\nSo $\\phi$ is a ring homomorphism.\nFrom Ring Homomorphism from Field is Monomorphism or Zero Homomorphism, it follows that $\\phi$ is a ring monomorphism.\nThus it follows that $P = \\Img \\phi$ is a subfield of $F$ such that $P \\cong \\Z_p$.\nLet $K$ be a subfield of $F$.\nlet $P = \\Img \\phi$ as defined above.\nWe know that $1_F \\in K$.\nIt follows that $1_F \\in K \\implies P \\subseteq K$.\nThus $K$ contains a subfield $P$ such that $P$ is isomorphic to $\\Z_p$.\nThe uniqueness of $P$ follows from the fact that if $P_1$ and $P_2$ are both minimal subfields of $F$, then $P_1 \\subseteq P_2$ and $P_2 \\subseteq P_1$, thus $P_1 = P_2$.",
+    "clean_row_index": 463,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For the prime characteristic specified by the title, the residue map sending n to n times one is well-defined and nonzero, hence injective. Every subfield contains one and all these multiples, making this copy least and unique."
+  },
+  {
+    "theorem_id": 1079,
+    "title": "Set of Polynomials over Integral Domain is Subring",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a commutative ring.\nLet $\\struct {D, +, \\circ}$ be an integral subdomain of $R$.\nThen $\\forall x \\in R$, the set $D \\sqbrk x$ of polynomials in $x$ over $D$ is a subring of $R$.",
+    "proof_text": "By application of the Subring Test:\nAs $D$ is an integral domain, it has a unity $1_D$ and so $x = 1_D x$.\nHence $x \\in D \\sqbrk x$ and so $D \\sqbrk x \\ne \\O$.\nLet $p, q \\in D \\sqbrk x$.\nThen let:\n$\\displaystyle p = \\sum_{k \\mathop = 0}^m a_k \\circ x^k, q = \\sum_{k \\mathop = 0}^n b_k \\circ x^k$\nThus:\n$\\displaystyle -q = -\\sum_{k \\mathop = 0}^n b_k \\circ x^k = \\sum_{k \\mathop = 0}^n \\paren {-b_k} \\circ x^k$\nand so:\n$q \\in D \\sqbrk x$\nThus as Polynomials Closed under Addition, it follows that:\n$p + \\paren {-q} \\in D \\sqbrk x$\nFinally, from Polynomials Closed under Ring Product, we have that $p \\circ q \\in D \\sqbrk x$.\nAll the criteria of the Subring Test are satisfied.\nHence the result.",
+    "clean_row_index": 464,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "From the existence of an identity in D the proof assumes it acts as identity on an arbitrary element of R. This need not hold in an ambient ring without a shared identity. Nonemptiness could instead follow from the zero polynomial."
+  },
+  {
+    "theorem_id": 1082,
+    "title": "Unique Representation in Polynomial Forms",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a commutative ring with unity whose zero is $0_R$ and whose unity is $1_R$.\nLet $\\struct {D, +, \\circ}$ be an integral subdomain of $R$.\nLet $X \\in R$ be transcendental over $D$.\nLet $D \\sqbrk X$ be the ring of polynomials in $X$ over $D$.\nThen each non-zero member of $D \\left[{X}\\right]$ can be expressed in just one way in the form:\n$\\ds f \\in D \\sqbrk X: f = \\sum_{k \\mathop = 0}^n {a_k \\circ X^k}$",
+    "proof_text": "Suppose $f \\in D \\sqbrk X \\setminus \\set {0_R}$ has more than one way of being expressed in the above form.\nThen you would be able to subtract one from the other and get a polynomial in $D \\sqbrk X$ equal to zero.\nAs $f$ is transcendental, the result follows.",
+    "clean_row_index": 465,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "Distinct written sums can differ only by appended zero coefficients, in which case subtraction gives the zero formal polynomial and does not contradict transcendence. A nonzero leading coefficient or a convention identifying trailing zeros is needed."
+  },
+  {
+    "theorem_id": 1083,
+    "title": "Ring of Polynomial Forms is Integral Domain",
+    "theorem_text": "Let $\\struct {R, +, \\circ}$ be a commutative ring with unity.\nLet $\\struct {D, +, \\circ}$ be an integral subdomain of $R$.\nLet $X \\in R$ be transcendental over $D$.\nLet $D \\sqbrk X$ be the ring of polynomials in $X$ over $D$.\nThen $D \\sqbrk X$ is an integral domain.",
+    "proof_text": "By Ring of Polynomial Forms is Commutative Ring with Unity we know that $D \\sqbrk X$ is a commutative ring with unity.\nLet neither $\\displaystyle \\map f X = \\sum_{k \\mathop = 0}^n a_k x^k$ nor $\\displaystyle \\map g X = \\sum_{k \\mathop = 0}^m b_k X^k$ be the null polynomial.\nThen their leading coefficients $a_n$ and $b_m$ are non-zero.\nTherefore, as $D$ is an integral domain and $a_n, b_m \\in D$, so is their product $a_n b_m$.\nBy the definition of polynomial multiplication, it follows that $f g$ is not the null polynomial.\nIt follows that $D \\sqbrk X$ has no proper zero divisors.\nHence $D \\sqbrk X$ is an integral domain.",
+    "clean_row_index": 466,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The highest-degree coefficient of the product is the product of two nonzero leading coefficients in a domain, hence nonzero. Transcendence ensures the resulting nonzero polynomial form remains nonzero at X."
+  },
+  {
+    "theorem_id": 1088,
+    "title": "Polynomial Forms over Field form Principal Ideal Domain",
+    "theorem_text": "Let $\\struct {F, +, \\circ}$ be a field whose zero is $0_F$ and whose unity is $1_F$.\nLet $X$ be transcendental over $F$.\nLet $F \\sqbrk X$ be the ring of polynomials in $X$ over $F$.\nThen $F \\sqbrk X$ is a principal ideal domain.",
+    "proof_text": "For any $d \\in F \\sqbrk X$, let $\\ideal d$ denote the principal ideal of $F \\sqbrk X$ generated by $d$.\nLet $J$ be any ideal of $F \\sqbrk X$. What we need to prove is that $J$ is a principal ideal.\nLet us first distinguish the following two cases for $J$:\n:If $J = \\set {0_F}$, then by Zero Element Generates Null Ideal $J = \\ideal {0_F}$, and hence is a principal ideal.\n:If $J = F \\sqbrk X$, then by Ideal of Unit is Whole Ring: Corollary $J = \\ideal {1_F}$, and hence is a principal ideal.\nNow suppose $J \\ne \\set {0_F}$ and $J \\ne F \\sqbrk X$.\nThen $J$ necessarily contains a non-zero element.\nBy the Well-Ordering Principle, we can introduce the lowest degree of a non-zero element of $J$.\nDenote this degree by $n$.\nIf $n = 0$, then $J$ contains a polynomial of degree $0$.\nThis is a non-zero element of $F$.\nAs $F$ is a field, this is therefore a unit of $F$, and thus by Ideal of Unit is Whole Ring, $J = F \\sqbrk X$.\nBecause the degree of a non-zero element is a natural number, we conclude that $n \\ge 1$.\nNow let $d$ be a polynomial of degree $n$ in $J$, and let $f \\in J$.\nBy Division Theorem for Polynomial Forms over Field, $f = q \\circ d + r$ for some $q, r \\in F \\sqbrk X$ where either:\n$r = 0_F$\nor:\n$r$ is a polynomial of degree smaller than $n$.\nBecause $J$ is an ideal and $d \\in J$, it follows that:\n$q \\circ d \\in J$\nSince $f \\in J$, we also conclude:\n$r = f - q \\circ d \\in J$\nFrom the construction of $d$, it follows that we must have $r = 0_F$.\nTherefore:\n$f = q \\circ d$\nand thus:\n$f \\in \\ideal d$.\nThis reasoning shows that:\n$J \\subseteq \\ideal d$\nFrom property $(3)$ of the principal ideal $\\ideal d$, we conclude that:\n$\\ideal d \\subseteq J$\nas $d \\in J$.\nHence $J = \\ideal d$.\nThese $2$ distinguished cases cover all of the possible ideals of $F \\sqbrk X$.\nHence $F \\sqbrk X$ is a principal ideal domain.",
+    "clean_row_index": 469,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For a proper nonzero ideal, division by its least-degree nonzero member gives a remainder in the ideal, which minimality forces to vanish. The zero and whole ideals are handled separately."
+  },
+  {
+    "theorem_id": 1088,
+    "title": "Polynomial Forms over Field form Principal Ideal Domain",
+    "theorem_text": "Let $\\struct {F, +, \\circ}$ be a field whose zero is $0_F$ and whose unity is $1_F$.\nLet $X$ be transcendental over $F$.\nLet $F \\sqbrk X$ be the ring of polynomials in $X$ over $F$.\nThen $F \\sqbrk X$ is a principal ideal domain.",
+    "proof_text": "We have that Polynomial Forms over Field is Euclidean Domain.\nWe also have that Euclidean Domain is Principal Ideal Domain.\nHence the result.",
+    "clean_row_index": 470,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited Euclidean-domain property for polynomials over a field directly implies the principal ideal property."
+  },
+  {
+    "theorem_id": 1095,
+    "title": "Derivative of Inverse Function",
+    "theorem_text": "Let $I = \\closedint a b$ and $J = \\closedint c d$ be closed real intervals.\nLet $I^o = \\openint a b$ and $J^o = \\openint c d$ be the corresponding open real intervals.\nLet $f: I \\to J$ be a real function which is continuous on $I$ and differentiable on $I^o$ such that $J = f \\sqbrk I$.\nLet either:\n$\\forall x \\in I^o: D \\map f x > 0$\nor:\n$\\forall x \\in I^o: D \\map f x < 0$\nThen:\n$f^{-1}: J \\to I$ exists and is continuous on $J$\n$f^{-1}$ is differentiable on $J^o$\n$\\forall y \\in J^o: D \\map {f^{-1} } y = \\dfrac 1 {D \\map f x}$",
+    "proof_text": "From Derivative of Monotone Function, it follows that $f$ is either:\n:strictly increasing on $I$ (if $\\forall x \\in I^o: D \\, \\map f x > 0$)\nor:\n:strictly decreasing on $I$ (if $\\forall x \\in I^o: D \\, \\map f x < 0$).\nTherefore from Inverse of Strictly Monotone Function it follows that $f^{-1}: J \\to I$ exists.\nAs $f$ is continuous, from Image of Interval by Continuous Function is Interval it follows that $J$ is an interval.\nBy the Corollary to Limit of Increasing Function and the Corollary to Limit of Decreasing Function, $f^{-1}: J \\to I$ is continuous.\nNext its derivative is to be considered.\nSuppose $f$ is strictly increasing.\nLet $y \\in J^o$.\nThen $\\map {f^{-1} } y \\in I^o$.\nLet $k = \\map {f^{-1} } {y + h} - \\map {f^{-1} } y$.\nThus:\n$\\map {f^{-1} } {y + h} = \\map {f^{-1} } y + k = x + k$\nThus:\n$y + h = \\map f {x + k}$\nand hence:\n$h = \\map f {x + k} - y = \\map f {x + k} - \\map f x$\nSince $f^{-1}$ is continuous on $J$, it follows that $k \\to 0$ as $h \\to 0$.\nAlso, $f^{-1}$ is strictly increasing from Inverse of Strictly Monotone Function and so $k \\ne 0$ unless $h = 0$.\nSo by Limit of Composite Function we get:\n$\\dfrac {\\map {f^{-1} } {y + h} - \\map {f^{-1} } y} h = \\dfrac k {\\map f {x + k} - \\map f x}$\nThus:\n$\\dfrac {\\map {f^{-1} } {y + h} - \\map {f^{-1} } y} h \\to \\dfrac 1 {D \\map f x}$\nas $h \\to 0$.\nSuppose $f$ is strictly decreasing.\nExactly the same argument applies.",
+    "clean_row_index": 471,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Strict monotonicity and continuity give a continuous inverse. Its difference quotient is the reciprocal of the original quotient at x equal to the inverse image of y, and the derivative there is nonzero."
+  },
+  {
+    "theorem_id": 1096,
+    "title": "Upper Sum Never Smaller than Lower Sum",
+    "theorem_text": "Let $\\closedint a b$ be a closed interval of the set $\\R$ of real numbers.\nLet $P = \\set {x_0, x_1, x_2, \\ldots, x_{n - 1}, x_n}$ be a finite subdivision of $\\closedint a b$.\nLet $f: \\R \\to \\R$ be a real function.\nLet $f$ be bounded on $\\closedint a b$.\nLet $\\map L P$ be the lower sum of $\\map f x$ on $\\closedint a b$ belonging to the subdivision $P$.\nLet $\\map U P$ be the upper sum of $\\map f x$ on $\\closedint a b$ belonging to the subdivision $P$.\nThen $\\map L P \\le \\map U P$.",
+    "proof_text": "For all $\\nu \\in 1, 2, \\ldots, n$, let $\\closedint {x_{\\nu - 1} } {x_\\nu}$ be a closed subinterval of $\\closedint a b$.\nAs $f$ is bounded on $\\closedint a b$, it is bounded on $\\closedint {x_{\\nu - 1} } {x_\\nu}$.\nSo, let $m_\\nu$ be the infimum and $M_\\nu$ be the supremum of $\\map f x$ on the interval $\\closedint {x_{\\nu - 1} } {x_\\nu}$.\nBy definition, $m_\\nu \\le M_\\nu$.\nSo $m_{\\nu} \\paren {x_\\nu - x_{\\nu - 1} } \\le M_{\\nu} \\paren {x_\\nu - x_{\\nu - 1} }$.\nIt follows directly that $\\displaystyle \\sum_{\\nu \\mathop = 1}^n m_\\nu \\paren {x_\\nu - x_{\\nu - 1} } \\le \\sum_{\\nu \\mathop = 1}^n M_\\nu \\paren {x_\\nu - x_{\\nu - 1} }$.",
+    "clean_row_index": 472,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The infimum is at most the supremum on each subinterval. Multiplying by the nonnegative length and summing yields the stated bounds."
+  },
+  {
+    "theorem_id": 1098,
+    "title": "Complex Addition is Closed",
+    "theorem_text": "The set of complex numbers $\\C$ is closed under addition:\n$\\forall z, w \\in \\C: z + w \\in \\C$",
+    "proof_text": "From the informal definition of complex numbers, we define the following:\n$z = x_1 + i y_1$\n$w = x_2 + i y_2$\nwhere $i = \\sqrt {-1}$ and $x_1, x_2, y_1, y_2 \\in \\R$.\nThen from the definition of complex addition:\n$z + w = \\paren {x_1 + x_2} + i \\paren {y_1 + y_2}$\nFrom Real Numbers under Addition form Abelian Group, real addition is closed.\nSo:\n$\\paren {x_1 + x_2} \\in \\R$ and $\\paren {y_1 + y_2} \\in \\R$\nHence the result.",
+    "clean_row_index": 473,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Adding the real and imaginary parts separately produces real coefficients and thus another complex number."
+  },
+  {
+    "theorem_id": 1098,
+    "title": "Complex Addition is Closed",
+    "theorem_text": "The set of complex numbers $\\C$ is closed under addition:\n$\\forall z, w \\in \\C: z + w \\in \\C$",
+    "proof_text": "From the formal definition of complex numbers, we have:\n$z = \\tuple {x_1, y_1}$\n$w = \\tuple {x_2, y_2}$\nwhere $x_1, x_2, y_1, y_2 \\in \\R$.\nThen from the definition of complex addition:\n$z + w = \\tuple {x_1 + x_2, y_1 + y_2}$\nFrom Real Numbers under Addition form Abelian Group, real addition is closed.\nSo:\n$\\paren {x_1 + x_2} \\in \\R$ and $\\paren {y_1 + y_2} \\in \\R$\nand hence the result.",
+    "clean_row_index": 474,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Componentwise addition preserves both real coordinates, so the result is in the Cartesian-pair model of the complex numbers."
+  },
+  {
+    "theorem_id": 1101,
+    "title": "Integers are Countably Infinite",
+    "theorem_text": "The set $\\Z$ of integers is countably infinite.",
+    "proof_text": "Define the inclusion mapping $i: \\N \\to \\Z$.\nFrom Inclusion Mapping is Injection, $i: \\N \\to \\Z$ is an injection.\nThus there exists an injection from $\\N$ to $\\Z$.\nHence $\\Z$ is infinite.\nNext, let us arrange $\\Z$ in the following order:\n$\\Z = \\set {0, 1, -1, 2, -2, 3, -3, \\ldots}$\nThen we can directly see that we can define a mapping $\\phi: \\Z \\to \\N$ as follows:\n$\\forall x \\in \\Z: \\map \\phi x = \\begin{cases} 2 x - 1 & : x > 0 \\\\ -2 x & : x \\le 0 \\end{cases}$\nThis is shown to be an injection as follows:\nLet $\\map \\phi x = \\map \\phi y$.\nThen one of the following applies:\n$(1): \\quad -2 x = -2 y$ in which case $x = y$\n$(2): \\quad 2 x - 1 = 2 y - 1$ in which case $2 x = 2 y$ and so $x = y$\n$(3): \\quad 2 x - 1 = -2 y$ in which case $y = -x + \\frac 1 2$ and therefore $y \\notin \\Z$\n$(4): \\quad 2 y - 1 = -2 x$ in which case $x = -y + \\frac 1 2$ and therefore $x \\notin \\Z$.\nSo $2 x - 1 = -2 y$ and $2 y - 1 = -2 x$ can't happen and so $x = y$.\nThus $\\phi$ is injective.\nThe result follows from Domain of Injection to Countable Set is Countable.",
+    "clean_row_index": 475,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The inclusion of the naturals makes the integers infinite. The parity-separated formulas give an injection back to the naturals, establishing countability."
+  },
+  {
+    "theorem_id": 1103,
+    "title": "Determinant of Transpose",
+    "theorem_text": "Let $\\mathbf A = \\sqbrk a_n$ be a square matrix of order $n$.\nLet $\\map \\det {\\mathbf A}$ be the determinant of $\\mathbf A$.\nLet $\\mathbf A^\\intercal$ be the transpose of $\\mathbf A$.\nThen:\n$\\map \\det {\\mathbf A} = \\map \\det {\\mathbf A^\\intercal}$",
+    "proof_text": "Let $\\mathbf A = \\begin{bmatrix}\na_{11} & a_{12} & \\ldots & a_{1n} \\\\\na_{21} & a_{22} & \\cdots & a_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{n1} & a_{n2} & \\cdots & a_{nn} \\\\\n\\end{bmatrix}$.\nThen $\\mathbf A^\\intercal = \\begin{bmatrix}\na_{11} & a_{21} & \\ldots & a_{n1} \\\\\na_{12} & a_{22} & \\cdots & a_{n2} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{1n} & a_{2n} & \\cdots & a_{nn} \\\\\n\\end{bmatrix}$.\nLet $b_{r s} = a_{s r}$ for $1 \\le r, s \\le n$.\nWe need to show that $\\map \\det {\\sqbrk a_n} = \\map \\det {\\sqbrk b_n}$.\nBy the definition of determinant and Permutation of Determinant Indices, we have:\n$$\\map \\det {\\sqbrk b_n} = \\sum_\\lambda \\map {\\sgn} \\lambda b_{1 \\map \\lambda 1} b_{2 \\map \\lambda 2} \\cdots b_{n \\map \\lambda n}$$\n$$= \\sum_\\lambda \\map {\\sgn} \\lambda a_{\\map \\lambda 1 1} a_{\\map \\lambda 2 2} \\cdots a_{\\map \\lambda n n}$$\n$$= \\map \\det {\\sqbrk a_n}$$",
+    "clean_row_index": 476,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Transposition interchanges the two entry indices in the permutation expansion, and the cited permutation-of-indices identity recovers the original determinant."
+  },
+  {
+    "theorem_id": 1104,
+    "title": "Determinant with Rows Transposed",
+    "theorem_text": "If two rows of a matrix with determinant $D$ are transposed, its determinant becomes $-D$.",
+    "proof_text": "Let $\\mathbf A = \\sqbrk a_n$ be a square matrix of order $n$.\nLet $1 \\le r < s \\le n$.\nLet $e$ be the elementary row operation that exchanging rows $r$ and $s$.\nLet $\\mathbf B = \\map e {\\mathbf A}$.\nLet $\\mathbf E$ be the elementary row matrix corresponding to $e$.\nFrom Elementary Row Operations as Matrix Multiplications:\n$\\mathbf B = \\mathbf E \\mathbf A$\nFrom Determinant of Elementary Row Matrix: Exchange Rows:\n$\\map \\det {\\mathbf E} = -1$\nThen:\n$$\\map \\det {\\mathbf B} = \\map \\det {\\mathbf E \\mathbf A}$$\nDeterminant of Matrix Product\n$$= -\\map \\det {\\mathbf A}$$\nas $\\map \\det {\\mathbf E} = -1$\nHence the result.",
+    "clean_row_index": 477,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Left multiplication by the row-swap matrix exchanges the rows, and its determinant of minus one gives the sign change by multiplicativity."
+  },
+  {
+    "theorem_id": 1105,
+    "title": "Square Matrix with Duplicate Rows has Zero Determinant",
+    "theorem_text": "If two rows of a square matrix over a commutative ring $\\struct {R, +, \\circ}$ are the same, then its determinant is zero.",
+    "proof_text": "Suppose that $\\forall x \\in R: x + x = 0 \\implies x = 0$.\nFrom Determinant with Rows Transposed, if you exchange two rows of a square matrix, the sign of its determinant changes.\nIf you exchange two identical rows of a square matrix, then the sign of its determinant changes from $D$, say, to $-D$.\nBut the matrix stays the same.\nSo $D = -D$ and so $D = 0$.",
+    "clean_row_index": 478,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The proof assumes that twice an element can be zero only when the element is zero. This fails in commutative rings with additive 2-torsion, so D equal to minus D is insufficient."
+  },
+  {
+    "theorem_id": 1106,
+    "title": "Determinant with Row Multiplied by Constant",
+    "theorem_text": "Let $\\mathbf A = \\sqbrk a_n$ be a square matrix of order $n$.\nLet $\\map \\det {\\mathbf A}$ be the determinant of $\\mathbf A$.\nLet $\\mathbf B$ be the matrix resulting from one row of $\\mathbf A$ having been multiplied by a constant $c$.\nThen:\n$\\map \\det {\\mathbf B} = c \\map \\det {\\mathbf A}$\nThat is, multiplying one row of a square matrix by a constant multiplies its determinant by that constant.",
+    "proof_text": "Let $\\mathbf A = \\sqbrk a_n$ be a square matrix of order $n$.\nLet $e$ be the elementary row operation that multiplies rows $i$ by the scalar$c$.\nLet $\\mathbf B = \\map e {\\mathbf A}$.\nLet $\\mathbf E$ be the elementary row matrix corresponding to $e$.\nFrom Elementary Row Operations as Matrix Multiplications:\n$\\mathbf B = \\mathbf E \\mathbf A$\nFrom Determinant of Elementary Row Matrix: Exchange Rows:\n$\\map \\det {\\mathbf E} = c$\nThen:\n$$\\map \\det {\\mathbf B} = \\map \\det {\\mathbf E \\mathbf A}$$\nDeterminant of Matrix Product\n$$= c \\map \\det {\\mathbf A}$$\nas $\\map \\det {\\mathbf E} = c$\nHence the result.",
+    "clean_row_index": 479,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The matrix scaling one row is diagonal with c in that position and ones elsewhere, so its determinant is c. Multiplicativity proves the result despite the reference title mentioning exchanges."
+  }
+]

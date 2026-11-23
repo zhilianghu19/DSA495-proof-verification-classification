@@ -1,0 +1,5 @@
+Model,Training input,Split,Proofs,Actual Invalid,Invalid precision,Invalid recall,Macro F1
+MathBERT,without_review_reason,validation,89,15,0.18181818181818182,0.4,0.48653846153846153
+MathBERT,without_review_reason,test,89,14,0.22580645161290322,0.5,0.539014202172097
+MathBERT,with_training_review_reason,validation,89,15,0.0,0.0,0.44375
+MathBERT,with_training_review_reason,test,89,14,0.0,0.0,0.44375

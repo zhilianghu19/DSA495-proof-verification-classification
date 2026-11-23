@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1162,
+    "title": "Limit of Integer to Reciprocal Power",
+    "theorem_text": "Let $\\sequence {x_n}$ be the real sequence defined as $x_n = n^{1/n}$, using exponentiation.\nThen $\\sequence {x_n}$ converges with a limit of $1$.",
+    "proof_text": "From Number to Reciprocal Power is Decreasing we have that the real sequence $\\sequence {n^{1/n} }$ is decreasing for $n \\ge 3$.\nNow, as $n^{1 / n} > 0$ for all positive $n$, it follows that $\\sequence {n^{1 / n} }$ is bounded below (by $0$, for a start).\nThus the subsequence of $\\sequence {n^{1 / n} }$ consisting of all the terms of $\\sequence {n^{1 / n} }$ where $n \\ge 3$ is convergent by the Monotone Convergence Theorem (Real Analysis).\nNow we need to demonstrate that this limit is in fact $1$.\nLet $n^{1 / n} \\to l$ as $n \\to \\infty$.\nHaving established this, we can investigate the subsequence $\\sequence {\\paren {2 n}^{1 / {2 n} } }$.\nBy Limit of Subsequence equals Limit of Real Sequence, this will converge to $l$ also.\nFrom Limit of Root of Positive Real Number, we have that $2^{1 / {2 n} } \\to 1$ as $n \\to \\infty$.\nSo $n^{1 / {2 n} } \\to l$ as $n \\to \\infty$ by the Combination Theorem for Sequences.\nThus:\n$n^{1 / n} = n^{1 / {2 n} } \\cdot n^{1 / {2 n} } \\to l \\cdot l = l^2$\nas $n \\to \\infty$.\nSo $l^2 = l$, and as $l \\ge 1$ the result follows.",
+    "clean_row_index": 510,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Eventual monotonicity gives a limit, and the even subsequence shows its square equals itself. Every term is at least 1, excluding the other root 0."
+  },
+  {
+    "theorem_id": 1162,
+    "title": "Limit of Integer to Reciprocal Power",
+    "theorem_text": "Let $\\sequence {x_n}$ be the real sequence defined as $x_n = n^{1/n}$, using exponentiation.\nThen $\\sequence {x_n}$ converges with a limit of $1$.",
+    "proof_text": "We have the definition of the power to a real number:\n$\\displaystyle n^{1/n} = \\map \\exp {\\frac 1 n \\ln n}$\nFrom Powers Drown Logarithms, we have that:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} \\frac 1 n \\ln n = 0$\nHence:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} n^{1/n} = \\exp 0 = 1$\nand the result.",
+    "clean_row_index": 511,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The logarithm of the nth root is log(n)/n, which tends to zero. Continuity of the exponential gives the limit 1."
+  },
+  {
+    "theorem_id": 1163,
+    "title": "Difference Between Adjacent Square Roots Converges",
+    "theorem_text": "Let $\\sequence {x_n}$ be the sequence in $\\R$ defined as $x_n = \\sqrt {n + 1} - \\sqrt n$.\nThen $\\sequence {x_n}$ converges to a zero limit.",
+    "proof_text": "We have:\n$$0 \\le \\sqrt {n + 1} - \\sqrt n$$\n$$= \\frac {\\paren {\\sqrt {n + 1} - \\sqrt n} \\paren {\\sqrt {n + 1} + \\sqrt n} } {\\sqrt {n + 1} + \\sqrt n}$$\nmultiplying top and bottom by $\\sqrt {n + 1} - \\sqrt n$\n$$= \\frac {n + 1 - n} {\\sqrt {n + 1} + \\sqrt n}$$\nDifference of Two Squares\n$$= \\frac 1 {\\sqrt {n + 1} + \\sqrt n}$$\n$$< \\frac 1 {\\sqrt n}$$\nas $\\sqrt {n + 1} + \\sqrt n > \\sqrt n$\nBut from Sequence of Powers of Reciprocals is Null Sequence, $\\dfrac 1 {\\sqrt n} \\to 0$ as $n \\to \\infty$.\nThe result follows by the Squeeze Theorem.",
+    "clean_row_index": 512,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The displayed rationalization gives the reciprocal of the sum of the roots, bounded between zero and 1/√n, which vanishes."
+  },
+  {
+    "theorem_id": 1164,
+    "title": "Peak Point Lemma",
+    "theorem_text": "Let $\\sequence {x_n}$ be a sequence in $\\R$ which is infinite.\nThen $\\sequence {x_n}$ has an infinite subsequence which is monotone.",
+    "proof_text": "A coastal town in Spain has an infinite row of hotels along a road leading down to the beach.\nThe tourist bureau which rates these hotels has a special designation for any hotel having a view of the sea.\nAny hotel which is at least as tall as the rest of the hotels on the road to the sea receives this view-rating.\nStarting with the hotel farthest from the sea, let $x_1, x_2, \\ldots$ denote the heights of the hotels as we travel along the road to the beach.\nOne possibility is that an infinite number of hotels are view-rated.\nIn this case the heights of these hotels form a decreasing (i.e. nonincreasing) subsequence of the original sequence of heights.\nThe other possibility is that only a finite number of hotels are view-rated.\nIn this case we can obtain an increasing subsequence as follows.\nWalk along the road to the beach past all the view-rated hotels.\nLet $n_1$ be the index of the next hotel.\nSince it does not have a view of the sea, there is a taller hotel nearer the shore which blocks the view.\nLet $n_2$ be the index of that taller hotel.\nSince it is not view-rated, it does not have a view of the sea.\nThus there must be an even taller hotel nearer the shore which blocks the view.\nIn this way we generate a list of indices $n_1 < n_2 < n_3 \\cdots$ of taller and taller hotels.\nThis gives an increasing subsequence $x_{n_1}, x_{n_2}, x_{n_3}, \\ldots$ of the original sequence.",
+    "clean_row_index": 513,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Infinitely many indices dominating their tails give a nonincreasing subsequence. Beyond the last such index every term has a larger successor, allowing recursive selection."
+  },
+  {
+    "theorem_id": 1165,
+    "title": "Bolzano-Weierstrass Theorem",
+    "theorem_text": "Every bounded sequence of real numbers has a convergent subsequence.",
+    "proof_text": "Let $\\sequence {x_n}$ be a bounded sequence in $\\R$.\nBy the Peak Point Lemma, $\\sequence {x_n}$ has a monotone subsequence $\\sequence {x_{n_r} }$.\nSince $\\sequence {x_n}$ is bounded, so is $\\sequence {x_{n_r} }$.\nHence, by the Monotone Convergence Theorem (Real Analysis), the result follows.",
+    "clean_row_index": 514,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited peak point result supplies a monotone subsequence. It inherits the bounds of the original sequence and thus converges in the reals."
+  },
+  {
+    "theorem_id": 1243,
+    "title": "Convergent Subsequence in Closed Interval",
+    "theorem_text": "Let $\\closedint a b$ be a closed real interval.\nThen every sequence of points of $\\closedint a b$ contains a subsequence which converges to a point in $\\closedint a b$.",
+    "proof_text": "Let $\\sequence {x_n}$ be a sequence in $\\closedint a b$.\nSince $\\closedint a b$ is bounded in $\\R$, it follows that $\\sequence {x_n}$ is a bounded sequence.\nBy the Bolzano-Weierstrass Theorem, $\\sequence {x_n}$ has a subsequence $\\sequence {x_{n_r} }$ which is convergent.\nSuppose $x_{n_r} \\to l$ as $n \\to \\infty$.\nSince $a \\le x_{n_r} \\le b$, from Lower and Upper Bounds for Sequences it follows that $a \\le l \\le b$.\nSo $\\sequence {x_{n_r} }$ converges to a point in $\\closedint a b$.",
+    "clean_row_index": 548,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Bolzano-Weierstrass gives a convergent subsequence of the bounded input sequence, and the closed bounds a and b persist in its limit."
+  },
+  {
+    "theorem_id": 1171,
+    "title": "Difference of Two Powers",
+    "theorem_text": "Let $\\mathbb F$ denote one of the standard number systems, that is $\\Z$, $\\Q$, $\\R$ and $\\C$.\nLet $n \\in \\N$ such that $n \\ge 2$.\nThen for all $a, b \\in \\mathbb F$:\n$$a^n - b^n = \\paren {a - b} \\sum_{j \\mathop = 0}^{n - 1} a^{n - j - 1} b^j$$\n$$= \\paren {a - b} \\paren {a^{n - 1} + a^{n - 2} b + a^{n - 3} b^2 + \\dotsb + a b^{n - 2} + b^{n - 1} }$$",
+    "proof_text": "The proof will proceed by the Principle of Complete Finite Induction on $\\Z_{>0}$.\nLet $S$ be the set defined as:\n$\\displaystyle S := \\set {n \\in \\Z_{>0}: a^n - b^n = \\paren {a - b} \\sum_{j \\mathop = 0}^{n - 1} a^{n - j - 1} b^j}$\nThat is, $S$ is to be the set of all $n$ such that:\n$\\displaystyle a^n - b^n = \\paren {a - b} \\sum_{j \\mathop = 0}^{n - 1} a^{n - j - 1} b^j$\nBasis for the Induction\nWe have that:\n$\\displaystyle a^1 - b^1 = \\paren {a - b} \\sum_{j \\mathop = 0}^0 a^{1 - 0 - 1} b^j$\nSo $1 \\in S$.\nThis is the basis for the induction.\nInduction Hypothesis\nIt is to be shown that if $r \\in S$ for all $r$ such that $1 \\le r \\le k$, then it follows that $k + 1 \\in S$.\nThis is the induction hypothesis:\n$\\forall r \\in \\Z_{>0}: 1 \\le r \\le k: \\displaystyle a^r - b^r = \\paren {a - b} \\sum_{j \\mathop = 0}^{r - 1} a^{r - j - 1} b^j$\nIt is to be demonstrated that it follows that:\n$\\displaystyle a^{k + 1} - b^{k + 1} = \\paren {a - b} \\sum_{j \\mathop = 0}^k a^{k - j} b^j$\nInduction Step\nThis is the induction step:\n$$a^{k + 1} - b^{k + 1} = \\paren {a + b} \\paren {a^k - b^k} - a b \\paren {a^{k - 1} - b^{k - 1} }$$\n$$= \\paren {a + b} \\paren {a - b} \\sum_{j \\mathop = 0}^{k - 1} a^{k - j - 1} b^j - a b \\paren {a - b} \\sum_{j \\mathop = 0}^{k - 2} a^{k - j - 2} b^j$$\nInduction Hypothesis\n$$= \\paren {a - b} \\paren {\\paren {a + b} \\sum_{j \\mathop = 0}^{k - 1} a^{k - j - 1} b^j - a b \\sum_{j \\mathop = 0}^{k - 2} a^{k - j - 2} b^j}$$\n$$= \\paren {a - b} \\paren {\\sum_{j \\mathop = 0}^{k - 1} a^{k - j} b^j + \\sum_{j \\mathop = 0}^{k - 1} a^{k - j - 1} b^{j + 1} - \\sum_{j \\mathop = 0}^{k - 2} a^{k - j - 1} b^{j + 1} }$$\n$$= \\paren {a - b} \\paren {\\sum_{j \\mathop = 0}^{k - 1} a^{k - j} b^j + a^0 b^k}$$\n$$= \\paren {a - b} \\sum_{j \\mathop = 0}^k a^{k - j} b^j$$\nSo $\\forall r \\in S: 0 \\le r \\le k: r \\in S \\implies k + 1 \\in S$ and the result follows by the Principle of Complete Finite Induction:\n$\\forall n \\in \\Z_{>0}: \\displaystyle a^n - b^n = \\paren {a - b} \\sum_{j \\mathop = 0}^{n - 1} a^{n - j - 1} b^j$",
+    "clean_row_index": 515,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The recurrence for the power difference and cancellation of shifted sums give the induction step. At k=1 the zeroth-power difference and corresponding empty sum both vanish."
+  },
+  {
+    "theorem_id": 1172,
+    "title": "Polynomial Factor Theorem",
+    "theorem_text": "Let $P \\paren x$ be a polynomial in $x$ over a field $K$ of degree $n$.\nThen:\n$\\xi \\in K: P \\paren \\xi = 0 \\iff \\map P x = \\paren {x - \\xi} \\map Q x$\nwhere $Q$ is a polynomial of degree $n - 1$.\nHence, if $\\xi_1, \\xi_2, \\ldots, \\xi_n \\in K$ such that all are different, and $\\map P {\\xi_1} = \\map P {\\xi_2} = \\dotsb = \\map P {\\xi_n} = 0$, then:\n$\\displaystyle \\map P x = k \\prod_{j \\mathop = 1}^n \\paren {x - \\xi_j}$\nwhere $k \\in K$.",
+    "proof_text": "Let $P = \\paren {x - \\xi} Q$.\nThen:\n$\\map P \\xi = \\map Q \\xi \\cdot 0 = 0$\nConversely, let $\\map P \\xi = 0$.\nBy the Division Theorem for Polynomial Forms over Field, there exist polynomials $Q$ and $R$ such that:\n$P = \\map Q {x - \\xi} + R$\nand:\n$\\map \\deg R < \\map \\deg {x - \\xi} = 1$\nEvaluating at $\\xi$ we have:\n$0 = \\map P \\xi = \\map R \\xi$\nBut:\n$\\deg R = 0$\nso:\n$R \\in K$\nIn particular:\n$R = 0$\nThus:\n$P = \\map Q {x - \\xi}$\nas required.\nThe fact that $\\map \\deg Q = n - 1$ follows from:\n:Ring of Polynomial Forms is Integral Domain\nand:\n:Degree of Product of Polynomials over Integral Domain.\nWe can then apply this result to:\n$\\map P {\\xi_1} = \\map P {\\xi_2} = \\dotsb = \\map P {\\xi_n} = 0$\nWe can progressively work through:\n$\\map P x = \\paren {x - \\xi_1} \\map {Q_{n - 1} } x$\nwhere $\\map {Q_{n - 1} } x$ is a polynomial of order $n - 1$.\nThen, substituting $\\xi_2$ for $x$:\n$0 = \\map P {\\xi_2} = \\paren {\\xi_2 - \\xi_1} \\map {Q_{n - 1} } x$\nSince $\\xi_2 \\ne \\xi_1$:\n$\\map {Q_{n - 1} } {\\xi_2} = 0$\nand we can apply the above result again:\n$\\map {Q_{n - 1} } x = \\paren {x - \\xi_2} \\map {Q_{n - 2} } x$\nThus:\n$\\map P x = \\paren {x - \\xi_1} \\paren {x - \\xi_2} \\map {Q_{n - 2} } x$\nand we then move on to consider $\\xi_3$.\nEventually we reach:\n$\\map P x = \\paren {x - \\xi_1} \\paren {x - \\xi_2} \\dotsm \\paren {x - \\xi_n} \\map {Q_0} x$\n$\\map {Q_0} x$ is a polynomial of zero degree, that is a constant polynomial.\nThe result follows.",
+    "clean_row_index": 516,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Division by the linear factor has constant or zero remainder, determined by evaluation at the root. Distinct remaining roots survive each division, ending with a constant quotient."
+  },
+  {
+    "theorem_id": 1176,
+    "title": "Abel's Theorem",
+    "theorem_text": "Let $\\displaystyle \\sum_{k \\mathop = 0}^\\infty a_k$ be a convergent series in $\\R$.\nThen:\n$\\displaystyle \\lim_{x \\mathop \\to 1^-} \\paren {\\sum_{k \\mathop = 0}^\\infty a_k x^k} = \\sum_{k \\mathop = 0}^\\infty a_k$\nwhere $\\displaystyle \\lim_{x \\mathop \\to 1^-}$ denotes the limit from the left.",
+    "proof_text": "Let $\\epsilon > 0$.\nLet $\\displaystyle \\sum_{k \\mathop = 0}^\\infty a_k$ converge to $s$.\nThen its sequence of partial sums $\\sequence {s_N}$, where $\\displaystyle s_N = \\sum_{n \\mathop = 1}^N a_n$, is a Cauchy sequence.\nSo:\n$\\displaystyle \\exists N: \\forall k, m: k \\ge m \\ge N: \\size {\\sum_{l \\mathop = m}^k a_l} < \\frac \\epsilon 3$\nFrom Abel's Lemma: Formulation 2, we have:\n$\\displaystyle \\sum_{k \\mathop = m}^n u_k v_k = \\sum_{k \\mathop = m}^{n-1} \\paren {\\paren {\\sum_{l \\mathop = m}^k u_l} \\paren {v_k - v_{k+1}} } + v_n \\sum_{k \\mathop = m}^n u_k$\nWe apply this, with $u_k = a_k$ and $v_k = x^k$:\n$\\displaystyle \\sum_{k \\mathop = m}^n a_k x^k = \\sum_{k \\mathop = m}^{n-1} \\paren {\\paren {\\sum_{l \\mathop = m}^k a_l} \\paren {x^k - x^{k+1}} } + x^n \\sum_{k \\mathop = m}^n a_k$\nSo it follows that $\\forall n \\ge m \\ge N$ and $\\forall 0 < x < 1$, we have:\n$$\\size {\\sum_{k \\mathop = m}^n a_k x^k} < \\paren {1 - x} \\sum_{k \\mathop = m}^{n-1} \\frac \\epsilon 3 x^k + \\frac \\epsilon 3 x^n$$\nreplacing instances of $\\displaystyle \\sum_{l \\mathop = m}^k a_l$ with $\\dfrac \\epsilon 3$\n$$< \\frac \\epsilon 3 \\paren {1 - x} \\frac {1 - x^n} {1 - x} + \\frac \\epsilon 3 x^n$$\nSum of Geometric Progression\n$$= \\frac \\epsilon 3$$\nSo we conclude that:\n$\\displaystyle \\size {\\sum_{k \\mathop = N}^\\infty a_k x^k} \\le \\frac \\epsilon 3$\nNext, note that from the above, we have $\\forall x: 0 < x < 1$:\n$\\displaystyle \\size {\\sum_{k \\mathop = 0}^\\infty a_k x^k - \\sum_{k \\mathop = 0}^\\infty a_k} \\le \\sum_{k \\mathop = 0}^{N-1} \\size {a_n} \\paren {1 - x^n} + \\frac \\epsilon 3 + \\frac \\epsilon 3$\nBut for finite $n$, we have that $1 - x^n \\to 0$ as $x \\to 1^-$.\nThus:\n$\\displaystyle \\sum_{k \\mathop = 0}^{N-1} \\size {a_n} \\paren {1 - x^n} \\to 0$ as $x \\to 1^-$\nSo:\n$\\displaystyle \\exists \\delta > 0: \\forall x: 1 - \\delta < x < 1: \\sum_{k \\mathop = 0}^{N-1} \\size {a_n} \\paren {1 - x^n} < \\frac \\epsilon 3$\nSo, for any given $\\epsilon > 0$, we can find a $\\delta > 0$ such that, for any $x$ such that $1 - \\delta < x < 1$, it follows that:\n$\\displaystyle \\size {\\sum_{k \\mathop = 0}^\\infty a_k x^k - \\sum_{k \\mathop = 0}^\\infty a_k} < \\epsilon$\nThat coincides with the definition for the limit from the left.\nThe result follows.",
+    "clean_row_index": 517,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Summation by parts turns the Cauchy bound on coefficient tails into a uniform bound on weighted tails for 0<x<1. The finite initial polynomial tends to its endpoint value."
+  },
+  {
+    "theorem_id": 1177,
+    "title": "Alternating Series Test",
+    "theorem_text": "Let $\\sequence {a_n}_{N \\mathop \\ge 0}$ be a decreasing sequence of positive terms in $\\R$ which converges with a limit of zero.\nThat is, let $\\forall n \\in \\N: a_n \\ge 0, a_{n + 1} \\le a_n, a_n \\to 0$ as $n \\to \\infty$\nThen the series:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\paren {-1}^{n - 1} a_n = a_1 - a_2 + a_3 - a_4 + \\dotsb$\nconverges.",
+    "proof_text": "First we show that for each $n > m$, we have $0 \\le a_{m + 1} - a_{m + 2} + a_{m + 3} - \\dotsb \\pm a_n \\le a_{m + 1}$.\nThis will be achieved by means of the Second Principle of Mathematical Induction.\nFor all $n \\in \\N_{>0}$, let $\\map P n$ be the proposition:\n$0 \\le a_{m + 1} - a_{m + 2} + a_{m + 3} - \\dotsb \\pm a_n \\le a_{m + 1}$\nBasis for the Induction\n$\\map P 1$ holds, as $a_{m + 1} \\ge 0$ by definition and $a_{m + 1} \\le a_{m + 1}$.\n$\\map P 2$ also holds, as $a_{m + 2} \\le a_{m + 1}$ and so:\n$0 \\le a_{m + 1} - a_{m + 2} \\le a_{m + 1}$\nThis is the basis for the induction.\nInduction Hypothesis\nIn order to simplify the algebra, let:\n$b_k := a_{m + 1} - a_{m + 2} + a_{m + 3} - \\dotsb \\pm a_k$\nThe $\\pm$ signifies the fact that $a_k$ is positive for $k$ odd and negative for $k$ even.\nSuppose that $\\forall j \\le k: \\map P j$ holds:\n$0 \\le b_j \\le a_{m + 1}$\nThis is the induction hypothesis.\nWe now show that $\\forall k: \\map P k \\implies \\map P {k + 1}$.\nInduction Step\nThis is the induction step:\nSuppose $k$ is odd.\nBy the induction hypothesis:\n$0 \\le b_k \\le a_{m + 1}$\nBecause $\\map P k$ holds:\n$0 \\le b_{k - 1} + a_k \\le a_{m + 1}$\nBut as $a_k \\ge a_{k + 1}$:\n$a_k - a_{k + 1} \\ge 0$\nand so:\n$0 \\le b_{k - 1} + \\paren {a_k - a_{k + 1} } = b_{k + 1}$\nBut as $b_k \\le a_{m + 1}$:\n$b_k - a_{k + 1} = b_{k + 1} \\le a_{m + 1}$\nSo:\n$0 \\le b_{k + 1} \\le a_{m + 1}$\nor:\n$0 \\le a_{m + 1} - a_{m + 2} + a_{m + 3} - \\dotsb - a_{k + 1} \\le a_{m + 1}$\nThus for odd $k$ it follows that $\\map P k \\implies \\map P {k + 1}$.\nNow suppose $k$ is even.\nBy the induction hypothesis:\n$0 \\le b_k \\le a_{m + 1}$\nThen:\n$0 \\le b_k + a_{k + 1} = b_{k + 1}$\nBecause $\\map P k$ holds:\n$0 \\le b_{k - 1} - a_k \\le a_{m + 1}$\nBut as $a_k \\ge a_{k + 1}$:\n$a_k - a_{k + 1} \\ge 0$\nand so:\n$b_{k + 1} = b_{k - 1} - a_k + a_{k + 1} =  b_{k - 1} - \\paren {a_k - a_{k + 1} } = b_{k + 1} \\le a_{m + 1}$\nSo:\n$0 \\le b_{k + 1} \\le a_{m + 1}$\nor:\n$0 \\le a_{m + 1} - a_{m + 2} + a_{m + 3} - \\cdots + a_{k + 1} \\le a_{m + 1}$\nThus for even $k$ it follows that $\\map P k \\implies \\map P {k + 1}$.\nSo for both even and odd $k$ it follows that $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Second Principle of Mathematical Induction.\nTherefore for each $n > m$, we have:\n$0 \\le a_{m + 1} - a_{m + 2} + a_{m + 3} - \\dotsb \\pm a_n \\le a_{m + 1}$\nNow, let $\\sequence {s_n}$ be the sequence of partial sums of the series:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\paren {-1}^{n - 1} a_n$\nLet $\\epsilon > 0$.\nSince $a_n \\to 0$ as $n \\to \\infty$:\n$\\exists N: \\forall n > N: a_n < \\epsilon$\nBut $\\forall n > m > N$, we have:\n$$\\sequence {s_n - s_m} = \\size {\\paren {a_1 - a_2 + a_3 - \\dotsb \\pm a_n} - \\paren {a_1 - a_2 + a_3 - \\dotsb \\pm a_m} }$$\n$$= \\size {\\paren {a_{m + 1} - a_{m + 2} + a_{m + 3} - \\dotsc \\pm a_n} }$$\n$$\\le a_{m + 1}$$\nfrom the above\n$$< \\epsilon$$\nas $m + 1 > N$\nThus we have shown that $\\sequence {s_n}$ is a Cauchy sequence.\nThe result follows from Convergent Sequence is Cauchy Sequence.",
+    "clean_row_index": 518,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The induction on tail length bounds the alternating tail by its first term, which tends to zero. The two parity cases refer to the relative position in the tail. Completeness of the real numbers then gives convergence."
+  },
+  {
+    "theorem_id": 1179,
+    "title": "Intermediate Value Theorem",
+    "theorem_text": "Let $f: S \\to \\R$ be a real function on some subset $S$ of $\\R$.\nLet $I \\subseteq S$ be a real interval.\nLet $f: I \\to \\R$ be continuous on $I$.\nLet $a, b \\in I$.\nLet $k \\in \\R$ lie between $\\map f a$ and $\\map f b$.\nThat is, either:\n$\\map f a < k < \\map f b$\nor:\n$\\map f b < k < \\map f a$\nThen $\\exists c \\in \\openint a b$ such that $\\map f c = k$.",
+    "proof_text": "This theorem is a restatement of Image of Interval by Continuous Function is Interval.\nFrom Image of Interval by Continuous Function is Interval, the image of $\\openint a b$ under $f$ is also a real interval (but not necessarily open).\nThus if $k$ lies between $\\map f a$ and $\\map f b$, it must be the case that:\n$k \\in \\Img {\\openint a b}$\nThe result follows.",
+    "clean_row_index": 519,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The image of the open interval being an interval does not place the endpoint images in it. The argument needs the closed interval between the endpoints; moreover the displayed open interval assumes a<b."
+  },
+  {
+    "theorem_id": 1238,
+    "title": "Image of Interval by Continuous Function is Interval",
+    "theorem_text": "Let $I$ be a real interval.\nLet $f: I \\to \\R$ be a continuous real function.\nThen the image of $f$ is a real interval.",
+    "proof_text": "As before, let $J$ be the image of $f$.\nBy Subset of Real Numbers is Interval iff Connected we need to show that $J$ is connected (and hence an interval).\nSuppose not.\nThen there exists a separation $S \\mid T$ of $J$.\nDefine $A = f^{-1}(S)$ and $B = f^{-1}(T)$. $A$ and $B$ are both non-empty.\nBecause $f$ is continuous, by Continuous iff inverse image of any open set is open we must have $A$ and $B$ open.\nNow, $A \\cap B = f^{-1}(S) \\cap f^{-1}(T) = f^{-1}(S \\cap T) = \\varnothing$, because $S \\mid T$ is a separation.\nAlso, $A \\cup B = f^{-1}(S) \\cup f^{-1}(T) = f^{-1}(S \\cup T) = f^{-1}(J) = I$ ($S \\mid T$ is a separation of $J$).\nHence $A \\mid B$ is a separation of $I$. $I$ can certainly not be an interval (because it is not connected).\nThis is a contradiction. Thus $J$ must be an interval.",
+    "clean_row_index": 540,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A separation of the image would pull back to two nonempty disjoint relatively open sets covering the interval, contradicting its connectedness."
+  },
+  {
+    "theorem_id": 1181,
+    "title": "Comparison Test",
+    "theorem_text": "Let $\\displaystyle \\sum_{n \\mathop = 1}^\\infty b_n$ be a convergent series of positive real numbers.\nLet $\\sequence {a_n}$ be a sequence $\\R$ or sequence in $\\C$.\nLet $\\forall n \\in \\N_{>0}: \\cmod {a_n} \\le b_n$.\nThen the series $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ converges absolutely.",
+    "proof_text": "Let $\\epsilon > 0$.\nAs $\\displaystyle \\sum_{n \\mathop = 1}^\\infty b_n$ converges, its tail tends to zero.\nSo:\n$\\displaystyle \\exists N: \\forall n > N: \\sum_{k \\mathop = n + 1}^\\infty b_k < \\epsilon$\nLet $\\sequence {a_n}$ be the sequence of partial sums of $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$.\nThen $\\forall n > m > N$:\n$$\\cmod {a_n - a_m} = \\cmod {\\paren {a_1 + a_2 + \\cdots + a_n} - \\paren {a_1 + a_2 + \\cdots + a_m} }$$\n$$= \\cmod {a_{m + 1} + a_{m + 2} + \\cdots + a_n}$$\nIndexed Summation over Adjacent Intervals\n$$\\le \\cmod {a_{m + 1} } + \\cmod {a_{m + 2} } + \\cdots + \\cmod {a_n}$$\nTriangle Inequality for Indexed Summations\n$$\\le b_{m + 1} + b_{m + 2} + \\cdots + b_n$$\n$$\\le \\sum_{k \\mathop = n + 1}^\\infty b_k$$\n$$< \\epsilon$$\nSo $\\sequence {a_n}$ is a Cauchy sequence.\nThe result follows from Real Number Line is Complete Metric Space or Complex Plane is Complete Metric Space.",
+    "clean_row_index": 520,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The finite tail from m+1 to n is incorrectly bounded by the later tail starting at n+1. Also the Cauchy conclusion is stated for the original partial sums, while absolute convergence concerns the sums of absolute values."
+  },
+  {
+    "theorem_id": 1182,
+    "title": "Ratio Test",
+    "theorem_text": "Let $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ be a series of real numbers in $\\R$, or a series of complex numbers in $\\C$.\nLet the sequence $\\sequence {a_n}$ satisfy:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} \\size {\\frac {a_{n + 1} } {a_n} } = l$\n:If $l > 1 $, then $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ diverges.\n:If $l < 1 $, then $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ converges absolutely.",
+    "proof_text": "From the statement of the theorem, it is necessary that $\\forall n: a_n \\ne 0$; otherwise $\\size {\\dfrac {a_{n + 1} } {a_n} }$ is not defined.\nHere, $\\size {\\dfrac {a_{n + 1} } {a_n} }$ denotes either the absolute value of $\\dfrac {a_{n + 1} } {a_n}$, or the complex modulus of $\\dfrac {a_{n + 1} } {a_n}$.\nAbsolute Convergence\nSuppose $l < 1$.\nLet us take $\\epsilon > 0$ such that $l + \\epsilon < 1$.\nThen:\n$\\exists N: \\forall n > N: \\size {\\dfrac {a_n} {a_{n - 1} } } < l + \\epsilon$\nThus:\n$$\\size {a_n} = \\size {\\frac {a_n} {a_{n - 1} } } \\size {\\frac {a_{n - 1} } {a_{n - 2} } } \\dotsm \\size {\\frac {a_{N + 2} } {a_{N + 1} } } \\size {a_{N + 1} }$$\n$$< \\paren {l + \\epsilon}^{n - N - 1} \\size {a_{N + 1} }$$\nBy Sum of Infinite Geometric Progression, $\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\paren {l + \\epsilon}^n$ converges.\nSo by the the corollary to the comparison test, it follows that $\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\size {a_n}$ converges absolutely too.\nDivergence\nSuppose $l > 1$.\nLet us take $\\epsilon > 0$ small enough that $l - \\epsilon > 1$.\nThen, for a sufficiently large $N$, we have:\n$$\\size {a_n} = \\size {\\frac {a_n} {a_{n - 1} } } \\size {\\frac {a_{n - 1} } {a_{n - 2} } } \\dotsm \\size {\\frac {a_{N + 2} } {a_{N + 1} } } \\size {a_{N + 1} }$$\n$$> \\paren {l - \\epsilon}^{n - N + 1} \\size {a_{N + 1} }$$\nBut $\\paren {l - \\epsilon}^{n - N + 1} \\size {a_{N + 1} } \\to \\infty$ as $n \\to \\infty$.\nSo $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ diverges.",
+    "clean_row_index": 521,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Eventual ratio bounds sandwich the terms against geometric sequences for each conclusion. The lower-bound exponent should count n−N−1 factors; the product displayed immediately before it supplies the corrected divergent bound."
+  },
+  {
+    "theorem_id": 1183,
+    "title": "Limit of Subsequence of Bounded Sequence",
+    "theorem_text": "Let $\\sequence {x_n}$ be a sequence in $\\R$.\nLet $\\sequence {x_n}$ be bounded.\nLet $b \\in \\R$ be a real number.\nSuppose that $\\forall N: \\exists n > N: x_n \\ge b$.\nThen $\\sequence {x_n}$ has a subsequence which converges to a limit $l \\ge b$.",
+    "proof_text": "Let us pick $N \\in \\N$.\nThen $\\exists n_1 > N: x_{n_1} \\ge b$.\nAgain, $\\exists n_2 > n_1: x_{n_2} \\ge b$.\nAnd so on: for each $n_k$ we find, $\\exists n_{k+1} > n_k: x_{n_{k+1}} \\ge b$.\nIn this way we can build a subsequence of $\\sequence {x_n}$ each of whose terms are $b$ or bigger.\nBy the Bolzano-Weierstrass Theorem, this subsequence itself contains a subsequence $\\sequence {x_{n_r} }$ which is convergent.\nNow, suppose $x_{n_r} \\to l$ as $r \\to \\infty$.\nSince $x_{n_r} \\ge b$ it follows from Lower and Upper Bounds for Sequences that $l \\ge b$.",
+    "clean_row_index": 522,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Recursive selection gives a bounded subsequence entirely in [b,∞). Bolzano–Weierstrass gives a convergent further subsequence whose limit retains that lower bound."
+  },
+  {
+    "theorem_id": 1188,
+    "title": "Series of Power over Factorial Converges",
+    "theorem_text": "The series $\\displaystyle \\sum_{n \\mathop = 0}^\\infty \\frac {x^n} {n!}$ converges for all real values of $x$.",
+    "proof_text": "If $x = 0$ the result is trivially true as:\n$\\forall n \\ge 1: \\dfrac {0^n} {n!} = 0$\nIf $x \\ne 0$ we have:\n$\\left|{\\dfrac{\\left({\\dfrac {x^{n+1}} {(n+1)!}}\\right)}{\\left({\\dfrac {x^n}{n!}}\\right)}}\\right| = \\dfrac {\\left|{x}\\right|} {n+1} \\to 0$\nas $n \\to \\infty$.\nThis follows from the results:\n:Sequence of Powers of Reciprocals is Null Sequence, where $\\dfrac 1 n \\to 0$ as $n \\to \\infty$\n:The Squeeze Theorem for Real Sequences, as $\\dfrac 1 {n + 1} < \\dfrac 1 n$\n:The Multiple Rule for Real Sequences, putting $\\lambda = \\left|{x}\\right|$.\nHence by the Ratio Test: $\\displaystyle \\sum_{n \\mathop = 0}^\\infty \\frac {x^n} {n!}$ converges.\nAlternatively, the Comparison Test could be used but this is more cumbersome in this instance.\nAnother alternative is to view this as an example of Radius of Convergence of Power Series over Factorial setting $\\xi = 0$.",
+    "clean_row_index": 523,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "When x=0 the positive-index terms vanish. Otherwise the ratio of absolute successive terms is |x|/(n+1), tending to zero, so the ratio test applies."
+  },
+  {
+    "theorem_id": 1190,
+    "title": "Absolutely Convergent Series is Convergent",
+    "theorem_text": "Let $V$ be a Banach space with norm $\\norm {\\, \\cdot \\,}$.\nLet $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ be an absolutely convergent series in $V$.\nThen $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ is convergent.",
+    "proof_text": "That $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ is absolutely convergent means that $\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\norm {a_n}$ converges in $\\R$.\nHence the sequence of partial sums is a Cauchy sequence by Convergent Sequence is Cauchy Sequence.\nNow let $\\epsilon > 0$.\nLet $N \\in \\N$ such that for all $m, n \\in \\N$, $m \\ge n \\ge N$ implies that:\n$\\displaystyle \\sum_{k \\mathop = n + 1}^m \\norm {a_k} = \\size {\\sum_{k \\mathop = 1}^m \\norm {a_k} - \\sum_{k \\mathop = 1}^n \\norm {a_k} } < \\epsilon$\nThis $N$ exists because the sequence is Cauchy.\nNow observe that, for $m \\ge n \\ge N$, one also has:\n$$\\norm {\\sum_{k \\mathop = 1}^m a_k - \\sum_{k \\mathop = 1}^n a_k} = \\norm {\\sum_{k \\mathop = n + 1}^m a_k}$$\n$$\\le \\sum_{k \\mathop = n + 1}^m \\norm {a_k}$$\nTriangle inequality for $\\norm {\\, \\cdot \\,}$\n$$< \\epsilon$$\nIt follows that the sequence of partial sums of $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ is Cauchy.\nAs $V$ is a Banach space, this implies that $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ converges.",
+    "clean_row_index": 524,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Triangle inequality bounds the norm of every vector tail by the corresponding tail of the convergent norm series. The Cauchy partial sums converge in the Banach space."
+  },
+  {
+    "theorem_id": 1191,
+    "title": "Limit Comparison Test",
+    "theorem_text": "Let $\\left \\langle {a_n} \\right \\rangle$ and $\\left \\langle {b_n} \\right \\rangle$ be sequences in $\\R$.\nLet $\\displaystyle \\frac {a_n}{b_n} \\to l$ as $n \\to \\infty$ where $l \\in \\R_{>0}$.\nThen the series $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ and $\\displaystyle \\sum_{n \\mathop = 1}^\\infty b_n$ are either both convergent or both divergent.",
+    "proof_text": "Let $\\displaystyle \\sum_{n \\mathop = 1}^\\infty b_n$ be convergent.\nThen by Terms in Convergent Series Converge to Zero, $\\left \\langle {b_n} \\right \\rangle$ converges to zero.\nA Convergent Sequence is Bounded.\nSo it follows that:\n$\\exists H: \\forall n \\in \\N_{>0}: a_n \\le H b_n$\nThus, by the corollary to the Comparison Test, $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ is convergent.\nSince $l > 0$, from Sequence Converges to Within Half Limit:\n$\\exists N: \\forall n > N: a_n > \\dfrac 1 2 l b_n$\nHence the convergence of $\\displaystyle \\sum_{n \\mathop = 1}^\\infty a_n$ implies the convergence of $\\displaystyle \\sum_{n \\mathop = 1}^\\infty b_n$.",
+    "clean_row_index": 525,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The comparison uses positivity of the terms, which is absent. For instance b_n=(-1)^n/√n and a_n=b_n+1/n have ratio tending to 1 but only the first series converges."
+  },
+  {
+    "theorem_id": 1199,
+    "title": "Supremum of Subset",
+    "theorem_text": "Let $\\left({U, \\preceq}\\right)$ be an ordered set.\nLet $S \\subseteq U$.\nLet $T \\subseteq S$.\nLet $S$ admit a supremum (in $U$).\nIf $T$ also admits a supremum (in $U$), then $\\sup \\left({T}\\right) \\preceq\\sup \\left({S}\\right)$.",
+    "proof_text": "Let $B = \\sup \\left({S}\\right)$.\nThen $B$ is an upper bound for $S$.\nAs $T \\subseteq S$, it follows by the definition of a subset that $x \\in T \\implies x \\in S$.\nBecause $x \\in S \\implies x \\preceq B$ (as $B$ is an upper bound for $S$) it follows that $x \\in T \\implies x \\preceq B$.\nSo $B$ is an upper bound for $T$.\nTherefore $B$ succeeds the supremum of $T$ in $S$.\nHence the result.",
+    "clean_row_index": 526,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every element of T belongs to S, so sup S bounds T. Leastness of the assumed supremum of T gives the inequality in the ambient order."
+  },
+  {
+    "theorem_id": 1199,
+    "title": "Supremum of Subset",
+    "theorem_text": "Let $\\left({U, \\preceq}\\right)$ be an ordered set.\nLet $S \\subseteq U$.\nLet $T \\subseteq S$.\nLet $S$ admit a supremum (in $U$).\nIf $T$ also admits a supremum (in $U$), then $\\sup \\left({T}\\right) \\preceq\\sup \\left({S}\\right)$.",
+    "proof_text": "The number $\\sup S$ is an upper bound for $S$.\nTherefore, $\\sup S$ is an upper bound for $T$ as $T$ is a non-empty subset of $S$.\nAccordingly, $T$ has a supremum by the Continuum Property.\nThe number $\\sup S$ is an upper bound for $T$.\nTherefore, $\\sup S$ is greater than or equal to $\\sup T$ as $\\sup T$ is the least upper bound of $T$.",
+    "clean_row_index": 527,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The first and last steps alone prove the inequality: sup S bounds T and sup T is its least upper bound by hypothesis. The intervening real-continuum assertion is unnecessary and inapplicable in a general ordered set."
+  },
+  {
+    "theorem_id": 1199,
+    "title": "Supremum of Subset",
+    "theorem_text": "Let $\\left({U, \\preceq}\\right)$ be an ordered set.\nLet $S \\subseteq U$.\nLet $T \\subseteq S$.\nLet $S$ admit a supremum (in $U$).\nIf $T$ also admits a supremum (in $U$), then $\\sup \\left({T}\\right) \\preceq\\sup \\left({S}\\right)$.",
+    "proof_text": "By definition $\\sup S$ is an upper bound for $S$.\nThus:\n$\\forall x \\in S: x \\le \\sup S$\nAs $T \\subseteq S$ we have by definition of subset that:\n$\\forall x \\in T: x \\in S$\nHence:\n$\\forall x \\in T: x \\le \\sup S$\nSo by definition $\\sup S$ is an upper bound for $T$.\nSo $\\sup S$ is at least as big as the smallest upper bound for $T$\nThus by definition of supremum:\n$\\sup T \\le \\sup S$",
+    "clean_row_index": 528,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Containment makes sup S an upper bound for T, and the least-upper-bound definition directly compares their suprema."
+  },
+  {
+    "theorem_id": 1202,
+    "title": "Supremum Plus Constant",
+    "theorem_text": "Let $S$ be a subset of the set of real numbers $\\R$.\nLet $S$ be bounded above.\nLet $\\xi \\in \\R$.\nThen:\n$\\displaystyle \\map {\\sup_{x \\mathop \\in S} } {x + \\xi} = \\xi + \\map {\\sup_{x \\mathop \\in S} } x$\nwhere $\\sup$ denotes supremum.",
+    "proof_text": "Let $B = \\sup S$.\nLet $T = \\set {x + \\xi: x \\in S}$.\nSince $\\forall x \\in S: x \\le B$ it follows that:\n$\\forall x \\in S: x + \\xi \\le B + \\xi$\nHence $\\xi + B$ is an upper bound for $T$.\nIf $C$ is the supremum for $T$ then $C \\le \\xi + B$.\nOn the other hand:\n$\\forall y \\in T: y \\le C$\nTherefore:\n$\\forall y \\in T: y - \\xi \\le C - \\xi$\nSince $S = \\set {y - \\xi: y \\in T}$ it follows that $C - \\xi$ is an upper bound for $S$ and so $B \\le C - \\xi$.\nSo we have shown that $C \\le \\xi + B$ and $C \\ge \\xi + B$, hence the result.",
+    "clean_row_index": 529,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The proof assumes S has a real supremum, whereas boundedness above also allows S to be empty. The argument applies once nonemptiness is supplied."
+  },
+  {
+    "theorem_id": 1203,
+    "title": "Suprema and Infima of Combined Bounded Functions",
+    "theorem_text": "Let $f$ and $g$ be real functions.\nLet $c$ be a constant.",
+    "proof_text": "Proof for Bounded Above\nFirst we show that $\\displaystyle \\map {\\sup_{x \\mathop \\in S} } {\\map f x + c} = c + \\map {\\sup_{x \\mathop \\in S} } {\\map f x}$:\nLet $T = \\set {\\map f x: x \\in S}$.\nThen:\n$$\\map {\\sup_{x \\mathop \\in S} } {\\map f x + c} = \\map {\\sup_{y \\mathop \\in T} } {y + c}$$\n$$= c + \\map {\\sup_{y \\mathop \\in T} } y$$\nSupremum Plus Constant\n$$= c + \\map {\\sup_{x \\mathop \\in S} } {\\map f x}$$\nNext we show that $\\displaystyle \\map {\\sup_{x \\mathop \\in S} } {\\map f x + \\map g x} \\le \\map {\\sup_{x \\mathop \\in S} } {\\map f x} + \\map {\\sup_{x \\mathop \\in S} } {\\map g x}$:\nLet:\n$\\displaystyle H = \\map {\\sup_{x \\mathop \\in S} } {\\map f x}$\n$\\displaystyle K = \\map {\\sup_{x \\mathop \\in S} } {\\map g x}$\nThen:\n$\\forall x \\in S: \\map f x + \\map g x \\le H + K$\nHence $H + K$ is an upper bound for $\\set {\\map f x + \\map g x: x \\in S}$.\nThe result follows.\nProof for Bounded Below\nThis follows exactly the same lines.\nFirst we show that:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in S} } {\\map f x + c} = c + \\map {\\inf_{x \\mathop \\in S} } {\\map f x}$\nLet $T = \\set {\\map f x: x \\in S}$.\nThen:\n$$\\map {\\inf_{x \\mathop \\in S} } {\\map f x + c} = \\map {\\inf_{y \\mathop \\in T} } {y + c}$$\n$$= c + \\map {\\sup_{y \\mathop \\in T} } y$$\nInfimum Plus Constant\n$$= c + \\map {\\inf_{x \\mathop \\in S} } {\\map f x}$$\nNext we show that:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in S} } {\\map f x + \\map g x} \\ge \\map {\\inf_{x \\mathop \\in S} } {\\map f x} + \\map {\\inf_{x \\mathop \\in S} } {\\map g x}$\nLet:\n$\\displaystyle H = \\map {\\inf_{x \\mathop \\in S} } {\\map f x}$\n$\\displaystyle K = \\map {\\inf_{x \\mathop \\in S} } {\\map g x}$\nThen:\n$\\forall x \\in S: \\map f x + g \\map x \\ge H + K$\nHence $H + K$ is a lower bound for $\\set {\\map f x + \\map g x: x \\in S}$.\nThe result follows.",
+    "clean_row_index": 530,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The statement only introduces two functions and a constant. It contains no target identities or inequalities to compare with the proof."
+  },
+  {
+    "theorem_id": 1204,
+    "title": "Multiple of Infimum",
+    "theorem_text": "Let $T \\subseteq \\R: T \\ne \\varnothing$ be a non-empty subset of the set of real numbers $\\R$.\nLet $T$ be bounded below.\nLet $z \\in \\R: z > 0$ be a (strictly) positive real number.\nThen:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$\nwhere $\\inf$ denotes infimum.",
+    "proof_text": "From Negative of Infimum is Supremum of Negatives:\n$\\displaystyle -\\inf_{x \\mathop \\in T} x = \\map {\\sup_{x \\mathop \\in T} } {-x} \\implies \\inf_{x \\mathop \\in T} x = -\\map {\\sup_{x \\mathop \\in T} } {-x}$\nLet $S = \\set {x \\in \\R: -x \\in T}$.\nFrom Negative of Infimum is Supremum of Negatives, $S$ is bounded above.\nFrom Multiple of Supremum:\n$\\displaystyle \\map {\\sup_{x \\mathop \\in S} } {z x} = z \\, \\map {\\sup_{x \\mathop \\in S} } x$\nHence:\n$\\displaystyle \\map {\\inf_{x \\mathop \\in T} } {z x} = -\\map {\\sup_{x \\mathop \\in T} } {-z x} = -z \\, \\map {\\sup_{x \\mathop \\in T} } {-x} = z \\, \\map {\\inf_{x \\mathop \\in T} } x$",
+    "clean_row_index": 531,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Negation converts the infimum into a supremum on the reflected set. Positive scaling commutes with that supremum and negating again gives the desired infimum."
+  },
+  {
+    "theorem_id": 1206,
+    "title": "Negative of Supremum is Infimum of Negatives",
+    "theorem_text": "Let $S$ be a subset of the real numbers $\\R$.\nLet $S$ be bounded above.\nThen:\n$(1): \\quad \\set {x \\in \\R: -x \\in S}$ is bounded below\n$(2): \\quad \\displaystyle -\\sup_{x \\mathop \\in S} x = \\map {\\inf_{x \\mathop \\in S} } {-x}$\nwhere $\\sup$ and $\\inf$ denote the supremum and infimum respectively.",
+    "proof_text": "Let $B = \\sup S$.\nLet $T = \\set {x \\in \\R: -x \\in S}$.\nSince $\\forall x \\in S: x \\le B$ it follows that $\\forall x \\in S: -x \\ge -B$.\nHence $-B$ is a lower bound for $T$.\nThus $\\set {x \\in \\R: -x \\in S}$ is bounded below.\nIf $C$ is the infimum of $T$, it follows that $C \\ge -B$.\nOn the other hand:\n$\\forall y \\in T: y \\ge C$\nTherefore:\n$\\forall y \\in T: -y \\le -C$\nSince $S = \\set {x \\in \\R: -x \\in T}$ it follows that $-C$ is an upper bound for $S$.\nTherefore $-C \\ge B$ and so $C \\le -B$.\nSo $C \\le -B$ and $C \\ge -B$ and the result follows.",
+    "clean_row_index": 532,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The empty set is bounded above but has no real supremum. The argument starts by assigning one and establishes the equality only when such a supremum exists."
+  },
+  {
+    "theorem_id": 1207,
+    "title": "Negative of Infimum is Supremum of Negatives",
+    "theorem_text": "Let $T$ be a non-empty subset of the real numbers $\\R$.\nLet $T$ be bounded below.\nThen:\n$(1): \\quad \\set {x \\in \\R: -x \\in T}$ is bounded above\n$(2): \\quad \\displaystyle -\\inf_{x \\mathop \\in T} x = \\map {\\sup_{x \\mathop \\in T} } {-x}$\nwhere $\\sup$ and $\\inf$ denote the supremum and infimum respectively.",
+    "proof_text": "As $T$ is non-empty and bounded below, it follows by the Continuum Property that $T$ admits an infimum.\nLet $B = \\inf T$.\nLet $S = \\set {x \\in \\R: -x \\in T}$.\nSince $\\forall x \\in T: x \\ge B$ it follows that:\n$\\forall x \\in T: -x \\le -B$\nHence $-B$ is an upper bound for $S$, and so $\\set {x \\in \\R: -x \\in T}$ is bounded above.\nIf $C$ is the supremum of $S$, it follows that $C \\le -B$.\nOn the other hand:\n$\\forall y \\in S: y \\le C$\nTherefore:\n$\\forall y \\in S: -y \\ge -C$\nSince $T = \\set {x \\in \\R: -x \\in S}$ it follows that $-C$ is a lower bound for $T$.\nTherefore $-C \\le B$ and so $C \\ge -B$.\nSo $C \\ge -B$ and $C \\le -B$ and the result follows.",
+    "clean_row_index": 533,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Nonemptiness and the lower bound ensure a real infimum. Negation reverses the bound and the comparison with any upper bound of the reflected set proves leastness."
+  },
+  {
+    "theorem_id": 1209,
+    "title": "Infimum of Subset",
+    "theorem_text": "Let $\\struct {U, \\preceq}$ be an ordered set.\nLet $S \\subseteq U$.\nLet $T \\subseteq S$.\nLet $\\struct {S, \\preceq}$ admit an infimum in $U$.\nIf $T$ also admits an infimum in $U$, then $\\map \\inf S \\preceq \\map \\inf T$.",
+    "proof_text": "Let $B = \\map \\inf S$.\nThen $B$ is a lower bound for $S$.\nAs $T \\subseteq S$, it follows by the definition of a subset that $x \\in T \\implies x \\in S$.\nBecause $x \\in S \\implies B \\preceq x$ (as $B$ is a lower bound for $S$) it follows that $x \\in T \\implies B \\preceq x$.\nSo $B$ is a lower bound for $T$.\nTherefore $B$ precedes the infimum of $T$ in $U$.\nHence the result.",
+    "clean_row_index": 534,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The infimum of S also bounds T from below. The greatest lower bound of T lies above it in the given order."
+  },
+  {
+    "theorem_id": 1232,
+    "title": "Real Polynomial Function is Continuous",
+    "theorem_text": "A (real) polynomial function is continuous at every point.\nThus a (real) polynomial function is continuous on every interval of $\\R$.",
+    "proof_text": "From Linear Function is Continuous, setting $\\alpha = 1$ and $\\beta = 0$, we have that:\n$\\displaystyle \\lim_{x \\mathop \\to c} x = c$\nRepeated application of the Product Rule for Limits of Functions shows us that:\n$\\displaystyle \\forall k \\in \\N: \\lim_{x \\mathop \\to c} x^k = c^k$\nNow let $\\map P x = a_n x^N + a_{n - 1} x^{n - 1} + \\cdots + a_1 x + a_0$.\nBy repeated application of the Combined Sum Rule for Limits of Functions, we find that:\n$\\displaystyle \\lim_{x \\mathop \\to c} \\map P x = \\map P c$\nSo whatever value we choose for $c$, we have that $\\map P x$ is continuous at $c$.\nFrom the definition of continuity on an interval, the second assertion follows.",
+    "clean_row_index": 535,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The limit laws give continuity of powers and then of every finite linear combination at arbitrary c, hence continuity throughout any interval."
+  },
+  {
+    "theorem_id": 1233,
+    "title": "Linear Function is Continuous",
+    "theorem_text": "Let $\\alpha, \\beta \\in \\R$ be real numbers.\nLet $f : \\R \\to \\R$ be the real function with:\n$\\map f x = \\alpha x + \\beta$\nfor all $x \\in \\R$.\nThen $f$ is continuous at every real number $c \\in \\R$.",
+    "proof_text": "Let $c \\in \\R$.\nLet $\\sequence {x_n}$ be a real sequence converging to $c$.\nThen:\n$$\\lim_{n \\mathop \\to \\infty} \\map f {x_n} = \\lim_{n \\mathop \\to \\infty} \\paren {\\alpha x_n + \\beta}$$\n$$= \\alpha c + \\beta$$\nCombination Theorem for Sequences: Real: Combined Sum Rule\n$$= \\map f c$$\nWe therefore have:\n:for all real sequences $\\sequence {x_n}$ converging to $c$, the sequence $\\sequence {\\map f {x_n} }$ converges to $\\map f c$.\nSo by Sequential Continuity is Equivalent to Continuity in the Reals $f$ is continuous at $c$.\nAs $c \\in \\R$ was arbitrary, $f$ is continuous on $\\R$.",
+    "clean_row_index": 536,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Affine images of convergent sequences have the asserted limit by the sequence limit laws. Sequential continuity characterizes continuity on the real line."
+  },
+  {
+    "theorem_id": 1234,
+    "title": "Real Rational Function is Continuous",
+    "theorem_text": "A real rational function is continuous at every point at which it is defined.\nThus a real rational function is continuous on every interval of $\\R$ not containing a root of the denominator of the function.",
+    "proof_text": "Let:\n$\\map R x = \\dfrac {\\map P x} {\\map Q x}$\nbe a real rational function, defined at all points of $\\R$ at which $\\map Q x \\ne 0$.\nLet $c \\in \\R$.\nFrom Real Polynomial Function is Continuous:\n$\\displaystyle \\lim_{x \\mathop \\to c} \\map P x = \\map P c$\nand:\n$\\displaystyle \\lim_{x \\mathop \\to c} \\map Q x = \\map Q c$\nThus by Quotient Rule for Limits of Functions:\n$\\displaystyle \\lim_{x \\mathop \\to c} \\map R x = \\lim_{x \\mathop \\to c} \\frac {\\map P x} {\\map Q x} = \\frac {\\map P c} {\\map Q c}$\nwhenever $\\map Q c \\ne 0$.\nSo whatever value we choose for $c$ such that $\\map Q c \\ne 0$, we have that $\\map P x$ is continuous at $c$.\nFrom the definition of continuity on an interval, the second assertion follows.",
+    "clean_row_index": 537,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "At each domain point the polynomial denominator has nonzero limit. The quotient law gives the limit R(c), establishing continuity despite the final sentence naming P."
+  }
+]

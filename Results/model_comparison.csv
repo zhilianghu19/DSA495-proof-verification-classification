@@ -1,0 +1,17 @@
+Model,Training input,Split,Proofs,Actual Invalid,Invalid precision,Invalid recall,Macro F1
+DeBERTa-v3-base,without_review_reason,validation,89,15,0.16666666666666666,0.4,0.4641037517369152
+DeBERTa-v3-base,without_review_reason,test,89,14,0.17073170731707318,0.5,0.4606060606060606
+DeBERTa-v3-base,with_training_review_reason,validation,89,15,0.3333333333333333,0.06666666666666667,0.5055555555555555
+DeBERTa-v3-base,with_training_review_reason,test,89,14,0.375,0.21428571428571427,0.5850815850815851
+DistilBERT,without_review_reason,validation,89,15,0.16666666666666666,0.2,0.4978056426332288
+DistilBERT,without_review_reason,test,89,14,0.23076923076923078,0.21428571428571427,0.5415746872700515
+DistilBERT,with_training_review_reason,validation,89,15,0.25,0.06666666666666667,0.4991724594505131
+DistilBERT,with_training_review_reason,test,89,14,0.0,0.0,0.4472049689440994
+MathBERT,without_review_reason,validation,89,15,0.18181818181818182,0.4,0.48653846153846153
+MathBERT,without_review_reason,test,89,14,0.22580645161290322,0.5,0.539014202172097
+MathBERT,with_training_review_reason,validation,89,15,0.0,0.0,0.44375
+MathBERT,with_training_review_reason,test,89,14,0.0,0.0,0.44375
+ModernBERT-base,without_review_reason,validation,89,15,0.16666666666666666,0.4,0.4641037517369152
+ModernBERT-base,without_review_reason,test,89,14,0.20454545454545456,0.6428571428571429,0.4885057471264368
+ModernBERT-base,with_training_review_reason,validation,89,15,0.3333333333333333,0.13333333333333333,0.5410979678495602
+ModernBERT-base,with_training_review_reason,test,89,14,0.42857142857142855,0.21428571428571427,0.5950864422202002

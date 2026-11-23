@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1286,
+    "title": "Inverse of Strictly Increasing Convex Real Function is Concave",
+    "theorem_text": "Let $f$ be a real function which is convex on the open interval $I$.\nLet $J = f \\left[{I}\\right]$.\nIf $f$ be strictly increasing on $I$, then $f^{-1}$ is concave on $J$.",
+    "proof_text": "Let:\n$X = f \\left({x}\\right) \\in J$\n$Y = f \\left({y}\\right) \\in J$.\nFrom the definition of convex:\n$\\forall \\alpha, \\beta \\in \\R_{>0}, \\alpha + \\beta = 1: f \\left({\\alpha x + \\beta y}\\right) \\le \\alpha f \\left({x}\\right) + \\beta f \\left({y}\\right)$\nLet $f$ be strictly increasing on $I$.\nFrom Inverse of Strictly Monotone Function it follows that, $f^{-1}$ is strictly increasing on $J$.\nThus:\n$\\alpha f^{-1} \\left({X}\\right) + \\beta f^{-1} \\left({Y}\\right) = \\alpha x + \\beta y \\le f^{-1} \\left({\\alpha X + \\beta Y}\\right)$\nHence $f^{-1}$ is concave on $J$.",
+    "clean_row_index": 570,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Convexity bounds the function at the weighted mean. Applying its increasing inverse on the interval image gives exactly the reversed Jensen inequality for the inverse."
+  },
+  {
+    "theorem_id": 1287,
+    "title": "Upper and Lower Bounds of Integral",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\closedint a b$.\nLet $\\displaystyle \\int_a^b \\map f x \\rd x$ be the definite integral of $\\map f x$ over $\\closedint a b$.\nThen:\n$\\displaystyle m \\paren {b - a} \\le \\int_a^b \\map f x \\rd x \\le M \\paren {b - a}$\nwhere:\n$M$ is the maximum of $f$\n$m$ is the minimum of $f$\non $\\closedint a b$.",
+    "proof_text": "This follows directly from the definition of definite integral:\nFrom Continuous Image of Closed Interval is Closed Interval it follows that $m$ and $M$ both exist.\nThe closed interval $\\closedint a b$ is a finite subdivision of itself.\nBy definition, the upper sum is $M \\paren {b - a}$, and the lower sum is $m \\paren {b - a}$.\nThe result follows.",
+    "clean_row_index": 571,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The coarsest partition has Darboux sums equal to the minimum and maximum times the length. These bound the integral."
+  },
+  {
+    "theorem_id": 1289,
+    "title": "Integral of Constant",
+    "theorem_text": "Let $c$ be a constant.",
+    "proof_text": "Let $F$ be a primitive of $f$ on $\\closedint a b$.\nBy Primitive of Constant Multiple of Function, $H = c F$ is a primitive of $c f$ on $\\closedint a b$.\nHence by the Fundamental Theorem of Calculus:\n$$\\int_a^b c \\map f x \\rd x = \\bigintlimits {c \\map F x} a b$$\n$$= c \\bigintlimits {\\map F x} a b$$\n$$= c \\int_a^b \\map f x \\rd x$$",
+    "clean_row_index": 572,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The theorem field supplies only a constant c and no conclusion. The proof derives linearity under scalar multiplication, while the title alone does not establish the intended claim."
+  },
+  {
+    "theorem_id": 1289,
+    "title": "Integral of Constant",
+    "theorem_text": "Let $c$ be a constant.",
+    "proof_text": "Let $F$ be a primitive of $f$ on $\\closedint a b$.\nBy Linear Combination of Definite Integrals:\n$\\displaystyle \\int_a^b \\paren {\\lambda \\map f t + \\mu \\map g t} \\rd t = \\lambda \\int_a^b \\map f t \\rd t + \\mu \\int_a^b \\map g t \\rd t$\nfor real functions $f$ and $g$ which are integrable on the closed interval $\\closedint a b$, where $\\lambda$ and $\\mu$ be real numbers.\nThe result follows by setting $\\lambda = c$ and $\\mu = 0$.",
+    "clean_row_index": 573,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The statement ends after introducing c. The proof specializes linearity to a scalar multiple, but no target integral or equality survives in the theorem field."
+  },
+  {
+    "theorem_id": 1290,
+    "title": "Sum of Integrals on Adjacent Intervals for Continuous Functions",
+    "theorem_text": "Let $f$ be a real function which is continuous on any closed interval $I$.\nLet $a, b, c \\in I$.\nThen:\n$\\ds \\int_a^c \\map f t \\rd t + \\int_c^b \\map f t \\rd t = \\int_a^b \\map f t \\rd t$",
+    "proof_text": "By Continuous Real Function is Darboux Integrable, $f$ is integrable on $I$.\nThe result follows by application of Sum of Integrals on Adjacent Intervals for Integrable Functions.",
+    "clean_row_index": 574,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Continuity gives integrability, so the adjacent-interval identity for integrable functions applies directly."
+  },
+  {
+    "theorem_id": 1293,
+    "title": "Definite Integral of Function plus Constant",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\closedint a b$.\nLet $c$ be a constant.\nThen:\n$\\ds \\int_a^b \\paren {\\map f t + c} \\rd t = \\int_a^b \\map f t \\rd t + c \\paren {b - a}$",
+    "proof_text": "Let $P = \\set {x_0, x_1, x_2, \\ldots, x_n}$ be a finite subdivision of $\\closedint a b$.\nLet $\\map {L^{\\paren {f + c} } } P$ be the lower sum of $\\map f x + c$ on $\\closedint a b$ belonging to $P$.\nLet:\n$\\ds m_k^{\\paren {f + c} } = \\map {\\inf_{x \\mathop \\in \\closedint {x_{k - 1} } {x_k} } } {\\map f x + c}$\nwhere $k \\in \\set {0, 1, \\ldots, n}$.\nSo:\n$$m_k^{\\paren {f + c} } = \\map {\\inf_{x \\mathop \\in \\closedint {x_{k - 1} } {x_k} } } {\\map f x + c}$$\n$$= c + \\map {\\inf_{x \\mathop \\in \\closedint {x_{k - 1} } {x_k} } } {\\map f x}$$\n$$= c + m_k^{\\paren f}$$\nIt follows that:\n$$\\map {L^{\\paren {f + c} } } P = \\sum_{k \\mathop = 1}^n {m_k^{\\paren {f + c} } } \\paren {x_k - x_{k - 1} }$$\n$$= \\sum_{k \\mathop = 1}^n m_k^{\\paren f} \\paren {x_k - x_{k - 1} } + c \\sum_{k \\mathop = 1}^n \\paren {x_k - x_{k - 1} }$$\n$$= \\map {L^{\\paren f} } P + c \\paren {b - a}$$\nas $\\ds \\sum_{k \\mathop = 1}^n \\paren {x_k - x_{k - 1} }$ telescopes\nSo from the definition of definite integral, it follows that:\n$$\\int_a^b \\paren {\\map f t + c} \\rd t = \\map {\\sup_P} {\\map {L^{\\paren {f + c} } } P}$$\n$$= \\map {\\sup_P} {\\map {L^{\\paren f} } P + c \\paren {b - a} }$$\n$$= \\map {\\sup_P} {\\map {L^{\\paren f} } P} + c \\paren {b - a}$$\n$$= \\int_a^b \\map f t \\rd t + c \\paren {b - a}$$",
+    "clean_row_index": 575,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Translating the function shifts each lower sum by c times the total interval length. Taking the supremum preserves that fixed shift."
+  },
+  {
+    "theorem_id": 1294,
+    "title": "Continuous Real Function is Darboux Integrable",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\closedint a b$.\nThen $f$ is Darboux integrable on $\\closedint a b$.",
+    "proof_text": "We have the result $f$ is bounded by Continuous Real Function is Bounded.\nBy Condition for Darboux Integrability, it suffices to show that for all $\\epsilon > 0$, there exists a subdivision $P$ of $\\closedint a b$ such that:\n$\\map U P – \\map L P < \\epsilon$\nwhere $\\map U P$ and $\\map L P$ denote the upper sum and lower sum of $\\map f x$ on $\\closedint a b$ belonging to the subdivision $P$.\nLet $\\epsilon > 0$.\nWe have the result Continuous Function on Closed Interval is Uniformly Continuous.\nBy the definition of uniform continuity, there exists a $\\delta > 0$ such that if $x, y \\in \\closedint a b$ are such that $\\size {x – y} < \\delta$, then:\n$\\size {\\map f x – \\map f y} < \\dfrac \\epsilon {b - a}$\nLet $P = \\set {x_0, x_1, x_2, \\ldots, x_n}$ be a subdivision of $\\closedint a b$ such that:\n$\\displaystyle \\max_{1 \\mathop \\le k \\mathop \\le n} \\paren {x_k – x_{k - 1} } < \\delta$\nFor all integers $k$ satisfying $1 \\le k \\le n$, it follows from the Heine-Borel theorem that $\\closedint {x_{k - 1} } {x_k}$ is compact.\nSo we can apply Corollary 3 to Continuous Image of Compact Space is Compact to conclude that there exist $u_k, v_k \\in \\closedint {x_{k - 1} } {x_k}$ such that:\n$$\\map f {u_k} = \\sup \\set {\\map f x: x \\in \\closedint {x_{k - 1} } {x_k} }$$\n$$\\map f {v_k} = \\inf \\set {\\map f x: x \\in \\closedint {x_{k - 1} } {x_k} }$$\nBy assumption, $x_k – x_{k - 1} < \\delta$, so:\n$\\size {u_k – v_k} < \\delta$\nIt follows from the definition of $\\delta$ that:\n$\\displaystyle \\map f {u_k} – \\map f {v_k} < \\frac \\epsilon {b – a}$\nThis gives:\n$$\\map U P – \\map L P = \\sum_{k \\mathop = 1}^n \\map f {u_k} \\paren {x_k – x_{k - 1} } - \\sum_{k \\mathop = 1}^n \\map f {v_k} \\paren {x_k – x_{k - 1} }$$\n$$= \\sum_{k \\mathop = 1}^n \\paren {\\map f {u_k} – \\map f {v_k} } \\paren {x_k – x_{k - 1} }$$\n$$< \\frac \\epsilon {b – a} \\sum_{k \\mathop = 1}^n \\paren {x_k – x_{k - 1} }$$\n$$= \\frac \\epsilon {b – a} \\paren {x_n – x_0}$$\n$$= \\epsilon$$\nas desired.",
+    "clean_row_index": 576,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Uniform continuity bounds the oscillation on every sufficiently short subinterval. Summing oscillations weighted by subinterval lengths gives a Darboux gap below epsilon."
+  },
+  {
+    "theorem_id": 1295,
+    "title": "Definite Integral on Zero Interval",
+    "theorem_text": "Let $f$ be a real function which is defined on the closed interval $\\Bbb I := \\closedint a b$, where $a < b$.\nThen:\n$\\displaystyle \\forall c \\in \\Bbb I: \\int_c^c \\map f t \\rd t = 0$",
+    "proof_text": "Follows directly from the definition of definite integral.\nThere is only one finite subdivision of $\\closedint c c$ and that is $\\set c$.\nBoth the lower sum and upper sum of $\\map f x$ on $\\closedint c c$ belonging to the finite subdivision $\\set c$ are equal to zero.\nHence the result.",
+    "clean_row_index": 577,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The singleton interval contributes no subintervals of positive length. Its upper and lower sums both equal zero."
+  },
+  {
+    "theorem_id": 1300,
+    "title": "Relative Sizes of Definite Integrals",
+    "theorem_text": "Let $f$ and $g$ be real functions which are continuous on the closed interval $\\closedint a b$, where $a < b$.\nIf:\n$\\forall t \\in \\closedint a b: \\map f t \\le \\map g t$\nthen:\n$\\displaystyle \\int_a^b \\map f t \\rd t \\le \\int_a^b \\map g t \\rd t$\nSimilarly, if:\n$\\forall t \\in \\closedint a b: \\map f t < \\map g t$\nthen:\n$\\displaystyle \\int_a^b \\map f t \\rd t < \\int_a^b \\map g t \\rd t$",
+    "proof_text": "Suppose that $\\forall t \\in \\closedint a b: \\map f t \\le \\map g t$.\nFrom the Fundamental Theorem of Calculus, $g - f$ has a primitive on $\\closedint a b$.\nLet $H$ be such a primitive.\nThen:\n$\\forall t \\in \\closedint a b: D_t \\map H t = \\map g t - \\map f t \\ge 0$\nBy Derivative of Monotone Function, it follows that $H$ is increasing on $\\closedint a b$.\nThus:\n$\\map H b \\ge \\map H a$\nHence:\n$\\displaystyle \\int_a^b \\map g t - \\map f t \\rd t = \\map H b - \\map H a \\ge 0$\nThe proof for the second case is similar.",
+    "clean_row_index": 578,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A primitive of g minus f has nonnegative derivative and therefore nonnegative endpoint increment. Strict positivity makes it strictly increasing on the nondegenerate interval."
+  },
+  {
+    "theorem_id": 1301,
+    "title": "Absolute Value of Definite Integral",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\closedint a b$.\nThen:\n$\\displaystyle \\size {\\int_a^b \\map f t \\rd t} \\le \\int_a^b \\size {\\map f t} \\rd t$",
+    "proof_text": "From Negative of Absolute Value, we have for all $a \\in \\closedint a b$:\n$-\\size {\\map f t} \\le \\map f t \\le \\size {\\map f t}$\nThus from Relative Sizes of Definite Integrals:\n$\\displaystyle -\\int_a^b \\size {\\map f t} \\rd t \\le \\int_a^b \\map f t \\rd t \\le \\int_a^b \\size {\\map f t} \\rd t$\nHence the result.",
+    "clean_row_index": 579,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Integrating the two pointwise bounds between minus and plus absolute value and combining them gives the claimed absolute-value bound."
+  },
+  {
+    "theorem_id": 1306,
+    "title": "Harmonic Series is Divergent",
+    "theorem_text": "The harmonic series:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\frac 1 n$\ndiverges.",
+    "proof_text": "$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\frac 1 n = \\underbrace 1_{s_0} + \\underbrace {\\frac 1 2 + \\frac 1 3}_{s_1} + \\underbrace {\\frac 1 4 + \\frac 1 5 + \\frac 1 6 + \\frac 1 7}_{s_2} + \\cdots$\nwhere $\\displaystyle s_k = \\sum_{i \\mathop = 2^k}^{2^{k + 1} \\mathop - 1} \\frac 1 i$\nFrom Ordering of Reciprocals:\n$\\forall m, n \\in \\N_{>0}: m < n: \\dfrac 1 m > \\dfrac 1 n$\nso each of the summands in a given $s_k$ is greater than $\\dfrac 1 {2^{k + 1} }$.\nThe number of summands in a given $s_k$ is $2^{k + 1} - 2^k = 2 \\times 2^k - 2^k = 2^k$, and so:\n$s_k > \\dfrac{2^k} {2^{k + 1} } = \\dfrac 1 2$\nHence the harmonic sum $H_{2^m}$ satisfies the following inequality:\n$$H_{2^m} = \\sum_{n \\mathop = 1}^{2^m} \\frac 1 n$$\n$$> \\sum_{n \\mathop = 1}^{2^m - 1} \\frac 1 n$$\n$$= \\sum_{k \\mathop = 0}^m \\left({s_k}\\right)$$\n$$> 1 + \\sum_{a \\mathop = 0}^m \\frac 1 2$$\n$$= 1 + \\frac m 2$$\nThe right-hand side diverges, from the $n$th term test.\nThe result follows from the the Comparison Test for Divergence.",
+    "clean_row_index": 580,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each disjoint dyadic block contributes more than one half, so partial sums are unbounded. The subsequent finite-sum display has off-by-one bounds, but the established block estimate already proves divergence."
+  },
+  {
+    "theorem_id": 1306,
+    "title": "Harmonic Series is Divergent",
+    "theorem_text": "The harmonic series:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\frac 1 n$\ndiverges.",
+    "proof_text": "Observe that all the terms of the harmonic series are strictly positive.\nFrom Reciprocal Sequence is Strictly Decreasing, the terms are decreasing.\nHence the Cauchy Condensation Test can be applied, and we examine the convergence of:\n$$\\sum_{n \\mathop = 1}^\\infty 2^n \\frac 1 {2^n} = \\sum_{n \\mathop = 1}^\\infty 1$$\nThis diverges, from the $n$th term test.\nHence $\\displaystyle \\sum \\frac 1 n$ also diverges.",
+    "clean_row_index": 581,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The terms are positive and decreasing. Condensation produces the divergent series of ones, giving divergence of the original series."
+  },
+  {
+    "theorem_id": 1306,
+    "title": "Harmonic Series is Divergent",
+    "theorem_text": "The harmonic series:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\frac 1 n$\ndiverges.",
+    "proof_text": "We have that the Integral of Reciprocal is Divergent.\nHence from the Integral Test, the harmonic series also diverges.",
+    "clean_row_index": 582,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The reciprocal is positive, continuous and decreasing from one onward, so its divergent improper integral yields divergence by the integral test."
+  },
+  {
+    "theorem_id": 1317,
+    "title": "Euclidean Metric on Real Vector Space is Metric",
+    "theorem_text": "The Euclidean metric on a real vector space $\\R^n$ is a metric.",
+    "proof_text": "The Euclidean metric on $\\R^n$ is a special case of the $p$-product metric.\nThe result follows from $p$-Product Metric on Real Vector Space is Metric.",
+    "clean_row_index": 583,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The Euclidean distance is the p-product metric for p equal to two, an instance covered by the cited metric theorem."
+  },
+  {
+    "theorem_id": 1318,
+    "title": "Metric Induces Topology",
+    "theorem_text": "Let $M = \\struct {A, d}$ be a metric space.\nThen the topology $\\tau$ induced by the metric $d$ is a topology on $M$.",
+    "proof_text": "We examine each of the criteria for being a topology separately.\n$(1): \\quad$ By Union of Open Sets of Metric Space is Open, the union of any collection of open sets of a metric space is open.\n$(2): \\quad$ By Finite Intersection of Open Sets of Metric Space is Open, a finite intersection of open sets of a metric space is open.\n$(3): \\quad$ By Open Sets in Metric Space, $\\O \\in \\tau$ and $A \\in \\tau$.\nHence the result.",
+    "clean_row_index": 584,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited facts verify closure under arbitrary unions and finite intersections, as well as membership of the empty set and the entire space."
+  },
+  {
+    "theorem_id": 1321,
+    "title": "Mean Value of Convex Real Function",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\closedint a b$ and differentiable on the open interval $\\openint a b$.\nLet $f$ be convex on $\\openint a b$.\nThen:\n$\\forall \\xi \\in \\openint a b: \\map f x - \\map f \\xi \\ge \\map {f'} \\xi \\paren {x - \\xi}$",
+    "proof_text": "By the Mean Value Theorem:\n$\\exists \\eta \\in \\openint x \\xi: \\map {f'} \\eta = \\dfrac {\\map f x - \\map f \\xi} {x - \\xi}$\nFrom Real Function is Convex iff Derivative is Increasing, the derivative of $f$ is increasing.\nThus:\n$x > \\xi \\implies \\map {f'} \\eta \\ge \\map {f'} \\xi$\n$x < \\xi \\implies \\map {f'} \\eta \\le \\map {f'} \\xi$\nHence:\n$\\map f x - \\map f \\xi \\ge \\map {f'} \\xi \\paren {x - \\xi}$",
+    "clean_row_index": 585,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The mean value slope is a derivative between x and xi. Monotonicity of the derivative and the sign of x minus xi give the tangent bound in both directions, with equality at xi."
+  },
+  {
+    "theorem_id": 1322,
+    "title": "Upper Bound of Natural Logarithm",
+    "theorem_text": "Let $\\ln y$ be the natural logarithm of $y$ where $y \\in \\R_{>0}$.\nThen:\n$\\ln y \\le y - 1$",
+    "proof_text": "From Logarithm is Strictly Concave:\n$\\ln$ is (strictly) concave.\nFrom Mean Value of Concave Real Function:\n$\\ln y - \\ln 1 \\le \\left({D \\ln 1}\\right) \\left({y - 1}\\right)$\nFrom Derivative of Natural Logarithm:\n$D \\ln 1 = \\dfrac 1 1 = 1$\nSo:\n$\\ln y - \\ln 1 \\le \\left({y - 1}\\right)$\nBut from Logarithm of 1 is 0:\n$\\ln 1 = 0$\nHence the result.",
+    "clean_row_index": 586,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Concavity bounds the logarithm by its tangent at one, whose value there is zero and whose slope is one."
+  },
+  {
+    "theorem_id": 1326,
+    "title": "Derivative of Exponential at Zero",
+    "theorem_text": "Let $\\exp x$ be the exponential of $x$ for real $x$.\nThen:\n$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\exp x - 1} x = 1$",
+    "proof_text": "For all $x \\in \\R$:\n$\\exp 0 - 1 = 0$ from Exponential of Zero\n$\\map {D_x} {\\exp x - 1} = \\exp x$ from Sum Rule for Derivatives\n$D_x x = 1$ from Derivative of Identity Function.\nIts prerequisites having been verified, Corollary 1 to L'Hôpital's Rule yields immediately:\n$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\exp x - 1} x = \\lim_{x \\mathop \\to 0} \\frac {\\exp x} 1 = \\exp 0 = 1$",
+    "clean_row_index": 587,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The difference quotient is of zero-over-zero type. Using the known exponential derivative, L'Hôpital's rule reduces it to the continuous exponential at zero."
+  },
+  {
+    "theorem_id": 1328,
+    "title": "Existence of Euler-Mascheroni Constant",
+    "theorem_text": "The real sequence:\n$\\displaystyle \\sequence {\\sum_{k \\mathop = 1}^n \\frac 1 k - \\ln n}$\nconverges to a limit.\nThis limit is known as the Euler-Mascheroni constant.",
+    "proof_text": "Let $f: \\R \\setminus \\set 0 \\to \\R: \\map f x = \\dfrac 1 x$.\nClearly $f$ is continuous and positive on $\\hointr 1 {+\\infty}$.\nFrom Reciprocal Sequence is Strictly Decreasing, $f$ is decreasing on $\\hointr 1 {+\\infty}$.\nTherefore the conditions of the Integral Test hold.\nThus the sequence $\\sequence {\\Delta_n}$ defined as:\n$\\displaystyle \\Delta_n = \\sum_{k \\mathop = 1}^n \\map f k - \\int_1^n \\map f x \\rd x$\nis decreasing and bounded below by zero.\nBut from the definition of the natural logarithm:\n$\\displaystyle \\int_1^n \\frac {\\d x} x = \\ln n$\nHence the result.",
+    "clean_row_index": 588,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For a decreasing positive reciprocal, the sum-minus-integral error is decreasing and bounded below. Substituting the integral representation of the logarithm proves convergence."
+  },
+  {
+    "theorem_id": 1330,
+    "title": "Derivative of Logarithm at One",
+    "theorem_text": "Let $\\ln x$ be the natural logarithm of $x$ for real $x$ where $x > 0$.\nThen:\n$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\map \\ln {1 + x} } x = 1$",
+    "proof_text": "L'Hôpital's Rule gives:\n$\\displaystyle \\lim_{x \\mathop \\to c} \\frac {\\map f x} {\\map g x} = \\lim_{x \\mathop \\to c} \\frac {\\map {f'} x} {\\map {g'} x}$\n(provided the appropriate conditions are fulfilled).\nHere we have:\n$$\\map \\ln {1 + 0} = 0$$\n$$\\map {D_x} {\\map \\ln {1 + x} } = \\dfrac 1 {1 + x}$$\nChain Rule for Derivatives\n$$\\map {D_x} x = 1$$\nDerivative of Identity Function\nThus:\n$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\map \\ln {1 + x} } x = \\lim_{x \\mathop \\to 0} \\frac {\\paren {1 + x}^{-1} } 1 = \\frac 1 {1 + 0} = 1$",
+    "clean_row_index": 589,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The logarithm vanishes at one and its derivative after the shift is one over one plus x. The derivative quotient therefore tends to one in L'Hôpital's rule."
+  },
+  {
+    "theorem_id": 1332,
+    "title": "Existence of Interval of Convergence of Power Series",
+    "theorem_text": "Let $\\xi \\in \\R$ be a real number.\nLet $\\displaystyle \\map S x = \\sum_{n \\mathop = 0}^\\infty a_n \\paren {x - \\xi}^n$ be a power series about $\\xi$.\nThen the interval of convergence of $\\map S x$ is a real interval whose midpoint is $\\xi$.",
+    "proof_text": "Suppose $\\map S x$ converges when $x = y$.\nWe need to show that it converges for all $x$ which satisfy $\\size {x - \\xi} < \\size {y - \\xi}$.\nSo, let $\\map S x$ converge when $x = y$.\nThen from Terms in Convergent Series Converge to Zero:\n$a_n \\paren {y - \\xi}^n \\to 0$ as $n \\to \\infty$\nHence, from Convergent Sequence is Bounded:\n$\\sequence {a_n \\paren {y - \\xi}^n}$ is bounded\nThus:\n$\\exists H \\in \\R: \\forall n \\in \\N_{>0}: \\size {a_n \\paren {y - \\xi}^n} \\le H$\nNow suppose $\\size {x - \\xi} < \\size {y - \\xi}$.\nThen:\n$\\rho = \\dfrac {\\size {x - \\xi} } {\\size {y - \\xi} } < 1$\n(Note that if $\\size {x - \\xi} < \\size {y - \\xi}$ then $\\size {y - \\xi} > 0$ and the above fraction always exists.)\nHence:\n$\\forall n \\in \\N_{>0} \\size {a_n \\paren {x - \\xi}^n} = \\rho^n \\size {a_n \\paren {y - \\xi}^n} \\le H \\rho^n$\nBy Sequence of Powers of Number less than One:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\rho^n$ converges\nThus $\\displaystyle \\sum_{n \\mathop = 0}^\\infty a_n \\paren {x - \\xi}^n$ converges by the Comparison Test.\nThe result follows.",
+    "clean_row_index": 590,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A bounded term sequence at y gives a convergent geometric majorant at every point strictly closer to the center. This supplies the centered radius description, allowing different endpoint behavior or an infinite radius."
+  },
+  {
+    "theorem_id": 1340,
+    "title": "Derivative of Cosine Function",
+    "theorem_text": "$\\map {\\dfrac \\d {\\d x} } {\\cos x} = -\\sin x$",
+    "proof_text": "From the definition of the cosine function, we have:\n$\\displaystyle \\cos x = \\sum_{n \\mathop = 0}^\\infty \\paren {-1}^n \\frac {x^{2 n} } {\\paren {2 n}!}$\nThen:\n$$\\map {\\frac \\d {\\d x} } {\\cos x} = \\sum_{n \\mathop = 1}^\\infty \\paren {-1}^n 2 n \\frac {x^{2 n - 1} } {\\paren {2 n}!}$$\nPower Series is Differentiable on Interval of Convergence\n$$= \\sum_{n \\mathop = 1}^\\infty \\paren {-1}^n \\frac {x^{2 n - 1} } {\\paren {2 n - 1}!}$$\n$$= \\sum_{n \\mathop = 0}^\\infty \\paren {-1}^{n + 1} \\frac {x^{2 n + 1} } {\\paren {2 n + 1}!}$$\nchanging summation index\n$$= -\\sum_{n \\mathop = 0}^\\infty \\paren {-1}^n \\frac {x^{2 n + 1} } {\\paren {2 n + 1}!}$$\nThe result follows from the definition of the sine function.",
+    "clean_row_index": 591,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Termwise differentiation of the everywhere convergent cosine series followed by an index shift gives the negative sine series."
+  },
+  {
+    "theorem_id": 1340,
+    "title": "Derivative of Cosine Function",
+    "theorem_text": "$\\map {\\dfrac \\d {\\d x} } {\\cos x} = -\\sin x$",
+    "proof_text": "$$\\frac \\d {\\d x} \\cos x = \\frac \\d {\\d x} \\map \\sin {\\frac \\pi 2 - x}$$\nSine of Complement equals Cosine\n$$= -\\map \\cos {\\frac \\pi 2 - x}$$\nDerivative of Sine Function and Chain Rule for Derivatives\n$$= -\\sin x$$\nCosine of Complement equals Sine",
+    "clean_row_index": 592,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Expressing cosine as sine of the complementary angle and applying the chain rule contributes the minus sign and yields negative sine."
+  },
+  {
+    "theorem_id": 1341,
+    "title": "Limit of Sine of X over X",
+    "theorem_text": "$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\sin x} x = 1$",
+    "proof_text": "From Sine of Zero is Zero:\n$\\sin 0 = 0$\nFrom Derivative of Sine Function:\n$D_x \\left({\\sin x}\\right) = \\cos x$\nThen by Cosine of Zero is One:\n$\\cos 0 = 1$\nFrom Derivative of Identity Function:\n$D_x \\left({x}\\right) = 1$\nThus L'Hôpital's Rule applies and so:\n$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\sin x} x = \\lim_{x \\mathop \\to 0} \\frac {D_x \\left({\\sin x}\\right)} {D_x \\left({x}\\right)} = \\lim_{x \\mathop \\to 0} \\frac {\\cos x} 1 = \\frac 1 1 = 1$",
+    "clean_row_index": 593,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With the derivative of sine available, L'Hôpital's rule gives the cosine limit at zero, which equals one."
+  },
+  {
+    "theorem_id": 1342,
+    "title": "Sum of Squares of Sine and Cosine",
+    "theorem_text": "$\\cos^2 x + \\sin^2 x = 1$",
+    "proof_text": "$$1 = \\cos 0$$\nCosine of Zero is One\n$$= \\map \\cos {x - x}$$\n$$= \\cos x \\, \\map \\cos {-x} - \\sin x \\, \\map \\sin {-x}$$\nCosine of Sum\n$$= \\cos x \\cos x - \\paren {-\\sin x \\sin x}$$\nCosine Function is Even and Sine Function is Odd\n$$= \\cos^2 x + \\sin^2 x$$\nNotes\nNote that we need to start from the algebraic definitions of sine and cosine:\n$\\displaystyle \\sin x = \\sum_{n \\mathop = 0}^\\infty \\paren {-1}^n \\frac {x^{2 n + 1} } {\\paren {2 n + 1}!} = x - \\frac {x^3} {3!} + \\frac {x^5} {5!} - \\cdots$\n$\\displaystyle \\cos x = \\sum_{n \\mathop = 0}^\\infty \\paren {-1}^n \\frac {x^{2 n} } {\\paren {2 n}!} = 1 - \\frac {x^2} {2!} + \\frac {x^4} {4!} - \\cdots$\nand then use the proofs of the Cosine of Sum that derive directly from these.\nOtherwise these proofs are circular.",
+    "clean_row_index": 594,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The addition formula at x and minus x, together with parity and cosine at zero, yields the identity. The note specifies an independent derivation of the addition formula."
+  },
+  {
+    "theorem_id": 1342,
+    "title": "Sum of Squares of Sine and Cosine",
+    "theorem_text": "$\\cos^2 x + \\sin^2 x = 1$",
+    "proof_text": "Let $P = \\tuple {x, y}$ be a point on the circumference of a unit circle whose center is at the origin of a cartesian plane.\nFrom Sine of Angle in Cartesian Plane and Cosine of Angle in Cartesian Plane:\n$P = \\tuple {\\cos \\theta, \\sin \\theta}$\nThe graph of the unit circle is the locus of:\n$x^2 + y^2 = 1$\nas given by Equation of Circle.\nSubstituting $x = \\cos \\theta$ and $y = \\sin \\theta$ yields:\n$\\cos^2 \\theta + \\sin^2 \\theta = 1$",
+    "clean_row_index": 595,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cosine and sine of an angle give the coordinates of the corresponding unit-circle point, whose squared coordinates sum to one."
+  },
+  {
+    "theorem_id": 1342,
+    "title": "Sum of Squares of Sine and Cosine",
+    "theorem_text": "$\\cos^2 x + \\sin^2 x = 1$",
+    "proof_text": "$$\\cos^2 x + \\sin^2 x = \\left({\\cos x + i \\, \\sin x}\\right) \\, \\left({\\cos x - i \\, \\sin x}\\right)$$\nfactoring over the complex numbers\n$$= \\left({\\cos x + i \\, \\sin x}\\right) \\, \\left({\\cos \\left({-x}\\right) + i \\, \\sin \\left({-x}\\right)}\\right)$$\nCosine Function is Even and Sine Function is Odd\n$$= e^{ix} \\, e^{-ix}$$\nEuler's Formula\n$$= 1$$",
+    "clean_row_index": 596,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Factoring the sum of squares over the complex numbers and applying Euler's formula expresses it as a product of reciprocal exponentials."
+  },
+  {
+    "theorem_id": 1342,
+    "title": "Sum of Squares of Sine and Cosine",
+    "theorem_text": "$\\cos^2 x + \\sin^2 x = 1$",
+    "proof_text": "$$\\cos^2 x + \\sin^2 x = \\paren {\\frac {e^{i x} + e^{-i x} } 2}^2 + \\sin^2 x$$\nCosine Exponential Formulation\n$$= \\paren {\\frac {e^{i x} + e^{-i x} } 2}^2 + \\paren {\\frac {e^{i x} - e^{-i x} } {2 i} }^2$$\nSine Exponential Formulation\n$$= \\frac {\\paren {e^{i x} }^2 + 2 e^{-i x} e^{i x} + \\paren {e^{-i x} }^2} 4 + \\paren {\\frac {e^{i x} - e^{-i x} } {2 i} }^2$$\nSquare of Sum\n$$= \\frac {\\paren {e^{i x} }^2 + 2 e^{-i x} e^{i x} + \\paren {e^{-i x} }^2} 4 + \\frac {\\paren {e^{i x} }^2 - e^{-i x} e^{i x} + \\paren {e^{-i x} }^2} {-4}$$\nSquare of Difference and $i^2 = -1$\n$$= \\frac {e^{2 i x} + 2 + e^{-2 i x} } 4 + \\frac {e^{2 i x} - 2 + e^{-2 i x} } {-4}$$\nExponential of Sum\n$$= \\frac {e^{2 i x} + 2 + e^{-2 i x} - e^{2 i x} + 2 - e^{-2 i x} } 4$$\nsimplifying\n$$= \\frac 4 4$$\nsimplifying\n$$= 1$$",
+    "clean_row_index": 597,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The exponential expressions give the difference of two squared binomials divided by four, equal to one. An intermediate expansion omits a factor of two in its cross term, which the next line restores."
+  },
+  {
+    "theorem_id": 1343,
+    "title": "Cosine of Sum",
+    "theorem_text": "$\\map \\cos {a + b} = \\cos a \\cos b - \\sin a \\sin b$",
+    "proof_text": "$$\\map \\cos {a + b} + i \\, \\map \\sin {a + b} = e^{i \\paren {a + b} }$$\nEuler's Formula\n$$= e^{i a} e^{i b}$$\nExponential of Sum\n$$= \\paren {\\cos a + i \\sin a} \\paren {\\cos b + i \\sin b}$$\nEuler's Formula\n$$= \\paren {\\cos a \\cos b - \\sin a \\sin b} + i \\paren {\\sin a \\cos b + \\cos a \\sin b}$$\nComplex Numbers form Field\nThe result follows by equating the real parts.",
+    "clean_row_index": 598,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Euler's formula and the exponential sum law give two expressions for the same complex number. Equating real parts gives the cosine formula."
+  },
+  {
+    "theorem_id": 1343,
+    "title": "Cosine of Sum",
+    "theorem_text": "$\\map \\cos {a + b} = \\cos a \\cos b - \\sin a \\sin b$",
+    "proof_text": "Recall the analytic definitions of sine and cosine:\n$\\displaystyle \\sin x = \\sum_{n \\mathop = 0}^\\infty \\left({-1}\\right)^n \\frac {x^{2 n + 1}} {\\left({2 n + 1}\\right)!}$\n$\\displaystyle \\cos x = \\sum_{n \\mathop = 0}^\\infty \\left({-1}\\right)^n \\frac {x^{2 n}} {\\left({2 n}\\right)!}$\nLet:\n$$g \\left({a}\\right) = \\sin \\left({a + b}\\right) - \\sin a \\cos b - \\cos a \\sin b$$\n$$h \\left({a}\\right) = \\cos \\left({a + b}\\right) - \\cos a \\cos b + \\sin a \\sin b$$\nLet us differentiate these with respect to $a$, keeping $b$ constant.\nThen from Derivative of Sine Function and Derivative of Cosine Function, we have:\n$$g' \\left({a}\\right) = \\cos \\left({a + b}\\right) - \\cos a \\cos b + \\sin a \\sin b = h \\left({a}\\right)$$\n$$h' \\left({a}\\right) = - \\sin \\left({a + b}\\right) + \\sin a \\cos b + \\cos a \\sin b = - g \\left({a}\\right)$$\nHence:\n$$D_a \\left({\\left({g \\left({a}\\right)}\\right)^2 + \\left({h \\left({a}\\right)}\\right)^2}\\right) = 2 g \\left({a}\\right) g' \\left({a}\\right) + 2 h \\left({a}\\right) h' \\left({a}\\right)$$\n$$= 0$$\nThus from Derivative of Constant:\n$\\forall a \\in \\R: g \\left({a}\\right)^2 + h \\left({a}\\right)^2 = c$\nIn particular, it is true for $a = 0$, and so:\n$g \\left({0}\\right)^2 + h \\left({0}\\right)^2 = 0$\nSo:\n$g \\left({a}\\right)^2 + h \\left({a}\\right)^2 = 0$\nBut from Square of Real Number is Non-Negative:\n$g \\left({a}\\right)^2 \\ge 0$\nand:\n$h \\left({a}\\right)^2 \\ge 0$\nSo it follows that:\n$g \\left({a}\\right) = 0$\nand:\n$h \\left({a}\\right) = 0$\nHence the result.",
+    "clean_row_index": 599,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two addition-formula residuals satisfy g prime equals h and h prime equals minus g. Their squared norm is constant and zero at the origin, forcing both residuals to vanish."
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 0,
+    "title": "Closed Form for Triangular Numbers",
+    "theorem_text": "The closed-form expression for the $n$th triangular number is:\n$\\displaystyle T_n = \\sum_{i \\mathop = 1}^n i = \\frac {n \\paren {n + 1} } 2$",
+    "proof_text": "Proof by induction:\nBasis for the Induction\nWhen $n = 1$, we have:\n$\\displaystyle \\sum_{i \\mathop = 1}^1 i = 1$\nAlso:\n$\\dfrac {n \\paren {n + 1} } 2 = \\dfrac {1 \\cdot 2} 2 = 1$\nThis is our base case.\nInduction Hypothesis\n$\\forall k \\in \\N: k \\ge 1: \\displaystyle \\sum_{i \\mathop = 1}^k i = \\frac {k \\paren {k + 1} } 2$\nThis is our induction hypothesis.\nIt is to be demonstrated that:\n$\\displaystyle \\sum_{i \\mathop = 1}^{k + 1} i = \\frac {\\paren {k + 1} \\paren {k + 2} } 2$\nInduction Step\nThis is our induction step:\nConsider $n = k + 1$.\nBy the properties of summation:\n$\\displaystyle \\sum_{i \\mathop = 1}^{k + 1} i = \\sum_{i \\mathop = 1}^k i + k + 1$\nUsing the induction hypothesis this can be simplified to:\n$$\\frac {k \\paren {k + 1} } 2 + k + 1 = \\frac {k \\paren {k + 1} + 2 k + 2} 2$$\n$$= \\frac {k^2 + 3 k + 2} 2$$\n$$= \\frac {\\paren {k + 1} \\paren {k + 2} } 2$$\n$$= \\frac {\\paren {k + 1} \\paren {\\paren {k + 1} + 1} } 2$$\nHence the result by induction.",
+    "clean_row_index": 0,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The base case holds. For an arbitrary k the step uses only the formula at k, adds k+1, and factors the resulting expression. The universal quantifier in the hypothesis line is unnecessary for that argument."
+  },
+  {
+    "theorem_id": 0,
+    "title": "Closed Form for Triangular Numbers",
+    "theorem_text": "The closed-form expression for the $n$th triangular number is:\n$\\displaystyle T_n = \\sum_{i \\mathop = 1}^n i = \\frac {n \\paren {n + 1} } 2$",
+    "proof_text": "Triangular numbers are $k$-gonal numbers where $k = 3$.\nFrom Closed Form for Polygonal Numbers we have that:\n$P \\left({k, n}\\right) = \\dfrac n 2 \\left({\\left({k - 2}\\right) n - k + 4}\\right)$\nHence:\n$$T_n = \\frac n 2 \\left({\\left({3 - 2}\\right) n - 3 + 4}\\right)$$\nClosed Form for Polygonal Numbers\n$$= \\frac n 2 \\left({n + 1}\\right)$$\nHence the result.",
+    "clean_row_index": 1,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Triangular numbers are the k=3 instance of the cited polygonal-number formula. Substituting 3 gives n(n+1)/2."
+  },
+  {
+    "theorem_id": 1,
+    "title": "Sum of Sequence of Squares",
+    "theorem_text": "$\\displaystyle \\forall n \\in \\N: \\sum_{i \\mathop = 1}^n i^2 = \\frac {n \\paren {n + 1} \\paren {2 n + 1} } 6$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N$, let $\\map P n$ be the proposition:\n$\\displaystyle \\sum_{i \\mathop = 1}^n i^2 = \\frac {n \\paren {n + 1} \\paren {2 n + 1} } 6$\nWhen $n = 0$, we see from the definition of vacuous sum that:\n$0 = \\displaystyle \\sum_{i \\mathop = 1}^0 i^2 = \\frac {0 \\paren 1 \\paren 1} 6 = 0$\nand so $\\map P 0$ holds.\nBasis for the Induction\nWhen $n = 1$:\n$\\displaystyle \\sum_{i \\mathop = 1}^1 i^2 = 1^2 = 1$\nNow, we have:\n$\\displaystyle \\frac {n \\paren {n + 1} \\paren {2 n + 1} } 6 = \\frac {1 \\paren {1 + 1} \\paren {2 \\times 1 + 1} } 6 = \\frac 6 6 = 1$\nand $\\map P 1$ is seen to hold.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle \\sum_{i \\mathop = 1}^k i^2 = \\frac {k \\paren {k + 1} \\paren {2 k + 1} } 6$\nThen we need to show:\n$\\displaystyle \\sum_{i \\mathop = 1}^{k + 1} i^2 = \\frac {\\paren {k + 1} \\paren {k + 2} \\paren {2 \\paren {k + 1} + 1} } 6$\nInduction Step\nThis is our induction step:\nUsing the properties of summation, we have:\n$\\displaystyle \\sum_{i \\mathop = 1}^{k + 1} i^2 = \\sum_{i \\mathop = 1}^k i^2 + \\paren {k + 1}^2$\nWe can now apply our induction hypothesis, obtaining:\n$$\\sum_{i \\mathop = 1}^{k + 1} i^2 = \\frac {k \\paren {k + 1} \\paren {2 k + 1} } 6 + \\paren {k + 1}^2$$\n$$= \\frac {k \\paren {k + 1} \\paren {2 k + 1} + 6 \\paren {k + 1}^2} 6$$\n$$= \\frac {\\paren {k + 1} \\paren {k \\paren {2 k + 1} + 6 \\paren {k + 1} } } 6$$\n$$= \\frac {\\paren {k + 1} \\paren {2 k^2 + 7 k + 6} } 6$$\n$$= \\frac {\\paren {k + 1} \\paren {k + 2} \\paren {2 \\paren {k + 1} + 1} } 6$$\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\displaystyle \\forall n \\in \\N: \\sum_{i \\mathop = 1}^n i^2 = \\frac {n \\paren {n + 1} \\paren {2 n + 1} } 6$",
+    "clean_row_index": 2,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The proof checks the empty sum and the first positive case. Adding (k+1)^2 to the induction hypothesis gives (k+1)(k+2)(2k+3)/6."
+  },
+  {
+    "theorem_id": 1,
+    "title": "Sum of Sequence of Squares",
+    "theorem_text": "$\\displaystyle \\forall n \\in \\N: \\sum_{i \\mathop = 1}^n i^2 = \\frac {n \\paren {n + 1} \\paren {2 n + 1} } 6$",
+    "proof_text": "Observe that:\n$3 i \\left({i + 1}\\right) = i \\left({i + 1}\\right) \\left({i + 2}\\right) - i \\left({i + 1}\\right) \\left({i - 1}\\right)$\nThat is:\n$(1): \\quad 6 T_i = \\left({i + 1}\\right) \\left({\\left({i + 1}\\right) + 1}\\right) \\left({\\left({i + 1}\\right) - 1}\\right) - i \\left({i + 1}\\right) \\left({i - 1}\\right)$\nThen:\n$$n^2 = \\frac {n^2 + n + n^2 - n} 2$$\n$$= \\frac {n \\left({n + 1}\\right) + n \\left({n - 1}\\right)} 2$$\n$$= \\frac {n \\left({n + 1}\\right)} 2 + \\frac {n \\left({n - 1}\\right)} 2$$\n$$= T_n + T_{n-1}$$\nwhere $T_n$ is the $n$th Triangular number.\nThen:\n$$\\sum_{i \\mathop = 1}^n i^2 = 1 + \\left({T_1 + T_2}\\right) + \\left({T_2 + T_3}\\right) + \\left({T_3 + T_4}\\right) + \\cdots + \\left({T_{n - 1} + T_n}\\right)$$\n$$= 1 + 2 T_2 + 2 T_3 + 2 T_4 + \\cdots + 2 T_{n - 1} + T_n$$\n$$= 1 - T_1 - T_n + 2 \\left({T_1 + T_2 + T_3 + T_4 + \\cdots + T_n}\\right)$$\n$$= 2 \\left({\\sum_{i \\mathop = 1}^n T_i} \\right) - \\frac {n \\left({n + 1}\\right)} 2$$\n$$= 2 \\left({\\frac {n \\left({n + 1}\\right) \\left({n + 2}\\right)} 6}\\right) - \\frac {n \\left({n + 1}\\right)} 2$$\nTelescoping Series from $(1)$ above\n$$= \\frac {2 n \\left({n^2 + 3 n + 2}\\right) - \\left({3 n^2 + 3 n}\\right)} 6$$\n$$= \\frac {2 n^3 + 3 n^2 + n} 6$$\n$$= \\frac {n \\left({n + 1}\\right) \\left({2 n + 1}\\right)} 6$$",
+    "clean_row_index": 3,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The regrouping loses one copy of T_1. For n=3 the sum is 1+(1+3)+(3+6)=14, but the next displayed expression is 1+2(3)+6=13. The later correct formula does not make that equality true."
+  },
+  {
+    "theorem_id": 6,
+    "title": "Square Root of Prime is Irrational",
+    "theorem_text": "The square root of any prime number is irrational.",
+    "proof_text": "Let $p \\in \\Z$ be a prime number.\nConsider the polynomial:\n$\\map P x = x^2 - p$\nover the ring of polynomials $\\Q \\sqbrk X$ over the rational numbers.\nFrom Difference of Two Squares:\n$x^2 - p = \\paren {x + \\sqrt p} \\paren {x + \\sqrt p}$\nBecause $p$ is prime, $\\sqrt p$ is not an integer.\nFrom Polynomial which is Irreducible over Integers is Irreducible over Rationals it follows that $\\paren {x + \\sqrt p}$ and $\\paren {x + \\sqrt p}$ do not have rational coefficients.\nThat is:\n$\\sqrt p$ is not rational.\nHence the result.",
+    "clean_row_index": 4,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The claimed factorization uses x+sqrt(p) twice. Already at x=0 its product equals p, whereas x^2-p equals -p. The subsequent argument relies on this false factorization."
+  },
+  {
+    "theorem_id": 8,
+    "title": "Derivative of Sine Function",
+    "theorem_text": "$\\map {\\dfrac \\d {\\d x} } {\\sin x} = \\cos x$",
+    "proof_text": "From the definition of the sine function, we have:\n$\\displaystyle \\sin x = \\sum_{n \\mathop = 0}^\\infty \\paren {-1}^n \\frac {x^{2 n + 1} } {\\paren {2 n + 1}!}$\nFrom Radius of Convergence of Power Series over Factorial, this series converges for all $x$.\nFrom Power Series is Differentiable on Interval of Convergence:\n$$\\map {\\frac \\d {\\d x} } {\\sin x} = \\sum_{n \\mathop = 0}^\\infty \\paren {-1}^n \\frac {x^{2 n + 1} } {\\paren {2 n + 1}!}$$\n$$= \\sum_{n \\mathop = 0}^\\infty \\paren {-1}^n \\frac {x^{2 n} } {\\paren {2 n}!}$$\nThe result follows from the definition of the cosine function.",
+    "clean_row_index": 6,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The first displayed derivative is set equal to the original sine series with all exponents unchanged. At x=0 that series equals 0 and the next displayed cosine series equals 1. The first equality would need a differentiation operator."
+  },
+  {
+    "theorem_id": 8,
+    "title": "Derivative of Sine Function",
+    "theorem_text": "$\\map {\\dfrac \\d {\\d x} } {\\sin x} = \\cos x$",
+    "proof_text": "$$\\dfrac \\d {\\d x} \\sin x = \\dfrac \\d {\\d x} \\map \\cos {\\frac \\pi 2 - x}$$\nCosine of Complement equals Sine\n$$= \\map \\sin {\\frac \\pi 2 - x}$$\nDerivative of Cosine Function and Chain Rule for Derivatives\n$$= \\cos x$$\nSine of Complement equals Cosine",
+    "clean_row_index": 7,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Differentiating cos(pi/2-x) introduces two minus signs, which cancel. The cofunction identity then gives cos(x)."
+  },
+  {
+    "theorem_id": 10,
+    "title": "0.999...=1",
+    "theorem_text": "$0.999 \\ldots = 1$",
+    "proof_text": "By Sum of Infinite Geometric Sequence:\n$0.999 \\ldots = \\dfrac a {1 - r}$\nwhere $a = \\dfrac 9 {10}$ and $r = \\dfrac 1 {10}$.\nSince our ratio is less than $1$, then we know that $\\displaystyle \\sum_{n \\mathop = 0}^\\infty \\frac 9 {10} \\paren {\\frac 1 {10} }^n$ must converge to:\n$\\dfrac a {1 - r} = \\dfrac {\\frac 9 {10} } {1 - \\frac 1 {10} } = \\dfrac {\\frac 9 {10} } {\\frac 9 {10} } = 1$",
+    "clean_row_index": 8,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The recurring decimal is the geometric series with first term 9/10 and ratio 1/10. The ratio has absolute value less than 1, and the sum is 1."
+  },
+  {
+    "theorem_id": 10,
+    "title": "0.999...=1",
+    "theorem_text": "$0.999 \\ldots = 1$",
+    "proof_text": "We begin with the knowledge that:\n$$\\frac 9 9 = \\frac 1 1 = 1$$\nNow we divide $9$ by $9$ using the standard process of long division, only instead of stating that $90$ divided by $9$ is $10$, we say that it is \"$9$ remainder $9$,\" yielding the following result:\n$\n\\require{enclose}\n\\phantom{0..}0.9999\\ldots\\\\\n9\\enclose{longdiv}{9.0000\\ldots}\\\\\n\\phantom{0}\\underline{\\phantom{0}8.1}\\\\\n\\phantom{000.}90\\\\\n\\phantom{0.}\\underline{\\phantom{00}81}\\\\\n\\phantom{0000.}90\\\\\n\\phantom{0.}\\underline{\\phantom{000}81}\\\\\n\\phantom{00000.}9\\ldots\\\\\n$\nThus, we are compelled to believe that:\n$0.999\\ldots = \\dfrac 9 9 = 1$",
+    "clean_row_index": 9,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The nonstandard quotient digit is justified by 90=9·9+9 at each repetition. After k digits the scaled unaccounted portion of the quotient is 10^(-k), which tends to zero. Thus these digits do represent 9/9."
+  },
+  {
+    "theorem_id": 12,
+    "title": "Sum of Sequence of Cubes",
+    "theorem_text": "$\\displaystyle \\sum_{i \\mathop = 1}^n i^3 = \\paren {\\sum_{i \\mathop = 1}^n i}^2 = \\frac {n^2 \\paren {n + 1}^2} 4$",
+    "proof_text": "First, from Closed Form for Triangular Numbers:\n$\\displaystyle \\sum_{i \\mathop = 1}^n i = \\frac {n \\paren {n + 1} } 2$\nSo:\n$\\displaystyle \\paren {\\sum_{i \\mathop = 1}^n i}^2 = \\dfrac {n^2 \\paren {n + 1}^2} 4$\nNext we use induction on $n$ to show that:\n$\\displaystyle \\sum_{i \\mathop = 1}^n i^3 = \\dfrac {n^2 \\paren {n + 1}^2} 4$\nThe proof proceeds by induction.\nFor all $n \\in \\Z_{>0}$, let $\\map P n$ be the proposition:\n$\\displaystyle \\sum_{i \\mathop = 1}^n i^3 = \\dfrac {n^2 \\paren {n + 1}^2} 4$\nBasis for the Induction\n$\\map P 1$ is the case:\n$1^3 = \\dfrac {1 \\paren {1 + 1}^2} 4$\n$$\\sum_{i \\mathop = 1}^1 i^3 = 1^3$$\n$$= \\dfrac {1^2 \\paren {1 + 1}^2} 4$$\nThus $\\map P 1$ is seen to hold.\nThis is the basis for the induction.\nInduction Hypothesis\nNow it needs to be shown that if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is the induction hypothesis:\n$\\displaystyle \\sum_{i \\mathop = 1}^k i^3 = \\dfrac {k^2 \\paren {k + 1}^2} 4$\nfrom which it is to be shown that:\n$\\displaystyle \\sum_{i \\mathop = 1}^{k + 1} i^3 = \\dfrac {\\paren {k + 1}^2 \\paren {k + 2}^2} 4$\nInduction Step\nThis is the induction step:\n$$\\sum_{i \\mathop = 1}^{k + 1} i^3 = \\sum_{i \\mathop = 1}^k i^3 + \\paren {k + 1}^3$$\n$$= \\frac {k^2 \\paren {k + 1}^2} 4 + \\paren {k + 1}^3$$\nInduction Hypothesis\n$$= \\frac {k^4 + 2 k^3 + k^2} 4 + \\frac {4 k^3 + 12 k^2 + 12 k + 4} 4$$\n$$= \\frac {k^4 + 6 k^3 + 13 k^2 + 12 k + 4} 4$$\n$$= \\frac {\\paren {k + 1}^2 \\paren {k + 2}^2} 4$$\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\forall n \\in \\Z_{>0}: \\displaystyle \\sum_{i \\mathop = 1}^n i^3 = \\dfrac {n^2 \\paren {n + 1}^2} 4$",
+    "clean_row_index": 10,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The triangular-number formula supplies the squared-sum expression. Starting at 1, adding (k+1)^3 produces (k+1)^2(k+2)^2/4 as required."
+  },
+  {
+    "theorem_id": 12,
+    "title": "Sum of Sequence of Cubes",
+    "theorem_text": "$\\displaystyle \\sum_{i \\mathop = 1}^n i^3 = \\paren {\\sum_{i \\mathop = 1}^n i}^2 = \\frac {n^2 \\paren {n + 1}^2} 4$",
+    "proof_text": "By Nicomachus's Theorem, we have:\n$\\forall n \\in \\N_{>0}: n^3 = \\left({n^2 - n + 1}\\right) + \\paren {n^2 - n + 3} + \\ldots + \\paren {n^2 + n - 1}$\nAlso by Nicomachus's Theorem, we have that the first term for $\\paren {n + 1}^3$ is $2$ greater than the last term for $n^3$.\nSo if we add them all up together, we get:\n$$\\sum_{i \\mathop = 1}^n i^3 = \\sum_{\\stackrel {1 \\mathop \\le i \\mathop \\le n^2 \\mathop + n \\mathop - 1} {i \\text { odd} } } i$$\n... the sum of all the odd numbers up to $n^2 + n - 1$\n$$= \\sum_{i \\mathop = 1}^{\\frac {n^2 \\mathop + n} 2} 2 i - 1$$\n... that is, the first $\\dfrac {n^2 + n} 2$ odd numbers\n$$= \\paren {\\frac {n^2 + n} 2}^2$$\nOdd Number Theorem\nHence the result.",
+    "clean_row_index": 11,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited identity expresses successive cubes as consecutive blocks of odd numbers with no gaps. The last odd number is n(n+1)-1, giving n(n+1)/2 odd summands and hence the stated square."
+  },
+  {
+    "theorem_id": 12,
+    "title": "Sum of Sequence of Cubes",
+    "theorem_text": "$\\displaystyle \\sum_{i \\mathop = 1}^n i^3 = \\paren {\\sum_{i \\mathop = 1}^n i}^2 = \\frac {n^2 \\paren {n + 1}^2} 4$",
+    "proof_text": "The proof proceeds by induction.\nFor all $n \\in \\Z_{> 0}$, let $\\map P n$ be the proposition:\n$\\displaystyle \\sum_{i \\mathop = 1}^n i^3 = {T_n}^2$\nBasis for the Induction\n$\\map P 1$ is the case:\n$$\\sum_{i \\mathop = 1}^1 i^3 = 1^3$$\n$$= 1$$\n$$= \\paren {\\frac {1 \\paren {1 + 1} } 2}^2$$\n$$= {T_1}^2$$\nClosed Form for Triangular Numbers\nThus $\\map P 1$ is seen to hold.\nThis is the basis for the induction.\nInduction Hypothesis\nNow it needs to be shown that, if $\\map P k$ is true, where $k \\ge 2$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is the induction hypothesis:\n$\\displaystyle \\sum_{i \\mathop = 1}^k i^3 = {T_k}^2$\nfrom which it is to be shown that:\n$\\displaystyle \\sum_{i \\mathop = 1}^{k + 1} i^3 = {T_{k + 1} }^2$\nInduction Step\nThis is the induction step:\n$$\\sum_{i \\mathop = 1}^{k + 1} i^3 = \\sum_{i \\mathop = 1}^k i^3 + \\paren {k + 1}^3$$\n$$= {T_k}^2 + \\paren {k + 1}^3$$\nInduction Hypothesis\n$$= {T_k}^2 + \\paren { {T_{k + 1} }^2 - {T_k}^2}$$\nCube Number as Difference between Squares of Triangular Numbers\n$$= {T_{k + 1} }^2$$\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\forall n \\in \\Z_{> 0}: \\displaystyle \\sum_{i \\mathop = 1}^n i^3 = {T_n}^2$",
+    "clean_row_index": 12,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited difference of consecutive triangular squares equals (k+1)^3. This gives the step for every k≥1, including k=1, despite the introductory line stating k≥2. The base case and displayed step therefore suffice."
+  },
+  {
+    "theorem_id": 16,
+    "title": "Lagrange's Theorem (Group Theory)",
+    "theorem_text": "Let $G$ be a finite group.\nLet $H$ be a subgroup of $G$.\nThen:\n$\\order H$ divides $\\order G$\nwhere $\\order G$ and $\\order H$ are the order of $G$ and $H$ respectively.\nIn fact:\n$\\index G H = \\dfrac {\\order G} {\\order H}$\nwhere $\\index G H$ is the index of $H$ in $G$.\nWhen $G$ is an infinite group, we can still interpret this theorem sensibly:\n:A subgroup of finite index in an infinite group is itself an infinite group.\n:A finite subgroup of an infinite group has infinite index.",
+    "proof_text": "Let $G$ be a group.\nLet $H$ be a subgroup of $G$.\nFrom Cosets are Equivalent, a left coset $y H$ has the same number of elements as $H$, namely $\\order H$.\nSince left cosets are identical or disjoint, each element of $G$ belongs to exactly one left coset.\nFrom the definition of index of subgroup, there are $\\index G H$ left cosets, and therefore:\n$\\order G = \\index G H \\order H$\nLet $G$ be of finite order.\nAll three numbers are finite, and the result follows.\nNow let $G$ be of infinite order.\nIf $\\index G H = n$ is finite, then $\\order G = n \\order H$ and so $H$ is of infinite order.\nIf $H$ is of finite order such that $\\order H = n$, then $\\order G = \\index G H \\times n$ and so $\\index G H$ is infinite.",
+    "clean_row_index": 13,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cosets partition G into sets equipotent to H. Counting gives the finite order formula. If both the index and subgroup order were finite, G would be a finite union of finite cosets, proving both infinite-group assertions."
+  },
+  {
+    "theorem_id": 16,
+    "title": "Lagrange's Theorem (Group Theory)",
+    "theorem_text": "Let $G$ be a finite group.\nLet $H$ be a subgroup of $G$.\nThen:\n$\\order H$ divides $\\order G$\nwhere $\\order G$ and $\\order H$ are the order of $G$ and $H$ respectively.\nIn fact:\n$\\index G H = \\dfrac {\\order G} {\\order H}$\nwhere $\\index G H$ is the index of $H$ in $G$.\nWhen $G$ is an infinite group, we can still interpret this theorem sensibly:\n:A subgroup of finite index in an infinite group is itself an infinite group.\n:A finite subgroup of an infinite group has infinite index.",
+    "proof_text": "Let $G$ be finite.\nConsider the mapping $\\phi: G \\to G / H^l$, defined as:\n$\\phi: G \\to G / H^l: \\map \\phi x = x H^l$\nwhere $G / H^l$ is the left coset space of $G$ modulo $H$.\nFor every $y H \\in G / H^l$, there exists a corresponding $y \\in G$, so $\\phi$ is a surjection.\nFrom Cardinality of Surjection it follows that $G / H^l$ is finite.\nFrom Cosets are Equivalent, $G / H^l$ has the same number of elements as $H$.\nWe have that the $G / H^l$ is a partition of $G$.\nIt follows from Number of Elements in Partition that $\\index G H = \\dfrac {\\order G} {\\order H}$",
+    "clean_row_index": 14,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "Coset equipotence gives |yH|=|H| for each coset. The proof applies it to the entire coset space and asserts |G/H|=|H|, which already fails for a trivial subgroup of a nontrivial finite group."
+  },
+  {
+    "theorem_id": 21,
+    "title": "Fundamental Theorem of Arithmetic",
+    "theorem_text": "For every integer $n$ such that $n > 1$, $n$ can be expressed as the product of one or more primes, uniquely up to the order in which they appear.",
+    "proof_text": "In Integer is Expressible as Product of Primes it is proved that every integer $n$ such that $n > 1$, $n$ can be expressed as the product of one or more primes.\nIn Prime Decomposition of Integer is Unique, it is proved that this prime decomposition is unique up to the order of the factors.",
+    "clean_row_index": 15,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The two cited results establish exactly the two required clauses for integers greater than 1: existence of a prime factorization and uniqueness up to reordering."
+  },
+  {
+    "theorem_id": 485,
+    "title": "Integers form Unique Factorization Domain",
+    "theorem_text": "The integers $\\struct {\\Z, +, \\times}$ form a unique factorization domain.",
+    "proof_text": "Follows directly from:\n$(1) \\quad$ the fundamental theorem of arithmetic\n$(2) \\quad$ the fact that $\\struct {\\Z, +, \\times}$ is an integral domain\n$(3) \\quad$ the definitions complete factorization and equivalent factorizations.",
+    "clean_row_index": 194,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The fundamental theorem of arithmetic gives existence and uniqueness for positive integers above one. The units account for signs, giving uniqueness up to associates and order in the integer domain."
+  },
+  {
+    "theorem_id": 22,
+    "title": "Euclid's Lemma",
+    "theorem_text": "Let $a, b, c \\in \\Z$.\nLet $a \\divides b c$, where $\\divides$ denotes divisibility.\nLet $a \\perp b$, where $\\perp$ denotes relative primeness.\nThen $a \\divides c$.",
+    "proof_text": "We have that the integers form a Euclidean domain.\nThen from Irreducible Elements of Ring of Integers we have that the irreducible elements of $\\Z$ are the primes and their negatives.\nThe result then follows directly from Euclid's Lemma for Irreducible Elements.",
+    "clean_row_index": 16,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The cited lemma applies to an irreducible divisor. The theorem allows composite a, such as 12. Identifying the irreducibles of the integers does not extend that lemma to arbitrary coprime divisors or account for their prime multiplicities."
+  },
+  {
+    "theorem_id": 22,
+    "title": "Euclid's Lemma",
+    "theorem_text": "Let $a, b, c \\in \\Z$.\nLet $a \\divides b c$, where $\\divides$ denotes divisibility.\nLet $a \\perp b$, where $\\perp$ denotes relative primeness.\nThen $a \\divides c$.",
+    "proof_text": "Let $p \\divides a b$.\nSuppose $p \\nmid a$.\nThen from the definition of prime:\n$p \\perp a$\nwhere $\\perp$ indicates that $p$ and $a$ are coprime.\nThus from Euclid's Lemma it follows that:\n$p \\divides b$\nSimilarly, if $p \\nmid b$ it follows that $p \\divides a$.\nSo:\n$p \\divides a b \\implies p \\divides a$ or $p \\divides b$\nas we needed to show.",
+    "clean_row_index": 17,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The argument treats the divisor p as prime when it infers coprimality from nondivisibility. The stated divisor may be composite. It then invokes Euclid's lemma itself to prove a different, prime-divisor assertion."
+  },
+  {
+    "theorem_id": 22,
+    "title": "Euclid's Lemma",
+    "theorem_text": "Let $a, b, c \\in \\Z$.\nLet $a \\divides b c$, where $\\divides$ denotes divisibility.\nLet $a \\perp b$, where $\\perp$ denotes relative primeness.\nThen $a \\divides c$.",
+    "proof_text": "Let $a, b, c \\in \\Z$.\nWe have that $a \\perp b$.\nThat is:\n$\\gcd \\set {a, b} = 1$\nwhere $\\gcd$ denotes greatest common divisor.\nFrom Bézout's Lemma, we may write:\n$a x + b y = 1$\nfor some $x, y \\in \\Z$.\nUpon multiplication by $c$, we see that:\n$c = c \\paren {a x + b y} = c a x + c b y$\nNow note that $c a x + c b y$ is an integer combination of $a c$ and $b c$.\nSo, since:\n$a \\divides a c$\nand:\n$a \\divides b c$\nit follows from Common Divisor Divides Integer Combination that:\n$a \\divides \\paren {c a x + c b y}$\nHowever:\n$c a x + c b y = c \\paren {a x + b y} = c \\cdot 1 = c$\nTherefore:\n$a \\divides c$",
+    "clean_row_index": 18,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplying Bézout's identity ax+by=1 by c expresses c as an integer combination of ac and bc. Both are divisible by a under the hypotheses."
+  },
+  {
+    "theorem_id": 23,
+    "title": "Fermat's Little Theorem",
+    "theorem_text": "Let $p$ be a prime number.\nLet $n \\in \\Z_{>0}$ be a positive integer such that $p$ is not a divisor of $n$.\nThen:\n$n^{p - 1} \\equiv 1 \\pmod p$",
+    "proof_text": "By Prime not Divisor implies Coprime:\n$p \\nmid n \\implies p \\perp n$\nand Euler's Theorem can be applied.\nThus:\n$n^{\\map \\phi p} \\equiv 1 \\pmod p$\nBut from Euler Phi Function of Prime Power:\n$\\map \\phi p = p \\paren {1 - \\dfrac 1 p} = p - 1$\nand the result follows.",
+    "clean_row_index": 19,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Since p is prime and does not divide n, n is a unit modulo p. Euler's theorem applies and phi(p)=p-1 gives the specified exponent."
+  },
+  {
+    "theorem_id": 23,
+    "title": "Fermat's Little Theorem",
+    "theorem_text": "Let $p$ be a prime number.\nLet $n \\in \\Z_{>0}$ be a positive integer such that $p$ is not a divisor of $n$.\nThen:\n$n^{p - 1} \\equiv 1 \\pmod p$",
+    "proof_text": "Let $\\struct {\\Z'_p, \\times}$ denote the multiplicative group of reduced residues modulo $p$.\nFrom the corollary to Reduced Residue System under Multiplication forms Abelian Group, $\\struct {\\Z'_p, \\times}$ forms a group of order $p - 1$ under modulo multiplication.\nBy Element to Power of Group Order is Identity, we have:\n$n^{p - 1} \\equiv 1 \\pmod p$",
+    "clean_row_index": 20,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The class of n is in the multiplicative group of nonzero residues because p does not divide n. Raising a group element to the group order p-1 gives the identity."
+  },
+  {
+    "theorem_id": 23,
+    "title": "Fermat's Little Theorem",
+    "theorem_text": "Let $p$ be a prime number.\nLet $n \\in \\Z_{>0}$ be a positive integer such that $p$ is not a divisor of $n$.\nThen:\n$n^{p - 1} \\equiv 1 \\pmod p$",
+    "proof_text": "Proof by induction over $n$.\nInduction base:\n$1^p \\equiv 1 \\pmod p$\nInduction step:\nAssume $n^p \\equiv n \\pmod p$\n$$\\paren {n + 1}^p = \\sum_{k \\mathop = 0}^p {p \\choose k} n^{p - k} \\cdot 1^k$$\nBinomial Theorem\n$$\\forall k: 0 < k < p: {p \\choose k} \\equiv 0 \\pmod p$$\nBinomial Coefficient of Prime\nand so:\n$$\\sum_{k \\mathop = 0}^p {p \\choose k} n^{p - k} \\equiv n^p + n^0 \\pmod p$$\n$$\\equiv n^p + 1 \\pmod p$$\n$$\\equiv n + 1 \\pmod p$$\nby induction step\nDividing by $n$:\n$\\forall n: n^p \\equiv n \\pmod p \\implies n^{p - 1} \\equiv 1 \\pmod p$",
+    "clean_row_index": 21,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The interior binomial coefficients vanish modulo p, so the induction proves n^p≡n. For the n in the theorem, p does not divide n, which justifies the final modular cancellation."
+  },
+  {
+    "theorem_id": 30,
+    "title": "1+2+...+n+(n-1)+...+1 = n^2",
+    "theorem_text": "$\\forall n \\in \\N: 1 + 2 + \\cdots + n + \\paren {n - 1} + \\cdots + 1 = n^2$",
+    "proof_text": "Proof by induction:\nBasis for the Induction\n$n = 1$ holds trivially.\nJust to make sure, we try $n = 2$:\n$1 + 2 + 1 = 4$\nLikewise $n^2 = 2^2 = 4$.\nSo shown for basis for the induction.\nInduction Hypothesis\nThis is our induction hypothesis:\n$1 + 2 + \\cdots + k + \\paren {k - 1} + \\cdots + 1 = k^2$\nNow we need to show true for $n = k + 1$:\n$1 + 2 + \\cdots + \\paren {k + 1} + k + \\paren {k - 1} + \\cdots + 1 = \\paren {k + 1}^2$\nInduction Step\nThis is our induction step:\n$$1 + 2 + \\cdots + \\paren {k + 1} + k + \\paren {k - 1} + \\cdots + 1$$\n$$= \\paren {1 + 2 + \\cdots + k + \\paren {k - 1} + \\cdots + 1} + k + \\paren {k + 1}$$\n$$= k^2 + k + \\paren {k + 1}$$\nfrom induction hypothesis\n$$= k^2 + 2k + 1$$\n$$= \\paren {k + 1}^2$$\nThe result follows by induction.",
+    "clean_row_index": 23,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "From the expression with peak k to the one with peak k+1 the added terms total k+(k+1). Adding them to k² gives (k+1)², with the initial peak 1 verified."
+  },
+  {
+    "theorem_id": 588,
+    "title": "Odd Number Theorem",
+    "theorem_text": "$\\displaystyle \\sum_{j \\mathop = 1}^n \\paren {2 j - 1} = n^2$\nThat is, the sum of the first $n$ odd numbers is the $n$th square number.",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N_{>0}$, let $\\map P n$ be the proposition:\n$\\displaystyle n^2 = \\sum_{j \\mathop = 1}^n \\paren {2 j - 1}$\nBasis for the Induction\n$\\map P 1$ is true, as this just says $1^2 = 1$.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P k$ is true, where $k \\ge 1$, then it logically follows that $\\map P {k + 1}$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle k^2 = \\sum_{j \\mathop = 1}^k \\paren {2 j - 1}$\nThen we need to show:\n$\\displaystyle \\paren {k + 1}^2 = \\sum_{j \\mathop = 1}^{k + 1} \\paren {2 j - 1}$\nInduction Step\nThis is our induction step:\n$$\\paren {k + 1}^2 = k^2 + 2 k + 1$$\n$$= \\sum_{j \\mathop = 1}^k \\paren {2 j - 1} + 2 k + 1$$\nInduction Hypothesis\n$$= \\sum_{j \\mathop = 1}^k \\paren {2 j - 1} + 2 \\paren {k + 1} - 1$$\n$$= \\sum_{j \\mathop = 1}^{k + 1} \\paren {2 j - 1}$$\nSo $\\map P k \\implies \\map P {k + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\displaystyle \\forall n \\in \\N: n^2 = \\sum_{j \\mathop = 1}^n \\paren {2 j - 1}$",
+    "clean_row_index": 244,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Adding the next odd term 2k+1 changes the inductive sum from k squared to (k+1) squared. The empty sum also gives the zero case."
+  },
+  {
+    "theorem_id": 1629,
+    "title": "Sum of Consecutive Triangular Numbers is Square",
+    "theorem_text": "The sum of two consecutive triangular numbers is a square number.",
+    "proof_text": "Let $T_{n - 1}$ and $T_n$ be two consecutive triangular numbers.\nFrom Closed Form for Triangular Numbers, we have:\n$T_{n - 1} = \\dfrac {\\paren {n - 1} n} 2$\n$T_n = \\dfrac {n \\paren {n + 1} } 2$\nSo:\n$$T_{n - 1} + T_n = \\frac {\\paren {n - 1} n} 2 + \\frac {n \\paren {n + 1} } 2$$\n$$= \\frac {\\paren {n - 1 + n + 1} n} 2$$\n$$= \\frac {2 n^2} 2$$\n$$= n^2$$",
+    "clean_row_index": 721,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Adding the two consecutive triangular-number formulas cancels the linear terms and gives n squared."
+  },
+  {
+    "theorem_id": 33,
+    "title": "Existence of Rational Powers of Irrational Numbers",
+    "theorem_text": "There exist irrational numbers $a$ and $b$ such that $a^b$ is rational.",
+    "proof_text": "We have that:\n$\\sqrt 2$ is irrational.\n$2$ is trivially rational, as $2 = \\dfrac 2 1$.\nConsider the number $q = \\sqrt 2^{\\sqrt 2}$, which is irrational by the Gelfond-Schneider Theorem.\nThus:\n$q^{\\sqrt 2} = \\left({\\sqrt 2^{\\sqrt 2}}\\right)^{\\sqrt 2} = \\sqrt 2 ^{\\left({\\sqrt 2}\\right) \\left({\\sqrt 2}\\right)} = \\sqrt 2^2 = 2$\nis rational.\nSo $a = q = \\sqrt 2^{\\sqrt 2}$ and $b = \\sqrt 2$ are the desired irrationals.",
+    "clean_row_index": 25,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Gelfond–Schneider applies because sqrt(2) is algebraic, different from 0 and 1, and the exponent sqrt(2) is algebraic irrational. The resulting positive irrational base raised to sqrt(2) gives 2."
+  },
+  {
+    "theorem_id": 33,
+    "title": "Existence of Rational Powers of Irrational Numbers",
+    "theorem_text": "There exist irrational numbers $a$ and $b$ such that $a^b$ is rational.",
+    "proof_text": "Given that $2$ is rational and $\\sqrt 2$ is irrational, consider the number $q = \\sqrt 2^{\\sqrt 2}$.\nWe consider the two cases.\n$(1): \\quad$ If $q$ is rational then $a = \\sqrt 2$ and $b = \\sqrt 2$ are the desired irrational numbers.\n$(2): \\quad$ If $q$ is irrational then $q^{\\sqrt 2} = \\paren {\\sqrt 2^{\\sqrt 2} }^{\\sqrt 2} = \\sqrt 2^{\\paren {\\sqrt 2} \\paren {\\sqrt 2} } = \\sqrt 2^2 = 2$ is rational, so $a = q = \\sqrt2^{\\sqrt 2}$ and $b = \\sqrt 2$ are the desired irrational numbers.",
+    "clean_row_index": 26,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The rational and irrational cases for q exhaust the possibilities. They supply respectively the witness pairs (sqrt(2),sqrt(2)) and (q,sqrt(2)), and both powers are rational."
+  },
+  {
+    "theorem_id": 33,
+    "title": "Existence of Rational Powers of Irrational Numbers",
+    "theorem_text": "There exist irrational numbers $a$ and $b$ such that $a^b$ is rational.",
+    "proof_text": "Consider the equation:\n$\\left({\\sqrt 2}\\right)^{\\log_{\\sqrt 2} 3} = 3$\nWe have that $\\sqrt 2$ is irrational and $3$ is (trivially) rational.\nIt remains to be proved $\\log_{\\sqrt 2} 3$ is irrational.\nWe have:\n$$\\log_{\\sqrt 2} 3 = \\frac{\\log_2 3}{\\log_2 \\sqrt 2}$$\nChange of Base of Logarithm\n$$= \\frac{\\log_2 3}{1/2}$$\nLogarithms of Powers: $\\sqrt 2 = 2^{1/2}$ and $\\log_2 2 = 1$\n$$= 2 \\, \\log_2 3$$\nFrom Irrationality of Logarithm, $\\log_2 3$ is irrational.\nTherefore $2 \\, \\log_2 3$ is irrational.\nThus there exist two irrational numbers $a = \\sqrt 2$ and $b = \\log_{\\sqrt 2} 3$ such that $a^b$ is rational.",
+    "clean_row_index": 27,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Change of base gives log base sqrt(2) of 3 as twice log base 2 of 3, an irrational number by the cited logarithm result. The defining exponential identity gives the rational value 3."
+  },
+  {
+    "theorem_id": 38,
+    "title": "Empty Set is Unique",
+    "theorem_text": "The empty set is unique.",
+    "proof_text": "Let $\\O$ and $\\O'$ both be empty sets.\nFrom Empty Set is Subset of All Sets, $\\O \\subseteq \\O'$, because $\\O$ is empty.\nLikewise, we have $\\O' \\subseteq \\O$, since $\\O'$ is empty.\nTogether, by the definition of set equality, this implies that $\\O = \\O'$.\nThus there is only one empty set.",
+    "clean_row_index": 29,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Each empty set is a subset of the other by vacuity. Mutual inclusion gives equality by extensionality."
+  },
+  {
+    "theorem_id": 38,
+    "title": "Empty Set is Unique",
+    "theorem_text": "The empty set is unique.",
+    "proof_text": "Let $A$ and $B$ both be empty sets.\nThus:\n$\\forall x: \\neg \\paren {x \\in A}$\nand:\n$\\forall x: \\neg \\paren {x \\in B}$\nHence:\n$x \\notin A \\iff x \\notin B$\nand so:\n$x \\in A \\iff x \\in B$\nvacuously.\nFrom Axiom of Extension:\n$\\forall x: \\paren {x \\in A \\iff x \\in B} \\iff A = B$\nHence the result.",
+    "clean_row_index": 30,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Every object fails membership in both sets, giving identical membership predicates. Extensionality then gives equality."
+  }
+]

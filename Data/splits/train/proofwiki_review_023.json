@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1503,
+    "title": "Real Addition is Associative",
+    "theorem_text": "The operation of addition on the set of real numbers $\\R$ is associative:\n$\\forall x, y, z \\in \\R: x + \\paren {y + z} = \\paren {x + y} + z$",
+    "proof_text": "From the definition, the real numbers are the set of all equivalence classes $\\eqclass {\\sequence {x_n} } {}$ of Cauchy sequences of rational numbers.\nLet $x = \\eqclass {\\sequence {x_n} } {}, y = \\eqclass {\\sequence {y_n} } {}, z = \\eqclass {\\sequence {z_n} } {}$, where $\\eqclass {\\sequence {x_n} } {}$, $\\eqclass {\\sequence {y_n} } {}$ and $\\eqclass {\\sequence {z_n} } {}$ are such equivalence classes.\nFrom the definition of real addition, $x + y$ is defined as $\\eqclass {\\sequence {x_n} } {} + \\eqclass {\\sequence {y_n} } {} = \\eqclass {\\sequence {x_n + y_n} } {}$.\nThus we have:\n$$x + \\paren {y + z} = \\eqclass {\\sequence {x_n} } {} + \\paren {\\eqclass {\\sequence {y_n} } {} + \\eqclass {\\sequence {z_n} } {} }$$\n$$= \\eqclass {\\sequence {x_n} } {} + \\eqclass {\\sequence {y_n + z_n} } {}$$\n$$= \\eqclass {\\sequence {x_n + \\paren {y_n + z_n} } } {}$$\n$$= \\eqclass {\\sequence {\\paren {x_n + y_n} + z_n} } {}$$\nRational Addition is Associative\n$$= \\eqclass {\\sequence {x_n + y_n} } {} + \\eqclass {\\sequence {z_n} } {}$$\n$$= \\paren {\\eqclass {\\sequence {x_n} } {} + \\eqclass {\\sequence {y_n} } {} } + \\eqclass {\\sequence {z_n} } {}$$\n$$= \\paren {x + y} + z$$",
+    "clean_row_index": 660,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Addition of real equivalence classes is represented by termwise addition. Rational associativity makes the representatives agree at every index."
+  },
+  {
+    "theorem_id": 1504,
+    "title": "Real Multiplication is Associative",
+    "theorem_text": "The operation of multiplication on the set of real numbers $\\R$ is associative:\n$\\forall x, y, z \\in \\R: x \\times \\paren {y \\times z} = \\paren {x \\times y} \\times z$",
+    "proof_text": "From the definition, the real numbers are the set of all equivalence classes $\\eqclass {\\sequence {x_n} } {}$ of Cauchy sequences of rational numbers.\nLet $x = \\eqclass {\\sequence {x_n} } {}, y = \\eqclass {\\sequence {y_n} } {}, z = \\eqclass {\\sequence {z_n} } {}$, where $\\eqclass {\\sequence {x_n} } {}$, $\\eqclass {\\sequence {y_n} } {}$ and $\\eqclass {\\sequence {z_n} } {}$ are such equivalence classes.\nFrom the definition of real multiplication, $x \\times y$ is defined as $\\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {y_n} } {} = \\eqclass {\\sequence {x_n \\times y_n} } {}$.\nThus we have:\n$$x \\times \\paren {y \\times z} = \\eqclass {\\sequence {x_n} } {} \\times \\paren {\\eqclass {\\sequence {y_n} } {} \\times \\eqclass {\\sequence {z_n} } {} }$$\n$$= \\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {y_n \\times z_n} } {}$$\n$$= \\eqclass {\\sequence {x_n \\times \\paren {y_n \\times z_n} } } {}$$\n$$= \\eqclass {\\sequence {\\paren {x_n \\times y_n} \\times z_n} } {}$$\nRational Multiplication is Associative\n$$= \\eqclass {\\sequence {x_n \\times y_n} } {} \\times \\eqclass {\\sequence {z_n} } {}$$\n$$= \\paren {\\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {y_n} } {} } \\times \\eqclass {\\sequence {z_n} } {}$$\n$$= \\paren {x \\times y} \\times z$$",
+    "clean_row_index": 661,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Termwise multiplication of representatives reduces both bracketings to the same sequence by associativity of rational multiplication."
+  },
+  {
+    "theorem_id": 1506,
+    "title": "Real Multiplication is Commutative",
+    "theorem_text": "The operation of multiplication on the set of real numbers $\\R$ is commutative:\n$\\forall x, y \\in \\R: x \\times y = y \\times x$",
+    "proof_text": "From the definition, the real numbers are the set of all equivalence classes $\\eqclass {\\sequence {x_n} } {}$ of Cauchy sequences of rational numbers.\nLet $x = \\eqclass {\\sequence {x_n} } {}, y = \\eqclass {\\sequence {y_n} } {}$, where $\\eqclass {\\sequence {x_n} } {}$ and $\\eqclass {\\sequence {y_n} } {}$ are such equivalence classes.\nFrom the definition of real multiplication, $x \\times y$ is defined as $\\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {y_n} } {} = \\eqclass {\\sequence {x_n \\times y_n} } {}$.\nThus we have:\n$$x \\times y = \\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {y_n} } {}$$\n$$= \\eqclass {\\sequence {x_n \\times y_n} } {}$$\n$$= \\eqclass {\\sequence {y_n \\times n_n} } {}$$\nRational Multiplication is Commutative\n$$= \\eqclass {\\sequence {y_n} } {} \\times \\eqclass {\\sequence {x_n} } {}$$\n$$= y \\times x$$",
+    "clean_row_index": 662,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Rational commutativity swaps the two factors at each index, so the product classes agree. The unexplained n_n in one display is a typo for the x_n appearing before and after it."
+  },
+  {
+    "theorem_id": 1508,
+    "title": "Rational Numbers form Metric Space",
+    "theorem_text": "Let $\\Q$ be the set of all rational numbers.\nLet $d: \\Q \\times \\Q \\to \\R$ be defined as:\n$\\map d {x_1, x_2} = \\size {x_1 - x_2}$\nwhere $\\size x$ is the absolute value of $x$.\nThen $d$ is a metric on $\\Q$ and so $\\struct {\\Q, d}$ is a metric space.",
+    "proof_text": "From the definition of absolute value:\n$\\size {x_1 - x_2} = \\sqrt {\\paren {x_1 - x_2}^2}$\nThis is the same as the Euclidean metric.\nThis is shown in Euclidean Metric on Real Vector Space is Metric to be a metric.\nFrom Rational Numbers form Vector Space, it follows that the set of all rational numbers is a 1-dimensional Euclidean space.",
+    "clean_row_index": 663,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "Being one-dimensional over Q does not make Q a one-dimensional real vector space, so the stated application of the Euclidean vector-space theorem to Q is unjustified. Restricting the real metric to Q would suffice."
+  },
+  {
+    "theorem_id": 1509,
+    "title": "Rational Numbers form Vector Space",
+    "theorem_text": "Let $\\Q$ be the set of rational numbers.\nThen the $\\Q$-module $\\Q^n$ is a vector space.\nIt follows directly, by setting $n = 1$, that the $\\Q$-module $\\Q$ itself can also be regarded as a vector space.",
+    "proof_text": "From the definition, a vector space is a unitary module whose scalar ring is a field.\nFrom Rational Numbers form Field, we have that $\\Q$ is a field.\nSo the $\\Q$-module $\\Q^n$ fits the description.",
+    "clean_row_index": 664,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The given coordinate module is unital and its scalar ring Q is a field, so it is a vector space by definition, including when n=1."
+  },
+  {
+    "theorem_id": 1511,
+    "title": "Limit of (Cosine (X) - 1) over X",
+    "theorem_text": "$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\map \\cos x - 1} x = 0$",
+    "proof_text": "This proof assumes the truth of the Derivative of Cosine Function:\nFrom Cosine of Zero is One:\n$\\cos 0 = 1$\nFrom Derivative of Cosine Function:\n$D_x \\left({\\cos x}\\right) = - \\sin x$\nand by Derivative of Constant:\n$D_x \\left({-1}\\right) = 0$\nSo by Sum Rule for Derivatives:\n$D_x \\left({\\cos x - 1}\\right) = - \\sin x$\nBy Sine of Zero is Zero:\n$\\sin 0 = 0$\nFrom Derivative of Identity Function:\n$D_x \\left({x}\\right) = 1$\nThus L'Hôpital's Rule applies and so:\n$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\cos x - 1} x = \\lim_{x \\mathop \\to 0} \\frac {-\\sin x} 1 = \\frac {-0} 1 = 0$",
+    "clean_row_index": 665,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With the cited cosine derivative available, the numerator and denominator both vanish at zero and the derivative ratio −sin(x) tends to zero. L'Hôpital's rule applies."
+  },
+  {
+    "theorem_id": 1511,
+    "title": "Limit of (Cosine (X) - 1) over X",
+    "theorem_text": "$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\map \\cos x - 1} x = 0$",
+    "proof_text": "$$\\lim_{x \\mathop \\to 0} \\ \\frac {\\cos x - 1} x = \\lim_{x \\mathop \\to 0} \\ \\frac {\\left({\\cos x - 1}\\right) \\left({\\cos x + 1}\\right)} {x \\left({\\cos x + 1}\\right)}$$\n$$= \\lim_{x \\mathop \\to 0} \\ \\frac {\\cos^2 x - 1} {x \\left({\\cos x + 1}\\right)}$$\n$$= \\lim_{x \\mathop \\to 0} \\ \\frac {-\\sin^2 x} {x  \\left({\\cos x + 1}\\right)}$$\nSum of Squares of Sine and Cosine\n$$= \\left({\\lim_{x \\mathop \\to 0} \\ \\frac {\\sin x} x}\\right) \\left({\\lim_{x \\mathop \\to 0} \\ \\frac {-\\sin x} {\\cos x + 1} }\\right)$$\nProduct Rule for Limits of Functions\n$$= 1 \\times \\left({\\lim_{x \\mathop \\to 0} \\ \\frac{-\\sin x} {\\cos x + 1} }\\right)$$\nLimit of Sine of X over X\n$$= \\frac {\\lim_{x \\mathop \\to 0} \\left({- \\sin x}\\right)} {\\lim_{x \\mathop \\to 0} \\left({\\cos x + 1}\\right)}$$\nQuotient Rule for Limits of Functions\n$$= \\frac 0 2$$\n$$= 0$$",
+    "clean_row_index": 666,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Multiplication by the conjugate expression gives (sin x/x) times −sin x/(1+cos x); the factors tend to 1 and 0 respectively."
+  },
+  {
+    "theorem_id": 1511,
+    "title": "Limit of (Cosine (X) - 1) over X",
+    "theorem_text": "$\\displaystyle \\lim_{x \\mathop \\to 0} \\frac {\\map \\cos x - 1} x = 0$",
+    "proof_text": "$$\\frac {\\cos x - 1} x = \\frac {\\cos x - \\cos 0} x$$\nCosine of Zero is One\n$$\\to \\left.{\\dfrac {\\mathrm d} {\\mathrm dx} \\cos x}\\right \\vert_{x \\mathop = 0}$$\nas $x \\to 0$, from definition of derivative at a point\n$$= \\sin x \\vert_{x \\mathop = 0}$$\nDerivative of Cosine Function\n$$= 0$$\nSine of Zero is Zero",
+    "clean_row_index": 667,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The quotient is the cosine difference quotient at zero. The derivative is −sin x; its missing minus sign in the displayed evaluation makes no difference at zero."
+  },
+  {
+    "theorem_id": 1512,
+    "title": "Real Multiplication Distributes over Addition",
+    "theorem_text": "The operation of multiplication on the set of real numbers $\\R$ is distributive over the operation of addition:\n$\\forall x, y, z \\in \\R:$\n$x \\times \\paren {y + z} = x \\times y + x \\times z$\n$\\paren {y + z} \\times x = y \\times x + z \\times x$",
+    "proof_text": "From the definition, the real numbers are the set of all equivalence classes $\\eqclass {\\sequence {x_n} } {}$ of Cauchy sequences of rational numbers.\nLet $x = \\eqclass {\\sequence {x_n} } {}, y = \\eqclass {\\sequence {y_n} } {}, z = \\eqclass {\\sequence {z_n} } {}$, where $\\eqclass {\\sequence {x_n} } {}$, $\\eqclass {\\sequence {y_n} } {}$ and $\\eqclass {\\sequence {z_n} } {}$ are such equivalence classes.\nFrom the definition of real multiplication, $x \\times y$ is defined as:\n$\\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {y_n} } {} = \\eqclass {\\sequence {x_n \\times y_n} } {}$\nFrom the definition of real addition, $x + y$ is defined as:\n$\\eqclass {\\sequence {x_n} } {} + \\eqclass {\\sequence {y_n} } {} = \\eqclass {\\sequence {x_n + y_n} } {}$\nThus:\n$$x \\times \\paren {y + z} = \\eqclass {\\sequence {x_n} } {} \\times \\paren {\\eqclass {\\sequence {y_n} } {} + \\eqclass {\\sequence {z_n} } {} }$$\n$$= \\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {x_n + y_n} } {}$$\n$$= \\eqclass {\\sequence {x_n \\times \\paren {y_n + z_n} } } {}$$\n$$= \\eqclass {\\sequence {\\paren {x_n \\times y_n} + \\paren {x_n \\times z_n} } } {}$$\nRational Multiplication Distributes over Addition\n$$= \\eqclass {\\sequence {x_n \\times y_n} } {} + \\eqclass {\\sequence {x_n \\times z_n} } {}$$\n$$= \\paren {\\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {y_n} } {} } + \\paren {\\eqclass {\\sequence {x_n} } {} \\times \\eqclass {\\sequence {z_n} } {} }$$\n$$= \\paren {x \\times y} + \\paren {x \\times z}$$\nBy Real Addition is Commutative and Real Multiplication is Commutative, it follows that:\n$\\paren {y + z} \\times x = \\paren {y \\times x} + \\paren {z \\times x}$",
+    "clean_row_index": 668,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Rational distributivity gives the termwise identity in the representatives of the three classes; commutativity then gives right distributivity. One intermediate sum writes x_n+y_n where the surrounding lines require y_n+z_n."
+  },
+  {
+    "theorem_id": 1519,
+    "title": "Finite Subset of Metric Space has no Limit Points",
+    "theorem_text": "Let $M = \\left({A, d}\\right)$ be a metric space.\nLet $X \\subseteq A$ such that $X$ is finite.\nThen $X$ has no limit points.",
+    "proof_text": "Let $x \\in X$.\nFrom Point in Finite Metric Space is Isolated, $x$ is an isolated point.\nThe result follows by definition of isolated point:\n$x$ is an isolated point if and only if $x$ is not a limit point.",
+    "clean_row_index": 669,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Isolating each member of X only excludes limit points inside X. The proof never excludes ambient points outside X, for which a neighborhood disjoint from the finite set is needed."
+  },
+  {
+    "theorem_id": 1520,
+    "title": "Point in Finite Metric Space is Isolated",
+    "theorem_text": "Let $M = \\struct {A, d}$ be a metric space.\nLet $X \\subseteq A$ such that $X$ is finite.\nLet $x \\in X$.\nThen $x$ is isolated in $X$.",
+    "proof_text": "A Metric Space is Hausdorff.\nTherefore Point in Finite Hausdorff Space is Isolated can be applied.\nHence the result.",
+    "clean_row_index": 670,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The metric space is Hausdorff and the cited finite-subset result for Hausdorff spaces gives isolation of the given point in X."
+  },
+  {
+    "theorem_id": 1521,
+    "title": "Point in Finite Hausdorff Space is Isolated",
+    "theorem_text": "Let $T = \\left({S, \\tau}\\right)$ be a Hausdorff space.\nLet $X \\subseteq S$ such that $X$ is finite.\nLet $x \\in X$.\nThen $x$ is isolated in $X$.",
+    "proof_text": "Let $T = \\left({S, \\tau}\\right)$ be a $T_2$ (Hausdorff) space.\nLet $X \\subseteq T$ be finite.\nFrom Separation Properties Preserved in Subspace, it follows that $\\left({X, \\tau_X}\\right)$ is also a $T_2$ (Hausdorff) space.\nFrom $T_2$ Space is $T_1$ Space it follows that $\\left({X, \\tau_X}\\right)$ is a $T_1$ (Fréchet) space.\nFrom Finite $T_1$ Space is Discrete, it follows that $\\left({X, \\tau_X}\\right)$ is a discrete space.\nThe result follows from Topological Space is Discrete iff All Points are Isolated.",
+    "clean_row_index": 671,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The finite subspace inherits Hausdorff separation, hence is T1 and discrete. Its singleton neighborhoods give the required isolation."
+  },
+  {
+    "theorem_id": 1523,
+    "title": "Primes of form Power Less One",
+    "theorem_text": "Let $m, n \\in \\N_{>0}$ be natural numbers.\nLet $m^n - 1$ be prime.\nThen $m = 2$ and $n$ is prime.",
+    "proof_text": "First we note that by Integer Less One divides Power Less One:\n$\\paren {m - 1} \\divides \\paren {m^n - 1}$\nwhere $\\divides$ denotes divisibility.\nThus $m^n - 1$ is composite for all $m \\in \\Z: m > 2$.\nLet $m = 2$, and consider $2^n - 1$.\nSuppose $n$ is composite.\nThen $n = r s$ where $r, s \\in \\Z_{> 1}$.\nThen by the corollary to Integer Less One divides Power Less One:\n$\\paren {2^r - 1} \\divides \\paren {2^{r s} - 1}$\nThus if $n$ is composite, then so is $2^n - 1$.\nSo $2^n - 1$ can be prime only when $n$ is prime.",
+    "clean_row_index": 672,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "For n=1 the displayed divisor m−1 equals the entire number, so compositeness does not follow. For example, 3^1−1 is prime."
+  },
+  {
+    "theorem_id": 1526,
+    "title": "First Subsequence Rule",
+    "theorem_text": "Let $T = \\left({A, \\tau}\\right)$ be a Hausdorff space.\nLet $\\left \\langle {x_n} \\right \\rangle$ be a sequence in $T$.\nSuppose $\\left \\langle {x_n} \\right \\rangle$ has two convergent subsequences with different limit.\nThen $\\left \\langle {x_n} \\right \\rangle$ is divergent.",
+    "proof_text": "From Convergent Sequence in Hausdorff Space has Unique Limit, if $\\left \\langle {x_n} \\right \\rangle$ is convergent in a Hausdorff space it has exactly one limit.\nFrom Limit of Subsequence equals Limit of Sequence, any subsequence of a convergent sequence must have the same limit.\nSo, if a sequence has two convergent subsequences with different limit, it must in fact be divergent.",
+    "clean_row_index": 673,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "If the sequence converged, both subsequences would converge to its limit, unique by Hausdorff separation. Distinct subsequence limits contradict this."
+  },
+  {
+    "theorem_id": 1530,
+    "title": "Divisibility by 7",
+    "theorem_text": "An integer $X$ with $n$ digits ($X_0$ in the ones place, $X_1$ in the tens place, and so on) is divisible by $7$ if and only if:\n$\\displaystyle \\sum_{i \\mathop = 0}^{n - 1} \\paren {3^i X_i}$ is divisible by $7$.",
+    "proof_text": "$$X = 10^0 X_0 + 10^1 X_1 + \\cdots + 10^{n - 1} X_{n-1}$$\n$$= \\sum_{i \\mathop = 0}^{n - 1} 10^i X_i$$\n$$= \\sum_{i \\mathop = 0}^{n - 1} \\paren {10^i - 3^i + 3^i} X_i$$\n$$= \\sum_{i \\mathop = 0}^{n - 1} \\paren {\\paren {10^i - 3^i} X_i} + \\sum_{i \\mathop = 0}^{n - 1} \\paren {3^i X_i}$$\nFrom Difference of Two Powers, $10^i - 3^i$ always produces a number divisible by $7$.\nThus the first addend is always divisible by $7$.\nSo $X$ will be divisible by $7$ if and only if the second addend is divisible by $7$.\nHence the result.",
+    "clean_row_index": 674,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Replacing each place weight 10^i by 3^i leaves a difference divisible by 7. Summing preserves the residue, and a sign on the original integer does not affect divisibility."
+  },
+  {
+    "theorem_id": 1531,
+    "title": "Finite Subspace of Dense-in-itself Metric Space is not Open",
+    "theorem_text": "Let $M = \\struct {A, d}$ be a metric space that is dense-in-itself.\nLet $U$ be a finite subset of $A$.\nThen $U$ is not an open set of $M$.",
+    "proof_text": "Let $U = \\set {x_0, x_1, \\ldots, x_n}$.\nAiming for a contradiction, suppose that $U$ is open.\nLet:\n$\\displaystyle D = \\min_{i \\mathop \\ne j} \\map d {x_i, x_j}$\nLet $x_j \\in U$.\nConsider the open ball $\\map {B_{D/2}} {x_j}$ of $x_j$.\nFrom Open Ball of Metric Space is Open Set, $\\map {B_{D/2}} {x_j}$ is an open set.\nThen from Finite Intersection of Open Sets of Metric Space is Open, we can see that $U \\cap B_{D/2}$ is also an open set.\nHowever, we have that:\n$D/2 < \\displaystyle \\min_{i \\mathop \\ne j} \\map d {x_i, x_j}$\nThus the open ball $\\map {B_{D/2}} {x_j}$ is simply the singleton $\\set {x_j}$.\nBut then $x_j$ is an isolated point of $M$.\nThis contradicts the fact that $M$ is dense-in-itself.\nSo in fact, $U$ cannot be open.\nThe result follows.",
+    "clean_row_index": 675,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "The proof assumes U has points and a minimum pairwise distance. The empty finite set is open in every metric space. Also it is the intersection of the displayed ball with U that isolates a point, not necessarily the ambient ball."
+  },
+  {
+    "theorem_id": 1534,
+    "title": "Composite Number has Prime Factor not Greater Than its Square Root",
+    "theorem_text": "Let $n \\in \\N$ and $n = p_1 \\times p_2 \\times \\cdots \\times p_j$, $j \\ge 2$, where $p_1, \\ldots, p_j \\in \\Bbb P$ are prime factors of $n$.\nThen $\\exists p_i \\in \\Bbb P$ such that $p_i \\le \\sqrt n$.\nThat is, if $n \\in \\N$ is composite, then $n$ has a prime factor $p \\le \\sqrt n$.",
+    "proof_text": "Let $n$ be composite such that $n \\ge 0$.\nFrom Composite Number has Two Divisors Less Than It, we can write $n = a b$ where $a, b \\in \\Z$ and $1 < a, b < n$.\nwithout loss of generality, suppose that $a \\le b$.\nLet $a > \\sqrt n$.\nThen $b \\ge a > \\sqrt n$.\nHowever, if $b \\ge a > \\sqrt n$ is true, then:\n$n = a b > \\sqrt n \\sqrt n > n$\nThis is clearly a contradiction.\nSo:\n$a \\le \\sqrt n$\nFrom Positive Integer Greater than 1 has Prime Divisor it follows that there is some prime $p$ which divides $a$.\nFrom Absolute Value of Integer is not less than Divisors, we have that $p \\le a$ and so:\n$p \\le \\sqrt n$\nFrom Divisor Relation on Positive Integers is Partial Ordering:\n$p \\divides n$\nHence the result.",
+    "clean_row_index": 676,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The smaller factor of n=ab is at most √n, since otherwise ab>n. A prime divisor of that factor divides n and is no larger; the displayed √n·√n is equal to n."
+  },
+  {
+    "theorem_id": 1536,
+    "title": "Sum Over Divisors Equals Sum Over Quotients",
+    "theorem_text": "Let $n$ be a positive integer.\nLet $f: \\Z_{>0} \\to \\Z_{>0}$ be a mapping on the positive integers.\nLet $\\displaystyle \\sum_{d \\mathop \\divides n} \\map f d$ be the sum of $\\map f d$ over the divisors of $n$.\nThen:\n$\\displaystyle \\sum_{d \\mathop \\divides n} \\map f d = \\sum_{d \\mathop \\divides n} \\map f {\\frac n d}$.",
+    "proof_text": "If $d$ is a divisor of $n$ then $d \\times \\dfrac n d = n$ and so $\\dfrac n d$ is also a divisor of $n$.\nTherefore if $d_1, d_2, \\ldots, d_r$ are all the divisors of $n$, then so are $\\dfrac n {d_1}, \\dfrac n {d_2}, \\ldots, \\dfrac n {d_r}$, except in a different order.\nHence:\n$$\\sum_{d \\mathop \\divides n} \\map f {\\frac n d} = \\map f {\\frac n {d_1} } + \\map f {\\frac n {d_2} } + \\cdots + \\map f {\\frac n {d_r} }$$\n$$= \\map f {d_1} + \\map f {d_2} + \\cdots + \\map f {d_r}$$\n$$= \\sum_{d \\mathop \\divides n} \\map f d$$",
+    "clean_row_index": 677,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Dividing n by a positive divisor permutes its positive divisors because applying the operation twice returns the original divisor. Reindexing preserves the sum."
+  },
+  {
+    "theorem_id": 1539,
+    "title": "Sigma Function of Power of Prime",
+    "theorem_text": "Let $n = p^k$ be the power of a prime number $p$.\nLet $\\map \\sigma n$ be the sigma function of $n$.\nThat is, let $\\map \\sigma n$ be the sum of all positive divisors of $n$.\nThen:\n$\\map \\sigma n = \\dfrac {p^{k + 1} - 1} {p - 1}$",
+    "proof_text": "From Divisors of Power of Prime, the divisors of $n = p^k$ are $1, p, p^2, \\ldots, p^{k - 1}, p^k$.\nHence from Sum of Geometric Sequence:\n$\\map \\sigma {p^k} = 1 + p + p^2 + \\cdots + p^{k - 1} + p^k = \\dfrac {p^{k + 1} - 1} {p - 1}$",
+    "clean_row_index": 678,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The positive divisors of p^k are precisely its powers from 0 through k. Summing that geometric progression gives the quotient claimed."
+  },
+  {
+    "theorem_id": 1540,
+    "title": "Tau of Power of Prime",
+    "theorem_text": "Let $n = p^k$ be the power of a prime number $p$.\nLet $\\tau \\left({n}\\right)$ be the $\\tau$ function of $n$.\nThat is, let $\\tau \\left({n}\\right)$ be the number of positive divisors of $n$.\nThen $\\tau \\left({n}\\right) = k + 1$.",
+    "proof_text": "From Divisors of Power of Prime, the divisors of $n = p^k$ are $1, p, p^2, \\ldots, p^{k-1}, p^k$.\nThere are $k + 1$ of them.\nHence the result.",
+    "clean_row_index": 679,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The listed divisors are the distinct powers p^0 through p^k, so counting their exponents gives k+1."
+  },
+  {
+    "theorem_id": 1541,
+    "title": "Sum Over Divisors of Multiplicative Function",
+    "theorem_text": "Let $f: \\Z_{>0} \\to \\Z_{>0}$ be a multiplicative function.\nLet $n \\in \\Z_{>0}$.\nLet $\\displaystyle \\sum_{d \\mathop \\divides n} \\map f d$ be the sum over the divisors of $n$.\nThen $\\displaystyle \\map F n = \\sum_{d \\mathop \\divides n} \\map f d$ is also a multiplicative function.",
+    "proof_text": "Let $\\displaystyle \\map F n = \\sum_{d \\mathop \\divides n} \\map f d$.\nLet $m, n \\in \\Z_{>0}: m \\perp n$.\nThen by definition:\n$\\displaystyle \\map F {m n} = \\sum_{d \\mathop \\divides m n} \\map f d$\nThe divisors of $m n$ are of the form $d = r s$ where $r$ and $s$ are divisors of $m$ and $n$ respectively, from Divisors of Product of Coprime Integers.\nIt is noted that $r \\perp s$, otherwise any common divisor of $r$ and $s$ would be a common divisor of $m$ and $n$.\nTherefore:\n$\\displaystyle \\map F {m n} = \\sum_{r \\mathop \\divides m, \\ s \\mathop \\divides n} \\map f {r s}$\nSo, as $f$ is multiplicative:\n$\\displaystyle \\map F {m n} = \\sum_{r \\mathop \\divides m, \\ s \\mathop \\divides n} \\map f r \\map f s$\nBut at the same time:\n$\\displaystyle \\map F m \\map F n = \\paren {\\sum_{r \\mathop \\divides m} \\map f r} \\paren {\\sum_{s \\mathop \\divides n} \\map f s}$\nMultiplying out the product on the right-hand side, $\\map F {m n}$ and $\\map F m \\map F n$ are seen to be the same.",
+    "clean_row_index": 680,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For coprime inputs the divisors of the product are in bijection with pairs of their divisors, themselves coprime. Multiplicativity turns the double sum into the product of the two sums."
+  },
+  {
+    "theorem_id": 1542,
+    "title": "Divisors of Product of Coprime Integers",
+    "theorem_text": "Let $a \\divides b c$, where $b \\perp c$.\nThen $\\tuple {r, s}$ satisfying:\n$a = r s$, where $r \\divides b$ and $s \\divides c$\nis unique up to absolute value with:\n$\\size r = \\gcd \\set {a, b}$\n$\\size s = \\gcd \\set {a, c}$",
+    "proof_text": "By Divisor of Product, there exists $\\tuple {r, s}$ satisfying:\n$r \\divides b$\n$s \\divides c$\n$r s = a$\nWe have:\n$r, s \\divides a$\nBy definition of GCD:\n$\\gcd \\set {a, b} \\divides r$\n$\\gcd \\set {a, c} \\divides s$\nBy Absolute Value of Integer is not less than Divisors:\n$\\gcd \\set {a, b} \\le \\size r$\n$\\gcd \\set {a, c} \\le \\size s$\nWe also have:\n$$\\size {r s} \\ge \\gcd \\set {a, b} \\gcd \\set {a, c}$$\n$$= \\gcd \\set {a, b c}$$\nGCD with One Fixed Argument is Multiplicative Function\n$$= \\size a$$\nGCD of Integer and Divisor\n$$= \\size {r s}$$\nThis forces both inequalities to be equalities, i.e.:\n$\\size r = \\gcd \\set {a, b}$\n$\\size s = \\gcd \\set {a, c}$\nHence $\\tuple {r, s}$ is unique up to absolute value.",
+    "clean_row_index": 681,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "From r dividing a and b one obtains r dividing gcd(a,b), the reverse of the stated premise. The analogous assertion for s and the resulting bounds are unsupported."
+  },
+  {
+    "theorem_id": 1545,
+    "title": "Tau Function is Multiplicative",
+    "theorem_text": "The divisor counting function:\n$\\displaystyle \\tau: \\Z_{>0} \\to \\Z_{>0}: \\map \\tau n = \\sum_{d \\mathop \\divides n} 1$\nis multiplicative.",
+    "proof_text": "Let $f_1: \\Z_{>0} \\to \\Z_{>0}$ be the constant function:\n$\\forall n \\in \\Z_{>0}: \\map {f_1} n = 1$\nThus we have:\n$\\displaystyle \\map \\tau n = \\sum_{d \\mathop \\divides n} 1 = \\sum_{d \\mathop \\divides n} \\map {f_1} d$\nBut from Unity Function is Completely Multiplicative, $f_1$ is multiplicative.\nThe result follows from Sum Over Divisors of Multiplicative Function.",
+    "clean_row_index": 682,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The divisor count sums the constant-one multiplicative function over the divisors, exactly the preceding divisor-sum multiplicativity theorem."
+  },
+  {
+    "theorem_id": 1546,
+    "title": "Sigma Function is Multiplicative",
+    "theorem_text": "The sigma function:\n$\\displaystyle \\sigma: \\Z_{>0} \\to \\Z_{>0}: \\sigma \\left({n}\\right) = \\sum_{d \\mathop \\backslash n} d$\nis multiplicative.",
+    "proof_text": "Let $I_{\\Z_{>0}}: \\Z_{>0} \\to \\Z_{>0}$ be the identity function:\n$\\forall n \\in \\Z_{>0}: \\map {I_{\\Z_{>0} } } n = n$\nThus we have:\n$\\displaystyle \\map \\sigma n = \\sum_{d \\mathop \\divides n} d = \\sum_{d \\mathop \\divides n} \\map {I_{\\Z_{>0} } } d$\nBut from Identity Function is Completely Multiplicative, $I_{\\Z_{>0} }$ is multiplicative.\nThe result follows from Sum Over Divisors of Multiplicative Function.",
+    "clean_row_index": 683,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The sum of divisors is the divisor sum of the identity function, which is completely multiplicative. The cited divisor-sum closure result applies."
+  },
+  {
+    "theorem_id": 1546,
+    "title": "Sigma Function is Multiplicative",
+    "theorem_text": "The sigma function:\n$\\displaystyle \\sigma: \\Z_{>0} \\to \\Z_{>0}: \\sigma \\left({n}\\right) = \\sum_{d \\mathop \\backslash n} d$\nis multiplicative.",
+    "proof_text": "Let $a, b$ be coprime integers.\nBecause $a$ and $b$ have no common divisor, the divisors of $a b$ are integers of the form $a_i b_j$, where $a_i$ is a divisor of $a$ and $b_j$ is a divisor of $b$.\nThat is, any divisor $d$ of $a b$ is in the form:\n$d = a_i b_j$\nin a unique way, where $a_i \\divides a$ and $b_j \\divides b$.\nWe can list the divisors of $a$ and $b$ as\n$1, a_1, a_2, \\ldots, a$\nand:\n$1, b_1, b_2, \\ldots, b$\nand so their $\\sigma$ function values are:\n$\\displaystyle \\map \\sigma a = \\sum_{i \\mathop = 1}^r a_i$\n$\\displaystyle \\map \\sigma b = \\sum_{j \\mathop = 1}^s b_j$\nConsider all divisors of $a b$ with the same $a_i$.\nTheir sum is:\n$$\\sum_{j \\mathop = 1}^s a_i b_j = a_i \\sum_{j \\mathop = 1}^s b_j$$\n$$= a_i \\map \\sigma b$$\nSumming for all $a_i$:\n$$\\map \\sigma {a b} = \\sum_{i \\mathop = 1}^r \\paren {a_i \\map \\sigma b}$$\n$$= \\paren {\\sum_{i \\mathop = 1}^r a_i} \\map \\sigma b$$\n$$= \\map \\sigma a \\map \\sigma b$$",
+    "clean_row_index": 684,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For positive coprime a and b, every positive divisor of ab is a unique product of respective divisors. Summing over those pairs factors the sum into σ(a)σ(b)."
+  },
+  {
+    "theorem_id": 1547,
+    "title": "Primes of form Power of Two plus One",
+    "theorem_text": "Let $n \\in \\N$ be a natural number.\nLet $2^n + 1$ be prime.\nThen $n = 2^k$ for some natural number $k$.",
+    "proof_text": "Suppose $n$ has an odd divisor apart from $1$.\nThen $n$ can be expressed as $n = \\paren {2 r + 1} s$.\nSo:\n$$2^n + 1 = 2^{\\paren {2 r + 1} s} + 1$$\n$$= \\paren {2^s}^{\\paren {2 r + 1} } + 1^{\\paren {2 r + 1} }$$\n$$= \\paren {2^s + 1} \\paren {2^{2 r s} - 2^{\\paren {2 r - 1} s} + 2^{\\paren {2 r - 2} s} - \\cdots - 2^s + 1}$$\nSum of Odd Positive Powers\nand so $2^n + 1$ is not prime.\nHence $2^n + 1$ can be prime only if $n$ has only even divisors.\nThat is, if $n = 2^k$ for some natural number $k$.",
+    "clean_row_index": 685,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The factorization only forces compositeness when the factors are nontrivial, which fails at n=0. Then 2^0+1=2 is prime, yet 0 is no power of 2."
+  },
+  {
+    "theorem_id": 1547,
+    "title": "Primes of form Power of Two plus One",
+    "theorem_text": "Let $n \\in \\N$ be a natural number.\nLet $2^n + 1$ be prime.\nThen $n = 2^k$ for some natural number $k$.",
+    "proof_text": "A specific instance of Primes of form Power plus One:\n$q^n + 1$ is prime only if:\n$(1): \\quad q$ is even\nand\n$(2): \\quad n$ is of the form $2^k$ for some positive integer $k$.\nAs $2$ is even, the result applies.",
+    "clean_row_index": 686,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "The cited positive-exponent result does not cover n=0, which gives the prime 2, and its demand for positive k even excludes n=1. Substituting the even base 2 does not fix those range errors."
+  },
+  {
+    "theorem_id": 1548,
+    "title": "Integer has Multiplicative Order Modulo n iff Coprime to n",
+    "theorem_text": "Let $a$ and $n$ be integers.\nLet the multiplicative order of $a$ modulo $n$ exist.\nThen $a \\perp n$, that is, $a$ and $n$ are coprime.",
+    "proof_text": "Necessary Condition\nSuppose $c \\in \\Z_{>0}$ is the multiplicative order of $a$ modulo $n$.\nThen by definition:\n$a^c \\equiv 1 \\pmod n$\nHence, by definition, $a^c = k n + 1$ for some $k \\in \\Z$.\nThus:\n$a r + n s = 1$\nwhere $r = a^{c-1}$ and $s = -k$.\nIt follows from Integer Combination of Coprime Integers that $a$ and $n$ are coprime.\nSufficient Condition\nSuppose $a \\perp n$.\nThen by Euler's Theorem:\n$a^{\\phi \\left({n}\\right)} \\equiv 1 \\pmod n$\nwhere $\\phi \\left({n}\\right)$ is the Euler Phi Function of $n$.\nHence the multiplicative order of $a$ modulo $n$ exists, by taking $c = \\phi \\left({n}\\right)$.",
+    "clean_row_index": 687,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For the implication actually stated, a positive exponent giving residue 1 supplies the Bézout identity 1=a·a^(c−1)−kn. That suffices for coprimality without the extra converse argument."
+  },
+  {
+    "theorem_id": 1550,
+    "title": "Sum of Infinite Geometric Sequence",
+    "theorem_text": "Let $S$ be a standard number field, that is $\\Q$, $\\R$ or $\\C$.\nLet $z \\in S$.\nLet $\\size z < 1$, where $\\size z$ denotes:\n:the absolute value of $z$, for real and rational $z$\n:the complex modulus of $z$ for complex $z$.\nThen $\\displaystyle \\sum_{n \\mathop = 0}^\\infty z^n$ converges absolutely to $\\dfrac 1 {1 - z}$.",
+    "proof_text": "By the Chain Rule for Derivatives and the corollary to $n$th Derivative of Reciprocal of $m$th Power:\n$\\dfrac {\\d^n} {\\d z^n} \\dfrac 1 {1 - z} = \\dfrac {n!} {\\paren {1 - z}^{n + 1}}$\nThus the Maclaurin series expansion of $\\dfrac 1 {1 - z}$ is:\n$\\displaystyle \\sum_{n \\mathop = 0}^\\infty \\frac {z^n} {n!} \\dfrac {n!} {\\paren {1 - 0}^{n + 1}}$\nwhence the result.",
+    "clean_row_index": 688,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Computing the Taylor coefficients identifies the formal series but does not justify its convergence to the function on the unit disk or absolute convergence. A remainder estimate or analytic convergence theorem is needed."
+  },
+  {
+    "theorem_id": 1554,
+    "title": "Order of Möbius Function",
+    "theorem_text": "Let $\\mu$ denote the Möbius function .\nThen:\n$\\displaystyle \\sum_{n \\mathop \\le N} \\map \\mu n = \\map o N$\nwhere $o$ denotes little-o notation.",
+    "proof_text": "Let $\\map \\Re z$ be the real part of a complex variable $z$.\nBy Dirichlet Series is Analytic, the Riemann zeta function is analytic.\nBy Trivial Zeroes of Riemann Zeta Function are Even Negative Integers, the Riemann zeta function has no zeroes in $\\map \\Re z > 1$.\nThus the reciprocal of the Riemann zeta function is analytic in $\\map \\Re z > 1$.\nBy Reciprocal of Riemann Zeta Function, this means that $\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\map \\mu n n^{-z}$ converges to an analytic function in $\\map \\Re z > 1$.\nBy taking $a_n = \\mu \\left({n}\\right)$ in Ingham's Theorem on Convergent Dirichlet Series:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\frac {\\map \\mu n} {n^z}$ converges for $\\map \\Re z \\ge 1$.\nTaking $z = 1$, we are given a convergent sum:\n$\\displaystyle \\sum_{n \\mathop = 1}^\\infty \\frac {\\map \\mu n} n$\nClearly:\n$\\displaystyle \\sum_{n \\mathop = 1}^N \\frac {\\map \\mu n} n \\ge \\sum_{n \\mathop = 1}^N \\frac {\\map \\mu n} N$\nbut:\n$\\displaystyle \\lim_{N \\mathop \\to \\infty} \\sum_{n \\mathop = 1}^N \\frac {\\map \\mu n} n = \\lim_{z \\mathop \\to 1} \\frac 1 {\\map \\zeta z}$\nSince Harmonic Series is Divergent, $\\dfrac 1 {\\map \\zeta z}$ goes to $0$ by Reciprocal of Null Sequence.\nHence also:\n$\\displaystyle \\lim_{N \\mathop \\to \\infty} \\sum_{n \\mathop = 1}^N \\frac {\\map \\mu n} N = 0$",
+    "clean_row_index": 689,
+    "validity": "Invalid",
+    "error_type": "Misapplied theorem / unmet conditions",
+    "review_reason": "Analyticity in Re(z)>1 alone does not justify the boundary convergence attributed to Ingham. The final comparison also treats the signed Möbius coefficients as though each were nonnegative."
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1236,
+    "title": "Condition for Continuity on Interval",
+    "theorem_text": "Let $f$ be a real function defined on an interval $\\mathbb I$.\nThen $f$ is continuous on $\\mathbb I$ if and only if:\n$\\forall x \\in \\mathbb I: \\forall \\epsilon > 0: \\exists \\delta > 0: y \\in \\mathbb I \\land \\size {x - y} < \\delta \\implies \\size {\\map f x - \\map f y} < \\epsilon$",
+    "proof_text": "Let $x \\in \\mathbb I$ such that $x$ is not an end point.\nThen the condition $y \\in \\mathbb I \\land \\size {x - y} < \\delta$ is the same as $\\size {x - y} < \\delta$ provided $\\delta$ is small enough.\nThe criterion given therefore becomes the same as the statement $\\ds \\lim_{y \\mathop \\to x} \\map f y = \\map f x$, that is, that $f$ is continuous at $x$.\nNow suppose $x \\in \\mathbb I$ and $x$ is a left hand end point of $\\mathbb I$.\nThen the condition $y \\in \\mathbb I \\land \\size {x - y} < \\delta$ reduces to $x \\le y < x + \\delta$ provided $\\delta$ is small enough.\nThe criterion given therefore becomes the same as the statement $\\ds \\lim_{y \\mathop \\to x^+} \\map f y = \\map f x$, that is, that $f$ is continuous on the right at $x$.\nSimilarly, if $x \\in \\mathbb I$ and $x$ is a left hand end point of $\\mathbb I$, then the criterion reduces to the statement that $f$ is continuous on the left at $x$.\nThus the assertions are equivalent to the statement that $f$ is continuous at all points in $\\mathbb I$, that is, that $f$ is continuous on $\\mathbb I$.",
+    "clean_row_index": 538,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Restricting the epsilon-delta neighborhoods to the interval gives two-sided continuity inside and the respective one-sided conditions at its endpoints. The repeated left endpoint in the symmetric final case is a wording slip."
+  },
+  {
+    "theorem_id": 1237,
+    "title": "Limit of Image of Sequence",
+    "theorem_text": "Let $M_1 = \\struct {A_1, d_1}$ and $M_2 = \\struct {A_2, d_2}$ be metric spaces.\nLet $f: A_1 \\to A_2$ be a mapping which is continuous at $a \\in A_1$.\nLet $\\sequence {x_n}$ be a sequence of points in $A_1$ such that:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} x_n = a$\nwhere $\\displaystyle \\lim_{n \\mathop \\to \\infty} x_n$ is the limit of $x_n$.\nThen:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} \\map f {x_n} = \\map f a$\nThat is:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} \\map f {x_n} = \\map f {\\lim_{n \\mathop \\to \\infty} x_n}$\nThat is, for a continuous mapping, the limit and function symbols commute.",
+    "proof_text": "From Limit of Function by Convergent Sequences, we have:\n$\\displaystyle \\lim_{x \\mathop \\to a} \\map f x = \\map f a$\nif and only if:\n:for each sequence $\\sequence {x_n}$ of points of $A_1$ such that:\n$\\forall n \\in \\N_{>0}: x_n \\ne a$\n:and:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} x_n = a$\n:it is true that:\n$\\displaystyle \\lim_{n \\mathop \\to \\infty} \\map f {x_n} = \\map f a$\nThe result follows directly from this and the definition of continuity.",
+    "clean_row_index": 539,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The cited sequential limit test handles terms different from a; any terms equal to a already have image exactly f(a), so they also satisfy each required neighborhood condition."
+  },
+  {
+    "theorem_id": 1239,
+    "title": "Interval Divided into Subsets",
+    "theorem_text": "Let $\\mathbb I$ be a real interval.\nLet $S$ and $T$ be non-empty subsets of $\\mathbb I$ such that $\\mathbb I \\subseteq S \\cup T$.\nThen one of $S$ or $T$ contains an element at zero distance from the other.",
+    "proof_text": "$\\mathbb I \\subseteq S \\cup T \\implies \\forall x \\in \\mathbb I: x \\in S \\lor x \\in T$ from the definition of union.\nThat is, every element of $\\mathbb I$ belongs either to $S$ or to $T$.\nThe distance of an element $c \\in \\R$ from a subset $S$ of $\\R$ is given as:\n$\\displaystyle \\map d {c, S} = \\map {\\inf_{x \\mathop \\in S} } {\\size {c - x} }$\nAssume that $S$ and $T$ have no element in common, otherwise the result is trivial.\nwithout loss of generality, suppose that $\\exists s \\in S, t \\in T$ such that $s < t$.\n(If not, then $\\exists s \\in S, t \\in T$ such that $s > t$, and the following argument may be amended appropriately.)\nLet $T_0 = \\set {x: x \\in T: x > s}$.\nAs $t \\in T_0$ it follows that $T_0 \\ne \\O$.\nAlso, $T_0$ is bounded below by $s$.\nLet $b = \\map \\inf {T_0}$.\nIf $b \\notin T$ then $b \\in S$.\nBut from Distance from Subset of Real Numbers, it follows that $\\map d {b, T_0} = 0$.\nThus we have found an element in $S$ which is zero distance from $T$.\nOtherwise, $b \\in T$.\nThen $b > s$, and the open interval $\\openint s b$ is a non-empty subset of $S$.\nHence $b$ is an element in $T$ which is zero distance from $S$.",
+    "clean_row_index": 541,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The infimum b lies between s and t, hence in the interval. If b belongs to S it is approached by T; if it belongs to T, the interval immediately below b belongs to S."
+  },
+  {
+    "theorem_id": 1240,
+    "title": "Distance from Subset of Real Numbers",
+    "theorem_text": "Let $S$ be a subset of the set of real numbers $\\R$.\nLet $x \\in \\R$ be a real number.\nLet $\\map d {x, S}$ be the distance between $x$ and $S$.\nThen:",
+    "proof_text": "From the definition of distance:\n$\\forall x, y \\in \\R: \\map d {x, y} = \\size {x - y}$\nThus:\n$\\displaystyle \\map d {x, S} = \\map {\\inf_{y \\mathop \\in S} } {\\size {x - y} }$\nConsider the set $T = \\set {\\size {x - y}: y \\in S}$.\nThis has $0$ as a lower bound as Absolute Value is Bounded Below by Zero.\nSo:\n$\\displaystyle \\map d {x, S} = \\map {\\inf_{y \\mathop \\in S} } {\\size {x - y} } \\ge 0$\nIf $x \\in S$ then:\n$\\size {x - x} = 0 \\in T$\nand so:\n$\\displaystyle 0 \\le \\map {\\inf_{y \\mathop \\in S} } {\\map d {x, y} }$\nThus:\n$\\displaystyle \\map d {x, S} = \\map {\\inf_{y \\mathop \\in S} } {\\map d {x, y} } = 0$",
+    "clean_row_index": 542,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The target stops at “Then” without stating a property of the distance. The proof discusses nonnegativity and membership, but the required claim cannot be identified."
+  },
+  {
+    "theorem_id": 1240,
+    "title": "Distance from Subset of Real Numbers",
+    "theorem_text": "Let $S$ be a subset of the set of real numbers $\\R$.\nLet $x \\in \\R$ be a real number.\nLet $\\map d {x, S}$ be the distance between $x$ and $S$.\nThen:",
+    "proof_text": "Recall from Real Number Line is Metric Space that the set of real numbers $\\R$ with the distance function $d$ is a metric space.\nThe result is then seen to be an example of Distance from Subset to Element.",
+    "clean_row_index": 543,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The target ends before any conclusion. The reference to a metric-space result about an element does not specify which assertion is being evaluated."
+  },
+  {
+    "theorem_id": 1240,
+    "title": "Distance from Subset of Real Numbers",
+    "theorem_text": "Let $S$ be a subset of the set of real numbers $\\R$.\nLet $x \\in \\R$ be a real number.\nLet $\\map d {x, S}$ be the distance between $x$ and $S$.\nThen:",
+    "proof_text": "Recall from Real Number Line is Metric Space that the set of real numbers $\\R$ with the distance function $d$ is a metric space.\nThe result is then seen to be an example of Distance from Subset to Supremum.",
+    "clean_row_index": 544,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The supplied theorem has no conclusion or supremum hypothesis, so the reference to distance from a supremum cannot be checked against a target."
+  },
+  {
+    "theorem_id": 1240,
+    "title": "Distance from Subset of Real Numbers",
+    "theorem_text": "Let $S$ be a subset of the set of real numbers $\\R$.\nLet $x \\in \\R$ be a real number.\nLet $\\map d {x, S}$ be the distance between $x$ and $S$.\nThen:",
+    "proof_text": "From the definition of distance:\n$\\forall x, y \\in \\R: \\map d {x, y} = \\size {x - y}$\nThus:\n$\\displaystyle \\map d {x, S} = \\map {\\inf_{y \\mathop \\in S} } {\\size {x - y} }$\nLet $\\xi = \\inf S$.\nConsider $\\map d {-\\xi, S'}$ where $S' = \\set {-\\xi: \\xi \\in S}$.\nBy Negative of Infimum is Supremum of Negatives:\n$\\xi = \\inf S \\implies -\\xi = \\sup S'$\nThus from the above, $\\map d {-\\xi, S'} = 0$ and hence the result.",
+    "clean_row_index": 545,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "The statement ends after introducing the point-to-set distance. The proof reasons about an infimum, but the theorem text does not say what is claimed about it."
+  },
+  {
+    "theorem_id": 1240,
+    "title": "Distance from Subset of Real Numbers",
+    "theorem_text": "Let $S$ be a subset of the set of real numbers $\\R$.\nLet $x \\in \\R$ be a real number.\nLet $\\map d {x, S}$ be the distance between $x$ and $S$.\nThen:",
+    "proof_text": "Recall from Real Number Line is Metric Space that the set of real numbers $\\R$ with the distance function $d$ is a metric space.\nThe result is then seen to be an example of Distance from Subset to Infimum.",
+    "clean_row_index": 546,
+    "validity": null,
+    "error_type": null,
+    "review_reason": "No proposition follows “Then” in the target. The reference to an infimum result cannot establish which statement is missing."
+  },
+  {
+    "theorem_id": 1242,
+    "title": "Image of Closed Real Interval is Bounded",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\closedint a b$.\nThen $f$ is bounded on $\\closedint a b$.",
+    "proof_text": "Suppose $f$ is not bounded on $\\closedint a b$.\nThen from the corollary to Limit of Sequence to Zero Distance Point, there exists a sequence $\\sequence {x_n}$ in $\\closedint a b$ such that $\\size {\\map f {x_n} } \\to +\\infty$ as $n \\to \\infty$.\nSince $\\closedint a b$ is a closed interval, from Convergent Subsequence in Closed Interval, $\\sequence {x_n}$ has a subsequence $\\sequence {x_n}$ which converges to some $\\xi \\in \\closedint a b$.\nBecause $f$ is continuous on $\\closedint a b$, it follows from Limit of Image of Sequence that $\\map f {x_{n_r} } \\to \\map f \\xi$ as $r \\to \\infty$.\nBut this contradicts our supposition that there exists a sequence $\\sequence {x_n}$ in $\\closedint a b$ such that $\\size {\\map f {x_n} } \\to +\\infty$ as $n \\to \\infty$.\nThe result follows.",
+    "clean_row_index": 547,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A sequence of image values with unboundedly growing absolute values has a subsequence whose inputs converge inside the interval. Continuity forces those image values to converge to a finite value, a contradiction."
+  },
+  {
+    "theorem_id": 1244,
+    "title": "Max and Min of Function on Closed Real Interval",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\closedint a b$.\nThen $f$ reaches a maximum and a minimum on $\\closedint a b$.",
+    "proof_text": "From Image of Closed Real Interval is Bounded, we have that $f$ is bounded on $\\closedint a b$.\nLet $d$ be the supremum of $f$ on $\\closedint a b$.\nConsider a sequence $\\sequence {x_n}$ in $\\closedint a b$ such that $\\size {\\map f {x_n} } \\to d$ as $n \\to \\infty$.\nFrom the corollary to Limit of Sequence to Zero Distance Point, this can always be found.\nNow $\\closedint a b$ is a closed interval\nSo from Convergent Subsequence in Closed Interval, $\\sequence {x_n}$ has a subsequence $\\sequence {x_{n_r} }$ which converges to some $\\xi \\in \\closedint a b$.\nBecause $f$ is continuous on $\\closedint a b$, it follows from Limit of Image of Sequence that $\\map f {x_{n_r} } \\to \\map f \\xi$ as $r \\to \\infty$.\nSo $\\map f \\xi = d$ and thus the supremum $d$ is indeed a maximum.\nA similar argument shows that the infimum is a minimum.",
+    "clean_row_index": 549,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The supremum of f need not be approached by absolute values of f. For f identically minus one, the proposed sequence would have absolute values one converging to minus one."
+  },
+  {
+    "theorem_id": 1245,
+    "title": "Continuous Image of Closed Interval is Closed Interval",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\left[{a \\,.\\,.\\, b}\\right]$.\nThen the image of $\\left[{a \\,.\\,.\\, b}\\right]$ under $f$ is also a closed interval.",
+    "proof_text": "Let $I = \\left[{a \\,.\\,.\\, b}\\right]$.\nLet $J = f \\left({I}\\right)$.\nFrom Image of Interval by Continuous Function is Interval, $J$ is an interval.\nFrom Image of Closed Real Interval is Bounded, $J$ is bounded.\nFrom Max and Min of Function on Closed Real Interval, $J$ includes its end points.\nHence the result.",
+    "clean_row_index": 550,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The image is a bounded interval by the cited results, and both its supremum and infimum are attained, making it a closed interval."
+  },
+  {
+    "theorem_id": 1249,
+    "title": "Differentiable Function is Continuous",
+    "theorem_text": "Let $f$ be a real function defined on an interval $I$.\nLet $x_0 \\in I$ such that $f$ is differentiable at $x_0$.\nThen $f$ is continuous at $x_0$.",
+    "proof_text": "By hypothesis, $\\map {f'} {x_0}$ exists.\nWe have:\n$$\\map f x - \\map f {x_0} = \\frac {\\map f x - \\map f {x_0} } {x - x_0} \\cdot \\paren {x - x_0}$$\n$$\\to \\map {f'} {x_0} \\cdot 0$$\nas $x \\to x_0$\nThus:\n$\\map f x \\to \\map f {x_0}$ as $x \\to x_0$\nor in other words:\n$\\displaystyle \\lim_{x \\mathop \\to x_0} \\map f x = \\map f {x_0}$\nThe result follows by definition of continuous.",
+    "clean_row_index": 551,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Off the point itself, the increment factors as the difference quotient times x-x0. A finite derivative times a factor tending to zero gives continuity."
+  },
+  {
+    "theorem_id": 1250,
+    "title": "Quotient Rule for Derivatives",
+    "theorem_text": "Let $\\map j x, \\map k x$ be real functions defined on the open interval $I$.\nLet $\\xi \\in I$ be a point in $I$ at which both $j$ and $k$ are differentiable.\nDefine the real function $f$ on $I$ by:\n$\\displaystyle \\map f x = \\begin{cases}\n\\dfrac {\\map j x} {\\map k x} & : \\map k x \\ne 0 \\\\\n0 & : \\text{otherwise}\n\\end{cases}$\nThen, if $\\map k \\xi \\ne 0$, $f$ is differentiable at $\\xi$, and furthermore:\n$\\map {f'} \\xi = \\dfrac {\\map {j'} \\xi \\map k \\xi - \\map j \\xi \\map {k'} \\xi} {\\paren {\\map k \\xi}^2}$\nIt follows from the definition of derivative that if $j$ and $k$ are both differentiable on the interval $I$, then:\n$\\displaystyle \\forall x \\in I: \\map k x \\ne 0 \\implies \\map {f'} x = \\frac {\\map {j'} x \\map k x - \\map j x \\map {k'} x} {\\paren {\\map k x}^2}$",
+    "proof_text": "Let $\\xi$ be such that $\\map k \\xi \\ne 0$.\nFrom Differentiable Function is Continuous, $k$ is continuous at $\\xi$.\nIt follows that there exists an $\\epsilon > 0$, such that $\\size h < \\epsilon \\implies \\map k {\\xi + h} \\ne 0$.\nSo let $\\size h < \\epsilon$.\nThen we have:\n$$\\frac {\\map f {\\xi + h} - \\map f \\xi} h = \\frac 1 h \\paren {\\frac {\\map j {\\xi + h} } {\\map k {\\xi + h} } - \\frac {\\map j \\xi} {\\map k \\xi } }$$\nas $\\map k \\xi, \\map k {\\xi + h} \\ne 0$\n$$= \\frac {\\map j {\\xi + h} \\map k \\xi - \\map k {\\xi + h} \\map j \\xi} {h \\map k {\\xi + h} \\map k \\xi}$$\n$$= \\frac 1 {\\map k {\\xi + h} \\map k \\xi} \\paren {\\frac {\\map j {\\xi + h} - \\map j \\xi} h \\map k \\xi - \\map j \\xi \\frac {\\map k {\\xi + h} - \\map k \\xi} h}$$\nalgebraic manipulation\nHence:\n$$\\lim_{h \\mathop \\to 0} \\frac {\\map f {\\xi + h} - \\map f \\xi} h$$\n$$= \\lim_{h \\mathop \\to 0} \\frac 1 {\\map k {\\xi + h} \\map k \\xi} \\paren {\\frac {\\map j {\\xi + h} - \\map j \\xi} h \\map k \\xi - \\map j \\xi \\frac {\\map k {\\xi + h} - \\map k \\xi} h}$$\n$$= \\lim_{h \\mathop \\to 0} \\frac 1 {\\map k {\\xi + h} \\map k \\xi} \\cdot \\lim_{h \\mathop \\to 0} \\paren {\\frac {\\map j {\\xi + h} - \\map j \\xi} h \\map k \\xi - \\map j \\xi \\frac {\\map  k {\\xi + h} - \\map k \\xi} h}$$\nProduct Rule for Limits of Functions\nThus by:\n:continuity of $k$ at $\\xi$\n:differentiability of $j$ and $k$ at $\\xi$\n:Combined Sum Rule for Limits of Functions:\nit is concluded that:\n$\\displaystyle \\lim_{h \\mathop \\to 0} \\frac {\\map f {\\xi + h} - \\map f \\xi} h = \\frac 1 {\\map k \\xi^2} \\paren {\\map {j'} \\xi \\map k \\xi - \\map j \\xi \\map {k'} \\xi}$\nFrom the definition of differentiability, $f$ is differentiable at $\\xi$, with stated value.",
+    "clean_row_index": 552,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Continuity keeps the denominator nonzero near the point. The difference quotient then separates into the given two derivative quotients and a factor tending to the reciprocal of the denominator squared."
+  },
+  {
+    "theorem_id": 1252,
+    "title": "Preimage Theorem",
+    "theorem_text": "Let $y$ be a regular value of a smooth submersion $f:X \\to Y$.\nThen the preimage $f^{-1}(y)$ is a smooth submanifold of $X$, with $\\dim f^{-1}(y) = \\dim X - \\dim Y$.",
+    "proof_text": "Let $k,l$ be natural numbers with $k \\geq l$.\nBy the Local Submersion Theorem, there exists coordinates in some open sets of $x,y$ such that $f(x_1, x_2, \\ldots, x_k)=(x_1, \\ldots,x_l)$ and $y$ corresponds to $(0, \\ldots, 0)$.\nLet $V$ be that neighborhood of $x$.\nThen $f^{-1}(y) \\cap V$ is the set of points where $x_1=0, \\ldots, x_l=0$.\nThe functions $x_{l+1}, \\ldots, x_k$ therefore form a coordinate system on the set $f^{-1}(y) \\cap V$, which is a relatively open subset of $f^{-1}(y)$.\nTogether these functions then form a diffeomorphism to a Euclidean space.\nWe also have, by the regular value properties of $y$, a surjection of tangent spaces from $x$ to $y$.\nThis ensures smoothness of the solution set $f^{-1}(y)$.",
+    "clean_row_index": 553,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In a local submersion chart at each point of the fiber, the first dim Y coordinates vanish. The remaining coordinates give the embedded smooth charts of dimension dim X minus dim Y."
+  },
+  {
+    "theorem_id": 1256,
+    "title": "Inequalities Concerning Roots",
+    "theorem_text": "Let $\\closedint X Y$ be a closed real interval such that $0 < X \\le Y$.\nLet $x, y \\in \\closedint X Y$.\nThen:\n$\\forall n \\in \\N_{> 0}: X Y^{1/n} \\size {x - y} \\le n X Y \\size {x^{1/n} - y^{1/n} } \\le Y X^{1/n} \\size {x - y}$",
+    "proof_text": "From Difference of Two Powers:\n$\\displaystyle a^n - b^n = \\paren {a - b} \\paren {a^{n - 1} + a^{n - 2} b + a^{n - 3} b^2 + \\dotsb + a b^{n - 2} + b^{n - 1} } = \\paren {a - b} \\sum_{j \\mathop = 0}^{n - 1} a^{n - j - 1} b^j$\nLet $a > b > 0$.\nThen:\n$\\dfrac {a^n - b^n} {a - b} = a^{n - 1} + a^{n - 2} b + a^{n - 3} b^2 + \\dotsb + a b^{n - 2} + b^{n - 1}$\nAlso, note that:\n$b^{n - 1} = b^{n - j - 1} b^j \\le a^{n - j - 1} b^j \\le a^{n - j -1} a^j \\le a^{n - 1}$\nHence if $a > b > 0$:\n$n b^{n - 1} \\le \\dfrac {a^n - b^n} {a - b} \\le n a^{n - 1}$\nTaking reciprocals:\n$\\dfrac 1 {n b^{n - 1} } \\ge \\dfrac {a - b} {a^n - b^n} \\ge \\dfrac 1 {n a^{n - 1} }$\nThus:\n$\\dfrac {a^n - b^n} {n a^{n - 1} } \\le a - b \\le \\dfrac {a^n - b^n} {n b^{n - 1} } \\implies \\dfrac {a \\paren {a^n - b^n} } {a^n} \\le n \\paren {a - b} \\le \\dfrac {b \\paren {a^n - b^n} } {b^n}$\nNow suppose $x > y$.\nThen:\n$x - y = \\size {x - y}$\nand:\n$x^{1/n} - y^{1/n} = \\size {x^{1/n} - y^{1/n} }$\nThen put $a = x^{1/n}$ and $b = y^{1/n}$ in the above:\n$\\dfrac {x^{1/n} \\size {x - y} } x \\le n \\size {x^{1/n} - y^{1/n} } \\le \\dfrac {y^{1/n} \\size {x - y} } y$\nMultiplying through by $x y$:\n$x^{1/n} y \\size {x - y} \\le n x y \\size {x^{1/n} - y^{1/n} } \\le x y^{1/n} \\size {x - y}$\nSimilarly, if $y > x$:\n$y^{1/n} x \\size {x - y} \\le n x y \\size {x^{1/n} - y^{1/n} } \\le y x^{1/n} \\size {x - y}$\nThe result follows after some algebra.",
+    "clean_row_index": 554,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Factoring the difference of nth powers bounds the secant slope by n times the extreme (n-1)st powers. Substituting the positive roots and using the interval endpoints gives the bounds in either order, with equality when x=y."
+  },
+  {
+    "theorem_id": 1257,
+    "title": "Continuity of Root Function",
+    "theorem_text": "Let $n \\in \\N_{>0}$ be a non-zero natural number.\nLet $f: \\hointr 0 \\infty \\to \\R$ be the real function defined by $\\map f x = x^{1/n}$.\nThen $f$ is continuous at each $\\xi > 0$ and continuous on the right at $\\xi = 0$.",
+    "proof_text": "First suppose that $\\xi > 0$.\nLet $X, Y \\in \\R$ such that $0 < X < \\xi < Y$.\nLet $x \\in \\R$ such that $X < x < Y$.\nFrom Inequalities Concerning Roots:\n$X Y^{1/n} \\ \\size {x - \\xi} \\le n X Y \\ \\size {x^{1/n} - \\xi^{1/n} } \\le Y X^{1/n} \\ \\size {x - \\xi}$\nThus:\n$\\dfrac 1 {n Y} Y^{1/n} \\ \\size {x - \\xi} \\le \\size {x^{1/n} - \\xi^{1/n} } \\le \\dfrac 1 {n X} X^{1/n} \\ \\size {x - \\xi}$\nThe result follows by applying the Squeeze Theorem.\nNow we need to show that $\\map f x \\to 0$ as $x \\to 0^+$.\nWe need to show that:\n$\\forall \\epsilon > 0: \\exists \\delta > 0: x^{1/n} = \\size {x^{1/n} - 0} < \\epsilon$\nprovided $0 < x < \\delta$.\nClearly, for any given $\\epsilon$, we can choose $\\delta = \\epsilon^n$.\nHence the result.",
+    "clean_row_index": 555,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The root difference is bounded locally by a constant times the input difference at a positive point. At zero the choice delta=epsilon^n gives right continuity."
+  },
+  {
+    "theorem_id": 1265,
+    "title": "Derivative at Maximum or Minimum",
+    "theorem_text": "Let $f$ be a real function which is differentiable on the open interval $\\openint a b$.\nLet $f$ have a local minimum or local maximum at $\\xi \\in \\openint a b$.\nThen:\n$\\map {f'} \\xi = 0$",
+    "proof_text": "By definition of local maximum:\n$(1): \\quad \\map f {\\xi + \\epsilon} - \\map f \\xi < 0$\nfor sufficiently small $\\epsilon \\in \\R_{>0}$.\nSimilarly, definition of local minimum:\n$(2): \\quad \\map f {\\xi + \\epsilon} - \\map f \\xi > 0$\nfor sufficiently small $\\epsilon \\in \\R_{>0}$.\nLet it be assumed that $\\map f {\\xi + \\epsilon}$ can be expanded, using Taylor's Theorem, in positive integer powers of $\\epsilon$\nThen:\n$(3): \\quad \\map f {\\xi + \\epsilon} - \\map f \\xi = \\epsilon \\map {f'} \\xi + \\dfrac {\\epsilon^2 \\map {f''} \\xi} 2 + \\map \\OO {\\epsilon^3}$\nwhere $\\map \\OO {\\epsilon^3}$ denotes big-$\\OO$ notation.\nThat is, the quantity $\\dfrac {\\map \\OO {\\epsilon^3} } {\\epsilon^3}$ is bounded.\nFrom $(1)$ and $(2)$, at a local maximum or local minimum, the sign of $\\map f {\\xi + \\epsilon} - \\map f \\xi$ is independent the sign of $\\epsilon$ itself.\nSo from $(3)$ it follows that $\\map {f'} = 0$.",
+    "clean_row_index": 556,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "Differentiability alone does not give the second derivative or cubic Taylor remainder assumed here. A local extremum also only guarantees a weak sign."
+  },
+  {
+    "theorem_id": 1266,
+    "title": "Behaviour of Function Near Limit",
+    "theorem_text": "Let $f$ be a real function.\nLet $f \\left({x}\\right) \\to l$ as $x \\to \\xi$.\nThen:\n* If $l > 0$, then $\\exists h > 0: \\forall x: \\xi - h < x < \\xi + h, x \\ne \\xi: f \\left({x}\\right) > 0$\n* If $l < 0$, then $\\exists h > 0: \\forall x: \\xi - h < x < \\xi + h, x \\ne \\xi: f \\left({x}\\right) < 0$",
+    "proof_text": "From the definition of limit of a function:\n$\\forall \\epsilon > 0: \\exists \\delta > 0: 0 < \\left|{x - \\xi}\\right| < \\delta \\implies \\left|{f \\left({x}\\right) - l}\\right| < \\epsilon$\nLet $l > 0$.\nSince this is true for all $\\epsilon > 0$, it is also true for $\\epsilon = l$.\nSo let the value of $\\delta$, for the above to be true, labelled $h$.\nThen:\n$0 < \\left|{x - \\xi}\\right| < h \\implies \\left|{f \\left({x}\\right) - l}\\right| < l$\nThat is:\n$\\xi - h < x < \\xi + h, x \\ne \\xi \\implies 0 = l - l < f \\left({x}\\right) < l + l = 2 l$\nHence:\n$\\forall x: \\xi - h < x < \\xi + h, x \\ne \\xi: 0 < f \\left({x}\\right)$\nNow let $l < 0$, and consider $\\epsilon = -l$.\nA similar thread of reasoning leads us to:\n$\\xi - h < x < \\xi + h, x \\ne \\xi \\implies -2 l < f \\left({x}\\right) < 0$\nand hence the second result.",
+    "clean_row_index": 557,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "For l<0 the epsilon=-l bound is 2l<f(x)<0. The displayed lower bound -2l<f(x)<0 is impossible, although the upper bound needed for the conclusion does follow."
+  },
+  {
+    "theorem_id": 1267,
+    "title": "Fundamental Group is Independent of Base Point for Path-Connected Space",
+    "theorem_text": "Let $X$ be a path-connected space.\nFor $x \\in X$ let $\\pi_1(X,x)$ denote the fundamental group.\nFor $x, y \\in X$, there is an isomorphism:\n$\\phi: \\pi_1 \\left({X, x}\\right) \\to \\pi_1 \\left({X, y}\\right)$",
+    "proof_text": "Since $X$ is path-connected there exists a path $f$ connecting $y$ and $x$.\nWe define $\\phi_f: \\pi_1 \\left({X, x}\\right) \\to \\pi_1 \\left({X, y}\\right)$ by $\\phi_f \\left({ \\left[{g}\\right] }\\right) =\\left[{ f^{-1} g f }\\right]$.\n$\\phi$ is a homomorphism of groups, as is seen from:\n$\\displaystyle \\phi_f \\left({ \\left[{g h}\\right] }\\right) = \\left[{ f^{-1} g h f }\\right] = \\left[{ f^{-1} g f f^{-1} h f }\\right] = \\left[{ f^{-1} g f }\\right] \\left[{ f^{-1} h f }\\right] = \\phi_f \\left({ \\left[{g}\\right] }\\right) \\phi_f \\left({ \\left[{h}\\right] }\\right)$\nAlso, $f^{-1}$ is a path from $x$ to $y$. Then by the same argument as before, $\\phi_{f^{-1}}: \\pi_1 \\left({X, y}\\right) \\to \\pi_1 \\left({X, x}\\right)$ where $\\phi_{f^{-1}} \\left({ \\left[{g}\\right] }\\right) = \\left[{ f g f^{-1} }\\right]$, is a homomorphism of groups.\nTrivially, $\\phi_f \\circ \\phi_{f^{-1}} = I_{\\pi_1 \\left({X, y}\\right)}$ and $\\phi_{f^{-1}} \\circ \\phi_f=I_{\\pi_1 \\left({X, x}\\right)}$.\nThen $\\phi_f^{-1} = \\phi_{f^{-1}}$, so $\\phi_f$ is bijective and thus an isomorphism.",
+    "clean_row_index": 558,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Concatenating a path, a loop and the reverse path transports loop classes between the two base points. Cancellation up to path homotopy establishes both multiplication preservation and the reverse-path inverse."
+  },
+  {
+    "theorem_id": 1269,
+    "title": "Rolle's Theorem",
+    "theorem_text": "Let $f$ be a real function which is:\n:continuous on the closed interval $\\closedint a b$\nand:\n:differentiable on the open interval $\\openint a b$.\nLet $\\map f a = \\map f b$.\nThen:\n$\\exists \\xi \\in \\openint a b: \\map {f'} \\xi = 0$",
+    "proof_text": "We have that $f$ is continuous on $\\closedint a b$.\nIt follows from Continuous Image of Closed Interval is Closed Interval that $f$ attains:\n:a maximum $M$ at some $\\xi_1 \\in \\closedint a b$\nand:\n:a minimum $m$ at some $\\xi_2 \\in \\closedint a b$.\nSuppose $\\xi_1$ and $\\xi_2$ are both end points of $\\closedint a b$.\nBecause $\\map f a = \\map f b$ it follows that $m = M$ and so $f$ is constant on $\\closedint a b$.\nThen, by Derivative of Constant, $\\map {f'} \\xi = 0$ for all $\\xi \\in \\openint a b$.\nSuppose $\\xi_1$ is not an end point of $\\closedint a b$.\nThen $\\xi_1 \\in \\openint a b$ and $f$ has a local maximum at $\\xi_1$.\nHence the result follows from Derivative at Maximum or Minimum.\nSimilarly, suppose $\\xi_2$ is not an end point of $\\closedint a b$.\nThen $\\xi_2 \\in \\openint a b$ and $f$ has a local minimum at $\\xi_2$.\nHence the result follows from Derivative at Maximum or Minimum.",
+    "clean_row_index": 559,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "On a nondegenerate interval equal endpoint values force either constancy or an interior extremum. In each case an interior derivative vanishes."
+  },
+  {
+    "theorem_id": 1270,
+    "title": "Mean Value Theorem",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\closedint a b$ and differentiable on the open interval $\\openint a b$.\nThen:\n$\\exists \\xi \\in \\openint a b: \\map {f'} \\xi = \\dfrac {\\map f b - \\map f a} {b - a}$",
+    "proof_text": "From Continuous Real Function is Darboux Integrable, $f$ is Darboux integrable on $\\closedint a b$.\nLet $F : \\closedint a b \\to \\R$ be a real function defined by:\n$\\displaystyle \\map F x = \\int_a^x \\map f x \\rd x$\nWe are assured that this function is well-defined, since $f$ is integrable on $\\closedint a b$.\nFrom Fundamental Theorem of Calculus: First Part, we have:\n$F$ is continuous on $\\closedint a b$\n$F$ is differentiable on $\\openint a b$ with derivative $f$\nBy the Mean Value Theorem, there therefore exists $k \\in \\openint a b$ such that:\n$\\map {F'} k = \\dfrac {\\map F b - \\map F a} {b - a}$\nAs $F$ is differentiable on $\\openint a b$ with derivative $f$:\n$\\map {F'} k = \\map f k$\nWe therefore have:\n$$\\map f k = \\frac {\\map F b - \\map F a} {b - a}$$\n$$= \\frac 1 {b - a} \\paren {\\int_a^b \\map f x \\rd x - \\int_a^a \\map f x \\rd x}$$\n$$= \\frac 1 {b - a} \\int_a^b \\map f x \\rd x$$\nDefinite Integral on Zero Interval\ngiving:\n$\\displaystyle \\int_a^b \\map f x \\rd x = \\paren {b - a} \\map f k$\nas required.",
+    "clean_row_index": 560,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The proof invokes the very derivative mean value theorem being proved, applying it to an antiderivative. Its conclusion is the integral mean value identity, which does not establish the stated derivative claim."
+  },
+  {
+    "theorem_id": 1270,
+    "title": "Mean Value Theorem",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\closedint a b$ and differentiable on the open interval $\\openint a b$.\nThen:\n$\\exists \\xi \\in \\openint a b: \\map {f'} \\xi = \\dfrac {\\map f b - \\map f a} {b - a}$",
+    "proof_text": "Let $g : \\closedint a b \\to \\R$ be a real function with:\n$\\map g x = x$\nfor all $x \\in \\closedint a b$.\nBy Power Rule for Derivatives, we have:\n$g$ is differentiable with $\\map {g'} x = 1$ for all $x \\in \\closedint a b$.\nNote that in particular:\n$\\map {g'} x \\ne 0$ for all $x \\in \\openint a b$.\nSince $f$ is continuous on $\\closedint a b$ and differentiable on $\\openint a b$, we can apply the Cauchy Mean Value Theorem.\nWe therefore have that there exists $\\xi \\in \\openint a b$ such that:\n$\\dfrac {\\map {f'} \\xi} {\\map {g'} \\xi } = \\dfrac {\\map f b - \\map f a} {\\map g b - \\map g a}$\nNote that:\n$\\map {g'} \\xi = 1$\nand:\n$\\map g b - \\map g a = b - a$\nso this can be rewritten:\n$\\map {f'} \\xi = \\dfrac {\\map f b - \\map f a} {b - a}$",
+    "clean_row_index": 561,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "In Cauchy's mean value theorem take g(x)=x, whose derivative is one and whose endpoint increment is b-a. The ratio identity becomes the desired formula."
+  },
+  {
+    "theorem_id": 1271,
+    "title": "Zero Derivative implies Constant Function",
+    "theorem_text": "Let $f$ be a real function which is continuous on the closed interval $\\left[{a \\,.\\,.\\, b}\\right]$ and differentiable on the open interval $\\left({a \\,.\\,.\\, b}\\right)$.\nSuppose that:\n$\\forall x \\in \\left({a \\,.\\,.\\, b}\\right): f' \\left({x}\\right) = 0$\nThen $f$ is constant on $\\left[{a \\,.\\,.\\, b}\\right]$.",
+    "proof_text": "Let $y \\in \\left[{a \\,.\\,.\\, b}\\right]$.\nThen $f$ satisfies the conditions of the Mean Value Theorem on $\\left[{a \\,.\\,.\\, y}\\right]$.\nHence:\n$\\exists \\xi \\in \\left({a \\,.\\,.\\, y}\\right): f' \\left({\\xi}\\right) = \\dfrac {f \\left({y}\\right) - f \\left({a}\\right)} {y - a}$\nBut:\n$f' \\left({\\xi}\\right) = 0$\nwhich means:\n$f \\left({y}\\right) - f \\left({a}\\right) = 0$\nand hence:\n$f \\left({y}\\right) = f \\left({a}\\right)$\nAs $y$ is any $y \\in \\left[{a \\,.\\,.\\, b}\\right]$, the result follows.",
+    "clean_row_index": 562,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "For y>a the mean value theorem on [a,y] gives a zero secant slope and hence f(y)=f(a). At y=a the same equality is immediate without dividing by zero."
+  },
+  {
+    "theorem_id": 1273,
+    "title": "Cauchy Mean Value Theorem",
+    "theorem_text": "Let $f$ and $g$ be a real functions which are continuous on the closed interval $\\left[{a \\,.\\,.\\, b}\\right]$ and differentiable on the open interval $\\left({a \\,.\\,.\\, b}\\right)$.\nSuppose that:\n$\\forall x \\in \\left({a \\,.\\,.\\, b}\\right): g' \\left({x}\\right) \\ne 0$\nThen:\n$\\exists \\xi \\in \\left({a \\,.\\,.\\, b}\\right): \\dfrac {f' \\left({\\xi}\\right)} {g' \\left({\\xi}\\right)} = \\dfrac {f \\left({b}\\right) - f \\left({a}\\right)} {g \\left({b}\\right) - g \\left({a}\\right)}$",
+    "proof_text": "Let $F$ be the real function defined on $\\left[{a \\,.\\,.\\, b}\\right]$ by $F \\left({x}\\right) = f \\left({x}\\right) + h g \\left({x}\\right)$, where $h \\in \\R$ is a constant.\nThe plan is to choose the constant $h$ such that $F \\left({a}\\right) = F \\left({b}\\right)$ and so apply Rolle's Theorem.\nWe need to make:\n$f \\left({a}\\right) + h g \\left({a}\\right) = f \\left({b}\\right) + h g \\left({b}\\right)$\nWe have that:\n$\\forall x \\in \\left({a \\,.\\,.\\, b}\\right): g' \\left({x}\\right) \\ne 0$\nSo, by Rolle's Theorem:\n$g \\left({a}\\right) \\ne g \\left({b}\\right)$\nThus we can let:\n$h = - \\dfrac {f \\left({b}\\right) - f \\left({a}\\right)} {g \\left({b}\\right) - g \\left({a}\\right)}$\nSo, by Rolle's Theorem:\n$\\exists \\xi \\in \\left({a \\,.\\,.\\, b}\\right): 0 = F' \\left({\\xi}\\right) = f' \\left({\\xi}\\right) + h g' \\left({\\xi}\\right)$\nThat is:\n$h = - \\dfrac {f' \\left({\\xi}\\right)} {g' \\left({\\xi}\\right)}$\nHence the result, from the definition of the derivative.",
+    "clean_row_index": 563,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Rolle's theorem first ensures g has distinct endpoint values. The chosen linear combination then has equal endpoint values, and its vanishing derivative gives the ratio with a nonzero denominator."
+  },
+  {
+    "theorem_id": 1275,
+    "title": "Limit of Absolute Value",
+    "theorem_text": "Let $x, \\xi \\in \\R$ be real numbers.\nThen:\n$\\left\\vert{x - \\xi}\\right\\vert \\to 0$ as $x \\to \\xi$\nwhere $\\left\\vert{x - \\xi}\\right\\vert$ denotes the Absolute Value.",
+    "proof_text": "Let $\\epsilon > 0$.\nLet $\\delta = \\epsilon$.\nFrom the definition of a limit of a function, we need to show that $\\left\\vert{f \\left({x}\\right) - 0}\\right\\vert < \\epsilon$ provided that $0 < \\left\\vert{x - \\xi}\\right\\vert < \\delta$, where $f \\left({x}\\right) = \\left\\vert{x - \\xi}\\right\\vert$.\nThus, provided $0 < \\left\\vert{x - \\xi}\\right\\vert < \\delta$, we have:\n$$\\left\\vert{x - \\xi}\\right\\vert - 0 = \\left\\vert{x - \\xi}\\right\\vert$$\n$$< \\delta$$\n$$= \\epsilon$$\nHence the result.",
+    "clean_row_index": 564,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With delta=epsilon the distance from |x-xi| to zero equals |x-xi|, already smaller than epsilon in the punctured neighborhood."
+  },
+  {
+    "theorem_id": 1276,
+    "title": "Limit of Function in Interval",
+    "theorem_text": "Let $f$ be a real function which is defined on the open interval $\\openint a b$.\nLet $\\xi \\in \\openint a b$\nSuppose that, $\\forall x \\in \\openint a b$, either:\n$\\xi \\le \\map f x \\le x$\nor:\n$x \\le \\map f x \\le \\xi$\nThen $\\map f x \\to \\xi$ as $x \\to \\xi$.",
+    "proof_text": "Note that $\\size {\\map f x - \\xi} \\le \\size {\\xi - x}$.\nFrom Limit of Absolute Value we have that $\\size {x - \\xi} \\to 0$ as $x \\to \\xi$.\nThe result follows from the Squeeze Theorem.",
+    "clean_row_index": 565,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Placing f(x) between x and xi bounds its distance from xi by |x-xi|. The latter tends to zero and hence so does the former."
+  },
+  {
+    "theorem_id": 1279,
+    "title": "Strictly Monotone Real Function is Bijective",
+    "theorem_text": "Let $f$ be a real function which is defined on $I \\subseteq \\R$.\nLet $f$ be strictly monotone on $I$.\nLet the image of $f$ be $J$.\nThen $f: I \\to J$ is a bijection.",
+    "proof_text": "From Strictly Monotone Mapping with Totally Ordered Domain is Injective, $f$ is an injection.\nFrom Surjection by Restriction of Codomain, $f: I \\to J$ is a surjection.",
+    "clean_row_index": 566,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Strict monotonicity on a totally ordered domain gives injectivity, and taking the actual image as codomain gives surjectivity."
+  },
+  {
+    "theorem_id": 1280,
+    "title": "Inverse of Strictly Monotone Function",
+    "theorem_text": "Let $f$ be a real function which is defined on $I \\subseteq \\R$.\nLet $f$ be strictly monotone on $I$.\nLet the image of $f$ be $J$.\nThen $f$ always has an inverse function $f^{-1}$ and:\n: if $f$ is strictly increasing then so is $f^{-1}$\n: if $f$ is strictly decreasing then so is $f^{-1}$.",
+    "proof_text": "The function $f$ is a bijection from Strictly Monotone Real Function is Bijective.\nHence from Bijection iff Inverse is Bijection, $f^{-1}$ always exists and is also a bijection.\nFrom the definition of strictly increasing:\n$x < y \\iff \\map f x < \\map f y$\nHence:\n$\\map {f^{-1} } x < \\map {f^{-1} } y \\iff \\map {f^{-1} } {\\map f x} < \\map {f^{-1} } {\\map f y}$\nand so:\n$\\map {f^{-1} } x < \\map {f^{-1} } y \\iff x < y$\nSimilarly, from the definition of strictly decreasing:\n$x < y \\iff \\map f x > \\map f y$\nHence:\n$\\map {f^{-1} } x < \\map {f^{-1} } y \\iff \\map {f^{-1} } {\\map f x} > \\map {f^{-1} } {\\map f y}$\nand so:\n$\\map {f^{-1} } x < \\map {f^{-1} } y \\iff x > y$",
+    "clean_row_index": 567,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The crucial comparison uses both inverse(x) and f(x) for the same arbitrary x, although the inverse has domain J and f has domain I. For disjoint I and J this substitution is undefined. The argument must substitute preimages of two points of J into the order equivalence."
+  },
+  {
+    "theorem_id": 1283,
+    "title": "Convex Real Function is Continuous",
+    "theorem_text": "Let $f$ be a real function which is convex on the open interval $\\left({a \\,.\\,.\\, b}\\right)$.\nThen $f$ is continuous on $\\left({a \\,.\\,.\\, b}\\right)$.",
+    "proof_text": "From Convex Real Function is Left-Hand and Right-Hand Differentiable, we have:\n$\\displaystyle \\lim_{h \\to 0^-} f \\left({x + h}\\right) - f \\left({x}\\right) = \\left({\\lim_{h \\to 0^-} \\frac {f \\left({x + h}\\right) - f \\left({x}\\right)} h}\\right) \\left({\\lim_{h \\to 0^-} h}\\right) = 0$\nand similarly:\n$\\displaystyle \\lim_{h \\to 0^+} f \\left({x + h}\\right) - f \\left({x}\\right) = \\left({\\lim_{h \\to 0^+} \\frac {f \\left({x + h}\\right) - f \\left({x}\\right)} h}\\right) \\left({\\lim_{h \\to 0^+} h}\\right) = 0$",
+    "clean_row_index": 568,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "On each side the difference is the corresponding difference quotient times h. Both one-sided quotients have finite limits at an interior point, so both increments tend to zero."
+  },
+  {
+    "theorem_id": 1284,
+    "title": "Convex Real Function is Left-Hand and Right-Hand Differentiable",
+    "theorem_text": "Let $f$ be a real function which is either convex on the open interval $\\left({a \\,.\\,.\\, b}\\right)$.\nThen the left-hand derivative $f'_- \\left({x}\\right)$ and right-hand derivative $f'_+ \\left({x}\\right)$ both exist for all $x \\in \\left({a \\,.\\,.\\, b}\\right)$.",
+    "proof_text": "Let $f$ be convex on $\\left({a \\,.\\,.\\, b}\\right)$.\nThen by definition of convexity:\n$\\forall x_1, x_2, x_3 \\in \\left({a \\,.\\,.\\, b}\\right): x_1 < x_2 < x_3: \\dfrac {f \\left({x_2}\\right) - f \\left({x_1}\\right)} {x_2 - x_1} \\le \\dfrac {f \\left({x_3}\\right) - f \\left({x_1}\\right)} {x_3 - x_1}$\nLet $0 < h_1 < h_2$.\nSubstitute $x_1 = x$, $x_2 = x + h_1$, $x_3 = x + h_2$. Then:\n$\\dfrac {f \\left({x + h_1}\\right) - f \\left({x}\\right)} {h_1} \\le \\dfrac {f \\left({x + h_2}\\right) - f \\left({x}\\right)} {h_2}$\nHence the function $F \\left({h}\\right) = \\dfrac {f \\left({x + h}\\right) - f \\left({x}\\right)} h$ increases in some $\\left({0 \\,.\\,.\\, \\delta}\\right)$.\nThus from Limit of Increasing Function it follows that both $\\displaystyle \\lim_{h \\to 0^+} F \\left({h}\\right) = f'_+ \\left({x}\\right)$ and $\\displaystyle \\lim_{h \\to 0^-} F \\left({h}\\right) = f'_-\\left({x}\\right)$ exist.",
+    "clean_row_index": 569,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Monotonicity is shown only for positive increments. The proof neither treats the negative increments nor bounds the positive slopes below by a finite slope from the opposite side; monotonicity alone permits an infinite endpoint limit."
+  }
+]

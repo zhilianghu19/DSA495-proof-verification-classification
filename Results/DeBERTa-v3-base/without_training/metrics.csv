@@ -1,0 +1,3 @@
+Model,Training input,Split,Proofs,Actual Invalid,Invalid precision,Invalid recall,Macro F1
+DeBERTa-v3-base,without_training,validation,89,15,0.16853932584269662,1.0,0.14423076923076922
+DeBERTa-v3-base,without_training,test,89,14,0.15730337078651685,1.0,0.13592233009708737

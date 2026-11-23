@@ -1,0 +1,302 @@
+[
+  {
+    "theorem_id": 1980,
+    "title": "Inverse of Vandermonde Matrix",
+    "theorem_text": "Let $V_n$ be the Vandermonde matrix of order $n$ given by:\n$V_n = \\begin {bmatrix}\n  x_1 & x_2 & \\cdots & x_n \\\\\n  x_1^2 & x_2^2 & \\cdots & x_n^2 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n  x_1^n & x_2^n & \\cdots & x_n^n\n\\end{bmatrix}$\nThen its inverse $V_n^{-1} = \\sqbrk b_n$ can be specified as:\n$b_{i j} = \\begin{cases}\n\\paren {-1}^{j - 1} \\paren {\\dfrac {\\displaystyle \\sum_{\\substack {1 \\mathop \\le m_1 \\mathop < \\ldots \\mathop < m_{n - j} \\mathop \\le n \\\\ m_1, \\ldots, m_{n - j} \\mathop \\ne i} } x_{m_1} \\cdots x_{m_{n - j} } } {x_i \\displaystyle \\prod_{\\substack {1 \\mathop \\le m \\mathop \\le n \\\\ m \\mathop \\ne i} } \\paren {x_m - x_i} } } & : 1 \\le  j < n \\\\\n\\qquad \\qquad \\qquad \\dfrac 1 {x_i \\displaystyle \\prod_{\\substack {1 \\mathop \\le m \\mathop \\le n \\\\ m \\mathop \\ne i} } \\paren {x_i - x_m} } & : j = n\n\\end{cases}$",
+    "proof_text": "First consider the classical form of the Vandermonde matrix:\n$W_n = \\begin{bmatrix}\n  1 & x_1 & x_1^2 & \\cdots & x_1^{n - 1} \\\\\n  1 & x_2 & x_2^2 & \\cdots & x_2^{n - 1} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n  1 & x_n & x_n^2 & \\cdots & x_n^{n - 1} \\\\\n\\end{bmatrix}$\nBy Vandermonde Determinant, the determinant of $W_n$ is:\n$\\displaystyle \\map \\det {W_n} = \\prod_{1 \\mathop \\le i \\mathop < j \\mathop \\le n} \\paren {x_i - x_j} \\ne 0$\nSince this is non-zero, by Matrix is Invertible iff Determinant has Multiplicative Inverse, the inverse matrix, denoted $B = \\sqbrk {b_{i j} }$, is guaranteed to exist.\nUsing the definition of the matrix product and the inverse:\n$\\displaystyle \\sum_{k \\mathop = 1}^n b_{k j} x_i^{k - 1} = \\delta_{i j}$\nThat is, if $\\map {P_j} x$ is the polynomial:\n$\\displaystyle \\map {P_j} x := \\sum_{k \\mathop = 1}^n b_{k j}x^{k - 1}$\nthen:\n$\\map {P_j} {x_1} = 0, \\ldots, \\map {P_j} {x_{j - 1} } = 0, \\map {P_j} {x_j} = 1, \\map {P_j} {x_{j + 1} } = 0, \\ldots, \\map {P_j} {x_n} = 0$\nBy the Lagrange Interpolation Formula, the $j$th row of $B$ is composed of the coefficients of the $j$th Lagrange basis polynomial:\n$\\displaystyle \\map {P_j} x = \\sum_{k \\mathop = 1}^n b_{k j} x^{k - 1} = \\prod_{\\substack {1 \\mathop \\le m \\mathop \\le n \\\\ m \\mathop \\ne j} } \\frac {x - x_m} {x_j - x_m}$\nIdentifying the $k$th order coefficient in these two polynomials yields:\n$b_{k j} = \\begin{cases}\n\\paren {-1}^{n - k} \\paren {\\dfrac {\\displaystyle \\sum_{\\substack {1 \\mathop \\le m_1 \\mathop < \\ldots \\mathop < m_{n - k} \\mathop \\le n \\\\ m_1, \\ldots, m_{n - k} \\mathop \\ne j} } x_{m_1} \\cdots x_{m_{n - k} } } {\\displaystyle \\prod_{\\substack {1 \\mathop \\le m \\mathop \\le n \\\\ m \\mathop \\ne j} } \\paren {x_j - x_m} } } & : 1 \\le k < n \\\\\n\\qquad \\qquad \\qquad \\dfrac 1 {\\displaystyle \\prod_{\\substack {1 \\mathop \\le m \\mathop \\le n \\\\ m \\mathop \\ne j} } \\paren {x_j - x_m}} & : k = n\n\\end{cases}$\nwhich gives:\n$b_{k j} = \\begin{cases}\n\\paren {-1}^{k - 1} \\paren {\\dfrac {\\displaystyle \\sum_{\\substack {1 \\mathop \\le m_1 \\mathop < \\ldots \\mathop < m_{n - k} \\mathop \\le n \\\\ m_1, \\ldots, m_{n - k} \\mathop \\ne j} } x_{m_1} \\cdots x_{m_{n - k} } } {\\displaystyle \\prod_{\\substack {1 \\mathop \\le m \\mathop \\le n \\\\ m \\mathop \\ne j} } \\paren {x_m - x_j} } } & : 1 \\le k < n \\\\\n\\qquad \\qquad \\qquad \\dfrac 1 {\\displaystyle \\prod_{\\substack {1 \\mathop \\le m \\mathop \\le n \\\\ m \\mathop \\ne j} } \\paren {x_j - x_m} } & : k = n\n\\end{cases}$\nFor the general case, we observe that by simple multiplication:\n$\\displaystyle V_n = \n\\begin {pmatrix}\n\\begin {bmatrix}\n  x_1 & 0 & \\cdots & 0 \\\\\n  0 & x_2 & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n  0 & 0 & \\cdots & x_n\n\\end {bmatrix}\n\\cdot W_n\n\\end {pmatrix}^\\intercal$\nSo by Inverse of Matrix Product and Inverse of Diagonal Matrix:\n$\\displaystyle V_n^{-1} = \n\\begin {bmatrix}\n  x_1^{-1} & 0 & \\cdots & 0 \\\\\n  0 & x_2^{-1} & \\cdots & 0 \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\n  0 & 0 & \\cdots & x_n^{-1}\n\\end {bmatrix} \\cdot \\paren {W_n^{-1} }^\\intercal$\nLet $c_{k j}$ denote the $\\tuple {k, j}$th coefficient of $V_n^{-1}$.\nSince the first matrix in the product expression for $V_n^{-1}$ above is diagonal:\n$c_{kj} = \\dfrac 1 {x_k} b_{j k}$\nwhich establishes the result.",
+    "clean_row_index": 859,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "Distinctness and nonzero values of the nodes are not assumed. Repeated nodes give identical columns, and a zero node gives a zero column, so the inverse need not exist."
+  },
+  {
+    "theorem_id": 1981,
+    "title": "Floor Function is Idempotent",
+    "theorem_text": "$\\floor {\\floor x} = \\floor x$",
+    "proof_text": "Let $y = \\floor x$.\nBy Floor Function is Integer, $y$ is an integer.\nThen from Real Number is Integer iff equals Floor:\n$\\floor y = y$\nSo:\n$\\floor {\\floor x} = \\floor x$",
+    "clean_row_index": 860,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The first floor gives an integer, and applying floor to an integer fixes it."
+  },
+  {
+    "theorem_id": 1996,
+    "title": "Sum of r+k Choose k up to n",
+    "theorem_text": "$\\displaystyle \\forall n \\in \\Z: n \\ge 0: \\sum_{k \\mathop = 0}^n \\binom {r + k} k = \\binom {r + n + 1} n$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\Z_{\\ge 0}$, let $\\map P n$ be the proposition\n$\\displaystyle \\sum_{k \\mathop = 0}^n \\binom {r + k} k = \\binom {r + n + 1} n$\nBasis for the Induction\n$\\map P 0$ is true, as $\\dbinom r 0 = 1 = \\dbinom {r + 1} 0$ by definition.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $\\map P m$ is true, where $m \\ge 0$, then it logically follows that $\\map P {m + 1}$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle \\sum_{k \\mathop = 0}^m \\binom {r + k} k = \\binom {r + m + 1} m$\nThen we need to show:\n$\\displaystyle \\sum_{k \\mathop = 0}^{m + 1} \\binom {r + k} k = \\binom {r + m + 2} {m + 1}$\nInduction Step\nThis is our induction step:\n$$\\sum_{k \\mathop = 0}^{m + 1} \\binom {r + k} k = \\sum_{k \\mathop = 0}^m \\binom {r + k} k + \\binom {r + m + 1} {m + 1}$$\n$$= \\binom {r + m + 1} m + \\binom {r + m + 1} {m + 1}$$\nfrom the induction hypothesis\n$$= \\binom {r + m + 2} {m + 1}$$\nPascal's Rule\nSo $\\map P m \\implies \\map P {m + 1}$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\displaystyle \\forall n \\in \\Z_{\\ge 0}: \\sum_{k \\mathop = 0}^n \\binom {r + k} k = \\binom {r + n + 1} n$",
+    "clean_row_index": 871,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The zero case is the unit binomial coefficient. Adding the next summand gives adjacent entries in a single row, which Pascal's rule combines."
+  },
+  {
+    "theorem_id": 1998,
+    "title": "Alternating Sum and Difference of r Choose k up to n",
+    "theorem_text": "$\\displaystyle \\sum_{k \\mathop \\le n} \\paren {-1}^k \\binom r k = \\paren {-1}^n \\binom {r - 1} n$",
+    "proof_text": "$$\\sum_{k \\mathop \\le n} \\paren {-1}^k \\binom r k = \\sum_{k \\mathop \\le n} \\binom {k - r - 1} k$$\nNegated Upper Index of Binomial Coefficient\n$$= \\binom {-r + n} n$$\nSum of r+k Choose k up to n\n$$= \\paren {-1}^n \\binom {r - 1} n$$\nNegated Upper Index of Binomial Coefficient",
+    "clean_row_index": 872,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Negating the upper index absorbs the alternating sign. The cited partial-sum identity evaluates the resulting sum, and the second upper-index conversion gives the stated answer."
+  },
+  {
+    "theorem_id": 1999,
+    "title": "Product of r Choose m with m Choose k",
+    "theorem_text": "$\\dbinom r m \\dbinom m k = \\dbinom r k \\dbinom {r - k} {m - k}$",
+    "proof_text": "Consider the trinomial coefficient:\n$\\dbinom r {k, m - k, r - m}$\nWe use Multinomial Coefficient expressed as Product of Binomial Coefficients:\n$\\dbinom {k_1 + k_2 + k_3} {k_1, k_2, k_3} = \\dbinom {k_1 + k_2} {k_1} \\dbinom {k_1 + k_2 + k_3} {k_1 + k_2}$\nand substitute as appropriate for $k_1, k_2, k_3$.\nWe have:\n$$\\dbinom r {k, m - k, r - m}$$\n$$= \\dbinom {\\left({m - k}\\right) + \\left({r - m}\\right) + k} {m - k, r - m, k}$$\n$$= \\dbinom {\\left({m - k}\\right) + \\left({r - m}\\right)} {m - k} \\dbinom {\\left({m - k}\\right) + \\left({r - m}\\right) + k} {\\left({m - k}\\right) + \\left({r - m}\\right)}$$\nMultinomial Coefficient expressed as Product of Binomial Coefficients\n$$= \\dbinom {r - k} {m - k} \\dbinom r m$$\nSimilarly:\n$$\\dbinom r {k, m - k, r - m}$$\n$$= \\dbinom {k + \\left({m - k}\\right) + \\left({r - m}\\right)} {k, m - k, r - m}$$\n$$= \\dbinom {k + \\left({m - k}\\right)} k \\dbinom {k + \\left({m - k}\\right) + \\left({r - m}\\right)} {\\left({m - k}\\right) + k}$$\nMultinomial Coefficient expressed as Product of Binomial Coefficients\n$$= \\dbinom m k \\dbinom r m$$\nThe result follows on equating the two expressions.",
+    "clean_row_index": 873,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The first factorization simplifies its last binomial to choose(r,m), although its lower index is r−k, giving choose(r,k). Equating the two printed results does not give the theorem."
+  },
+  {
+    "theorem_id": 2000,
+    "title": "Chu-Vandermonde Identity",
+    "theorem_text": "$\\displaystyle \\sum_k \\binom r k \\binom s {n - k} = \\binom {r + s} n$",
+    "proof_text": "$$\\sum_n \\binom {r + s} n x^n = \\paren {1 + x}^{r + s}$$\nBinomial Theorem\n$$= \\paren {1 + x}^r \\paren {1 + x}^s$$\nExponent Combination Laws\n$$= \\sum_k \\binom r k x^k \\sum_m \\binom s m x^m$$\nBinomial Theorem\n$$= \\sum_k \\binom r k x^k \\sum_{n - k} \\binom s {n - k} x^{n - k}$$\n$$= \\sum_n \\paren {\\sum_k \\binom r k \\binom  s {n - k} } x^n$$\nAs this has to be true for all $x$, we have that:\n$\\displaystyle \\binom {r + s} n = \\sum_k \\binom r k \\binom s {n - k}$",
+    "clean_row_index": 874,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Expanding both factors of (1+x)^(r+s) and collecting all terms with k+m=n gives the convolution as the coefficient of x^n."
+  },
+  {
+    "theorem_id": 2000,
+    "title": "Chu-Vandermonde Identity",
+    "theorem_text": "$\\displaystyle \\sum_k \\binom r k \\binom s {n - k} = \\binom {r + s} n$",
+    "proof_text": "This is a special case of Gauss's Hypergeometric Theorem:\n${}_2F_1 \\left({a, b; c; 1}\\right) = \\dfrac{\\Gamma \\left({c}\\right) \\Gamma \\left({c - a - b}\\right)} {\\Gamma \\left({c - a}\\right) \\Gamma \\left({c - b}\\right)}$\nwhere:\n${}_2F_1$ is the hypergeometric series\n$\\Gamma \\left({n + 1}\\right) = n!$ is the Gamma function.\nOne regains the Chu-Vandermonde Identity by taking $a = -n$ and applying Negated Upper Index of Binomial Coefficient:\n$\\dbinom n k = (-1)^k \\dbinom {k - n - 1} k$\nthroughout.",
+    "clean_row_index": 875,
+    "validity": "Invalid",
+    "error_type": "Missing essential justification",
+    "review_reason": "Specifying only a=−n leaves b and c and the normalization relating the summands undetermined. It also leaves the hypotheses of the stated gamma evaluation unchecked."
+  },
+  {
+    "theorem_id": 2004,
+    "title": "Congruence Modulo Zero is Diagonal Relation",
+    "theorem_text": "Congruence modulo zero is the diagonal relation.\nThat is:\n$x \\equiv y \\pmod 0 \\iff x = y$",
+    "proof_text": "Follows directly from the definition of congruence:\n$x \\equiv y \\pmod z \\iff x \\bmod z = y \\bmod z$\nWhen $z = 0$ we have by definition:\n$x \\bmod 0 := x$\nAnd so $x \\bmod 0 = y \\bmod 0 \\iff x = y$.\nHence the result.",
+    "clean_row_index": 876,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "With the specified convention x mod 0=x, equality of residues modulo zero is exactly equality of the two inputs."
+  },
+  {
+    "theorem_id": 2015,
+    "title": "Definite Integral of Partial Derivative",
+    "theorem_text": "Let $\\map f {x, y}$ and $\\map {\\dfrac {\\partial f} {\\partial x} } {x, y}$ be continuous functions of $x$ and $y$ on $D = \\closedint {x_1} {x_2} \\times \\closedint a b$.\nThen:\n$\\displaystyle \\frac \\d {\\d x} \\int_a^b \\map f {x, y} \\rd y = \\int_a^b \\map {\\frac {\\partial f} {\\partial x} } {x, y} \\rd y$\nfor $x \\in \\closedint {x_1} {x_2}$.",
+    "proof_text": "Define $\\displaystyle \\map G x = \\int_a^b \\map f {x, y} \\rd y$.\nThe continuity of $f$ ensures that $G$ exists.\nThen by linearity of the integral:\n$\\dfrac {\\Delta G} {\\Delta x} = \\dfrac {\\map G {x + \\Delta x} - \\map G x} {\\Delta x} = \\displaystyle \\int_a^b \\frac {\\map f {x + \\Delta x, y} - \\map f {x, y} } {\\Delta x} \\rd y$\nWe want to find the limit of this quantity as $\\Delta x$ approaches zero.\nFor each $y \\in \\closedint a b$, we can consider $\\map {f_y} x = \\map f {x, y}$ as a separate function of the single variable $x$, with $\\dfrac {\\d f_y} {\\d x} = \\dfrac {\\partial f} {\\partial x}$.\nThus by the Mean Value Theorem, there is a number $c_y \\in \\openint x {x + \\Delta x}$ such that:\n$\\map {f_y} {x + \\Delta x} - \\map {f_y} x = \\map {\\dfrac {\\d f_y} {\\d x} } {c_y} \\Delta x$\nThat is:\n$\\map f {x + \\Delta x, y} - \\map f {x, y} = \\map {\\dfrac {\\partial f} {\\partial x} } {c_y, y} \\Delta x$\nTherefore:\n$\\dfrac {\\Delta G} {\\Delta x} = \\displaystyle \\int_a^b \\map {\\frac {\\partial f} {\\partial x} } {c_y, y} \\rd y$\nNow, pick any $\\epsilon > 0$ and set $\\epsilon_0 = \\dfrac {\\epsilon} {b - a}$.\nSince $\\dfrac {\\partial f} {\\partial x}$ is continuous on the compact set $D$, it is uniformly continuous on $D$.\nHence for each $x$ and $y$:\n$\\size {\\map {\\dfrac {\\partial f} {\\partial x} } {x + h, y} - \\map {\\dfrac {\\partial f} {\\partial x} } {x, y} } < \\epsilon_0$\nwhenever $h$ is sufficiently small.\nSince $x < c_y < x + \\Delta x$, it follows that for sufficiently small $\\Delta x$:\n$\\size {\\map {\\dfrac {\\partial f} {\\partial x} } {c_y, y} - \\map {\\dfrac {\\partial f} {\\partial x} } {x, y} } < \\epsilon_0$\nregardless of our choice of $y$.\nSo we can say:\n$$\\size {\\lim_{\\Delta x \\mathop \\to 0} \\frac {\\Delta G} {\\Delta x} - \\int_a^b \\map {\\frac {\\partial f} {\\partial x} } {x, y} \\rd y} = \\lim_{\\Delta x \\mathop \\to 0} \\size {\\int_a^b \\map {\\frac {\\partial f} {\\partial x} } {c_y, y} - \\frac {\\partial f}{\\partial x} \\rd y}$$\n$$\\le \\lim_{\\Delta x \\mathop \\to 0} \\int_a^b \\size {\\map {\\frac {\\partial f} {\\partial x} } {c_y, y} - \\map {\\frac {\\partial f} {\\partial x} } {x, y} } \\rd y$$\n$$\\le \\int_a^b \\epsilon_0 \\rd y$$\n$$= \\epsilon$$\nBut since $\\epsilon$ was arbitrary, it follows that:\n$\\displaystyle \\lim_{\\Delta x \\mathop \\to 0} \\frac {\\Delta G} {\\Delta x} = \\int_a^b \\map {\\frac {\\partial f} {\\partial x} } {x, y} \\rd y$\nand the theorem is proved.",
+    "clean_row_index": 877,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Mean value bounds each difference quotient by derivative values within the increment. Uniform continuity on the compact rectangle makes the error uniformly small in y, so its integral tends to zero (one-sided at the boundary)."
+  },
+  {
+    "theorem_id": 2015,
+    "title": "Definite Integral of Partial Derivative",
+    "theorem_text": "Let $\\map f {x, y}$ and $\\map {\\dfrac {\\partial f} {\\partial x} } {x, y}$ be continuous functions of $x$ and $y$ on $D = \\closedint {x_1} {x_2} \\times \\closedint a b$.\nThen:\n$\\displaystyle \\frac \\d {\\d x} \\int_a^b \\map f {x, y} \\rd y = \\int_a^b \\map {\\frac {\\partial f} {\\partial x} } {x, y} \\rd y$\nfor $x \\in \\closedint {x_1} {x_2}$.",
+    "proof_text": "From Leibniz's Integral Rule:\n$\\displaystyle \\frac \\d {\\d y} \\int_{\\map a y}^{\\map b y} \\map f {x, y} \\rd x = \\map f {y, \\map b y} \\frac {\\d b} {\\d y} - \\map f {y, \\map a y} \\frac {\\d a} {\\d y} + \\int_{\\map a y}^{\\map b y} \\frac {\\partial} {\\partial y} \\map f {x, y} \\rd x$\nwhere $\\map a y$, $\\map b y$ are continuously differentiable.\nSetting $\\map a y$ and $\\map b y$ constant, so that $\\exists a, b \\in \\R: \\map a y = a, \\map b y = b$:\n$\\dfrac {\\d a} {\\d y} = \\dfrac {\\d b} {\\d y} = 0$\nfrom which the result follows immediately.",
+    "clean_row_index": 878,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Constant endpoints in Leibniz's rule have zero derivatives and make both boundary terms vanish, leaving the integral of the parameter derivative."
+  },
+  {
+    "theorem_id": 2019,
+    "title": "Sum of Floors not greater than Floor of Sum",
+    "theorem_text": "Let $\\left \\lfloor {x} \\right \\rfloor$ be the floor function.\nThen:\n$\\left \\lfloor {x} \\right \\rfloor + \\left \\lfloor {y} \\right \\rfloor \\le \\left \\lfloor {x + y} \\right \\rfloor$\nThe equality holds:\n$\\left \\lfloor {x} \\right \\rfloor + \\left \\lfloor {y} \\right \\rfloor = \\left \\lfloor {x + y} \\right \\rfloor$\nif and only if:\n$x \\bmod 1 + y \\bmod 1 < 1$\nwhere $x \\bmod 1$ denotes the modulo operation.",
+    "proof_text": "From the definition of the modulo operation, we have that:\n$x = \\left \\lfloor {x}\\right \\rfloor + \\left({x \\bmod 1}\\right)$\nfrom which:\n$$\\left \\lfloor {x + y} \\right \\rfloor = \\left \\lfloor {\\left \\lfloor {x}\\right \\rfloor + \\left({x \\bmod 1}\\right) + \\left \\lfloor {y}\\right \\rfloor + \\left({y \\bmod 1}\\right)} \\right \\rfloor$$\n$$= \\left \\lfloor {x}\\right \\rfloor + \\left \\lfloor {y}\\right \\rfloor + \\left \\lfloor {\\left({x \\bmod 1}\\right) + \\left({y \\bmod 1}\\right)} \\right \\rfloor$$\nFloor of Number plus Integer\nHence the inequality.\nThe equality holds if and only if:\n$\\left \\lfloor {\\left({x \\bmod 1}\\right) + \\left({y \\bmod 1}\\right)} \\right \\rfloor = 0$\nthat is, if and only if:\n$x \\bmod 1 + y \\bmod 1 < 1$",
+    "clean_row_index": 879,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "After pulling the integer parts out of the floor, the remaining floor is nonnegative. It vanishes precisely when the sum of the fractional parts is less than 1."
+  },
+  {
+    "theorem_id": 2020,
+    "title": "Sum of Ceilings not less than Ceiling of Sum",
+    "theorem_text": "Let $\\left \\lceil {x} \\right \\rceil$ be the ceiling function.\nThen:\n$\\left \\lceil {x} \\right \\rceil + \\left \\lceil {y} \\right \\rceil \\ge \\left \\lceil {x + y} \\right \\rceil$\nThe equality holds:\n$\\left \\lceil {x} \\right \\rceil + \\left \\lceil {y} \\right \\rceil = \\left \\lceil {x + y} \\right \\rceil$\nif and only if either:\n$x \\in \\Z$ or $y \\in \\Z$\nor:\n$x \\bmod 1 + y \\bmod 1 > 1$\nwhere $x \\bmod 1$ denotes the modulo operation.",
+    "proof_text": "From the definition of the modulo operation, we have that:\n$x = \\left \\lfloor {x}\\right \\rfloor + \\left({x \\bmod 1}\\right)$\nfrom which we obtain:\n$x = \\left \\lceil {x}\\right \\rceil - \\left[{x \\notin \\Z}\\right] + \\left({x \\bmod 1}\\right)$\nwhere $\\left[{x \\notin \\Z}\\right]$ uses Iverson's convention.\n$$\\left \\lceil {x + y} \\right \\rceil = \\left \\lceil {\\left \\lfloor {x}\\right \\rfloor + \\left({x \\bmod 1}\\right) + \\left \\lfloor {y}\\right \\rfloor + \\left({y \\bmod 1}\\right)} \\right \\rceil$$\n$$= \\left \\lceil {\\left \\lceil {x}\\right \\rceil - \\left[{x \\notin \\Z}\\right] + \\left({x \\bmod 1}\\right) + \\left \\lceil {y}\\right \\rceil - \\left[{y \\notin \\Z}\\right] + \\left({y \\bmod 1}\\right)} \\right \\rceil$$\n$$= \\left \\lceil {x}\\right \\rceil + \\left \\lceil {y}\\right \\rceil + \\left \\lceil {\\left({x \\bmod 1}\\right) + \\left({y \\bmod 1}\\right)} \\right \\rceil - \\left[{x \\notin \\Z}\\right] - \\left[{y \\notin \\Z}\\right]$$\nCeiling of Number plus Integer\nWe have that:\n$x \\notin \\Z \\implies x \\bmod 1 > 0$\nAs $0 \\le x \\bmod 1 < 1$ it follows that:\n$\\left[{x \\notin \\Z}\\right] \\ge x \\bmod 1$\nHence the inequality.\nThe equality holds if and only if:\n$\\left \\lceil {\\left({x \\bmod 1}\\right) + \\left({y \\bmod 1}\\right)} \\right \\rceil = \\left[{x \\notin \\Z}\\right] + \\left[{y \\notin \\Z}\\right]$\nthat is, if and only if one of the following holds:\n$x \\in \\Z$, in which case $x \\bmod 1 = 0$\n$y \\in \\Z$, in which case $y \\bmod 1 = 0$\n: both $x, y \\in \\Z$, in which case $\\left({x \\bmod 1}\\right) + \\left({y \\bmod 1}\\right) = 0$\n: both $x, y \\notin \\Z$ and $\\left({x \\bmod 1}\\right) + \\left({y \\bmod 1}\\right) > 1$.",
+    "clean_row_index": 880,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Subtracting the two nonintegrality indicators leaves the ceiling of the fractional-part sum. Comparing these integers gives equality for an integral summand or for two fractions summing to more than one."
+  },
+  {
+    "theorem_id": 2022,
+    "title": "Image Filter is Filter",
+    "theorem_text": "Let $X, Y$ be sets.\nLet $\\mathcal P \\left({X}\\right)$ and $\\mathcal P \\left({Y}\\right)$ be the power sets of $X$ and $Y$ respectively.\nLet $f: X \\to Y$ be a mapping.\nLet $\\mathcal F \\subset \\mathcal P \\left({X}\\right)$ be a filter on $X$.\nThen the image filter of $\\mathcal F$ with respect to $f$:\n$f \\left[{\\mathcal F}\\right] := \\left\\{ {U \\subseteq Y: f^{-1} \\left[{U}\\right] \\in \\mathcal F}\\right\\}$\nis a filter on $Y$.",
+    "proof_text": "From the definition of a filter we have to prove four things:\n$(1): \\quad f \\left[{\\mathcal F}\\right] \\subset \\mathcal P \\left({Y}\\right)$\n$(2): \\quad Y \\in f \\left[{\\mathcal F}\\right], \\varnothing \\notin f \\left[{\\mathcal F}\\right]$\n$(3): \\quad U, V \\in f \\left[{\\mathcal F}\\right] \\implies U \\cap V \\in f \\left[{\\mathcal F}\\right]$\n$(4): \\quad U \\in f \\left[{\\mathcal F}\\right], U \\subseteq V \\subseteq Y \\implies V \\in f \\left[{\\mathcal F}\\right]$\nBy construction we have:\n$f \\left[{\\mathcal F}\\right] \\subseteq \\mathcal P \\left({Y}\\right)$\nSince $f^{-1} \\left[{\\varnothing}\\right] = \\varnothing \\notin \\mathcal F$ we know that:\n$\\varnothing \\notin f \\left[{\\mathcal F}\\right]$\nTherefore:\n$f \\left[{\\mathcal F}\\right] \\ne \\mathcal P \\left({Y}\\right)$\nwhich implies $(1)$.\nBecause $f^{-1} \\left[{Y}\\right] = X \\in \\mathcal F$, we have:\n$Y \\in f \\left[{\\mathcal F}\\right]$\nSince we've already shown $\\varnothing \\notin f \\left[{\\mathcal F}\\right]$, this implies $(2)$.\nLet $U, V \\in f \\left[{\\mathcal F}\\right]$.\nFrom Preimage of Intersection under Mapping:\n$f^{-1} \\left[{U \\cap V}\\right] = f^{-1} \\left[{U}\\right] \\cap f^{-1} \\left[{V}\\right] \\in \\mathcal F$\n(since $\\mathcal F$ is a filter).\nThus $U \\cap V \\in f \\left[{\\mathcal F}\\right]$, and so $(3)$ holds.\nFinally, let $U \\in f \\left[{\\mathcal F}\\right]$ and $V \\subseteq Y$ such that $U \\subseteq V$.\nThen from Image of Subset under Relation is Subset of Image/Corollary 3:\n$f^{-1} \\left[{U}\\right] \\subseteq f^{-1} \\left[{V}\\right]$\nSince $f^{-1} \\left[{U}\\right] \\in \\mathcal F$ and $\\mathcal F$ is a filter it follows that:\n$f^{-1} \\left[{V}\\right] \\in \\mathcal F$\nwhich implies:\n$V \\in f \\left[{\\mathcal F}\\right]$\nand thus $(4)$.",
+    "clean_row_index": 881,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Preimages preserve inclusions, intersections, the entire space and the empty set, which transfers all four filter conditions to the image filter."
+  },
+  {
+    "theorem_id": 2025,
+    "title": "Image of Ultrafilter is Ultrafilter",
+    "theorem_text": "Let $X, Y$ be two sets, $f: X \\to Y$ a mapping and $\\mathcal F$ an ultrafilter on $X$.\nThen the image filter $f \\left({\\mathcal F}\\right)$ is an ultrafilter on $Y$.",
+    "proof_text": "From Image Filter is Filter, we have that $\\mathcal F$ is a filter on $Y$.\nLet $\\mathcal G$ be a filter on $Y$ such that $f \\left({\\mathcal F}\\right) \\subseteq \\mathcal G$.\nWe have to show that $f \\left({\\mathcal F}\\right) = \\mathcal G$.\nLet $U \\in \\mathcal G$.\nAssume that $U \\notin f \\left({\\mathcal F}\\right)$.\nBy the definition of $f \\left({\\mathcal F}\\right)$ this implies that $f^{-1}(U) \\not \\in \\mathcal F$.\nBy definition of ultrafilter:\n$V := X \\setminus f^{-1} \\left({U}\\right) \\in \\mathcal F$\nBecause $V \\subseteq f^{-1} \\left({f \\left({V}\\right)}\\right)$ it follows that $f^{-1}\\left({f \\left({V}\\right)}\\right) \\in \\mathcal F$ and thus also $f \\left({V}\\right) \\in f \\left({\\mathcal F}\\right)$.\nBy assumption we have $f \\left({\\mathcal F}\\right) \\subseteq \\mathcal G$, thus $f \\left({V}\\right) \\in \\mathcal G$.\nBut:\n$f \\left({V}\\right) \\cap U = f \\left({X \\setminus f^{-1} \\left({U}\\right)}\\right) \\cap U = \\varnothing \\notin \\mathcal G$\nThus $\\mathcal G$ is not a filter, a contradiction to our assumptions.\nThus:\n$U \\in f \\left({\\mathcal F}\\right)$ and therefore $f \\left({\\mathcal F}\\right) = \\mathcal G$\nHence $f \\left({\\mathcal F}\\right)$ is an ultrafilter.",
+    "clean_row_index": 882,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A proposed larger filter containing U outside the image filter must also contain the image of its complementary preimage. These sets are disjoint, contradicting properness."
+  },
+  {
+    "theorem_id": 2028,
+    "title": "Wallis's Product",
+    "theorem_text": "$$\\prod_{n \\mathop = 1}^\\infty \\frac {2 n} {2 n - 1} \\cdot \\frac {2 n} {2 n + 1} = \\frac 2 1 \\cdot \\frac 2 3 \\cdot \\frac 4 3 \\cdot \\frac 4 5 \\cdot \\frac 6 5 \\cdot \\frac 6 7 \\cdot \\frac 8 7 \\cdot \\frac 8 9 \\cdots$$\n$$= \\frac \\pi 2$$",
+    "proof_text": "From the Reduction Formula for Integral of Power of Sine, we have:\n$\\displaystyle (1): \\quad \\int \\sin^n x \\rd x = - \\frac 1 n \\sin^{n - 1} \\cos x + \\frac {n - 1} n \\int \\sin^{n - 2} x \\rd x$\nLet $I_n$ be defined as:\n$\\displaystyle I_n = \\int_0^{\\pi / 2} \\sin^n x \\rd x$\nAs $\\cos \\dfrac \\pi 2 = 0$ from Shape of Cosine Function, we have from $(1)$ that:\n$(2): \\quad I_n = \\dfrac {n-1} n I_{n-2}$\nTo start the ball rolling, we note that:\n$\\displaystyle I_0 = \\int_0^{\\pi / 2} \\rd x = \\frac \\pi 2 \\qquad \\qquad I_1 = \\int_0^{\\pi / 2} \\sin x \\rd x = \\left[{- \\cos x}\\right]_0^{\\pi / 2} = 1$\nWe need to separate the cases where the subscripts are even and odd:\n$$I_{2 n} = \\frac {2 n - 1} {2 n} I_{2 n - 2}$$\n$$= \\frac {2 n - 1} {2 n} \\cdot \\frac {2 n - 3} {2 n - 2} I_{2 n - 4}$$\n$$= \\cdots$$\n$$= \\frac {2 n - 1} {2 n} \\cdot \\frac {2 n - 3} {2 n - 2} \\cdot \\frac {2 n - 5} {2 n - 4} \\cdots \\frac 3 4 \\cdot \\frac 1 2 I_0$$\n(A) $$= \\frac {2 n - 1} {2 n} \\cdot \\frac {2 n - 3} {2 n - 2} \\cdot \\frac {2 n - 5} {2 n - 4} \\cdots \\frac 3 4 \\cdot \\frac 1 2 \\cdot \\frac \\pi 2$$\n$$I_{2 n+1} = \\frac {2 n} {2 n + 1} I_{2 n - 1}$$\n$$= \\frac {2 n} {2 n + 1} \\cdot \\frac {2 n - 2} {2 n - 1} I_{2 n - 3}$$\n$$= \\cdots$$\n$$= \\frac {2 n} {2 n + 1} \\cdot \\frac {2 n - 2} {2 n - 1} \\cdot \\frac {2 n - 4} {2 n - 3} \\cdots \\frac 4 5 \\cdot \\frac 2 3 I_1$$\n(B) $$= \\frac {2 n} {2 n + 1} \\cdot \\frac {2 n - 2} {2 n - 1} \\cdot \\frac {2 n - 4} {2 n - 3} \\cdots \\frac 4 5 \\cdot \\frac 2 3$$\nBy Shape of Sine Function, we have that on $0 \\le x \\le \\dfrac \\pi 2$:\n$0 \\le \\sin x \\le 1$\nTherefore:\n$0 \\le \\sin^{2 n + 2} x \\le \\sin^{2 n +1} x \\le \\sin^{2 n} x$\nIt follows from Relative Sizes of Definite Integrals that:\n$\\displaystyle 0 < \\int_0^{\\pi / 2} \\sin^{2 n + 2} x \\rd x \\le \\int_0^{\\pi / 2} \\sin^{2 n + 1} x \\rd x \\le \\int_0^{\\pi / 2} \\sin^{2 n} x \\rd x$\nThat is:\n$(3): \\quad 0 < I_{2 n + 2} \\le I_{2 n + 1} \\le I_{2 n}$\nBy $(2)$ we have:\n$\\dfrac {I_{2 n + 2} } {I_{2 n} } = \\dfrac {2 n + 1} {2 n + 2}$\nDividing $(3)$ through by $I_{2n}$ then, we have:\n$\\dfrac {2 n + 1} {2 n + 2} \\le \\dfrac {I_{2 n + 1}} {I_{2 n}} \\le 1$\nBy Squeeze Theorem, it follows that:\n$\\dfrac {I_{2 n + 1} } {I_{2 n} } \\to 1$ as $n \\to \\infty$\nwhich is equivalent to:\n$\\dfrac {I_{2 n} } {I_{2 n + 1} } \\to 1$ as $n \\to \\infty$\nNow we take $(B)$ and divide it by $(A)$ to get:\n$\\dfrac {I_{2 n + 1} } {I_{2 n} } = \\dfrac 2 1 \\cdot \\dfrac 2 3 \\cdot \\dfrac 4 3 \\cdot \\dfrac 4 5 \\cdots \\dfrac {2 n} {2 n - 1} \\cdot \\dfrac {2 n} {2 n + 1} \\cdot \\dfrac 2 \\pi$\nSo:\n$\\dfrac \\pi 2 = \\dfrac 2 1 \\cdot \\dfrac 2 3 \\cdot \\dfrac 4 3 \\cdot \\dfrac 4 5 \\cdots \\dfrac {2 n} {2 n - 1} \\cdot \\dfrac {2 n} {2 n + 1} \\cdot \\left({\\dfrac {I_{2 n} } {I_{2 n + 1} } }\\right)$\nTaking the limit as $n \\to \\infty$ gives the result.",
+    "clean_row_index": 883,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The even and odd sine integrals have explicit products, and the neighboring even integrals squeeze their ratio to 1. Dividing the product formulas yields the claimed limit."
+  },
+  {
+    "theorem_id": 2033,
+    "title": "Binomial Coefficient involving Prime",
+    "theorem_text": "Let $p$ be a prime number.\nLet $\\dbinom n p$ be a binomial coefficient.\nThen:\n$\\dbinom n p \\equiv \\floor {\\dfrac n p} \\pmod p$\nwhere:\n$\\floor {\\dfrac n p}$\ndenotes the floor function.",
+    "proof_text": "Follows directly from Lucas' Theorem:\n$\\dbinom n k \\equiv \\dbinom {\\floor {n / p} } {\\floor {k / p} } \\dbinom {n \\bmod p} {k \\bmod p} \\pmod p$\nwhere $k = p$.\nThen:\n$k \\bmod p = 0$\nand so by Binomial Coefficient with Zero:\n$\\dbinom {n \\bmod p} {k \\bmod p} = 1$\nAlso:\n$\\floor {k / p} = 1$\nand by Binomial Coefficient with One:\n$\\dbinom {\\floor {n / p} } {\\floor {k / p} } = \\floor {\\dfrac n p}$\nThus:\n$\\dbinom n p \\equiv \\floor {\\dfrac n p} \\times 1 \\pmod p$\nHence the result.",
+    "clean_row_index": 884,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Substituting k=p into Lucas's congruence gives factors choose(floor(n/p),1) and choose(n mod p,0), with exactly the claimed residue."
+  },
+  {
+    "theorem_id": 2034,
+    "title": "Binomial Coefficient of Prime Minus One Modulo Prime",
+    "theorem_text": "Let $p$ be a prime number.\nThen:\n$0 \\le k \\le p - 1 \\implies \\dbinom {p - 1} k \\equiv \\left({-1}\\right)^k \\pmod p$\nwhere $\\dbinom {p - 1} k$ denotes a binomial coefficient.",
+    "proof_text": "From Binomial Coefficient of Prime, we have:\n$\\dbinom p k \\equiv 0 \\pmod p$\nwhen $1 \\le k \\le p - 1$.\nFrom Pascal's Rule:\n$\\dbinom {p-1} k + \\dbinom {p - 1} {k - 1} = \\dbinom p k \\equiv 0 \\pmod p$\nThis certainly holds for $k = 1$, and so we have:\n$\\dbinom {p - 1} 1 + \\dbinom {p - 1} 0 = \\dbinom p 1 \\equiv 0 \\pmod p$\nBut from Binomial Coefficient with Zero:\n$\\dbinom {p - 1} 0 = 1 \\equiv 1 \\pmod p$\nSo:\n$\\dbinom {p - 1} 1 \\equiv -1 \\pmod p$\nThen:\n$\\dbinom {p - 1} 2 + \\dbinom {p - 1} 1 = \\dbinom p 2 \\equiv 0 \\pmod p$\nand so:\n$\\dbinom {p - 1} 2 \\equiv 1 \\pmod p$\nThe result follows.",
+    "clean_row_index": 885,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Pascal's rule and divisibility of the interior entries in row p give a sign-changing recurrence along row p−1 starting at 1."
+  },
+  {
+    "theorem_id": 2035,
+    "title": "Binomial Coefficient of Prime Plus One Modulo Prime",
+    "theorem_text": "Let $p$ be a prime number.\nThen:\n$2 \\le k \\le p - 1 \\implies \\dbinom {p + 1} k \\equiv 0 \\pmod p$\nwhere $\\dbinom {p + 1} k$ denotes a binomial coefficient.",
+    "proof_text": "From Binomial Coefficient of Prime, we have:\n$\\dbinom p k \\equiv 0 \\pmod p$\nwhen $1 \\le k \\le p - 1$.\nFrom Pascal's Rule:\n$\\dbinom {p + 1} k = \\dbinom p {k - 1} + \\dbinom p k$\nThe result follows immediately.",
+    "clean_row_index": 886,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Both contributing coefficients from row p are interior entries throughout the given range. Their sum from Pascal's rule is therefore zero modulo p."
+  },
+  {
+    "theorem_id": 2036,
+    "title": "Number of Primes is Infinite",
+    "theorem_text": "The number of primes is infinite.",
+    "proof_text": "Euclid's Theorem states that:\n: For any finite set of prime numbers, there exists a prime number not in that set.\nThe result follows by corollary.",
+    "clean_row_index": 887,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Euclid's theorem produces a prime outside any finite candidate list, ruling out a finite set of all primes."
+  },
+  {
+    "theorem_id": 2039,
+    "title": "Quotient and Remainder to Number Base",
+    "theorem_text": "Let $n \\in \\Z: n > 0$ be an integer.\nLet $n$ be expressed in base $b$:\n$\\displaystyle n = \\sum_{j \\mathop = 0}^m {r_j b^j}$\ni.e.\n$n = \\left[{r_m r_{m-1} \\ldots r_2 r_1 r_0}\\right]_b$\nThen:\n$\\displaystyle \\left \\lfloor {\\frac n b} \\right \\rfloor = \\left[{r_m r_{m-1} \\ldots r_2 r_1}\\right]_b$\n$n \\bmod b = r_0$\nwhere:\n$\\left \\lfloor {.} \\right \\rfloor$ denotes the floor function;\n$n \\bmod b$ denotes the modulo operation.",
+    "proof_text": "From the Quotient-Remainder Theorem, we have:\n$\\exists q, r \\in \\Z: n = q b + r$\nwhere $0 \\le b < r$.\nWe have that:\n$$n = \\sum_{j \\mathop = 0}^m {r_j b^j}$$\n$$= \\sum_{j \\mathop = 1}^m {r_j b^j} + r_0$$\n$$= b \\sum_{j \\mathop = 1}^m {r_j b^{j-1} } + r_0$$\nHence we can express $n = q b + r$ where:\n$\\displaystyle q = \\sum_{j \\mathop = 1}^m {r_{j} b^{j-1}}$\n$r = r_0$\nwhere:\n$\\displaystyle \\sum_{j \\mathop = 1}^m {r_j b^{j-1}} = \\left[{r_m r_{m-1} \\ldots r_2 r_1}\\right]_b$\nThe result follows from the definition of the modulo operation.",
+    "clean_row_index": 888,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Factoring out b from all higher-place terms leaves the units digit in [0,b), so uniqueness gives both quotient and remainder. The initial remainder inequality has its letters transposed."
+  },
+  {
+    "theorem_id": 2043,
+    "title": "Gaussian Integers form Subring of Complex Numbers",
+    "theorem_text": "The ring of Gaussian integers:\n$\\struct {\\Z \\sqbrk i, +, \\times}$\nforms a subring of the set of complex numbers $\\C$.",
+    "proof_text": "From Complex Numbers form Field, $\\C$ forms a field.\nBy definition, a field is a ring.\nThus it is possible to use the Subring Test.\nWe note that $\\Z \\sqbrk i$ is not empty, as (for example) $0 + 0 i \\in \\Z \\sqbrk i$.\nLet $a + b i, c + d i \\in \\Z \\sqbrk i$.\nThen we have $-\\paren {c + d i} = -c - d i$, and so:\n$$\\paren {a + b i} + \\paren {-\\paren {c + d i} } = \\paren {a + b i} + \\paren {- c - d i}$$\n$$= \\paren {a + \\paren {-c} } + \\paren {b + \\paren {-d} } i$$\n$$= \\paren {a - c} + \\paren {b - d} i$$\nWe have that $a, b, c, d \\in \\Z$ and $\\Z$ is an integral domain, therefore by definition a ring.\nSo it follows that $a - c \\in \\Z$ and $b - d \\in \\Z$, and hence:\n$\\paren {a - c} + \\paren {b - d} i \\in \\Z \\sqbrk i$\nNow consider $\\paren {a + b i} \\paren {c + d i}$.\nBy the definition of complex multiplication, we have:\n$\\paren {a + b i} \\paren {c + d i} = \\paren {a c - b d} + \\paren {a d + b c} i$\nAs $a, b, c, d \\in \\Z$ and $\\Z$ is a ring, it follows that:\n$a c - b d \\in \\Z$ and $ad + bc \\in \\Z$\nSo:\n$\\paren {a + b i} \\paren {c + d i} \\in \\Z \\sqbrk i$\nSo by the Subring Test, $\\Z \\sqbrk i$ is a subring of $\\C$.",
+    "clean_row_index": 890,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The set contains zero and differences and products retain integer real and imaginary parts. These checks give the subring test."
+  },
+  {
+    "theorem_id": 2045,
+    "title": "Complex Conjugation is Automorphism",
+    "theorem_text": "Consider the field of complex numbers $\\C$.\nThe operation of complex conjugation:\n$\\forall z \\in \\C: z \\mapsto \\overline z$\nis a field automorphism.",
+    "proof_text": "Let $z_1 = x_1 + i y_1, z_2 = x_2 + i y_2$.\nLet us define the mapping $\\phi: \\C \\to \\C$ defined as:\n$\\forall z \\in \\C: \\map \\phi z = \\overline z$\nWe check that $\\phi$ has the morphism property:\nBy Sum of Complex Conjugates:\n$\\map \\phi {z_1 + z_2} = \\map \\phi {z_1} + \\map \\phi {z_2}$\nBy Product of Complex Conjugates:\n$\\map \\phi {z_1 z_2} = \\map \\phi {z_1} \\map \\phi {z_2}$\nSo the morphism property holds for both complex addition and complex multiplication.\nHence we can say that complex conjugation is a field homomorphism.\nWe note that $\\overline z_1 = \\overline z_2 \\implies z_1 = z_2$ and so complex conjugation is injective.\nAlso, complex conjugation is trivially surjective, and hence bijective.\nThe result then follows by definition of field automorphism.",
+    "clean_row_index": 891,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Conjugation preserves addition and multiplication, fixes 1, and is its own inverse, so it is a bijective field homomorphism."
+  },
+  {
+    "theorem_id": 2049,
+    "title": "Ring of Sets is Semiring of Sets",
+    "theorem_text": "Let $\\mathcal R$ be a ring of sets.\nThen $\\mathcal R$ is also a semiring of sets.",
+    "proof_text": "Let $A \\in \\mathcal R$.\nSuppose $A_1 \\subseteq A$.\nLet $A_2 = A \\setminus A_1$, where $A \\setminus A_1$ denotes set difference.\nBy definition, $A_2$ is then the relative complement of $A_1$ with respect to $A$.\nFrom Union with Relative Complement it then follows that $A_1 \\cup A_2 = A$.\nBy Ring of Sets Closed under Various Operations:\n$A \\setminus A_1 = A_2 \\in \\mathcal R$\nBut by Set Difference Intersection with Second Set is Empty Set:\n$\\left({A \\setminus A_1}\\right) \\cap A_1 = \\varnothing$\nHence for any given $A$ for which we have $A_1 \\subseteq A$, we can represent $A$ as the finite expansion $A_1 \\cup A_2$ such that $A_1 \\cap A_2 = \\varnothing$ and $A_1, A_2 \\in \\mathcal R$\nThus, by definition, $\\mathcal R$ is a semiring of sets.",
+    "clean_row_index": 892,
+    "validity": "Invalid",
+    "error_type": "Unjustified assumption",
+    "review_reason": "Difference closure needs A1 to be a member of the ring as well as a subset of A. The proof asserts membership of A1 and its complement for every subset, which need not hold."
+  },
+  {
+    "theorem_id": 2052,
+    "title": "Ring of Sets Closed under Finite Intersection",
+    "theorem_text": "Let $\\mathcal R$ be a ring of sets.\nLet $A_1, A_2, \\ldots, A_n \\in \\mathcal R$.\nThen:\n$\\displaystyle \\bigcap_{j \\mathop = 1}^n A_j \\in \\mathcal R$",
+    "proof_text": "Proof by induction:\nFor all $n \\in \\N_{>0}$, let $P \\left({n}\\right)$ be the proposition:\n$\\displaystyle \\bigcap_{j \\mathop = 1}^n A_j \\in \\mathcal R$\n$P(1)$ is true, as this just says $A_1 \\in \\mathcal R$.\nBasis for the Induction\n$P(2)$ is the case:\n$A_1 \\cap A_2 \\in \\mathcal R$\nwhich is immediate, from definition 1 of ring of sets.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $P \\left({k}\\right)$ is true, where $k \\ge 2$, then it logically follows that $P \\left({k+1}\\right)$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle \\bigcap_{j \\mathop = 1}^k A_j \\in \\mathcal R$\nThen we need to show:\n$\\displaystyle \\bigcap_{j \\mathop = 1}^{k+1} A_j \\in \\mathcal R$\nInduction Step\nThis is our induction step:\nWe have that:\n$\\displaystyle \\bigcap_{j \\mathop = 1}^{k+1} A_j = \\bigcap_{j \\mathop = 1}^k A_j \\cap A_{k+1}$\nBut from the induction hypothesis we have that:\n$\\displaystyle \\bigcap_{j \\mathop = 1}^k A_j \\in \\mathcal R$\nHence from the basis for the induction, it follows that:\n$\\displaystyle \\bigcap_{j \\mathop = 1}^{k+1} A_j \\in \\mathcal R$\nSo $P \\left({k}\\right) \\implies P \\left({k+1}\\right)$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\displaystyle \\bigcap_{j \\mathop = 1}^n A_j \\in \\mathcal R$",
+    "clean_row_index": 893,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Starting from one member and binary intersection closure, induction intersects the previous result with the next member of the ring."
+  },
+  {
+    "theorem_id": 2054,
+    "title": "Addition Law of Probability",
+    "theorem_text": "$\\map \\Pr {A \\cup B} = \\map \\Pr A + \\map \\Pr B - \\map \\Pr {A \\cap B}$",
+    "proof_text": "By definition, a probability measure is a measure.\nHence, again by definition, it is a countably additive function.\nBy Measure is Finitely Additive Function, we have that $\\Pr$ is an additive function.\nSo Additive Function is Strongly Additive can be applied directly.",
+    "clean_row_index": 894,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "A probability measure is finitely additive and finite-valued, so its strong-additivity identity can be rearranged by subtracting the intersection probability."
+  },
+  {
+    "theorem_id": 2054,
+    "title": "Addition Law of Probability",
+    "theorem_text": "$\\map \\Pr {A \\cup B} = \\map \\Pr A + \\map \\Pr B - \\map \\Pr {A \\cap B}$",
+    "proof_text": "From Set Difference and Intersection form Partition:\n$A$ is the union of the two disjoint sets $A \\setminus B$ and $A \\cap B$\n$B$ is the union of the two disjoint sets $B \\setminus A$ and $A \\cap B$.\nSo, by the definition of probability measure:\n$\\map \\Pr A = \\map \\Pr {A \\setminus B} + \\map \\Pr {A \\cap B}$\n$\\map \\Pr B = \\map \\Pr {B \\setminus A} + \\map \\Pr {A \\cap B}$\nFrom Set Difference is Disjoint with Reverse:\n$\\paren {A \\setminus B} \\cap \\paren {B \\setminus A} = \\O$\nHence:\n$$\\map \\Pr A + \\map \\Pr B = \\map \\Pr {A \\setminus B} + 2 \\map \\Pr {A \\cap B} + \\map \\Pr {B \\setminus A}$$\n$$= \\map \\Pr {\\paren {A \\setminus B} \\cup \\paren {A \\cap B} \\cup \\paren {B \\setminus A} } + \\map \\Pr {A \\cap B}$$\nSet Difference and Intersection form Partition: Corollary 1\n$$= \\map \\Pr {A \\cup B} + \\map \\Pr {A \\cap B}$$\nHence the result.",
+    "clean_row_index": 895,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The three disjoint pieces of the union show that the sum of the two event probabilities counts the intersection twice. Subtracting one copy gives the result."
+  },
+  {
+    "theorem_id": 2056,
+    "title": "Finite Union of Sets in Additive Function",
+    "theorem_text": "Let $\\mathcal A$ be an algebra of sets.\nLet $f: \\mathcal A \\to \\overline {\\R}$ be an additive function.\nLet $A_1, A_2, \\ldots, A_n$ be any finite collection of pairwise disjoint elements of $\\mathcal A$.\nThen:\n$\\displaystyle f \\left({\\bigcup_{i \\mathop = 1}^n A_i}\\right) = \\sum_{i \\mathop = 1}^n f \\left({A_i}\\right)$\nThat is, for any collection of pairwise disjoint elements of $\\mathcal A$, $f$ of their union equals the sum of $f$ of the individual elements.",
+    "proof_text": "Proof by induction:\nIn the below, we assume that $A_1, A_2, \\ldots$ are all pairwise disjoint elements of $\\mathcal A$.\nFor all $n \\in \\N_{>0}$, let $P \\left({n}\\right)$ be the proposition:\n$\\displaystyle f \\left({\\bigcup_{i \\mathop = 1}^n A_i}\\right) = \\sum_{i \\mathop = 1}^n f \\left({A_i}\\right)$\n$P(1)$ is true, as this just says:\n$f \\left({A_1}\\right) = f \\left({A_1}\\right)$\nBasis for the Induction\n$P(2)$ is the case:\n$f \\left({A_1 \\cup A_2}\\right) = f \\left({A_1}\\right) + f \\left({A_2}\\right)$\nwhich comes from the definition of an additive function.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $P \\left({k}\\right)$ is true, where $k \\ge 2$, then it logically follows that $P \\left({k+1}\\right)$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle f \\left({\\bigcup_{i \\mathop = 1}^k A_i}\\right) = \\sum_{i \\mathop = 1}^k f \\left({A_i}\\right)$\nThen we need to show:\n$\\displaystyle f \\left({\\bigcup_{i \\mathop = 1}^{k+1} A_i}\\right) = \\sum_{i \\mathop = 1}^{k+1} f \\left({A_i}\\right)$\nInduction Step\nThis is our induction step:\n$$f \\left({\\bigcup_{i \\mathop = 1}^{k+1} A_i}\\right) = f \\left({\\bigcup_{i \\mathop = 1}^k A_i \\cup A_{k+1} }\\right)$$\n$$= f \\left({\\bigcup_{i \\mathop = 1}^k A_i}\\right) + f \\left({A_{k+1} }\\right)$$\nas $A_{k+1}$ and $\\displaystyle \\bigcup_{i \\mathop = 1}^k A_i$ are disjoint\n$$= \\sum_{i \\mathop = 1}^k f \\left({A_i}\\right) + f \\left({A_{k+1} }\\right)$$\nfrom the induction hypothesis\n$$= \\sum_{i \\mathop = 1}^{k+1} f \\left({A_i}\\right)$$\nSo $P \\left({k}\\right) \\implies P \\left({k+1}\\right)$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\displaystyle \\forall n \\in \\N_{>0}: \\left({\\bigcup_{i \\mathop = 1}^n A_i}\\right) = \\sum_{i \\mathop = 1}^n f \\left({A_i}\\right)$",
+    "clean_row_index": 896,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "The next set is disjoint from the union already counted. Applying binary additivity and the induction hypothesis gives the displayed finite sum."
+  },
+  {
+    "theorem_id": 2058,
+    "title": "Finite Union of Sets in Subadditive Function",
+    "theorem_text": "Let $\\mathcal A$ be an algebra of sets.\nLet $f: \\mathcal A \\to \\overline {\\R}$ be a subadditive function.\nLet $A_1, A_2, \\ldots, A_n$ be any finite collection of elements of $\\mathcal A$.\nThen:\n$\\displaystyle f \\left({\\bigcup_{i \\mathop = 1}^n A_i}\\right) \\le \\sum_{i \\mathop = 1}^n f \\left({A_i}\\right)$\nThat is, for any finite collection of elements of $\\mathcal A$, $f$ of their union is less than or equal to the sum of $f$ of the individual elements.",
+    "proof_text": "Proof by induction:\nIn the below, we assume that $A_1, A_2, \\ldots$ are all elements of $\\mathcal A$.\nFor all $n \\in \\N_{>0}$, let $P \\left({n}\\right)$ be the proposition:\n$\\displaystyle f \\left({\\bigcup_{i \\mathop = 1}^n A_i}\\right) \\le \\sum_{i \\mathop = 1}^n f \\left({A_i}\\right)$\n$P(1)$ is trivially true, as this just says $f \\left({A_1}\\right) \\le f \\left({A_1}\\right)$.\nBasis for the Induction\n$P(2)$ is the case $f \\left({A_1 \\cup A_2}\\right) \\le f \\left({A_1}\\right) + f \\left({A_2}\\right)$, which comes from the definition of a subadditive function.\nThis is our basis for the induction.\nInduction Hypothesis\nNow we need to show that, if $P \\left({k}\\right)$ is true, where $k \\ge 2$, then it logically follows that $P \\left({k+1}\\right)$ is true.\nSo this is our induction hypothesis:\n$\\displaystyle f \\left({\\bigcup_{i \\mathop = 1}^k A_i}\\right) \\le \\sum_{i \\mathop = 1}^k f \\left({A_i}\\right)$\nThen we need to show:\n$\\displaystyle f \\left({\\bigcup_{i \\mathop = 1}^{k+1} A_i}\\right) \\le \\sum_{i \\mathop = 1}^{k+1} f \\left({A_i}\\right)$\nInduction Step\nThis is our induction step:\n$$f \\left({\\bigcup_{i \\mathop = 1}^{k+1} A_i}\\right) = f \\left({\\bigcup_{i \\mathop = 1}^k A_i \\cup A_{k+1} }\\right)$$\n$$\\le f \\left({\\bigcup_{i \\mathop = 1}^k A_i}\\right) + f \\left({A_{k+1} }\\right)$$\nfrom the base case\n$$\\le \\sum_{i \\mathop = 1}^k f \\left({A_i}\\right) + f \\left({A_{k+1} }\\right)$$\nfrom the induction hypothesis\n$$= \\sum_{i \\mathop = 1}^{k+1} f \\left({A_i}\\right)$$\nSo $P \\left({k}\\right) \\implies P \\left({k+1}\\right)$ and the result follows by the Principle of Mathematical Induction.\nTherefore:\n$\\displaystyle \\forall n \\in \\N_{>0}: \\left({\\bigcup_{i \\mathop = 1}^n A_i}\\right) \\le \\sum_{i \\mathop = 1}^n f \\left({A_i}\\right)$",
+    "clean_row_index": 897,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Applying binary subadditivity to the first k sets' union and the next set, then substituting the induction bound, gives the inequality."
+  },
+  {
+    "theorem_id": 2059,
+    "title": "Additive Function on Empty Set is Zero",
+    "theorem_text": "Let $\\mathcal A$ be an algebra of sets.\nLet $f: \\mathcal A \\to \\overline {\\R}$ be an additive function on $\\mathcal A$.\nThen $f \\left({\\varnothing}\\right) = 0$.",
+    "proof_text": "First we check that the statement of the theorem makes sense.\nAnd we have that from Properties of Algebras of Sets we have that $\\varnothing \\in \\mathcal A$.\nNow let $X \\in \\mathcal A$.\nFrom Intersection with Empty Set we have that $X \\cap \\varnothing = \\varnothing$, and so $X$ and $\\varnothing$ are disjoint.\nAs $f$ is additive, it follows by definition that:\n$f \\left({X \\cup \\varnothing}\\right) = f \\left({X}\\right) + f \\left({\\varnothing}\\right)$\nBut $X \\cup \\varnothing = X$ from Union with Empty Set and so:\n$f \\left({X}\\right) = f \\left({X}\\right) + f \\left({\\varnothing}\\right)$\nHence the result:\n$f \\left({\\varnothing}\\right) = 0$",
+    "clean_row_index": 898,
+    "validity": "Invalid",
+    "error_type": "Invalid inference",
+    "review_reason": "The cancellation of f(X) is invalid if f(X) is infinite. With the stated extended-real codomain the identically positive-infinite function obeys binary disjoint additivity."
+  },
+  {
+    "theorem_id": 2060,
+    "title": "Additive Function is Strongly Additive",
+    "theorem_text": "Let $\\SS$ be an algebra of sets.\nLet $f: \\SS \\to \\overline \\R$ be an additive function on $\\SS$.\nThen $f$ is also strongly additive.\nThat is:\n$\\forall A, B \\in \\SS: \\map f {A \\cup B} + \\map f {A \\cap B} = \\map f A + \\map f B$",
+    "proof_text": "From Set Difference and Intersection form Partition, we have that:\n$A$ is the union of the two disjoint sets $A \\setminus B$ and $A \\cap B$\n$B$ is the union of the two disjoint sets $B \\setminus A$ and $A \\cap B$.\nSo, by the definition of additive function:\n$\\map f A = \\map f {A \\setminus B} + \\map f {A \\cap B}$\n$\\map f B = \\map f {B \\setminus A} + \\map f {A \\cap B}$\nWe also have from Set Difference is Disjoint with Reverse that:\n$\\paren {A \\setminus B} \\cap \\paren {B \\setminus A} = \\O$\nHence:\n$$\\map f A + \\map f B = \\map f {A \\setminus B} + 2 \\map f {A \\cap B} + \\map f {B \\setminus A}$$\n$$= \\map f {\\paren {A \\setminus B} \\cup \\paren {A \\cap B} \\cup \\paren {B \\setminus A} } + \\map f {A \\cap B}$$\nSet Difference and Intersection form Partition: Corollary 1\n$$= \\map f {A \\cup B} + \\map f {A \\cap B}$$\nHence the result.",
+    "clean_row_index": 899,
+    "validity": "Valid",
+    "error_type": null,
+    "review_reason": "Splitting the sets into their intersection and their two differences and regrouping by finite additivity gives one copy for the union and a second for the intersection."
+  }
+]
