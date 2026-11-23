@@ -47,7 +47,7 @@
 - Starting from the 16 manually retained Valid proofs, AI prepared one flawed version per proof. For three proofs, AI also prepared a series of one, two, and three symbol changes and a valid rewrite. Two single-symbol edits also serve as the main flawed version. The set contains 16 originals and 26 distinct edits. [Proofs and edit explanations](../Results/proof_edit_challenge.json)
 - Tested the five models using only theorem and proof text. All five still accepted every valid rewrite and all nine flawed symbol-edit versions. These results describe the selected proofs that all five originally accepted. [Evaluation notebook](../Notebooks/06_Proof_Edit_Challenge.ipynb) · [Predictions](../Results/proof_edit_predictions.csv)
 
-## 10. Poster figures and model scores
+## 10. Model visualizations and scores
 
 - Exported the Invalid score from the five theorem-and-proof models for 89 test proofs and 42 challenge versions. Checked the decisions against the recorded predictions. [Score table](../Results/proof_scores.csv)
-- Generated poster figures for the test score distributions, the effect of training with review reasons, and the score change after editing each proof. [Poster notebook](../Notebooks/07_Poster_Figures.ipynb) · [PNG and PDF figures](../Results/poster_figures/)
+- Generated visualizations for the test score distributions, the effect of training with review reasons, and the score change after editing each proof. [Visualization notebook](../Notebooks/07_Model_Visualizations.ipynb) · [PNG and PDF figures](../Results/visualizations/)

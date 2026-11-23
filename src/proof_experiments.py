@@ -88,3 +88,21 @@ def predict_without_training(model, tokenizer, rows, config):
                                    pad_to_multiple_of=8, return_tensors="pt").to(model.device)
             predicted.extend(LABELS[i] for i in model(**inputs).logits.argmax(dim=1).tolist())
     return predicted
+
+
+def save_test_scores(output_dir, model, test, predicted, invalid_scores):
+    """Save one plotted point per test proof, using the model's own decision."""
+    rows = test[["clean_row_index", "theorem_id", "title"]].copy()
+    rows.insert(0, "model", model)
+    rows["actual"] = test["validity"]
+    rows["predicted"] = list(predicted)
+    rows["invalid_score"] = list(invalid_scores)
+    assert rows["clean_row_index"].is_unique and rows["invalid_score"].between(0, 1).all()
+    assert rows["actual"].isin(LABELS).all() and rows["predicted"].isin(LABELS).all()
+    non_ties = rows[rows["invalid_score"] != 0.5]
+    assert non_ties["predicted"].eq("Invalid").equals(non_ties["invalid_score"].gt(0.5))
+    outcomes = {("Valid", "Valid"): "Correctly accepted", ("Valid", "Invalid"): "False alarm",
+                ("Invalid", "Valid"): "Missed error", ("Invalid", "Invalid"): "Error caught"}
+    rows["outcome"] = [outcomes[pair] for pair in zip(rows["actual"], rows["predicted"])]
+    output_dir.mkdir(parents=True, exist_ok=True)
+    rows.sort_values("clean_row_index").to_csv(output_dir / "test_proof_scores.csv", index=False)

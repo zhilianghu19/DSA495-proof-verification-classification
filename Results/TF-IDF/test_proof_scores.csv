@@ -1,0 +1,90 @@
+model,clean_row_index,theorem_id,title,actual,predicted,invalid_score,outcome
+TF-IDF,60,172,Preimage of Set Difference under Relation,Valid,Invalid,0.5264603175021187,False alarm
+TF-IDF,61,173,Restriction is Subset of Relation,Invalid,Invalid,0.5582451473913483,Error caught
+TF-IDF,62,177,Relation both Symmetric and Asymmetric is Null,Valid,Valid,0.4953234411238473,Correctly accepted
+TF-IDF,63,180,Asymmetric Relation is Antisymmetric,Valid,Valid,0.49042526586498514,Correctly accepted
+TF-IDF,64,192,Composite Relation with Inverse is Symmetric,Valid,Invalid,0.5443710498356777,False alarm
+TF-IDF,65,202,Equivalence Classes are Disjoint,Valid,Valid,0.46980905715333654,Correctly accepted
+TF-IDF,66,204,Equivalence Class is Unique,Valid,Invalid,0.5577918016976888,False alarm
+TF-IDF,67,208,Intersection of Equivalences,Valid,Invalid,0.5845078781740111,False alarm
+TF-IDF,68,213,Inverse of Mapping is One-to-Many Relation,Valid,Valid,0.48334720479780824,Correctly accepted
+TF-IDF,69,216,Diagonal Relation is Right Identity,Valid,Valid,0.4749441751338829,Correctly accepted
+TF-IDF,70,217,Identity Mapping is Left Identity,Valid,Valid,0.47235726144249846,Correctly accepted
+TF-IDF,71,224,Injection iff Left Inverse,Valid,Valid,0.4512324438341597,Correctly accepted
+TF-IDF,72,224,Injection iff Left Inverse,Invalid,Valid,0.4489650095548131,Missed error
+TF-IDF,73,228,Restriction of Mapping to Image is Surjection,Valid,Valid,0.4577159570591306,Correctly accepted
+TF-IDF,74,231,Surjection iff Right Inverse,Valid,Valid,0.45956466909811755,Correctly accepted
+TF-IDF,75,232,Identity Mapping is Bijection,Valid,Valid,0.46160613175472687,Correctly accepted
+TF-IDF,76,234,Bijection iff Left and Right Inverse,Valid,Valid,0.4476496019828079,Correctly accepted
+TF-IDF,77,235,Inverse of Bijection is Bijection,Valid,Valid,0.4552100954790441,Correctly accepted
+TF-IDF,78,236,Inverse Element of Bijection,Valid,Valid,0.4544911811864336,Correctly accepted
+TF-IDF,79,238,Inverse of Inverse of Bijection,Valid,Valid,0.4673499812820294,Correctly accepted
+TF-IDF,80,238,Inverse of Inverse of Bijection,Valid,Valid,0.4369296515975566,Correctly accepted
+TF-IDF,81,239,Composite of Bijections is Bijection,Valid,Valid,0.4977549878820584,Correctly accepted
+TF-IDF,82,239,Composite of Bijections is Bijection,Valid,Valid,0.42573658466575504,Correctly accepted
+TF-IDF,83,240,Inverse of Composite Bijection,Valid,Valid,0.4431378302873944,Correctly accepted
+TF-IDF,84,240,Inverse of Composite Bijection,Valid,Valid,0.4124030301902548,Correctly accepted
+TF-IDF,85,241,Composite of Permutations is Permutation,Valid,Valid,0.4876699477472919,Correctly accepted
+TF-IDF,86,242,Inverse of Permutation is Permutation,Valid,Valid,0.48146700444787816,Correctly accepted
+TF-IDF,87,243,Left Inverse Mapping is Surjection,Valid,Valid,0.46580150450979463,Correctly accepted
+TF-IDF,88,244,Right Inverse Mapping is Injection,Valid,Valid,0.4531055355693905,Correctly accepted
+TF-IDF,89,247,Image of Union under Mapping,Valid,Valid,0.48570988641069346,Correctly accepted
+TF-IDF,390,866,Reduced Residue System is Subset of Set of All Residue Classes,Valid,Valid,0.46785346356198,Correctly accepted
+TF-IDF,391,867,Reduced Residue System under Multiplication forms Abelian Group,Valid,Valid,0.4184076276271109,Correctly accepted
+TF-IDF,392,870,Integer Multiples under Addition form Infinite Cyclic Group,Invalid,Valid,0.4166256464119654,Missed error
+TF-IDF,393,871,Quotient Group of Integers by Multiples,Invalid,Valid,0.3933872772577972,Missed error
+TF-IDF,394,873,Symmetry Group is Group,Valid,Valid,0.4456893022952668,Correctly accepted
+TF-IDF,395,874,Internal Angles of Square,Valid,Invalid,0.5085883379680199,False alarm
+TF-IDF,396,878,Fixed Elements form 1-Cycles,Valid,Valid,0.4836736951521604,Correctly accepted
+TF-IDF,397,880,Identity Permutation is Disjoint from All,Valid,Valid,0.4977255219858683,Correctly accepted
+TF-IDF,398,884,Powers of Disjoint Permutations,Valid,Valid,0.4864851545640324,Correctly accepted
+TF-IDF,399,885,Order of Product of Disjoint Permutations,Valid,Invalid,0.5019785631168054,False alarm
+TF-IDF,400,892,Orbit-Stabilizer Theorem,Invalid,Valid,0.4804417447444107,Missed error
+TF-IDF,401,895,Group Action on Sets with k Elements,Valid,Valid,0.4649287532614331,Correctly accepted
+TF-IDF,402,902,Conjugacy Action on Identity,Valid,Valid,0.4849352932750455,Correctly accepted
+TF-IDF,403,903,Cauchy's Lemma (Group Theory),Valid,Valid,0.4877864948143348,Correctly accepted
+TF-IDF,404,903,Cauchy's Lemma (Group Theory),Valid,Valid,0.43975082970120316,Correctly accepted
+TF-IDF,405,904,Transposition is Self-Inverse,Valid,Invalid,0.5039920709715682,False alarm
+TF-IDF,406,906,K-Cycle can be Factored into Transpositions,Invalid,Invalid,0.5256630679482464,Error caught
+TF-IDF,407,907,Sign of Permutation is Plus or Minus Unity,Invalid,Invalid,0.5040587364890974,Error caught
+TF-IDF,408,912,Parity of K-Cycle,Valid,Invalid,0.507637596559119,False alarm
+TF-IDF,409,913,Alternating Group is Normal Subgroup of Symmetric Group,Valid,Valid,0.47158958658185046,Correctly accepted
+TF-IDF,410,915,Cycle Decomposition of Conjugate,Valid,Valid,0.4923097899965849,Correctly accepted
+TF-IDF,411,916,Conjugate Permutations have Same Cycle Type,Invalid,Valid,0.49250668060077596,Missed error
+TF-IDF,412,920,Cayley's Representation Theorem,Valid,Valid,0.458919733192905,Correctly accepted
+TF-IDF,413,924,Condition for Linear Transformation,Valid,Valid,0.45295925858071007,Correctly accepted
+TF-IDF,414,927,Fundamental Theorem of Finite Abelian Groups,Valid,Valid,0.4895268210569772,Correctly accepted
+TF-IDF,415,933,Submodule Test,Valid,Valid,0.4128436163288527,Correctly accepted
+TF-IDF,416,937,First Sylow Theorem,Invalid,Valid,0.49906670050119906,Missed error
+TF-IDF,417,939,Group has Subgroups of All Prime Power Factors,Valid,Valid,0.47310444963208276,Correctly accepted
+TF-IDF,419,942,Third Sylow Theorem,Valid,Valid,0.49093279292605885,Correctly accepted
+TF-IDF,420,942,Third Sylow Theorem,Valid,Valid,0.47408369616766344,Correctly accepted
+TF-IDF,510,1162,Limit of Integer to Reciprocal Power,Valid,Invalid,0.5003581052896892,False alarm
+TF-IDF,511,1162,Limit of Integer to Reciprocal Power,Valid,Invalid,0.5058661920139329,False alarm
+TF-IDF,512,1163,Difference Between Adjacent Square Roots Converges,Valid,Invalid,0.5085803113132394,False alarm
+TF-IDF,513,1164,Peak Point Lemma,Valid,Invalid,0.5245648547463491,False alarm
+TF-IDF,514,1165,Bolzano-Weierstrass Theorem,Valid,Valid,0.48044405184520467,Correctly accepted
+TF-IDF,515,1171,Difference of Two Powers,Valid,Invalid,0.5422724563452468,False alarm
+TF-IDF,516,1172,Polynomial Factor Theorem,Valid,Invalid,0.5053993636220216,False alarm
+TF-IDF,517,1176,Abel's Theorem,Valid,Invalid,0.5383247301464624,False alarm
+TF-IDF,518,1177,Alternating Series Test,Valid,Invalid,0.5274642633848348,False alarm
+TF-IDF,519,1179,Intermediate Value Theorem,Invalid,Valid,0.47298023688545554,Missed error
+TF-IDF,520,1181,Comparison Test,Invalid,Invalid,0.5312081596640152,Error caught
+TF-IDF,521,1182,Ratio Test,Valid,Invalid,0.5324215683666105,False alarm
+TF-IDF,522,1183,Limit of Subsequence of Bounded Sequence,Valid,Valid,0.49248036905696346,Correctly accepted
+TF-IDF,523,1188,Series of Power over Factorial Converges,Valid,Invalid,0.5317774040989414,False alarm
+TF-IDF,524,1190,Absolutely Convergent Series is Convergent,Valid,Invalid,0.5493634780009289,False alarm
+TF-IDF,525,1191,Limit Comparison Test,Invalid,Invalid,0.5263788798166371,Error caught
+TF-IDF,526,1199,Supremum of Subset,Valid,Valid,0.4853501734118397,Correctly accepted
+TF-IDF,527,1199,Supremum of Subset,Valid,Valid,0.4961794473578899,Correctly accepted
+TF-IDF,528,1199,Supremum of Subset,Valid,Valid,0.4851456161913167,Correctly accepted
+TF-IDF,529,1202,Supremum Plus Constant,Invalid,Valid,0.48399890624856456,Missed error
+TF-IDF,531,1204,Multiple of Infimum,Valid,Valid,0.4983945282435943,Correctly accepted
+TF-IDF,532,1206,Negative of Supremum is Infimum of Negatives,Invalid,Valid,0.4756815714109607,Missed error
+TF-IDF,533,1207,Negative of Infimum is Supremum of Negatives,Valid,Valid,0.4755357606009927,Correctly accepted
+TF-IDF,534,1209,Infimum of Subset,Valid,Valid,0.48488073217791516,Correctly accepted
+TF-IDF,535,1232,Real Polynomial Function is Continuous,Valid,Invalid,0.5121964862777794,False alarm
+TF-IDF,536,1233,Linear Function is Continuous,Valid,Valid,0.4866615227666682,Correctly accepted
+TF-IDF,537,1234,Real Rational Function is Continuous,Valid,Invalid,0.5123057481224582,False alarm
+TF-IDF,540,1238,Image of Interval by Continuous Function is Interval,Valid,Valid,0.4845923034474231,Correctly accepted
+TF-IDF,548,1243,Convergent Subsequence in Closed Interval,Valid,Valid,0.4811450642742221,Correctly accepted

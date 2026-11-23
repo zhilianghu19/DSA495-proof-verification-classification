@@ -1,0 +1,90 @@
+model,clean_row_index,theorem_id,title,actual,predicted,invalid_score,outcome
+DistilBERT,60,172,Preimage of Set Difference under Relation,Valid,Valid,0.38214144110679626,Correctly accepted
+DistilBERT,61,173,Restriction is Subset of Relation,Invalid,Invalid,0.5326682329177856,Error caught
+DistilBERT,62,177,Relation both Symmetric and Asymmetric is Null,Valid,Valid,0.4101654887199402,Correctly accepted
+DistilBERT,63,180,Asymmetric Relation is Antisymmetric,Valid,Valid,0.4275161921977997,Correctly accepted
+DistilBERT,64,192,Composite Relation with Inverse is Symmetric,Valid,Invalid,0.6544531583786011,False alarm
+DistilBERT,65,202,Equivalence Classes are Disjoint,Valid,Valid,0.4907313585281372,Correctly accepted
+DistilBERT,66,204,Equivalence Class is Unique,Valid,Invalid,0.5933736562728882,False alarm
+DistilBERT,67,208,Intersection of Equivalences,Valid,Valid,0.475240021944046,Correctly accepted
+DistilBERT,68,213,Inverse of Mapping is One-to-Many Relation,Valid,Valid,0.3490888178348541,Correctly accepted
+DistilBERT,69,216,Diagonal Relation is Right Identity,Valid,Valid,0.36840569972991943,Correctly accepted
+DistilBERT,70,217,Identity Mapping is Left Identity,Valid,Valid,0.38444983959198,Correctly accepted
+DistilBERT,71,224,Injection iff Left Inverse,Valid,Valid,0.3065270483493805,Correctly accepted
+DistilBERT,72,224,Injection iff Left Inverse,Invalid,Valid,0.3119506239891052,Missed error
+DistilBERT,73,228,Restriction of Mapping to Image is Surjection,Valid,Valid,0.314050555229187,Correctly accepted
+DistilBERT,74,231,Surjection iff Right Inverse,Valid,Valid,0.3195459246635437,Correctly accepted
+DistilBERT,75,232,Identity Mapping is Bijection,Valid,Valid,0.3490888178348541,Correctly accepted
+DistilBERT,76,234,Bijection iff Left and Right Inverse,Valid,Valid,0.3023911118507385,Correctly accepted
+DistilBERT,77,235,Inverse of Bijection is Bijection,Valid,Valid,0.26626187562942505,Correctly accepted
+DistilBERT,78,236,Inverse Element of Bijection,Valid,Valid,0.27396270632743835,Correctly accepted
+DistilBERT,79,238,Inverse of Inverse of Bijection,Valid,Valid,0.30115649104118347,Correctly accepted
+DistilBERT,80,238,Inverse of Inverse of Bijection,Valid,Valid,0.26664361357688904,Correctly accepted
+DistilBERT,81,239,Composite of Bijections is Bijection,Valid,Valid,0.4991455078125,Correctly accepted
+DistilBERT,82,239,Composite of Bijections is Bijection,Valid,Valid,0.26664361357688904,Correctly accepted
+DistilBERT,83,240,Inverse of Composite Bijection,Valid,Valid,0.2429232895374298,Correctly accepted
+DistilBERT,84,240,Inverse of Composite Bijection,Valid,Valid,0.21337716281414032,Correctly accepted
+DistilBERT,85,241,Composite of Permutations is Permutation,Valid,Valid,0.3178495764732361,Correctly accepted
+DistilBERT,86,242,Inverse of Permutation is Permutation,Valid,Valid,0.475848913192749,Correctly accepted
+DistilBERT,87,243,Left Inverse Mapping is Surjection,Valid,Valid,0.4104017913341522,Correctly accepted
+DistilBERT,88,244,Right Inverse Mapping is Injection,Valid,Valid,0.36342093348503113,Correctly accepted
+DistilBERT,89,247,Image of Union under Mapping,Valid,Valid,0.3065270483493805,Correctly accepted
+DistilBERT,390,866,Reduced Residue System is Subset of Set of All Residue Classes,Valid,Valid,0.4927525520324707,Correctly accepted
+DistilBERT,391,867,Reduced Residue System under Multiplication forms Abelian Group,Valid,Valid,0.18068422377109528,Correctly accepted
+DistilBERT,392,870,Integer Multiples under Addition form Infinite Cyclic Group,Invalid,Valid,0.16344544291496277,Missed error
+DistilBERT,393,871,Quotient Group of Integers by Multiples,Invalid,Valid,0.21011725068092346,Missed error
+DistilBERT,394,873,Symmetry Group is Group,Valid,Valid,0.18242551386356354,Correctly accepted
+DistilBERT,395,874,Internal Angles of Square,Valid,Valid,0.3757064640522003,Correctly accepted
+DistilBERT,396,878,Fixed Elements form 1-Cycles,Valid,Valid,0.23231014609336853,Correctly accepted
+DistilBERT,397,880,Identity Permutation is Disjoint from All,Valid,Valid,0.27202457189559937,Correctly accepted
+DistilBERT,398,884,Powers of Disjoint Permutations,Valid,Valid,0.18010665476322174,Correctly accepted
+DistilBERT,399,885,Order of Product of Disjoint Permutations,Valid,Valid,0.2735743820667267,Correctly accepted
+DistilBERT,400,892,Orbit-Stabilizer Theorem,Invalid,Valid,0.21337716281414032,Missed error
+DistilBERT,401,895,Group Action on Sets with k Elements,Valid,Valid,0.18359363079071045,Correctly accepted
+DistilBERT,402,902,Conjugacy Action on Identity,Valid,Valid,0.28537195920944214,Correctly accepted
+DistilBERT,403,903,Cauchy's Lemma (Group Theory),Valid,Valid,0.32809871435165405,Correctly accepted
+DistilBERT,404,903,Cauchy's Lemma (Group Theory),Valid,Valid,0.167763352394104,Correctly accepted
+DistilBERT,405,904,Transposition is Self-Inverse,Valid,Invalid,0.5743947625160217,False alarm
+DistilBERT,406,906,K-Cycle can be Factored into Transpositions,Invalid,Invalid,0.601593554019928,Error caught
+DistilBERT,407,907,Sign of Permutation is Plus or Minus Unity,Invalid,Valid,0.2885691225528717,Missed error
+DistilBERT,408,912,Parity of K-Cycle,Valid,Valid,0.4516892731189728,Correctly accepted
+DistilBERT,409,913,Alternating Group is Normal Subgroup of Symmetric Group,Valid,Valid,0.16940587759017944,Correctly accepted
+DistilBERT,410,915,Cycle Decomposition of Conjugate,Valid,Valid,0.21667379140853882,Correctly accepted
+DistilBERT,411,916,Conjugate Permutations have Same Cycle Type,Invalid,Valid,0.32167303562164307,Missed error
+DistilBERT,412,920,Cayley's Representation Theorem,Valid,Valid,0.1710611879825592,Correctly accepted
+DistilBERT,413,924,Condition for Linear Transformation,Valid,Valid,0.23792991042137146,Correctly accepted
+DistilBERT,414,927,Fundamental Theorem of Finite Abelian Groups,Valid,Valid,0.22815649211406708,Correctly accepted
+DistilBERT,415,933,Submodule Test,Valid,Valid,0.16940587759017944,Correctly accepted
+DistilBERT,416,937,First Sylow Theorem,Invalid,Valid,0.2991051971912384,Missed error
+DistilBERT,417,939,Group has Subgroups of All Prime Power Factors,Valid,Valid,0.18476751446723938,Correctly accepted
+DistilBERT,419,942,Third Sylow Theorem,Valid,Valid,0.2030746340751648,Correctly accepted
+DistilBERT,420,942,Third Sylow Theorem,Valid,Valid,0.2849738299846649,Correctly accepted
+DistilBERT,510,1162,Limit of Integer to Reciprocal Power,Valid,Valid,0.32380759716033936,Correctly accepted
+DistilBERT,511,1162,Limit of Integer to Reciprocal Power,Valid,Invalid,0.545830488204956,False alarm
+DistilBERT,512,1163,Difference Between Adjacent Square Roots Converges,Valid,Valid,0.4163219928741455,Correctly accepted
+DistilBERT,513,1164,Peak Point Lemma,Valid,Invalid,0.6304574012756348,False alarm
+DistilBERT,514,1165,Bolzano-Weierstrass Theorem,Valid,Valid,0.3324187695980072,Correctly accepted
+DistilBERT,515,1171,Difference of Two Powers,Valid,Invalid,0.5943158268928528,False alarm
+DistilBERT,516,1172,Polynomial Factor Theorem,Valid,Invalid,0.6951311230659485,False alarm
+DistilBERT,517,1176,Abel's Theorem,Valid,Valid,0.4932102560997009,Correctly accepted
+DistilBERT,518,1177,Alternating Series Test,Valid,Invalid,0.6365790963172913,False alarm
+DistilBERT,519,1179,Intermediate Value Theorem,Invalid,Valid,0.28298813104629517,Missed error
+DistilBERT,520,1181,Comparison Test,Invalid,Invalid,0.5196431875228882,Error caught
+DistilBERT,521,1182,Ratio Test,Valid,Invalid,0.6111499667167664,False alarm
+DistilBERT,522,1183,Limit of Subsequence of Bounded Sequence,Valid,Valid,0.3809892237186432,Correctly accepted
+DistilBERT,523,1188,Series of Power over Factorial Converges,Valid,Valid,0.43494123220443726,Correctly accepted
+DistilBERT,524,1190,Absolutely Convergent Series is Convergent,Valid,Valid,0.4421547055244446,Correctly accepted
+DistilBERT,525,1191,Limit Comparison Test,Invalid,Valid,0.430865615606308,Missed error
+DistilBERT,526,1199,Supremum of Subset,Valid,Valid,0.44167301058769226,Correctly accepted
+DistilBERT,527,1199,Supremum of Subset,Valid,Valid,0.46198752522468567,Correctly accepted
+DistilBERT,528,1199,Supremum of Subset,Valid,Valid,0.46380850672721863,Correctly accepted
+DistilBERT,529,1202,Supremum Plus Constant,Invalid,Valid,0.4472188651561737,Missed error
+DistilBERT,531,1204,Multiple of Infimum,Valid,Valid,0.33676716685295105,Correctly accepted
+DistilBERT,532,1206,Negative of Supremum is Infimum of Negatives,Invalid,Valid,0.44480592012405396,Missed error
+DistilBERT,533,1207,Negative of Infimum is Supremum of Negatives,Valid,Valid,0.4139508903026581,Correctly accepted
+DistilBERT,534,1209,Infimum of Subset,Valid,Valid,0.45423004031181335,Correctly accepted
+DistilBERT,535,1232,Real Polynomial Function is Continuous,Valid,Valid,0.43638184666633606,Correctly accepted
+DistilBERT,536,1233,Linear Function is Continuous,Valid,Valid,0.4104017913341522,Correctly accepted
+DistilBERT,537,1234,Real Rational Function is Continuous,Valid,Invalid,0.6606104373931885,False alarm
+DistilBERT,540,1238,Image of Interval by Continuous Function is Interval,Valid,Valid,0.41134732961654663,Correctly accepted
+DistilBERT,548,1243,Convergent Subsequence in Closed Interval,Valid,Valid,0.3208213150501251,Correctly accepted

@@ -1,0 +1,90 @@
+model,clean_row_index,theorem_id,title,actual,predicted,invalid_score,outcome
+MathBERT,60,172,Preimage of Set Difference under Relation,Valid,Valid,0.24617071449756622,Correctly accepted
+MathBERT,61,173,Restriction is Subset of Relation,Invalid,Invalid,0.555194079875946,Error caught
+MathBERT,62,177,Relation both Symmetric and Asymmetric is Null,Valid,Invalid,0.5174489617347717,False alarm
+MathBERT,63,180,Asymmetric Relation is Antisymmetric,Valid,Invalid,0.5139124393463135,False alarm
+MathBERT,64,192,Composite Relation with Inverse is Symmetric,Valid,Valid,0.46396034955978394,Correctly accepted
+MathBERT,65,202,Equivalence Classes are Disjoint,Valid,Valid,0.44812434911727905,Correctly accepted
+MathBERT,66,204,Equivalence Class is Unique,Valid,Valid,0.39326852560043335,Correctly accepted
+MathBERT,67,208,Intersection of Equivalences,Valid,Invalid,0.6703925132751465,False alarm
+MathBERT,68,213,Inverse of Mapping is One-to-Many Relation,Valid,Valid,0.49340859055519104,Correctly accepted
+MathBERT,69,216,Diagonal Relation is Right Identity,Valid,Valid,0.37777018547058105,Correctly accepted
+MathBERT,70,217,Identity Mapping is Left Identity,Valid,Valid,0.3486451506614685,Correctly accepted
+MathBERT,71,224,Injection iff Left Inverse,Valid,Valid,0.18359363079071045,Correctly accepted
+MathBERT,72,224,Injection iff Left Inverse,Invalid,Valid,0.267408162355423,Missed error
+MathBERT,73,228,Restriction of Mapping to Image is Surjection,Valid,Valid,0.38803809881210327,Correctly accepted
+MathBERT,74,231,Surjection iff Right Inverse,Valid,Valid,0.1946738362312317,Correctly accepted
+MathBERT,75,232,Identity Mapping is Bijection,Valid,Valid,0.13568954169750214,Correctly accepted
+MathBERT,76,234,Bijection iff Left and Right Inverse,Valid,Valid,0.2458084672689438,Correctly accepted
+MathBERT,77,235,Inverse of Bijection is Bijection,Valid,Valid,0.21337716281414032,Correctly accepted
+MathBERT,78,236,Inverse Element of Bijection,Valid,Valid,0.09301680326461792,Correctly accepted
+MathBERT,79,238,Inverse of Inverse of Bijection,Valid,Valid,0.24762336909770966,Correctly accepted
+MathBERT,80,238,Inverse of Inverse of Bijection,Valid,Valid,0.06560482829809189,Correctly accepted
+MathBERT,81,239,Composite of Bijections is Bijection,Valid,Valid,0.3303631842136383,Correctly accepted
+MathBERT,82,239,Composite of Bijections is Bijection,Valid,Valid,0.08359067142009735,Correctly accepted
+MathBERT,83,240,Inverse of Composite Bijection,Valid,Valid,0.13706977665424347,Correctly accepted
+MathBERT,84,240,Inverse of Composite Bijection,Valid,Valid,0.13296423852443695,Correctly accepted
+MathBERT,85,241,Composite of Permutations is Permutation,Valid,Valid,0.1233656108379364,Correctly accepted
+MathBERT,86,242,Inverse of Permutation is Permutation,Valid,Valid,0.4970703423023224,Correctly accepted
+MathBERT,87,243,Left Inverse Mapping is Surjection,Valid,Valid,0.33393749594688416,Correctly accepted
+MathBERT,88,244,Right Inverse Mapping is Injection,Valid,Valid,0.28736767172813416,Correctly accepted
+MathBERT,89,247,Image of Union under Mapping,Valid,Valid,0.4541090130805969,Correctly accepted
+MathBERT,390,866,Reduced Residue System is Subset of Set of All Residue Classes,Valid,Valid,0.4346412718296051,Correctly accepted
+MathBERT,391,867,Reduced Residue System under Multiplication forms Abelian Group,Valid,Valid,0.2523840367794037,Correctly accepted
+MathBERT,392,870,Integer Multiples under Addition form Infinite Cyclic Group,Invalid,Valid,0.22270014882087708,Missed error
+MathBERT,393,871,Quotient Group of Integers by Multiples,Invalid,Valid,0.16667540371418,Missed error
+MathBERT,394,873,Symmetry Group is Group,Valid,Valid,0.0753123089671135,Correctly accepted
+MathBERT,395,874,Internal Angles of Square,Valid,Valid,0.20817893743515015,Correctly accepted
+MathBERT,396,878,Fixed Elements form 1-Cycles,Valid,Valid,0.28937169909477234,Correctly accepted
+MathBERT,397,880,Identity Permutation is Disjoint from All,Valid,Invalid,0.8499711751937866,False alarm
+MathBERT,398,884,Powers of Disjoint Permutations,Valid,Invalid,0.564548671245575,False alarm
+MathBERT,399,885,Order of Product of Disjoint Permutations,Valid,Invalid,0.5630325675010681,False alarm
+MathBERT,400,892,Orbit-Stabilizer Theorem,Invalid,Valid,0.17895591259002686,Missed error
+MathBERT,401,895,Group Action on Sets with k Elements,Valid,Invalid,0.5508792400360107,False alarm
+MathBERT,402,902,Conjugacy Action on Identity,Valid,Valid,0.22337706387043,Correctly accepted
+MathBERT,403,903,Cauchy's Lemma (Group Theory),Valid,Invalid,0.7325918078422546,False alarm
+MathBERT,404,903,Cauchy's Lemma (Group Theory),Valid,Valid,0.21967211365699768,Correctly accepted
+MathBERT,405,904,Transposition is Self-Inverse,Valid,Valid,0.15203224122524261,Correctly accepted
+MathBERT,406,906,K-Cycle can be Factored into Transpositions,Invalid,Invalid,0.8386797308921814,Error caught
+MathBERT,407,907,Sign of Permutation is Plus or Minus Unity,Invalid,Invalid,0.5957277417182922,Error caught
+MathBERT,408,912,Parity of K-Cycle,Valid,Valid,0.45743969082832336,Correctly accepted
+MathBERT,409,913,Alternating Group is Normal Subgroup of Symmetric Group,Valid,Valid,0.13568954169750214,Correctly accepted
+MathBERT,410,915,Cycle Decomposition of Conjugate,Valid,Invalid,0.5798763036727905,False alarm
+MathBERT,411,916,Conjugate Permutations have Same Cycle Type,Invalid,Invalid,0.6045156717300415,Error caught
+MathBERT,412,920,Cayley's Representation Theorem,Valid,Valid,0.09877259284257889,Correctly accepted
+MathBERT,413,924,Condition for Linear Transformation,Valid,Valid,0.25017932057380676,Correctly accepted
+MathBERT,414,927,Fundamental Theorem of Finite Abelian Groups,Valid,Invalid,0.6003054976463318,False alarm
+MathBERT,415,933,Submodule Test,Valid,Valid,0.1490352898836136,Correctly accepted
+MathBERT,416,937,First Sylow Theorem,Invalid,Invalid,0.7310585379600525,Error caught
+MathBERT,417,939,Group has Subgroups of All Prime Power Factors,Valid,Invalid,0.6127732396125793,False alarm
+MathBERT,419,942,Third Sylow Theorem,Valid,Invalid,0.518363356590271,False alarm
+MathBERT,420,942,Third Sylow Theorem,Valid,Valid,0.49365267157554626,Correctly accepted
+MathBERT,510,1162,Limit of Integer to Reciprocal Power,Valid,Invalid,0.5105575323104858,False alarm
+MathBERT,511,1162,Limit of Integer to Reciprocal Power,Valid,Valid,0.48535576462745667,Correctly accepted
+MathBERT,512,1163,Difference Between Adjacent Square Roots Converges,Valid,Valid,0.20946969091892242,Correctly accepted
+MathBERT,513,1164,Peak Point Lemma,Valid,Invalid,0.897335946559906,False alarm
+MathBERT,514,1165,Bolzano-Weierstrass Theorem,Valid,Valid,0.18535663187503815,Correctly accepted
+MathBERT,515,1171,Difference of Two Powers,Valid,Valid,0.2867680788040161,Correctly accepted
+MathBERT,516,1172,Polynomial Factor Theorem,Valid,Invalid,0.5564975142478943,False alarm
+MathBERT,517,1176,Abel's Theorem,Valid,Invalid,0.5547719597816467,False alarm
+MathBERT,518,1177,Alternating Series Test,Valid,Invalid,0.7379142642021179,False alarm
+MathBERT,519,1179,Intermediate Value Theorem,Invalid,Valid,0.32103413343429565,Missed error
+MathBERT,520,1181,Comparison Test,Invalid,Invalid,0.7634837031364441,Error caught
+MathBERT,521,1182,Ratio Test,Valid,Invalid,0.5738575458526611,False alarm
+MathBERT,522,1183,Limit of Subsequence of Bounded Sequence,Valid,Valid,0.39946019649505615,Correctly accepted
+MathBERT,523,1188,Series of Power over Factorial Converges,Valid,Invalid,0.7409248948097229,False alarm
+MathBERT,524,1190,Absolutely Convergent Series is Convergent,Valid,Invalid,0.723700225353241,False alarm
+MathBERT,525,1191,Limit Comparison Test,Invalid,Invalid,0.6019153594970703,Error caught
+MathBERT,526,1199,Supremum of Subset,Valid,Valid,0.2677909731864929,Correctly accepted
+MathBERT,527,1199,Supremum of Subset,Valid,Invalid,0.6041653752326965,False alarm
+MathBERT,528,1199,Supremum of Subset,Valid,Valid,0.47755417227745056,Correctly accepted
+MathBERT,529,1202,Supremum Plus Constant,Invalid,Valid,0.25091278553009033,Missed error
+MathBERT,531,1204,Multiple of Infimum,Valid,Valid,0.3704531192779541,Correctly accepted
+MathBERT,532,1206,Negative of Supremum is Infimum of Negatives,Invalid,Valid,0.25645938515663147,Missed error
+MathBERT,533,1207,Negative of Infimum is Supremum of Negatives,Valid,Valid,0.3235938251018524,Correctly accepted
+MathBERT,534,1209,Infimum of Subset,Valid,Valid,0.42626190185546875,Correctly accepted
+MathBERT,535,1232,Real Polynomial Function is Continuous,Valid,Invalid,0.5013427734375,False alarm
+MathBERT,536,1233,Linear Function is Continuous,Valid,Invalid,0.5309053659439087,False alarm
+MathBERT,537,1234,Real Rational Function is Continuous,Valid,Valid,0.3687465786933899,Correctly accepted
+MathBERT,540,1238,Image of Interval by Continuous Function is Interval,Valid,Invalid,0.754553496837616,False alarm
+MathBERT,548,1243,Convergent Subsequence in Closed Interval,Valid,Valid,0.37822940945625305,Correctly accepted

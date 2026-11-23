@@ -1,0 +1,126 @@
+{
+  "model": "TF-IDF + logistic regression",
+  "sklearn": "1.9.1",
+  "labels": [
+    "Valid",
+    "Invalid"
+  ],
+  "splits": "Data/splits",
+  "split_sizes": {
+    "train": 709,
+    "validation": 89,
+    "test": 89
+  },
+  "selection": "highest validation Macro F1, first on tie",
+  "training_inputs": {
+    "without_review_reason": [
+      "theorem_text",
+      "proof_text"
+    ],
+    "with_review_reason": [
+      "theorem_text",
+      "proof_text",
+      "review_reason"
+    ]
+  },
+  "evaluation_inputs": {
+    "without_review_reason": [
+      "theorem_text",
+      "proof_text"
+    ],
+    "with_review_reason": [
+      "theorem_text",
+      "proof_text",
+      "review_reason"
+    ]
+  },
+  "ngram_ranges": [
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ]
+  ],
+  "C_values": [
+    1.0,
+    0.1,
+    10.0
+  ],
+  "runs": {
+    "without_review_reason": {
+      "ngram_range": [
+        3,
+        5
+      ],
+      "analyzer": "char",
+      "min_df": 2,
+      "lowercase": false,
+      "C": 0.1,
+      "max_iter": 1000,
+      "class_weight": "balanced",
+      "validation_macro_f1": 0.5014005602240896
+    },
+    "with_review_reason": {
+      "ngram_range": [
+        3,
+        5
+      ],
+      "analyzer": "char",
+      "min_df": 2,
+      "lowercase": false,
+      "C": 0.1,
+      "max_iter": 1000,
+      "class_weight": "balanced",
+      "validation_macro_f1": 0.4940568475452196
+    }
+  },
+  "confusion_matrices": {
+    "without_review_reason": {
+      "validation": [
+        [
+          52,
+          22
+        ],
+        [
+          10,
+          5
+        ]
+      ],
+      "test": [
+        [
+          54,
+          21
+        ],
+        [
+          9,
+          5
+        ]
+      ]
+    },
+    "with_review_reason": {
+      "validation": [
+        [
+          51,
+          23
+        ],
+        [
+          10,
+          5
+        ]
+      ],
+      "test": [
+        [
+          56,
+          19
+        ],
+        [
+          8,
+          6
+        ]
+      ]
+    }
+  }
+}

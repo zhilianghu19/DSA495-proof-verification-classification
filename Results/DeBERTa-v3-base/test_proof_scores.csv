@@ -1,0 +1,90 @@
+model,clean_row_index,theorem_id,title,actual,predicted,invalid_score,outcome
+DeBERTa-v3-base,60,172,Preimage of Set Difference under Relation,Valid,Valid,0.1276526302099228,Correctly accepted
+DeBERTa-v3-base,61,173,Restriction is Subset of Relation,Invalid,Valid,0.29421496391296387,Missed error
+DeBERTa-v3-base,62,177,Relation both Symmetric and Asymmetric is Null,Valid,Valid,0.10087861120700836,Correctly accepted
+DeBERTa-v3-base,63,180,Asymmetric Relation is Antisymmetric,Valid,Valid,0.10017222166061401,Correctly accepted
+DeBERTa-v3-base,64,192,Composite Relation with Inverse is Symmetric,Valid,Valid,0.1037486270070076,Correctly accepted
+DeBERTa-v3-base,65,202,Equivalence Classes are Disjoint,Valid,Valid,0.11556088179349899,Correctly accepted
+DeBERTa-v3-base,66,204,Equivalence Class is Unique,Valid,Invalid,0.9339146018028259,False alarm
+DeBERTa-v3-base,67,208,Intersection of Equivalences,Valid,Invalid,0.8770562410354614,False alarm
+DeBERTa-v3-base,68,213,Inverse of Mapping is One-to-Many Relation,Valid,Valid,0.13986563682556152,Correctly accepted
+DeBERTa-v3-base,69,216,Diagonal Relation is Right Identity,Valid,Valid,0.09739039838314056,Correctly accepted
+DeBERTa-v3-base,70,217,Identity Mapping is Left Identity,Valid,Invalid,0.635448694229126,False alarm
+DeBERTa-v3-base,71,224,Injection iff Left Inverse,Valid,Valid,0.10158944129943848,Correctly accepted
+DeBERTa-v3-base,72,224,Injection iff Left Inverse,Invalid,Valid,0.09947021305561066,Missed error
+DeBERTa-v3-base,73,228,Restriction of Mapping to Image is Surjection,Valid,Valid,0.09877259284257889,Correctly accepted
+DeBERTa-v3-base,74,231,Surjection iff Right Inverse,Valid,Valid,0.1037486270070076,Correctly accepted
+DeBERTa-v3-base,75,232,Identity Mapping is Bijection,Valid,Valid,0.10521053522825241,Correctly accepted
+DeBERTa-v3-base,76,234,Bijection iff Left and Right Inverse,Valid,Valid,0.11436852067708969,Correctly accepted
+DeBERTa-v3-base,77,235,Inverse of Bijection is Bijection,Valid,Valid,0.10230470448732376,Correctly accepted
+DeBERTa-v3-base,78,236,Inverse Element of Bijection,Valid,Valid,0.10017222166061401,Correctly accepted
+DeBERTa-v3-base,79,238,Inverse of Inverse of Bijection,Valid,Valid,0.15921740233898163,Correctly accepted
+DeBERTa-v3-base,80,238,Inverse of Inverse of Bijection,Valid,Valid,0.09947021305561066,Correctly accepted
+DeBERTa-v3-base,81,239,Composite of Bijections is Bijection,Valid,Valid,0.34246155619621277,Correctly accepted
+DeBERTa-v3-base,82,239,Composite of Bijections is Bijection,Valid,Valid,0.09877259284257889,Correctly accepted
+DeBERTa-v3-base,83,240,Inverse of Composite Bijection,Valid,Valid,0.10447731614112854,Correctly accepted
+DeBERTa-v3-base,84,240,Inverse of Composite Bijection,Valid,Valid,0.0960254967212677,Correctly accepted
+DeBERTa-v3-base,85,241,Composite of Permutations is Permutation,Valid,Valid,0.10087861120700836,Correctly accepted
+DeBERTa-v3-base,86,242,Inverse of Permutation is Permutation,Valid,Valid,0.17895591259002686,Correctly accepted
+DeBERTa-v3-base,87,243,Left Inverse Mapping is Surjection,Valid,Valid,0.10521053522825241,Correctly accepted
+DeBERTa-v3-base,88,244,Right Inverse Mapping is Injection,Valid,Valid,0.10447731614112854,Correctly accepted
+DeBERTa-v3-base,89,247,Image of Union under Mapping,Valid,Valid,0.2786492109298706,Correctly accepted
+DeBERTa-v3-base,390,866,Reduced Residue System is Subset of Set of All Residue Classes,Valid,Valid,0.10594827681779861,Correctly accepted
+DeBERTa-v3-base,391,867,Reduced Residue System under Multiplication forms Abelian Group,Valid,Valid,0.09401018917560577,Correctly accepted
+DeBERTa-v3-base,392,870,Integer Multiples under Addition form Infinite Cyclic Group,Invalid,Valid,0.09334687888622284,Missed error
+DeBERTa-v3-base,393,871,Quotient Group of Integers by Multiples,Invalid,Valid,0.09334687888622284,Missed error
+DeBERTa-v3-base,394,873,Symmetry Group is Group,Valid,Valid,0.10017222166061401,Correctly accepted
+DeBERTa-v3-base,395,874,Internal Angles of Square,Valid,Valid,0.16830943524837494,Correctly accepted
+DeBERTa-v3-base,396,878,Fixed Elements form 1-Cycles,Valid,Invalid,0.8316905498504639,False alarm
+DeBERTa-v3-base,397,880,Identity Permutation is Disjoint from All,Valid,Invalid,0.9339146018028259,False alarm
+DeBERTa-v3-base,398,884,Powers of Disjoint Permutations,Valid,Valid,0.3285294473171234,Correctly accepted
+DeBERTa-v3-base,399,885,Order of Product of Disjoint Permutations,Valid,Valid,0.12549345195293427,Correctly accepted
+DeBERTa-v3-base,400,892,Orbit-Stabilizer Theorem,Invalid,Invalid,0.6067315340042114,Error caught
+DeBERTa-v3-base,401,895,Group Action on Sets with k Elements,Valid,Valid,0.16238002479076385,Correctly accepted
+DeBERTa-v3-base,402,902,Conjugacy Action on Identity,Valid,Invalid,0.9099069833755493,False alarm
+DeBERTa-v3-base,403,903,Cauchy's Lemma (Group Theory),Valid,Invalid,0.5748721957206726,False alarm
+DeBERTa-v3-base,404,903,Cauchy's Lemma (Group Theory),Valid,Valid,0.25832599401474,Correctly accepted
+DeBERTa-v3-base,405,904,Transposition is Self-Inverse,Valid,Invalid,0.917302668094635,False alarm
+DeBERTa-v3-base,406,906,K-Cycle can be Factored into Transpositions,Invalid,Invalid,0.9358173608779907,Error caught
+DeBERTa-v3-base,407,907,Sign of Permutation is Plus or Minus Unity,Invalid,Valid,0.1795305609703064,Missed error
+DeBERTa-v3-base,408,912,Parity of K-Cycle,Valid,Valid,0.34510529041290283,Correctly accepted
+DeBERTa-v3-base,409,913,Alternating Group is Normal Subgroup of Symmetric Group,Valid,Valid,0.33589524030685425,Correctly accepted
+DeBERTa-v3-base,410,915,Cycle Decomposition of Conjugate,Valid,Invalid,0.929951012134552,False alarm
+DeBERTa-v3-base,411,916,Conjugate Permutations have Same Cycle Type,Invalid,Valid,0.1233656108379364,Missed error
+DeBERTa-v3-base,412,920,Cayley's Representation Theorem,Valid,Invalid,0.9127477407455444,False alarm
+DeBERTa-v3-base,413,924,Condition for Linear Transformation,Valid,Valid,0.3132096529006958,Correctly accepted
+DeBERTa-v3-base,414,927,Fundamental Theorem of Finite Abelian Groups,Valid,Invalid,0.7745833992958069,False alarm
+DeBERTa-v3-base,415,933,Submodule Test,Valid,Valid,0.0960254967212677,Correctly accepted
+DeBERTa-v3-base,416,937,First Sylow Theorem,Invalid,Invalid,0.6125414371490479,Error caught
+DeBERTa-v3-base,417,939,Group has Subgroups of All Prime Power Factors,Valid,Invalid,0.815232515335083,False alarm
+DeBERTa-v3-base,419,942,Third Sylow Theorem,Valid,Invalid,0.8966140151023865,False alarm
+DeBERTa-v3-base,420,942,Third Sylow Theorem,Valid,Invalid,0.8670357465744019,False alarm
+DeBERTa-v3-base,510,1162,Limit of Integer to Reciprocal Power,Valid,Invalid,0.8397339582443237,False alarm
+DeBERTa-v3-base,511,1162,Limit of Integer to Reciprocal Power,Valid,Invalid,0.9089417457580566,False alarm
+DeBERTa-v3-base,512,1163,Difference Between Adjacent Square Roots Converges,Valid,Invalid,0.8745065331459045,False alarm
+DeBERTa-v3-base,513,1164,Peak Point Lemma,Valid,Invalid,0.9334307909011841,False alarm
+DeBERTa-v3-base,514,1165,Bolzano-Weierstrass Theorem,Valid,Invalid,0.9273632764816284,False alarm
+DeBERTa-v3-base,515,1171,Difference of Two Powers,Valid,Invalid,0.9213575720787048,False alarm
+DeBERTa-v3-base,516,1172,Polynomial Factor Theorem,Valid,Invalid,0.8719117641448975,False alarm
+DeBERTa-v3-base,517,1176,Abel's Theorem,Valid,Invalid,0.9263036847114563,False alarm
+DeBERTa-v3-base,518,1177,Alternating Series Test,Valid,Invalid,0.9161096215248108,False alarm
+DeBERTa-v3-base,519,1179,Intermediate Value Theorem,Invalid,Valid,0.16238002479076385,Missed error
+DeBERTa-v3-base,520,1181,Comparison Test,Invalid,Invalid,0.9015746116638184,Error caught
+DeBERTa-v3-base,521,1182,Ratio Test,Valid,Invalid,0.9343951344490051,False alarm
+DeBERTa-v3-base,522,1183,Limit of Subsequence of Bounded Sequence,Valid,Invalid,0.9108630418777466,False alarm
+DeBERTa-v3-base,523,1188,Series of Power over Factorial Converges,Valid,Invalid,0.9124361872673035,False alarm
+DeBERTa-v3-base,524,1190,Absolutely Convergent Series is Convergent,Valid,Invalid,0.9066531658172607,False alarm
+DeBERTa-v3-base,525,1191,Limit Comparison Test,Invalid,Invalid,0.9121235609054565,Error caught
+DeBERTa-v3-base,526,1199,Supremum of Subset,Valid,Valid,0.21535073220729828,Correctly accepted
+DeBERTa-v3-base,527,1199,Supremum of Subset,Valid,Invalid,0.750552773475647,False alarm
+DeBERTa-v3-base,528,1199,Supremum of Subset,Valid,Valid,0.4543510973453522,Correctly accepted
+DeBERTa-v3-base,529,1202,Supremum Plus Constant,Invalid,Invalid,0.7627776861190796,Error caught
+DeBERTa-v3-base,531,1204,Multiple of Infimum,Valid,Valid,0.11201596260070801,Correctly accepted
+DeBERTa-v3-base,532,1206,Negative of Supremum is Infimum of Negatives,Invalid,Invalid,0.7025300860404968,Error caught
+DeBERTa-v3-base,533,1207,Negative of Infimum is Supremum of Negatives,Valid,Invalid,0.6996649503707886,False alarm
+DeBERTa-v3-base,534,1209,Infimum of Subset,Valid,Valid,0.11240507662296295,Correctly accepted
+DeBERTa-v3-base,535,1232,Real Polynomial Function is Continuous,Valid,Invalid,0.9145963191986084,False alarm
+DeBERTa-v3-base,536,1233,Linear Function is Continuous,Valid,Invalid,0.53837651014328,False alarm
+DeBERTa-v3-base,537,1234,Real Rational Function is Continuous,Valid,Invalid,0.9136765599250793,False alarm
+DeBERTa-v3-base,540,1238,Image of Interval by Continuous Function is Interval,Valid,Invalid,0.9046505093574524,False alarm
+DeBERTa-v3-base,548,1243,Convergent Subsequence in Closed Interval,Valid,Invalid,0.8688268065452576,False alarm

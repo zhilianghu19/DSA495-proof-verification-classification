@@ -1,0 +1,5 @@
+Model,Training input,Split,Proofs,Actual Invalid,Invalid precision,Invalid recall,Macro F1
+TF-IDF,without_review_reason,validation,89,15,0.18518518518518517,0.3333333333333333,0.5014005602240896
+TF-IDF,without_review_reason,test,89,14,0.19230769230769232,0.35714285714285715,0.5163043478260869
+TF-IDF,with_review_reason,validation,89,15,0.17857142857142858,0.3333333333333333,0.4940568475452196
+TF-IDF,with_review_reason,test,89,14,0.24,0.42857142857142855,0.5567238516878805

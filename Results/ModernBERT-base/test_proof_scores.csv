@@ -1,0 +1,90 @@
+model,clean_row_index,theorem_id,title,actual,predicted,invalid_score,outcome
+ModernBERT-base,60,172,Preimage of Set Difference under Relation,Valid,Valid,0.4946291148662567,Correctly accepted
+ModernBERT-base,61,173,Restriction is Subset of Relation,Invalid,Invalid,0.6261526942253113,Error caught
+ModernBERT-base,62,177,Relation both Symmetric and Asymmetric is Null,Valid,Invalid,0.6661303639411926,False alarm
+ModernBERT-base,63,180,Asymmetric Relation is Antisymmetric,Valid,Invalid,0.5170831680297852,False alarm
+ModernBERT-base,64,192,Composite Relation with Inverse is Symmetric,Valid,Valid,0.45580413937568665,Correctly accepted
+ModernBERT-base,65,202,Equivalence Classes are Disjoint,Valid,Invalid,0.5583269596099854,False alarm
+ModernBERT-base,66,204,Equivalence Class is Unique,Valid,Invalid,0.7895584106445312,False alarm
+ModernBERT-base,67,208,Intersection of Equivalences,Valid,Invalid,0.6153190732002258,False alarm
+ModernBERT-base,68,213,Inverse of Mapping is One-to-Many Relation,Valid,Invalid,0.6020615696907043,False alarm
+ModernBERT-base,69,216,Diagonal Relation is Right Identity,Valid,Valid,0.3878062665462494,Correctly accepted
+ModernBERT-base,70,217,Identity Mapping is Left Identity,Valid,Valid,0.3995773196220398,Correctly accepted
+ModernBERT-base,71,224,Injection iff Left Inverse,Valid,Invalid,0.5662583708763123,False alarm
+ModernBERT-base,72,224,Injection iff Left Inverse,Invalid,Valid,0.5,Missed error
+ModernBERT-base,73,228,Restriction of Mapping to Image is Surjection,Valid,Valid,0.30611202120780945,Correctly accepted
+ModernBERT-base,74,231,Surjection iff Right Inverse,Valid,Invalid,0.5181804895401001,False alarm
+ModernBERT-base,75,232,Identity Mapping is Bijection,Valid,Valid,0.15817435085773468,Correctly accepted
+ModernBERT-base,76,234,Bijection iff Left and Right Inverse,Valid,Valid,0.44167301058769226,Correctly accepted
+ModernBERT-base,77,235,Inverse of Bijection is Bijection,Valid,Valid,0.28140559792518616,Correctly accepted
+ModernBERT-base,78,236,Inverse Element of Bijection,Valid,Valid,0.31869715452194214,Correctly accepted
+ModernBERT-base,79,238,Inverse of Inverse of Bijection,Valid,Valid,0.31489264965057373,Correctly accepted
+ModernBERT-base,80,238,Inverse of Inverse of Bijection,Valid,Valid,0.25017932057380676,Correctly accepted
+ModernBERT-base,81,239,Composite of Bijections is Bijection,Valid,Invalid,0.5048826336860657,False alarm
+ModernBERT-base,82,239,Composite of Bijections is Bijection,Valid,Valid,0.18653921782970428,Correctly accepted
+ModernBERT-base,83,240,Inverse of Composite Bijection,Valid,Valid,0.1901218295097351,Correctly accepted
+ModernBERT-base,84,240,Inverse of Composite Bijection,Valid,Valid,0.13753247261047363,Correctly accepted
+ModernBERT-base,85,241,Composite of Permutations is Permutation,Valid,Valid,0.2995148301124573,Correctly accepted
+ModernBERT-base,86,242,Inverse of Permutation is Permutation,Valid,Valid,0.3444434404373169,Correctly accepted
+ModernBERT-base,87,243,Left Inverse Mapping is Surjection,Valid,Valid,0.4018491506576538,Correctly accepted
+ModernBERT-base,88,244,Right Inverse Mapping is Injection,Valid,Valid,0.2887696325778961,Correctly accepted
+ModernBERT-base,89,247,Image of Union under Mapping,Valid,Invalid,0.6249804496765137,False alarm
+ModernBERT-base,390,866,Reduced Residue System is Subset of Set of All Residue Classes,Valid,Valid,0.45374593138694763,Correctly accepted
+ModernBERT-base,391,867,Reduced Residue System under Multiplication forms Abelian Group,Valid,Valid,0.1561049073934555,Correctly accepted
+ModernBERT-base,392,870,Integer Multiples under Addition form Infinite Cyclic Group,Invalid,Valid,0.11757213622331619,Missed error
+ModernBERT-base,393,871,Quotient Group of Integers by Multiples,Invalid,Valid,0.12721827626228333,Missed error
+ModernBERT-base,394,873,Symmetry Group is Group,Valid,Valid,0.2958398759365082,Correctly accepted
+ModernBERT-base,395,874,Internal Angles of Square,Valid,Valid,0.39946019649505615,Correctly accepted
+ModernBERT-base,396,878,Fixed Elements form 1-Cycles,Valid,Invalid,0.6062653660774231,False alarm
+ModernBERT-base,397,880,Identity Permutation is Disjoint from All,Valid,Invalid,0.5549529194831848,False alarm
+ModernBERT-base,398,884,Powers of Disjoint Permutations,Valid,Valid,0.47122323513031006,Correctly accepted
+ModernBERT-base,399,885,Order of Product of Disjoint Permutations,Valid,Invalid,0.6757110953330994,False alarm
+ModernBERT-base,400,892,Orbit-Stabilizer Theorem,Invalid,Valid,0.3535397946834564,Missed error
+ModernBERT-base,401,895,Group Action on Sets with k Elements,Valid,Invalid,0.5097643733024597,False alarm
+ModernBERT-base,402,902,Conjugacy Action on Identity,Valid,Valid,0.3449397385120392,Correctly accepted
+ModernBERT-base,403,903,Cauchy's Lemma (Group Theory),Valid,Invalid,0.6483550071716309,False alarm
+ModernBERT-base,404,903,Cauchy's Lemma (Group Theory),Valid,Valid,0.34620964527130127,Correctly accepted
+ModernBERT-base,405,904,Transposition is Self-Inverse,Valid,Invalid,0.5574237108230591,False alarm
+ModernBERT-base,406,906,K-Cycle can be Factored into Transpositions,Invalid,Invalid,0.7950222492218018,Error caught
+ModernBERT-base,407,907,Sign of Permutation is Plus or Minus Unity,Invalid,Invalid,0.5941097736358643,Error caught
+ModernBERT-base,408,912,Parity of K-Cycle,Valid,Valid,0.47907716035842896,Correctly accepted
+ModernBERT-base,409,913,Alternating Group is Normal Subgroup of Symmetric Group,Valid,Valid,0.4895111322402954,Correctly accepted
+ModernBERT-base,410,915,Cycle Decomposition of Conjugate,Valid,Valid,0.3350244164466858,Correctly accepted
+ModernBERT-base,411,916,Conjugate Permutations have Same Cycle Type,Invalid,Invalid,0.5802331566810608,Error caught
+ModernBERT-base,412,920,Cayley's Representation Theorem,Valid,Valid,0.2658804953098297,Correctly accepted
+ModernBERT-base,413,924,Condition for Linear Transformation,Valid,Valid,0.3474263846874237,Correctly accepted
+ModernBERT-base,414,927,Fundamental Theorem of Finite Abelian Groups,Valid,Invalid,0.5958454012870789,False alarm
+ModernBERT-base,415,933,Submodule Test,Valid,Valid,0.3402659296989441,Correctly accepted
+ModernBERT-base,416,937,First Sylow Theorem,Invalid,Invalid,0.7096734642982483,Error caught
+ModernBERT-base,417,939,Group has Subgroups of All Prime Power Factors,Valid,Valid,0.48291680216789246,Correctly accepted
+ModernBERT-base,419,942,Third Sylow Theorem,Valid,Valid,0.3727335035800934,Correctly accepted
+ModernBERT-base,420,942,Third Sylow Theorem,Valid,Invalid,0.528046727180481,False alarm
+ModernBERT-base,510,1162,Limit of Integer to Reciprocal Power,Valid,Invalid,0.5744842886924744,False alarm
+ModernBERT-base,511,1162,Limit of Integer to Reciprocal Power,Valid,Valid,0.4695202708244324,Correctly accepted
+ModernBERT-base,512,1163,Difference Between Adjacent Square Roots Converges,Valid,Valid,0.43014732003211975,Correctly accepted
+ModernBERT-base,513,1164,Peak Point Lemma,Valid,Invalid,0.9518632292747498,False alarm
+ModernBERT-base,514,1165,Bolzano-Weierstrass Theorem,Valid,Valid,0.43122485280036926,Correctly accepted
+ModernBERT-base,515,1171,Difference of Two Powers,Valid,Invalid,0.6827324032783508,False alarm
+ModernBERT-base,516,1172,Polynomial Factor Theorem,Valid,Valid,0.47268345952033997,Correctly accepted
+ModernBERT-base,517,1176,Abel's Theorem,Valid,Invalid,0.561214804649353,False alarm
+ModernBERT-base,518,1177,Alternating Series Test,Valid,Invalid,0.6060321927070618,False alarm
+ModernBERT-base,519,1179,Intermediate Value Theorem,Invalid,Valid,0.4420342743396759,Missed error
+ModernBERT-base,520,1181,Comparison Test,Invalid,Invalid,0.5661984086036682,Error caught
+ModernBERT-base,521,1182,Ratio Test,Valid,Invalid,0.5192775726318359,False alarm
+ModernBERT-base,522,1183,Limit of Subsequence of Bounded Sequence,Valid,Invalid,0.7067979574203491,False alarm
+ModernBERT-base,523,1188,Series of Power over Factorial Converges,Valid,Invalid,0.7199746370315552,False alarm
+ModernBERT-base,524,1190,Absolutely Convergent Series is Convergent,Valid,Invalid,0.5995730757713318,False alarm
+ModernBERT-base,525,1191,Limit Comparison Test,Invalid,Invalid,0.5808276534080505,Error caught
+ModernBERT-base,526,1199,Supremum of Subset,Valid,Invalid,0.6540113687515259,False alarm
+ModernBERT-base,527,1199,Supremum of Subset,Valid,Invalid,0.6575384140014648,False alarm
+ModernBERT-base,528,1199,Supremum of Subset,Valid,Invalid,0.5957277417182922,False alarm
+ModernBERT-base,529,1202,Supremum Plus Constant,Invalid,Invalid,0.5292633771896362,Error caught
+ModernBERT-base,531,1204,Multiple of Infimum,Valid,Valid,0.32809871435165405,Correctly accepted
+ModernBERT-base,532,1206,Negative of Supremum is Infimum of Negatives,Invalid,Invalid,0.5282900333404541,Error caught
+ModernBERT-base,533,1207,Negative of Infimum is Supremum of Negatives,Valid,Invalid,0.5363128781318665,False alarm
+ModernBERT-base,534,1209,Infimum of Subset,Valid,Invalid,0.6306280493736267,False alarm
+ModernBERT-base,535,1232,Real Polynomial Function is Continuous,Valid,Invalid,0.5106185674667358,False alarm
+ModernBERT-base,536,1233,Linear Function is Continuous,Valid,Valid,0.4094200134277344,Correctly accepted
+ModernBERT-base,537,1234,Real Rational Function is Continuous,Valid,Valid,0.2986958920955658,Correctly accepted
+ModernBERT-base,540,1238,Image of Interval by Continuous Function is Interval,Valid,Invalid,0.602587878704071,False alarm
+ModernBERT-base,548,1243,Convergent Subsequence in Closed Interval,Valid,Invalid,0.5364950299263,False alarm
