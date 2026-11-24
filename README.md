@@ -90,4 +90,7 @@ From the repository root, run `uv sync --locked` and select the resulting Python
 
 The corpus is the ProofWiki portion of NaturalProofs by Welleck et al. (2021), derived from ProofWiki contributors’ work. Consult the source dataset’s license and attribution information when redistributing the data. [NaturalProofs dataset and license](https://zenodo.org/records/4902289) · [Source repository](https://github.com/wellecks/naturalproofs)
 
-The project idea and direction are mine. I used AI to help identify and understand the data source, draft documentation, annotate proof versions, generate synthetic errors and implement the experiments. I manually reviewed the 25 selected test proofs and retained 18.
+## Contributors
+
+- **Liam Hu** proposed and directed the project, manually reviewed the 25 selected test proofs and retained 18 for follow-up analysis.
+- **OpenAI Codex (AI assistant)** helped identify the data source, draft proof annotations, generate flawed proof variants, implement the experiments and visualizations, and write documentation.
